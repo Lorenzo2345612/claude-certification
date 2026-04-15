@@ -9,7 +9,7 @@ export const learnTopics = [
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "The Agentic Loop",
-    icon: "🔄",
+    icon: "",
     content: `
       <h3>Understanding the Agentic Loop</h3>
       <p>The agentic loop is the fundamental execution cycle that powers Claude's autonomous tool use. It is model-agnostic infrastructure code — your application sends messages, Claude decides whether to call tools, and your code executes those tools and feeds results back. The loop continues until Claude signals it is done.</p>
@@ -99,7 +99,7 @@ while (true) {
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Tool Use Contract",
-    icon: "📋",
+    icon: "",
     content: `
       <h3>The Tool Use Contract</h3>
       <p>Tool use in Claude follows a strict contract between the client (your application) and the server (the Claude API). Understanding this contract is essential for building reliable agentic systems. The contract defines three execution buckets and two message block types that form the backbone of every tool interaction.</p>
@@ -173,7 +173,7 @@ while (true) {
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Multi-Agent Orchestration",
-    icon: "🕸️",
+    icon: "",
     content: `
       <h3>Multi-Agent Orchestration Patterns</h3>
       <p>Complex tasks often exceed what a single agent can handle effectively. Multi-agent orchestration divides work among specialized agents, each with their own tools, instructions, and context boundaries. The dominant pattern is the <strong>coordinator-subagent (hub-and-spoke)</strong> architecture, where a central coordinator decomposes tasks and delegates to focused subagents.</p>
@@ -258,7 +258,7 @@ const result = await coordinator.delegate("code_reviewer", {
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Agent SDK Hooks",
-    icon: "🪝",
+    icon: "",
     content: `
       <h3>Agent SDK Hooks</h3>
       <p>Hooks are interception points in the agent execution lifecycle that let you validate, modify, or block tool calls before or after they execute. The two primary hook types are <strong>PreToolUse</strong> (fires before a tool runs) and <strong>PostToolUse</strong> (fires after a tool completes). Hooks provide programmatic control that goes beyond what prompt instructions can achieve.</p>
@@ -324,7 +324,7 @@ const result = await coordinator.delegate("code_reviewer", {
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Subagent Configuration",
-    icon: "⚙️",
+    icon: "",
     content: `
       <h3>Configuring Subagents with AgentDefinition</h3>
       <p>Subagents in the Claude Agent SDK are configured using the <strong>AgentDefinition</strong> object, which specifies everything a subagent needs to operate: its name, instructions, tools, model, and behavioral constraints. The AgentDefinition was formerly called "Task" but has been renamed to "Agent" to better reflect that subagents are autonomous actors, not passive task runners.</p>
@@ -380,7 +380,7 @@ const securityReviewer = {
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Session Management",
-    icon: "💾",
+    icon: "",
     content: `
       <h3>Session Management</h3>
       <p>Sessions track the full conversation and tool-use history of an agent interaction. Every Claude Code session has a unique session ID that persists across interruptions. If your session is interrupted — by a crash, network failure, or manual stop — you can resume it using the <code>--resume</code> flag with the session ID.</p>
@@ -447,7 +447,7 @@ const forked = await session.fork_session();
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Task Decomposition",
-    icon: "🧩",
+    icon: "",
     content: `
       <h3>Task Decomposition Strategies</h3>
       <p>Breaking complex tasks into smaller subtasks is fundamental to building effective agentic systems. The two primary approaches are <strong>prompt chaining</strong> (fixed sequential pipelines) and <strong>adaptive decomposition</strong> (dynamic step selection based on intermediate results). Choosing the right approach depends on how predictable the task structure is.</p>
@@ -509,7 +509,7 @@ const forked = await session.fork_session();
     domainId: 1,
     domain: "Agentic Architecture & Orchestration",
     title: "Programmatic Enforcement",
-    icon: "🔒",
+    icon: "",
     content: `
       <h3>Programmatic Enforcement vs Prompt Instructions</h3>
       <p>A common mistake in agentic systems is relying on prompt instructions for critical business logic. While prompts can guide model behavior probabilistically, they cannot <strong>guarantee</strong> compliance. Programmatic enforcement uses code-level gates that deterministically block or allow actions, providing the reliability that safety-critical workflows demand.</p>
@@ -576,7 +576,7 @@ const preToolUseHook = async (toolCall) => {
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "Tool Interface Design",
-    icon: "🔧",
+    icon: "",
     content: `
       <h3>Designing Effective Tool Interfaces</h3>
       <p>Tool interface design directly affects how reliably Claude selects and parameterizes tools. A well-designed tool interface has a clear description (3-4 sentences explaining what it does, when to use it, and what each parameter means), intuitive naming, and appropriate granularity. Poor tool design leads to incorrect selections, hallucinated parameters, and wasted loop iterations.</p>
@@ -628,7 +628,7 @@ const preToolUseHook = async (toolCall) => {
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "tool_choice Configuration",
-    icon: "🎯",
+    icon: "",
     content: `
       <h3>Controlling Tool Selection with tool_choice</h3>
       <p>The <code>tool_choice</code> parameter gives you fine-grained control over how Claude selects tools. It ranges from fully autonomous selection (<code>auto</code>) to forcing a specific tool. This parameter applies per API call, so you can change it between iterations of the agentic loop to guide behavior at different stages of a workflow.</p>
@@ -682,7 +682,7 @@ const summary = await client.messages.create({
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "Strict Tool Use",
-    icon: "🔐",
+    icon: "",
     content: `
       <h3>Strict Tool Use: Grammar-Constrained Sampling</h3>
       <p>Strict mode (<code>strict: true</code>) applies grammar-constrained decoding to guarantee that tool call arguments exactly match your input schema. Without strict mode, Claude generates JSON that <em>usually</em> matches the schema but may occasionally include extra fields, wrong types, or missing required properties. Strict mode eliminates these violations entirely.</p>
@@ -738,7 +738,7 @@ const summary = await client.messages.create({
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "Error Handling in Tool Use",
-    icon: "⚠️",
+    icon: "",
     content: `
       <h3>Structured Error Responses for Tools</h3>
       <p>When a tool execution fails, the error response you send back in the <code>tool_result</code> determines how effectively Claude can recover. Setting <code>is_error: true</code> tells Claude the call failed. But a bare error flag is not enough — structured error context with category, retryability, and actionable details enables intelligent recovery.</p>
@@ -800,7 +800,7 @@ const summary = await client.messages.create({
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "MCP Architecture",
-    icon: "🌐",
+    icon: "",
     content: `
       <h3>Model Context Protocol Architecture</h3>
       <p>The Model Context Protocol (MCP) standardizes how AI applications connect to external tools and data sources. Rather than building custom integrations for each tool, MCP provides a universal protocol with three primitives — <strong>tools</strong>, <strong>resources</strong>, and <strong>prompts</strong> — each with different control semantics that determine who decides when they are used.</p>
@@ -861,7 +861,7 @@ const summary = await client.messages.create({
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "MCP Configuration",
-    icon: "📝",
+    icon: "",
     content: `
       <h3>Configuring MCP Servers</h3>
       <p>MCP servers are configured through JSON files at three different scopes. The <code>.mcp.json</code> file in the project root defines project-level MCP servers. The <code>~/.claude.json</code> file defines user-level servers available across all projects. And managed policy configurations define organization-level servers that cannot be overridden by individual users.</p>
@@ -931,7 +931,7 @@ const summary = await client.messages.create({
     domainId: 2,
     domain: "Tool Design & MCP Integration",
     title: "Built-in Tools",
-    icon: "🛠️",
+    icon: "",
     content: `
       <h3>Claude Code Built-in Tools</h3>
       <p>Claude Code provides six built-in tools for file operations and code exploration: <strong>Read</strong>, <strong>Write</strong>, <strong>Edit</strong>, <strong>Bash</strong>, <strong>Grep</strong>, and <strong>Glob</strong>. Understanding when to use each tool is essential for efficient codebase exploration. The key principle is <strong>incremental exploration</strong>: start broad (Glob to find files), narrow down (Grep to find relevant content), then read specific sections (Read with line ranges).</p>
@@ -1001,7 +1001,7 @@ Edit("src/auth/middleware.ts", {
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "CLAUDE.md Hierarchy",
-    icon: "📄",
+    icon: "",
     content: `
       <h3>CLAUDE.md Configuration Hierarchy</h3>
       <p>CLAUDE.md files are persistent instruction files that Claude reads at the start of every session. They follow a four-level hierarchy, with each level serving a different purpose. Understanding the hierarchy and loading order is essential for structuring instructions effectively.</p>
@@ -1057,7 +1057,7 @@ Edit("src/auth/middleware.ts", {
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "Path-Specific Rules",
-    icon: "📐",
+    icon: "",
     content: `
       <h3>Path-Specific Rules</h3>
       <p>The <code>.claude/rules/</code> directory contains rule files that apply only when Claude works with specific file paths or patterns. Each rule file has YAML frontmatter that defines glob patterns for matching. When Claude reads or modifies a file matching those patterns, the corresponding rules are automatically loaded into context.</p>
@@ -1122,7 +1122,7 @@ globs:
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "Skills & Commands",
-    icon: "⚡",
+    icon: "",
     content: `
       <h3>Custom Skills & Commands</h3>
       <p>Skills (formerly slash commands) are reusable, parameterized workflows defined in <code>.claude/skills/</code> or <code>.claude/commands/</code>. They let teams standardize common operations — code reviews, deployment procedures, migration patterns — as invokable templates that any team member can use consistently.</p>
@@ -1183,7 +1183,7 @@ Report findings organized by severity (critical/high/medium/low).</code></pre>
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "Plan Mode",
-    icon: "📋",
+    icon: "",
     content: `
       <h3>Plan Mode vs Direct Execution</h3>
       <p>Claude Code operates in two primary modes: <strong>plan mode</strong> (analysis and proposal without executing changes) and <strong>direct execution</strong> (implementing changes immediately). The choice between them depends on the scope, risk, and certainty of the task at hand.</p>
@@ -1247,7 +1247,7 @@ claude "First explain what changes are needed to add rate limiting
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "CLI for Automation",
-    icon: "💻",
+    icon: "",
     content: `
       <h3>Claude Code CLI for Automation</h3>
       <p>Claude Code's CLI supports non-interactive usage for automation, scripting, and pipeline integration. The <code>-p</code> (or <code>--print</code>) flag is the cornerstone: it runs Claude with a single prompt in non-interactive mode, outputting the result to stdout. This makes Claude composable with other CLI tools via pipes and redirects.</p>
@@ -1305,7 +1305,7 @@ claude -p "Review this PR for security issues" \\
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "CI/CD Integration",
-    icon: "🔄",
+    icon: "",
     content: `
       <h3>CI/CD Integration with GitHub Actions</h3>
       <p>Claude Code integrates with CI/CD pipelines to automate code review, generate inline PR comments, and perform pre-merge analysis. The primary integration point is GitHub Actions, where Claude runs as a step in your workflow, analyzing changes and posting findings directly on the pull request.</p>
@@ -1371,7 +1371,7 @@ jobs:
     domainId: 3,
     domain: "Claude Code Configuration & Workflows",
     title: "Context Window in Claude Code",
-    icon: "📊",
+    icon: "",
     content: `
       <h3>Context Window Management in Claude Code</h3>
       <p>Claude Code manages its own context window, which includes everything from startup items to conversation history to tool outputs. Understanding what consumes context at startup — and how compaction works — helps you structure information for maximum effectiveness across long sessions.</p>
@@ -1425,7 +1425,7 @@ jobs:
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Prompting Best Practices",
-    icon: "✍️",
+    icon: "",
     content: `
       <h3>Prompting Best Practices</h3>
       <p>Effective prompting is about clear communication with Claude. The core principles are: be explicit about what you want, use structured formatting to organize complex prompts, provide specific evaluation criteria, and iterate systematically. Vague prompts produce vague outputs — precision in instructions directly correlates with output quality.</p>
@@ -1486,7 +1486,7 @@ The application processes sensitive medical data under HIPAA.
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Few-Shot Prompting",
-    icon: "📝",
+    icon: "",
     content: `
       <h3>Few-Shot Prompting</h3>
       <p>Few-shot prompting provides Claude with 2-4 input-output examples that demonstrate the desired behavior. Well-chosen examples are often more effective than lengthy instructions, especially for tasks involving ambiguous formatting, nuanced classification, or domain-specific reasoning. The examples teach by demonstration rather than description.</p>
@@ -1547,7 +1547,7 @@ Input: "{actual_customer_message}"</code></pre>
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Structured Output",
-    icon: "📦",
+    icon: "",
     content: `
       <h3>Structured Output via Tool Use and output_config</h3>
       <p>Claude can produce structured JSON output through two primary mechanisms: using tool_use with a schema-matching "extraction" tool (the established approach), and using <code>output_config</code> with <code>format: "json_schema"</code> (the newer, direct approach). Both provide schema validation, but output_config is cleaner for pure extraction tasks.</p>
@@ -1625,7 +1625,7 @@ const response = await client.messages.create({
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Batch Processing",
-    icon: "📦",
+    icon: "",
     content: `
       <h3>Message Batches API</h3>
       <p>The Message Batches API lets you send large volumes of requests at <strong>50% reduced cost</strong>, with results available within 24 hours. This is ideal for non-time-sensitive workloads like nightly reports, weekly audits, bulk document extraction, and large-scale classification. The tradeoff is latency — batches are not suitable for interactive applications.</p>
@@ -1703,7 +1703,7 @@ if (result.processing_status === "ended") {
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Multi-Instance Review",
-    icon: "👁️",
+    icon: "",
     content: `
       <h3>Multi-Instance Review Architecture</h3>
       <p>A single Claude instance reviewing a large codebase or document set suffers from <strong>attention dilution</strong> — as content length grows, the probability of missing important details increases. The multi-instance review pattern addresses this by deploying multiple independent Claude instances, each focused on a specific scope or concern.</p>
@@ -1763,7 +1763,7 @@ if (result.processing_status === "ended") {
     domainId: 4,
     domain: "Prompt Engineering & Structured Output",
     title: "Adaptive Thinking",
-    icon: "🧠",
+    icon: "",
     content: `
       <h3>Adaptive Thinking & Effort Control</h3>
       <p>Claude supports extended thinking — internal step-by-step reasoning before producing a response. The newer <strong>adaptive thinking</strong> approach uses <code>type: "adaptive"</code> with an <code>effort</code> parameter (low, medium, high, max) instead of the older <code>budget_tokens</code> approach. This replaces the need to guess optimal token budgets with a simpler, more intuitive control.</p>
@@ -1832,7 +1832,7 @@ const response2 = await client.messages.create({
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Context Window Management",
-    icon: "📐",
+    icon: "",
     content: `
       <h3>Context Window Management</h3>
       <p>Claude's context window has a finite token capacity that must be managed carefully to maintain output quality. The <strong>lost-in-the-middle</strong> effect is a well-documented phenomenon: information placed at the beginning and end of the context is recalled more accurately than information buried in the middle. This has direct implications for how you structure long prompts.</p>
@@ -1883,7 +1883,7 @@ const response2 = await client.messages.create({
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Escalation Patterns",
-    icon: "🚨",
+    icon: "",
     content: `
       <h3>Escalation & Ambiguity Resolution</h3>
       <p>Well-designed agents know when to stop and ask for help. Defining clear escalation criteria prevents agents from making costly mistakes on edge cases. The key principle: when confidence is low or the situation falls outside defined guidelines, <strong>escalate to a human</strong> rather than guess.</p>
@@ -1951,7 +1951,7 @@ function escalateToHuman(context, reason) {
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Error Propagation",
-    icon: "🔗",
+    icon: "",
     content: `
       <h3>Error Propagation in Multi-Agent Systems</h3>
       <p>In multi-agent architectures, errors in one subagent can cascade through the system if not handled properly. The coordinator must be able to distinguish between types of failures and decide whether to retry, fallback, or escalate. This requires subagents to propagate <strong>structured error context</strong> rather than generic error messages.</p>
@@ -2017,7 +2017,7 @@ function analyzeFiles(files) {
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Large Codebase Exploration",
-    icon: "🏗️",
+    icon: "",
     content: `
       <h3>Exploring Large Codebases Effectively</h3>
       <p>Large codebases present a unique challenge: the full codebase cannot fit in context, and context degradation occurs as more files are read and analyzed. The key strategies are <strong>incremental exploration</strong> (read only what you need), <strong>scratchpad files</strong> (persist findings outside context), and <strong>subagent delegation</strong> (split exploration across multiple agents with isolated contexts).</p>
@@ -2088,7 +2088,7 @@ function analyzeFiles(files) {
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Human Review Workflows",
-    icon: "👤",
+    icon: "",
     content: `
       <h3>Human Review & Confidence Calibration</h3>
       <p>Production AI systems need human review workflows that prioritize limited reviewer time. Not every output can be reviewed, so the system must intelligently select which outputs need human attention. The key techniques are <strong>field-level confidence scores</strong>, <strong>stratified sampling</strong>, and <strong>accuracy tracking by document type</strong>.</p>
@@ -2146,7 +2146,7 @@ function analyzeFiles(files) {
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Information Provenance",
-    icon: "📍",
+    icon: "",
     content: `
       <h3>Information Provenance & Source Attribution</h3>
       <p>When Claude works with multiple sources or long documents, tracking where information comes from is critical for trust and verifiability. <strong>Provenance</strong> means every claim in the output should be traceable to a specific source document, section, or data point. Without provenance, users cannot verify claims or resolve conflicts.</p>
@@ -2214,7 +2214,7 @@ function analyzeFiles(files) {
     domainId: 5,
     domain: "Context Management & Reliability",
     title: "Hooks in Settings",
-    icon: "⚙️",
+    icon: "",
     content: `
       <h3>Configuring Hooks in settings.json</h3>
       <p>Hooks are configured in Claude Code's <code>settings.json</code> file, providing a declarative way to intercept agent actions. Each hook specifies a <strong>matcher</strong> (which tool calls to intercept), a <strong>handler type</strong> (how to evaluate the decision), and the <strong>hook point</strong> (PreToolUse or PostToolUse). This configuration lives outside the agent's context, making it tamper-resistant.</p>
