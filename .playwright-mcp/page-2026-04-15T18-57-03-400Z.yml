@@ -1,0 +1,2318 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agents" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Create custom subagents" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/sub-agents
+                  - generic [ref=e89]: Create custom subagents
+              - listitem [ref=e90]:
+                - link "Run agent teams" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-teams
+                  - generic [ref=e94]: Run agent teams
+          - generic [ref=e95]:
+            - heading "Tools and plugins" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "Model Context Protocol (MCP)" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/mcp
+                  - generic [ref=e103]: Model Context Protocol (MCP)
+              - listitem [ref=e104]:
+                - link "Discover and install prebuilt plugins" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/discover-plugins
+                  - generic [ref=e108]: Discover and install prebuilt plugins
+              - listitem [ref=e109]:
+                - link "Create plugins" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/plugins
+                  - generic [ref=e113]: Create plugins
+              - listitem [ref=e114]:
+                - link "Extend Claude with skills" [ref=e115] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                  - generic [ref=e118]: Extend Claude with skills
+          - generic [ref=e119]:
+            - heading "Automation" [level=5] [ref=e121]
+            - list [ref=e122]:
+              - listitem [ref=e123]:
+                - link "Automate with hooks" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/hooks-guide
+                  - generic [ref=e127]: Automate with hooks
+              - listitem [ref=e128]:
+                - link "Push external events to Claude" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/channels
+                  - generic [ref=e132]: Push external events to Claude
+              - listitem [ref=e133]:
+                - link "Run prompts on a schedule" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/scheduled-tasks
+                  - generic [ref=e137]: Run prompts on a schedule
+              - listitem [ref=e138]:
+                - link "Programmatic usage" [ref=e139] [cursor=pointer]:
+                  - /url: /docs/en/headless
+                  - generic [ref=e142]: Programmatic usage
+          - generic [ref=e143]:
+            - heading "Troubleshooting" [level=5] [ref=e145]
+            - list [ref=e146]:
+              - listitem [ref=e147]:
+                - link "Troubleshooting" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/troubleshooting
+                  - generic [ref=e151]: Troubleshooting
+        - generic [ref=e154]:
+          - banner [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: Agents
+              - generic [ref=e158]:
+                - heading "Create custom subagents" [level=1] [ref=e159]
+                - generic [ref=e160]:
+                  - button "Copy page" [ref=e161] [cursor=pointer]:
+                    - generic [ref=e162]:
+                      - img [ref=e163]
+                      - generic [ref=e166]: Copy page
+                  - button "More actions" [ref=e167] [cursor=pointer]:
+                    - img [ref=e168]
+            - paragraph [ref=e171]: Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management.
+          - generic [ref=e172]:
+            - generic [ref=e173]: "Subagents are specialized AI assistants that handle specific types of tasks. Use one when a side task would flood your main conversation with search results, logs, or file contents you won’t reference again: the subagent does that work in its own context and returns only the summary. Define a custom subagent when you keep spawning the same kind of worker with the same instructions."
+            - generic [ref=e174]:
+              - text: Each subagent runs in its own context window with a custom system prompt, specific tool access, and independent permissions. When Claude encounters a task that matches a subagent’s description, it delegates to that subagent, which works independently and returns results. To see the context savings in practice, the
+              - link "context window visualization" [ref=e175] [cursor=pointer]:
+                - /url: /docs/en/context-window
+              - text: walks through a session where a subagent handles research in its own separate window.
+            - generic [ref=e176]:
+              - img "Note" [ref=e178]
+              - generic [ref=e181]:
+                - text: If you need multiple agents working in parallel and communicating with each other, see
+                - link "agent teams" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/en/agent-teams
+                - text: instead. Subagents work within a single session; agent teams coordinate across separate sessions.
+            - generic [ref=e183]: "Subagents help you:"
+            - list [ref=e184]:
+              - listitem [ref=e185]:
+                - strong [ref=e186]: Preserve context
+                - text: by keeping exploration and implementation out of your main conversation
+              - listitem [ref=e187]:
+                - strong [ref=e188]: Enforce constraints
+                - text: by limiting which tools a subagent can use
+              - listitem [ref=e189]:
+                - strong [ref=e190]: Reuse configurations
+                - text: across projects with user-level subagents
+              - listitem [ref=e191]:
+                - strong [ref=e192]: Specialize behavior
+                - text: with focused system prompts for specific domains
+              - listitem [ref=e193]:
+                - strong [ref=e194]: Control costs
+                - text: by routing tasks to faster, cheaper models like Haiku
+            - generic [ref=e195]: Claude uses each subagent’s description to decide when to delegate tasks. When you create a subagent, write a clear description so Claude knows when to use it.
+            - generic [ref=e196]:
+              - text: Claude Code includes several built-in subagents like
+              - strong [ref=e197]: Explore
+              - text: ","
+              - strong [ref=e198]: Plan
+              - text: ", and"
+              - strong [ref=e199]: general-purpose
+              - text: . You can also create custom subagents to handle specific tasks. This page covers the
+              - link "built-in subagents" [ref=e200] [cursor=pointer]:
+                - /url: "#built-in-subagents"
+              - text: ","
+              - link "how to create your own" [ref=e201] [cursor=pointer]:
+                - /url: "#quickstart-create-your-first-subagent"
+              - text: ","
+              - link "full configuration options" [ref=e202] [cursor=pointer]:
+                - /url: "#configure-subagents"
+              - text: ","
+              - link "patterns for working with subagents" [ref=e203] [cursor=pointer]:
+                - /url: "#work-with-subagents"
+              - text: ", and"
+              - link "example subagents" [ref=e204] [cursor=pointer]:
+                - /url: "#example-subagents"
+              - text: .
+            - heading "Navigate to header Built-in subagents" [level=2] [ref=e205]:
+              - link "Navigate to header" [ref=e206] [cursor=pointer]:
+                - /url: "#built-in-subagents"
+                - img [ref=e208]
+              - generic [ref=e210] [cursor=pointer]: Built-in subagents
+            - generic [ref=e211]: Claude Code includes built-in subagents that Claude automatically uses when appropriate. Each inherits the parent conversation’s permissions with additional tool restrictions.
+            - generic [ref=e212]:
+              - tablist [ref=e213]:
+                - tab "Explore" [selected] [ref=e214] [cursor=pointer]:
+                  - generic [ref=e215]: Explore
+                - tab "Plan" [ref=e216] [cursor=pointer]:
+                  - generic [ref=e217]: Plan
+                - tab "General-purpose" [ref=e218] [cursor=pointer]:
+                  - generic [ref=e219]: General-purpose
+                - tab "Other" [ref=e220] [cursor=pointer]:
+                  - generic [ref=e221]: Other
+              - 'tabpanel "Explore Plan General-purpose Other A fast, read-only agent optimized for searching and analyzing codebases. Model: Haiku (fast, low-latency) Tools: Read-only tools (denied access to Write and Edit tools) Purpose: File discovery, code search, codebase exploration Claude delegates to Explore when it needs to search or understand a codebase without making changes. This keeps exploration results out of your main conversation context. When invoking Explore, Claude specifies a thoroughness level: quick for targeted lookups, medium for balanced exploration, or very thorough for comprehensive analysis." [ref=e223]':
+                - generic [ref=e224]: A fast, read-only agent optimized for searching and analyzing codebases.
+                - list [ref=e225]:
+                  - listitem [ref=e226]:
+                    - strong [ref=e227]: Model
+                    - text: ": Haiku (fast, low-latency)"
+                  - listitem [ref=e228]:
+                    - strong [ref=e229]: Tools
+                    - text: ": Read-only tools (denied access to Write and Edit tools)"
+                  - listitem [ref=e230]:
+                    - strong [ref=e231]: Purpose
+                    - text: ": File discovery, code search, codebase exploration"
+                - generic [ref=e232]: Claude delegates to Explore when it needs to search or understand a codebase without making changes. This keeps exploration results out of your main conversation context.
+                - generic [ref=e233]:
+                  - text: "When invoking Explore, Claude specifies a thoroughness level:"
+                  - strong [ref=e234]: quick
+                  - text: for targeted lookups,
+                  - strong [ref=e235]: medium
+                  - text: for balanced exploration, or
+                  - strong [ref=e236]: very thorough
+                  - text: for comprehensive analysis.
+            - generic [ref=e237]: Beyond these built-in subagents, you can create your own with custom prompts, tool restrictions, permission modes, hooks, and skills. The following sections show how to get started and customize subagents.
+            - 'heading "Navigate to header Quickstart: create your first subagent" [level=2] [ref=e238]':
+              - link "Navigate to header" [ref=e239] [cursor=pointer]:
+                - /url: "#quickstart-create-your-first-subagent"
+                - img [ref=e241]
+              - generic [ref=e243] [cursor=pointer]: "Quickstart: create your first subagent"
+            - generic [ref=e244]:
+              - text: Subagents are defined in Markdown files with YAML frontmatter. You can
+              - link "create them manually" [ref=e245] [cursor=pointer]:
+                - /url: "#write-subagent-files"
+              - text: or use the
+              - code [ref=e246]: /agents
+              - text: command.
+            - generic [ref=e247]:
+              - text: This walkthrough guides you through creating a user-level subagent with the
+              - code [ref=e248]: /agents
+              - text: command. The subagent reviews code and suggests improvements for the codebase.
+            - list [ref=e249]:
+              - listitem [ref=e250]:
+                - generic [ref=e253]:
+                  - generic [ref=e254]: "1"
+                  - link "Navigate to header" [ref=e256] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e258]
+                - generic [ref=e260]:
+                  - paragraph [ref=e261]: Open the subagents interface
+                  - generic [ref=e262]:
+                    - generic [ref=e263]: "In Claude Code, run:"
+                    - generic [ref=e264]:
+                      - generic [ref=e265]:
+                        - button "Report incorrect code" [ref=e267] [cursor=pointer]:
+                          - img [ref=e268]
+                        - button "Copy the contents from the code block" [ref=e271] [cursor=pointer]:
+                          - img [ref=e272]
+                        - button "Ask AI" [ref=e276] [cursor=pointer]:
+                          - img [ref=e277]
+                      - code [ref=e283]:
+                        - generic [ref=e284]: /agents
+              - listitem [ref=e285]:
+                - generic [ref=e288]:
+                  - generic [ref=e289]: "2"
+                  - link "Navigate to header" [ref=e291] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e293]
+                - generic [ref=e295]:
+                  - paragraph [ref=e296]: Choose a location
+                  - generic [ref=e298]:
+                    - text: Switch to the
+                    - strong [ref=e299]: Library
+                    - text: tab, select
+                    - strong [ref=e300]: Create new agent
+                    - text: ", then choose"
+                    - strong [ref=e301]: Personal
+                    - text: . This saves the subagent to
+                    - code [ref=e302]: ~/.claude/agents/
+                    - text: so it’s available in all your projects.
+              - listitem [ref=e303]:
+                - generic [ref=e306]:
+                  - generic [ref=e307]: "3"
+                  - link "Navigate to header" [ref=e309] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e311]
+                - generic [ref=e313]:
+                  - paragraph [ref=e314]: Generate with Claude
+                  - generic [ref=e315]:
+                    - generic [ref=e316]:
+                      - text: Select
+                      - strong [ref=e317]: Generate with Claude
+                      - text: ". When prompted, describe the subagent:"
+                    - generic [ref=e318]:
+                      - generic [ref=e319]:
+                        - button "Report incorrect code" [ref=e321] [cursor=pointer]:
+                          - img [ref=e322]
+                        - button "Copy the contents from the code block" [ref=e325] [cursor=pointer]:
+                          - img [ref=e326]
+                        - button "Ask AI" [ref=e330] [cursor=pointer]:
+                          - img [ref=e331]
+                      - code [ref=e337]:
+                        - generic [ref=e338]: A code improvement agent that scans files and suggests improvements
+                        - generic [ref=e339]: for readability, performance, and best practices. It should explain
+                        - generic [ref=e340]: each issue, show the current code, and provide an improved version.
+                    - generic [ref=e341]: Claude generates the identifier, description, and system prompt for you.
+              - listitem [ref=e342]:
+                - generic [ref=e345]:
+                  - generic [ref=e346]: "4"
+                  - link "Navigate to header" [ref=e348] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e350]
+                - generic [ref=e352]:
+                  - paragraph [ref=e353]: Select tools
+                  - generic [ref=e355]:
+                    - text: For a read-only reviewer, deselect everything except
+                    - strong [ref=e356]: Read-only tools
+                    - text: . If you keep all tools selected, the subagent inherits all tools available to the main conversation.
+              - listitem [ref=e357]:
+                - generic [ref=e360]:
+                  - generic [ref=e361]: "5"
+                  - link "Navigate to header" [ref=e363] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e365]
+                - generic [ref=e367]:
+                  - paragraph [ref=e368]: Select model
+                  - generic [ref=e370]:
+                    - text: Choose which model the subagent uses. For this example agent, select
+                    - strong [ref=e371]: Sonnet
+                    - text: ", which balances capability and speed for analyzing code patterns."
+              - listitem [ref=e372]:
+                - generic [ref=e375]:
+                  - generic [ref=e376]: "6"
+                  - link "Navigate to header" [ref=e378] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e380]
+                - generic [ref=e382]:
+                  - paragraph [ref=e383]: Choose a color
+                  - generic [ref=e385]: Pick a background color for the subagent. This helps you identify which subagent is running in the UI.
+              - listitem [ref=e386]:
+                - generic [ref=e389]:
+                  - generic [ref=e390]: "7"
+                  - link "Navigate to header" [ref=e392] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e394]
+                - generic [ref=e396]:
+                  - paragraph [ref=e397]: Configure memory
+                  - generic [ref=e399]:
+                    - text: Select
+                    - strong [ref=e400]: User scope
+                    - text: to give the subagent a
+                    - link "persistent memory directory" [ref=e401] [cursor=pointer]:
+                      - /url: "#enable-persistent-memory"
+                    - text: at
+                    - code [ref=e402]: ~/.claude/agent-memory/
+                    - text: . The subagent uses this to accumulate insights across conversations, such as codebase patterns and recurring issues. Select
+                    - strong [ref=e403]: None
+                    - text: if you don’t want the subagent to persist learnings.
+              - listitem [ref=e404]:
+                - generic [ref=e407]:
+                  - generic [ref=e408]: "8"
+                  - link "Navigate to header" [ref=e410] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e412]
+                - generic [ref=e414]:
+                  - paragraph [ref=e415]: Save and try it out
+                  - generic [ref=e416]:
+                    - generic [ref=e417]:
+                      - text: Review the configuration summary. Press
+                      - code [ref=e418]: s
+                      - text: or
+                      - code [ref=e419]: Enter
+                      - text: to save, or press
+                      - code [ref=e420]: e
+                      - text: "to save and edit the file in your editor. The subagent is available immediately. Try it:"
+                    - generic [ref=e421]:
+                      - generic [ref=e422]:
+                        - button "Report incorrect code" [ref=e424] [cursor=pointer]:
+                          - img [ref=e425]
+                        - button "Copy the contents from the code block" [ref=e428] [cursor=pointer]:
+                          - img [ref=e429]
+                        - button "Ask AI" [ref=e433] [cursor=pointer]:
+                          - img [ref=e434]
+                      - code [ref=e440]:
+                        - generic [ref=e441]: Use the code-improver agent to suggest improvements in this project
+                    - generic [ref=e442]: Claude delegates to your new subagent, which scans the codebase and returns improvement suggestions.
+            - generic [ref=e443]: You now have a subagent you can use in any project on your machine to analyze codebases and suggest improvements.
+            - generic [ref=e444]: You can also create subagents manually as Markdown files, define them via CLI flags, or distribute them through plugins. The following sections cover all configuration options.
+            - heading "Navigate to header Configure subagents" [level=2] [ref=e445]:
+              - link "Navigate to header" [ref=e446] [cursor=pointer]:
+                - /url: "#configure-subagents"
+                - img [ref=e448]
+              - generic [ref=e450] [cursor=pointer]: Configure subagents
+            - heading "Navigate to header Use the /agents command" [level=3] [ref=e451]:
+              - link "Navigate to header" [ref=e452] [cursor=pointer]:
+                - /url: "#use-the-/agents-command"
+                - img [ref=e454]
+              - generic [ref=e456] [cursor=pointer]: Use the /agents command
+            - generic [ref=e457]:
+              - text: The
+              - code [ref=e458]: /agents
+              - text: command opens a tabbed interface for managing subagents. The
+              - strong [ref=e459]: Running
+              - text: tab shows live subagents and lets you open or stop them. The
+              - strong [ref=e460]: Library
+              - text: "tab lets you:"
+            - list [ref=e461]:
+              - listitem [ref=e462]: View all available subagents (built-in, user, project, and plugin)
+              - listitem [ref=e463]: Create new subagents with guided setup or Claude generation
+              - listitem [ref=e464]: Edit existing subagent configuration and tool access
+              - listitem [ref=e465]: Delete custom subagents
+              - listitem [ref=e466]: See which subagents are active when duplicates exist
+            - generic [ref=e467]: This is the recommended way to create and manage subagents. For manual creation or automation, you can also add subagent files directly.
+            - generic [ref=e468]:
+              - text: To list all configured subagents from the command line without starting an interactive session, run
+              - code [ref=e469]: claude agents
+              - text: . This shows agents grouped by source and indicates which are overridden by higher-priority definitions.
+            - heading "Navigate to header Choose the subagent scope" [level=3] [ref=e470]:
+              - link "Navigate to header" [ref=e471] [cursor=pointer]:
+                - /url: "#choose-the-subagent-scope"
+                - img [ref=e473]
+              - generic [ref=e475] [cursor=pointer]: Choose the subagent scope
+            - generic [ref=e476]: Subagents are Markdown files with YAML frontmatter. Store them in different locations depending on scope. When multiple subagents share the same name, the higher-priority location wins.
+            - table [ref=e479]:
+              - rowgroup [ref=e480]:
+                - row "Location Scope Priority How to create" [ref=e481]:
+                  - columnheader "Location" [ref=e482]
+                  - columnheader "Scope" [ref=e483]
+                  - columnheader "Priority" [ref=e484]
+                  - columnheader "How to create" [ref=e485]
+              - rowgroup [ref=e486]:
+                - row "Managed settings Organization-wide 1 (highest) Deployed via managed settings" [ref=e487]:
+                  - cell "Managed settings" [ref=e488]
+                  - cell "Organization-wide" [ref=e489]
+                  - cell "1 (highest)" [ref=e490]
+                  - cell "Deployed via managed settings" [ref=e491]:
+                    - text: Deployed via
+                    - link "managed settings" [ref=e492] [cursor=pointer]:
+                      - /url: /docs/en/settings
+                - row "--agents CLI flag Current session 2 Pass JSON when launching Claude Code" [ref=e493]:
+                  - cell "--agents CLI flag" [ref=e494]:
+                    - code [ref=e495]: "--agents"
+                    - text: CLI flag
+                  - cell "Current session" [ref=e496]
+                  - cell "2" [ref=e497]
+                  - cell "Pass JSON when launching Claude Code" [ref=e498]
+                - row ".claude/agents/ Current project 3 Interactive or manual" [ref=e499]:
+                  - cell ".claude/agents/" [ref=e500]:
+                    - code [ref=e501]: .claude/agents/
+                  - cell "Current project" [ref=e502]
+                  - cell "3" [ref=e503]
+                  - cell "Interactive or manual" [ref=e504]
+                - row "~/.claude/agents/ All your projects 4 Interactive or manual" [ref=e505]:
+                  - cell "~/.claude/agents/" [ref=e506]:
+                    - code [ref=e507]: ~/.claude/agents/
+                  - cell "All your projects" [ref=e508]
+                  - cell "4" [ref=e509]
+                  - cell "Interactive or manual" [ref=e510]
+                - row "Plugin’s agents/ directory Where plugin is enabled 5 (lowest) Installed with plugins" [ref=e511]:
+                  - cell "Plugin’s agents/ directory" [ref=e512]:
+                    - text: Plugin’s
+                    - code [ref=e513]: agents/
+                    - text: directory
+                  - cell "Where plugin is enabled" [ref=e514]
+                  - cell "5 (lowest)" [ref=e515]
+                  - cell "Installed with plugins" [ref=e516]:
+                    - text: Installed with
+                    - link "plugins" [ref=e517] [cursor=pointer]:
+                      - /url: /docs/en/plugins
+            - generic [ref=e518]:
+              - strong [ref=e519]: Project subagents
+              - text: (
+              - code [ref=e520]: .claude/agents/
+              - text: ) are ideal for subagents specific to a codebase. Check them into version control so your team can use and improve them collaboratively.
+            - generic [ref=e521]:
+              - text: Project subagents are discovered by walking up from the current working directory. Directories added with
+              - code [ref=e522]: "--add-dir"
+              - link "grant file access only" [ref=e523] [cursor=pointer]:
+                - /url: /docs/en/permissions#additional-directories-grant-file-access-not-configuration
+              - text: and are not scanned for subagents. To share subagents across projects, use
+              - code [ref=e524]: ~/.claude/agents/
+              - text: or a
+              - link "plugin" [ref=e525] [cursor=pointer]:
+                - /url: /docs/en/plugins
+              - text: .
+            - generic [ref=e526]:
+              - strong [ref=e527]: User subagents
+              - text: (
+              - code [ref=e528]: ~/.claude/agents/
+              - text: ) are personal subagents available in all your projects.
+            - generic [ref=e529]:
+              - strong [ref=e530]: CLI-defined subagents
+              - text: are passed as JSON when launching Claude Code. They exist only for that session and aren’t saved to disk, making them useful for quick testing or automation scripts. You can define multiple subagents in a single
+              - code [ref=e531]: "--agents"
+              - text: "call:"
+            - generic [ref=e532]:
+              - generic [ref=e533]:
+                - button "Report incorrect code" [ref=e535] [cursor=pointer]:
+                  - img [ref=e536]
+                - button "Copy the contents from the code block" [ref=e539] [cursor=pointer]:
+                  - img [ref=e540]
+                - button "Ask AI" [ref=e544] [cursor=pointer]:
+                  - img [ref=e545]
+              - code [ref=e551]:
+                - generic [ref=e552]: "claude --agents '{"
+                - generic [ref=e553]: "\"code-reviewer\": {"
+                - generic [ref=e554]: "\"description\": \"Expert code reviewer. Use proactively after code changes.\","
+                - generic [ref=e555]: "\"prompt\": \"You are a senior code reviewer. Focus on code quality, security, and best practices.\","
+                - generic [ref=e556]: "\"tools\": [\"Read\", \"Grep\", \"Glob\", \"Bash\"],"
+                - generic [ref=e557]: "\"model\": \"sonnet\""
+                - generic [ref=e558]: "},"
+                - generic [ref=e559]: "\"debugger\": {"
+                - generic [ref=e560]: "\"description\": \"Debugging specialist for errors and test failures.\","
+                - generic [ref=e561]: "\"prompt\": \"You are an expert debugger. Analyze errors, identify root causes, and provide fixes.\""
+                - generic [ref=e562]: "}"
+                - generic [ref=e563]: "}'"
+            - generic [ref=e564]:
+              - text: The
+              - code [ref=e565]: "--agents"
+              - text: flag accepts JSON with the same
+              - link "frontmatter" [ref=e566] [cursor=pointer]:
+                - /url: "#supported-frontmatter-fields"
+              - text: "fields as file-based subagents:"
+              - code [ref=e567]: description
+              - text: ","
+              - code [ref=e568]: prompt
+              - text: ","
+              - code [ref=e569]: tools
+              - text: ","
+              - code [ref=e570]: disallowedTools
+              - text: ","
+              - code [ref=e571]: model
+              - text: ","
+              - code [ref=e572]: permissionMode
+              - text: ","
+              - code [ref=e573]: mcpServers
+              - text: ","
+              - code [ref=e574]: hooks
+              - text: ","
+              - code [ref=e575]: maxTurns
+              - text: ","
+              - code [ref=e576]: skills
+              - text: ","
+              - code [ref=e577]: initialPrompt
+              - text: ","
+              - code [ref=e578]: memory
+              - text: ","
+              - code [ref=e579]: effort
+              - text: ","
+              - code [ref=e580]: background
+              - text: ","
+              - code [ref=e581]: isolation
+              - text: ", and"
+              - code [ref=e582]: color
+              - text: . Use
+              - code [ref=e583]: prompt
+              - text: for the system prompt, equivalent to the markdown body in file-based subagents.
+            - generic [ref=e584]:
+              - strong [ref=e585]: Managed subagents
+              - text: are deployed by organization administrators. Place markdown files in
+              - code [ref=e586]: .claude/agents/
+              - text: inside the
+              - link "managed settings directory" [ref=e587] [cursor=pointer]:
+                - /url: /docs/en/settings#settings-files
+              - text: ", using the same frontmatter format as project and user subagents. Managed definitions take precedence over project and user subagents with the same name."
+            - generic [ref=e588]:
+              - strong [ref=e589]: Plugin subagents
+              - text: come from
+              - link "plugins" [ref=e590] [cursor=pointer]:
+                - /url: /docs/en/plugins
+              - text: you’ve installed. They appear in
+              - code [ref=e591]: /agents
+              - text: alongside your custom subagents. See the
+              - link "plugin components reference" [ref=e592] [cursor=pointer]:
+                - /url: /docs/en/plugins-reference#agents
+              - text: for details on creating plugin subagents.
+            - generic [ref=e593]:
+              - img "Note" [ref=e595]
+              - generic [ref=e598]:
+                - text: For security reasons, plugin subagents do not support the
+                - code [ref=e599]: hooks
+                - text: ","
+                - code [ref=e600]: mcpServers
+                - text: ", or"
+                - code [ref=e601]: permissionMode
+                - text: frontmatter fields. These fields are ignored when loading agents from a plugin. If you need them, copy the agent file into
+                - code [ref=e602]: .claude/agents/
+                - text: or
+                - code [ref=e603]: ~/.claude/agents/
+                - text: . You can also add rules to
+                - link "permissions.allow" [ref=e604] [cursor=pointer]:
+                  - /url: /docs/en/settings#permission-settings
+                  - code [ref=e605]: permissions.allow
+                - text: in
+                - code [ref=e606]: settings.json
+                - text: or
+                - code [ref=e607]: settings.local.json
+                - text: ", but these rules apply to the entire session, not just the plugin subagent."
+            - generic [ref=e608]:
+              - text: Subagent definitions from any of these scopes are also available to
+              - link "agent teams" [ref=e609] [cursor=pointer]:
+                - /url: /docs/en/agent-teams#use-subagent-definitions-for-teammates
+              - text: ": when spawning a teammate, you can reference a subagent type and the teammate uses its"
+              - code [ref=e610]: tools
+              - text: and
+              - code [ref=e611]: model
+              - text: ", with the definition’s body appended to the teammate’s system prompt as additional instructions. See"
+              - link "agent teams" [ref=e612] [cursor=pointer]:
+                - /url: /docs/en/agent-teams#use-subagent-definitions-for-teammates
+              - text: for which frontmatter fields apply on that path.
+            - heading "Navigate to header Write subagent files" [level=3] [ref=e613]:
+              - link "Navigate to header" [ref=e614] [cursor=pointer]:
+                - /url: "#write-subagent-files"
+                - img [ref=e616]
+              - generic [ref=e618] [cursor=pointer]: Write subagent files
+            - generic [ref=e619]: "Subagent files use YAML frontmatter for configuration, followed by the system prompt in Markdown:"
+            - generic [ref=e620]:
+              - img "Note" [ref=e622]
+              - generic [ref=e625]:
+                - text: Subagents are loaded at session start. If you create a subagent by manually adding a file, restart your session or use
+                - code [ref=e626]: /agents
+                - text: to load it immediately.
+            - generic [ref=e627]:
+              - generic [ref=e628]:
+                - button "Report incorrect code" [ref=e630] [cursor=pointer]:
+                  - img [ref=e631]
+                - button "Copy the contents from the code block" [ref=e634] [cursor=pointer]:
+                  - img [ref=e635]
+                - button "Ask AI" [ref=e639] [cursor=pointer]:
+                  - img [ref=e640]
+              - code [ref=e646]:
+                - generic [ref=e647]: "---"
+                - generic [ref=e648]: "name: code-reviewer"
+                - generic [ref=e649]: "description: Reviews code for quality and best practices"
+                - generic [ref=e650]: "tools: Read, Glob, Grep"
+                - generic [ref=e651]: "model: sonnet"
+                - generic [ref=e652]: "---"
+                - generic [ref=e653]: You are a code reviewer. When invoked, analyze the code and provide
+                - generic [ref=e654]: specific, actionable feedback on quality, security, and best practices.
+            - generic [ref=e655]: The frontmatter defines the subagent’s metadata and configuration. The body becomes the system prompt that guides the subagent’s behavior. Subagents receive only this system prompt (plus basic environment details like working directory), not the full Claude Code system prompt.
+            - generic [ref=e656]:
+              - text: A subagent starts in the main conversation’s current working directory. Within a subagent,
+              - code [ref=e657]: cd
+              - text: commands do not persist between Bash or PowerShell tool calls and do not affect the main conversation’s working directory. To give the subagent an isolated copy of the repository instead, set
+              - 'link "isolation: worktree" [ref=e658] [cursor=pointer]':
+                - /url: "#supported-frontmatter-fields"
+                - code [ref=e659]: "isolation: worktree"
+              - text: .
+            - heading "Navigate to header Supported frontmatter fields" [level=4] [ref=e660]:
+              - link "Navigate to header" [ref=e661] [cursor=pointer]:
+                - /url: "#supported-frontmatter-fields"
+                - img [ref=e663]
+              - generic [ref=e665] [cursor=pointer]: Supported frontmatter fields
+            - generic [ref=e666]:
+              - text: The following fields can be used in the YAML frontmatter. Only
+              - code [ref=e667]: name
+              - text: and
+              - code [ref=e668]: description
+              - text: are required.
+            - table [ref=e671]:
+              - rowgroup [ref=e672]:
+                - row "Field Required Description" [ref=e673]:
+                  - columnheader "Field" [ref=e674]
+                  - columnheader "Required" [ref=e675]
+                  - columnheader "Description" [ref=e676]
+              - rowgroup [ref=e677]:
+                - row "name Yes Unique identifier using lowercase letters and hyphens" [ref=e678]:
+                  - cell "name" [ref=e679]:
+                    - code [ref=e680]: name
+                  - cell "Yes" [ref=e681]
+                  - cell "Unique identifier using lowercase letters and hyphens" [ref=e682]
+                - row "description Yes When Claude should delegate to this subagent" [ref=e683]:
+                  - cell "description" [ref=e684]:
+                    - code [ref=e685]: description
+                  - cell "Yes" [ref=e686]
+                  - cell "When Claude should delegate to this subagent" [ref=e687]
+                - row "tools No Tools the subagent can use. Inherits all tools if omitted" [ref=e688]:
+                  - cell "tools" [ref=e689]:
+                    - code [ref=e690]: tools
+                  - cell "No" [ref=e691]
+                  - cell "Tools the subagent can use. Inherits all tools if omitted" [ref=e692]:
+                    - link "Tools" [ref=e693] [cursor=pointer]:
+                      - /url: "#available-tools"
+                    - text: the subagent can use. Inherits all tools if omitted
+                - row "disallowedTools No Tools to deny, removed from inherited or specified list" [ref=e694]:
+                  - cell "disallowedTools" [ref=e695]:
+                    - code [ref=e696]: disallowedTools
+                  - cell "No" [ref=e697]
+                  - cell "Tools to deny, removed from inherited or specified list" [ref=e698]
+                - 'row "model No Model to use: sonnet, opus, haiku, a full model ID (for example, claude-opus-4-6), or inherit. Defaults to inherit" [ref=e699]':
+                  - cell "model" [ref=e700]:
+                    - code [ref=e701]: model
+                  - cell "No" [ref=e702]
+                  - 'cell "Model to use: sonnet, opus, haiku, a full model ID (for example, claude-opus-4-6), or inherit. Defaults to inherit" [ref=e703]':
+                    - link "Model" [ref=e704] [cursor=pointer]:
+                      - /url: "#choose-a-model"
+                    - text: "to use:"
+                    - code [ref=e705]: sonnet
+                    - text: ","
+                    - code [ref=e706]: opus
+                    - text: ","
+                    - code [ref=e707]: haiku
+                    - text: ", a full model ID (for example,"
+                    - code [ref=e708]: claude-opus-4-6
+                    - text: ), or
+                    - code [ref=e709]: inherit
+                    - text: . Defaults to
+                    - code [ref=e710]: inherit
+                - 'row "permissionMode No Permission mode: default, acceptEdits, auto, dontAsk, bypassPermissions, or plan" [ref=e711]':
+                  - cell "permissionMode" [ref=e712]:
+                    - code [ref=e713]: permissionMode
+                  - cell "No" [ref=e714]
+                  - 'cell "Permission mode: default, acceptEdits, auto, dontAsk, bypassPermissions, or plan" [ref=e715]':
+                    - link "Permission mode" [ref=e716] [cursor=pointer]:
+                      - /url: "#permission-modes"
+                    - text: ":"
+                    - code [ref=e717]: default
+                    - text: ","
+                    - code [ref=e718]: acceptEdits
+                    - text: ","
+                    - code [ref=e719]: auto
+                    - text: ","
+                    - code [ref=e720]: dontAsk
+                    - text: ","
+                    - code [ref=e721]: bypassPermissions
+                    - text: ", or"
+                    - code [ref=e722]: plan
+                - row "maxTurns No Maximum number of agentic turns before the subagent stops" [ref=e723]:
+                  - cell "maxTurns" [ref=e724]:
+                    - code [ref=e725]: maxTurns
+                  - cell "No" [ref=e726]
+                  - cell "Maximum number of agentic turns before the subagent stops" [ref=e727]
+                - row "skills No Skills to load into the subagent’s context at startup. The full skill content is injected, not just made available for invocation. Subagents don’t inherit skills from the parent conversation" [ref=e728]:
+                  - cell "skills" [ref=e729]:
+                    - code [ref=e730]: skills
+                  - cell "No" [ref=e731]
+                  - cell "Skills to load into the subagent’s context at startup. The full skill content is injected, not just made available for invocation. Subagents don’t inherit skills from the parent conversation" [ref=e732]:
+                    - link "Skills" [ref=e733] [cursor=pointer]:
+                      - /url: /docs/en/skills
+                    - text: to load into the subagent’s context at startup. The full skill content is injected, not just made available for invocation. Subagents don’t inherit skills from the parent conversation
+                - row "mcpServers No MCP servers available to this subagent. Each entry is either a server name referencing an already-configured server (e.g., \"slack\") or an inline definition with the server name as key and a full MCP server config as value" [ref=e734]:
+                  - cell "mcpServers" [ref=e735]:
+                    - code [ref=e736]: mcpServers
+                  - cell "No" [ref=e737]
+                  - cell "MCP servers available to this subagent. Each entry is either a server name referencing an already-configured server (e.g., \"slack\") or an inline definition with the server name as key and a full MCP server config as value" [ref=e738]:
+                    - link "MCP servers" [ref=e739] [cursor=pointer]:
+                      - /url: /docs/en/mcp
+                    - text: available to this subagent. Each entry is either a server name referencing an already-configured server (e.g.,
+                    - code [ref=e740]: "\"slack\""
+                    - text: ) or an inline definition with the server name as key and a full
+                    - link "MCP server config" [ref=e741] [cursor=pointer]:
+                      - /url: /docs/en/mcp#installing-mcp-servers
+                    - text: as value
+                - row "hooks No Lifecycle hooks scoped to this subagent" [ref=e742]:
+                  - cell "hooks" [ref=e743]:
+                    - code [ref=e744]: hooks
+                  - cell "No" [ref=e745]
+                  - cell "Lifecycle hooks scoped to this subagent" [ref=e746]:
+                    - link "Lifecycle hooks" [ref=e747] [cursor=pointer]:
+                      - /url: "#define-hooks-for-subagents"
+                    - text: scoped to this subagent
+                - 'row "memory No Persistent memory scope: user, project, or local. Enables cross-session learning" [ref=e748]':
+                  - cell "memory" [ref=e749]:
+                    - code [ref=e750]: memory
+                  - cell "No" [ref=e751]
+                  - 'cell "Persistent memory scope: user, project, or local. Enables cross-session learning" [ref=e752]':
+                    - link "Persistent memory scope" [ref=e753] [cursor=pointer]:
+                      - /url: "#enable-persistent-memory"
+                    - text: ":"
+                    - code [ref=e754]: user
+                    - text: ","
+                    - code [ref=e755]: project
+                    - text: ", or"
+                    - code [ref=e756]: local
+                    - text: . Enables cross-session learning
+                - 'row "background No Set to true to always run this subagent as a background task. Default: false" [ref=e757]':
+                  - cell "background" [ref=e758]:
+                    - code [ref=e759]: background
+                  - cell "No" [ref=e760]
+                  - 'cell "Set to true to always run this subagent as a background task. Default: false" [ref=e761]':
+                    - text: Set to
+                    - code [ref=e762]: "true"
+                    - text: to always run this subagent as a
+                    - link "background task" [ref=e763] [cursor=pointer]:
+                      - /url: "#run-subagents-in-foreground-or-background"
+                    - text: ". Default:"
+                    - code [ref=e764]: "false"
+                - 'row "effort No Effort level when this subagent is active. Overrides the session effort level. Default: inherits from session. Options: low, medium, high, max (Opus 4.6 only)" [ref=e765]':
+                  - cell "effort" [ref=e766]:
+                    - code [ref=e767]: effort
+                  - cell "No" [ref=e768]
+                  - 'cell "Effort level when this subagent is active. Overrides the session effort level. Default: inherits from session. Options: low, medium, high, max (Opus 4.6 only)" [ref=e769]':
+                    - text: "Effort level when this subagent is active. Overrides the session effort level. Default: inherits from session. Options:"
+                    - code [ref=e770]: low
+                    - text: ","
+                    - code [ref=e771]: medium
+                    - text: ","
+                    - code [ref=e772]: high
+                    - text: ","
+                    - code [ref=e773]: max
+                    - text: (Opus 4.6 only)
+                - row "isolation No Set to worktree to run the subagent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the subagent makes no changes" [ref=e774]:
+                  - cell "isolation" [ref=e775]:
+                    - code [ref=e776]: isolation
+                  - cell "No" [ref=e777]
+                  - cell "Set to worktree to run the subagent in a temporary git worktree, giving it an isolated copy of the repository. The worktree is automatically cleaned up if the subagent makes no changes" [ref=e778]:
+                    - text: Set to
+                    - code [ref=e779]: worktree
+                    - text: to run the subagent in a temporary
+                    - link "git worktree" [ref=e780] [cursor=pointer]:
+                      - /url: /docs/en/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees
+                    - text: ", giving it an isolated copy of the repository. The worktree is automatically cleaned up if the subagent makes no changes"
+                - row "color No Display color for the subagent in the task list and transcript. Accepts red, blue, green, yellow, purple, orange, pink, or cyan" [ref=e781]:
+                  - cell "color" [ref=e782]:
+                    - code [ref=e783]: color
+                  - cell "No" [ref=e784]
+                  - cell "Display color for the subagent in the task list and transcript. Accepts red, blue, green, yellow, purple, orange, pink, or cyan" [ref=e785]:
+                    - text: Display color for the subagent in the task list and transcript. Accepts
+                    - code [ref=e786]: red
+                    - text: ","
+                    - code [ref=e787]: blue
+                    - text: ","
+                    - code [ref=e788]: green
+                    - text: ","
+                    - code [ref=e789]: yellow
+                    - text: ","
+                    - code [ref=e790]: purple
+                    - text: ","
+                    - code [ref=e791]: orange
+                    - text: ","
+                    - code [ref=e792]: pink
+                    - text: ", or"
+                    - code [ref=e793]: cyan
+                - row "initialPrompt No Auto-submitted as the first user turn when this agent runs as the main session agent (via --agent or the agent setting). Commands and skills are processed. Prepended to any user-provided prompt" [ref=e794]:
+                  - cell "initialPrompt" [ref=e795]:
+                    - code [ref=e796]: initialPrompt
+                  - cell "No" [ref=e797]
+                  - cell "Auto-submitted as the first user turn when this agent runs as the main session agent (via --agent or the agent setting). Commands and skills are processed. Prepended to any user-provided prompt" [ref=e798]:
+                    - text: Auto-submitted as the first user turn when this agent runs as the main session agent (via
+                    - code [ref=e799]: "--agent"
+                    - text: or the
+                    - code [ref=e800]: agent
+                    - text: setting).
+                    - link "Commands" [ref=e801] [cursor=pointer]:
+                      - /url: /docs/en/commands
+                    - text: and
+                    - link "skills" [ref=e802] [cursor=pointer]:
+                      - /url: /docs/en/skills
+                    - text: are processed. Prepended to any user-provided prompt
+            - heading "Navigate to header Choose a model" [level=3] [ref=e803]:
+              - link "Navigate to header" [ref=e804] [cursor=pointer]:
+                - /url: "#choose-a-model"
+                - img [ref=e806]
+              - generic [ref=e808] [cursor=pointer]: Choose a model
+            - generic [ref=e809]:
+              - text: The
+              - code [ref=e810]: model
+              - text: field controls which
+              - link "AI model" [ref=e811] [cursor=pointer]:
+                - /url: /docs/en/model-config
+              - text: "the subagent uses:"
+            - list [ref=e812]:
+              - listitem [ref=e813]:
+                - strong [ref=e814]: Model alias
+                - text: ": Use one of the available aliases:"
+                - code [ref=e815]: sonnet
+                - text: ","
+                - code [ref=e816]: opus
+                - text: ", or"
+                - code [ref=e817]: haiku
+              - listitem [ref=e818]:
+                - strong [ref=e819]: Full model ID
+                - text: ": Use a full model ID such as"
+                - code [ref=e820]: claude-opus-4-6
+                - text: or
+                - code [ref=e821]: claude-sonnet-4-6
+                - text: . Accepts the same values as the
+                - code [ref=e822]: "--model"
+                - text: flag
+              - listitem [ref=e823]:
+                - strong [ref=e824]: inherit
+                - text: ": Use the same model as the main conversation"
+              - listitem [ref=e825]:
+                - strong [ref=e826]: Omitted
+                - text: ": If not specified, defaults to"
+                - code [ref=e827]: inherit
+                - text: (uses the same model as the main conversation)
+            - generic [ref=e828]:
+              - text: When Claude invokes a subagent, it can also pass a
+              - code [ref=e829]: model
+              - text: "parameter for that specific invocation. Claude Code resolves the subagent’s model in this order:"
+            - list [ref=e830]:
+              - listitem [ref=e831]:
+                - text: The
+                - link "CLAUDE_CODE_SUBAGENT_MODEL" [ref=e832] [cursor=pointer]:
+                  - /url: /docs/en/model-config#environment-variables
+                  - code [ref=e833]: CLAUDE_CODE_SUBAGENT_MODEL
+                - text: environment variable, if set
+              - listitem [ref=e834]:
+                - text: The per-invocation
+                - code [ref=e835]: model
+                - text: parameter
+              - listitem [ref=e836]:
+                - text: The subagent definition’s
+                - code [ref=e837]: model
+                - text: frontmatter
+              - listitem [ref=e838]: The main conversation’s model
+            - heading "Navigate to header Control subagent capabilities" [level=3] [ref=e839]:
+              - link "Navigate to header" [ref=e840] [cursor=pointer]:
+                - /url: "#control-subagent-capabilities"
+                - img [ref=e842]
+              - generic [ref=e844] [cursor=pointer]: Control subagent capabilities
+            - generic [ref=e845]: You can control what subagents can do through tool access, permission modes, and conditional rules.
+            - heading "Navigate to header Available tools" [level=4] [ref=e846]:
+              - link "Navigate to header" [ref=e847] [cursor=pointer]:
+                - /url: "#available-tools"
+                - img [ref=e849]
+              - generic [ref=e851] [cursor=pointer]: Available tools
+            - generic [ref=e852]:
+              - text: Subagents can use any of Claude Code’s
+              - link "internal tools" [ref=e853] [cursor=pointer]:
+                - /url: /docs/en/tools-reference
+              - text: . By default, subagents inherit all tools from the main conversation, including MCP tools.
+            - generic [ref=e854]:
+              - text: To restrict tools, use either the
+              - code [ref=e855]: tools
+              - text: field (allowlist) or the
+              - code [ref=e856]: disallowedTools
+              - text: field (denylist). This example uses
+              - code [ref=e857]: tools
+              - text: "to exclusively allow Read, Grep, Glob, and Bash. The subagent can’t edit files, write files, or use any MCP tools:"
+            - generic [ref=e858]:
+              - generic [ref=e859]:
+                - button "Report incorrect code" [ref=e861] [cursor=pointer]:
+                  - img [ref=e862]
+                - button "Copy the contents from the code block" [ref=e865] [cursor=pointer]:
+                  - img [ref=e866]
+                - button "Ask AI" [ref=e870] [cursor=pointer]:
+                  - img [ref=e871]
+              - code [ref=e877]:
+                - generic [ref=e878]: "---"
+                - generic [ref=e879]: "name: safe-researcher"
+                - generic [ref=e880]: "description: Research agent with restricted capabilities"
+                - generic [ref=e881]: "tools: Read, Grep, Glob, Bash"
+                - generic [ref=e882]: "---"
+            - generic [ref=e883]:
+              - text: This example uses
+              - code [ref=e884]: disallowedTools
+              - text: "to inherit every tool from the main conversation except Write and Edit. The subagent keeps Bash, MCP tools, and everything else:"
+            - generic [ref=e885]:
+              - generic [ref=e886]:
+                - button "Report incorrect code" [ref=e888] [cursor=pointer]:
+                  - img [ref=e889]
+                - button "Copy the contents from the code block" [ref=e892] [cursor=pointer]:
+                  - img [ref=e893]
+                - button "Ask AI" [ref=e897] [cursor=pointer]:
+                  - img [ref=e898]
+              - code [ref=e904]:
+                - generic [ref=e905]: "---"
+                - generic [ref=e906]: "name: no-writes"
+                - generic [ref=e907]: "description: Inherits every tool except file writes"
+                - generic [ref=e908]: "disallowedTools: Write, Edit"
+                - generic [ref=e909]: "---"
+            - generic [ref=e910]:
+              - text: If both are set,
+              - code [ref=e911]: disallowedTools
+              - text: is applied first, then
+              - code [ref=e912]: tools
+              - text: is resolved against the remaining pool. A tool listed in both is removed.
+            - heading "Navigate to header Restrict which subagents can be spawned" [level=4] [ref=e913]:
+              - link "Navigate to header" [ref=e914] [cursor=pointer]:
+                - /url: "#restrict-which-subagents-can-be-spawned"
+                - img [ref=e916]
+              - generic [ref=e918] [cursor=pointer]: Restrict which subagents can be spawned
+            - generic [ref=e919]:
+              - text: When an agent runs as the main thread with
+              - code [ref=e920]: claude --agent
+              - text: ", it can spawn subagents using the Agent tool. To restrict which subagent types it can spawn, use"
+              - code [ref=e921]: Agent(agent_type)
+              - text: syntax in the
+              - code [ref=e922]: tools
+              - text: field.
+            - generic [ref=e923]:
+              - img "Note" [ref=e925]
+              - generic [ref=e927]:
+                - text: In version 2.1.63, the Task tool was renamed to Agent. Existing
+                - code [ref=e928]: Task(...)
+                - text: references in settings and agent definitions still work as aliases.
+            - generic [ref=e929]:
+              - generic [ref=e930]:
+                - button "Report incorrect code" [ref=e932] [cursor=pointer]:
+                  - img [ref=e933]
+                - button "Copy the contents from the code block" [ref=e936] [cursor=pointer]:
+                  - img [ref=e937]
+                - button "Ask AI" [ref=e941] [cursor=pointer]:
+                  - img [ref=e942]
+              - code [ref=e948]:
+                - generic [ref=e949]: "---"
+                - generic [ref=e950]: "name: coordinator"
+                - generic [ref=e951]: "description: Coordinates work across specialized agents"
+                - generic [ref=e952]: "tools: Agent(worker, researcher), Read, Bash"
+                - generic [ref=e953]: "---"
+            - generic [ref=e954]:
+              - text: "This is an allowlist: only the"
+              - code [ref=e955]: worker
+              - text: and
+              - code [ref=e956]: researcher
+              - text: subagents can be spawned. If the agent tries to spawn any other type, the request fails and the agent sees only the allowed types in its prompt. To block specific agents while allowing all others, use
+              - link "permissions.deny" [ref=e957] [cursor=pointer]:
+                - /url: "#disable-specific-subagents"
+                - code [ref=e958]: permissions.deny
+              - text: instead.
+            - generic [ref=e959]:
+              - text: To allow spawning any subagent without restrictions, use
+              - code [ref=e960]: Agent
+              - text: "without parentheses:"
+            - generic [ref=e961]:
+              - generic [ref=e962]:
+                - button "Report incorrect code" [ref=e964] [cursor=pointer]:
+                  - img [ref=e965]
+                - button "Copy the contents from the code block" [ref=e968] [cursor=pointer]:
+                  - img [ref=e969]
+                - button "Ask AI" [ref=e973] [cursor=pointer]:
+                  - img [ref=e974]
+              - code [ref=e980]:
+                - generic [ref=e981]: "tools: Agent, Read, Bash"
+            - generic [ref=e982]:
+              - text: If
+              - code [ref=e983]: Agent
+              - text: is omitted from the
+              - code [ref=e984]: tools
+              - text: list entirely, the agent cannot spawn any subagents. This restriction only applies to agents running as the main thread with
+              - code [ref=e985]: claude --agent
+              - text: . Subagents cannot spawn other subagents, so
+              - code [ref=e986]: Agent(agent_type)
+              - text: has no effect in subagent definitions.
+            - heading "Navigate to header Scope MCP servers to a subagent" [level=4] [ref=e987]:
+              - link "Navigate to header" [ref=e988] [cursor=pointer]:
+                - /url: "#scope-mcp-servers-to-a-subagent"
+                - img [ref=e990]
+              - generic [ref=e992] [cursor=pointer]: Scope MCP servers to a subagent
+            - generic [ref=e993]:
+              - text: Use the
+              - code [ref=e994]: mcpServers
+              - text: field to give a subagent access to
+              - link "MCP" [ref=e995] [cursor=pointer]:
+                - /url: /docs/en/mcp
+              - text: servers that aren’t available in the main conversation. Inline servers defined here are connected when the subagent starts and disconnected when it finishes. String references share the parent session’s connection.
+            - generic [ref=e996]: "Each entry in the list is either an inline server definition or a string referencing an MCP server already configured in your session:"
+            - generic [ref=e997]:
+              - generic [ref=e998]:
+                - button "Report incorrect code" [ref=e1000] [cursor=pointer]:
+                  - img [ref=e1001]
+                - button "Copy the contents from the code block" [ref=e1004] [cursor=pointer]:
+                  - img [ref=e1005]
+                - button "Ask AI" [ref=e1009] [cursor=pointer]:
+                  - img [ref=e1010]
+              - code [ref=e1016]:
+                - generic [ref=e1017]: "---"
+                - generic [ref=e1018]: "name: browser-tester"
+                - generic [ref=e1019]: "description: Tests features in a real browser using Playwright"
+                - generic [ref=e1020]: "mcpServers:"
+                - generic [ref=e1021]: "# Inline definition: scoped to this subagent only"
+                - generic [ref=e1022]: "- playwright:"
+                - generic [ref=e1023]: "type: stdio"
+                - generic [ref=e1024]: "command: npx"
+                - generic [ref=e1025]: "args: [\"-y\", \"@playwright/mcp@latest\"]"
+                - generic [ref=e1026]: "# Reference by name: reuses an already-configured server"
+                - generic [ref=e1027]: "- github"
+                - generic [ref=e1028]: "---"
+                - generic [ref=e1029]: Use the Playwright tools to navigate, screenshot, and interact with pages.
+            - generic [ref=e1030]:
+              - text: Inline definitions use the same schema as
+              - code [ref=e1031]: .mcp.json
+              - text: server entries (
+              - code [ref=e1032]: stdio
+              - text: ","
+              - code [ref=e1033]: http
+              - text: ","
+              - code [ref=e1034]: sse
+              - text: ","
+              - code [ref=e1035]: ws
+              - text: ), keyed by the server name.
+            - generic [ref=e1036]:
+              - text: To keep an MCP server out of the main conversation entirely and avoid its tool descriptions consuming context there, define it inline here rather than in
+              - code [ref=e1037]: .mcp.json
+              - text: . The subagent gets the tools; the parent conversation does not.
+            - heading "Navigate to header Permission modes" [level=4] [ref=e1038]:
+              - link "Navigate to header" [ref=e1039] [cursor=pointer]:
+                - /url: "#permission-modes"
+                - img [ref=e1041]
+              - generic [ref=e1043] [cursor=pointer]: Permission modes
+            - generic [ref=e1044]:
+              - text: The
+              - code [ref=e1045]: permissionMode
+              - text: field controls how the subagent handles permission prompts. Subagents inherit the permission context from the main conversation and can override the mode, except when the parent mode takes precedence as described below.
+            - table [ref=e1048]:
+              - rowgroup [ref=e1049]:
+                - row "Mode Behavior" [ref=e1050]:
+                  - columnheader "Mode" [ref=e1051]
+                  - columnheader "Behavior" [ref=e1052]
+              - rowgroup [ref=e1053]:
+                - row "default Standard permission checking with prompts" [ref=e1054]:
+                  - cell "default" [ref=e1055]:
+                    - code [ref=e1056]: default
+                  - cell "Standard permission checking with prompts" [ref=e1057]
+                - row "acceptEdits Auto-accept file edits and common filesystem commands for paths in the working directory or additionalDirectories" [ref=e1058]:
+                  - cell "acceptEdits" [ref=e1059]:
+                    - code [ref=e1060]: acceptEdits
+                  - cell "Auto-accept file edits and common filesystem commands for paths in the working directory or additionalDirectories" [ref=e1061]:
+                    - text: Auto-accept file edits and common filesystem commands for paths in the working directory or
+                    - code [ref=e1062]: additionalDirectories
+                - 'row "auto Auto mode: a background classifier reviews commands and protected-directory writes" [ref=e1063]':
+                  - cell "auto" [ref=e1064]:
+                    - code [ref=e1065]: auto
+                  - 'cell "Auto mode: a background classifier reviews commands and protected-directory writes" [ref=e1066]':
+                    - link "Auto mode" [ref=e1067] [cursor=pointer]:
+                      - /url: /docs/en/permission-modes#eliminate-prompts-with-auto-mode
+                    - text: ": a background classifier reviews commands and protected-directory writes"
+                - row "dontAsk Auto-deny permission prompts (explicitly allowed tools still work)" [ref=e1068]:
+                  - cell "dontAsk" [ref=e1069]:
+                    - code [ref=e1070]: dontAsk
+                  - cell "Auto-deny permission prompts (explicitly allowed tools still work)" [ref=e1071]
+                - row "bypassPermissions Skip permission prompts" [ref=e1072]:
+                  - cell "bypassPermissions" [ref=e1073]:
+                    - code [ref=e1074]: bypassPermissions
+                  - cell "Skip permission prompts" [ref=e1075]
+                - row "plan Plan mode (read-only exploration)" [ref=e1076]:
+                  - cell "plan" [ref=e1077]:
+                    - code [ref=e1078]: plan
+                  - cell "Plan mode (read-only exploration)" [ref=e1079]
+            - generic [ref=e1080]:
+              - img "Warning" [ref=e1082]
+              - generic [ref=e1085]:
+                - text: Use
+                - code [ref=e1086]: bypassPermissions
+                - text: with caution. It skips permission prompts, allowing the subagent to execute operations without approval. Writes to
+                - code [ref=e1087]: .git
+                - text: ","
+                - code [ref=e1088]: .claude
+                - text: ","
+                - code [ref=e1089]: .vscode
+                - text: ","
+                - code [ref=e1090]: .idea
+                - text: ", and"
+                - code [ref=e1091]: .husky
+                - text: directories still prompt for confirmation, except for
+                - code [ref=e1092]: .claude/commands
+                - text: ","
+                - code [ref=e1093]: .claude/agents
+                - text: ", and"
+                - code [ref=e1094]: .claude/skills
+                - text: . See
+                - link "permission modes" [ref=e1095] [cursor=pointer]:
+                  - /url: /docs/en/permission-modes#skip-all-checks-with-bypasspermissions-mode
+                - text: for details.
+            - generic [ref=e1096]:
+              - text: If the parent uses
+              - code [ref=e1097]: bypassPermissions
+              - text: ", this takes precedence and cannot be overridden. If the parent uses"
+              - link "auto mode" [ref=e1098] [cursor=pointer]:
+                - /url: /docs/en/permission-modes#eliminate-prompts-with-auto-mode
+              - text: ", the subagent inherits auto mode and any"
+              - code [ref=e1099]: permissionMode
+              - text: "in its frontmatter is ignored: the classifier evaluates the subagent’s tool calls with the same block and allow rules as the parent session."
+            - heading "Navigate to header Preload skills into subagents" [level=4] [ref=e1100]:
+              - link "Navigate to header" [ref=e1101] [cursor=pointer]:
+                - /url: "#preload-skills-into-subagents"
+                - img [ref=e1103]
+              - generic [ref=e1105] [cursor=pointer]: Preload skills into subagents
+            - generic [ref=e1106]:
+              - text: Use the
+              - code [ref=e1107]: skills
+              - text: field to inject skill content into a subagent’s context at startup. This gives the subagent domain knowledge without requiring it to discover and load skills during execution.
+            - generic [ref=e1108]:
+              - generic [ref=e1109]:
+                - button "Report incorrect code" [ref=e1111] [cursor=pointer]:
+                  - img [ref=e1112]
+                - button "Copy the contents from the code block" [ref=e1115] [cursor=pointer]:
+                  - img [ref=e1116]
+                - button "Ask AI" [ref=e1120] [cursor=pointer]:
+                  - img [ref=e1121]
+              - code [ref=e1127]:
+                - generic [ref=e1128]: "---"
+                - generic [ref=e1129]: "name: api-developer"
+                - generic [ref=e1130]: "description: Implement API endpoints following team conventions"
+                - generic [ref=e1131]: "skills:"
+                - generic [ref=e1132]: "- api-conventions"
+                - generic [ref=e1133]: "- error-handling-patterns"
+                - generic [ref=e1134]: "---"
+                - generic [ref=e1135]: Implement API endpoints. Follow the conventions and patterns from the preloaded skills.
+            - generic [ref=e1136]: The full content of each skill is injected into the subagent’s context, not just made available for invocation. Subagents don’t inherit skills from the parent conversation; you must list them explicitly.
+            - generic [ref=e1137]:
+              - img "Note" [ref=e1139]
+              - generic [ref=e1142]:
+                - text: This is the inverse of
+                - link "running a skill in a subagent" [ref=e1143] [cursor=pointer]:
+                  - /url: /docs/en/skills#run-skills-in-a-subagent
+                - text: . With
+                - code [ref=e1144]: skills
+                - text: in a subagent, the subagent controls the system prompt and loads skill content. With
+                - code [ref=e1145]: "context: fork"
+                - text: in a skill, the skill content is injected into the agent you specify. Both use the same underlying system.
+            - heading "Navigate to header Enable persistent memory" [level=4] [ref=e1146]:
+              - link "Navigate to header" [ref=e1147] [cursor=pointer]:
+                - /url: "#enable-persistent-memory"
+                - img [ref=e1149]
+              - generic [ref=e1151] [cursor=pointer]: Enable persistent memory
+            - generic [ref=e1152]:
+              - text: The
+              - code [ref=e1153]: memory
+              - text: field gives the subagent a persistent directory that survives across conversations. The subagent uses this directory to build up knowledge over time, such as codebase patterns, debugging insights, and architectural decisions.
+            - generic [ref=e1154]:
+              - generic [ref=e1155]:
+                - button "Report incorrect code" [ref=e1157] [cursor=pointer]:
+                  - img [ref=e1158]
+                - button "Copy the contents from the code block" [ref=e1161] [cursor=pointer]:
+                  - img [ref=e1162]
+                - button "Ask AI" [ref=e1166] [cursor=pointer]:
+                  - img [ref=e1167]
+              - code [ref=e1173]:
+                - generic [ref=e1174]: "---"
+                - generic [ref=e1175]: "name: code-reviewer"
+                - generic [ref=e1176]: "description: Reviews code for quality and best practices"
+                - generic [ref=e1177]: "memory: user"
+                - generic [ref=e1178]: "---"
+                - generic [ref=e1179]: You are a code reviewer. As you review code, update your agent memory with
+                - generic [ref=e1180]: patterns, conventions, and recurring issues you discover.
+            - generic [ref=e1181]: "Choose a scope based on how broadly the memory should apply:"
+            - table [ref=e1184]:
+              - rowgroup [ref=e1185]:
+                - row "Scope Location Use when" [ref=e1186]:
+                  - columnheader "Scope" [ref=e1187]
+                  - columnheader "Location" [ref=e1188]
+                  - columnheader "Use when" [ref=e1189]
+              - rowgroup [ref=e1190]:
+                - row "user ~/.claude/agent-memory/<name-of-agent>/ the subagent should remember learnings across all projects" [ref=e1191]:
+                  - cell "user" [ref=e1192]:
+                    - code [ref=e1193]: user
+                  - cell "~/.claude/agent-memory/<name-of-agent>/" [ref=e1194]:
+                    - code [ref=e1195]: ~/.claude/agent-memory/<name-of-agent>/
+                  - cell "the subagent should remember learnings across all projects" [ref=e1196]
+                - row "project .claude/agent-memory/<name-of-agent>/ the subagent’s knowledge is project-specific and shareable via version control" [ref=e1197]:
+                  - cell "project" [ref=e1198]:
+                    - code [ref=e1199]: project
+                  - cell ".claude/agent-memory/<name-of-agent>/" [ref=e1200]:
+                    - code [ref=e1201]: .claude/agent-memory/<name-of-agent>/
+                  - cell "the subagent’s knowledge is project-specific and shareable via version control" [ref=e1202]
+                - row "local .claude/agent-memory-local/<name-of-agent>/ the subagent’s knowledge is project-specific but should not be checked into version control" [ref=e1203]:
+                  - cell "local" [ref=e1204]:
+                    - code [ref=e1205]: local
+                  - cell ".claude/agent-memory-local/<name-of-agent>/" [ref=e1206]:
+                    - code [ref=e1207]: .claude/agent-memory-local/<name-of-agent>/
+                  - cell "the subagent’s knowledge is project-specific but should not be checked into version control" [ref=e1208]
+            - generic [ref=e1209]: "When memory is enabled:"
+            - list [ref=e1210]:
+              - listitem [ref=e1211]: The subagent’s system prompt includes instructions for reading and writing to the memory directory.
+              - listitem [ref=e1212]:
+                - text: The subagent’s system prompt also includes the first 200 lines or 25KB of
+                - code [ref=e1213]: MEMORY.md
+                - text: in the memory directory, whichever comes first, with instructions to curate
+                - code [ref=e1214]: MEMORY.md
+                - text: if it exceeds that limit.
+              - listitem [ref=e1215]: Read, Write, and Edit tools are automatically enabled so the subagent can manage its memory files.
+            - heading "Persistent memory tips" [level=5] [ref=e1216]
+            - list [ref=e1217]:
+              - listitem [ref=e1218]:
+                - generic [ref=e1219]:
+                  - code [ref=e1220]: project
+                  - text: is the recommended default scope. It makes subagent knowledge shareable via version control. Use
+                  - code [ref=e1221]: user
+                  - text: when the subagent’s knowledge is broadly applicable across projects, or
+                  - code [ref=e1222]: local
+                  - text: when the knowledge should not be checked into version control.
+              - listitem [ref=e1223]: "Ask the subagent to consult its memory before starting work: “Review this PR, and check your memory for patterns you’ve seen before.”"
+              - listitem [ref=e1224]: "Ask the subagent to update its memory after completing a task: “Now that you’re done, save what you learned to your memory.” Over time, this builds a knowledge base that makes the subagent more effective."
+              - listitem [ref=e1225]:
+                - text: "Include memory instructions directly in the subagent’s markdown file so it proactively maintains its own knowledge base:"
+                - generic [ref=e1226]:
+                  - generic [ref=e1227]:
+                    - button "Report incorrect code" [ref=e1229] [cursor=pointer]:
+                      - img [ref=e1230]
+                    - button "Copy the contents from the code block" [ref=e1233] [cursor=pointer]:
+                      - img [ref=e1234]
+                    - button "Ask AI" [ref=e1238] [cursor=pointer]:
+                      - img [ref=e1239]
+                  - code [ref=e1245]:
+                    - generic [ref=e1246]: Update your agent memory as you discover codepaths, patterns, library
+                    - generic [ref=e1247]: locations, and key architectural decisions. This builds up institutional
+                    - generic [ref=e1248]: knowledge across conversations. Write concise notes about what you found
+                    - generic [ref=e1249]: and where.
+            - heading "Navigate to header Conditional rules with hooks" [level=4] [ref=e1250]:
+              - link "Navigate to header" [ref=e1251] [cursor=pointer]:
+                - /url: "#conditional-rules-with-hooks"
+                - img [ref=e1253]
+              - generic [ref=e1255] [cursor=pointer]: Conditional rules with hooks
+            - generic [ref=e1256]:
+              - text: For more dynamic control over tool usage, use
+              - code [ref=e1257]: PreToolUse
+              - text: hooks to validate operations before they execute. This is useful when you need to allow some operations of a tool while blocking others.
+            - generic [ref=e1258]:
+              - text: This example creates a subagent that only allows read-only database queries. The
+              - code [ref=e1259]: PreToolUse
+              - text: hook runs the script specified in
+              - code [ref=e1260]: command
+              - text: "before each Bash command executes:"
+            - generic [ref=e1261]:
+              - generic [ref=e1262]:
+                - button "Report incorrect code" [ref=e1264] [cursor=pointer]:
+                  - img [ref=e1265]
+                - button "Copy the contents from the code block" [ref=e1268] [cursor=pointer]:
+                  - img [ref=e1269]
+                - button "Ask AI" [ref=e1273] [cursor=pointer]:
+                  - img [ref=e1274]
+              - code [ref=e1280]:
+                - generic [ref=e1281]: "---"
+                - generic [ref=e1282]: "name: db-reader"
+                - generic [ref=e1283]: "description: Execute read-only database queries"
+                - generic [ref=e1284]: "tools: Bash"
+                - generic [ref=e1285]: "hooks:"
+                - generic [ref=e1286]: "PreToolUse:"
+                - generic [ref=e1287]: "- matcher: \"Bash\""
+                - generic [ref=e1288]: "hooks:"
+                - generic [ref=e1289]: "- type: command"
+                - generic [ref=e1290]: "command: \"./scripts/validate-readonly-query.sh\""
+                - generic [ref=e1291]: "---"
+            - generic [ref=e1292]:
+              - text: Claude Code
+              - link "passes hook input as JSON" [ref=e1293] [cursor=pointer]:
+                - /url: /docs/en/hooks#pretooluse-input
+              - text: via stdin to hook commands. The validation script reads this JSON, extracts the Bash command, and
+              - link "exits with code 2" [ref=e1294] [cursor=pointer]:
+                - /url: /docs/en/hooks#exit-code-2-behavior-per-event
+              - text: "to block write operations:"
+            - generic [ref=e1295]:
+              - generic [ref=e1296]:
+                - button "Report incorrect code" [ref=e1298] [cursor=pointer]:
+                  - img [ref=e1299]
+                - button "Copy the contents from the code block" [ref=e1302] [cursor=pointer]:
+                  - img [ref=e1303]
+                - button "Ask AI" [ref=e1307] [cursor=pointer]:
+                  - img [ref=e1308]
+              - code [ref=e1314]:
+                - generic [ref=e1315]: "#!/bin/bash"
+                - generic [ref=e1316]: "# ./scripts/validate-readonly-query.sh"
+                - generic [ref=e1317]: INPUT=$(cat)
+                - generic [ref=e1318]: COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+                - generic [ref=e1319]: "# Block SQL write operations (case-insensitive)"
+                - generic [ref=e1320]: if echo "$COMMAND" | grep -iE '\b(INSERT|UPDATE|DELETE|DROP|CREATE|ALTER|TRUNCATE)\b' > /dev/null; then
+                - generic [ref=e1321]: "echo \"Blocked: Only SELECT queries are allowed\" >&2"
+                - generic [ref=e1322]: exit 2
+                - generic [ref=e1323]: fi
+                - generic [ref=e1324]: exit 0
+            - generic [ref=e1325]:
+              - text: See
+              - link "Hook input" [ref=e1326] [cursor=pointer]:
+                - /url: /docs/en/hooks#pretooluse-input
+              - text: for the complete input schema and
+              - link "exit codes" [ref=e1327] [cursor=pointer]:
+                - /url: /docs/en/hooks#exit-code-output
+              - text: for how exit codes affect behavior.
+            - heading "Navigate to header Disable specific subagents" [level=4] [ref=e1328]:
+              - link "Navigate to header" [ref=e1329] [cursor=pointer]:
+                - /url: "#disable-specific-subagents"
+                - img [ref=e1331]
+              - generic [ref=e1333] [cursor=pointer]: Disable specific subagents
+            - generic [ref=e1334]:
+              - text: You can prevent Claude from using specific subagents by adding them to the
+              - code [ref=e1335]: deny
+              - text: array in your
+              - link "settings" [ref=e1336] [cursor=pointer]:
+                - /url: /docs/en/settings#permission-settings
+              - text: . Use the format
+              - code [ref=e1337]: Agent(subagent-name)
+              - text: where
+              - code [ref=e1338]: subagent-name
+              - text: matches the subagent’s name field.
+            - generic [ref=e1339]:
+              - generic [ref=e1340]:
+                - button "Report incorrect code" [ref=e1342] [cursor=pointer]:
+                  - img [ref=e1343]
+                - button "Copy the contents from the code block" [ref=e1346] [cursor=pointer]:
+                  - img [ref=e1347]
+                - button "Ask AI" [ref=e1351] [cursor=pointer]:
+                  - img [ref=e1352]
+              - code [ref=e1358]:
+                - generic [ref=e1359]: "{"
+                - generic [ref=e1360]: "\"permissions\": {"
+                - generic [ref=e1361]: "\"deny\": [\"Agent(Explore)\", \"Agent(my-custom-agent)\"]"
+                - generic [ref=e1362]: "}"
+                - generic [ref=e1363]: "}"
+            - generic [ref=e1364]:
+              - text: This works for both built-in and custom subagents. You can also use the
+              - code [ref=e1365]: "--disallowedTools"
+              - text: "CLI flag:"
+            - generic [ref=e1366]:
+              - generic [ref=e1367]:
+                - button "Report incorrect code" [ref=e1369] [cursor=pointer]:
+                  - img [ref=e1370]
+                - button "Copy the contents from the code block" [ref=e1373] [cursor=pointer]:
+                  - img [ref=e1374]
+                - button "Ask AI" [ref=e1378] [cursor=pointer]:
+                  - img [ref=e1379]
+              - code [ref=e1385]:
+                - generic [ref=e1386]: claude --disallowedTools "Agent(Explore)"
+            - generic [ref=e1387]:
+              - text: See
+              - link "Permissions documentation" [ref=e1388] [cursor=pointer]:
+                - /url: /docs/en/permissions#tool-specific-permission-rules
+              - text: for more details on permission rules.
+            - heading "Navigate to header Define hooks for subagents" [level=3] [ref=e1389]:
+              - link "Navigate to header" [ref=e1390] [cursor=pointer]:
+                - /url: "#define-hooks-for-subagents"
+                - img [ref=e1392]
+              - generic [ref=e1394] [cursor=pointer]: Define hooks for subagents
+            - generic [ref=e1395]:
+              - text: Subagents can define
+              - link "hooks" [ref=e1396] [cursor=pointer]:
+                - /url: /docs/en/hooks
+              - text: "that run during the subagent’s lifecycle. There are two ways to configure hooks:"
+            - list [ref=e1397]:
+              - listitem [ref=e1398]:
+                - strong [ref=e1399]: In the subagent’s frontmatter
+                - text: ": Define hooks that run only while that subagent is active"
+              - listitem [ref=e1400]:
+                - strong [ref=e1401]:
+                  - text: In
+                  - code [ref=e1402]: settings.json
+                - text: ": Define hooks that run in the main session when subagents start or stop"
+            - heading "Navigate to header Hooks in subagent frontmatter" [level=4] [ref=e1403]:
+              - link "Navigate to header" [ref=e1404] [cursor=pointer]:
+                - /url: "#hooks-in-subagent-frontmatter"
+                - img [ref=e1406]
+              - generic [ref=e1408] [cursor=pointer]: Hooks in subagent frontmatter
+            - generic [ref=e1409]: Define hooks directly in the subagent’s markdown file. These hooks only run while that specific subagent is active and are cleaned up when it finishes.
+            - generic [ref=e1410]:
+              - img "Note" [ref=e1412]
+              - generic [ref=e1415]:
+                - text: Frontmatter hooks fire when the agent is spawned as a subagent through the Agent tool or an @-mention. They do not fire when the agent runs as the main session via
+                - link "--agent" [ref=e1416] [cursor=pointer]:
+                  - /url: "#invoke-subagents-explicitly"
+                  - code [ref=e1417]: "--agent"
+                - text: or the
+                - code [ref=e1418]: agent
+                - text: setting. For session-wide hooks, configure them in
+                - link "settings.json" [ref=e1419] [cursor=pointer]:
+                  - /url: /docs/en/hooks
+                  - code [ref=e1420]: settings.json
+                - text: .
+            - generic [ref=e1421]:
+              - text: All
+              - link "hook events" [ref=e1422] [cursor=pointer]:
+                - /url: /docs/en/hooks#hook-events
+              - text: "are supported. The most common events for subagents are:"
+            - table [ref=e1425]:
+              - rowgroup [ref=e1426]:
+                - row "Event Matcher input When it fires" [ref=e1427]:
+                  - columnheader "Event" [ref=e1428]
+                  - columnheader "Matcher input" [ref=e1429]
+                  - columnheader "When it fires" [ref=e1430]
+              - rowgroup [ref=e1431]:
+                - row "PreToolUse Tool name Before the subagent uses a tool" [ref=e1432]:
+                  - cell "PreToolUse" [ref=e1433]:
+                    - code [ref=e1434]: PreToolUse
+                  - cell "Tool name" [ref=e1435]
+                  - cell "Before the subagent uses a tool" [ref=e1436]
+                - row "PostToolUse Tool name After the subagent uses a tool" [ref=e1437]:
+                  - cell "PostToolUse" [ref=e1438]:
+                    - code [ref=e1439]: PostToolUse
+                  - cell "Tool name" [ref=e1440]
+                  - cell "After the subagent uses a tool" [ref=e1441]
+                - row "Stop (none) When the subagent finishes (converted to SubagentStop at runtime)" [ref=e1442]:
+                  - cell "Stop" [ref=e1443]:
+                    - code [ref=e1444]: Stop
+                  - cell "(none)" [ref=e1445]
+                  - cell "When the subagent finishes (converted to SubagentStop at runtime)" [ref=e1446]:
+                    - text: When the subagent finishes (converted to
+                    - code [ref=e1447]: SubagentStop
+                    - text: at runtime)
+            - generic [ref=e1448]:
+              - text: This example validates Bash commands with the
+              - code [ref=e1449]: PreToolUse
+              - text: hook and runs a linter after file edits with
+              - code [ref=e1450]: PostToolUse
+              - text: ":"
+            - generic [ref=e1451]:
+              - generic [ref=e1452]:
+                - button "Report incorrect code" [ref=e1454] [cursor=pointer]:
+                  - img [ref=e1455]
+                - button "Copy the contents from the code block" [ref=e1458] [cursor=pointer]:
+                  - img [ref=e1459]
+                - button "Ask AI" [ref=e1463] [cursor=pointer]:
+                  - img [ref=e1464]
+              - code [ref=e1470]:
+                - generic [ref=e1471]: "---"
+                - generic [ref=e1472]: "name: code-reviewer"
+                - generic [ref=e1473]: "description: Review code changes with automatic linting"
+                - generic [ref=e1474]: "hooks:"
+                - generic [ref=e1475]: "PreToolUse:"
+                - generic [ref=e1476]: "- matcher: \"Bash\""
+                - generic [ref=e1477]: "hooks:"
+                - generic [ref=e1478]: "- type: command"
+                - generic [ref=e1479]: "command: \"./scripts/validate-command.sh $TOOL_INPUT\""
+                - generic [ref=e1480]: "PostToolUse:"
+                - generic [ref=e1481]: "- matcher: \"Edit|Write\""
+                - generic [ref=e1482]: "hooks:"
+                - generic [ref=e1483]: "- type: command"
+                - generic [ref=e1484]: "command: \"./scripts/run-linter.sh\""
+                - generic [ref=e1485]: "---"
+            - generic [ref=e1486]:
+              - code [ref=e1487]: Stop
+              - text: hooks in frontmatter are automatically converted to
+              - code [ref=e1488]: SubagentStop
+              - text: events.
+            - heading "Navigate to header Project-level hooks for subagent events" [level=4] [ref=e1489]:
+              - link "Navigate to header" [ref=e1490] [cursor=pointer]:
+                - /url: "#project-level-hooks-for-subagent-events"
+                - img [ref=e1492]
+              - generic [ref=e1494] [cursor=pointer]: Project-level hooks for subagent events
+            - generic [ref=e1495]:
+              - text: Configure hooks in
+              - code [ref=e1496]: settings.json
+              - text: that respond to subagent lifecycle events in the main session.
+            - table [ref=e1499]:
+              - rowgroup [ref=e1500]:
+                - row "Event Matcher input When it fires" [ref=e1501]:
+                  - columnheader "Event" [ref=e1502]
+                  - columnheader "Matcher input" [ref=e1503]
+                  - columnheader "When it fires" [ref=e1504]
+              - rowgroup [ref=e1505]:
+                - row "SubagentStart Agent type name When a subagent begins execution" [ref=e1506]:
+                  - cell "SubagentStart" [ref=e1507]:
+                    - code [ref=e1508]: SubagentStart
+                  - cell "Agent type name" [ref=e1509]
+                  - cell "When a subagent begins execution" [ref=e1510]
+                - row "SubagentStop Agent type name When a subagent completes" [ref=e1511]:
+                  - cell "SubagentStop" [ref=e1512]:
+                    - code [ref=e1513]: SubagentStop
+                  - cell "Agent type name" [ref=e1514]
+                  - cell "When a subagent completes" [ref=e1515]
+            - generic [ref=e1516]:
+              - text: Both events support matchers to target specific agent types by name. This example runs a setup script only when the
+              - code [ref=e1517]: db-agent
+              - text: "subagent starts, and a cleanup script when any subagent stops:"
+            - generic [ref=e1518]:
+              - generic [ref=e1519]:
+                - button "Report incorrect code" [ref=e1521] [cursor=pointer]:
+                  - img [ref=e1522]
+                - button "Copy the contents from the code block" [ref=e1525] [cursor=pointer]:
+                  - img [ref=e1526]
+                - button "Ask AI" [ref=e1530] [cursor=pointer]:
+                  - img [ref=e1531]
+              - code [ref=e1537]:
+                - generic [ref=e1538]: "{"
+                - generic [ref=e1539]: "\"hooks\": {"
+                - generic [ref=e1540]: "\"SubagentStart\": ["
+                - generic [ref=e1541]: "{"
+                - generic [ref=e1542]: "\"matcher\": \"db-agent\","
+                - generic [ref=e1543]: "\"hooks\": ["
+                - generic [ref=e1544]: "{ \"type\": \"command\", \"command\": \"./scripts/setup-db-connection.sh\" }"
+                - generic [ref=e1545]: "]"
+                - generic [ref=e1546]: "}"
+                - generic [ref=e1547]: "],"
+                - generic [ref=e1548]: "\"SubagentStop\": ["
+                - generic [ref=e1549]: "{"
+                - generic [ref=e1550]: "\"hooks\": ["
+                - generic [ref=e1551]: "{ \"type\": \"command\", \"command\": \"./scripts/cleanup-db-connection.sh\" }"
+                - generic [ref=e1552]: "]"
+                - generic [ref=e1553]: "}"
+                - generic [ref=e1554]: "]"
+                - generic [ref=e1555]: "}"
+                - generic [ref=e1556]: "}"
+            - generic [ref=e1557]:
+              - text: See
+              - link "Hooks" [ref=e1558] [cursor=pointer]:
+                - /url: /docs/en/hooks
+              - text: for the complete hook configuration format.
+            - heading "Navigate to header Work with subagents" [level=2] [ref=e1559]:
+              - link "Navigate to header" [ref=e1560] [cursor=pointer]:
+                - /url: "#work-with-subagents"
+                - img [ref=e1562]
+              - generic [ref=e1564] [cursor=pointer]: Work with subagents
+            - heading "Navigate to header Understand automatic delegation" [level=3] [ref=e1565]:
+              - link "Navigate to header" [ref=e1566] [cursor=pointer]:
+                - /url: "#understand-automatic-delegation"
+                - img [ref=e1568]
+              - generic [ref=e1570] [cursor=pointer]: Understand automatic delegation
+            - generic [ref=e1571]:
+              - text: Claude automatically delegates tasks based on the task description in your request, the
+              - code [ref=e1572]: description
+              - text: field in subagent configurations, and current context. To encourage proactive delegation, include phrases like “use proactively” in your subagent’s description field.
+            - heading "Navigate to header Invoke subagents explicitly" [level=3] [ref=e1573]:
+              - link "Navigate to header" [ref=e1574] [cursor=pointer]:
+                - /url: "#invoke-subagents-explicitly"
+                - img [ref=e1576]
+              - generic [ref=e1578] [cursor=pointer]: Invoke subagents explicitly
+            - generic [ref=e1579]: "When automatic delegation isn’t enough, you can request a subagent yourself. Three patterns escalate from a one-off suggestion to a session-wide default:"
+            - list [ref=e1580]:
+              - listitem [ref=e1581]:
+                - strong [ref=e1582]: Natural language
+                - text: ": name the subagent in your prompt; Claude decides whether to delegate"
+              - listitem [ref=e1583]:
+                - strong [ref=e1584]: "@-mention"
+                - text: ": guarantees the subagent runs for one task"
+              - listitem [ref=e1585]:
+                - strong [ref=e1586]: Session-wide
+                - text: ": the whole session uses that subagent’s system prompt, tool restrictions, and model via the"
+                - code [ref=e1587]: "--agent"
+                - text: flag or the
+                - code [ref=e1588]: agent
+                - text: setting
+            - generic [ref=e1589]: "For natural language, there’s no special syntax. Name the subagent and Claude typically delegates:"
+            - generic [ref=e1590]:
+              - generic [ref=e1591]:
+                - button "Report incorrect code" [ref=e1593] [cursor=pointer]:
+                  - img [ref=e1594]
+                - button "Copy the contents from the code block" [ref=e1597] [cursor=pointer]:
+                  - img [ref=e1598]
+                - button "Ask AI" [ref=e1602] [cursor=pointer]:
+                  - img [ref=e1603]
+              - code [ref=e1609]:
+                - generic [ref=e1610]: Use the test-runner subagent to fix failing tests
+                - generic [ref=e1611]: Have the code-reviewer subagent look at my recent changes
+            - generic [ref=e1612]:
+              - strong [ref=e1613]: "@-mention the subagent."
+              - text: Type
+              - code [ref=e1614]: "@"
+              - text: "and pick the subagent from the typeahead, the same way you @-mention files. This ensures that specific subagent runs rather than leaving the choice to Claude:"
+            - generic [ref=e1615]:
+              - generic [ref=e1616]:
+                - button "Report incorrect code" [ref=e1618] [cursor=pointer]:
+                  - img [ref=e1619]
+                - button "Copy the contents from the code block" [ref=e1622] [cursor=pointer]:
+                  - img [ref=e1623]
+                - button "Ask AI" [ref=e1627] [cursor=pointer]:
+                  - img [ref=e1628]
+              - code [ref=e1634]:
+                - generic [ref=e1635]: "@\"code-reviewer (agent)\" look at the auth changes"
+            - generic [ref=e1636]: Your full message still goes to Claude, which writes the subagent’s task prompt based on what you asked. The @-mention controls which subagent Claude invokes, not what prompt it receives.
+            - generic [ref=e1637]:
+              - text: Subagents provided by an enabled
+              - link "plugin" [ref=e1638] [cursor=pointer]:
+                - /url: /docs/en/plugins
+              - text: appear in the typeahead as
+              - code [ref=e1639]: <plugin-name>:<agent-name>
+              - text: ". Named background subagents currently running in the session also appear in the typeahead, showing their status next to the name. You can also type the mention manually without using the picker:"
+              - code [ref=e1640]: "@agent-<name>"
+              - text: for local subagents, or
+              - code [ref=e1641]: "@agent-<plugin-name>:<agent-name>"
+              - text: for plugin subagents.
+            - generic [ref=e1642]:
+              - strong [ref=e1643]: Run the whole session as a subagent.
+              - text: Pass
+              - link "--agent <name>" [ref=e1644] [cursor=pointer]:
+                - /url: /docs/en/cli-reference
+                - code [ref=e1645]: "--agent <name>"
+              - text: "to start a session where the main thread itself takes on that subagent’s system prompt, tool restrictions, and model:"
+            - generic [ref=e1646]:
+              - generic [ref=e1647]:
+                - button "Report incorrect code" [ref=e1649] [cursor=pointer]:
+                  - img [ref=e1650]
+                - button "Copy the contents from the code block" [ref=e1653] [cursor=pointer]:
+                  - img [ref=e1654]
+                - button "Ask AI" [ref=e1658] [cursor=pointer]:
+                  - img [ref=e1659]
+              - code [ref=e1665]:
+                - generic [ref=e1666]: claude --agent code-reviewer
+            - generic [ref=e1667]:
+              - text: The subagent’s system prompt replaces the default Claude Code system prompt entirely, the same way
+              - link "--system-prompt" [ref=e1668] [cursor=pointer]:
+                - /url: /docs/en/cli-reference
+                - code [ref=e1669]: "--system-prompt"
+              - text: does.
+              - code [ref=e1670]: CLAUDE.md
+              - text: files and project memory still load through the normal message flow. The agent name appears as
+              - code [ref=e1671]: "@<name>"
+              - text: in the startup header so you can confirm it’s active.
+            - generic [ref=e1672]: This works with built-in and custom subagents, and the choice persists when you resume the session.
+            - generic [ref=e1673]:
+              - text: "For a plugin-provided subagent, pass the scoped name:"
+              - code [ref=e1674]: claude --agent <plugin-name>:<agent-name>
+              - text: .
+            - generic [ref=e1675]:
+              - text: To make it the default for every session in a project, set
+              - code [ref=e1676]: agent
+              - text: in
+              - code [ref=e1677]: .claude/settings.json
+              - text: ":"
+            - generic [ref=e1678]:
+              - generic [ref=e1679]:
+                - button "Report incorrect code" [ref=e1681] [cursor=pointer]:
+                  - img [ref=e1682]
+                - button "Copy the contents from the code block" [ref=e1685] [cursor=pointer]:
+                  - img [ref=e1686]
+                - button "Ask AI" [ref=e1690] [cursor=pointer]:
+                  - img [ref=e1691]
+              - code [ref=e1697]:
+                - generic [ref=e1698]: "{"
+                - generic [ref=e1699]: "\"agent\": \"code-reviewer\""
+                - generic [ref=e1700]: "}"
+            - generic [ref=e1701]: The CLI flag overrides the setting if both are present.
+            - heading "Navigate to header Run subagents in foreground or background" [level=3] [ref=e1702]:
+              - link "Navigate to header" [ref=e1703] [cursor=pointer]:
+                - /url: "#run-subagents-in-foreground-or-background"
+                - img [ref=e1705]
+              - generic [ref=e1707] [cursor=pointer]: Run subagents in foreground or background
+            - generic [ref=e1708]: "Subagents can run in the foreground (blocking) or background (concurrent):"
+            - list [ref=e1709]:
+              - listitem [ref=e1710]:
+                - strong [ref=e1711]: Foreground subagents
+                - text: block the main conversation until complete. Permission prompts and clarifying questions (like
+                - link "AskUserQuestion" [ref=e1712] [cursor=pointer]:
+                  - /url: /docs/en/tools-reference
+                  - code [ref=e1713]: AskUserQuestion
+                - text: ) are passed through to you.
+              - listitem [ref=e1714]:
+                - strong [ref=e1715]: Background subagents
+                - text: run concurrently while you continue working. Before launching, Claude Code prompts for any tool permissions the subagent will need, ensuring it has the necessary approvals upfront. Once running, the subagent inherits these permissions and auto-denies anything not pre-approved. If a background subagent needs to ask clarifying questions, that tool call fails but the subagent continues.
+            - generic [ref=e1716]: If a background subagent fails due to missing permissions, you can start a new foreground subagent with the same task to retry with interactive prompts.
+            - generic [ref=e1717]: "Claude decides whether to run subagents in the foreground or background based on the task. You can also:"
+            - list [ref=e1718]:
+              - listitem [ref=e1719]: Ask Claude to “run this in the background”
+              - listitem [ref=e1720]:
+                - text: Press
+                - strong [ref=e1721]: Ctrl+B
+                - text: to background a running task
+            - generic [ref=e1722]:
+              - text: To disable all background task functionality, set the
+              - code [ref=e1723]: CLAUDE_CODE_DISABLE_BACKGROUND_TASKS
+              - text: environment variable to
+              - code [ref=e1724]: "1"
+              - text: . See
+              - link "Environment variables" [ref=e1725] [cursor=pointer]:
+                - /url: /docs/en/env-vars
+              - text: .
+            - heading "Navigate to header Common patterns" [level=3] [ref=e1726]:
+              - link "Navigate to header" [ref=e1727] [cursor=pointer]:
+                - /url: "#common-patterns"
+                - img [ref=e1729]
+              - generic [ref=e1731] [cursor=pointer]: Common patterns
+            - heading "Navigate to header Isolate high-volume operations" [level=4] [ref=e1732]:
+              - link "Navigate to header" [ref=e1733] [cursor=pointer]:
+                - /url: "#isolate-high-volume-operations"
+                - img [ref=e1735]
+              - generic [ref=e1737] [cursor=pointer]: Isolate high-volume operations
+            - generic [ref=e1738]: One of the most effective uses for subagents is isolating operations that produce large amounts of output. Running tests, fetching documentation, or processing log files can consume significant context. By delegating these to a subagent, the verbose output stays in the subagent’s context while only the relevant summary returns to your main conversation.
+            - generic [ref=e1739]:
+              - generic [ref=e1740]:
+                - button "Report incorrect code" [ref=e1742] [cursor=pointer]:
+                  - img [ref=e1743]
+                - button "Copy the contents from the code block" [ref=e1746] [cursor=pointer]:
+                  - img [ref=e1747]
+                - button "Ask AI" [ref=e1751] [cursor=pointer]:
+                  - img [ref=e1752]
+              - code [ref=e1758]:
+                - generic [ref=e1759]: Use a subagent to run the test suite and report only the failing tests with their error messages
+            - heading "Navigate to header Run parallel research" [level=4] [ref=e1760]:
+              - link "Navigate to header" [ref=e1761] [cursor=pointer]:
+                - /url: "#run-parallel-research"
+                - img [ref=e1763]
+              - generic [ref=e1765] [cursor=pointer]: Run parallel research
+            - generic [ref=e1766]: "For independent investigations, spawn multiple subagents to work simultaneously:"
+            - generic [ref=e1767]:
+              - generic [ref=e1768]:
+                - button "Report incorrect code" [ref=e1770] [cursor=pointer]:
+                  - img [ref=e1771]
+                - button "Copy the contents from the code block" [ref=e1774] [cursor=pointer]:
+                  - img [ref=e1775]
+                - button "Ask AI" [ref=e1779] [cursor=pointer]:
+                  - img [ref=e1780]
+              - code [ref=e1786]:
+                - generic [ref=e1787]: Research the authentication, database, and API modules in parallel using separate subagents
+            - generic [ref=e1788]: Each subagent explores its area independently, then Claude synthesizes the findings. This works best when the research paths don’t depend on each other.
+            - generic [ref=e1789]:
+              - img "Warning" [ref=e1791]
+              - generic [ref=e1794]: When subagents complete, their results return to your main conversation. Running many subagents that each return detailed results can consume significant context.
+            - generic [ref=e1795]:
+              - text: For tasks that need sustained parallelism or exceed your context window,
+              - link "agent teams" [ref=e1796] [cursor=pointer]:
+                - /url: /docs/en/agent-teams
+              - text: give each worker its own independent context.
+            - heading "Navigate to header Chain subagents" [level=4] [ref=e1797]:
+              - link "Navigate to header" [ref=e1798] [cursor=pointer]:
+                - /url: "#chain-subagents"
+                - img [ref=e1800]
+              - generic [ref=e1802] [cursor=pointer]: Chain subagents
+            - generic [ref=e1803]: For multi-step workflows, ask Claude to use subagents in sequence. Each subagent completes its task and returns results to Claude, which then passes relevant context to the next subagent.
+            - generic [ref=e1804]:
+              - generic [ref=e1805]:
+                - button "Report incorrect code" [ref=e1807] [cursor=pointer]:
+                  - img [ref=e1808]
+                - button "Copy the contents from the code block" [ref=e1811] [cursor=pointer]:
+                  - img [ref=e1812]
+                - button "Ask AI" [ref=e1816] [cursor=pointer]:
+                  - img [ref=e1817]
+              - code [ref=e1823]:
+                - generic [ref=e1824]: Use the code-reviewer subagent to find performance issues, then use the optimizer subagent to fix them
+            - heading "Navigate to header Choose between subagents and main conversation" [level=3] [ref=e1825]:
+              - link "Navigate to header" [ref=e1826] [cursor=pointer]:
+                - /url: "#choose-between-subagents-and-main-conversation"
+                - img [ref=e1828]
+              - generic [ref=e1830] [cursor=pointer]: Choose between subagents and main conversation
+            - generic [ref=e1831]:
+              - text: Use the
+              - strong [ref=e1832]: main conversation
+              - text: "when:"
+            - list [ref=e1833]:
+              - listitem [ref=e1834]: The task needs frequent back-and-forth or iterative refinement
+              - listitem [ref=e1835]: Multiple phases share significant context (planning → implementation → testing)
+              - listitem [ref=e1836]: You’re making a quick, targeted change
+              - listitem [ref=e1837]: Latency matters. Subagents start fresh and may need time to gather context
+            - generic [ref=e1838]:
+              - text: Use
+              - strong [ref=e1839]: subagents
+              - text: "when:"
+            - list [ref=e1840]:
+              - listitem [ref=e1841]: The task produces verbose output you don’t need in your main context
+              - listitem [ref=e1842]: You want to enforce specific tool restrictions or permissions
+              - listitem [ref=e1843]: The work is self-contained and can return a summary
+            - generic [ref=e1844]:
+              - text: Consider
+              - link "Skills" [ref=e1845] [cursor=pointer]:
+                - /url: /docs/en/skills
+              - text: instead when you want reusable prompts or workflows that run in the main conversation context rather than isolated subagent context.
+            - generic [ref=e1846]:
+              - text: For a quick question about something already in your conversation, use
+              - link "/btw" [ref=e1847] [cursor=pointer]:
+                - /url: /docs/en/interactive-mode#side-questions-with-btw
+                - code [ref=e1848]: /btw
+              - text: instead of a subagent. It sees your full context but has no tool access, and the answer is discarded rather than added to history.
+            - generic [ref=e1849]:
+              - img "Note" [ref=e1851]
+              - generic [ref=e1854]:
+                - text: Subagents cannot spawn other subagents. If your workflow requires nested delegation, use
+                - link "Skills" [ref=e1855] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                - text: or
+                - link "chain subagents" [ref=e1856] [cursor=pointer]:
+                  - /url: "#chain-subagents"
+                - text: from the main conversation.
+            - heading "Navigate to header Manage subagent context" [level=3] [ref=e1857]:
+              - link "Navigate to header" [ref=e1858] [cursor=pointer]:
+                - /url: "#manage-subagent-context"
+                - img [ref=e1860]
+              - generic [ref=e1862] [cursor=pointer]: Manage subagent context
+            - heading "Navigate to header Resume subagents" [level=4] [ref=e1863]:
+              - link "Navigate to header" [ref=e1864] [cursor=pointer]:
+                - /url: "#resume-subagents"
+                - img [ref=e1866]
+              - generic [ref=e1868] [cursor=pointer]: Resume subagents
+            - generic [ref=e1869]: Each subagent invocation creates a new instance with fresh context. To continue an existing subagent’s work instead of starting over, ask Claude to resume it.
+            - generic [ref=e1870]: Resumed subagents retain their full conversation history, including all previous tool calls, results, and reasoning. The subagent picks up exactly where it stopped rather than starting fresh.
+            - generic [ref=e1871]:
+              - text: When a subagent completes, Claude receives its agent ID. Claude uses the
+              - code [ref=e1872]: SendMessage
+              - text: tool with the agent’s ID as the
+              - code [ref=e1873]: to
+              - text: field to resume it. The
+              - code [ref=e1874]: SendMessage
+              - text: tool is only available when
+              - link "agent teams" [ref=e1875] [cursor=pointer]:
+                - /url: /docs/en/agent-teams
+              - text: are enabled via
+              - code [ref=e1876]: CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+              - text: .
+            - generic [ref=e1877]: "To resume a subagent, ask Claude to continue the previous work:"
+            - generic [ref=e1878]:
+              - generic [ref=e1879]:
+                - button "Report incorrect code" [ref=e1881] [cursor=pointer]:
+                  - img [ref=e1882]
+                - button "Copy the contents from the code block" [ref=e1885] [cursor=pointer]:
+                  - img [ref=e1886]
+                - button "Ask AI" [ref=e1890] [cursor=pointer]:
+                  - img [ref=e1891]
+              - code [ref=e1897]:
+                - generic [ref=e1898]: Use the code-reviewer subagent to review the authentication module
+                - generic [ref=e1899]: "[Agent completes]"
+                - generic [ref=e1900]: Continue that code review and now analyze the authorization logic
+                - generic [ref=e1901]: "[Claude resumes the subagent with full context from previous conversation]"
+            - generic [ref=e1902]:
+              - text: If a stopped subagent receives a
+              - code [ref=e1903]: SendMessage
+              - text: ", it auto-resumes in the background without requiring a new"
+              - code [ref=e1904]: Agent
+              - text: invocation.
+            - generic [ref=e1905]:
+              - text: You can also ask Claude for the agent ID if you want to reference it explicitly, or find IDs in the transcript files at
+              - code [ref=e1906]: "~/.claude/projects/{project}/{sessionId}/subagents/"
+              - text: . Each transcript is stored as
+              - code [ref=e1907]: "agent-{agentId}.jsonl"
+              - text: .
+            - generic [ref=e1908]: "Subagent transcripts persist independently of the main conversation:"
+            - list [ref=e1909]:
+              - listitem [ref=e1910]:
+                - strong [ref=e1911]: Main conversation compaction
+                - text: ": When the main conversation compacts, subagent transcripts are unaffected. They’re stored in separate files."
+              - listitem [ref=e1912]:
+                - strong [ref=e1913]: Session persistence
+                - text: ": Subagent transcripts persist within their session. You can"
+                - link "resume a subagent" [ref=e1914] [cursor=pointer]:
+                  - /url: "#resume-subagents"
+                - text: after restarting Claude Code by resuming the same session.
+              - listitem [ref=e1915]:
+                - strong [ref=e1916]: Automatic cleanup
+                - text: ": Transcripts are cleaned up based on the"
+                - code [ref=e1917]: cleanupPeriodDays
+                - text: "setting (default: 30 days)."
+            - heading "Navigate to header Auto-compaction" [level=4] [ref=e1918]:
+              - link "Navigate to header" [ref=e1919] [cursor=pointer]:
+                - /url: "#auto-compaction"
+                - img [ref=e1921]
+              - generic [ref=e1923] [cursor=pointer]: Auto-compaction
+            - generic [ref=e1924]:
+              - text: Subagents support automatic compaction using the same logic as the main conversation. By default, auto-compaction triggers at approximately 95% capacity. To trigger compaction earlier, set
+              - code [ref=e1925]: CLAUDE_AUTOCOMPACT_PCT_OVERRIDE
+              - text: to a lower percentage (for example,
+              - code [ref=e1926]: "50"
+              - text: ). See
+              - link "environment variables" [ref=e1927] [cursor=pointer]:
+                - /url: /docs/en/env-vars
+              - text: for details.
+            - generic [ref=e1928]: "Compaction events are logged in subagent transcript files:"
+            - generic [ref=e1929]:
+              - generic [ref=e1930]:
+                - button "Report incorrect code" [ref=e1932] [cursor=pointer]:
+                  - img [ref=e1933]
+                - button "Copy the contents from the code block" [ref=e1936] [cursor=pointer]:
+                  - img [ref=e1937]
+                - button "Ask AI" [ref=e1941] [cursor=pointer]:
+                  - img [ref=e1942]
+              - code [ref=e1948]:
+                - generic [ref=e1949]: "{"
+                - generic [ref=e1950]: "\"type\": \"system\","
+                - generic [ref=e1951]: "\"subtype\": \"compact_boundary\","
+                - generic [ref=e1952]: "\"compactMetadata\": {"
+                - generic [ref=e1953]: "\"trigger\": \"auto\","
+                - generic [ref=e1954]: "\"preTokens\": 167189"
+                - generic [ref=e1955]: "}"
+                - generic [ref=e1956]: "}"
+            - generic [ref=e1957]:
+              - text: The
+              - code [ref=e1958]: preTokens
+              - text: value shows how many tokens were used before compaction occurred.
+            - heading "Navigate to header Example subagents" [level=2] [ref=e1959]:
+              - link "Navigate to header" [ref=e1960] [cursor=pointer]:
+                - /url: "#example-subagents"
+                - img [ref=e1962]
+              - generic [ref=e1964] [cursor=pointer]: Example subagents
+            - generic [ref=e1965]: These examples demonstrate effective patterns for building subagents. Use them as starting points, or generate a customized version with Claude.
+            - generic [ref=e1966]:
+              - img "Tip" [ref=e1968]
+              - generic [ref=e1970]:
+                - strong [ref=e1972]: "Best practices:"
+                - list [ref=e1973]:
+                  - listitem [ref=e1974]:
+                    - strong [ref=e1975]: "Design focused subagents:"
+                    - text: each subagent should excel at one specific task
+                  - listitem [ref=e1976]:
+                    - strong [ref=e1977]: "Write detailed descriptions:"
+                    - text: Claude uses the description to decide when to delegate
+                  - listitem [ref=e1978]:
+                    - strong [ref=e1979]: "Limit tool access:"
+                    - text: grant only necessary permissions for security and focus
+                  - listitem [ref=e1980]:
+                    - strong [ref=e1981]: "Check into version control:"
+                    - text: share project subagents with your team
+            - heading "Navigate to header Code reviewer" [level=3] [ref=e1982]:
+              - link "Navigate to header" [ref=e1983] [cursor=pointer]:
+                - /url: "#code-reviewer"
+                - img [ref=e1985]
+              - generic [ref=e1987] [cursor=pointer]: Code reviewer
+            - generic [ref=e1988]: A read-only subagent that reviews code without modifying it. This example shows how to design a focused subagent with limited tool access (no Edit or Write) and a detailed prompt that specifies exactly what to look for and how to format output.
+            - generic [ref=e1989]:
+              - generic [ref=e1990]:
+                - button "Report incorrect code" [ref=e1992] [cursor=pointer]:
+                  - img [ref=e1993]
+                - button "Copy the contents from the code block" [ref=e1996] [cursor=pointer]:
+                  - img [ref=e1997]
+                - button "Ask AI" [ref=e2001] [cursor=pointer]:
+                  - img [ref=e2002]
+              - code [ref=e2008]:
+                - generic [ref=e2009]: "---"
+                - generic [ref=e2010]: "name: code-reviewer"
+                - generic [ref=e2011]: "description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code."
+                - generic [ref=e2012]: "tools: Read, Grep, Glob, Bash"
+                - generic [ref=e2013]: "model: inherit"
+                - generic [ref=e2014]: "---"
+                - generic [ref=e2015]: You are a senior code reviewer ensuring high standards of code quality and security.
+                - generic [ref=e2016]: "When invoked:"
+                - generic [ref=e2017]: 1. Run git diff to see recent changes
+                - generic [ref=e2018]: 2. Focus on modified files
+                - generic [ref=e2019]: 3. Begin review immediately
+                - generic [ref=e2020]: "Review checklist:"
+                - generic [ref=e2021]: "- Code is clear and readable"
+                - generic [ref=e2022]: "- Functions and variables are well-named"
+                - generic [ref=e2023]: "- No duplicated code"
+                - generic [ref=e2024]: "- Proper error handling"
+                - generic [ref=e2025]: "- No exposed secrets or API keys"
+                - generic [ref=e2026]: "- Input validation implemented"
+                - generic [ref=e2027]: "- Good test coverage"
+                - generic [ref=e2028]: "- Performance considerations addressed"
+                - generic [ref=e2029]: "Provide feedback organized by priority:"
+                - generic [ref=e2030]: "- Critical issues (must fix)"
+                - generic [ref=e2031]: "- Warnings (should fix)"
+                - generic [ref=e2032]: "- Suggestions (consider improving)"
+                - generic [ref=e2033]: Include specific examples of how to fix issues.
+            - heading "Navigate to header Debugger" [level=3] [ref=e2034]:
+              - link "Navigate to header" [ref=e2035] [cursor=pointer]:
+                - /url: "#debugger"
+                - img [ref=e2037]
+              - generic [ref=e2039] [cursor=pointer]: Debugger
+            - generic [ref=e2040]: A subagent that can both analyze and fix issues. Unlike the code reviewer, this one includes Edit because fixing bugs requires modifying code. The prompt provides a clear workflow from diagnosis to verification.
+            - generic [ref=e2041]:
+              - generic [ref=e2042]:
+                - button "Report incorrect code" [ref=e2044] [cursor=pointer]:
+                  - img [ref=e2045]
+                - button "Copy the contents from the code block" [ref=e2048] [cursor=pointer]:
+                  - img [ref=e2049]
+                - button "Ask AI" [ref=e2053] [cursor=pointer]:
+                  - img [ref=e2054]
+              - code [ref=e2060]:
+                - generic [ref=e2061]: "---"
+                - generic [ref=e2062]: "name: debugger"
+                - generic [ref=e2063]: "description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues."
+                - generic [ref=e2064]: "tools: Read, Edit, Bash, Grep, Glob"
+                - generic [ref=e2065]: "---"
+                - generic [ref=e2066]: You are an expert debugger specializing in root cause analysis.
+                - generic [ref=e2067]: "When invoked:"
+                - generic [ref=e2068]: 1. Capture error message and stack trace
+                - generic [ref=e2069]: 2. Identify reproduction steps
+                - generic [ref=e2070]: 3. Isolate the failure location
+                - generic [ref=e2071]: 4. Implement minimal fix
+                - generic [ref=e2072]: 5. Verify solution works
+                - generic [ref=e2073]: "Debugging process:"
+                - generic [ref=e2074]: "- Analyze error messages and logs"
+                - generic [ref=e2075]: "- Check recent code changes"
+                - generic [ref=e2076]: "- Form and test hypotheses"
+                - generic [ref=e2077]: "- Add strategic debug logging"
+                - generic [ref=e2078]: "- Inspect variable states"
+                - generic [ref=e2079]: "For each issue, provide:"
+                - generic [ref=e2080]: "- Root cause explanation"
+                - generic [ref=e2081]: "- Evidence supporting the diagnosis"
+                - generic [ref=e2082]: "- Specific code fix"
+                - generic [ref=e2083]: "- Testing approach"
+                - generic [ref=e2084]: "- Prevention recommendations"
+                - generic [ref=e2085]: Focus on fixing the underlying issue, not the symptoms.
+            - heading "Navigate to header Data scientist" [level=3] [ref=e2086]:
+              - link "Navigate to header" [ref=e2087] [cursor=pointer]:
+                - /url: "#data-scientist"
+                - img [ref=e2089]
+              - generic [ref=e2091] [cursor=pointer]: Data scientist
+            - generic [ref=e2092]:
+              - text: A domain-specific subagent for data analysis work. This example shows how to create subagents for specialized workflows outside of typical coding tasks. It explicitly sets
+              - code [ref=e2093]: "model: sonnet"
+              - text: for more capable analysis.
+            - generic [ref=e2094]:
+              - generic [ref=e2095]:
+                - button "Report incorrect code" [ref=e2097] [cursor=pointer]:
+                  - img [ref=e2098]
+                - button "Copy the contents from the code block" [ref=e2101] [cursor=pointer]:
+                  - img [ref=e2102]
+                - button "Ask AI" [ref=e2106] [cursor=pointer]:
+                  - img [ref=e2107]
+              - code [ref=e2113]:
+                - generic [ref=e2114]: "---"
+                - generic [ref=e2115]: "name: data-scientist"
+                - generic [ref=e2116]: "description: Data analysis expert for SQL queries, BigQuery operations, and data insights. Use proactively for data analysis tasks and queries."
+                - generic [ref=e2117]: "tools: Bash, Read, Write"
+                - generic [ref=e2118]: "model: sonnet"
+                - generic [ref=e2119]: "---"
+                - generic [ref=e2120]: You are a data scientist specializing in SQL and BigQuery analysis.
+                - generic [ref=e2121]: "When invoked:"
+                - generic [ref=e2122]: 1. Understand the data analysis requirement
+                - generic [ref=e2123]: 2. Write efficient SQL queries
+                - generic [ref=e2124]: 3. Use BigQuery command line tools (bq) when appropriate
+                - generic [ref=e2125]: 4. Analyze and summarize results
+                - generic [ref=e2126]: 5. Present findings clearly
+                - generic [ref=e2127]: "Key practices:"
+                - generic [ref=e2128]: "- Write optimized SQL queries with proper filters"
+                - generic [ref=e2129]: "- Use appropriate aggregations and joins"
+                - generic [ref=e2130]: "- Include comments explaining complex logic"
+                - generic [ref=e2131]: "- Format results for readability"
+                - generic [ref=e2132]: "- Provide data-driven recommendations"
+                - generic [ref=e2133]: "For each analysis:"
+                - generic [ref=e2134]: "- Explain the query approach"
+                - generic [ref=e2135]: "- Document any assumptions"
+                - generic [ref=e2136]: "- Highlight key findings"
+                - generic [ref=e2137]: "- Suggest next steps based on data"
+                - generic [ref=e2138]: Always ensure queries are efficient and cost-effective.
+            - heading "Navigate to header Database query validator" [level=3] [ref=e2139]:
+              - link "Navigate to header" [ref=e2140] [cursor=pointer]:
+                - /url: "#database-query-validator"
+                - img [ref=e2142]
+              - generic [ref=e2144] [cursor=pointer]: Database query validator
+            - generic [ref=e2145]:
+              - text: A subagent that allows Bash access but validates commands to permit only read-only SQL queries. This example shows how to use
+              - code [ref=e2146]: PreToolUse
+              - text: hooks for conditional validation when you need finer control than the
+              - code [ref=e2147]: tools
+              - text: field provides.
+            - generic [ref=e2148]:
+              - generic [ref=e2149]:
+                - button "Report incorrect code" [ref=e2151] [cursor=pointer]:
+                  - img [ref=e2152]
+                - button "Copy the contents from the code block" [ref=e2155] [cursor=pointer]:
+                  - img [ref=e2156]
+                - button "Ask AI" [ref=e2160] [cursor=pointer]:
+                  - img [ref=e2161]
+              - code [ref=e2167]:
+                - generic [ref=e2168]: "---"
+                - generic [ref=e2169]: "name: db-reader"
+                - generic [ref=e2170]: "description: Execute read-only database queries. Use when analyzing data or generating reports."
+                - generic [ref=e2171]: "tools: Bash"
+                - generic [ref=e2172]: "hooks:"
+                - generic [ref=e2173]: "PreToolUse:"
+                - generic [ref=e2174]: "- matcher: \"Bash\""
+                - generic [ref=e2175]: "hooks:"
+                - generic [ref=e2176]: "- type: command"
+                - generic [ref=e2177]: "command: \"./scripts/validate-readonly-query.sh\""
+                - generic [ref=e2178]: "---"
+                - generic [ref=e2179]: You are a database analyst with read-only access. Execute SELECT queries to answer questions about the data.
+                - generic [ref=e2180]: "When asked to analyze data:"
+                - generic [ref=e2181]: 1. Identify which tables contain the relevant data
+                - generic [ref=e2182]: 2. Write efficient SELECT queries with appropriate filters
+                - generic [ref=e2183]: 3. Present results clearly with context
+                - generic [ref=e2184]: You cannot modify data. If asked to INSERT, UPDATE, DELETE, or modify schema, explain that you only have read access.
+            - generic [ref=e2185]:
+              - text: Claude Code
+              - link "passes hook input as JSON" [ref=e2186] [cursor=pointer]:
+                - /url: /docs/en/hooks#pretooluse-input
+              - text: via stdin to hook commands. The validation script reads this JSON, extracts the command being executed, and checks it against a list of SQL write operations. If a write operation is detected, the script
+              - link "exits with code 2" [ref=e2187] [cursor=pointer]:
+                - /url: /docs/en/hooks#exit-code-2-behavior-per-event
+              - text: to block execution and returns an error message to Claude via stderr.
+            - generic [ref=e2188]:
+              - text: Create the validation script anywhere in your project. The path must match the
+              - code [ref=e2189]: command
+              - text: "field in your hook configuration:"
+            - generic [ref=e2190]:
+              - generic [ref=e2191]:
+                - button "Report incorrect code" [ref=e2193] [cursor=pointer]:
+                  - img [ref=e2194]
+                - button "Copy the contents from the code block" [ref=e2197] [cursor=pointer]:
+                  - img [ref=e2198]
+                - button "Ask AI" [ref=e2202] [cursor=pointer]:
+                  - img [ref=e2203]
+              - code [ref=e2209]:
+                - generic [ref=e2210]: "#!/bin/bash"
+                - generic [ref=e2211]: "# Blocks SQL write operations, allows SELECT queries"
+                - generic [ref=e2212]: "# Read JSON input from stdin"
+                - generic [ref=e2213]: INPUT=$(cat)
+                - generic [ref=e2214]: "# Extract the command field from tool_input using jq"
+                - generic [ref=e2215]: COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+                - generic [ref=e2216]: if [ -z "$COMMAND" ]; then
+                - generic [ref=e2217]: exit 0
+                - generic [ref=e2218]: fi
+                - generic [ref=e2219]: "# Block write operations (case-insensitive)"
+                - generic [ref=e2220]: if echo "$COMMAND" | grep -iE '\b(INSERT|UPDATE|DELETE|DROP|CREATE|ALTER|TRUNCATE|REPLACE|MERGE)\b' > /dev/null; then
+                - generic [ref=e2221]: "echo \"Blocked: Write operations not allowed. Use SELECT queries only.\" >&2"
+                - generic [ref=e2222]: exit 2
+                - generic [ref=e2223]: fi
+                - generic [ref=e2224]: exit 0
+            - generic [ref=e2225]: "Make the script executable:"
+            - generic [ref=e2226]:
+              - generic [ref=e2227]:
+                - button "Report incorrect code" [ref=e2229] [cursor=pointer]:
+                  - img [ref=e2230]
+                - button "Copy the contents from the code block" [ref=e2233] [cursor=pointer]:
+                  - img [ref=e2234]
+                - button "Ask AI" [ref=e2238] [cursor=pointer]:
+                  - img [ref=e2239]
+              - code [ref=e2245]:
+                - generic [ref=e2246]: chmod +x ./scripts/validate-readonly-query.sh
+            - generic [ref=e2247]:
+              - text: The hook receives JSON via stdin with the Bash command in
+              - code [ref=e2248]: tool_input.command
+              - text: . Exit code 2 blocks the operation and feeds the error message back to Claude. See
+              - link "Hooks" [ref=e2249] [cursor=pointer]:
+                - /url: /docs/en/hooks#exit-code-output
+              - text: for details on exit codes and
+              - link "Hook input" [ref=e2250] [cursor=pointer]:
+                - /url: /docs/en/hooks#pretooluse-input
+              - text: for the complete input schema.
+            - heading "Navigate to header Next steps" [level=2] [ref=e2251]:
+              - link "Navigate to header" [ref=e2252] [cursor=pointer]:
+                - /url: "#next-steps"
+                - img [ref=e2254]
+              - generic [ref=e2256] [cursor=pointer]: Next steps
+            - generic [ref=e2257]: "Now that you understand subagents, explore these related features:"
+            - list [ref=e2258]:
+              - listitem [ref=e2259]:
+                - link "Distribute subagents with plugins" [ref=e2260] [cursor=pointer]:
+                  - /url: /docs/en/plugins
+                - text: to share subagents across teams or projects
+              - listitem [ref=e2261]:
+                - link "Run Claude Code programmatically" [ref=e2262] [cursor=pointer]:
+                  - /url: /docs/en/headless
+                - text: with the Agent SDK for CI/CD and automation
+              - listitem [ref=e2263]:
+                - link "Use MCP servers" [ref=e2264] [cursor=pointer]:
+                  - /url: /docs/en/mcp
+                - text: to give subagents access to external tools and data
+          - generic [ref=e2266]:
+            - paragraph [ref=e2267]: Was this page helpful?
+            - generic [ref=e2269]:
+              - button "Yes" [ref=e2270] [cursor=pointer]:
+                - img [ref=e2271]
+                - generic [ref=e2273]: "Yes"
+              - button "No" [ref=e2274] [cursor=pointer]:
+                - img [ref=e2275]
+                - generic [ref=e2277]: "No"
+          - link "Run agent teams" [ref=e2279] [cursor=pointer]:
+            - /url: /docs/en/agent-teams
+            - generic [ref=e2280]: Run agent teams
+            - img [ref=e2281]
+          - generic [ref=e2284]:
+            - textbox "Ask a question..." [ref=e2285]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e2286]:
+              - img [ref=e2287]
+      - contentinfo [ref=e2289]:
+        - generic [ref=e2291]:
+          - generic [ref=e2292]:
+            - link "Claude Code Docs home page light logo" [ref=e2293] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e2294]: Claude Code Docs home page
+              - img "light logo" [ref=e2295]
+            - generic [ref=e2296]:
+              - link "x" [ref=e2297] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e2298]: x
+                - img [ref=e2299]
+              - link "linkedin" [ref=e2300] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e2301]: linkedin
+                - img [ref=e2302]
+          - generic [ref=e2303]:
+            - generic [ref=e2305]:
+              - paragraph [ref=e2306]: Company
+              - link "Anthropic" [ref=e2307] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e2308] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e2309] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e2310] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e2311] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e2312] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e2313] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e2315]:
+              - paragraph [ref=e2316]: Help and security
+              - link "Availability" [ref=e2317] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e2318] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e2319] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e2321]:
+              - paragraph [ref=e2322]: Learn
+              - link "Courses" [ref=e2323] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e2324] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e2325] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e2326] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e2327] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e2328] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e2329] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e2330] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e2332]:
+              - paragraph [ref=e2333]: Terms and policies
+              - link "Privacy choices" [ref=e2334] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e2335] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e2336] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e2337] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e2338] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e2339] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e2341]:
+        - generic [ref=e2342]:
+          - img [ref=e2343]
+          - generic [ref=e2346]: Assistant
+        - generic [ref=e2347]:
+          - button [ref=e2348] [cursor=pointer]:
+            - img [ref=e2349]
+          - button [ref=e2354] [cursor=pointer]:
+            - img [ref=e2355]
+      - generic [ref=e2359]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e2361]:
+        - textbox [ref=e2362]:
+          - /placeholder: Ask a question...
+        - generic [ref=e2363]:
+          - button [ref=e2364] [cursor=pointer]:
+            - img [ref=e2365]
+          - button [disabled] [ref=e2367]:
+            - img [ref=e2368]

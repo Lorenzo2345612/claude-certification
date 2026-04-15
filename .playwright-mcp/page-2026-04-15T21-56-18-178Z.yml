@@ -1,0 +1,71 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]: Claude Architect
+    - navigation [ref=e7]:
+      - button "Learn" [ref=e8] [cursor=pointer]
+      - button "Practice" [ref=e9] [cursor=pointer]
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - img [ref=e14]
+      - heading "Study Guide" [level=1] [ref=e17]
+      - paragraph [ref=e18]: Review key concepts across all 5 domains with links to official documentation
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - img
+        - textbox "Search topics, concepts, or keywords..." [ref=e21]
+      - generic [ref=e22]:
+        - 'button "D1: Agentic Architecture & Orchestration 27%" [ref=e23] [cursor=pointer]':
+          - generic [ref=e25]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e26]: 27%
+        - 'button "D2: Tool Design & MCP Integration 18%" [ref=e27] [cursor=pointer]':
+          - generic [ref=e29]: "D2: Tool Design & MCP Integration"
+          - generic [ref=e30]: 18%
+        - 'button "D3: Claude Code Configuration & Workflows 20%" [ref=e31] [cursor=pointer]':
+          - generic [ref=e33]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e34]: 20%
+        - 'button "D4: Prompt Engineering & Structured Output 20%" [ref=e35] [cursor=pointer]':
+          - generic [ref=e37]: "D4: Prompt Engineering & Structured Output"
+          - generic [ref=e38]: 20%
+        - 'button "D5: Context Management & Reliability 15%" [ref=e39] [cursor=pointer]':
+          - generic [ref=e41]: "D5: Context Management & Reliability"
+          - generic [ref=e42]: 15%
+      - generic [ref=e43]:
+        - button "Expand All" [ref=e44] [cursor=pointer]
+        - button "Collapse All" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]: 31 topics shown
+    - generic [ref=e47]:
+      - 'button "D1: Agentic Architecture & Orchestration 27% 6 topics" [ref=e49] [cursor=pointer]':
+        - generic [ref=e50]:
+          - img [ref=e51]
+          - generic [ref=e53]: "D1: Agentic Architecture & Orchestration"
+        - generic [ref=e54]:
+          - generic [ref=e55]: 27%
+          - generic [ref=e56]: 6 topics
+      - 'button "D2: Tool Design & MCP Integration 18% 7 topics" [ref=e58] [cursor=pointer]':
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - generic [ref=e62]: "D2: Tool Design & MCP Integration"
+        - generic [ref=e63]:
+          - generic [ref=e64]: 18%
+          - generic [ref=e65]: 7 topics
+      - 'button "D3: Claude Code Configuration & Workflows 20% 6 topics" [ref=e67] [cursor=pointer]':
+        - generic [ref=e68]:
+          - img [ref=e69]
+          - generic [ref=e71]: "D3: Claude Code Configuration & Workflows"
+        - generic [ref=e72]:
+          - generic [ref=e73]: 20%
+          - generic [ref=e74]: 6 topics
+      - 'button "D4: Prompt Engineering & Structured Output 20% 6 topics" [ref=e76] [cursor=pointer]':
+        - generic [ref=e77]:
+          - img [ref=e78]
+          - generic [ref=e80]: "D4: Prompt Engineering & Structured Output"
+        - generic [ref=e81]:
+          - generic [ref=e82]: 20%
+          - generic [ref=e83]: 6 topics
+      - 'button "D5: Context Management & Reliability 15% 6 topics" [ref=e85] [cursor=pointer]':
+        - generic [ref=e86]:
+          - img [ref=e87]
+          - generic [ref=e89]: "D5: Context Management & Reliability"
+        - generic [ref=e90]:
+          - generic [ref=e91]: 15%
+          - generic [ref=e92]: 6 topics

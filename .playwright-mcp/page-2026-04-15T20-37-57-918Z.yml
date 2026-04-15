@@ -1,0 +1,47 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Certified Architect
+      - generic [ref=e7]: Foundations Practice Exam
+    - generic [ref=e45]: 1 / 60 answered
+  - generic [ref=e46]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: Question 1 of 60
+      - generic [ref=e50]: "D1: Agentic Architecture & Orchestration"
+    - generic [ref=e53]:
+      - generic [ref=e54]: ◆ Subagent Permissions
+      - generic [ref=e55]: "Your main agent has permissions to execute Bash and Write. You create a subagent with tools: ['Bash', 'Read', 'Write']. Does the subagent inherit the parent's permissions?"
+      - generic [ref=e56]:
+        - button "c Partially. It inherits permissions for tools the parent already has, but asks for permission for new tools like Read." [ref=e57]:
+          - generic [ref=e58]: c
+          - generic [ref=e59]: Partially. It inherits permissions for tools the parent already has, but asks for permission for new tools like Read.
+        - button "d Yes, as long as the subagent uses the same model as the parent. Different models require independent permissions." [ref=e60]:
+          - generic [ref=e61]: d
+          - generic [ref=e62]: Yes, as long as the subagent uses the same model as the parent. Different models require independent permissions.
+        - button "a Yes, the subagent inherits all of the parent's permissions automatically. You only need to define the tools. ✗" [ref=e71]:
+          - generic [ref=e64]: a
+          - generic [ref=e65]: Yes, the subagent inherits all of the parent's permissions automatically. You only need to define the tools.
+          - generic [ref=e72]: ✗
+        - button "b No, subagents do NOT inherit the parent's permissions. The user will receive separate permission prompts for the subagent, unless you use PreToolUse hooks to auto-approve. ✓" [ref=e73]:
+          - generic [ref=e67]: b
+          - generic [ref=e68]: No, subagents do NOT inherit the parent's permissions. The user will receive separate permission prompts for the subagent, unless you use PreToolUse hooks to auto-approve.
+          - generic [ref=e74]: ✓
+      - button "Next Question →" [active] [ref=e75] [cursor=pointer]
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]: ✗
+          - text: Incorrect
+        - generic [ref=e79]:
+          - strong [ref=e80]: "Correct answer (B):"
+          - text: Subagents do NOT inherit the parent's permissions. This can cause permission prompts to multiply. To avoid this, use PreToolUse hooks to auto-approve operations from trusted subagents.
+        - generic [ref=e81]:
+          - generic [ref=e82]: Why other options are wrong
+          - generic [ref=e83]:
+            - generic [ref=e84]: A)
+            - generic [ref=e85]: Permissions are NOT inherited automatically. Each subagent needs its own permissions, which can cause multiple approval prompts.
+          - generic [ref=e86]:
+            - generic [ref=e87]: C)
+            - generic [ref=e88]: There is no partial inheritance. None of the parent's permissions transfer to the subagent, regardless of whether the parent had that permission.
+          - generic [ref=e89]:
+            - generic [ref=e90]: D)
+            - generic [ref=e91]: Permission inheritance does not depend on the model. Subagents simply do not inherit the parent's permissions under any circumstances.

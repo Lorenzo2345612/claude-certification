@@ -1,0 +1,164 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Certified Architect
+      - generic [ref=e7]: Foundations Practice Exam
+  - generic [ref=e76]:
+    - generic [ref=e77]: Exam Results
+    - generic [ref=e78]: Claude Certified Architect — Foundations Practice Exam
+    - generic [ref=e79]:
+      - generic [ref=e80]: "100"
+      - generic [ref=e81]: / 1000
+      - generic [ref=e82]: 720 to pass
+    - generic [ref=e83]: NOT PASSED
+    - generic [ref=e84]: 0 / 5 correct (0%)
+    - generic [ref=e85]: "Minimum passing score: 720 / 1000 (approximately 69%)"
+    - generic [ref=e86]:
+      - heading "Domain Breakdown" [level=3] [ref=e87]
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e91]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e94]: 0/2 (0%)
+          - generic [ref=e95]: FAIL
+        - generic [ref=e96]:
+          - generic [ref=e98]: "D4: Prompt Engineering & Optimization"
+          - generic [ref=e101]: 0/1 (0%)
+          - generic [ref=e102]: FAIL
+        - generic [ref=e103]:
+          - generic [ref=e105]: "D5: Context Management & Reliability"
+          - generic [ref=e108]: 0/2 (0%)
+          - generic [ref=e109]: FAIL
+    - generic [ref=e110]:
+      - heading "Questions by Domain" [level=3] [ref=e111]
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - generic [ref=e116]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e117]: 0/2 correct
+        - generic [ref=e118]:
+          - 'generic "You run Claude Code with `--exclude-dynamic-system-prompt-sections` in print mode. What is the main purpose of this flag" [ref=e119]':
+            - generic [ref=e120]: ✗
+            - text: Q2
+          - 'generic "You run `claude --bare -p \"query\"`. What components are omitted exactly in --bare mode?" [ref=e121]':
+            - generic [ref=e122]: ✗
+            - text: Q5
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e127]: "D4: Prompt Engineering & Optimization"
+          - generic [ref=e128]: 0/1 correct
+        - 'generic "A PR modifies 14 files. Your single-pass review produces inconsistent results: detailed feedback for some files but supe" [ref=e130]':
+          - generic [ref=e131]: ✗
+          - text: Q3
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e136]: "D5: Context Management & Reliability"
+          - generic [ref=e137]: 0/2 correct
+        - generic [ref=e138]:
+          - generic "You are polling the status of a batch. What are the ONLY two possible values of processing_status?" [ref=e139]:
+            - generic [ref=e140]: ✗
+            - text: Q1
+          - generic "Your extraction pipeline processes documents of varying length. Short documents (1-2 pages) extract accurately but long" [ref=e141]:
+            - generic [ref=e142]: ✗
+            - text: Q4
+    - generic [ref=e143]:
+      - heading "Full Question Review" [level=3] [ref=e144]
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - generic [ref=e147]:
+            - generic [ref=e148]: "#1"
+            - generic [ref=e149]: "D5: Context Management & Reliability"
+          - generic [ref=e150]: INCORRECT
+        - generic [ref=e151]: You are polling the status of a batch. What are the ONLY two possible values of processing_status?
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: "Your answer (D):"
+            - generic [ref=e155]: "\"in_progress\", \"succeeded\", and \"failed\" — three states including the result."
+          - generic [ref=e156]:
+            - generic [ref=e157]: "Correct answer (B):"
+            - generic [ref=e158]: "\"in_progress\" and \"ended\" — the batch is being processed or all requests have finished."
+        - generic [ref=e159]:
+          - strong [ref=e160]: "Explanation:"
+          - text: "processing_status only has 2 possible values: 'in_progress' (the batch is being processed) and 'ended' (all requests have finished and results are available). There are no intermediate or result states at the batch level."
+        - generic [ref=e161]:
+          - strong [ref=e162]: "Why D is wrong:"
+          - text: "'succeeded' and 'failed' are concepts for individual request results, not batch-level states. The batch only has 'in_progress' and 'ended'."
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: "#2"
+            - generic [ref=e167]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e168]: INCORRECT
+        - generic [ref=e169]: "You run Claude Code with `--exclude-dynamic-system-prompt-sections` in print mode. What is the main purpose of this flag?"
+        - generic [ref=e170]:
+          - generic [ref=e171]:
+            - generic [ref=e172]: "Your answer (C):"
+            - generic [ref=e173]: Disable the dynamic injection of CLAUDE.md and auto memory into the system prompt.
+          - generic [ref=e174]:
+            - generic [ref=e175]: "Correct answer (B):"
+            - generic [ref=e176]: Move per-machine sections of the system prompt to a user message, enabling greater cache reuse of the system prompt.
+        - generic [ref=e177]:
+          - strong [ref=e178]: "Explanation:"
+          - text: The --exclude-dynamic-system-prompt-sections flag moves dynamic (per-machine specific) sections from the system prompt to a user message. This allows the system prompt to be more stable across executions, maximizing prompt cache reuse and reducing costs.
+        - generic [ref=e179]:
+          - strong [ref=e180]: "Why C is wrong:"
+          - text: CLAUDE.md and auto memory are not part of the system prompt — they are already delivered as user messages. This flag addresses dynamic sections of the system prompt itself.
+      - generic [ref=e181]:
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - generic [ref=e184]: "#3"
+            - generic [ref=e185]: "D4: Prompt Engineering & Structured Output"
+          - generic [ref=e186]: INCORRECT
+        - generic [ref=e187]: "A PR modifies 14 files. Your single-pass review produces inconsistent results: detailed feedback for some files but superficial for others, obvious bugs missed, and contradictory feedback. How should you restructure?"
+        - generic [ref=e188]:
+          - generic [ref=e189]:
+            - generic [ref=e190]: "Your answer (C):"
+            - generic [ref=e191]: Switch to a higher-tier model with a larger context window to give adequate attention to all 14 files in a single pass.
+          - generic [ref=e192]:
+            - generic [ref=e193]: "Correct answer (A):"
+            - generic [ref=e194]: "Split into focused passes: analyze each file individually for local issues, then run a separate integration pass examining cross-file data flow."
+        - generic [ref=e195]:
+          - strong [ref=e196]: "Explanation:"
+          - text: "Splitting reviews into focused passes addresses the root cause: attention dilution when processing many files at once. Per-file analysis ensures consistent depth, and an integration pass captures cross-file issues."
+        - generic [ref=e197]:
+          - strong [ref=e198]: "Why C is wrong:"
+          - text: Larger context windows do not solve attention quality problems. The model may have room for all files but still lose focus distributed across 14 files.
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - generic [ref=e202]: "#4"
+            - generic [ref=e203]: "D5: Context Management & Reliability"
+          - generic [ref=e204]: INCORRECT
+        - generic [ref=e205]: Your extraction pipeline processes documents of varying length. Short documents (1-2 pages) extract accurately but long documents (50+ pages) show degraded accuracy in later sections. What context management strategy addresses this?
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - generic [ref=e208]: "Your answer (A):"
+            - generic [ref=e209]: Truncate long documents to the first 10 pages since that's where accuracy is highest.
+          - generic [ref=e210]:
+            - generic [ref=e211]: "Correct answer (B):"
+            - generic [ref=e212]: Split long documents into overlapping chunks, extract from each chunk independently, then merge results with deduplication for overlapping sections.
+        - generic [ref=e213]:
+          - strong [ref=e214]: "Explanation:"
+          - text: Chunking with overlap ensures each section gets full attention from the model. Overlapping boundaries prevent data loss at chunk edges. Deduplication handles fields extracted from the overlap region. This maintains accuracy across the entire document regardless of length.
+        - generic [ref=e215]:
+          - strong [ref=e216]: "Why A is wrong:"
+          - text: Truncating loses data from later sections entirely. Important information (signatures, totals, appendices) is often at the end of documents. This trades accuracy for incompleteness.
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]:
+            - generic [ref=e220]: "#5"
+            - generic [ref=e221]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e222]: INCORRECT
+        - generic [ref=e223]: "You run `claude --bare -p \"query\"`. What components are omitted exactly in --bare mode?"
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - generic [ref=e226]: "Your answer (A):"
+            - generic [ref=e227]: Only skills and plugins are omitted — hooks, MCP, auto memory, and CLAUDE.md remain active.
+          - generic [ref=e228]:
+            - generic [ref=e229]: "Correct answer (B):"
+            - generic [ref=e230]: Hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md are omitted — only Bash, file read, and file edit remain.
+        - generic [ref=e231]:
+          - strong [ref=e232]: "Explanation:"
+          - text: "The --bare flag activates minimal mode which sets the CLAUDE_CODE_SIMPLE environment variable. It omits: hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md. Only basic tools are retained: Bash, file read, and file edit."
+        - generic [ref=e233]:
+          - strong [ref=e234]: "Why A is wrong:"
+          - text: "--bare omits ALL of these components, not just a subset. Its purpose is the most minimal mode possible with tools."
+    - button "Restart Exam" [ref=e235] [cursor=pointer]

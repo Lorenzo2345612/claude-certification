@@ -1,0 +1,169 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]: Claude Architect
+    - navigation [ref=e7]:
+      - button "Learn" [ref=e8] [cursor=pointer]
+      - button "Practice" [ref=e9] [cursor=pointer]
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - img [ref=e14]
+      - heading "Study Guide" [level=1] [ref=e17]
+      - paragraph [ref=e18]: Review key concepts across all 5 domains with links to official documentation
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - img
+        - textbox "Search topics, concepts, or keywords..." [ref=e21]
+      - generic [ref=e22]:
+        - 'button "D1: Agentic Architecture & Orchestration 27%" [ref=e23] [cursor=pointer]':
+          - generic [ref=e25]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e26]: 27%
+        - 'button "D2: Tool Design & MCP Integration 18%" [ref=e27] [cursor=pointer]':
+          - generic [ref=e29]: "D2: Tool Design & MCP Integration"
+          - generic [ref=e30]: 18%
+        - 'button "D3: Claude Code Configuration & Workflows 20%" [ref=e31] [cursor=pointer]':
+          - generic [ref=e33]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e34]: 20%
+        - 'button "D4: Prompt Engineering & Structured Output 20%" [ref=e35] [cursor=pointer]':
+          - generic [ref=e37]: "D4: Prompt Engineering & Structured Output"
+          - generic [ref=e38]: 20%
+        - 'button "D5: Context Management & Reliability 15%" [ref=e39] [cursor=pointer]':
+          - generic [ref=e41]: "D5: Context Management & Reliability"
+          - generic [ref=e42]: 15%
+      - generic [ref=e43]:
+        - button "Expand All" [ref=e44] [cursor=pointer]
+        - button "Collapse All" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]: 31 topics shown
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - 'button "D1: Agentic Architecture & Orchestration 27% 6 topics" [active] [ref=e49] [cursor=pointer]':
+          - generic [ref=e50]:
+            - img [ref=e51]
+            - generic [ref=e53]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e54]:
+            - generic [ref=e55]: 27%
+            - generic [ref=e56]: 6 topics
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - heading "The Agentic Loop" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Claude's agentic loop is the core cycle that drives autonomous tool use. The model generates a response, and if the stop_reason indicates a tool call, your code executes the tool and feeds the result back for the next iteration.
+            - generic [ref=e97]:
+              - heading "Key Concepts" [level=4] [ref=e98]
+              - list [ref=e99]:
+                - listitem [ref=e100]: "The stop_reason field tells you why Claude stopped generating: end_turn (done), tool_use (wants to call a tool), max_tokens (hit limit), or pause_turn (streaming pause)"
+                - listitem [ref=e101]: "Each loop iteration: send messages -> receive response -> check stop_reason -> if tool_use, execute tool -> append tool_result -> repeat"
+                - listitem [ref=e102]: The loop terminates when stop_reason is end_turn, meaning Claude has finished its task without requesting more tool calls
+                - listitem [ref=e103]: Tool results are sent back as tool_result content blocks matched by tool_use_id
+                - listitem [ref=e104]: Max iterations should be capped to prevent runaway loops in production systems
+                - listitem [ref=e105]: The agentic loop is model-agnostic infrastructure code — Claude decides when to call tools, your code executes them
+            - link "Read Documentation" [ref=e106] [cursor=pointer]:
+              - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works#the-agentic-loop
+              - generic [ref=e107]: Read Documentation
+              - img [ref=e108]
+          - generic [ref=e110]:
+            - heading "Multi-Agent Orchestration" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Complex tasks often benefit from multiple specialized agents working together. The coordinator-subagent pattern uses a central agent that delegates subtasks to focused agents, each with their own tools and instructions.
+            - generic [ref=e113]:
+              - heading "Key Concepts" [level=4] [ref=e114]
+              - list [ref=e115]:
+                - listitem [ref=e116]: "Coordinator-subagent (hub-and-spoke) pattern: one agent decomposes work and delegates to specialized subagents"
+                - listitem [ref=e117]: Each subagent can have its own allowedTools, system prompt, and model configuration
+                - listitem [ref=e118]: Subagents are exposed to the coordinator as tools via AgentDefinition / Task tool abstraction
+                - listitem [ref=e119]: The coordinator sees subagent results but not their internal reasoning or intermediate tool calls
+                - listitem [ref=e120]: Subagents cannot spawn their own subagents — delegation is single-level by design
+                - listitem [ref=e121]: Choose multi-agent when different subtasks need different tool sets, context, or expertise
+            - link "Read Documentation" [ref=e122] [cursor=pointer]:
+              - /url: https://code.claude.com/docs/en/agent-sdk/subagents
+              - generic [ref=e123]: Read Documentation
+              - img [ref=e124]
+          - generic [ref=e126]:
+            - heading "Agent SDK Hooks" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Hooks let you intercept and modify agent behavior at specific points in the execution lifecycle. PreToolUse and PostToolUse hooks run before and after tool execution, enabling validation, logging, and access control.
+            - generic [ref=e129]:
+              - heading "Key Concepts" [level=4] [ref=e130]
+              - list [ref=e131]:
+                - listitem [ref=e132]: PreToolUse hooks fire before a tool runs — they can allow, deny, or ask the user for permission
+                - listitem [ref=e133]: PostToolUse hooks fire after a tool completes — useful for logging, output normalization, or follow-up actions
+                - listitem [ref=e134]: "Hook handlers return a permissionDecision: allow, deny, or ask"
+                - listitem [ref=e135]: Hooks can be defined as command (shell), http (webhook), or prompt (LLM-evaluated) handler types
+                - listitem [ref=e136]: Exit code 2 from a command hook means 'ask the user' rather than allow or deny
+                - listitem [ref=e137]: Hooks are configured in settings.json and provide programmatic control over agent actions
+            - link "Read Documentation" [ref=e138] [cursor=pointer]:
+              - /url: https://code.claude.com/docs/en/agent-sdk/hooks
+              - generic [ref=e139]: Read Documentation
+              - img [ref=e140]
+          - generic [ref=e142]:
+            - heading "Session Management" [level=3] [ref=e143]
+            - paragraph [ref=e144]: Sessions track the full conversation and tool-use history of an agent interaction. They support resuming interrupted work and forking sessions to explore different paths from a shared context.
+            - generic [ref=e145]:
+              - heading "Key Concepts" [level=4] [ref=e146]
+              - list [ref=e147]:
+                - listitem [ref=e148]: Each session has a unique session ID that can be used with --resume to continue later
+                - listitem [ref=e149]: fork_session creates a new session branching from an existing one, sharing prior context
+                - listitem [ref=e150]: Sessions persist across interruptions like crashes or network failures
+                - listitem [ref=e151]: Context is passed between parent and child in multi-agent setups via the session mechanism
+                - listitem [ref=e152]: Session manifests enable recovery of the full interaction state
+                - listitem [ref=e153]: Forking is useful when you want to try multiple approaches from the same starting point
+            - link "Read Documentation" [ref=e154] [cursor=pointer]:
+              - /url: https://code.claude.com/docs/en/agent-sdk/sessions
+              - generic [ref=e155]: Read Documentation
+              - img [ref=e156]
+          - generic [ref=e158]:
+            - heading "Task Decomposition" [level=3] [ref=e159]
+            - paragraph [ref=e160]: Breaking complex tasks into smaller subtasks is fundamental to agentic systems. The approach ranges from fixed sequential pipelines (prompt chaining) to adaptive decomposition where the agent decides the next step based on intermediate results.
+            - generic [ref=e161]:
+              - heading "Key Concepts" [level=4] [ref=e162]
+              - list [ref=e163]:
+                - listitem [ref=e164]: "Prompt chaining: fixed sequence of steps where each step's output feeds the next — predictable but inflexible"
+                - listitem [ref=e165]: "Adaptive decomposition: the agent dynamically decides what subtasks are needed based on intermediate results"
+                - listitem [ref=e166]: Parallel subagents can execute independent subtasks simultaneously for better throughput
+                - listitem [ref=e167]: The coordinator's decomposition quality directly determines the coverage and relevance of subagent outputs
+                - listitem [ref=e168]: Multi-concern tasks (e.g., 'analyze X across Y dimensions') require explicit decomposition to avoid narrow coverage
+                - listitem [ref=e169]: Sequential pipelines are preferred when steps have strict dependencies; parallel when subtasks are independent
+            - link "Read Documentation" [ref=e170] [cursor=pointer]:
+              - /url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts
+              - generic [ref=e171]: Read Documentation
+              - img [ref=e172]
+          - generic [ref=e174]:
+            - heading "Programmatic Enforcement vs Prompt-Based Guidance" [level=3] [ref=e175]
+            - paragraph [ref=e176]: Critical business logic should be enforced programmatically rather than relying on prompt instructions alone. While prompts guide model behavior probabilistically, programmatic checks provide deterministic guarantees.
+            - generic [ref=e177]:
+              - heading "Key Concepts" [level=4] [ref=e178]
+              - list [ref=e179]:
+                - listitem [ref=e180]: "Programmatic enforcement: code-level gates that block tool execution unless prerequisites are met"
+                - listitem [ref=e181]: "Prompt-based guidance: system prompt instructions that influence but cannot guarantee model behavior"
+                - listitem [ref=e182]: "Use programmatic enforcement for: financial transactions, identity verification, safety-critical sequences"
+                - listitem [ref=e183]: "Use prompt guidance for: tone, formatting, general approach, and non-critical preferences"
+                - listitem [ref=e184]: A prerequisite gate blocks downstream tools until required prior tools have returned valid results
+                - listitem [ref=e185]: Combining both approaches is common — prompts for general behavior, code for critical invariants
+            - link "Read Documentation" [ref=e186] [cursor=pointer]:
+              - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works
+              - generic [ref=e187]: Read Documentation
+              - img [ref=e188]
+      - 'button "D2: Tool Design & MCP Integration 18% 7 topics" [ref=e58] [cursor=pointer]':
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - generic [ref=e62]: "D2: Tool Design & MCP Integration"
+        - generic [ref=e63]:
+          - generic [ref=e64]: 18%
+          - generic [ref=e65]: 7 topics
+      - 'button "D3: Claude Code Configuration & Workflows 20% 6 topics" [ref=e67] [cursor=pointer]':
+        - generic [ref=e68]:
+          - img [ref=e69]
+          - generic [ref=e71]: "D3: Claude Code Configuration & Workflows"
+        - generic [ref=e72]:
+          - generic [ref=e73]: 20%
+          - generic [ref=e74]: 6 topics
+      - 'button "D4: Prompt Engineering & Structured Output 20% 6 topics" [ref=e76] [cursor=pointer]':
+        - generic [ref=e77]:
+          - img [ref=e78]
+          - generic [ref=e80]: "D4: Prompt Engineering & Structured Output"
+        - generic [ref=e81]:
+          - generic [ref=e82]: 20%
+          - generic [ref=e83]: 6 topics
+      - 'button "D5: Context Management & Reliability 15% 6 topics" [ref=e85] [cursor=pointer]':
+        - generic [ref=e86]:
+          - img [ref=e87]
+          - generic [ref=e89]: "D5: Context Management & Reliability"
+        - generic [ref=e90]:
+          - generic [ref=e91]: 15%
+          - generic [ref=e92]: 6 topics

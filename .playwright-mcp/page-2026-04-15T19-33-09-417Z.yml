@@ -1,0 +1,1457 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Getting started" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/quickstart
+                  - generic [ref=e94]: Quickstart
+              - listitem [ref=e95]:
+                - link "Changelog" [ref=e96] [cursor=pointer]:
+                  - /url: /docs/en/changelog
+                  - generic [ref=e99]: Changelog
+          - generic [ref=e100]:
+            - heading "Core concepts" [level=5] [ref=e102]
+            - list [ref=e103]:
+              - listitem [ref=e104]:
+                - link "How Claude Code works" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/how-claude-code-works
+                  - generic [ref=e108]: How Claude Code works
+              - listitem [ref=e109]:
+                - link "Extend Claude Code" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/features-overview
+                  - generic [ref=e113]: Extend Claude Code
+              - listitem [ref=e114]:
+                - link "Explore the .claude directory" [ref=e115] [cursor=pointer]:
+                  - /url: /docs/en/claude-directory
+                  - generic [ref=e118]: Explore the .claude directory
+              - listitem [ref=e119]:
+                - link "Explore the context window" [ref=e120] [cursor=pointer]:
+                  - /url: /docs/en/context-window
+                  - generic [ref=e123]: Explore the context window
+          - generic [ref=e124]:
+            - heading "Use Claude Code" [level=5] [ref=e126]
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - link "Store instructions and memories" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/memory
+                  - generic [ref=e132]: Store instructions and memories
+              - listitem [ref=e133]:
+                - link "Permission modes" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/permission-modes
+                  - generic [ref=e137]: Permission modes
+              - listitem [ref=e138]:
+                - link "Common workflows" [ref=e139] [cursor=pointer]:
+                  - /url: /docs/en/common-workflows
+                  - generic [ref=e142]: Common workflows
+              - listitem [ref=e143]:
+                - link "Best practices" [ref=e144] [cursor=pointer]:
+                  - /url: /docs/en/best-practices
+                  - generic [ref=e147]: Best practices
+          - generic [ref=e148]:
+            - heading "Platforms and integrations" [level=5] [ref=e150]
+            - list [ref=e151]:
+              - listitem [ref=e152]:
+                - link "Overview" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/platforms
+                  - generic [ref=e156]: Overview
+              - listitem [ref=e157]:
+                - link "Remote Control" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/remote-control
+                  - generic [ref=e161]: Remote Control
+              - listitem [ref=e162]:
+                - button "Toggle Claude Code on the web section" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]: Claude Code on the web
+                  - img [ref=e166]
+              - listitem [ref=e168]:
+                - button "Toggle Claude Code on desktop section" [ref=e169] [cursor=pointer]:
+                  - generic [ref=e170]: Claude Code on desktop
+                  - img [ref=e172]
+              - listitem [ref=e174]:
+                - link "Chrome extension (beta)" [ref=e175] [cursor=pointer]:
+                  - /url: /docs/en/chrome
+                  - generic [ref=e178]: Chrome extension (beta)
+              - listitem [ref=e179]:
+                - link "Computer use (preview)" [ref=e180] [cursor=pointer]:
+                  - /url: /docs/en/computer-use
+                  - generic [ref=e183]: Computer use (preview)
+              - listitem [ref=e184]:
+                - link "Visual Studio Code" [ref=e185] [cursor=pointer]:
+                  - /url: /docs/en/vs-code
+                  - generic [ref=e188]: Visual Studio Code
+              - listitem [ref=e189]:
+                - link "JetBrains IDEs" [ref=e190] [cursor=pointer]:
+                  - /url: /docs/en/jetbrains
+                  - generic [ref=e193]: JetBrains IDEs
+              - listitem [ref=e194]:
+                - button "Toggle Code review & CI/CD section" [ref=e195] [cursor=pointer]:
+                  - generic [ref=e196]: Code review & CI/CD
+                  - img [ref=e198]
+              - listitem [ref=e200]:
+                - link "Claude Code in Slack" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/slack
+                  - generic [ref=e204]: Claude Code in Slack
+        - generic [ref=e207]:
+          - banner [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: Use Claude Code
+              - generic [ref=e211]:
+                - heading "Best Practices for Claude Code" [level=1] [ref=e212]
+                - generic [ref=e213]:
+                  - button "Copy page" [ref=e214] [cursor=pointer]:
+                    - generic [ref=e215]:
+                      - img [ref=e216]
+                      - generic [ref=e219]: Copy page
+                  - button "More actions" [ref=e220] [cursor=pointer]:
+                    - img [ref=e221]
+            - paragraph [ref=e224]: Tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions.
+          - generic [ref=e225]:
+            - generic [ref=e226]: Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.
+            - generic [ref=e227]: This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements.
+            - generic [ref=e228]: But this autonomy still comes with a learning curve. Claude works within certain constraints you need to understand.
+            - generic [ref=e229]:
+              - text: This guide covers patterns that have proven effective across Anthropic’s internal teams and for engineers using Claude Code across various codebases, languages, and environments. For how the agentic loop works under the hood, see
+              - link "How Claude Code works" [ref=e230] [cursor=pointer]:
+                - /url: /docs/en/how-claude-code-works
+              - text: .
+            - separator [ref=e231]
+            - generic [ref=e232]: "Most best practices are based on one constraint: Claude’s context window fills up fast, and performance degrades as it fills."
+            - generic [ref=e233]: Claude’s context window holds your entire conversation, including every message, every file Claude reads, and every command output. However, this can fill up fast. A single debugging session or codebase exploration might generate and consume tens of thousands of tokens.
+            - generic [ref=e234]:
+              - text: This matters since LLM performance degrades as context fills. When the context window is getting full, Claude may start “forgetting” earlier instructions or making more mistakes. The context window is the most important resource to manage. To see how a session fills up in practice,
+              - link "watch an interactive walkthrough" [ref=e235] [cursor=pointer]:
+                - /url: /docs/en/context-window
+              - text: of what loads at startup and what each file read costs. Track context usage continuously with a
+              - link "custom status line" [ref=e236] [cursor=pointer]:
+                - /url: /docs/en/statusline
+              - text: ", and see"
+              - link "Reduce token usage" [ref=e237] [cursor=pointer]:
+                - /url: /docs/en/costs#reduce-token-usage
+              - text: for strategies on reducing token usage.
+            - separator [ref=e238]
+            - heading "Navigate to header Give Claude a way to verify its work" [level=2] [ref=e239]:
+              - link "Navigate to header" [ref=e240] [cursor=pointer]:
+                - /url: "#give-claude-a-way-to-verify-its-work"
+                - img [ref=e242]
+              - generic [ref=e244] [cursor=pointer]: Give Claude a way to verify its work
+            - generic [ref=e245]:
+              - img "Tip" [ref=e247]
+              - generic [ref=e250]: Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do.
+            - generic [ref=e251]: Claude performs dramatically better when it can verify its own work, like run tests, compare screenshots, and validate outputs.
+            - generic [ref=e252]: Without clear success criteria, it might produce something that looks right but actually doesn’t work. You become the only feedback loop, and every mistake requires your attention.
+            - table [ref=e255]:
+              - rowgroup [ref=e256]:
+                - row "Strategy Before After" [ref=e257]:
+                  - columnheader "Strategy" [ref=e258]
+                  - columnheader "Before" [ref=e259]
+                  - columnheader "After" [ref=e260]
+              - rowgroup [ref=e261]:
+                - 'row "Provide verification criteria ”implement a function that validates email addresses\" \"write a validateEmail function. example test cases: user@example.com is true, invalid is false, user@.com is false. run the tests after implementing”" [ref=e262]':
+                  - cell "Provide verification criteria" [ref=e263]:
+                    - strong [ref=e264]: Provide verification criteria
+                  - cell "”implement a function that validates email addresses\"" [ref=e265]:
+                    - emphasis [ref=e266]: ”implement a function that validates email addresses"
+                  - 'cell "\"write a validateEmail function. example test cases: user@example.com is true, invalid is false, user@.com is false. run the tests after implementing”" [ref=e267]':
+                    - emphasis [ref=e268]:
+                      - text: "\"write a validateEmail function. example test cases:"
+                      - link "user@example.com" [ref=e269] [cursor=pointer]:
+                        - /url: mailto:user@example.com
+                      - text: is true, invalid is false,
+                      - link "user@.com" [ref=e270] [cursor=pointer]:
+                        - /url: mailto:user@.com
+                      - text: is false. run the tests after implementing”
+                - row "Verify UI changes visually ”make the dashboard look better\" \"[paste screenshot] implement this design. take a screenshot of the result and compare it to the original. list differences and fix them”" [ref=e271]:
+                  - cell "Verify UI changes visually" [ref=e272]:
+                    - strong [ref=e273]: Verify UI changes visually
+                  - cell "”make the dashboard look better\"" [ref=e274]:
+                    - emphasis [ref=e275]: ”make the dashboard look better"
+                  - cell "\"[paste screenshot] implement this design. take a screenshot of the result and compare it to the original. list differences and fix them”" [ref=e276]:
+                    - emphasis [ref=e277]: "\"[paste screenshot] implement this design. take a screenshot of the result and compare it to the original. list differences and fix them”"
+                - 'row "Address root causes, not symptoms ”the build is failing\" \"the build fails with this error: [paste error]. fix it and verify the build succeeds. address the root cause, don’t suppress the error”" [ref=e278]':
+                  - cell "Address root causes, not symptoms" [ref=e279]:
+                    - strong [ref=e280]: Address root causes, not symptoms
+                  - cell "”the build is failing\"" [ref=e281]:
+                    - emphasis [ref=e282]: ”the build is failing"
+                  - 'cell "\"the build fails with this error: [paste error]. fix it and verify the build succeeds. address the root cause, don’t suppress the error”" [ref=e283]':
+                    - emphasis [ref=e284]: "\"the build fails with this error: [paste error]. fix it and verify the build succeeds. address the root cause, don’t suppress the error”"
+            - generic [ref=e285]:
+              - text: UI changes can be verified using the
+              - link "Claude in Chrome extension" [ref=e286] [cursor=pointer]:
+                - /url: /docs/en/chrome
+              - text: . It opens new tabs in your browser, tests the UI, and iterates until the code works.
+            - generic [ref=e287]: Your verification can also be a test suite, a linter, or a Bash command that checks output. Invest in making your verification rock-solid.
+            - separator [ref=e288]
+            - heading "Navigate to header Explore first, then plan, then code" [level=2] [ref=e289]:
+              - link "Navigate to header" [ref=e290] [cursor=pointer]:
+                - /url: "#explore-first-then-plan-then-code"
+                - img [ref=e292]
+              - generic [ref=e294] [cursor=pointer]: Explore first, then plan, then code
+            - generic [ref=e295]:
+              - img "Tip" [ref=e297]
+              - generic [ref=e300]: Separate research and planning from implementation to avoid solving the wrong problem.
+            - generic [ref=e301]:
+              - text: Letting Claude jump straight to coding can produce code that solves the wrong problem. Use
+              - link "Plan Mode" [ref=e302] [cursor=pointer]:
+                - /url: /docs/en/common-workflows#use-plan-mode-for-safe-code-analysis
+              - text: to separate exploration from execution.
+            - generic [ref=e303]: "The recommended workflow has four phases:"
+            - list [ref=e304]:
+              - listitem [ref=e305]:
+                - generic [ref=e308]:
+                  - generic [ref=e309]: "1"
+                  - link "Navigate to header" [ref=e311] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e313]
+                - generic [ref=e315]:
+                  - paragraph [ref=e316]: Explore
+                  - generic [ref=e317]:
+                    - generic [ref=e318]: Enter Plan Mode. Claude reads files and answers questions without making changes.
+                    - generic [ref=e319]:
+                      - generic [ref=e320]:
+                        - generic "claude (Plan Mode)" [ref=e322]
+                        - generic [ref=e323]:
+                          - button "Report incorrect code" [ref=e325] [cursor=pointer]:
+                            - img [ref=e326]
+                          - button "Copy the contents from the code block" [ref=e329] [cursor=pointer]:
+                            - img [ref=e330]
+                          - button "Ask AI" [ref=e334] [cursor=pointer]:
+                            - img [ref=e335]
+                      - code [ref=e341]:
+                        - generic [ref=e342]: read /src/auth and understand how we handle sessions and login.
+                        - generic [ref=e343]: also look at how we manage environment variables for secrets.
+              - listitem [ref=e344]:
+                - generic [ref=e347]:
+                  - generic [ref=e348]: "2"
+                  - link "Navigate to header" [ref=e350] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e352]
+                - generic [ref=e354]:
+                  - paragraph [ref=e355]: Plan
+                  - generic [ref=e356]:
+                    - generic [ref=e357]: Ask Claude to create a detailed implementation plan.
+                    - generic [ref=e358]:
+                      - generic [ref=e359]:
+                        - generic "claude (Plan Mode)" [ref=e361]
+                        - generic [ref=e362]:
+                          - button "Report incorrect code" [ref=e364] [cursor=pointer]:
+                            - img [ref=e365]
+                          - button "Copy the contents from the code block" [ref=e368] [cursor=pointer]:
+                            - img [ref=e369]
+                          - button "Ask AI" [ref=e373] [cursor=pointer]:
+                            - img [ref=e374]
+                      - code [ref=e380]:
+                        - generic [ref=e381]: I want to add Google OAuth. What files need to change?
+                        - generic [ref=e382]: What's the session flow? Create a plan.
+                    - generic [ref=e383]:
+                      - text: Press
+                      - code [ref=e384]: Ctrl+G
+                      - text: to open the plan in your text editor for direct editing before Claude proceeds.
+              - listitem [ref=e385]:
+                - generic [ref=e388]:
+                  - generic [ref=e389]: "3"
+                  - link "Navigate to header" [ref=e391] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e393]
+                - generic [ref=e395]:
+                  - paragraph [ref=e396]: Implement
+                  - generic [ref=e397]:
+                    - generic [ref=e398]: Switch back to Normal Mode and let Claude code, verifying against its plan.
+                    - generic [ref=e399]:
+                      - generic [ref=e400]:
+                        - generic "claude (Normal Mode)" [ref=e402]
+                        - generic [ref=e403]:
+                          - button "Report incorrect code" [ref=e405] [cursor=pointer]:
+                            - img [ref=e406]
+                          - button "Copy the contents from the code block" [ref=e409] [cursor=pointer]:
+                            - img [ref=e410]
+                          - button "Ask AI" [ref=e414] [cursor=pointer]:
+                            - img [ref=e415]
+                      - code [ref=e421]:
+                        - generic [ref=e422]: implement the OAuth flow from your plan. write tests for the
+                        - generic [ref=e423]: callback handler, run the test suite and fix any failures.
+              - listitem [ref=e424]:
+                - generic [ref=e427]:
+                  - generic [ref=e428]: "4"
+                  - link "Navigate to header" [ref=e430] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e432]
+                - generic [ref=e434]:
+                  - paragraph [ref=e435]: Commit
+                  - generic [ref=e436]:
+                    - generic [ref=e437]: Ask Claude to commit with a descriptive message and create a PR.
+                    - generic [ref=e438]:
+                      - generic [ref=e439]:
+                        - generic "claude (Normal Mode)" [ref=e441]
+                        - generic [ref=e442]:
+                          - button "Report incorrect code" [ref=e444] [cursor=pointer]:
+                            - img [ref=e445]
+                          - button "Copy the contents from the code block" [ref=e448] [cursor=pointer]:
+                            - img [ref=e449]
+                          - button "Ask AI" [ref=e453] [cursor=pointer]:
+                            - img [ref=e454]
+                      - code [ref=e460]:
+                        - generic [ref=e461]: commit with a descriptive message and open a PR
+            - generic [ref=e463]:
+              - generic [ref=e464]: Plan Mode is useful, but also adds overhead.
+              - generic [ref=e465]: For tasks where the scope is clear and the fix is small (like fixing a typo, adding a log line, or renaming a variable) ask Claude to do it directly.
+              - generic [ref=e466]: Planning is most useful when you’re uncertain about the approach, when the change modifies multiple files, or when you’re unfamiliar with the code being modified. If you could describe the diff in one sentence, skip the plan.
+            - separator [ref=e467]
+            - heading "Navigate to header Provide specific context in your prompts" [level=2] [ref=e468]:
+              - link "Navigate to header" [ref=e469] [cursor=pointer]:
+                - /url: "#provide-specific-context-in-your-prompts"
+                - img [ref=e471]
+              - generic [ref=e473] [cursor=pointer]: Provide specific context in your prompts
+            - generic [ref=e474]:
+              - img "Tip" [ref=e476]
+              - generic [ref=e479]: The more precise your instructions, the fewer corrections you’ll need.
+            - generic [ref=e480]: Claude can infer intent, but it can’t read your mind. Reference specific files, mention constraints, and point to example patterns.
+            - table [ref=e483]:
+              - rowgroup [ref=e484]:
+                - row "Strategy Before After" [ref=e485]:
+                  - columnheader "Strategy" [ref=e486]
+                  - columnheader "Before" [ref=e487]
+                  - columnheader "After" [ref=e488]
+              - rowgroup [ref=e489]:
+                - row "Scope the task. Specify which file, what scenario, and testing preferences. ”add tests for foo.py\" \"write a test for foo.py covering the edge case where the user is logged out. avoid mocks.”" [ref=e490]:
+                  - cell "Scope the task. Specify which file, what scenario, and testing preferences." [ref=e491]:
+                    - strong [ref=e492]: Scope the task.
+                    - text: Specify which file, what scenario, and testing preferences.
+                  - cell "”add tests for foo.py\"" [ref=e493]:
+                    - emphasis [ref=e494]: ”add tests for foo.py"
+                  - cell "\"write a test for foo.py covering the edge case where the user is logged out. avoid mocks.”" [ref=e495]:
+                    - emphasis [ref=e496]: "\"write a test for foo.py covering the edge case where the user is logged out. avoid mocks.”"
+                - row "Point to sources. Direct Claude to the source that can answer a question. ”why does ExecutionFactory have such a weird api?\" \"look through ExecutionFactory’s git history and summarize how its api came to be”" [ref=e497]:
+                  - cell "Point to sources. Direct Claude to the source that can answer a question." [ref=e498]:
+                    - strong [ref=e499]: Point to sources.
+                    - text: Direct Claude to the source that can answer a question.
+                  - cell "”why does ExecutionFactory have such a weird api?\"" [ref=e500]:
+                    - emphasis [ref=e501]: ”why does ExecutionFactory have such a weird api?"
+                  - cell "\"look through ExecutionFactory’s git history and summarize how its api came to be”" [ref=e502]:
+                    - emphasis [ref=e503]: "\"look through ExecutionFactory’s git history and summarize how its api came to be”"
+                - row "Reference existing patterns. Point Claude to patterns in your codebase. ”add a calendar widget\" \"look at how existing widgets are implemented on the home page to understand the patterns. HotDogWidget.php is a good example. follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year. build from scratch without libraries other than the ones already used in the codebase.”" [ref=e504]:
+                  - cell "Reference existing patterns. Point Claude to patterns in your codebase." [ref=e505]:
+                    - strong [ref=e506]: Reference existing patterns.
+                    - text: Point Claude to patterns in your codebase.
+                  - cell "”add a calendar widget\"" [ref=e507]:
+                    - emphasis [ref=e508]: ”add a calendar widget"
+                  - cell "\"look at how existing widgets are implemented on the home page to understand the patterns. HotDogWidget.php is a good example. follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year. build from scratch without libraries other than the ones already used in the codebase.”" [ref=e509]:
+                    - emphasis [ref=e510]: "\"look at how existing widgets are implemented on the home page to understand the patterns. HotDogWidget.php is a good example. follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year. build from scratch without libraries other than the ones already used in the codebase.”"
+                - row "Describe the symptom. Provide the symptom, the likely location, and what “fixed” looks like. ”fix the login bug\" \"users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it”" [ref=e511]:
+                  - cell "Describe the symptom. Provide the symptom, the likely location, and what “fixed” looks like." [ref=e512]:
+                    - strong [ref=e513]: Describe the symptom.
+                    - text: Provide the symptom, the likely location, and what “fixed” looks like.
+                  - cell "”fix the login bug\"" [ref=e514]:
+                    - emphasis [ref=e515]: ”fix the login bug"
+                  - cell "\"users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it”" [ref=e516]:
+                    - emphasis [ref=e517]: "\"users report that login fails after session timeout. check the auth flow in src/auth/, especially token refresh. write a failing test that reproduces the issue, then fix it”"
+            - generic [ref=e518]:
+              - text: Vague prompts can be useful when you’re exploring and can afford to course-correct. A prompt like
+              - code [ref=e519]: "\"what would you improve in this file?\""
+              - text: can surface things you wouldn’t have thought to ask about.
+            - heading "Navigate to header Provide rich content" [level=3] [ref=e520]:
+              - link "Navigate to header" [ref=e521] [cursor=pointer]:
+                - /url: "#provide-rich-content"
+                - img [ref=e523]
+              - generic [ref=e525] [cursor=pointer]: Provide rich content
+            - generic [ref=e526]:
+              - img "Tip" [ref=e528]
+              - generic [ref=e531]:
+                - text: Use
+                - code [ref=e532]: "@"
+                - text: to reference files, paste screenshots/images, or pipe data directly.
+            - generic [ref=e533]: "You can provide rich data to Claude in several ways:"
+            - list [ref=e534]:
+              - listitem [ref=e535]:
+                - strong [ref=e536]:
+                  - text: Reference files with
+                  - code [ref=e537]: "@"
+                - text: instead of describing where code lives. Claude reads the file before responding.
+              - listitem [ref=e538]:
+                - strong [ref=e539]: Paste images directly
+                - text: . Copy/paste or drag and drop images into the prompt.
+              - listitem [ref=e540]:
+                - strong [ref=e541]: Give URLs
+                - text: for documentation and API references. Use
+                - code [ref=e542]: /permissions
+                - text: to allowlist frequently-used domains.
+              - listitem [ref=e543]:
+                - strong [ref=e544]: Pipe in data
+                - text: by running
+                - code [ref=e545]: cat error.log | claude
+                - text: to send file contents directly.
+              - listitem [ref=e546]:
+                - strong [ref=e547]: Let Claude fetch what it needs
+                - text: . Tell Claude to pull context itself using Bash commands, MCP tools, or by reading files.
+            - separator [ref=e548]
+            - heading "Navigate to header Configure your environment" [level=2] [ref=e549]:
+              - link "Navigate to header" [ref=e550] [cursor=pointer]:
+                - /url: "#configure-your-environment"
+                - img [ref=e552]
+              - generic [ref=e554] [cursor=pointer]: Configure your environment
+            - generic [ref=e555]:
+              - text: A few setup steps make Claude Code significantly more effective across all your sessions. For a full overview of extension features and when to use each one, see
+              - link "Extend Claude Code" [ref=e556] [cursor=pointer]:
+                - /url: /docs/en/features-overview
+              - text: .
+            - heading "Navigate to header Write an effective CLAUDE.md" [level=3] [ref=e557]:
+              - link "Navigate to header" [ref=e558] [cursor=pointer]:
+                - /url: "#write-an-effective-claude-md"
+                - img [ref=e560]
+              - generic [ref=e562] [cursor=pointer]: Write an effective CLAUDE.md
+            - generic [ref=e563]:
+              - img "Tip" [ref=e565]
+              - generic [ref=e568]:
+                - text: Run
+                - code [ref=e569]: /init
+                - text: to generate a starter CLAUDE.md file based on your current project structure, then refine over time.
+            - generic [ref=e570]: CLAUDE.md is a special file that Claude reads at the start of every conversation. Include Bash commands, code style, and workflow rules. This gives Claude persistent context it can’t infer from code alone.
+            - generic [ref=e571]:
+              - text: The
+              - code [ref=e572]: /init
+              - text: command analyzes your codebase to detect build systems, test frameworks, and code patterns, giving you a solid foundation to refine.
+            - generic [ref=e573]: "There’s no required format for CLAUDE.md files, but keep it short and human-readable. For example:"
+            - generic [ref=e574]:
+              - generic [ref=e575]:
+                - generic "CLAUDE.md" [ref=e577]
+                - generic [ref=e578]:
+                  - button "Report incorrect code" [ref=e580] [cursor=pointer]:
+                    - img [ref=e581]
+                  - button "Copy the contents from the code block" [ref=e584] [cursor=pointer]:
+                    - img [ref=e585]
+                  - button "Ask AI" [ref=e589] [cursor=pointer]:
+                    - img [ref=e590]
+              - code [ref=e596]:
+                - generic [ref=e597]: "# Code style"
+                - generic [ref=e598]: "- Use ES modules (import/export) syntax, not CommonJS (require)"
+                - generic [ref=e599]: "- Destructure imports when possible (eg. import { foo } from 'bar')"
+                - generic [ref=e600]: "# Workflow"
+                - generic [ref=e601]: "- Be sure to typecheck when you're done making a series of code changes"
+                - generic [ref=e602]: "- Prefer running single tests, and not the whole test suite, for performance"
+            - generic [ref=e603]:
+              - text: CLAUDE.md is loaded every session, so only include things that apply broadly. For domain knowledge or workflows that are only relevant sometimes, use
+              - link "skills" [ref=e604] [cursor=pointer]:
+                - /url: /docs/en/skills
+              - text: instead. Claude loads them on demand without bloating every conversation.
+            - generic [ref=e605]:
+              - text: "Keep it concise. For each line, ask:"
+              - emphasis [ref=e606]: “Would removing this cause Claude to make mistakes?”
+              - text: If not, cut it. Bloated CLAUDE.md files cause Claude to ignore your actual instructions!
+            - table [ref=e609]:
+              - rowgroup [ref=e610]:
+                - row "✅ Include ❌ Exclude" [ref=e611]:
+                  - columnheader "✅ Include" [ref=e612]
+                  - columnheader "❌ Exclude" [ref=e613]
+              - rowgroup [ref=e614]:
+                - row "Bash commands Claude can’t guess Anything Claude can figure out by reading code" [ref=e615]:
+                  - cell "Bash commands Claude can’t guess" [ref=e616]
+                  - cell "Anything Claude can figure out by reading code" [ref=e617]
+                - row "Code style rules that differ from defaults Standard language conventions Claude already knows" [ref=e618]:
+                  - cell "Code style rules that differ from defaults" [ref=e619]
+                  - cell "Standard language conventions Claude already knows" [ref=e620]
+                - row "Testing instructions and preferred test runners Detailed API documentation (link to docs instead)" [ref=e621]:
+                  - cell "Testing instructions and preferred test runners" [ref=e622]
+                  - cell "Detailed API documentation (link to docs instead)" [ref=e623]
+                - row "Repository etiquette (branch naming, PR conventions) Information that changes frequently" [ref=e624]:
+                  - cell "Repository etiquette (branch naming, PR conventions)" [ref=e625]
+                  - cell "Information that changes frequently" [ref=e626]
+                - row "Architectural decisions specific to your project Long explanations or tutorials" [ref=e627]:
+                  - cell "Architectural decisions specific to your project" [ref=e628]
+                  - cell "Long explanations or tutorials" [ref=e629]
+                - row "Developer environment quirks (required env vars) File-by-file descriptions of the codebase" [ref=e630]:
+                  - cell "Developer environment quirks (required env vars)" [ref=e631]
+                  - cell "File-by-file descriptions of the codebase" [ref=e632]
+                - row "Common gotchas or non-obvious behaviors Self-evident practices like “write clean code”" [ref=e633]:
+                  - cell "Common gotchas or non-obvious behaviors" [ref=e634]
+                  - cell "Self-evident practices like “write clean code”" [ref=e635]
+            - generic [ref=e636]: "If Claude keeps doing something you don’t want despite having a rule against it, the file is probably too long and the rule is getting lost. If Claude asks you questions that are answered in CLAUDE.md, the phrasing might be ambiguous. Treat CLAUDE.md like code: review it when things go wrong, prune it regularly, and test changes by observing whether Claude’s behavior actually shifts."
+            - generic [ref=e637]: You can tune instructions by adding emphasis (e.g., “IMPORTANT” or “YOU MUST”) to improve adherence. Check CLAUDE.md into git so your team can contribute. The file compounds in value over time.
+            - generic [ref=e638]:
+              - text: CLAUDE.md files can import additional files using
+              - code [ref=e639]: "@path/to/import"
+              - text: "syntax:"
+            - generic [ref=e640]:
+              - generic [ref=e641]:
+                - generic "CLAUDE.md" [ref=e643]
+                - generic [ref=e644]:
+                  - button "Report incorrect code" [ref=e646] [cursor=pointer]:
+                    - img [ref=e647]
+                  - button "Copy the contents from the code block" [ref=e650] [cursor=pointer]:
+                    - img [ref=e651]
+                  - button "Ask AI" [ref=e655] [cursor=pointer]:
+                    - img [ref=e656]
+              - code [ref=e662]:
+                - generic [ref=e663]: See @README.md for project overview and @package.json for available npm commands.
+                - generic [ref=e664]: "# Additional Instructions"
+                - generic [ref=e665]: "- Git workflow: @docs/git-instructions.md"
+                - generic [ref=e666]: "- Personal overrides: @~/.claude/my-project-instructions.md"
+            - generic [ref=e667]: "You can place CLAUDE.md files in several locations:"
+            - list [ref=e668]:
+              - listitem [ref=e669]:
+                - strong [ref=e670]:
+                  - text: Home folder (
+                  - code [ref=e671]: ~/.claude/CLAUDE.md
+                  - text: )
+                - text: ": applies to all Claude sessions"
+              - listitem [ref=e672]:
+                - strong [ref=e673]:
+                  - text: Project root (
+                  - code [ref=e674]: ./CLAUDE.md
+                  - text: )
+                - text: ": check into git to share with your team"
+              - listitem [ref=e675]:
+                - strong [ref=e676]:
+                  - text: Project root (
+                  - code [ref=e677]: ./CLAUDE.local.md
+                  - text: )
+                - text: ": personal project-specific notes; add this file to your"
+                - code [ref=e678]: .gitignore
+                - text: so it isn’t shared with your team
+              - listitem [ref=e679]:
+                - strong [ref=e680]: Parent directories
+                - text: ": useful for monorepos where both"
+                - code [ref=e681]: root/CLAUDE.md
+                - text: and
+                - code [ref=e682]: root/foo/CLAUDE.md
+                - text: are pulled in automatically
+              - listitem [ref=e683]:
+                - strong [ref=e684]: Child directories
+                - text: ": Claude pulls in child CLAUDE.md files on demand when working with files in those directories"
+            - heading "Navigate to header Configure permissions" [level=3] [ref=e685]:
+              - link "Navigate to header" [ref=e686] [cursor=pointer]:
+                - /url: "#configure-permissions"
+                - img [ref=e688]
+              - generic [ref=e690] [cursor=pointer]: Configure permissions
+            - generic [ref=e691]:
+              - img "Tip" [ref=e693]
+              - generic [ref=e696]:
+                - text: Use
+                - link "auto mode" [ref=e697] [cursor=pointer]:
+                  - /url: /docs/en/permission-modes#eliminate-prompts-with-auto-mode
+                - text: to let a classifier handle approvals,
+                - code [ref=e698]: /permissions
+                - text: to allowlist specific commands, or
+                - code [ref=e699]: /sandbox
+                - text: for OS-level isolation. Each reduces interruptions while keeping you in control.
+            - generic [ref=e700]: "By default, Claude Code requests permission for actions that might modify your system: file writes, Bash commands, MCP tools, etc. This is safe but tedious. After the tenth approval you’re not really reviewing anymore, you’re just clicking through. There are three ways to reduce these interruptions:"
+            - list [ref=e701]:
+              - listitem [ref=e702]:
+                - strong [ref=e703]: Auto mode
+                - text: ": a separate classifier model reviews commands and blocks only what looks risky: scope escalation, unknown infrastructure, or hostile-content-driven actions. Best when you trust the general direction of a task but don’t want to click through every step"
+              - listitem [ref=e704]:
+                - strong [ref=e705]: Permission allowlists
+                - text: ": permit specific tools you know are safe, like"
+                - code [ref=e706]: npm run lint
+                - text: or
+                - code [ref=e707]: git commit
+              - listitem [ref=e708]:
+                - strong [ref=e709]: Sandboxing
+                - text: ": enable OS-level isolation that restricts filesystem and network access, allowing Claude to work more freely within defined boundaries"
+            - generic [ref=e710]:
+              - text: Read more about
+              - link "permission modes" [ref=e711] [cursor=pointer]:
+                - /url: /docs/en/permission-modes
+              - text: ","
+              - link "permission rules" [ref=e712] [cursor=pointer]:
+                - /url: /docs/en/permissions
+              - text: ", and"
+              - link "sandboxing" [ref=e713] [cursor=pointer]:
+                - /url: /docs/en/sandboxing
+              - text: .
+            - heading "Navigate to header Use CLI tools" [level=3] [ref=e714]:
+              - link "Navigate to header" [ref=e715] [cursor=pointer]:
+                - /url: "#use-cli-tools"
+                - img [ref=e717]
+              - generic [ref=e719] [cursor=pointer]: Use CLI tools
+            - generic [ref=e720]:
+              - img "Tip" [ref=e722]
+              - generic [ref=e725]:
+                - text: Tell Claude Code to use CLI tools like
+                - code [ref=e726]: gh
+                - text: ","
+                - code [ref=e727]: aws
+                - text: ","
+                - code [ref=e728]: gcloud
+                - text: ", and"
+                - code [ref=e729]: sentry-cli
+                - text: when interacting with external services.
+            - generic [ref=e730]:
+              - text: CLI tools are the most context-efficient way to interact with external services. If you use GitHub, install the
+              - code [ref=e731]: gh
+              - text: CLI. Claude knows how to use it for creating issues, opening pull requests, and reading comments. Without
+              - code [ref=e732]: gh
+              - text: ", Claude can still use the GitHub API, but unauthenticated requests often hit rate limits."
+            - generic [ref=e733]:
+              - text: Claude is also effective at learning CLI tools it doesn’t already know. Try prompts like
+              - code [ref=e734]: Use 'foo-cli-tool --help' to learn about foo tool, then use it to solve A, B, C.
+            - heading "Navigate to header Connect MCP servers" [level=3] [ref=e735]:
+              - link "Navigate to header" [ref=e736] [cursor=pointer]:
+                - /url: "#connect-mcp-servers"
+                - img [ref=e738]
+              - generic [ref=e740] [cursor=pointer]: Connect MCP servers
+            - generic [ref=e741]:
+              - img "Tip" [ref=e743]
+              - generic [ref=e746]:
+                - text: Run
+                - code [ref=e747]: claude mcp add
+                - text: to connect external tools like Notion, Figma, or your database.
+            - generic [ref=e748]:
+              - text: With
+              - link "MCP servers" [ref=e749] [cursor=pointer]:
+                - /url: /docs/en/mcp
+              - text: ", you can ask Claude to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, and automate workflows."
+            - heading "Navigate to header Set up hooks" [level=3] [ref=e750]:
+              - link "Navigate to header" [ref=e751] [cursor=pointer]:
+                - /url: "#set-up-hooks"
+                - img [ref=e753]
+              - generic [ref=e755] [cursor=pointer]: Set up hooks
+            - generic [ref=e756]:
+              - img "Tip" [ref=e758]
+              - generic [ref=e761]: Use hooks for actions that must happen every time with zero exceptions.
+            - generic [ref=e762]:
+              - link "Hooks" [ref=e763] [cursor=pointer]:
+                - /url: /docs/en/hooks-guide
+              - text: run scripts automatically at specific points in Claude’s workflow. Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens.
+            - generic [ref=e764]:
+              - text: Claude can write hooks for you. Try prompts like
+              - emphasis [ref=e765]: “Write a hook that runs eslint after every file edit”
+              - text: or
+              - emphasis [ref=e766]: “Write a hook that blocks writes to the migrations folder.”
+              - text: Edit
+              - code [ref=e767]: .claude/settings.json
+              - text: directly to configure hooks by hand, and run
+              - code [ref=e768]: /hooks
+              - text: to browse what’s configured.
+            - heading "Navigate to header Create skills" [level=3] [ref=e769]:
+              - link "Navigate to header" [ref=e770] [cursor=pointer]:
+                - /url: "#create-skills"
+                - img [ref=e772]
+              - generic [ref=e774] [cursor=pointer]: Create skills
+            - generic [ref=e775]:
+              - img "Tip" [ref=e777]
+              - generic [ref=e780]:
+                - text: Create
+                - code [ref=e781]: SKILL.md
+                - text: files in
+                - code [ref=e782]: .claude/skills/
+                - text: to give Claude domain knowledge and reusable workflows.
+            - generic [ref=e783]:
+              - link "Skills" [ref=e784] [cursor=pointer]:
+                - /url: /docs/en/skills
+              - text: extend Claude’s knowledge with information specific to your project, team, or domain. Claude applies them automatically when relevant, or you can invoke them directly with
+              - code [ref=e785]: /skill-name
+              - text: .
+            - generic [ref=e786]:
+              - text: Create a skill by adding a directory with a
+              - code [ref=e787]: SKILL.md
+              - text: to
+              - code [ref=e788]: .claude/skills/
+              - text: ":"
+            - generic [ref=e789]:
+              - generic [ref=e790]:
+                - generic ".claude/skills/api-conventions/SKILL.md" [ref=e792]
+                - generic [ref=e793]:
+                  - button "Report incorrect code" [ref=e795] [cursor=pointer]:
+                    - img [ref=e796]
+                  - button "Copy the contents from the code block" [ref=e799] [cursor=pointer]:
+                    - img [ref=e800]
+                  - button "Ask AI" [ref=e804] [cursor=pointer]:
+                    - img [ref=e805]
+              - code [ref=e811]:
+                - generic [ref=e812]: "---"
+                - generic [ref=e813]: "name: api-conventions"
+                - generic [ref=e814]: "description: REST API design conventions for our services"
+                - generic [ref=e815]: "---"
+                - generic [ref=e816]: "# API Conventions"
+                - generic [ref=e817]: "- Use kebab-case for URL paths"
+                - generic [ref=e818]: "- Use camelCase for JSON properties"
+                - generic [ref=e819]: "- Always include pagination for list endpoints"
+                - generic [ref=e820]: "- Version APIs in the URL path (/v1/, /v2/)"
+            - generic [ref=e821]: "Skills can also define repeatable workflows you invoke directly:"
+            - generic [ref=e822]:
+              - generic [ref=e823]:
+                - generic ".claude/skills/fix-issue/SKILL.md" [ref=e825]
+                - generic [ref=e826]:
+                  - button "Report incorrect code" [ref=e828] [cursor=pointer]:
+                    - img [ref=e829]
+                  - button "Copy the contents from the code block" [ref=e832] [cursor=pointer]:
+                    - img [ref=e833]
+                  - button "Ask AI" [ref=e837] [cursor=pointer]:
+                    - img [ref=e838]
+              - code [ref=e844]:
+                - generic [ref=e845]: "---"
+                - generic [ref=e846]: "name: fix-issue"
+                - generic [ref=e847]: "description: Fix a GitHub issue"
+                - generic [ref=e848]: "disable-model-invocation: true"
+                - generic [ref=e849]: "---"
+                - generic [ref=e850]: "Analyze and fix the GitHub issue: $ARGUMENTS."
+                - generic [ref=e851]: "1. Use `gh issue view` to get the issue details"
+                - generic [ref=e852]: 2. Understand the problem described in the issue
+                - generic [ref=e853]: 3. Search the codebase for relevant files
+                - generic [ref=e854]: 4. Implement the necessary changes to fix the issue
+                - generic [ref=e855]: 5. Write and run tests to verify the fix
+                - generic [ref=e856]: 6. Ensure code passes linting and type checking
+                - generic [ref=e857]: 7. Create a descriptive commit message
+                - generic [ref=e858]: 8. Push and create a PR
+            - generic [ref=e859]:
+              - text: Run
+              - code [ref=e860]: /fix-issue 1234
+              - text: to invoke it. Use
+              - code [ref=e861]: "disable-model-invocation: true"
+              - text: for workflows with side effects that you want to trigger manually.
+            - heading "Navigate to header Create custom subagents" [level=3] [ref=e862]:
+              - link "Navigate to header" [ref=e863] [cursor=pointer]:
+                - /url: "#create-custom-subagents"
+                - img [ref=e865]
+              - generic [ref=e867] [cursor=pointer]: Create custom subagents
+            - generic [ref=e868]:
+              - img "Tip" [ref=e870]
+              - generic [ref=e873]:
+                - text: Define specialized assistants in
+                - code [ref=e874]: .claude/agents/
+                - text: that Claude can delegate to for isolated tasks.
+            - generic [ref=e875]:
+              - link "Subagents" [ref=e876] [cursor=pointer]:
+                - /url: /docs/en/sub-agents
+              - text: run in their own context with their own set of allowed tools. They’re useful for tasks that read many files or need specialized focus without cluttering your main conversation.
+            - generic [ref=e877]:
+              - generic [ref=e878]:
+                - generic ".claude/agents/security-reviewer.md" [ref=e880]
+                - generic [ref=e881]:
+                  - button "Report incorrect code" [ref=e883] [cursor=pointer]:
+                    - img [ref=e884]
+                  - button "Copy the contents from the code block" [ref=e887] [cursor=pointer]:
+                    - img [ref=e888]
+                  - button "Ask AI" [ref=e892] [cursor=pointer]:
+                    - img [ref=e893]
+              - code [ref=e899]:
+                - generic [ref=e900]: "---"
+                - generic [ref=e901]: "name: security-reviewer"
+                - generic [ref=e902]: "description: Reviews code for security vulnerabilities"
+                - generic [ref=e903]: "tools: Read, Grep, Glob, Bash"
+                - generic [ref=e904]: "model: opus"
+                - generic [ref=e905]: "---"
+                - generic [ref=e906]: "You are a senior security engineer. Review code for:"
+                - generic [ref=e907]: "- Injection vulnerabilities (SQL, XSS, command injection)"
+                - generic [ref=e908]: "- Authentication and authorization flaws"
+                - generic [ref=e909]: "- Secrets or credentials in code"
+                - generic [ref=e910]: "- Insecure data handling"
+                - generic [ref=e911]: Provide specific line references and suggested fixes.
+            - generic [ref=e912]:
+              - text: "Tell Claude to use subagents explicitly:"
+              - emphasis [ref=e913]: “Use a subagent to review this code for security issues.”
+            - heading "Navigate to header Install plugins" [level=3] [ref=e914]:
+              - link "Navigate to header" [ref=e915] [cursor=pointer]:
+                - /url: "#install-plugins"
+                - img [ref=e917]
+              - generic [ref=e919] [cursor=pointer]: Install plugins
+            - generic [ref=e920]:
+              - img "Tip" [ref=e922]
+              - generic [ref=e925]:
+                - text: Run
+                - code [ref=e926]: /plugin
+                - text: to browse the marketplace. Plugins add skills, tools, and integrations without configuration.
+            - generic [ref=e927]:
+              - link "Plugins" [ref=e928] [cursor=pointer]:
+                - /url: /docs/en/plugins
+              - text: bundle skills, hooks, subagents, and MCP servers into a single installable unit from the community and Anthropic. If you work with a typed language, install a
+              - link "code intelligence plugin" [ref=e929] [cursor=pointer]:
+                - /url: /docs/en/discover-plugins#code-intelligence
+              - text: to give Claude precise symbol navigation and automatic error detection after edits.
+            - generic [ref=e930]:
+              - text: For guidance on choosing between skills, subagents, hooks, and MCP, see
+              - link "Extend Claude Code" [ref=e931] [cursor=pointer]:
+                - /url: /docs/en/features-overview#match-features-to-your-goal
+              - text: .
+            - separator [ref=e932]
+            - heading "Navigate to header Communicate effectively" [level=2] [ref=e933]:
+              - link "Navigate to header" [ref=e934] [cursor=pointer]:
+                - /url: "#communicate-effectively"
+                - img [ref=e936]
+              - generic [ref=e938] [cursor=pointer]: Communicate effectively
+            - generic [ref=e939]: The way you communicate with Claude Code significantly impacts the quality of results.
+            - heading "Navigate to header Ask codebase questions" [level=3] [ref=e940]:
+              - link "Navigate to header" [ref=e941] [cursor=pointer]:
+                - /url: "#ask-codebase-questions"
+                - img [ref=e943]
+              - generic [ref=e945] [cursor=pointer]: Ask codebase questions
+            - generic [ref=e946]:
+              - img "Tip" [ref=e948]
+              - generic [ref=e951]: Ask Claude questions you’d ask a senior engineer.
+            - generic [ref=e952]: "When onboarding to a new codebase, use Claude Code for learning and exploration. You can ask Claude the same sorts of questions you would ask another engineer:"
+            - list [ref=e953]:
+              - listitem [ref=e954]: How does logging work?
+              - listitem [ref=e955]: How do I make a new API endpoint?
+              - listitem [ref=e956]:
+                - text: What does
+                - code [ref=e957]: "async move { ... }"
+                - text: do on line 134 of
+                - code [ref=e958]: foo.rs
+                - text: "?"
+              - listitem [ref=e959]:
+                - text: What edge cases does
+                - code [ref=e960]: CustomerOnboardingFlowImpl
+                - text: handle?
+              - listitem [ref=e961]:
+                - text: Why does this code call
+                - code [ref=e962]: foo()
+                - text: instead of
+                - code [ref=e963]: bar()
+                - text: on line 333?
+            - generic [ref=e964]: "Using Claude Code this way is an effective onboarding workflow, improving ramp-up time and reducing load on other engineers. No special prompting required: ask questions directly."
+            - heading "Navigate to header Let Claude interview you" [level=3] [ref=e965]:
+              - link "Navigate to header" [ref=e966] [cursor=pointer]:
+                - /url: "#let-claude-interview-you"
+                - img [ref=e968]
+              - generic [ref=e970] [cursor=pointer]: Let Claude interview you
+            - generic [ref=e971]:
+              - img "Tip" [ref=e973]
+              - generic [ref=e976]:
+                - text: For larger features, have Claude interview you first. Start with a minimal prompt and ask Claude to interview you using the
+                - code [ref=e977]: AskUserQuestion
+                - text: tool.
+            - generic [ref=e978]: Claude asks about things you might not have considered yet, including technical implementation, UI/UX, edge cases, and tradeoffs.
+            - generic [ref=e979]:
+              - generic [ref=e980]:
+                - button "Report incorrect code" [ref=e982] [cursor=pointer]:
+                  - img [ref=e983]
+                - button "Copy the contents from the code block" [ref=e986] [cursor=pointer]:
+                  - img [ref=e987]
+                - button "Ask AI" [ref=e991] [cursor=pointer]:
+                  - img [ref=e992]
+              - code [ref=e998]:
+                - generic [ref=e999]: I want to build [brief description]. Interview me in detail using the AskUserQuestion tool.
+                - generic [ref=e1000]: Ask about technical implementation, UI/UX, edge cases, concerns, and tradeoffs. Don't ask obvious questions, dig into the hard parts I might not have considered.
+                - generic [ref=e1001]: Keep interviewing until we've covered everything, then write a complete spec to SPEC.md.
+            - generic [ref=e1002]: Once the spec is complete, start a fresh session to execute it. The new session has clean context focused entirely on implementation, and you have a written spec to reference.
+            - separator [ref=e1003]
+            - heading "Navigate to header Manage your session" [level=2] [ref=e1004]:
+              - link "Navigate to header" [ref=e1005] [cursor=pointer]:
+                - /url: "#manage-your-session"
+                - img [ref=e1007]
+              - generic [ref=e1009] [cursor=pointer]: Manage your session
+            - generic [ref=e1010]: Conversations are persistent and reversible. Use this to your advantage!
+            - heading "Navigate to header Course-correct early and often" [level=3] [ref=e1011]:
+              - link "Navigate to header" [ref=e1012] [cursor=pointer]:
+                - /url: "#course-correct-early-and-often"
+                - img [ref=e1014]
+              - generic [ref=e1016] [cursor=pointer]: Course-correct early and often
+            - generic [ref=e1017]:
+              - img "Tip" [ref=e1019]
+              - generic [ref=e1022]: Correct Claude as soon as you notice it going off track.
+            - generic [ref=e1023]: The best results come from tight feedback loops. Though Claude occasionally solves problems perfectly on the first attempt, correcting it quickly generally produces better solutions faster.
+            - list [ref=e1024]:
+              - listitem [ref=e1025]:
+                - strong [ref=e1026]:
+                  - code [ref=e1027]: Esc
+                - text: ": stop Claude mid-action with the"
+                - code [ref=e1028]: Esc
+                - text: key. Context is preserved, so you can redirect.
+              - listitem [ref=e1029]:
+                - strong [ref=e1030]:
+                  - code [ref=e1031]: Esc + Esc
+                  - text: or
+                  - code [ref=e1032]: /rewind
+                - text: ": press"
+                - code [ref=e1033]: Esc
+                - text: twice or run
+                - code [ref=e1034]: /rewind
+                - text: to open the rewind menu and restore previous conversation and code state, or summarize from a selected message.
+              - listitem [ref=e1035]:
+                - strong [ref=e1036]:
+                  - code [ref=e1037]: "\"Undo that\""
+                - text: ": have Claude revert its changes."
+              - listitem [ref=e1038]:
+                - strong [ref=e1039]:
+                  - code [ref=e1040]: /clear
+                - text: ": reset context between unrelated tasks. Long sessions with irrelevant context can reduce performance."
+            - generic [ref=e1041]:
+              - text: If you’ve corrected Claude more than twice on the same issue in one session, the context is cluttered with failed approaches. Run
+              - code [ref=e1042]: /clear
+              - text: and start fresh with a more specific prompt that incorporates what you learned. A clean session with a better prompt almost always outperforms a long session with accumulated corrections.
+            - heading "Navigate to header Manage context aggressively" [level=3] [ref=e1043]:
+              - link "Navigate to header" [ref=e1044] [cursor=pointer]:
+                - /url: "#manage-context-aggressively"
+                - img [ref=e1046]
+              - generic [ref=e1048] [cursor=pointer]: Manage context aggressively
+            - generic [ref=e1049]:
+              - img "Tip" [ref=e1051]
+              - generic [ref=e1054]:
+                - text: Run
+                - code [ref=e1055]: /clear
+                - text: between unrelated tasks to reset context.
+            - generic [ref=e1056]: Claude Code automatically compacts conversation history when you approach context limits, which preserves important code and decisions while freeing space.
+            - generic [ref=e1057]: During long sessions, Claude’s context window can fill with irrelevant conversation, file contents, and commands. This can reduce performance and sometimes distract Claude.
+            - list [ref=e1058]:
+              - listitem [ref=e1059]:
+                - text: Use
+                - code [ref=e1060]: /clear
+                - text: frequently between tasks to reset the context window entirely
+              - listitem [ref=e1061]: When auto compaction triggers, Claude summarizes what matters most, including code patterns, file states, and key decisions
+              - listitem [ref=e1062]:
+                - text: For more control, run
+                - code [ref=e1063]: /compact <instructions>
+                - text: ", like"
+                - code [ref=e1064]: /compact Focus on the API changes
+              - listitem [ref=e1065]:
+                - text: To compact only part of the conversation, use
+                - code [ref=e1066]: Esc + Esc
+                - text: or
+                - code [ref=e1067]: /rewind
+                - text: ", select a message checkpoint, and choose"
+                - strong [ref=e1068]: Summarize from here
+                - text: . This condenses messages from that point forward while keeping earlier context intact.
+              - listitem [ref=e1069]:
+                - text: Customize compaction behavior in CLAUDE.md with instructions like
+                - code [ref=e1070]: "\"When compacting, always preserve the full list of modified files and any test commands\""
+                - text: to ensure critical context survives summarization
+              - listitem [ref=e1071]:
+                - text: For quick questions that don’t need to stay in context, use
+                - link "/btw" [ref=e1072] [cursor=pointer]:
+                  - /url: /docs/en/interactive-mode#side-questions-with-btw
+                  - code [ref=e1073]: /btw
+                - text: . The answer appears in a dismissible overlay and never enters conversation history, so you can check a detail without growing context.
+            - heading "Navigate to header Use subagents for investigation" [level=3] [ref=e1074]:
+              - link "Navigate to header" [ref=e1075] [cursor=pointer]:
+                - /url: "#use-subagents-for-investigation"
+                - img [ref=e1077]
+              - generic [ref=e1079] [cursor=pointer]: Use subagents for investigation
+            - generic [ref=e1080]:
+              - img "Tip" [ref=e1082]
+              - generic [ref=e1085]:
+                - text: Delegate research with
+                - code [ref=e1086]: "\"use subagents to investigate X\""
+                - text: . They explore in a separate context, keeping your main conversation clean for implementation.
+            - generic [ref=e1087]: "Since context is your fundamental constraint, subagents are one of the most powerful tools available. When Claude researches a codebase it reads lots of files, all of which consume your context. Subagents run in separate context windows and report back summaries:"
+            - generic [ref=e1088]:
+              - generic [ref=e1089]:
+                - button "Report incorrect code" [ref=e1091] [cursor=pointer]:
+                  - img [ref=e1092]
+                - button "Copy the contents from the code block" [ref=e1095] [cursor=pointer]:
+                  - img [ref=e1096]
+                - button "Ask AI" [ref=e1100] [cursor=pointer]:
+                  - img [ref=e1101]
+              - code [ref=e1107]:
+                - generic [ref=e1108]: Use subagents to investigate how our authentication system handles token
+                - generic [ref=e1109]: refresh, and whether we have any existing OAuth utilities I should reuse.
+            - generic [ref=e1110]: The subagent explores the codebase, reads relevant files, and reports back with findings, all without cluttering your main conversation.
+            - generic [ref=e1111]: "You can also use subagents for verification after Claude implements something:"
+            - generic [ref=e1112]:
+              - generic [ref=e1113]:
+                - button "Report incorrect code" [ref=e1115] [cursor=pointer]:
+                  - img [ref=e1116]
+                - button "Copy the contents from the code block" [ref=e1119] [cursor=pointer]:
+                  - img [ref=e1120]
+                - button "Ask AI" [ref=e1124] [cursor=pointer]:
+                  - img [ref=e1125]
+              - code [ref=e1131]:
+                - generic [ref=e1132]: use a subagent to review this code for edge cases
+            - heading "Navigate to header Rewind with checkpoints" [level=3] [ref=e1133]:
+              - link "Navigate to header" [ref=e1134] [cursor=pointer]:
+                - /url: "#rewind-with-checkpoints"
+                - img [ref=e1136]
+              - generic [ref=e1138] [cursor=pointer]: Rewind with checkpoints
+            - generic [ref=e1139]:
+              - img "Tip" [ref=e1141]
+              - generic [ref=e1144]: Every action Claude makes creates a checkpoint. You can restore conversation, code, or both to any previous checkpoint.
+            - generic [ref=e1145]:
+              - text: Claude automatically checkpoints before changes. Double-tap
+              - code [ref=e1146]: Escape
+              - text: or run
+              - code [ref=e1147]: /rewind
+              - text: to open the rewind menu. You can restore conversation only, restore code only, restore both, or summarize from a selected message. See
+              - link "Checkpointing" [ref=e1148] [cursor=pointer]:
+                - /url: /docs/en/checkpointing
+              - text: for details.
+            - generic [ref=e1149]: Instead of carefully planning every move, you can tell Claude to try something risky. If it doesn’t work, rewind and try a different approach. Checkpoints persist across sessions, so you can close your terminal and still rewind later.
+            - generic [ref=e1150]:
+              - img "Warning" [ref=e1152]
+              - generic [ref=e1155]:
+                - text: Checkpoints only track changes made
+                - emphasis [ref=e1156]: by Claude
+                - text: ", not external processes. This isn’t a replacement for git."
+            - heading "Navigate to header Resume conversations" [level=3] [ref=e1157]:
+              - link "Navigate to header" [ref=e1158] [cursor=pointer]:
+                - /url: "#resume-conversations"
+                - img [ref=e1160]
+              - generic [ref=e1162] [cursor=pointer]: Resume conversations
+            - generic [ref=e1163]:
+              - img "Tip" [ref=e1165]
+              - generic [ref=e1168]:
+                - text: Run
+                - code [ref=e1169]: claude --continue
+                - text: to pick up where you left off, or
+                - code [ref=e1170]: "--resume"
+                - text: to choose from recent sessions.
+            - generic [ref=e1171]: "Claude Code saves conversations locally. When a task spans multiple sessions, you don’t have to re-explain the context:"
+            - generic [ref=e1172]:
+              - generic [ref=e1173]:
+                - button "Report incorrect code" [ref=e1175] [cursor=pointer]:
+                  - img [ref=e1176]
+                - button "Copy the contents from the code block" [ref=e1179] [cursor=pointer]:
+                  - img [ref=e1180]
+                - button "Ask AI" [ref=e1184] [cursor=pointer]:
+                  - img [ref=e1185]
+              - code [ref=e1191]:
+                - generic [ref=e1192]: "claude --continue # Resume the most recent conversation"
+                - generic [ref=e1193]: "claude --resume # Select from recent conversations"
+            - generic [ref=e1194]:
+              - text: Use
+              - code [ref=e1195]: /rename
+              - text: to give sessions descriptive names like
+              - code [ref=e1196]: "\"oauth-migration\""
+              - text: or
+              - code [ref=e1197]: "\"debugging-memory-leak\""
+              - text: "so you can find them later. Treat sessions like branches: different workstreams can have separate, persistent contexts."
+            - separator [ref=e1198]
+            - heading "Navigate to header Automate and scale" [level=2] [ref=e1199]:
+              - link "Navigate to header" [ref=e1200] [cursor=pointer]:
+                - /url: "#automate-and-scale"
+                - img [ref=e1202]
+              - generic [ref=e1204] [cursor=pointer]: Automate and scale
+            - generic [ref=e1205]: Once you’re effective with one Claude, multiply your output with parallel sessions, non-interactive mode, and fan-out patterns.
+            - generic [ref=e1206]: Everything so far assumes one human, one Claude, and one conversation. But Claude Code scales horizontally. The techniques in this section show how you can get more done.
+            - heading "Navigate to header Run non-interactive mode" [level=3] [ref=e1207]:
+              - link "Navigate to header" [ref=e1208] [cursor=pointer]:
+                - /url: "#run-non-interactive-mode"
+                - img [ref=e1210]
+              - generic [ref=e1212] [cursor=pointer]: Run non-interactive mode
+            - generic [ref=e1213]:
+              - img "Tip" [ref=e1215]
+              - generic [ref=e1218]:
+                - text: Use
+                - code [ref=e1219]: claude -p "prompt"
+                - text: in CI, pre-commit hooks, or scripts. Add
+                - code [ref=e1220]: "--output-format stream-json"
+                - text: for streaming JSON output.
+            - generic [ref=e1221]:
+              - text: With
+              - code [ref=e1222]: claude -p "your prompt"
+              - text: ", you can run Claude non-interactively, without a session. Non-interactive mode is how you integrate Claude into CI pipelines, pre-commit hooks, or any automated workflow. The output formats let you parse results programmatically: plain text, JSON, or streaming JSON."
+            - generic [ref=e1223]:
+              - generic [ref=e1224]:
+                - button "Report incorrect code" [ref=e1226] [cursor=pointer]:
+                  - img [ref=e1227]
+                - button "Copy the contents from the code block" [ref=e1230] [cursor=pointer]:
+                  - img [ref=e1231]
+                - button "Ask AI" [ref=e1235] [cursor=pointer]:
+                  - img [ref=e1236]
+              - code [ref=e1242]:
+                - generic [ref=e1243]: "# One-off queries"
+                - generic [ref=e1244]: claude -p "Explain what this project does"
+                - generic [ref=e1245]: "# Structured output for scripts"
+                - generic [ref=e1246]: claude -p "List all API endpoints" --output-format json
+                - generic [ref=e1247]: "# Streaming for real-time processing"
+                - generic [ref=e1248]: claude -p "Analyze this log file" --output-format stream-json
+            - heading "Navigate to header Run multiple Claude sessions" [level=3] [ref=e1249]:
+              - link "Navigate to header" [ref=e1250] [cursor=pointer]:
+                - /url: "#run-multiple-claude-sessions"
+                - img [ref=e1252]
+              - generic [ref=e1254] [cursor=pointer]: Run multiple Claude sessions
+            - generic [ref=e1255]:
+              - img "Tip" [ref=e1257]
+              - generic [ref=e1260]: Run multiple Claude sessions in parallel to speed up development, run isolated experiments, or start complex workflows.
+            - generic [ref=e1261]: "There are three main ways to run parallel sessions:"
+            - list [ref=e1262]:
+              - listitem [ref=e1263]:
+                - link "Claude Code desktop app" [ref=e1264] [cursor=pointer]:
+                  - /url: /docs/en/desktop#work-in-parallel-with-sessions
+                - text: ": Manage multiple local sessions visually. Each session gets its own isolated worktree."
+              - listitem [ref=e1265]:
+                - link "Claude Code on the web" [ref=e1266] [cursor=pointer]:
+                  - /url: /docs/en/claude-code-on-the-web
+                - text: ": Run on Anthropic’s secure cloud infrastructure in isolated VMs."
+              - listitem [ref=e1267]:
+                - link "Agent teams" [ref=e1268] [cursor=pointer]:
+                  - /url: /docs/en/agent-teams
+                - text: ": Automated coordination of multiple sessions with shared tasks, messaging, and a team lead."
+            - generic [ref=e1269]: Beyond parallelizing work, multiple sessions enable quality-focused workflows. A fresh context improves code review since Claude won’t be biased toward code it just wrote.
+            - generic [ref=e1270]: "For example, use a Writer/Reviewer pattern:"
+            - table [ref=e1273]:
+              - rowgroup [ref=e1274]:
+                - row "Session A (Writer) Session B (Reviewer)" [ref=e1275]:
+                  - columnheader "Session A (Writer)" [ref=e1276]
+                  - columnheader "Session B (Reviewer)" [ref=e1277]
+              - rowgroup [ref=e1278]:
+                - row "Implement a rate limiter for our API endpoints" [ref=e1279]:
+                  - cell "Implement a rate limiter for our API endpoints" [ref=e1280]:
+                    - code [ref=e1281]: Implement a rate limiter for our API endpoints
+                  - cell [ref=e1282]
+                - row "Review the rate limiter implementation in @src/middleware/rateLimiter.ts. Look for edge cases, race conditions, and consistency with our existing middleware patterns." [ref=e1283]:
+                  - cell [ref=e1284]
+                  - cell "Review the rate limiter implementation in @src/middleware/rateLimiter.ts. Look for edge cases, race conditions, and consistency with our existing middleware patterns." [ref=e1285]:
+                    - code [ref=e1286]: Review the rate limiter implementation in @src/middleware/rateLimiter.ts. Look for edge cases, race conditions, and consistency with our existing middleware patterns.
+                - 'row "Here''s the review feedback: [Session B output]. Address these issues." [ref=e1287]':
+                  - 'cell "Here''s the review feedback: [Session B output]. Address these issues." [ref=e1288]':
+                    - code [ref=e1289]: "Here's the review feedback: [Session B output]. Address these issues."
+                  - cell [ref=e1290]
+            - generic [ref=e1291]: "You can do something similar with tests: have one Claude write tests, then another write code to pass them."
+            - heading "Navigate to header Fan out across files" [level=3] [ref=e1292]:
+              - link "Navigate to header" [ref=e1293] [cursor=pointer]:
+                - /url: "#fan-out-across-files"
+                - img [ref=e1295]
+              - generic [ref=e1297] [cursor=pointer]: Fan out across files
+            - generic [ref=e1298]:
+              - img "Tip" [ref=e1300]
+              - generic [ref=e1303]:
+                - text: Loop through tasks calling
+                - code [ref=e1304]: claude -p
+                - text: for each. Use
+                - code [ref=e1305]: "--allowedTools"
+                - text: to scope permissions for batch operations.
+            - generic [ref=e1306]: "For large migrations or analyses, you can distribute work across many parallel Claude invocations:"
+            - list [ref=e1307]:
+              - listitem [ref=e1308]:
+                - generic [ref=e1311]:
+                  - generic [ref=e1312]: "1"
+                  - link "Navigate to header" [ref=e1314] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1316]
+                - generic [ref=e1318]:
+                  - paragraph [ref=e1319]: Generate a task list
+                  - generic [ref=e1321]:
+                    - text: Have Claude list all files that need migrating (e.g.,
+                    - code [ref=e1322]: list all 2,000 Python files that need migrating
+                    - text: )
+              - listitem [ref=e1323]:
+                - generic [ref=e1326]:
+                  - generic [ref=e1327]: "2"
+                  - link "Navigate to header" [ref=e1329] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1331]
+                - generic [ref=e1333]:
+                  - paragraph [ref=e1334]: Write a script to loop through the list
+                  - generic [ref=e1336]:
+                    - generic [ref=e1337]:
+                      - button "Report incorrect code" [ref=e1339] [cursor=pointer]:
+                        - img [ref=e1340]
+                      - button "Copy the contents from the code block" [ref=e1343] [cursor=pointer]:
+                        - img [ref=e1344]
+                      - button "Ask AI" [ref=e1348] [cursor=pointer]:
+                        - img [ref=e1349]
+                    - code [ref=e1355]:
+                      - generic [ref=e1356]: for file in $(cat files.txt); do
+                      - generic [ref=e1357]: claude -p "Migrate $file from React to Vue. Return OK or FAIL." \
+                      - generic [ref=e1358]: "--allowedTools \"Edit,Bash(git commit *)\""
+                      - generic [ref=e1359]: done
+              - listitem [ref=e1360]:
+                - generic [ref=e1363]:
+                  - generic [ref=e1364]: "3"
+                  - link "Navigate to header" [ref=e1366] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1368]
+                - generic [ref=e1370]:
+                  - paragraph [ref=e1371]: Test on a few files, then run at scale
+                  - generic [ref=e1373]:
+                    - text: Refine your prompt based on what goes wrong with the first 2-3 files, then run on the full set. The
+                    - code [ref=e1374]: "--allowedTools"
+                    - text: flag restricts what Claude can do, which matters when you’re running unattended.
+            - generic [ref=e1375]: "You can also integrate Claude into existing data/processing pipelines:"
+            - generic [ref=e1376]:
+              - generic [ref=e1377]:
+                - button "Report incorrect code" [ref=e1379] [cursor=pointer]:
+                  - img [ref=e1380]
+                - button "Copy the contents from the code block" [ref=e1383] [cursor=pointer]:
+                  - img [ref=e1384]
+                - button "Ask AI" [ref=e1388] [cursor=pointer]:
+                  - img [ref=e1389]
+              - code [ref=e1395]:
+                - generic [ref=e1396]: claude -p "<your prompt>" --output-format json | your_command
+            - generic [ref=e1397]:
+              - text: Use
+              - code [ref=e1398]: "--verbose"
+              - text: for debugging during development, and turn it off in production.
+            - heading "Navigate to header Run autonomously with auto mode" [level=3] [ref=e1399]:
+              - link "Navigate to header" [ref=e1400] [cursor=pointer]:
+                - /url: "#run-autonomously-with-auto-mode"
+                - img [ref=e1402]
+              - generic [ref=e1404] [cursor=pointer]: Run autonomously with auto mode
+            - generic [ref=e1405]:
+              - text: For uninterrupted execution with background safety checks, use
+              - link "auto mode" [ref=e1406] [cursor=pointer]:
+                - /url: /docs/en/permission-modes#eliminate-prompts-with-auto-mode
+              - text: . A classifier model reviews commands before they run, blocking scope escalation, unknown infrastructure, and hostile-content-driven actions while letting routine work proceed without prompts.
+            - generic [ref=e1407]:
+              - generic [ref=e1408]:
+                - button "Report incorrect code" [ref=e1410] [cursor=pointer]:
+                  - img [ref=e1411]
+                - button "Copy the contents from the code block" [ref=e1414] [cursor=pointer]:
+                  - img [ref=e1415]
+                - button "Ask AI" [ref=e1419] [cursor=pointer]:
+                  - img [ref=e1420]
+              - code [ref=e1426]:
+                - generic [ref=e1427]: claude --permission-mode auto -p "fix all lint errors"
+            - generic [ref=e1428]:
+              - text: For non-interactive runs with the
+              - code [ref=e1429]: "-p"
+              - text: flag, auto mode aborts if the classifier repeatedly blocks actions, since there is no user to fall back to. See
+              - link "when auto mode falls back" [ref=e1430] [cursor=pointer]:
+                - /url: /docs/en/permission-modes#when-auto-mode-falls-back
+              - text: for thresholds.
+            - separator [ref=e1431]
+            - heading "Navigate to header Avoid common failure patterns" [level=2] [ref=e1432]:
+              - link "Navigate to header" [ref=e1433] [cursor=pointer]:
+                - /url: "#avoid-common-failure-patterns"
+                - img [ref=e1435]
+              - generic [ref=e1437] [cursor=pointer]: Avoid common failure patterns
+            - generic [ref=e1438]: "These are common mistakes. Recognizing them early saves time:"
+            - list [ref=e1439]:
+              - listitem [ref=e1440]:
+                - strong [ref=e1441]: The kitchen sink session.
+                - text: You start with one task, then ask Claude something unrelated, then go back to the first task. Context is full of irrelevant information.
+                - blockquote [ref=e1442]:
+                  - generic [ref=e1443]:
+                    - strong [ref=e1444]: Fix
+                    - text: ":"
+                    - code [ref=e1445]: /clear
+                    - text: between unrelated tasks.
+              - listitem [ref=e1446]:
+                - strong [ref=e1447]: Correcting over and over.
+                - text: Claude does something wrong, you correct it, it’s still wrong, you correct again. Context is polluted with failed approaches.
+                - blockquote [ref=e1448]:
+                  - generic [ref=e1449]:
+                    - strong [ref=e1450]: Fix
+                    - text: ": After two failed corrections,"
+                    - code [ref=e1451]: /clear
+                    - text: and write a better initial prompt incorporating what you learned.
+              - listitem [ref=e1452]:
+                - strong [ref=e1453]: The over-specified CLAUDE.md.
+                - text: If your CLAUDE.md is too long, Claude ignores half of it because important rules get lost in the noise.
+                - blockquote [ref=e1454]:
+                  - generic [ref=e1455]:
+                    - strong [ref=e1456]: Fix
+                    - text: ": Ruthlessly prune. If Claude already does something correctly without the instruction, delete it or convert it to a hook."
+              - listitem [ref=e1457]:
+                - strong [ref=e1458]: The trust-then-verify gap.
+                - text: Claude produces a plausible-looking implementation that doesn’t handle edge cases.
+                - blockquote [ref=e1459]:
+                  - generic [ref=e1460]:
+                    - strong [ref=e1461]: Fix
+                    - text: ": Always provide verification (tests, scripts, screenshots). If you can’t verify it, don’t ship it."
+              - listitem [ref=e1462]:
+                - strong [ref=e1463]: The infinite exploration.
+                - text: You ask Claude to “investigate” something without scoping it. Claude reads hundreds of files, filling the context.
+                - blockquote [ref=e1464]:
+                  - generic [ref=e1465]:
+                    - strong [ref=e1466]: Fix
+                    - text: ": Scope investigations narrowly or use subagents so the exploration doesn’t consume your main context."
+            - separator [ref=e1467]
+            - heading "Navigate to header Develop your intuition" [level=2] [ref=e1468]:
+              - link "Navigate to header" [ref=e1469] [cursor=pointer]:
+                - /url: "#develop-your-intuition"
+                - img [ref=e1471]
+              - generic [ref=e1473] [cursor=pointer]: Develop your intuition
+            - generic [ref=e1474]: The patterns in this guide aren’t set in stone. They’re starting points that work well in general, but might not be optimal for every situation.
+            - generic [ref=e1475]:
+              - text: Sometimes you
+              - emphasis [ref=e1476]: should
+              - text: let context accumulate because you’re deep in one complex problem and the history is valuable. Sometimes you should skip planning and let Claude figure it out because the task is exploratory. Sometimes a vague prompt is exactly right because you want to see how Claude interprets the problem before constraining it.
+            - generic [ref=e1477]: "Pay attention to what works. When Claude produces great output, notice what you did: the prompt structure, the context you provided, the mode you were in. When Claude struggles, ask why. Was the context too noisy? The prompt too vague? The task too big for one pass?"
+            - generic [ref=e1478]: Over time, you’ll develop intuition that no guide can capture. You’ll know when to be specific and when to be open-ended, when to plan and when to explore, when to clear context and when to let it accumulate.
+            - heading "Navigate to header Related resources" [level=2] [ref=e1479]:
+              - link "Navigate to header" [ref=e1480] [cursor=pointer]:
+                - /url: "#related-resources"
+                - img [ref=e1482]
+              - generic [ref=e1484] [cursor=pointer]: Related resources
+            - list [ref=e1485]:
+              - listitem [ref=e1486]:
+                - link "How Claude Code works" [ref=e1487] [cursor=pointer]:
+                  - /url: /docs/en/how-claude-code-works
+                - text: ": the agentic loop, tools, and context management"
+              - listitem [ref=e1488]:
+                - link "Extend Claude Code" [ref=e1489] [cursor=pointer]:
+                  - /url: /docs/en/features-overview
+                - text: ": skills, hooks, MCP, subagents, and plugins"
+              - listitem [ref=e1490]:
+                - link "Common workflows" [ref=e1491] [cursor=pointer]:
+                  - /url: /docs/en/common-workflows
+                - text: ": step-by-step recipes for debugging, testing, PRs, and more"
+              - listitem [ref=e1492]:
+                - link "CLAUDE.md" [ref=e1493] [cursor=pointer]:
+                  - /url: /docs/en/memory
+                - text: ": store project conventions and persistent context"
+          - generic [ref=e1495]:
+            - paragraph [ref=e1496]: Was this page helpful?
+            - generic [ref=e1498]:
+              - button "Yes" [ref=e1499] [cursor=pointer]:
+                - img [ref=e1500]
+                - generic [ref=e1502]: "Yes"
+              - button "No" [ref=e1503] [cursor=pointer]:
+                - img [ref=e1504]
+                - generic [ref=e1506]: "No"
+          - generic [ref=e1507]:
+            - link "Common workflows" [ref=e1508] [cursor=pointer]:
+              - /url: /docs/en/common-workflows
+              - img [ref=e1509]
+              - generic [ref=e1511]: Common workflows
+            - link "Overview" [ref=e1512] [cursor=pointer]:
+              - /url: /docs/en/platforms
+              - generic [ref=e1513]: Overview
+              - img [ref=e1514]
+          - generic [ref=e1517]:
+            - textbox "Ask a question..." [ref=e1518]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e1519]:
+              - img [ref=e1520]
+      - contentinfo [ref=e1522]:
+        - generic [ref=e1524]:
+          - generic [ref=e1525]:
+            - link "Claude Code Docs home page light logo" [ref=e1526] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e1527]: Claude Code Docs home page
+              - img "light logo" [ref=e1528]
+            - generic [ref=e1529]:
+              - link "x" [ref=e1530] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e1531]: x
+                - img [ref=e1532]
+              - link "linkedin" [ref=e1533] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e1534]: linkedin
+                - img [ref=e1535]
+          - generic [ref=e1536]:
+            - generic [ref=e1538]:
+              - paragraph [ref=e1539]: Company
+              - link "Anthropic" [ref=e1540] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e1541] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e1542] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e1543] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e1544] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e1545] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e1546] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1548]:
+              - paragraph [ref=e1549]: Help and security
+              - link "Availability" [ref=e1550] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e1551] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e1552] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e1554]:
+              - paragraph [ref=e1555]: Learn
+              - link "Courses" [ref=e1556] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e1557] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e1558] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e1559] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e1560] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e1561] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e1562] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e1563] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e1565]:
+              - paragraph [ref=e1566]: Terms and policies
+              - link "Privacy choices" [ref=e1567] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e1568] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e1569] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e1570] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e1571] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e1572] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e1574]:
+        - generic [ref=e1575]:
+          - img [ref=e1576]
+          - generic [ref=e1579]: Assistant
+        - generic [ref=e1580]:
+          - button [ref=e1581] [cursor=pointer]:
+            - img [ref=e1582]
+          - button [ref=e1587] [cursor=pointer]:
+            - img [ref=e1588]
+      - generic [ref=e1592]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e1594]:
+        - textbox [ref=e1595]:
+          - /placeholder: Ask a question...
+        - generic [ref=e1596]:
+          - button [ref=e1597] [cursor=pointer]:
+            - img [ref=e1598]
+          - button [disabled] [ref=e1600]:
+            - img [ref=e1601]

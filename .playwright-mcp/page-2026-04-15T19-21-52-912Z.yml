@@ -1,0 +1,27 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Architect Quiz
+      - generic [ref=e7]: Foundations Certification Practice
+    - generic [ref=e25]: 0 / 60 respondidas
+  - generic [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: Pregunta 1 de 60
+      - generic [ref=e30]: "D2: Tool Design & MCP Integration"
+    - generic [ref=e33]:
+      - generic [ref=e34]: Structured Data Extraction
+      - generic [ref=e35]: Tu tool extract_invoice necesita un parámetro 'format' que acepta 'pdf', 'image', o 'html'. Quieres que el modelo SIEMPRE llame este tool específico (no otro) cuando reciba un documento para extraer. ¿Qué configuración de tool_choice usar?
+      - generic [ref=e36]:
+        - 'button "c tool_choice: { type: ''tool'', name: ''extract_invoice'' } para forzar que el modelo siempre use este tool específico." [ref=e37] [cursor=pointer]':
+          - generic [ref=e38]: c
+          - generic [ref=e39]: "tool_choice: { type: 'tool', name: 'extract_invoice' } para forzar que el modelo siempre use este tool específico."
+        - 'button "d tool_choice: { type: ''required'', tool: ''extract_invoice'' } para marcar el tool como obligatorio." [active] [ref=e40] [cursor=pointer]':
+          - generic [ref=e41]: d
+          - generic [ref=e42]: "tool_choice: { type: 'required', tool: 'extract_invoice' } para marcar el tool como obligatorio."
+        - 'button "a tool_choice: { type: ''auto'' } para que el modelo decida cuándo usar el tool." [ref=e43] [cursor=pointer]':
+          - generic [ref=e44]: a
+          - generic [ref=e45]: "tool_choice: { type: 'auto' } para que el modelo decida cuándo usar el tool."
+        - 'button "b tool_choice: { type: ''any'' } para forzar una tool call pero dejar que el modelo elija cuál." [ref=e46] [cursor=pointer]':
+          - generic [ref=e47]: b
+          - generic [ref=e48]: "tool_choice: { type: 'any' } para forzar una tool call pero dejar que el modelo elija cuál."
+      - button "Confirmar Respuesta" [ref=e50] [cursor=pointer]

@@ -1,0 +1,799 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agent SDK" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/quickstart
+                  - generic [ref=e94]: Quickstart
+          - generic [ref=e95]:
+            - heading "Core concepts" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "How the agent loop works" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop
+                  - generic [ref=e103]: How the agent loop works
+              - listitem [ref=e104]:
+                - link "Use Claude Code features" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/claude-code-features
+                  - generic [ref=e108]: Use Claude Code features
+              - listitem [ref=e109]:
+                - link "Work with sessions" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/sessions
+                  - generic [ref=e113]: Work with sessions
+          - generic [ref=e114]:
+            - heading "Input and output" [level=5] [ref=e116]
+            - list [ref=e117]:
+              - listitem [ref=e118]:
+                - link "Streaming Input" [ref=e119] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-vs-single-mode
+                  - generic [ref=e122]: Streaming Input
+              - listitem [ref=e123]:
+                - link "Handle approvals and user input" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/user-input
+                  - generic [ref=e127]: Handle approvals and user input
+              - listitem [ref=e128]:
+                - link "Stream responses in real-time" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-output
+                  - generic [ref=e132]: Stream responses in real-time
+              - listitem [ref=e133]:
+                - link "Get structured output from agents" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/structured-outputs
+                  - generic [ref=e137]: Get structured output from agents
+          - generic [ref=e138]:
+            - heading "Extend with tools" [level=5] [ref=e140]
+            - list [ref=e141]:
+              - listitem [ref=e142]:
+                - link "Give Claude custom tools" [ref=e143] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/custom-tools
+                  - generic [ref=e146]: Give Claude custom tools
+              - listitem [ref=e147]:
+                - link "Connect to external tools with MCP" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/mcp
+                  - generic [ref=e151]: Connect to external tools with MCP
+              - listitem [ref=e152]:
+                - link "Scale to many tools with tool search" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/tool-search
+                  - generic [ref=e156]: Scale to many tools with tool search
+              - listitem [ref=e157]:
+                - link "Subagents in the SDK" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/subagents
+                  - generic [ref=e161]: Subagents in the SDK
+          - generic [ref=e162]:
+            - heading "Customize behavior" [level=5] [ref=e164]
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - link "Modifying system prompts" [ref=e167] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/modifying-system-prompts
+                  - generic [ref=e170]: Modifying system prompts
+              - listitem [ref=e171]:
+                - link "Slash Commands in the SDK" [ref=e172] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/slash-commands
+                  - generic [ref=e175]: Slash Commands in the SDK
+              - listitem [ref=e176]:
+                - link "Agent Skills in the SDK" [ref=e177] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/skills
+                  - generic [ref=e180]: Agent Skills in the SDK
+              - listitem [ref=e181]:
+                - link "Plugins in the SDK" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/plugins
+                  - generic [ref=e185]: Plugins in the SDK
+          - generic [ref=e186]:
+            - heading "Control and observability" [level=5] [ref=e188]
+            - list [ref=e189]:
+              - listitem [ref=e190]:
+                - link "Configure permissions" [ref=e191] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/permissions
+                  - generic [ref=e194]: Configure permissions
+              - listitem [ref=e195]:
+                - link "Intercept and control agent behavior with hooks" [ref=e196] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hooks
+                  - generic [ref=e199]: Intercept and control agent behavior with hooks
+              - listitem [ref=e200]:
+                - link "Rewind file changes with checkpointing" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                  - generic [ref=e204]: Rewind file changes with checkpointing
+              - listitem [ref=e205]:
+                - link "Track cost and usage" [ref=e206] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/cost-tracking
+                  - generic [ref=e209]: Track cost and usage
+              - listitem [ref=e210]:
+                - link "Observability with OpenTelemetry" [ref=e211] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/observability
+                  - generic [ref=e214]: Observability with OpenTelemetry
+              - listitem [ref=e215]:
+                - link "Todo Lists" [ref=e216] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/todo-tracking
+                  - generic [ref=e219]: Todo Lists
+          - generic [ref=e220]:
+            - heading "Deployment" [level=5] [ref=e222]
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - link "Hosting the Agent SDK" [ref=e225] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hosting
+                  - generic [ref=e228]: Hosting the Agent SDK
+              - listitem [ref=e229]:
+                - link "Securely deploying AI agents" [ref=e230] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/secure-deployment
+                  - generic [ref=e233]: Securely deploying AI agents
+          - generic [ref=e234]:
+            - heading "SDK references" [level=5] [ref=e236]
+            - list [ref=e237]:
+              - listitem [ref=e238]:
+                - link "TypeScript SDK" [ref=e239] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript
+                  - generic [ref=e242]: TypeScript SDK
+              - listitem [ref=e243]:
+                - link "TypeScript V2 (preview)" [ref=e244] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript-v2-preview
+                  - generic [ref=e247]: TypeScript V2 (preview)
+              - listitem [ref=e248]:
+                - link "Python SDK" [ref=e249] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python
+                  - generic [ref=e252]: Python SDK
+              - listitem [ref=e253]:
+                - link "Migration Guide" [ref=e254] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/migration-guide
+                  - generic [ref=e257]: Migration Guide
+        - generic [ref=e260]:
+          - banner [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]: Agent SDK
+              - generic [ref=e264]:
+                - heading "Agent SDK overview" [level=1] [ref=e265]
+                - generic [ref=e266]:
+                  - button "Copy page" [ref=e267] [cursor=pointer]:
+                    - generic [ref=e268]:
+                      - img [ref=e269]
+                      - generic [ref=e272]: Copy page
+                  - button "More actions" [ref=e273] [cursor=pointer]:
+                    - img [ref=e274]
+            - paragraph [ref=e277]: Build production AI agents with Claude Code as a library
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - img "Note" [ref=e281]
+              - generic [ref=e284]:
+                - text: The Claude Code SDK has been renamed to the Claude Agent SDK. If you’re migrating from the old SDK, see the
+                - link "Migration Guide" [ref=e285] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/migration-guide
+                - text: .
+            - generic [ref=e286]: Build AI agents that autonomously read files, run commands, search the web, edit code, and more. The Agent SDK gives you the same tools, agent loop, and context management that power Claude Code, programmable in Python and TypeScript.
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - tablist [ref=e289]:
+                  - tab "Python" [selected] [ref=e290] [cursor=pointer]:
+                    - generic [ref=e291]: Python
+                  - tab "TypeScript" [ref=e293] [cursor=pointer]:
+                    - generic [ref=e294]: TypeScript
+                - generic [ref=e295]:
+                  - button "Report incorrect code" [ref=e297] [cursor=pointer]:
+                    - img [ref=e298]
+                  - button "Copy the contents from the code block" [ref=e301] [cursor=pointer]:
+                    - img [ref=e302]
+                  - button "Ask AI" [ref=e306] [cursor=pointer]:
+                    - img [ref=e307]
+              - tabpanel "Python" [ref=e311]:
+                - code [ref=e315]:
+                  - generic [ref=e316]: import asyncio
+                  - generic [ref=e317]: from claude_agent_sdk import query, ClaudeAgentOptions
+                  - generic [ref=e318]: "async def main():"
+                  - generic [ref=e319]: async for message in query(
+                  - generic [ref=e320]: prompt="Find and fix the bug in auth.py",
+                  - generic [ref=e321]: options=ClaudeAgentOptions(allowed_tools=["Read", "Edit", "Bash"]),
+                  - generic [ref=e322]: "):"
+                  - generic [ref=e323]: "print(message) # Claude reads the file, finds the bug, edits it"
+                  - generic [ref=e324]: asyncio.run(main())
+            - generic [ref=e325]: "The Agent SDK includes built-in tools for reading files, running commands, and editing code, so your agent can start working immediately without you implementing tool execution. Dive into the quickstart or explore real agents built with the SDK:"
+            - generic [ref=e326]:
+              - link "Quickstart Build a bug-fixing agent in minutes" [ref=e327] [cursor=pointer]:
+                - generic [ref=e328]:
+                  - img [ref=e330]
+                  - generic [ref=e331]:
+                    - heading "Quickstart" [level=2] [ref=e332]
+                    - generic [ref=e334]: Build a bug-fixing agent in minutes
+              - link "Example agents Email assistant, research agent, and more" [ref=e335] [cursor=pointer]:
+                - generic [ref=e336]:
+                  - img [ref=e338]
+                  - generic [ref=e339]:
+                    - heading "Example agents" [level=2] [ref=e340]
+                    - generic [ref=e342]: Email assistant, research agent, and more
+            - heading "Navigate to header Get started" [level=2] [ref=e343]:
+              - link "Navigate to header" [ref=e344] [cursor=pointer]:
+                - /url: "#get-started"
+                - img [ref=e346]
+              - generic [ref=e348] [cursor=pointer]: Get started
+            - list [ref=e349]:
+              - listitem [ref=e350]:
+                - generic [ref=e353]:
+                  - generic [ref=e354]: "1"
+                  - link "Navigate to header" [ref=e356] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e358]
+                - generic [ref=e360]:
+                  - paragraph [ref=e361]: Install the SDK
+                  - generic [ref=e363]:
+                    - tablist [ref=e364]:
+                      - tab "TypeScript" [selected] [ref=e365] [cursor=pointer]:
+                        - generic [ref=e366]: TypeScript
+                      - tab "Python" [ref=e367] [cursor=pointer]:
+                        - generic [ref=e368]: Python
+                    - tabpanel "TypeScript Python Report incorrect code Copy the contents from the code block Ask AI npm install @anthropic-ai/claude-agent-sdk" [ref=e370]:
+                      - generic [ref=e371]:
+                        - generic [ref=e372]:
+                          - button "Report incorrect code" [ref=e374] [cursor=pointer]:
+                            - img [ref=e375]
+                          - button "Copy the contents from the code block" [ref=e378] [cursor=pointer]:
+                            - img [ref=e379]
+                          - button "Ask AI" [ref=e383] [cursor=pointer]:
+                            - img [ref=e384]
+                        - code [ref=e390]:
+                          - generic [ref=e391]: npm install @anthropic-ai/claude-agent-sdk
+              - listitem [ref=e392]:
+                - generic [ref=e395]:
+                  - generic [ref=e396]: "2"
+                  - link "Navigate to header" [ref=e398] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e400]
+                - generic [ref=e402]:
+                  - paragraph [ref=e403]: Set your API key
+                  - generic [ref=e404]:
+                    - generic [ref=e405]:
+                      - text: Get an API key from the
+                      - link "Console" [ref=e406] [cursor=pointer]:
+                        - /url: https://platform.claude.com/
+                      - text: ", then set it as an environment variable:"
+                    - generic [ref=e407]:
+                      - generic [ref=e408]:
+                        - button "Report incorrect code" [ref=e410] [cursor=pointer]:
+                          - img [ref=e411]
+                        - button "Copy the contents from the code block" [ref=e414] [cursor=pointer]:
+                          - img [ref=e415]
+                        - button "Ask AI" [ref=e419] [cursor=pointer]:
+                          - img [ref=e420]
+                      - code [ref=e426]:
+                        - generic [ref=e427]: export ANTHROPIC_API_KEY=your-api-key
+                    - generic [ref=e428]: "The SDK also supports authentication via third-party API providers:"
+                    - list [ref=e429]:
+                      - listitem [ref=e430]:
+                        - strong [ref=e431]: Amazon Bedrock
+                        - text: ": set"
+                        - code [ref=e432]: CLAUDE_CODE_USE_BEDROCK=1
+                        - text: environment variable and configure AWS credentials
+                      - listitem [ref=e433]:
+                        - strong [ref=e434]: Google Vertex AI
+                        - text: ": set"
+                        - code [ref=e435]: CLAUDE_CODE_USE_VERTEX=1
+                        - text: environment variable and configure Google Cloud credentials
+                      - listitem [ref=e436]:
+                        - strong [ref=e437]: Microsoft Azure
+                        - text: ": set"
+                        - code [ref=e438]: CLAUDE_CODE_USE_FOUNDRY=1
+                        - text: environment variable and configure Azure credentials
+                    - generic [ref=e439]:
+                      - text: See the setup guides for
+                      - link "Bedrock" [ref=e440] [cursor=pointer]:
+                        - /url: /docs/en/amazon-bedrock
+                      - text: ","
+                      - link "Vertex AI" [ref=e441] [cursor=pointer]:
+                        - /url: /docs/en/google-vertex-ai
+                      - text: ", or"
+                      - link "Azure AI Foundry" [ref=e442] [cursor=pointer]:
+                        - /url: /docs/en/microsoft-foundry
+                      - text: for details.
+                    - generic [ref=e443]:
+                      - img "Note" [ref=e445]
+                      - generic [ref=e448]: Unless previously approved, Anthropic does not allow third party developers to offer claude.ai login or rate limits for their products, including agents built on the Claude Agent SDK. Please use the API key authentication methods described in this document instead.
+              - listitem [ref=e449]:
+                - generic [ref=e452]:
+                  - generic [ref=e453]: "3"
+                  - link "Navigate to header" [ref=e455] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e457]
+                - generic [ref=e459]:
+                  - paragraph [ref=e460]: Run your first agent
+                  - generic [ref=e461]:
+                    - generic [ref=e462]: This example creates an agent that lists files in your current directory using built-in tools.
+                    - generic [ref=e463]:
+                      - generic [ref=e464]:
+                        - tablist [ref=e465]:
+                          - tab "Python" [selected] [ref=e466] [cursor=pointer]:
+                            - generic [ref=e467]: Python
+                          - tab "TypeScript" [ref=e469] [cursor=pointer]:
+                            - generic [ref=e470]: TypeScript
+                        - generic [ref=e471]:
+                          - button "Report incorrect code" [ref=e473] [cursor=pointer]:
+                            - img [ref=e474]
+                          - button "Copy the contents from the code block" [ref=e477] [cursor=pointer]:
+                            - img [ref=e478]
+                          - button "Ask AI" [ref=e482] [cursor=pointer]:
+                            - img [ref=e483]
+                      - tabpanel "Python" [ref=e487]:
+                        - code [ref=e491]:
+                          - generic [ref=e492]: import asyncio
+                          - generic [ref=e493]: from claude_agent_sdk import query, ClaudeAgentOptions
+                          - generic [ref=e494]: "async def main():"
+                          - generic [ref=e495]: async for message in query(
+                          - generic [ref=e496]: prompt="What files are in this directory?",
+                          - generic [ref=e497]: options=ClaudeAgentOptions(allowed_tools=["Bash", "Glob"]),
+                          - generic [ref=e498]: "):"
+                          - generic [ref=e499]: "if hasattr(message, \"result\"):"
+                          - generic [ref=e500]: print(message.result)
+                          - generic [ref=e501]: asyncio.run(main())
+            - generic [ref=e502]:
+              - strong [ref=e503]: Ready to build?
+              - text: Follow the
+              - link "Quickstart" [ref=e504] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/quickstart
+              - text: to create an agent that finds and fixes bugs in minutes.
+            - heading "Navigate to header Capabilities" [level=2] [ref=e505]:
+              - link "Navigate to header" [ref=e506] [cursor=pointer]:
+                - /url: "#capabilities"
+                - img [ref=e508]
+              - generic [ref=e510] [cursor=pointer]: Capabilities
+            - generic [ref=e511]: "Everything that makes Claude Code powerful is available in the SDK:"
+            - generic [ref=e512]:
+              - tablist [ref=e513]:
+                - tab "Built-in tools" [selected] [ref=e514] [cursor=pointer]:
+                  - generic [ref=e515]: Built-in tools
+                - tab "Hooks" [ref=e516] [cursor=pointer]:
+                  - generic [ref=e517]: Hooks
+                - tab "Subagents" [ref=e518] [cursor=pointer]:
+                  - generic [ref=e519]: Subagents
+                - tab "MCP" [ref=e520] [cursor=pointer]:
+                  - generic [ref=e521]: MCP
+                - tab "Permissions" [ref=e522] [cursor=pointer]:
+                  - generic [ref=e523]: Permissions
+                - tab "Sessions" [ref=e524] [cursor=pointer]:
+                  - generic [ref=e525]: Sessions
+              - tabpanel [ref=e527]:
+                - generic [ref=e528]: "Your agent can read files, run commands, and search codebases out of the box. Key tools include:"
+                - table [ref=e531]:
+                  - rowgroup [ref=e532]:
+                    - row "Tool What it does" [ref=e533]:
+                      - columnheader "Tool" [ref=e534]
+                      - columnheader "What it does" [ref=e535]
+                  - rowgroup [ref=e536]:
+                    - row "Read Read any file in the working directory" [ref=e537]:
+                      - cell "Read" [ref=e538]:
+                        - strong [ref=e539]: Read
+                      - cell "Read any file in the working directory" [ref=e540]
+                    - row "Write Create new files" [ref=e541]:
+                      - cell "Write" [ref=e542]:
+                        - strong [ref=e543]: Write
+                      - cell "Create new files" [ref=e544]
+                    - row "Edit Make precise edits to existing files" [ref=e545]:
+                      - cell "Edit" [ref=e546]:
+                        - strong [ref=e547]: Edit
+                      - cell "Make precise edits to existing files" [ref=e548]
+                    - row "Bash Run terminal commands, scripts, git operations" [ref=e549]:
+                      - cell "Bash" [ref=e550]:
+                        - strong [ref=e551]: Bash
+                      - cell "Run terminal commands, scripts, git operations" [ref=e552]
+                    - row "Monitor Watch a background script and react to each output line as an event" [ref=e553]:
+                      - cell "Monitor" [ref=e554]:
+                        - strong [ref=e555]: Monitor
+                      - cell "Watch a background script and react to each output line as an event" [ref=e556]
+                    - row "Glob Find files by pattern (**/*.ts, src/**/*.py)" [ref=e557]:
+                      - cell "Glob" [ref=e558]:
+                        - strong [ref=e559]: Glob
+                      - cell "Find files by pattern (**/*.ts, src/**/*.py)" [ref=e560]:
+                        - text: Find files by pattern (
+                        - code [ref=e561]: "**/*.ts"
+                        - text: ","
+                        - code [ref=e562]: src/**/*.py
+                        - text: )
+                    - row "Grep Search file contents with regex" [ref=e563]:
+                      - cell "Grep" [ref=e564]:
+                        - strong [ref=e565]: Grep
+                      - cell "Search file contents with regex" [ref=e566]
+                    - row "WebSearch Search the web for current information" [ref=e567]:
+                      - cell "WebSearch" [ref=e568]:
+                        - strong [ref=e569]: WebSearch
+                      - cell "Search the web for current information" [ref=e570]
+                    - row "WebFetch Fetch and parse web page content" [ref=e571]:
+                      - cell "WebFetch" [ref=e572]:
+                        - strong [ref=e573]: WebFetch
+                      - cell "Fetch and parse web page content" [ref=e574]
+                    - row "AskUserQuestion Ask the user clarifying questions with multiple choice options" [ref=e575]:
+                      - cell "AskUserQuestion" [ref=e576]:
+                        - strong [ref=e577]:
+                          - link "AskUserQuestion" [ref=e578] [cursor=pointer]:
+                            - /url: /docs/en/agent-sdk/user-input#handle-clarifying-questions
+                      - cell "Ask the user clarifying questions with multiple choice options" [ref=e579]
+                - generic [ref=e580]: "This example creates an agent that searches your codebase for TODO comments:"
+                - generic [ref=e581]:
+                  - generic [ref=e582]:
+                    - tablist [ref=e583]:
+                      - tab "Python" [selected] [ref=e584] [cursor=pointer]:
+                        - generic [ref=e585]: Python
+                      - tab "TypeScript" [ref=e587] [cursor=pointer]:
+                        - generic [ref=e588]: TypeScript
+                    - generic [ref=e589]:
+                      - button "Report incorrect code" [ref=e591] [cursor=pointer]:
+                        - img [ref=e592]
+                      - button "Copy the contents from the code block" [ref=e595] [cursor=pointer]:
+                        - img [ref=e596]
+                      - button "Ask AI" [ref=e600] [cursor=pointer]:
+                        - img [ref=e601]
+                  - tabpanel "Python" [ref=e605]:
+                    - code [ref=e609]:
+                      - generic [ref=e610]: import asyncio
+                      - generic [ref=e611]: from claude_agent_sdk import query, ClaudeAgentOptions
+                      - generic [ref=e612]: "async def main():"
+                      - generic [ref=e613]: async for message in query(
+                      - generic [ref=e614]: prompt="Find all TODO comments and create a summary",
+                      - generic [ref=e615]: options=ClaudeAgentOptions(allowed_tools=["Read", "Glob", "Grep"]),
+                      - generic [ref=e616]: "):"
+                      - generic [ref=e617]: "if hasattr(message, \"result\"):"
+                      - generic [ref=e618]: print(message.result)
+                      - generic [ref=e619]: asyncio.run(main())
+            - heading "Navigate to header Claude Code features" [level=3] [ref=e620]:
+              - link "Navigate to header" [ref=e621] [cursor=pointer]:
+                - /url: "#claude-code-features"
+                - img [ref=e623]
+              - generic [ref=e625] [cursor=pointer]: Claude Code features
+            - generic [ref=e626]:
+              - text: The SDK also supports Claude Code’s filesystem-based configuration. To use these features, set
+              - code [ref=e627]: setting_sources=["project"]
+              - text: (Python) or
+              - code [ref=e628]: "settingSources: ['project']"
+              - text: (TypeScript) in your options.
+            - table [ref=e631]:
+              - rowgroup [ref=e632]:
+                - row "Feature Description Location" [ref=e633]:
+                  - columnheader "Feature" [ref=e634]
+                  - columnheader "Description" [ref=e635]
+                  - columnheader "Location" [ref=e636]
+              - rowgroup [ref=e637]:
+                - row "Skills Specialized capabilities defined in Markdown .claude/skills/*/SKILL.md" [ref=e638]:
+                  - cell "Skills" [ref=e639]:
+                    - link "Skills" [ref=e640] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/skills
+                  - cell "Specialized capabilities defined in Markdown" [ref=e641]
+                  - cell ".claude/skills/*/SKILL.md" [ref=e642]:
+                    - code [ref=e643]: .claude/skills/*/SKILL.md
+                - row "Slash commands Custom commands for common tasks .claude/commands/*.md" [ref=e644]:
+                  - cell "Slash commands" [ref=e645]:
+                    - link "Slash commands" [ref=e646] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/slash-commands
+                  - cell "Custom commands for common tasks" [ref=e647]
+                  - cell ".claude/commands/*.md" [ref=e648]:
+                    - code [ref=e649]: .claude/commands/*.md
+                - row "Memory Project context and instructions CLAUDE.md or .claude/CLAUDE.md" [ref=e650]:
+                  - cell "Memory" [ref=e651]:
+                    - link "Memory" [ref=e652] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/modifying-system-prompts
+                  - cell "Project context and instructions" [ref=e653]
+                  - cell "CLAUDE.md or .claude/CLAUDE.md" [ref=e654]:
+                    - code [ref=e655]: CLAUDE.md
+                    - text: or
+                    - code [ref=e656]: .claude/CLAUDE.md
+                - row "Plugins Extend with custom commands, agents, and MCP servers Programmatic via plugins option" [ref=e657]:
+                  - cell "Plugins" [ref=e658]:
+                    - link "Plugins" [ref=e659] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/plugins
+                  - cell "Extend with custom commands, agents, and MCP servers" [ref=e660]
+                  - cell "Programmatic via plugins option" [ref=e661]:
+                    - text: Programmatic via
+                    - code [ref=e662]: plugins
+                    - text: option
+            - heading "Navigate to header Compare the Agent SDK to other Claude tools" [level=2] [ref=e663]:
+              - link "Navigate to header" [ref=e664] [cursor=pointer]:
+                - /url: "#compare-the-agent-sdk-to-other-claude-tools"
+                - img [ref=e666]
+              - generic [ref=e668] [cursor=pointer]: Compare the Agent SDK to other Claude tools
+            - generic [ref=e669]: "The Claude Platform offers multiple ways to build with Claude. Here’s how the Agent SDK fits in:"
+            - generic [ref=e670]:
+              - tablist [ref=e671]:
+                - tab "Agent SDK vs Client SDK" [selected] [ref=e672] [cursor=pointer]:
+                  - generic [ref=e673]: Agent SDK vs Client SDK
+                - tab "Agent SDK vs Claude Code CLI" [ref=e674] [cursor=pointer]:
+                  - generic [ref=e675]: Agent SDK vs Claude Code CLI
+              - 'tabpanel "Agent SDK vs Client SDK Agent SDK vs Claude Code CLI The Anthropic Client SDK gives you direct API access: you send prompts and implement tool execution yourself. The Agent SDK gives you Claude with built-in tool execution. With the Client SDK, you implement a tool loop. With the Agent SDK, Claude handles it: Python TypeScript Report incorrect code Copy the contents from the code block Ask AI # Client SDK: You implement the tool loop response = client.messages.create(...) while response.stop_reason == \"tool_use\": result = your_tool_executor(response.tool_use) response = client.messages.create(tool_result=result, **params) # Agent SDK: Claude handles tools autonomously async for message in query(prompt=\"Fix the bug in auth.py\"): print(message)" [ref=e677]':
+                - generic [ref=e678]:
+                  - text: The
+                  - link "Anthropic Client SDK" [ref=e679] [cursor=pointer]:
+                    - /url: https://platform.claude.com/docs/en/api/client-sdks
+                  - text: "gives you direct API access: you send prompts and implement tool execution yourself. The"
+                  - strong [ref=e680]: Agent SDK
+                  - text: gives you Claude with built-in tool execution.
+                - generic [ref=e681]: "With the Client SDK, you implement a tool loop. With the Agent SDK, Claude handles it:"
+                - generic [ref=e682]:
+                  - generic [ref=e683]:
+                    - tablist [ref=e684]:
+                      - tab "Python" [selected] [ref=e685] [cursor=pointer]:
+                        - generic [ref=e686]: Python
+                      - tab "TypeScript" [ref=e688] [cursor=pointer]:
+                        - generic [ref=e689]: TypeScript
+                    - generic [ref=e690]:
+                      - button "Report incorrect code" [ref=e692] [cursor=pointer]:
+                        - img [ref=e693]
+                      - button "Copy the contents from the code block" [ref=e696] [cursor=pointer]:
+                        - img [ref=e697]
+                      - button "Ask AI" [ref=e701] [cursor=pointer]:
+                        - img [ref=e702]
+                  - tabpanel "Python" [ref=e706]:
+                    - code [ref=e710]:
+                      - generic [ref=e711]: "# Client SDK: You implement the tool loop"
+                      - generic [ref=e712]: response = client.messages.create(...)
+                      - generic [ref=e713]: "while response.stop_reason == \"tool_use\":"
+                      - generic [ref=e714]: result = your_tool_executor(response.tool_use)
+                      - generic [ref=e715]: response = client.messages.create(tool_result=result, **params)
+                      - generic [ref=e716]: "# Agent SDK: Claude handles tools autonomously"
+                      - generic [ref=e717]: "async for message in query(prompt=\"Fix the bug in auth.py\"):"
+                      - generic [ref=e718]: print(message)
+            - heading "Navigate to header Changelog" [level=2] [ref=e719]:
+              - link "Navigate to header" [ref=e720] [cursor=pointer]:
+                - /url: "#changelog"
+                - img [ref=e722]
+              - generic [ref=e724] [cursor=pointer]: Changelog
+            - generic [ref=e725]: "View the full changelog for SDK updates, bug fixes, and new features:"
+            - list [ref=e726]:
+              - listitem [ref=e727]:
+                - strong [ref=e728]: TypeScript SDK
+                - text: ":"
+                - link "view CHANGELOG.md" [ref=e729] [cursor=pointer]:
+                  - /url: https://github.com/anthropics/claude-agent-sdk-typescript/blob/main/CHANGELOG.md
+              - listitem [ref=e730]:
+                - strong [ref=e731]: Python SDK
+                - text: ":"
+                - link "view CHANGELOG.md" [ref=e732] [cursor=pointer]:
+                  - /url: https://github.com/anthropics/claude-agent-sdk-python/blob/main/CHANGELOG.md
+            - heading "Navigate to header Reporting bugs" [level=2] [ref=e733]:
+              - link "Navigate to header" [ref=e734] [cursor=pointer]:
+                - /url: "#reporting-bugs"
+                - img [ref=e736]
+              - generic [ref=e738] [cursor=pointer]: Reporting bugs
+            - generic [ref=e739]: "If you encounter bugs or issues with the Agent SDK:"
+            - list [ref=e740]:
+              - listitem [ref=e741]:
+                - strong [ref=e742]: TypeScript SDK
+                - text: ":"
+                - link "report issues on GitHub" [ref=e743] [cursor=pointer]:
+                  - /url: https://github.com/anthropics/claude-agent-sdk-typescript/issues
+              - listitem [ref=e744]:
+                - strong [ref=e745]: Python SDK
+                - text: ":"
+                - link "report issues on GitHub" [ref=e746] [cursor=pointer]:
+                  - /url: https://github.com/anthropics/claude-agent-sdk-python/issues
+            - heading "Navigate to header Branding guidelines" [level=2] [ref=e747]:
+              - link "Navigate to header" [ref=e748] [cursor=pointer]:
+                - /url: "#branding-guidelines"
+                - img [ref=e750]
+              - generic [ref=e752] [cursor=pointer]: Branding guidelines
+            - generic [ref=e753]: "For partners integrating the Claude Agent SDK, use of Claude branding is optional. When referencing Claude in your product:"
+            - strong [ref=e755]: "Allowed:"
+            - list [ref=e756]:
+              - listitem [ref=e757]: “Claude Agent” (preferred for dropdown menus)
+              - listitem [ref=e758]: “Claude” (when within a menu already labeled “Agents”)
+              - listitem [ref=e759]: ” Powered by Claude” (if you have an existing agent name)
+            - strong [ref=e761]: "Not permitted:"
+            - list [ref=e762]:
+              - listitem [ref=e763]: “Claude Code” or “Claude Code Agent”
+              - listitem [ref=e764]: Claude Code-branded ASCII art or visual elements that mimic Claude Code
+            - generic [ref=e765]:
+              - text: Your product should maintain its own branding and not appear to be Claude Code or any Anthropic product. For questions about branding compliance, contact the Anthropic
+              - link "sales team" [ref=e766] [cursor=pointer]:
+                - /url: https://www.anthropic.com/contact-sales
+              - text: .
+            - heading "Navigate to header License and terms" [level=2] [ref=e767]:
+              - link "Navigate to header" [ref=e768] [cursor=pointer]:
+                - /url: "#license-and-terms"
+                - img [ref=e770]
+              - generic [ref=e772] [cursor=pointer]: License and terms
+            - generic [ref=e773]:
+              - text: Use of the Claude Agent SDK is governed by
+              - link "Anthropic’s Commercial Terms of Service" [ref=e774] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - text: ", including when you use it to power products and services that you make available to your own customers and end users, except to the extent a specific component or dependency is covered by a different license as indicated in that component’s LICENSE file."
+            - heading "Navigate to header Next steps" [level=2] [ref=e775]:
+              - link "Navigate to header" [ref=e776] [cursor=pointer]:
+                - /url: "#next-steps"
+                - img [ref=e778]
+              - generic [ref=e780] [cursor=pointer]: Next steps
+            - generic [ref=e781]:
+              - link "Quickstart Build an agent that finds and fixes bugs in minutes" [ref=e782] [cursor=pointer]:
+                - generic [ref=e783]:
+                  - img [ref=e785]
+                  - generic [ref=e786]:
+                    - heading "Quickstart" [level=2] [ref=e787]
+                    - generic [ref=e789]: Build an agent that finds and fixes bugs in minutes
+              - link "Example agents Email assistant, research agent, and more" [ref=e790] [cursor=pointer]:
+                - generic [ref=e791]:
+                  - img [ref=e793]
+                  - generic [ref=e794]:
+                    - heading "Example agents" [level=2] [ref=e795]
+                    - generic [ref=e797]: Email assistant, research agent, and more
+              - link "TypeScript SDK Full TypeScript API reference and examples" [ref=e798] [cursor=pointer]:
+                - generic [ref=e799]:
+                  - img [ref=e801]
+                  - generic [ref=e802]:
+                    - heading "TypeScript SDK" [level=2] [ref=e803]
+                    - generic [ref=e805]: Full TypeScript API reference and examples
+              - link "Python SDK Full Python API reference and examples" [ref=e806] [cursor=pointer]:
+                - generic [ref=e807]:
+                  - img [ref=e809]
+                  - generic [ref=e810]:
+                    - heading "Python SDK" [level=2] [ref=e811]
+                    - generic [ref=e813]: Full Python API reference and examples
+          - generic [ref=e815]:
+            - paragraph [ref=e816]: Was this page helpful?
+            - generic [ref=e818]:
+              - button "Yes" [ref=e819] [cursor=pointer]:
+                - img [ref=e820]
+                - generic [ref=e822]: "Yes"
+              - button "No" [ref=e823] [cursor=pointer]:
+                - img [ref=e824]
+                - generic [ref=e826]: "No"
+          - link "Quickstart" [ref=e828] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/quickstart
+            - generic [ref=e829]: Quickstart
+            - img [ref=e830]
+          - generic [ref=e833]:
+            - textbox "Ask a question..." [ref=e834]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e835]:
+              - img [ref=e836]
+      - contentinfo [ref=e838]:
+        - generic [ref=e840]:
+          - generic [ref=e841]:
+            - link "Claude Code Docs home page light logo" [ref=e842] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e843]: Claude Code Docs home page
+              - img "light logo" [ref=e844]
+            - generic [ref=e845]:
+              - link "x" [ref=e846] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e847]: x
+                - img [ref=e848]
+              - link "linkedin" [ref=e849] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e850]: linkedin
+                - img [ref=e851]
+          - generic [ref=e852]:
+            - generic [ref=e854]:
+              - paragraph [ref=e855]: Company
+              - link "Anthropic" [ref=e856] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e857] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e858] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e859] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e860] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e861] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e862] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e864]:
+              - paragraph [ref=e865]: Help and security
+              - link "Availability" [ref=e866] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e867] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e868] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e870]:
+              - paragraph [ref=e871]: Learn
+              - link "Courses" [ref=e872] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e873] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e874] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e875] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e876] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e877] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e878] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e879] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e881]:
+              - paragraph [ref=e882]: Terms and policies
+              - link "Privacy choices" [ref=e883] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e884] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e885] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e886] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e887] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e888] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e890]:
+        - generic [ref=e891]:
+          - img [ref=e892]
+          - generic [ref=e895]: Assistant
+        - generic [ref=e896]:
+          - button [ref=e897] [cursor=pointer]:
+            - img [ref=e898]
+          - button [ref=e903] [cursor=pointer]:
+            - img [ref=e904]
+      - generic [ref=e908]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e910]:
+        - textbox [ref=e911]:
+          - /placeholder: Ask a question...
+        - generic [ref=e912]:
+          - button [ref=e913] [cursor=pointer]:
+            - img [ref=e914]
+          - button [disabled] [ref=e916]:
+            - img [ref=e917]

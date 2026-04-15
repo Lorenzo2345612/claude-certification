@@ -1,0 +1,689 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fagents-and-tools%2Ftool-use%2Fhandle-tool-calls
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Documentation
+              - generic [ref=e287]:
+                - heading "Handle tool calls" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+              - generic [ref=e301]: Parse tool_use blocks, format tool_result responses, and handle errors with is_error.
+            - paragraph [ref=e302]:
+              - text: "This page covers the tool-call lifecycle: reading"
+              - code [ref=e303]: tool_use
+              - text: blocks from Claude's response, formatting
+              - code [ref=e304]: tool_result
+              - text: blocks in your reply, and signaling errors. For the SDK abstraction that handles this automatically, see
+              - link "Tool Runner" [ref=e305] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-runner
+              - text: .
+            - generic [ref=e306]:
+              - img [ref=e309]
+              - paragraph [ref=e312]:
+                - strong [ref=e313]: Simpler with Tool Runner
+                - text: ": The manual tool handling described on this page is automatically managed by"
+                - link "Tool Runner" [ref=e314] [cursor=pointer]:
+                  - /url: /docs/en/agents-and-tools/tool-use/tool-runner
+                - text: . Use this page when you need custom control over tool execution.
+            - paragraph [ref=e315]: Claude's response differs based on whether it uses a client or server tool.
+            - heading "Copy link to clipboard Handling results from client tools" [level=2] [ref=e316]:
+              - generic [ref=e317]:
+                - button "Copy link to clipboard" [ref=e319] [cursor=pointer]:
+                  - img [ref=e321]
+                - generic [ref=e323]: Handling results from client tools
+            - paragraph [ref=e324]:
+              - text: The response will have a
+              - code [ref=e325]: stop_reason
+              - text: of
+              - code [ref=e326]: tool_use
+              - text: and one or more
+              - code [ref=e327]: tool_use
+              - text: "content blocks that include:"
+            - list [ref=e328]:
+              - listitem [ref=e329]:
+                - text: •
+                - code [ref=e330]: id
+                - text: ": A unique identifier for this particular tool use block. This will be used to match up the tool results later."
+              - listitem [ref=e331]:
+                - text: •
+                - code [ref=e332]: name
+                - text: ": The name of the tool being used."
+              - listitem [ref=e333]:
+                - text: •
+                - code [ref=e334]: input
+                - text: ": An object containing the input being passed to the tool, conforming to the tool's"
+                - code [ref=e335]: input_schema
+                - text: .
+            - 'heading "Example API response with a `tool_use` content block" [level=3] [ref=e338]':
+              - 'button "Example API response with a `tool_use` content block" [ref=e339] [cursor=pointer]':
+                - img [ref=e340]
+                - generic [ref=e342]: "Example API response with a `tool_use` content block"
+            - paragraph [ref=e343]: "When you receive a tool use response for a client tool, you should:"
+            - list [ref=e344]:
+              - listitem [ref=e345]:
+                - text: Extract the
+                - code [ref=e346]: name
+                - text: ","
+                - code [ref=e347]: id
+                - text: ", and"
+                - code [ref=e348]: input
+                - text: from the
+                - code [ref=e349]: tool_use
+                - text: block.
+              - listitem [ref=e350]:
+                - text: Run the actual tool in your codebase corresponding to that tool name, passing in the tool
+                - code [ref=e351]: input
+                - text: .
+              - listitem [ref=e352]:
+                - text: Continue the conversation by sending a new message with the
+                - code [ref=e353]: role
+                - text: of
+                - code [ref=e354]: user
+                - text: ", and a"
+                - code [ref=e355]: content
+                - text: block containing the
+                - code [ref=e356]: tool_result
+                - text: "type and the following information:"
+                - list [ref=e357]:
+                  - listitem [ref=e358]:
+                    - text: •
+                    - code [ref=e359]: tool_use_id
+                    - text: ": The"
+                    - code [ref=e360]: id
+                    - text: of the tool use request this is a result for.
+                  - listitem [ref=e361]:
+                    - text: •
+                    - code [ref=e362]: content
+                    - text: ": The result of the tool, as a string (for example,"
+                    - code [ref=e363]: "\"content\": \"15 degrees\""
+                    - text: ), a list of nested content blocks (for example,
+                    - code [ref=e364]: "\"content\": [{\"type\": \"text\", \"text\": \"15 degrees\"}]"
+                    - text: ), or a list of document blocks (for example,
+                    - code [ref=e365]: "\"content\": [{\"type\": \"document\", \"source\": {\"type\": \"text\", \"media_type\": \"text/plain\", \"data\": \"15 degrees\"}}]"
+                    - text: ). These content blocks can use the
+                    - code [ref=e366]: text
+                    - text: ","
+                    - code [ref=e367]: image
+                    - text: ", or"
+                    - code [ref=e368]: document
+                    - text: types.
+                  - listitem [ref=e369]:
+                    - text: •
+                    - code [ref=e370]: is_error
+                    - text: "(optional): Set to"
+                    - code [ref=e371]: "true"
+                    - text: if the tool execution resulted in an error.
+            - generic [ref=e372]:
+              - img [ref=e375]
+              - generic [ref=e377]:
+                - paragraph [ref=e378]:
+                  - strong [ref=e379]: Important formatting requirements
+                  - text: ":"
+                - list [ref=e380]:
+                  - listitem [ref=e381]: • Tool result blocks must immediately follow their corresponding tool use blocks in the message history. You cannot include any messages between the assistant's tool use message and the user's tool result message.
+                  - listitem [ref=e382]: • In the user message containing tool results, the tool_result blocks must come FIRST in the content array. Any text must come AFTER all tool results.
+                - paragraph [ref=e383]: "For example, this will cause a 400 error:"
+                - generic [ref=e384]:
+                  - code [ref=e388]:
+                    - generic [ref=e389]: "{"
+                    - generic [ref=e390]: "\"role\": \"user\","
+                    - generic [ref=e391]: "\"content\": ["
+                    - generic [ref=e392]: "{ \"type\": \"text\", \"text\": \"Here are the results:\" }, // ❌ Text before tool_result"
+                    - generic [ref=e393]: "{ \"type\": \"tool_result\", \"tool_use_id\": \"toolu_01\" /* ... */ }"
+                    - generic [ref=e394]: "]"
+                    - generic [ref=e395]: "}"
+                  - button "Copy code" [ref=e397] [cursor=pointer]:
+                    - generic [ref=e398]:
+                      - img [ref=e400]
+                      - img [ref=e403]
+                - paragraph [ref=e405]: "This is correct:"
+                - generic [ref=e406]:
+                  - code [ref=e410]:
+                    - generic [ref=e411]: "{"
+                    - generic [ref=e412]: "\"role\": \"user\","
+                    - generic [ref=e413]: "\"content\": ["
+                    - generic [ref=e414]: "{ \"type\": \"tool_result\", \"tool_use_id\": \"toolu_01\" /* ... */ },"
+                    - generic [ref=e415]: "{ \"type\": \"text\", \"text\": \"What should I do next?\" } // ✅ Text after tool_result"
+                    - generic [ref=e416]: "]"
+                    - generic [ref=e417]: "}"
+                  - button "Copy code" [ref=e419] [cursor=pointer]:
+                    - generic [ref=e420]:
+                      - img [ref=e422]
+                      - img [ref=e425]
+                - paragraph [ref=e427]: If you receive an error like "tool_use ids were found without tool_result blocks immediately after", check that your tool results are formatted correctly.
+            - generic [ref=e428]:
+              - heading "Example of successful tool result" [level=3] [ref=e430]:
+                - button "Example of successful tool result" [ref=e431] [cursor=pointer]:
+                  - img [ref=e432]
+                  - generic [ref=e434]: Example of successful tool result
+              - heading "Example of tool result with images" [level=3] [ref=e436]:
+                - button "Example of tool result with images" [ref=e437] [cursor=pointer]:
+                  - img [ref=e438]
+                  - generic [ref=e440]: Example of tool result with images
+              - heading "Example of empty tool result" [level=3] [ref=e442]:
+                - button "Example of empty tool result" [ref=e443] [cursor=pointer]:
+                  - img [ref=e444]
+                  - generic [ref=e446]: Example of empty tool result
+              - heading "Example of tool result with documents" [level=3] [ref=e448]:
+                - button "Example of tool result with documents" [ref=e449] [cursor=pointer]:
+                  - img [ref=e450]
+                  - generic [ref=e452]: Example of tool result with documents
+            - paragraph [ref=e453]: After receiving the tool result, Claude will use that information to continue generating a response to the original user prompt.
+            - heading "Copy link to clipboard Handling results from server tools" [level=2] [ref=e454]:
+              - generic [ref=e455]:
+                - button "Copy link to clipboard" [ref=e457] [cursor=pointer]:
+                  - img [ref=e459]
+                - generic [ref=e461]: Handling results from server tools
+            - paragraph [ref=e462]: Claude executes the tool internally and incorporates the results directly into its response without requiring additional user interaction.
+            - generic [ref=e463]:
+              - img [ref=e466]
+              - generic [ref=e468]:
+                - paragraph [ref=e469]:
+                  - strong [ref=e470]: Differences from other APIs
+                - paragraph [ref=e471]:
+                  - text: Unlike APIs that separate tool use or use special roles like
+                  - code [ref=e472]: tool
+                  - text: or
+                  - code [ref=e473]: function
+                  - text: ", the Claude API integrates tools directly into the"
+                  - code [ref=e474]: user
+                  - text: and
+                  - code [ref=e475]: assistant
+                  - text: message structure.
+                - paragraph [ref=e476]:
+                  - text: Messages contain arrays of
+                  - code [ref=e477]: text
+                  - text: ","
+                  - code [ref=e478]: image
+                  - text: ","
+                  - code [ref=e479]: tool_use
+                  - text: ", and"
+                  - code [ref=e480]: tool_result
+                  - text: blocks.
+                  - code [ref=e481]: user
+                  - text: messages include client content and
+                  - code [ref=e482]: tool_result
+                  - text: ", while"
+                  - code [ref=e483]: assistant
+                  - text: messages contain AI-generated content and
+                  - code [ref=e484]: tool_use
+                  - text: .
+            - heading "Copy link to clipboard Handling errors with is_error" [level=2] [ref=e485]:
+              - generic [ref=e486]:
+                - button "Copy link to clipboard" [ref=e488] [cursor=pointer]:
+                  - img [ref=e490]
+                - generic [ref=e492]: Handling errors with is_error
+            - paragraph [ref=e493]: "There are a few different types of errors that can occur when using tools with Claude:"
+            - generic [ref=e494]:
+              - heading "Tool execution error" [level=3] [ref=e496]:
+                - button "Tool execution error" [ref=e497] [cursor=pointer]:
+                  - img [ref=e498]
+                  - generic [ref=e500]: Tool execution error
+              - heading "Invalid tool name" [level=3] [ref=e502]:
+                - button "Invalid tool name" [ref=e503] [cursor=pointer]:
+                  - img [ref=e504]
+                  - generic [ref=e506]: Invalid tool name
+              - heading "Server tool errors" [level=3] [ref=e508]:
+                - button "Server tool errors" [ref=e509] [cursor=pointer]:
+                  - img [ref=e510]
+                  - generic [ref=e512]: Server tool errors
+            - heading "Copy link to clipboard Next steps" [level=2] [ref=e513]:
+              - generic [ref=e514]:
+                - button "Copy link to clipboard" [ref=e516] [cursor=pointer]:
+                  - img [ref=e518]
+                - generic [ref=e520]: Next steps
+            - list [ref=e521]:
+              - listitem [ref=e522]:
+                - text: • For running multiple tools in one turn, see
+                - link "Parallel tool use" [ref=e523] [cursor=pointer]:
+                  - /url: /docs/en/agents-and-tools/tool-use/parallel-tool-use
+                - text: .
+              - listitem [ref=e524]:
+                - text: • For the SDK abstraction that automates this loop, see
+                - link "Tool Runner" [ref=e525] [cursor=pointer]:
+                  - /url: /docs/en/agents-and-tools/tool-use/tool-runner
+                - text: .
+              - listitem [ref=e526]:
+                - text: • For the full tool-use workflow, see
+                - link "Define tools" [ref=e527] [cursor=pointer]:
+                  - /url: /docs/en/agents-and-tools/tool-use/define-tools
+                - text: .
+            - generic [ref=e528]:
+              - paragraph [ref=e529]: Was this page helpful?
+              - generic [ref=e530]:
+                - button "Thumbs up" [ref=e531] [cursor=pointer]:
+                  - img [ref=e533]
+                - button "Thumbs down" [ref=e535] [cursor=pointer]:
+                  - img [ref=e537]
+          - button "Toggle table of contents" [ref=e539] [cursor=pointer]:
+            - img [ref=e540]
+        - generic [ref=e543]:
+          - generic [ref=e544]:
+            - link "Claude API Docs home page" [ref=e546] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e547]
+            - generic [ref=e550]:
+              - link "X (Twitter)" [ref=e551] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e552]
+              - link "LinkedIn" [ref=e554] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e555]
+              - link "Instagram" [ref=e557] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e558]
+          - generic [ref=e561]:
+            - generic [ref=e562]:
+              - generic [ref=e563]:
+                - heading "Solutions" [level=3] [ref=e564]
+                - list [ref=e565]:
+                  - listitem [ref=e566]:
+                    - link "AI agents" [ref=e567] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e568]:
+                    - link "Code modernization" [ref=e569] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e570]:
+                    - link "Coding" [ref=e571] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e572]:
+                    - link "Customer support" [ref=e573] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e574]:
+                    - link "Education" [ref=e575] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e576]:
+                    - link "Financial services" [ref=e577] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e578]:
+                    - link "Government" [ref=e579] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e580]:
+                    - link "Life sciences" [ref=e581] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e582]:
+                - heading "Partners" [level=3] [ref=e583]
+                - list [ref=e584]:
+                  - listitem [ref=e585]:
+                    - link "Amazon Bedrock" [ref=e586] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e587]:
+                    - link "Google Cloud's Vertex AI" [ref=e588] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e589]:
+              - generic [ref=e590]:
+                - heading "Learn" [level=3] [ref=e591]
+                - list [ref=e592]:
+                  - listitem [ref=e593]:
+                    - link "Blog" [ref=e594] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e595]:
+                    - link "Courses" [ref=e596] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e597]:
+                    - link "Use cases" [ref=e598] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e599]:
+                    - link "Connectors" [ref=e600] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e601]:
+                    - link "Customer stories" [ref=e602] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e603]:
+                    - link "Engineering at Anthropic" [ref=e604] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e605]:
+                    - link "Events" [ref=e606] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e607]:
+                    - link "Powered by Claude" [ref=e608] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e609]:
+                    - link "Service partners" [ref=e610] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e611]:
+                    - link "Startups program" [ref=e612] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e613]:
+                - heading "Company" [level=3] [ref=e614]
+                - list [ref=e615]:
+                  - listitem [ref=e616]:
+                    - link "Anthropic" [ref=e617] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e618]:
+                    - link "Careers" [ref=e619] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e620]:
+                    - link "Economic Futures" [ref=e621] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e622]:
+                    - link "Research" [ref=e623] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e624]:
+                    - link "News" [ref=e625] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e626]:
+                    - link "Responsible Scaling Policy" [ref=e627] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e628]:
+                    - link "Security and compliance" [ref=e629] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e630]:
+                    - link "Transparency" [ref=e631] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e632]:
+              - generic [ref=e633]:
+                - heading "Help and security" [level=3] [ref=e634]
+                - list [ref=e635]:
+                  - listitem [ref=e636]:
+                    - link "Availability" [ref=e637] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e638]:
+                    - link "Status" [ref=e639] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e640]:
+                    - link "Support" [ref=e641] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e642]:
+                    - link "Discord" [ref=e643] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e644]:
+                - heading "Terms and policies" [level=3] [ref=e645]
+                - list [ref=e646]:
+                  - listitem [ref=e647]:
+                    - link "Privacy policy" [ref=e648] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e649]:
+                    - link "Responsible disclosure policy" [ref=e650] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e651]:
+                    - 'link "Terms of service: Commercial" [ref=e652] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e653]:
+                    - 'link "Terms of service: Consumer" [ref=e654] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e655]:
+                    - link "Usage policy" [ref=e656] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e660] [cursor=pointer]:
+    - generic [ref=e661]: Ask Docs
+  - alert [ref=e662]

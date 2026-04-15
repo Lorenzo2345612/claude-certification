@@ -1,0 +1,1257 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Getting started" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/quickstart
+                  - generic [ref=e94]: Quickstart
+              - listitem [ref=e95]:
+                - link "Changelog" [ref=e96] [cursor=pointer]:
+                  - /url: /docs/en/changelog
+                  - generic [ref=e99]: Changelog
+          - generic [ref=e100]:
+            - heading "Core concepts" [level=5] [ref=e102]
+            - list [ref=e103]:
+              - listitem [ref=e104]:
+                - link "How Claude Code works" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/how-claude-code-works
+                  - generic [ref=e108]: How Claude Code works
+              - listitem [ref=e109]:
+                - link "Extend Claude Code" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/features-overview
+                  - generic [ref=e113]: Extend Claude Code
+              - listitem [ref=e114]:
+                - link "Explore the .claude directory" [ref=e115] [cursor=pointer]:
+                  - /url: /docs/en/claude-directory
+                  - generic [ref=e118]: Explore the .claude directory
+              - listitem [ref=e119]:
+                - link "Explore the context window" [ref=e120] [cursor=pointer]:
+                  - /url: /docs/en/context-window
+                  - generic [ref=e123]: Explore the context window
+          - generic [ref=e124]:
+            - heading "Use Claude Code" [level=5] [ref=e126]
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - link "Store instructions and memories" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/memory
+                  - generic [ref=e132]: Store instructions and memories
+              - listitem [ref=e133]:
+                - link "Permission modes" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/permission-modes
+                  - generic [ref=e137]: Permission modes
+              - listitem [ref=e138]:
+                - link "Common workflows" [ref=e139] [cursor=pointer]:
+                  - /url: /docs/en/common-workflows
+                  - generic [ref=e142]: Common workflows
+              - listitem [ref=e143]:
+                - link "Best practices" [ref=e144] [cursor=pointer]:
+                  - /url: /docs/en/best-practices
+                  - generic [ref=e147]: Best practices
+          - generic [ref=e148]:
+            - heading "Platforms and integrations" [level=5] [ref=e150]
+            - list [ref=e151]:
+              - listitem [ref=e152]:
+                - link "Overview" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/platforms
+                  - generic [ref=e156]: Overview
+              - listitem [ref=e157]:
+                - link "Remote Control" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/remote-control
+                  - generic [ref=e161]: Remote Control
+              - listitem [ref=e162]:
+                - button "Toggle Claude Code on the web section" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]: Claude Code on the web
+                  - img [ref=e166]
+              - listitem [ref=e168]:
+                - button "Toggle Claude Code on desktop section" [ref=e169] [cursor=pointer]:
+                  - generic [ref=e170]: Claude Code on desktop
+                  - img [ref=e172]
+              - listitem [ref=e174]:
+                - link "Chrome extension (beta)" [ref=e175] [cursor=pointer]:
+                  - /url: /docs/en/chrome
+                  - generic [ref=e178]: Chrome extension (beta)
+              - listitem [ref=e179]:
+                - link "Computer use (preview)" [ref=e180] [cursor=pointer]:
+                  - /url: /docs/en/computer-use
+                  - generic [ref=e183]: Computer use (preview)
+              - listitem [ref=e184]:
+                - link "Visual Studio Code" [ref=e185] [cursor=pointer]:
+                  - /url: /docs/en/vs-code
+                  - generic [ref=e188]: Visual Studio Code
+              - listitem [ref=e189]:
+                - link "JetBrains IDEs" [ref=e190] [cursor=pointer]:
+                  - /url: /docs/en/jetbrains
+                  - generic [ref=e193]: JetBrains IDEs
+              - listitem [ref=e194]:
+                - button "Toggle Code review & CI/CD section" [ref=e195] [cursor=pointer]:
+                  - generic [ref=e196]: Code review & CI/CD
+                  - img [ref=e198]
+              - listitem [ref=e200]:
+                - link "Claude Code in Slack" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/slack
+                  - generic [ref=e204]: Claude Code in Slack
+        - generic [ref=e207]:
+          - banner [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: Use Claude Code
+              - generic [ref=e211]:
+                - heading "How Claude remembers your project" [level=1] [ref=e212]
+                - generic [ref=e213]:
+                  - button "Copy page" [ref=e214] [cursor=pointer]:
+                    - generic [ref=e215]:
+                      - img [ref=e216]
+                      - generic [ref=e219]: Copy page
+                  - button "More actions" [ref=e220] [cursor=pointer]:
+                    - img [ref=e221]
+            - paragraph [ref=e224]: Give Claude persistent instructions with CLAUDE.md files, and let Claude accumulate learnings automatically with auto memory.
+          - generic [ref=e225]:
+            - generic [ref=e226]: "Each Claude Code session begins with a fresh context window. Two mechanisms carry knowledge across sessions:"
+            - list [ref=e227]:
+              - listitem [ref=e228]:
+                - strong [ref=e229]: CLAUDE.md files
+                - text: ": instructions you write to give Claude persistent context"
+              - listitem [ref=e230]:
+                - strong [ref=e231]: Auto memory
+                - text: ": notes Claude writes itself based on your corrections and preferences"
+            - generic [ref=e232]: "This page covers how to:"
+            - list [ref=e233]:
+              - listitem [ref=e234]:
+                - link "Write and organize CLAUDE.md files" [ref=e235] [cursor=pointer]:
+                  - /url: "#claude-md-files"
+              - listitem [ref=e236]:
+                - link "Scope rules to specific file types" [ref=e237] [cursor=pointer]:
+                  - /url: "#organize-rules-with-claude/rules/"
+                - text: with
+                - code [ref=e238]: .claude/rules/
+              - listitem [ref=e239]:
+                - link "Configure auto memory" [ref=e240] [cursor=pointer]:
+                  - /url: "#auto-memory"
+                - text: so Claude takes notes automatically
+              - listitem [ref=e241]:
+                - link "Troubleshoot" [ref=e242] [cursor=pointer]:
+                  - /url: "#troubleshoot-memory-issues"
+                - text: when instructions aren’t being followed
+            - heading "Navigate to header CLAUDE.md vs auto memory" [level=2] [ref=e243]:
+              - link "Navigate to header" [ref=e244] [cursor=pointer]:
+                - /url: "#claude-md-vs-auto-memory"
+                - img [ref=e246]
+              - generic [ref=e248] [cursor=pointer]: CLAUDE.md vs auto memory
+            - generic [ref=e249]: Claude Code has two complementary memory systems. Both are loaded at the start of every conversation. Claude treats them as context, not enforced configuration. The more specific and concise your instructions, the more consistently Claude follows them.
+            - table [ref=e252]:
+              - rowgroup [ref=e253]:
+                - row "CLAUDE.md files Auto memory" [ref=e254]:
+                  - columnheader [ref=e255]
+                  - columnheader "CLAUDE.md files" [ref=e256]
+                  - columnheader "Auto memory" [ref=e257]
+              - rowgroup [ref=e258]:
+                - row "Who writes it You Claude" [ref=e259]:
+                  - cell "Who writes it" [ref=e260]:
+                    - strong [ref=e261]: Who writes it
+                  - cell "You" [ref=e262]
+                  - cell "Claude" [ref=e263]
+                - row "What it contains Instructions and rules Learnings and patterns" [ref=e264]:
+                  - cell "What it contains" [ref=e265]:
+                    - strong [ref=e266]: What it contains
+                  - cell "Instructions and rules" [ref=e267]
+                  - cell "Learnings and patterns" [ref=e268]
+                - row "Scope Project, user, or org Per working tree" [ref=e269]:
+                  - cell "Scope" [ref=e270]:
+                    - strong [ref=e271]: Scope
+                  - cell "Project, user, or org" [ref=e272]
+                  - cell "Per working tree" [ref=e273]
+                - row "Loaded into Every session Every session (first 200 lines or 25KB)" [ref=e274]:
+                  - cell "Loaded into" [ref=e275]:
+                    - strong [ref=e276]: Loaded into
+                  - cell "Every session" [ref=e277]
+                  - cell "Every session (first 200 lines or 25KB)" [ref=e278]
+                - row "Use for Coding standards, workflows, project architecture Build commands, debugging insights, preferences Claude discovers" [ref=e279]:
+                  - cell "Use for" [ref=e280]:
+                    - strong [ref=e281]: Use for
+                  - cell "Coding standards, workflows, project architecture" [ref=e282]
+                  - cell "Build commands, debugging insights, preferences Claude discovers" [ref=e283]
+            - generic [ref=e284]: Use CLAUDE.md files when you want to guide Claude’s behavior. Auto memory lets Claude learn from your corrections without manual effort.
+            - generic [ref=e285]:
+              - text: Subagents can also maintain their own auto memory. See
+              - link "subagent configuration" [ref=e286] [cursor=pointer]:
+                - /url: /docs/en/sub-agents#enable-persistent-memory
+              - text: for details.
+            - heading "Navigate to header CLAUDE.md files" [level=2] [ref=e287]:
+              - link "Navigate to header" [ref=e288] [cursor=pointer]:
+                - /url: "#claude-md-files"
+                - img [ref=e290]
+              - generic [ref=e292] [cursor=pointer]: CLAUDE.md files
+            - generic [ref=e293]: CLAUDE.md files are markdown files that give Claude persistent instructions for a project, your personal workflow, or your entire organization. You write these files in plain text; Claude reads them at the start of every session.
+            - heading "Navigate to header When to add to CLAUDE.md" [level=3] [ref=e294]:
+              - link "Navigate to header" [ref=e295] [cursor=pointer]:
+                - /url: "#when-to-add-to-claude-md"
+                - img [ref=e297]
+              - generic [ref=e299] [cursor=pointer]: When to add to CLAUDE.md
+            - generic [ref=e300]: "Treat CLAUDE.md as the place you write down what you’d otherwise re-explain. Add to it when:"
+            - list [ref=e301]:
+              - listitem [ref=e302]: Claude makes the same mistake a second time
+              - listitem [ref=e303]: A code review catches something Claude should have known about this codebase
+              - listitem [ref=e304]: You type the same correction or clarification into chat that you typed last session
+              - listitem [ref=e305]: A new teammate would need the same context to be productive
+            - generic [ref=e306]:
+              - text: "Keep it to facts Claude should hold in every session: build commands, conventions, project layout, “always do X” rules. If an entry is a multi-step procedure or only matters for one part of the codebase, move it to a"
+              - link "skill" [ref=e307] [cursor=pointer]:
+                - /url: /docs/en/skills
+              - text: or a
+              - link "path-scoped rule" [ref=e308] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+              - text: instead. The
+              - link "extension overview" [ref=e309] [cursor=pointer]:
+                - /url: /docs/en/features-overview#build-your-setup-over-time
+              - text: covers when to use each mechanism.
+            - heading "Navigate to header Choose where to put CLAUDE.md files" [level=3] [ref=e310]:
+              - link "Navigate to header" [ref=e311] [cursor=pointer]:
+                - /url: "#choose-where-to-put-claude-md-files"
+                - img [ref=e313]
+              - generic [ref=e315] [cursor=pointer]: Choose where to put CLAUDE.md files
+            - generic [ref=e316]: CLAUDE.md files can live in several locations, each with a different scope. More specific locations take precedence over broader ones.
+            - table [ref=e319]:
+              - rowgroup [ref=e320]:
+                - row "Scope Location Purpose Use case examples Shared with" [ref=e321]:
+                  - columnheader "Scope" [ref=e322]
+                  - columnheader "Location" [ref=e323]
+                  - columnheader "Purpose" [ref=e324]
+                  - columnheader "Use case examples" [ref=e325]
+                  - columnheader "Shared with" [ref=e326]
+              - rowgroup [ref=e327]:
+                - 'row "Managed policy • macOS: /Library/Application Support/ClaudeCode/CLAUDE.md • Linux and WSL: /etc/claude-code/CLAUDE.md • Windows: C:\\Program Files\\ClaudeCode\\CLAUDE.md Organization-wide instructions managed by IT/DevOps Company coding standards, security policies, compliance requirements All users in organization" [ref=e328]':
+                  - cell "Managed policy" [ref=e329]:
+                    - strong [ref=e330]: Managed policy
+                  - 'cell "• macOS: /Library/Application Support/ClaudeCode/CLAUDE.md • Linux and WSL: /etc/claude-code/CLAUDE.md • Windows: C:\\Program Files\\ClaudeCode\\CLAUDE.md" [ref=e331]':
+                    - text: "• macOS:"
+                    - code [ref=e332]: /Library/Application Support/ClaudeCode/CLAUDE.md
+                    - text: "• Linux and WSL:"
+                    - code [ref=e333]: /etc/claude-code/CLAUDE.md
+                    - text: "• Windows:"
+                    - code [ref=e334]: C:\Program Files\ClaudeCode\CLAUDE.md
+                  - cell "Organization-wide instructions managed by IT/DevOps" [ref=e335]
+                  - cell "Company coding standards, security policies, compliance requirements" [ref=e336]
+                  - cell "All users in organization" [ref=e337]
+                - row "Project instructions ./CLAUDE.md or ./.claude/CLAUDE.md Team-shared instructions for the project Project architecture, coding standards, common workflows Team members via source control" [ref=e338]:
+                  - cell "Project instructions" [ref=e339]:
+                    - strong [ref=e340]: Project instructions
+                  - cell "./CLAUDE.md or ./.claude/CLAUDE.md" [ref=e341]:
+                    - code [ref=e342]: ./CLAUDE.md
+                    - text: or
+                    - code [ref=e343]: ./.claude/CLAUDE.md
+                  - cell "Team-shared instructions for the project" [ref=e344]
+                  - cell "Project architecture, coding standards, common workflows" [ref=e345]
+                  - cell "Team members via source control" [ref=e346]
+                - row "User instructions ~/.claude/CLAUDE.md Personal preferences for all projects Code styling preferences, personal tooling shortcuts Just you (all projects)" [ref=e347]:
+                  - cell "User instructions" [ref=e348]:
+                    - strong [ref=e349]: User instructions
+                  - cell "~/.claude/CLAUDE.md" [ref=e350]:
+                    - code [ref=e351]: ~/.claude/CLAUDE.md
+                  - cell "Personal preferences for all projects" [ref=e352]
+                  - cell "Code styling preferences, personal tooling shortcuts" [ref=e353]
+                  - cell "Just you (all projects)" [ref=e354]
+                - row "Local instructions ./CLAUDE.local.md Personal project-specific preferences; add to .gitignore Your sandbox URLs, preferred test data Just you (current project)" [ref=e355]:
+                  - cell "Local instructions" [ref=e356]:
+                    - strong [ref=e357]: Local instructions
+                  - cell "./CLAUDE.local.md" [ref=e358]:
+                    - code [ref=e359]: ./CLAUDE.local.md
+                  - cell "Personal project-specific preferences; add to .gitignore" [ref=e360]:
+                    - text: Personal project-specific preferences; add to
+                    - code [ref=e361]: .gitignore
+                  - cell "Your sandbox URLs, preferred test data" [ref=e362]
+                  - cell "Just you (current project)" [ref=e363]
+            - generic [ref=e364]:
+              - text: CLAUDE.md and CLAUDE.local.md files in the directory hierarchy above the working directory are loaded in full at launch. Files in subdirectories load on demand when Claude reads files in those directories. See
+              - link "How CLAUDE.md files load" [ref=e365] [cursor=pointer]:
+                - /url: "#how-claude-md-files-load"
+              - text: for the full resolution order.
+            - generic [ref=e366]:
+              - text: For large projects, you can break instructions into topic-specific files using
+              - link "project rules" [ref=e367] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+              - text: . Rules let you scope instructions to specific file types or subdirectories.
+            - heading "Navigate to header Set up a project CLAUDE.md" [level=3] [ref=e368]:
+              - link "Navigate to header" [ref=e369] [cursor=pointer]:
+                - /url: "#set-up-a-project-claude-md"
+                - img [ref=e371]
+              - generic [ref=e373] [cursor=pointer]: Set up a project CLAUDE.md
+            - generic [ref=e374]:
+              - text: A project CLAUDE.md can be stored in either
+              - code [ref=e375]: ./CLAUDE.md
+              - text: or
+              - code [ref=e376]: ./.claude/CLAUDE.md
+              - text: ". Create this file and add instructions that apply to anyone working on the project: build and test commands, coding standards, architectural decisions, naming conventions, and common workflows. These instructions are shared with your team through version control, so focus on project-level standards rather than personal preferences."
+            - generic [ref=e377]:
+              - img "Tip" [ref=e379]
+              - generic [ref=e381]:
+                - generic [ref=e382]:
+                  - text: Run
+                  - code [ref=e383]: /init
+                  - text: to generate a starting CLAUDE.md automatically. Claude analyzes your codebase and creates a file with build commands, test instructions, and project conventions it discovers. If a CLAUDE.md already exists,
+                  - code [ref=e384]: /init
+                  - text: suggests improvements rather than overwriting it. Refine from there with instructions Claude wouldn’t discover on its own.
+                - generic [ref=e385]:
+                  - text: Set
+                  - code [ref=e386]: CLAUDE_CODE_NEW_INIT=1
+                  - text: to enable an interactive multi-phase flow.
+                  - code [ref=e387]: /init
+                  - text: "asks which artifacts to set up: CLAUDE.md files, skills, and hooks. It then explores your codebase with a subagent, fills in gaps via follow-up questions, and presents a reviewable proposal before writing any files."
+            - heading "Navigate to header Write effective instructions" [level=3] [ref=e388]:
+              - link "Navigate to header" [ref=e389] [cursor=pointer]:
+                - /url: "#write-effective-instructions"
+                - img [ref=e391]
+              - generic [ref=e393] [cursor=pointer]: Write effective instructions
+            - generic [ref=e394]:
+              - text: CLAUDE.md files are loaded into the context window at the start of every session, consuming tokens alongside your conversation. The
+              - link "context window visualization" [ref=e395] [cursor=pointer]:
+                - /url: /docs/en/context-window
+              - text: shows where CLAUDE.md loads relative to the rest of the startup context. Because they’re context rather than enforced configuration, how you write instructions affects how reliably Claude follows them. Specific, concise, well-structured instructions work best.
+            - generic [ref=e396]:
+              - strong [ref=e397]: Size
+              - text: ": target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence. If your instructions are growing large, split them using"
+              - link "imports" [ref=e398] [cursor=pointer]:
+                - /url: "#import-additional-files"
+              - text: or
+              - link ".claude/rules/" [ref=e399] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+                - code [ref=e400]: .claude/rules/
+              - text: files.
+            - generic [ref=e401]:
+              - strong [ref=e402]: Structure
+              - text: ": use markdown headers and bullets to group related instructions. Claude scans structure the same way readers do: organized sections are easier to follow than dense paragraphs."
+            - generic [ref=e403]:
+              - strong [ref=e404]: Specificity
+              - text: ": write instructions that are concrete enough to verify. For example:"
+            - list [ref=e405]:
+              - listitem [ref=e406]: “Use 2-space indentation” instead of “Format code properly”
+              - listitem [ref=e407]:
+                - text: “Run
+                - code [ref=e408]: npm test
+                - text: before committing” instead of “Test your changes”
+              - listitem [ref=e409]:
+                - text: “API handlers live in
+                - code [ref=e410]: src/api/handlers/
+                - text: ” instead of “Keep files organized”
+            - generic [ref=e411]:
+              - strong [ref=e412]: Consistency
+              - text: ": if two rules contradict each other, Claude may pick one arbitrarily. Review your CLAUDE.md files, nested CLAUDE.md files in subdirectories, and"
+              - link ".claude/rules/" [ref=e413] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+                - code [ref=e414]: .claude/rules/
+              - text: periodically to remove outdated or conflicting instructions. In monorepos, use
+              - link "claudeMdExcludes" [ref=e415] [cursor=pointer]:
+                - /url: "#exclude-specific-claude-md-files"
+                - code [ref=e416]: claudeMdExcludes
+              - text: to skip CLAUDE.md files from other teams that aren’t relevant to your work.
+            - heading "Navigate to header Import additional files" [level=3] [ref=e417]:
+              - link "Navigate to header" [ref=e418] [cursor=pointer]:
+                - /url: "#import-additional-files"
+                - img [ref=e420]
+              - generic [ref=e422] [cursor=pointer]: Import additional files
+            - generic [ref=e423]:
+              - text: CLAUDE.md files can import additional files using
+              - code [ref=e424]: "@path/to/import"
+              - text: syntax. Imported files are expanded and loaded into context at launch alongside the CLAUDE.md that references them.
+            - generic [ref=e425]: Both relative and absolute paths are allowed. Relative paths resolve relative to the file containing the import, not the working directory. Imported files can recursively import other files, with a maximum depth of five hops.
+            - generic [ref=e426]:
+              - text: To pull in a README, package.json, and a workflow guide, reference them with
+              - code [ref=e427]: "@"
+              - text: "syntax anywhere in your CLAUDE.md:"
+            - generic [ref=e428]:
+              - generic [ref=e429]:
+                - button "Report incorrect code" [ref=e431] [cursor=pointer]:
+                  - img [ref=e432]
+                - button "Copy the contents from the code block" [ref=e435] [cursor=pointer]:
+                  - img [ref=e436]
+                - button "Ask AI" [ref=e440] [cursor=pointer]:
+                  - img [ref=e441]
+              - code [ref=e447]:
+                - generic [ref=e448]: See @README for project overview and @package.json for available npm commands for this project.
+                - generic [ref=e449]: "# Additional Instructions"
+                - generic [ref=e450]: "- git workflow @docs/git-instructions.md"
+            - generic [ref=e451]:
+              - text: For private per-project preferences that shouldn’t be checked into version control, create a
+              - code [ref=e452]: CLAUDE.local.md
+              - text: at the project root. It loads alongside
+              - code [ref=e453]: CLAUDE.md
+              - text: and is treated the same way. Add
+              - code [ref=e454]: CLAUDE.local.md
+              - text: to your
+              - code [ref=e455]: .gitignore
+              - text: so it isn’t committed; running
+              - code [ref=e456]: /init
+              - text: and choosing the personal option does this for you.
+            - generic [ref=e457]:
+              - text: If you work across multiple git worktrees of the same repository, a gitignored
+              - code [ref=e458]: CLAUDE.local.md
+              - text: "only exists in the worktree where you created it. To share personal instructions across worktrees, import a file from your home directory instead:"
+            - generic [ref=e459]:
+              - generic [ref=e460]:
+                - button "Report incorrect code" [ref=e462] [cursor=pointer]:
+                  - img [ref=e463]
+                - button "Copy the contents from the code block" [ref=e466] [cursor=pointer]:
+                  - img [ref=e467]
+                - button "Ask AI" [ref=e471] [cursor=pointer]:
+                  - img [ref=e472]
+              - code [ref=e478]:
+                - generic [ref=e479]: "# Individual Preferences"
+                - generic [ref=e480]: "- @~/.claude/my-project-instructions.md"
+            - generic [ref=e481]:
+              - img "Warning" [ref=e483]
+              - generic [ref=e486]: The first time Claude Code encounters external imports in a project, it shows an approval dialog listing the files. If you decline, the imports stay disabled and the dialog does not appear again.
+            - generic [ref=e487]:
+              - text: For a more structured approach to organizing instructions, see
+              - link ".claude/rules/" [ref=e488] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+                - code [ref=e489]: .claude/rules/
+              - text: .
+            - heading "Navigate to header AGENTS.md" [level=3] [ref=e490]:
+              - link "Navigate to header" [ref=e491] [cursor=pointer]:
+                - /url: "#agents-md"
+                - img [ref=e493]
+              - generic [ref=e495] [cursor=pointer]: AGENTS.md
+            - generic [ref=e496]:
+              - text: Claude Code reads
+              - code [ref=e497]: CLAUDE.md
+              - text: ", not"
+              - code [ref=e498]: AGENTS.md
+              - text: . If your repository already uses
+              - code [ref=e499]: AGENTS.md
+              - text: for other coding agents, create a
+              - code [ref=e500]: CLAUDE.md
+              - text: "that imports it so both tools read the same instructions without duplicating them. You can also add Claude-specific instructions below the import. Claude loads the imported file at session start, then appends the rest:"
+            - generic [ref=e501]:
+              - generic [ref=e502]:
+                - generic "CLAUDE.md" [ref=e504]
+                - generic [ref=e505]:
+                  - button "Report incorrect code" [ref=e507] [cursor=pointer]:
+                    - img [ref=e508]
+                  - button "Copy the contents from the code block" [ref=e511] [cursor=pointer]:
+                    - img [ref=e512]
+                  - button "Ask AI" [ref=e516] [cursor=pointer]:
+                    - img [ref=e517]
+              - code [ref=e523]:
+                - generic [ref=e524]: "@AGENTS.md"
+                - generic [ref=e525]: "## Claude Code"
+                - generic [ref=e526]: "Use plan mode for changes under `src/billing/`."
+            - heading "Navigate to header How CLAUDE.md files load" [level=3] [ref=e527]:
+              - link "Navigate to header" [ref=e528] [cursor=pointer]:
+                - /url: "#how-claude-md-files-load"
+                - img [ref=e530]
+              - generic [ref=e532] [cursor=pointer]: How CLAUDE.md files load
+            - generic [ref=e533]:
+              - text: Claude Code reads CLAUDE.md files by walking up the directory tree from your current working directory, checking each directory along the way for
+              - code [ref=e534]: CLAUDE.md
+              - text: and
+              - code [ref=e535]: CLAUDE.local.md
+              - text: files. This means if you run Claude Code in
+              - code [ref=e536]: foo/bar/
+              - text: ", it loads instructions from"
+              - code [ref=e537]: foo/bar/CLAUDE.md
+              - text: ","
+              - code [ref=e538]: foo/CLAUDE.md
+              - text: ", and any"
+              - code [ref=e539]: CLAUDE.local.md
+              - text: files alongside them.
+            - generic [ref=e540]:
+              - text: All discovered files are concatenated into context rather than overriding each other. Within each directory,
+              - code [ref=e541]: CLAUDE.local.md
+              - text: is appended after
+              - code [ref=e542]: CLAUDE.md
+              - text: ", so when instructions conflict, your personal notes are the last thing Claude reads at that level."
+            - generic [ref=e543]:
+              - text: Claude also discovers
+              - code [ref=e544]: CLAUDE.md
+              - text: and
+              - code [ref=e545]: CLAUDE.local.md
+              - text: files in subdirectories under your current working directory. Instead of loading them at launch, they are included when Claude reads files in those subdirectories.
+            - generic [ref=e546]:
+              - text: If you work in a large monorepo where other teams’ CLAUDE.md files get picked up, use
+              - link "claudeMdExcludes" [ref=e547] [cursor=pointer]:
+                - /url: "#exclude-specific-claude-md-files"
+                - code [ref=e548]: claudeMdExcludes
+              - text: to skip them.
+            - generic [ref=e549]:
+              - text: Block-level HTML comments (
+              - code [ref=e550]: <!-- maintainer notes -->
+              - text: ) in CLAUDE.md files are stripped before the content is injected into Claude’s context. Use them to leave notes for human maintainers without spending context tokens on them. Comments inside code blocks are preserved. When you open a CLAUDE.md file directly with the Read tool, comments remain visible.
+            - heading "Navigate to header Load from additional directories" [level=4] [ref=e551]:
+              - link "Navigate to header" [ref=e552] [cursor=pointer]:
+                - /url: "#load-from-additional-directories"
+                - img [ref=e554]
+              - generic [ref=e556] [cursor=pointer]: Load from additional directories
+            - generic [ref=e557]:
+              - text: The
+              - code [ref=e558]: "--add-dir"
+              - text: flag gives Claude access to additional directories outside your main working directory. By default, CLAUDE.md files from these directories are not loaded.
+            - generic [ref=e559]:
+              - text: To also load memory files from additional directories, set the
+              - code [ref=e560]: CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD
+              - text: "environment variable:"
+            - generic [ref=e561]:
+              - generic [ref=e562]:
+                - button "Report incorrect code" [ref=e564] [cursor=pointer]:
+                  - img [ref=e565]
+                - button "Copy the contents from the code block" [ref=e568] [cursor=pointer]:
+                  - img [ref=e569]
+                - button "Ask AI" [ref=e573] [cursor=pointer]:
+                  - img [ref=e574]
+              - code [ref=e580]:
+                - generic [ref=e581]: CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1 claude --add-dir ../shared-config
+            - generic [ref=e582]:
+              - text: This loads
+              - code [ref=e583]: CLAUDE.md
+              - text: ","
+              - code [ref=e584]: .claude/CLAUDE.md
+              - text: ","
+              - code [ref=e585]: .claude/rules/*.md
+              - text: ", and"
+              - code [ref=e586]: CLAUDE.local.md
+              - text: from the additional directory.
+              - code [ref=e587]: CLAUDE.local.md
+              - text: is skipped if you exclude
+              - code [ref=e588]: local
+              - text: from
+              - link "--setting-sources" [ref=e589] [cursor=pointer]:
+                - /url: /docs/en/cli-reference
+                - code [ref=e590]: "--setting-sources"
+              - text: .
+            - heading "Navigate to header Organize rules with .claude/rules/" [level=3] [ref=e591]:
+              - link "Navigate to header" [ref=e592] [cursor=pointer]:
+                - /url: "#organize-rules-with-claude/rules/"
+                - img [ref=e594]
+              - generic [ref=e596] [cursor=pointer]:
+                - text: Organize rules with
+                - code [ref=e597]: .claude/rules/
+            - generic [ref=e598]:
+              - text: For larger projects, you can organize instructions into multiple files using the
+              - code [ref=e599]: .claude/rules/
+              - text: directory. This keeps instructions modular and easier for teams to maintain. Rules can also be
+              - link "scoped to specific file paths" [ref=e600] [cursor=pointer]:
+                - /url: "#path-specific-rules"
+              - text: ", so they only load into context when Claude works with matching files, reducing noise and saving context space."
+            - generic [ref=e601]:
+              - img "Note" [ref=e603]
+              - generic [ref=e606]:
+                - text: Rules load into context every session or when matching files are opened. For task-specific instructions that don’t need to be in context all the time, use
+                - link "skills" [ref=e607] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                - text: instead, which only load when you invoke them or when Claude determines they’re relevant to your prompt.
+            - heading "Navigate to header Set up rules" [level=4] [ref=e608]:
+              - link "Navigate to header" [ref=e609] [cursor=pointer]:
+                - /url: "#set-up-rules"
+                - img [ref=e611]
+              - generic [ref=e613] [cursor=pointer]: Set up rules
+            - generic [ref=e614]:
+              - text: Place markdown files in your project’s
+              - code [ref=e615]: .claude/rules/
+              - text: directory. Each file should cover one topic, with a descriptive filename like
+              - code [ref=e616]: testing.md
+              - text: or
+              - code [ref=e617]: api-design.md
+              - text: . All
+              - code [ref=e618]: .md
+              - text: files are discovered recursively, so you can organize rules into subdirectories like
+              - code [ref=e619]: frontend/
+              - text: or
+              - code [ref=e620]: backend/
+              - text: ":"
+            - generic [ref=e621]:
+              - generic [ref=e622]:
+                - button "Report incorrect code" [ref=e624] [cursor=pointer]:
+                  - img [ref=e625]
+                - button "Copy the contents from the code block" [ref=e628] [cursor=pointer]:
+                  - img [ref=e629]
+                - button "Ask AI" [ref=e633] [cursor=pointer]:
+                  - img [ref=e634]
+              - code [ref=e640]:
+                - generic [ref=e641]: your-project/
+                - generic [ref=e642]: ├── .claude/
+                - generic [ref=e643]: "│ ├── CLAUDE.md # Main project instructions"
+                - generic [ref=e644]: │ └── rules/
+                - generic [ref=e645]: "│ ├── code-style.md # Code style guidelines"
+                - generic [ref=e646]: "│ ├── testing.md # Testing conventions"
+                - generic [ref=e647]: "│ └── security.md # Security requirements"
+            - generic [ref=e648]:
+              - text: Rules without
+              - link "paths frontmatter" [ref=e649] [cursor=pointer]:
+                - /url: "#path-specific-rules"
+                - code [ref=e650]: paths
+                - text: frontmatter
+              - text: are loaded at launch with the same priority as
+              - code [ref=e651]: .claude/CLAUDE.md
+              - text: .
+            - heading "Navigate to header Path-specific rules" [level=4] [ref=e652]:
+              - link "Navigate to header" [ref=e653] [cursor=pointer]:
+                - /url: "#path-specific-rules"
+                - img [ref=e655]
+              - generic [ref=e657] [cursor=pointer]: Path-specific rules
+            - generic [ref=e658]:
+              - text: Rules can be scoped to specific files using YAML frontmatter with the
+              - code [ref=e659]: paths
+              - text: field. These conditional rules only apply when Claude is working with files matching the specified patterns.
+            - generic [ref=e660]:
+              - generic [ref=e661]:
+                - button "Report incorrect code" [ref=e663] [cursor=pointer]:
+                  - img [ref=e664]
+                - button "Copy the contents from the code block" [ref=e667] [cursor=pointer]:
+                  - img [ref=e668]
+                - button "Ask AI" [ref=e672] [cursor=pointer]:
+                  - img [ref=e673]
+              - code [ref=e679]:
+                - generic [ref=e680]: "---"
+                - generic [ref=e681]: "paths:"
+                - generic [ref=e682]: "- \"src/api/**/*.ts\""
+                - generic [ref=e683]: "---"
+                - generic [ref=e684]: "# API Development Rules"
+                - generic [ref=e685]: "- All API endpoints must include input validation"
+                - generic [ref=e686]: "- Use the standard error response format"
+                - generic [ref=e687]: "- Include OpenAPI documentation comments"
+            - generic [ref=e688]:
+              - text: Rules without a
+              - code [ref=e689]: paths
+              - text: field are loaded unconditionally and apply to all files. Path-scoped rules trigger when Claude reads files matching the pattern, not on every tool use.
+            - generic [ref=e690]:
+              - text: Use glob patterns in the
+              - code [ref=e691]: paths
+              - text: "field to match files by extension, directory, or any combination:"
+            - table [ref=e694]:
+              - rowgroup [ref=e695]:
+                - row "Pattern Matches" [ref=e696]:
+                  - columnheader "Pattern" [ref=e697]
+                  - columnheader "Matches" [ref=e698]
+              - rowgroup [ref=e699]:
+                - row "**/*.ts All TypeScript files in any directory" [ref=e700]:
+                  - cell "**/*.ts" [ref=e701]:
+                    - code [ref=e702]: "**/*.ts"
+                  - cell "All TypeScript files in any directory" [ref=e703]
+                - row "src/**/* All files under src/ directory" [ref=e704]:
+                  - cell "src/**/*" [ref=e705]:
+                    - code [ref=e706]: src/**/*
+                  - cell "All files under src/ directory" [ref=e707]:
+                    - text: All files under
+                    - code [ref=e708]: src/
+                    - text: directory
+                - row "*.md Markdown files in the project root" [ref=e709]:
+                  - cell "*.md" [ref=e710]:
+                    - code [ref=e711]: "*.md"
+                  - cell "Markdown files in the project root" [ref=e712]
+                - row "src/components/*.tsx React components in a specific directory" [ref=e713]:
+                  - cell "src/components/*.tsx" [ref=e714]:
+                    - code [ref=e715]: src/components/*.tsx
+                  - cell "React components in a specific directory" [ref=e716]
+            - generic [ref=e717]: "You can specify multiple patterns and use brace expansion to match multiple extensions in one pattern:"
+            - generic [ref=e718]:
+              - generic [ref=e719]:
+                - button "Report incorrect code" [ref=e721] [cursor=pointer]:
+                  - img [ref=e722]
+                - button "Copy the contents from the code block" [ref=e725] [cursor=pointer]:
+                  - img [ref=e726]
+                - button "Ask AI" [ref=e730] [cursor=pointer]:
+                  - img [ref=e731]
+              - code [ref=e737]:
+                - generic [ref=e738]: "---"
+                - generic [ref=e739]: "paths:"
+                - generic [ref=e740]: "- \"src/**/*.{ts,tsx}\""
+                - generic [ref=e741]: "- \"lib/**/*.ts\""
+                - generic [ref=e742]: "- \"tests/**/*.test.ts\""
+                - generic [ref=e743]: "---"
+            - heading "Navigate to header Share rules across projects with symlinks" [level=4] [ref=e744]:
+              - link "Navigate to header" [ref=e745] [cursor=pointer]:
+                - /url: "#share-rules-across-projects-with-symlinks"
+                - img [ref=e747]
+              - generic [ref=e749] [cursor=pointer]: Share rules across projects with symlinks
+            - generic [ref=e750]:
+              - text: The
+              - code [ref=e751]: .claude/rules/
+              - text: directory supports symlinks, so you can maintain a shared set of rules and link them into multiple projects. Symlinks are resolved and loaded normally, and circular symlinks are detected and handled gracefully.
+            - generic [ref=e752]: "This example links both a shared directory and an individual file:"
+            - generic [ref=e753]:
+              - generic [ref=e754]:
+                - button "Report incorrect code" [ref=e756] [cursor=pointer]:
+                  - img [ref=e757]
+                - button "Copy the contents from the code block" [ref=e760] [cursor=pointer]:
+                  - img [ref=e761]
+                - button "Ask AI" [ref=e765] [cursor=pointer]:
+                  - img [ref=e766]
+              - code [ref=e772]:
+                - generic [ref=e773]: ln -s ~/shared-claude-rules .claude/rules/shared
+                - generic [ref=e774]: ln -s ~/company-standards/security.md .claude/rules/security.md
+            - heading "Navigate to header User-level rules" [level=4] [ref=e775]:
+              - link "Navigate to header" [ref=e776] [cursor=pointer]:
+                - /url: "#user-level-rules"
+                - img [ref=e778]
+              - generic [ref=e780] [cursor=pointer]: User-level rules
+            - generic [ref=e781]:
+              - text: Personal rules in
+              - code [ref=e782]: ~/.claude/rules/
+              - text: "apply to every project on your machine. Use them for preferences that aren’t project-specific:"
+            - generic [ref=e783]:
+              - generic [ref=e784]:
+                - button "Report incorrect code" [ref=e786] [cursor=pointer]:
+                  - img [ref=e787]
+                - button "Copy the contents from the code block" [ref=e790] [cursor=pointer]:
+                  - img [ref=e791]
+                - button "Ask AI" [ref=e795] [cursor=pointer]:
+                  - img [ref=e796]
+              - code [ref=e802]:
+                - generic [ref=e803]: ~/.claude/rules/
+                - generic [ref=e804]: "├── preferences.md # Your personal coding preferences"
+                - generic [ref=e805]: "└── workflows.md # Your preferred workflows"
+            - generic [ref=e806]: User-level rules are loaded before project rules, giving project rules higher priority.
+            - heading "Navigate to header Manage CLAUDE.md for large teams" [level=3] [ref=e807]:
+              - link "Navigate to header" [ref=e808] [cursor=pointer]:
+                - /url: "#manage-claude-md-for-large-teams"
+                - img [ref=e810]
+              - generic [ref=e812] [cursor=pointer]: Manage CLAUDE.md for large teams
+            - generic [ref=e813]: For organizations deploying Claude Code across teams, you can centralize instructions and control which CLAUDE.md files are loaded.
+            - heading "Navigate to header Deploy organization-wide CLAUDE.md" [level=4] [ref=e814]:
+              - link "Navigate to header" [ref=e815] [cursor=pointer]:
+                - /url: "#deploy-organization-wide-claude-md"
+                - img [ref=e817]
+              - generic [ref=e819] [cursor=pointer]: Deploy organization-wide CLAUDE.md
+            - generic [ref=e820]: Organizations can deploy a centrally managed CLAUDE.md that applies to all users on a machine. This file cannot be excluded by individual settings.
+            - list [ref=e821]:
+              - listitem [ref=e822]:
+                - generic [ref=e825]:
+                  - generic [ref=e826]: "1"
+                  - link "Navigate to header" [ref=e828] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e830]
+                - generic [ref=e832]:
+                  - paragraph [ref=e833]: Create the file at the managed policy location
+                  - list [ref=e835]:
+                    - listitem [ref=e836]:
+                      - text: "macOS:"
+                      - code [ref=e837]: /Library/Application Support/ClaudeCode/CLAUDE.md
+                    - listitem [ref=e838]:
+                      - text: "Linux and WSL:"
+                      - code [ref=e839]: /etc/claude-code/CLAUDE.md
+                    - listitem [ref=e840]:
+                      - text: "Windows:"
+                      - code [ref=e841]: C:\Program Files\ClaudeCode\CLAUDE.md
+              - listitem [ref=e842]:
+                - generic [ref=e845]:
+                  - generic [ref=e846]: "2"
+                  - link "Navigate to header" [ref=e848] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e850]
+                - generic [ref=e852]:
+                  - paragraph [ref=e853]: Deploy with your configuration management system
+                  - generic [ref=e855]:
+                    - text: Use MDM, Group Policy, Ansible, or similar tools to distribute the file across developer machines. See
+                    - link "managed settings" [ref=e856] [cursor=pointer]:
+                      - /url: /docs/en/permissions#managed-settings
+                    - text: for other organization-wide configuration options.
+            - generic [ref=e857]:
+              - text: A managed CLAUDE.md and
+              - link "managed settings" [ref=e858] [cursor=pointer]:
+                - /url: /docs/en/settings#settings-files
+              - text: "serve different purposes. Use settings for technical enforcement and CLAUDE.md for behavioral guidance:"
+            - table [ref=e861]:
+              - rowgroup [ref=e862]:
+                - row "Concern Configure in" [ref=e863]:
+                  - columnheader "Concern" [ref=e864]
+                  - columnheader "Configure in" [ref=e865]
+              - rowgroup [ref=e866]:
+                - 'row "Block specific tools, commands, or file paths Managed settings: permissions.deny" [ref=e867]':
+                  - cell "Block specific tools, commands, or file paths" [ref=e868]
+                  - 'cell "Managed settings: permissions.deny" [ref=e869]':
+                    - text: "Managed settings:"
+                    - code [ref=e870]: permissions.deny
+                - 'row "Enforce sandbox isolation Managed settings: sandbox.enabled" [ref=e871]':
+                  - cell "Enforce sandbox isolation" [ref=e872]
+                  - 'cell "Managed settings: sandbox.enabled" [ref=e873]':
+                    - text: "Managed settings:"
+                    - code [ref=e874]: sandbox.enabled
+                - 'row "Environment variables and API provider routing Managed settings: env" [ref=e875]':
+                  - cell "Environment variables and API provider routing" [ref=e876]
+                  - 'cell "Managed settings: env" [ref=e877]':
+                    - text: "Managed settings:"
+                    - code [ref=e878]: env
+                - 'row "Authentication method and organization lock Managed settings: forceLoginMethod, forceLoginOrgUUID" [ref=e879]':
+                  - cell "Authentication method and organization lock" [ref=e880]
+                  - 'cell "Managed settings: forceLoginMethod, forceLoginOrgUUID" [ref=e881]':
+                    - text: "Managed settings:"
+                    - code [ref=e882]: forceLoginMethod
+                    - text: ","
+                    - code [ref=e883]: forceLoginOrgUUID
+                - row "Code style and quality guidelines Managed CLAUDE.md" [ref=e884]:
+                  - cell "Code style and quality guidelines" [ref=e885]
+                  - cell "Managed CLAUDE.md" [ref=e886]
+                - row "Data handling and compliance reminders Managed CLAUDE.md" [ref=e887]:
+                  - cell "Data handling and compliance reminders" [ref=e888]
+                  - cell "Managed CLAUDE.md" [ref=e889]
+                - row "Behavioral instructions for Claude Managed CLAUDE.md" [ref=e890]:
+                  - cell "Behavioral instructions for Claude" [ref=e891]
+                  - cell "Managed CLAUDE.md" [ref=e892]
+            - generic [ref=e893]: Settings rules are enforced by the client regardless of what Claude decides to do. CLAUDE.md instructions shape Claude’s behavior but are not a hard enforcement layer.
+            - heading "Navigate to header Exclude specific CLAUDE.md files" [level=4] [ref=e894]:
+              - link "Navigate to header" [ref=e895] [cursor=pointer]:
+                - /url: "#exclude-specific-claude-md-files"
+                - img [ref=e897]
+              - generic [ref=e899] [cursor=pointer]: Exclude specific CLAUDE.md files
+            - generic [ref=e900]:
+              - text: In large monorepos, ancestor CLAUDE.md files may contain instructions that aren’t relevant to your work. The
+              - code [ref=e901]: claudeMdExcludes
+              - text: setting lets you skip specific files by path or glob pattern.
+            - generic [ref=e902]:
+              - text: This example excludes a top-level CLAUDE.md and a rules directory from a parent folder. Add it to
+              - code [ref=e903]: .claude/settings.local.json
+              - text: "so the exclusion stays local to your machine:"
+            - generic [ref=e904]:
+              - generic [ref=e905]:
+                - button "Report incorrect code" [ref=e907] [cursor=pointer]:
+                  - img [ref=e908]
+                - button "Copy the contents from the code block" [ref=e911] [cursor=pointer]:
+                  - img [ref=e912]
+                - button "Ask AI" [ref=e916] [cursor=pointer]:
+                  - img [ref=e917]
+              - code [ref=e923]:
+                - generic [ref=e924]: "{"
+                - generic [ref=e925]: "\"claudeMdExcludes\": ["
+                - generic [ref=e926]: "\"**/monorepo/CLAUDE.md\","
+                - generic [ref=e927]: "\"/home/user/monorepo/other-team/.claude/rules/**\""
+                - generic [ref=e928]: "]"
+                - generic [ref=e929]: "}"
+            - generic [ref=e930]:
+              - text: Patterns are matched against absolute file paths using glob syntax. You can configure
+              - code [ref=e931]: claudeMdExcludes
+              - text: at any
+              - link "settings layer" [ref=e932] [cursor=pointer]:
+                - /url: /docs/en/settings#settings-files
+              - text: ": user, project, local, or managed policy. Arrays merge across layers."
+            - generic [ref=e933]: Managed policy CLAUDE.md files cannot be excluded. This ensures organization-wide instructions always apply regardless of individual settings.
+            - heading "Navigate to header Auto memory" [level=2] [ref=e934]:
+              - link "Navigate to header" [ref=e935] [cursor=pointer]:
+                - /url: "#auto-memory"
+                - img [ref=e937]
+              - generic [ref=e939] [cursor=pointer]: Auto memory
+            - generic [ref=e940]: "Auto memory lets Claude accumulate knowledge across sessions without you writing anything. Claude saves notes for itself as it works: build commands, debugging insights, architecture notes, code style preferences, and workflow habits. Claude doesn’t save something every session. It decides what’s worth remembering based on whether the information would be useful in a future conversation."
+            - generic [ref=e941]:
+              - img "Note" [ref=e943]
+              - generic [ref=e946]:
+                - text: Auto memory requires Claude Code v2.1.59 or later. Check your version with
+                - code [ref=e947]: claude --version
+                - text: .
+            - heading "Navigate to header Enable or disable auto memory" [level=3] [ref=e948]:
+              - link "Navigate to header" [ref=e949] [cursor=pointer]:
+                - /url: "#enable-or-disable-auto-memory"
+                - img [ref=e951]
+              - generic [ref=e953] [cursor=pointer]: Enable or disable auto memory
+            - generic [ref=e954]:
+              - text: Auto memory is on by default. To toggle it, open
+              - code [ref=e955]: /memory
+              - text: in a session and use the auto memory toggle, or set
+              - code [ref=e956]: autoMemoryEnabled
+              - text: "in your project settings:"
+            - generic [ref=e957]:
+              - generic [ref=e958]:
+                - button "Report incorrect code" [ref=e960] [cursor=pointer]:
+                  - img [ref=e961]
+                - button "Copy the contents from the code block" [ref=e964] [cursor=pointer]:
+                  - img [ref=e965]
+                - button "Ask AI" [ref=e969] [cursor=pointer]:
+                  - img [ref=e970]
+              - code [ref=e976]:
+                - generic [ref=e977]: "{"
+                - generic [ref=e978]: "\"autoMemoryEnabled\": false"
+                - generic [ref=e979]: "}"
+            - generic [ref=e980]:
+              - text: To disable auto memory via environment variable, set
+              - code [ref=e981]: CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
+              - text: .
+            - heading "Navigate to header Storage location" [level=3] [ref=e982]:
+              - link "Navigate to header" [ref=e983] [cursor=pointer]:
+                - /url: "#storage-location"
+                - img [ref=e985]
+              - generic [ref=e987] [cursor=pointer]: Storage location
+            - generic [ref=e988]:
+              - text: Each project gets its own memory directory at
+              - code [ref=e989]: ~/.claude/projects/<project>/memory/
+              - text: . The
+              - code [ref=e990]: <project>
+              - text: path is derived from the git repository, so all worktrees and subdirectories within the same repo share one auto memory directory. Outside a git repo, the project root is used instead.
+            - generic [ref=e991]:
+              - text: To store auto memory in a different location, set
+              - code [ref=e992]: autoMemoryDirectory
+              - text: "in your user or local settings:"
+            - generic [ref=e993]:
+              - generic [ref=e994]:
+                - button "Report incorrect code" [ref=e996] [cursor=pointer]:
+                  - img [ref=e997]
+                - button "Copy the contents from the code block" [ref=e1000] [cursor=pointer]:
+                  - img [ref=e1001]
+                - button "Ask AI" [ref=e1005] [cursor=pointer]:
+                  - img [ref=e1006]
+              - code [ref=e1012]:
+                - generic [ref=e1013]: "{"
+                - generic [ref=e1014]: "\"autoMemoryDirectory\": \"~/my-custom-memory-dir\""
+                - generic [ref=e1015]: "}"
+            - generic [ref=e1016]:
+              - text: This setting is accepted from policy, local, and user settings. It is not accepted from project settings (
+              - code [ref=e1017]: .claude/settings.json
+              - text: ) to prevent a shared project from redirecting auto memory writes to sensitive locations.
+            - generic [ref=e1018]:
+              - text: The directory contains a
+              - code [ref=e1019]: MEMORY.md
+              - text: "entrypoint and optional topic files:"
+            - generic [ref=e1020]:
+              - generic [ref=e1021]:
+                - button "Report incorrect code" [ref=e1023] [cursor=pointer]:
+                  - img [ref=e1024]
+                - button "Copy the contents from the code block" [ref=e1027] [cursor=pointer]:
+                  - img [ref=e1028]
+                - button "Ask AI" [ref=e1032] [cursor=pointer]:
+                  - img [ref=e1033]
+              - code [ref=e1039]:
+                - generic [ref=e1040]: ~/.claude/projects/<project>/memory/
+                - generic [ref=e1041]: "├── MEMORY.md # Concise index, loaded into every session"
+                - generic [ref=e1042]: "├── debugging.md # Detailed notes on debugging patterns"
+                - generic [ref=e1043]: "├── api-conventions.md # API design decisions"
+                - generic [ref=e1044]: "└── ... # Any other topic files Claude creates"
+            - generic [ref=e1045]:
+              - code [ref=e1046]: MEMORY.md
+              - text: acts as an index of the memory directory. Claude reads and writes files in this directory throughout your session, using
+              - code [ref=e1047]: MEMORY.md
+              - text: to keep track of what’s stored where.
+            - generic [ref=e1048]: Auto memory is machine-local. All worktrees and subdirectories within the same git repository share one auto memory directory. Files are not shared across machines or cloud environments.
+            - heading "Navigate to header How it works" [level=3] [ref=e1049]:
+              - link "Navigate to header" [ref=e1050] [cursor=pointer]:
+                - /url: "#how-it-works"
+                - img [ref=e1052]
+              - generic [ref=e1054] [cursor=pointer]: How it works
+            - generic [ref=e1055]:
+              - text: The first 200 lines of
+              - code [ref=e1056]: MEMORY.md
+              - text: ", or the first 25KB, whichever comes first, are loaded at the start of every conversation. Content beyond that threshold is not loaded at session start. Claude keeps"
+              - code [ref=e1057]: MEMORY.md
+              - text: concise by moving detailed notes into separate topic files.
+            - generic [ref=e1058]:
+              - text: This limit applies only to
+              - code [ref=e1059]: MEMORY.md
+              - text: . CLAUDE.md files are loaded in full regardless of length, though shorter files produce better adherence.
+            - generic [ref=e1060]:
+              - text: Topic files like
+              - code [ref=e1061]: debugging.md
+              - text: or
+              - code [ref=e1062]: patterns.md
+              - text: are not loaded at startup. Claude reads them on demand using its standard file tools when it needs the information.
+            - generic [ref=e1063]:
+              - text: Claude reads and writes memory files during your session. When you see “Writing memory” or “Recalled memory” in the Claude Code interface, Claude is actively updating or reading from
+              - code [ref=e1064]: ~/.claude/projects/<project>/memory/
+              - text: .
+            - heading "Navigate to header Audit and edit your memory" [level=3] [ref=e1065]:
+              - link "Navigate to header" [ref=e1066] [cursor=pointer]:
+                - /url: "#audit-and-edit-your-memory"
+                - img [ref=e1068]
+              - generic [ref=e1070] [cursor=pointer]: Audit and edit your memory
+            - generic [ref=e1071]:
+              - text: Auto memory files are plain markdown you can edit or delete at any time. Run
+              - link "/memory" [ref=e1072] [cursor=pointer]:
+                - /url: "#view-and-edit-with-memory"
+                - code [ref=e1073]: /memory
+              - text: to browse and open memory files from within a session.
+            - heading "Navigate to header View and edit with /memory" [level=2] [ref=e1074]:
+              - link "Navigate to header" [ref=e1075] [cursor=pointer]:
+                - /url: "#view-and-edit-with-/memory"
+                - img [ref=e1077]
+              - generic [ref=e1079] [cursor=pointer]:
+                - text: View and edit with
+                - code [ref=e1080]: /memory
+            - generic [ref=e1081]:
+              - text: The
+              - code [ref=e1082]: /memory
+              - text: command lists all CLAUDE.md, CLAUDE.local.md, and rules files loaded in your current session, lets you toggle auto memory on or off, and provides a link to open the auto memory folder. Select any file to open it in your editor.
+            - generic [ref=e1083]:
+              - text: When you ask Claude to remember something, like “always use pnpm, not npm” or “remember that the API tests require a local Redis instance,” Claude saves it to auto memory. To add instructions to CLAUDE.md instead, ask Claude directly, like “add this to CLAUDE.md,” or edit the file yourself via
+              - code [ref=e1084]: /memory
+              - text: .
+            - heading "Navigate to header Troubleshoot memory issues" [level=2] [ref=e1085]:
+              - link "Navigate to header" [ref=e1086] [cursor=pointer]:
+                - /url: "#troubleshoot-memory-issues"
+                - img [ref=e1088]
+              - generic [ref=e1090] [cursor=pointer]: Troubleshoot memory issues
+            - generic [ref=e1091]: These are the most common issues with CLAUDE.md and auto memory, along with steps to debug them.
+            - heading "Navigate to header Claude isn’t following my CLAUDE.md" [level=3] [ref=e1092]:
+              - link "Navigate to header" [ref=e1093] [cursor=pointer]:
+                - /url: "#claude-isn’t-following-my-claude-md"
+                - img [ref=e1095]
+              - generic [ref=e1097] [cursor=pointer]: Claude isn’t following my CLAUDE.md
+            - generic [ref=e1098]: CLAUDE.md content is delivered as a user message after the system prompt, not as part of the system prompt itself. Claude reads it and tries to follow it, but there’s no guarantee of strict compliance, especially for vague or conflicting instructions.
+            - generic [ref=e1099]: "To debug:"
+            - list [ref=e1100]:
+              - listitem [ref=e1101]:
+                - text: Run
+                - code [ref=e1102]: /memory
+                - text: to verify your CLAUDE.md and CLAUDE.local.md files are being loaded. If a file isn’t listed, Claude can’t see it.
+              - listitem [ref=e1103]:
+                - text: Check that the relevant CLAUDE.md is in a location that gets loaded for your session (see
+                - link "Choose where to put CLAUDE.md files" [ref=e1104] [cursor=pointer]:
+                  - /url: "#choose-where-to-put-claude-md-files"
+                - text: ).
+              - listitem [ref=e1105]: Make instructions more specific. “Use 2-space indentation” works better than “format code nicely.”
+              - listitem [ref=e1106]: Look for conflicting instructions across CLAUDE.md files. If two files give different guidance for the same behavior, Claude may pick one arbitrarily.
+            - generic [ref=e1107]:
+              - text: For instructions you want at the system prompt level, use
+              - link "--append-system-prompt" [ref=e1108] [cursor=pointer]:
+                - /url: /docs/en/cli-reference#system-prompt-flags
+                - code [ref=e1109]: "--append-system-prompt"
+              - text: . This must be passed every invocation, so it’s better suited to scripts and automation than interactive use.
+            - generic [ref=e1110]:
+              - img "Tip" [ref=e1112]
+              - generic [ref=e1115]:
+                - text: Use the
+                - link "InstructionsLoaded hook" [ref=e1116] [cursor=pointer]:
+                  - /url: /docs/en/hooks#instructionsloaded
+                  - code [ref=e1117]: InstructionsLoaded
+                  - text: hook
+                - text: to log exactly which instruction files are loaded, when they load, and why. This is useful for debugging path-specific rules or lazy-loaded files in subdirectories.
+            - heading "Navigate to header I don’t know what auto memory saved" [level=3] [ref=e1118]:
+              - link "Navigate to header" [ref=e1119] [cursor=pointer]:
+                - /url: "#i-don’t-know-what-auto-memory-saved"
+                - img [ref=e1121]
+              - generic [ref=e1123] [cursor=pointer]: I don’t know what auto memory saved
+            - generic [ref=e1124]:
+              - text: Run
+              - code [ref=e1125]: /memory
+              - text: and select the auto memory folder to browse what Claude has saved. Everything is plain markdown you can read, edit, or delete.
+            - heading "Navigate to header My CLAUDE.md is too large" [level=3] [ref=e1126]:
+              - link "Navigate to header" [ref=e1127] [cursor=pointer]:
+                - /url: "#my-claude-md-is-too-large"
+                - img [ref=e1129]
+              - generic [ref=e1131] [cursor=pointer]: My CLAUDE.md is too large
+            - generic [ref=e1132]:
+              - text: Files over 200 lines consume more context and may reduce adherence. Move detailed content into separate files referenced with
+              - code [ref=e1133]: "@path"
+              - text: imports (see
+              - link "Import additional files" [ref=e1134] [cursor=pointer]:
+                - /url: "#import-additional-files"
+              - text: ), or split your instructions across
+              - code [ref=e1135]: .claude/rules/
+              - text: files.
+            - heading "Navigate to header Instructions seem lost after /compact" [level=3] [ref=e1136]:
+              - link "Navigate to header" [ref=e1137] [cursor=pointer]:
+                - /url: "#instructions-seem-lost-after-/compact"
+                - img [ref=e1139]
+              - generic [ref=e1141] [cursor=pointer]:
+                - text: Instructions seem lost after
+                - code [ref=e1142]: /compact
+            - generic [ref=e1143]:
+              - text: "Project-root CLAUDE.md survives compaction: after"
+              - code [ref=e1144]: /compact
+              - text: ", Claude re-reads it from disk and re-injects it into the session. Nested CLAUDE.md files in subdirectories are not re-injected automatically; they reload the next time Claude reads a file in that subdirectory."
+            - generic [ref=e1145]:
+              - text: If an instruction disappeared after compaction, it was either given only in conversation or lives in a nested CLAUDE.md that hasn’t reloaded yet. Add conversation-only instructions to CLAUDE.md to make them persist. See
+              - link "What survives compaction" [ref=e1146] [cursor=pointer]:
+                - /url: /docs/en/context-window#what-survives-compaction
+              - text: for the full breakdown.
+            - generic [ref=e1147]:
+              - text: See
+              - link "Write effective instructions" [ref=e1148] [cursor=pointer]:
+                - /url: "#write-effective-instructions"
+              - text: for guidance on size, structure, and specificity.
+            - heading "Navigate to header Related resources" [level=2] [ref=e1149]:
+              - link "Navigate to header" [ref=e1150] [cursor=pointer]:
+                - /url: "#related-resources"
+                - img [ref=e1152]
+              - generic [ref=e1154] [cursor=pointer]: Related resources
+            - list [ref=e1155]:
+              - listitem [ref=e1156]:
+                - link "Skills" [ref=e1157] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                - text: ": package repeatable workflows that load on demand"
+              - listitem [ref=e1158]:
+                - link "Settings" [ref=e1159] [cursor=pointer]:
+                  - /url: /docs/en/settings
+                - text: ": configure Claude Code behavior with settings files"
+              - listitem [ref=e1160]:
+                - link "Subagent memory" [ref=e1161] [cursor=pointer]:
+                  - /url: /docs/en/sub-agents#enable-persistent-memory
+                - text: ": let subagents maintain their own auto memory"
+          - generic [ref=e1163]:
+            - paragraph [ref=e1164]: Was this page helpful?
+            - generic [ref=e1166]:
+              - button "Yes" [ref=e1167] [cursor=pointer]:
+                - img [ref=e1168]
+                - generic [ref=e1170]: "Yes"
+              - button "No" [ref=e1171] [cursor=pointer]:
+                - img [ref=e1172]
+                - generic [ref=e1174]: "No"
+          - generic [ref=e1175]:
+            - link "Explore the context window" [ref=e1176] [cursor=pointer]:
+              - /url: /docs/en/context-window
+              - img [ref=e1177]
+              - generic [ref=e1179]: Explore the context window
+            - link "Permission modes" [ref=e1180] [cursor=pointer]:
+              - /url: /docs/en/permission-modes
+              - generic [ref=e1181]: Permission modes
+              - img [ref=e1182]
+          - generic [ref=e1185]:
+            - textbox "Ask a question..." [ref=e1186]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e1187]:
+              - img [ref=e1188]
+      - contentinfo [ref=e1190]:
+        - generic [ref=e1192]:
+          - generic [ref=e1193]:
+            - link "Claude Code Docs home page light logo" [ref=e1194] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e1195]: Claude Code Docs home page
+              - img "light logo" [ref=e1196]
+            - generic [ref=e1197]:
+              - link "x" [ref=e1198] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e1199]: x
+                - img [ref=e1200]
+              - link "linkedin" [ref=e1201] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e1202]: linkedin
+                - img [ref=e1203]
+          - generic [ref=e1204]:
+            - generic [ref=e1206]:
+              - paragraph [ref=e1207]: Company
+              - link "Anthropic" [ref=e1208] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e1209] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e1210] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e1211] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e1212] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e1213] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e1214] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1216]:
+              - paragraph [ref=e1217]: Help and security
+              - link "Availability" [ref=e1218] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e1219] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e1220] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e1222]:
+              - paragraph [ref=e1223]: Learn
+              - link "Courses" [ref=e1224] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e1225] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e1226] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e1227] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e1228] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e1229] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e1230] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e1231] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e1233]:
+              - paragraph [ref=e1234]: Terms and policies
+              - link "Privacy choices" [ref=e1235] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e1236] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e1237] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e1238] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e1239] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e1240] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e1242]:
+        - generic [ref=e1243]:
+          - img [ref=e1244]
+          - generic [ref=e1247]: Assistant
+        - generic [ref=e1248]:
+          - button [ref=e1249] [cursor=pointer]:
+            - img [ref=e1250]
+          - button [ref=e1255] [cursor=pointer]:
+            - img [ref=e1256]
+      - generic [ref=e1260]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e1262]:
+        - textbox [ref=e1263]:
+          - /placeholder: Ask a question...
+        - generic [ref=e1264]:
+          - button [ref=e1265] [cursor=pointer]:
+            - img [ref=e1266]
+          - button [disabled] [ref=e1268]:
+            - img [ref=e1269]

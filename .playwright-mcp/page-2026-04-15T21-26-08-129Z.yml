@@ -1,0 +1,69 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Certified Architect
+      - generic [ref=e7]: Foundations Practice Exam
+  - generic [ref=e76]:
+    - generic [ref=e77]: Exam Results
+    - generic [ref=e78]: Claude Certified Architect — Foundations Practice Exam
+    - generic [ref=e79]:
+      - generic [ref=e80]: "460"
+      - generic [ref=e81]: / 1000
+      - generic [ref=e82]: 720 to pass
+    - generic [ref=e83]: NOT PASSED
+    - generic [ref=e84]: 2 / 5 correct (40%)
+    - generic [ref=e85]:
+      - heading "Domain Breakdown" [level=3] [ref=e86]
+      - generic [ref=e87]:
+        - generic [ref=e88] [cursor=pointer]:
+          - generic [ref=e90]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e94]: 1/2 (50%)
+          - generic [ref=e95]: FAIL
+        - generic [ref=e96] [cursor=pointer]:
+          - generic [ref=e98]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e102]: 1/2 (50%)
+          - generic [ref=e103]: FAIL
+        - generic [ref=e104] [cursor=pointer]:
+          - generic [ref=e106]: "D5: Context Management & Reliability"
+          - generic [ref=e109]: 0/1 (0%)
+          - generic [ref=e110]: FAIL
+    - generic [ref=e111]:
+      - heading "Question Review" [level=3] [ref=e112]
+      - generic [ref=e113]:
+        - button "All (5)" [ref=e114] [cursor=pointer]
+        - button "Correct (2)" [ref=e115] [cursor=pointer]
+        - button "Incorrect (3)" [ref=e116] [cursor=pointer]
+      - generic [ref=e117]:
+        - button "←" [ref=e118] [cursor=pointer]
+        - generic [ref=e119]: 1 / 5
+        - button "→" [ref=e120] [cursor=pointer]
+      - generic [ref=e121]:
+        - button "Q1" [ref=e122] [cursor=pointer]
+        - button "Q2" [ref=e123] [cursor=pointer]
+        - button "Q3" [ref=e124] [cursor=pointer]
+        - button "Q4" [ref=e125] [cursor=pointer]
+        - button "Q5" [ref=e126] [cursor=pointer]
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: "#1"
+            - generic [ref=e131]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e132]: INCORRECT
+        - generic [ref=e133]: Subagent Architecture
+        - generic [ref=e134]: How many fields does AgentDefinition have and which are the only two required fields?
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - generic [ref=e137]: Your answer (C)
+            - generic [ref=e138]: "4 fields total. Required: description, prompt, tools, and model."
+          - generic [ref=e139]:
+            - generic [ref=e140]: Correct answer (B)
+            - generic [ref=e141]: "7 fields total. Required: description and prompt. Optional: tools, model, skills, memory, mcpServers."
+        - generic [ref=e142]:
+          - strong [ref=e143]: "Explanation:"
+          - text: "AgentDefinition has 7 fields: description (required), prompt (required), tools (optional, inherits from the parent if omitted), model (optional, inherits from the parent), skills (optional), memory (optional, Python only), and mcpServers (optional)."
+        - generic [ref=e144]:
+          - strong [ref=e145]: "Why C is wrong:"
+          - text: tools and model are not required; they are optional. If omitted, the agent inherits the parent's tools and uses the same model.
+        - link "Read the official Anthropic documentation →" [ref=e146] [cursor=pointer]:
+          - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works
+    - button "Restart Exam" [ref=e147] [cursor=pointer]

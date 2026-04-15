@@ -1,0 +1,45 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Architect Quiz
+      - generic [ref=e7]: Foundations Certification Practice
+    - generic [ref=e25]: 1 / 60 respondidas
+  - generic [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: Pregunta 1 de 60
+      - generic [ref=e30]: "D2: Tool Design & MCP Integration"
+    - generic [ref=e33]:
+      - generic [ref=e34]: Structured Data Extraction
+      - generic [ref=e35]: Tu tool extract_invoice necesita un parámetro 'format' que acepta 'pdf', 'image', o 'html'. Quieres que el modelo SIEMPRE llame este tool específico (no otro) cuando reciba un documento para extraer. ¿Qué configuración de tool_choice usar?
+      - generic [ref=e36]:
+        - 'button "c tool_choice: { type: ''tool'', name: ''extract_invoice'' } para forzar que el modelo siempre use este tool específico. ✓" [ref=e51]':
+          - generic [ref=e38]: c
+          - generic [ref=e39]: "tool_choice: { type: 'tool', name: 'extract_invoice' } para forzar que el modelo siempre use este tool específico."
+          - generic [ref=e52]: ✓
+        - 'button "d tool_choice: { type: ''required'', tool: ''extract_invoice'' } para marcar el tool como obligatorio. ✗" [ref=e53]':
+          - generic [ref=e41]: d
+          - generic [ref=e42]: "tool_choice: { type: 'required', tool: 'extract_invoice' } para marcar el tool como obligatorio."
+          - generic [ref=e54]: ✗
+        - 'button "a tool_choice: { type: ''auto'' } para que el modelo decida cuándo usar el tool." [ref=e43]':
+          - generic [ref=e44]: a
+          - generic [ref=e45]: "tool_choice: { type: 'auto' } para que el modelo decida cuándo usar el tool."
+        - 'button "b tool_choice: { type: ''any'' } para forzar una tool call pero dejar que el modelo elija cuál." [ref=e46]':
+          - generic [ref=e47]: b
+          - generic [ref=e48]: "tool_choice: { type: 'any' } para forzar una tool call pero dejar que el modelo elija cuál."
+      - button "Siguiente Pregunta →" [active] [ref=e55] [cursor=pointer]
+      - generic [ref=e56]:
+        - heading "✗ Incorrecto" [level=4] [ref=e57]
+        - paragraph [ref=e58]:
+          - strong [ref=e59]: "Respuesta correcta (C):"
+          - text: tool_choice con type 'tool' y name del tool específico fuerza al modelo a llamar exactamente ese tool. Es ideal cuando sabes que el output siempre debe ser una extracción estructurada.
+        - generic [ref=e60]:
+          - heading "Por que las otras opciones son incorrectas" [level=5] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: A)
+            - generic [ref=e64]: "'auto' permite al modelo responder con texto en vez de llamar un tool, lo cual no garantiza extracción estructurada en cada request."
+          - generic [ref=e65]:
+            - generic [ref=e66]: B)
+            - generic [ref=e67]: "'any' garantiza una tool call pero no cuál tool. Si hay múltiples tools disponibles, el modelo podría elegir uno diferente."
+          - generic [ref=e68]:
+            - generic [ref=e69]: D)
+            - generic [ref=e70]: "{ type: 'required', tool: 'extract_invoice' } no es la sintaxis correcta de la API de Anthropic. La forma correcta es { type: 'tool', name: 'extract_invoice' }."

@@ -1,0 +1,869 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e5]:
+    - generic [ref=e9]:
+      - generic [ref=e12]:
+        - link "Model Context Protocol home page light logo" [ref=e14] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e15]: Model Context Protocol home page
+          - img "light logo" [ref=e16]
+        - button "Open search" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - generic [ref=e23]: Search...
+          - generic [ref=e24]: ⌘K
+        - generic [ref=e25]:
+          - navigation [ref=e26]:
+            - list [ref=e27]:
+              - listitem [ref=e28]:
+                - link "Blog" [ref=e29] [cursor=pointer]:
+                  - /url: https://blog.modelcontextprotocol.io
+              - listitem [ref=e30]:
+                - link "GitHub" [ref=e31] [cursor=pointer]:
+                  - /url: https://github.com/modelcontextprotocol
+          - button "Toggle dark mode" [ref=e33] [cursor=pointer]:
+            - img [ref=e34]
+      - generic [ref=e42]:
+        - link "Documentation" [ref=e43] [cursor=pointer]:
+          - /url: /docs/getting-started/intro
+          - text: Documentation
+        - link "Extensions" [ref=e45] [cursor=pointer]:
+          - /url: /extensions/overview
+          - text: Extensions
+        - link "Specification" [ref=e47] [cursor=pointer]:
+          - /url: /specification/2025-11-25
+          - text: Specification
+        - link "Registry" [ref=e49] [cursor=pointer]:
+          - /url: /registry/about
+          - text: Registry
+        - link "SEPs" [ref=e51] [cursor=pointer]:
+          - /url: /seps
+          - text: SEPs
+        - link "Community" [ref=e53] [cursor=pointer]:
+          - /url: /community/contributing
+          - text: Community
+    - generic [ref=e55]:
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - heading "Get started" [level=5] [ref=e62]
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "What is MCP?" [ref=e65] [cursor=pointer]:
+                - /url: /docs/getting-started/intro
+                - generic [ref=e68]: What is MCP?
+        - generic [ref=e69]:
+          - heading "About MCP" [level=5] [ref=e71]
+          - list [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Architecture" [ref=e74] [cursor=pointer]:
+                - /url: /docs/learn/architecture
+                - generic [ref=e77]: Architecture
+            - listitem [ref=e78]:
+              - link "Servers" [ref=e79] [cursor=pointer]:
+                - /url: /docs/learn/server-concepts
+                - generic [ref=e82]: Servers
+            - listitem [ref=e83]:
+              - link "Clients" [ref=e84] [cursor=pointer]:
+                - /url: /docs/learn/client-concepts
+                - generic [ref=e87]: Clients
+            - listitem [ref=e88]:
+              - link "Versioning" [ref=e89] [cursor=pointer]:
+                - /url: /docs/learn/versioning
+                - generic [ref=e92]: Versioning
+        - generic [ref=e93]:
+          - heading "Develop with MCP" [level=5] [ref=e95]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Connect to local MCP servers" [ref=e98] [cursor=pointer]:
+                - /url: /docs/develop/connect-local-servers
+                - generic [ref=e101]: Connect to local MCP servers
+            - listitem [ref=e102]:
+              - link "Connect to remote MCP Servers" [ref=e103] [cursor=pointer]:
+                - /url: /docs/develop/connect-remote-servers
+                - generic [ref=e106]: Connect to remote MCP Servers
+            - listitem [ref=e107]:
+              - link "Build with Agent Skills" [ref=e108] [cursor=pointer]:
+                - /url: /docs/develop/build-with-agent-skills
+                - generic [ref=e111]: Build with Agent Skills
+            - listitem [ref=e112]:
+              - link "Build an MCP server" [ref=e113] [cursor=pointer]:
+                - /url: /docs/develop/build-server
+                - generic [ref=e116]: Build an MCP server
+            - listitem [ref=e117]:
+              - link "Build an MCP client" [ref=e118] [cursor=pointer]:
+                - /url: /docs/develop/build-client
+                - generic [ref=e121]: Build an MCP client
+            - listitem [ref=e122]:
+              - link "SDKs" [ref=e123] [cursor=pointer]:
+                - /url: /docs/sdk
+                - generic [ref=e126]: SDKs
+            - listitem [ref=e127]:
+              - button "Toggle Security section" [ref=e128] [cursor=pointer]:
+                - generic [ref=e129]: Security
+                - img [ref=e131]
+        - generic [ref=e133]:
+          - heading "Developer tools" [level=5] [ref=e135]
+          - list [ref=e136]:
+            - listitem [ref=e137]:
+              - link "MCP Inspector" [ref=e138] [cursor=pointer]:
+                - /url: /docs/tools/inspector
+                - generic [ref=e141]: MCP Inspector
+            - listitem [ref=e142]:
+              - link "Debugging" [ref=e143] [cursor=pointer]:
+                - /url: /docs/tools/debugging
+                - generic [ref=e146]: Debugging
+        - generic [ref=e147]:
+          - heading "Examples" [level=5] [ref=e149]
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Example Clients" [ref=e152] [cursor=pointer]:
+                - /url: /clients
+                - generic [ref=e155]: Example Clients
+            - listitem [ref=e156]:
+              - link "Example Servers" [ref=e157] [cursor=pointer]:
+                - /url: /examples
+                - generic [ref=e160]: Example Servers
+      - generic [ref=e163]:
+        - banner [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: About MCP
+            - generic [ref=e167]:
+              - heading "Architecture overview" [level=1] [ref=e168]
+              - generic [ref=e169]:
+                - button "Copy page" [ref=e170] [cursor=pointer]:
+                  - generic [ref=e171]:
+                    - img [ref=e172]
+                    - generic [ref=e175]: Copy page
+                - button "More actions" [ref=e176] [cursor=pointer]:
+                  - img [ref=e177]
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - text: This overview of the Model Context Protocol (MCP) discusses its
+            - link "scope" [ref=e181] [cursor=pointer]:
+              - /url: "#scope"
+            - text: and
+            - link "core concepts" [ref=e182] [cursor=pointer]:
+              - /url: "#concepts-of-mcp"
+            - text: ", and provides an"
+            - link "example" [ref=e183] [cursor=pointer]:
+              - /url: "#example"
+            - text: demonstrating each core concept.
+          - generic [ref=e184]:
+            - text: Because MCP SDKs abstract away many concerns, most developers will likely find the
+            - link "data layer protocol" [ref=e185] [cursor=pointer]:
+              - /url: "#data-layer-protocol"
+            - text: section to be the most useful. It discusses how MCP servers can provide context to an AI application.
+          - generic [ref=e186]:
+            - text: For specific implementation details, please refer to the documentation for your
+            - link "language-specific SDK" [ref=e187] [cursor=pointer]:
+              - /url: /docs/sdk
+            - text: .
+          - heading "Navigate to header Scope" [level=2] [ref=e188]:
+            - link "Navigate to header" [ref=e189] [cursor=pointer]:
+              - /url: "#scope"
+              - img [ref=e191]
+            - generic [ref=e193] [cursor=pointer]: Scope
+          - generic [ref=e194]: "The Model Context Protocol includes the following projects:"
+          - list [ref=e195]:
+            - listitem [ref=e196]:
+              - link "MCP Specification" [ref=e197] [cursor=pointer]:
+                - /url: https://modelcontextprotocol.io/specification/latest
+              - text: ": A specification of MCP that outlines the implementation requirements for clients and servers."
+            - listitem [ref=e198]:
+              - link "MCP SDKs" [ref=e199] [cursor=pointer]:
+                - /url: /docs/sdk
+              - text: ": SDKs for different programming languages that implement MCP."
+            - listitem [ref=e200]:
+              - strong [ref=e201]: MCP Development Tools
+              - text: ": Tools for developing MCP servers and clients, including the"
+              - link "MCP Inspector" [ref=e202] [cursor=pointer]:
+                - /url: https://github.com/modelcontextprotocol/inspector
+            - listitem [ref=e203]:
+              - link "MCP Reference Server Implementations" [ref=e204] [cursor=pointer]:
+                - /url: https://github.com/modelcontextprotocol/servers
+              - text: ": Reference implementations of MCP servers."
+          - generic [ref=e205]:
+            - img "Note" [ref=e207]
+            - generic [ref=e210]: MCP focuses solely on the protocol for context exchange—it does not dictate how AI applications use LLMs or manage the provided context.
+          - heading "Navigate to header Concepts of MCP" [level=2] [ref=e211]:
+            - link "Navigate to header" [ref=e212] [cursor=pointer]:
+              - /url: "#concepts-of-mcp"
+              - img [ref=e214]
+            - generic [ref=e216] [cursor=pointer]: Concepts of MCP
+          - heading "Navigate to header Participants" [level=3] [ref=e217]:
+            - link "Navigate to header" [ref=e218] [cursor=pointer]:
+              - /url: "#participants"
+              - img [ref=e220]
+            - generic [ref=e222] [cursor=pointer]: Participants
+          - generic [ref=e223]:
+            - text: MCP follows a client-server architecture where an MCP host — an AI application like
+            - link "Claude Code" [ref=e224] [cursor=pointer]:
+              - /url: https://www.anthropic.com/claude-code
+            - text: or
+            - link "Claude Desktop" [ref=e225] [cursor=pointer]:
+              - /url: https://www.claude.ai/download
+            - text: — establishes connections to one or more MCP servers. The MCP host accomplishes this by creating one MCP client for each MCP server. Each MCP client maintains a dedicated connection with its corresponding MCP server.
+          - generic [ref=e226]: Local MCP servers that use the STDIO transport typically serve a single MCP client, whereas remote MCP servers that use the Streamable HTTP transport will typically serve many MCP clients.
+          - generic [ref=e227]: "The key participants in the MCP architecture are:"
+          - list [ref=e228]:
+            - listitem [ref=e229]:
+              - strong [ref=e230]: MCP Host
+              - text: ": The AI application that coordinates and manages one or multiple MCP clients"
+            - listitem [ref=e231]:
+              - strong [ref=e232]: MCP Client
+              - text: ": A component that maintains a connection to an MCP server and obtains context from an MCP server for the MCP host to use"
+            - listitem [ref=e233]:
+              - strong [ref=e234]: MCP Server
+              - text: ": A program that provides context to MCP clients"
+          - generic [ref=e235]:
+            - strong [ref=e236]: For example
+            - text: ": Visual Studio Code acts as an MCP host. When Visual Studio Code establishes a connection to an MCP server, such as the"
+            - link "Sentry MCP server" [ref=e237] [cursor=pointer]:
+              - /url: https://docs.sentry.io/product/sentry-mcp/
+            - text: ", the Visual Studio Code runtime instantiates an MCP client object that maintains the connection to the Sentry MCP server. When Visual Studio Code subsequently connects to another MCP server, such as the"
+            - link "local filesystem server" [ref=e238] [cursor=pointer]:
+              - /url: https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem
+            - text: ", the Visual Studio Code runtime instantiates an additional MCP client object to maintain this connection."
+          - generic [ref=e239]:
+            - text: Note that
+            - strong [ref=e240]: MCP server
+            - text: refers to the program that serves context data, regardless of where it runs. MCP servers can execute locally or remotely. For example, when Claude Desktop launches the
+            - link "filesystem server" [ref=e241] [cursor=pointer]:
+              - /url: https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem
+            - text: ", the server runs locally on the same machine because it uses the STDIO transport. This is commonly referred to as a “local” MCP server. The official"
+            - link "Sentry MCP server" [ref=e242] [cursor=pointer]:
+              - /url: https://docs.sentry.io/product/sentry-mcp/
+            - text: runs on the Sentry platform, and uses the Streamable HTTP transport. This is commonly referred to as a “remote” MCP server.
+          - heading "Navigate to header Layers" [level=3] [ref=e243]:
+            - link "Navigate to header" [ref=e244] [cursor=pointer]:
+              - /url: "#layers"
+              - img [ref=e246]
+            - generic [ref=e248] [cursor=pointer]: Layers
+          - generic [ref=e249]: "MCP consists of two layers:"
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - strong [ref=e252]: Data layer
+              - text: ": Defines the JSON-RPC based protocol for client-server communication, including lifecycle management, and core primitives, such as tools, resources, prompts and notifications."
+            - listitem [ref=e253]:
+              - strong [ref=e254]: Transport layer
+              - text: ": Defines the communication mechanisms and channels that enable data exchange between clients and servers, including transport-specific connection establishment, message framing, and authorization."
+          - generic [ref=e255]: Conceptually the data layer is the inner layer, while the transport layer is the outer layer.
+          - heading "Navigate to header Data layer" [level=4] [ref=e256]:
+            - link "Navigate to header" [ref=e257] [cursor=pointer]:
+              - /url: "#data-layer"
+              - img [ref=e259]
+            - generic [ref=e261] [cursor=pointer]: Data layer
+          - generic [ref=e262]:
+            - text: The data layer implements a
+            - link "JSON-RPC 2.0" [ref=e263] [cursor=pointer]:
+              - /url: https://www.jsonrpc.org/
+            - text: "based exchange protocol that defines the message structure and semantics. This layer includes:"
+          - list [ref=e264]:
+            - listitem [ref=e265]:
+              - strong [ref=e266]: Lifecycle management
+              - text: ": Handles connection initialization, capability negotiation, and connection termination between clients and servers"
+            - listitem [ref=e267]:
+              - strong [ref=e268]: Server features
+              - text: ": Enables servers to provide core functionality including tools for AI actions, resources for context data, and prompts for interaction templates from and to the client"
+            - listitem [ref=e269]:
+              - strong [ref=e270]: Client features
+              - text: ": Enables servers to ask the client to sample from the host LLM, elicit input from the user, and log messages to the client"
+            - listitem [ref=e271]:
+              - strong [ref=e272]: Utility features
+              - text: ": Supports additional capabilities like notifications for real-time updates and progress tracking for long-running operations"
+          - heading "Navigate to header Transport layer" [level=4] [ref=e273]:
+            - link "Navigate to header" [ref=e274] [cursor=pointer]:
+              - /url: "#transport-layer"
+              - img [ref=e276]
+            - generic [ref=e278] [cursor=pointer]: Transport layer
+          - generic [ref=e279]: The transport layer manages communication channels and authentication between clients and servers. It handles connection establishment, message framing, and secure communication between MCP participants.
+          - generic [ref=e280]: "MCP supports two transport mechanisms:"
+          - list [ref=e281]:
+            - listitem [ref=e282]:
+              - strong [ref=e283]: Stdio transport
+              - text: ": Uses standard input/output streams for direct process communication between local processes on the same machine, providing optimal performance with no network overhead."
+            - listitem [ref=e284]:
+              - strong [ref=e285]: Streamable HTTP transport
+              - text: ": Uses HTTP POST for client-to-server messages with optional Server-Sent Events for streaming capabilities. This transport enables remote server communication and supports standard HTTP authentication methods including bearer tokens, API keys, and custom headers. MCP recommends using OAuth to obtain authentication tokens."
+          - generic [ref=e286]: The transport layer abstracts communication details from the protocol layer, enabling the same JSON-RPC 2.0 message format across all transport mechanisms.
+          - heading "Navigate to header Data Layer Protocol" [level=3] [ref=e287]:
+            - link "Navigate to header" [ref=e288] [cursor=pointer]:
+              - /url: "#data-layer-protocol"
+              - img [ref=e290]
+            - generic [ref=e292] [cursor=pointer]: Data Layer Protocol
+          - generic [ref=e293]:
+            - text: A core part of MCP is defining the schema and semantics between MCP clients and MCP servers. Developers will likely find the data layer — in particular, the set of
+            - link "primitives" [ref=e294] [cursor=pointer]:
+              - /url: "#primitives"
+            - text: — to be the most interesting part of MCP. It is the part of MCP that defines the ways developers can share context from MCP servers to MCP clients.
+          - generic [ref=e295]:
+            - text: MCP uses
+            - link "JSON-RPC 2.0" [ref=e296] [cursor=pointer]:
+              - /url: https://www.jsonrpc.org/
+            - text: as its underlying RPC protocol. Client and servers send requests to each other and respond accordingly. Notifications can be used when no response is required.
+          - heading "Navigate to header Lifecycle management" [level=4] [ref=e297]:
+            - link "Navigate to header" [ref=e298] [cursor=pointer]:
+              - /url: "#lifecycle-management"
+              - img [ref=e300]
+            - generic [ref=e302] [cursor=pointer]: Lifecycle management
+          - generic [ref=e303]:
+            - text: MCP is a
+            - button "A subset of MCP can be made stateless using the Streamable HTTP transport" [ref=e304] [cursor=pointer]: stateful protocol
+            - text: that requires lifecycle management. The purpose of lifecycle management is to negotiate the
+            - button "Features and operations that a client or server supports, such as tools, resources, or prompts" [ref=e305] [cursor=pointer]: capabilities
+            - text: that both client and server support. Detailed information can be found in the
+            - link "specification" [ref=e306] [cursor=pointer]:
+              - /url: /specification/latest/basic/lifecycle
+            - text: ", and the"
+            - link "example" [ref=e307] [cursor=pointer]:
+              - /url: "#example"
+            - text: showcases the initialization sequence.
+          - heading "Navigate to header Primitives" [level=4] [ref=e308]:
+            - link "Navigate to header" [ref=e309] [cursor=pointer]:
+              - /url: "#primitives"
+              - img [ref=e311]
+            - generic [ref=e313] [cursor=pointer]: Primitives
+          - generic [ref=e314]: MCP primitives are the most important concept within MCP. They define what clients and servers can offer each other. These primitives specify the types of contextual information that can be shared with AI applications and the range of actions that can be performed.
+          - generic [ref=e315]:
+            - text: MCP defines three core primitives that
+            - emphasis [ref=e316]: servers
+            - text: "can expose:"
+          - list [ref=e317]:
+            - listitem [ref=e318]:
+              - strong [ref=e319]: Tools
+              - text: ": Executable functions that AI applications can invoke to perform actions (e.g., file operations, API calls, database queries)"
+            - listitem [ref=e320]:
+              - strong [ref=e321]: Resources
+              - text: ": Data sources that provide contextual information to AI applications (e.g., file contents, database records, API responses)"
+            - listitem [ref=e322]:
+              - strong [ref=e323]: Prompts
+              - text: ": Reusable templates that help structure interactions with language models (e.g., system prompts, few-shot examples)"
+          - generic [ref=e324]:
+            - text: Each primitive type has associated methods for discovery (
+            - code [ref=e325]: "*/list"
+            - text: ), retrieval (
+            - code [ref=e326]: "*/get"
+            - text: ), and in some cases, execution (
+            - code [ref=e327]: tools/call
+            - text: ). MCP clients will use the
+            - code [ref=e328]: "*/list"
+            - text: methods to discover available primitives. For example, a client can first list all available tools (
+            - code [ref=e329]: tools/list
+            - text: ) and then execute them. This design allows listings to be dynamic.
+          - generic [ref=e330]: As a concrete example, consider an MCP server that provides context about a database. It can expose tools for querying the database, a resource that contains the schema of the database, and a prompt that includes few-shot examples for interacting with the tools.
+          - generic [ref=e331]:
+            - text: For more details about server primitives see
+            - link "server concepts" [ref=e332] [cursor=pointer]:
+              - /url: ./server-concepts
+            - text: .
+          - generic [ref=e333]:
+            - text: MCP also defines primitives that
+            - emphasis [ref=e334]: clients
+            - text: can expose. These primitives allow MCP server authors to build richer interactions.
+          - list [ref=e335]:
+            - listitem [ref=e336]:
+              - strong [ref=e337]: Sampling
+              - text: ": Allows servers to request language model completions from the client’s AI application. This is useful when server authors want access to a language model, but want to stay model-independent and not include a language model SDK in their MCP server. They can use the"
+              - code [ref=e338]: sampling/complete
+              - text: method to request a language model completion from the client’s AI application.
+            - listitem [ref=e339]:
+              - strong [ref=e340]: Elicitation
+              - text: ": Allows servers to request additional information from users. This is useful when server authors want to get more information from the user, or ask for confirmation of an action. They can use the"
+              - code [ref=e341]: elicitation/request
+              - text: method to request additional information from the user.
+            - listitem [ref=e342]:
+              - strong [ref=e343]: Logging
+              - text: ": Enables servers to send log messages to clients for debugging and monitoring purposes."
+          - generic [ref=e344]:
+            - text: For more details about client primitives see
+            - link "client concepts" [ref=e345] [cursor=pointer]:
+              - /url: ./client-concepts
+            - text: .
+          - generic [ref=e346]: "Besides server and client primitives, the protocol offers cross-cutting utility primitives that augment how requests are executed:"
+          - list [ref=e347]:
+            - listitem [ref=e348]:
+              - strong [ref=e349]: Tasks (Experimental)
+              - text: ": Durable execution wrappers that enable deferred result retrieval and status tracking for MCP requests (e.g., expensive computations, workflow automation, batch processing, multi-step operations)"
+          - heading "Navigate to header Notifications" [level=4] [ref=e350]:
+            - link "Navigate to header" [ref=e351] [cursor=pointer]:
+              - /url: "#notifications"
+              - img [ref=e353]
+            - generic [ref=e355] [cursor=pointer]: Notifications
+          - generic [ref=e356]: The protocol supports real-time notifications to enable dynamic updates between servers and clients. For example, when a server’s available tools change—such as when new functionality becomes available or existing tools are modified—the server can send tool update notifications to inform connected clients about these changes. Notifications are sent as JSON-RPC 2.0 notification messages (without expecting a response) and enable MCP servers to provide real-time updates to connected clients.
+          - heading "Navigate to header Example" [level=2] [ref=e357]:
+            - link "Navigate to header" [ref=e358] [cursor=pointer]:
+              - /url: "#example"
+              - img [ref=e360]
+            - generic [ref=e362] [cursor=pointer]: Example
+          - heading "Navigate to header Data Layer" [level=3] [ref=e363]:
+            - link "Navigate to header" [ref=e364] [cursor=pointer]:
+              - /url: "#data-layer-2"
+              - img [ref=e366]
+            - generic [ref=e368] [cursor=pointer]: Data Layer
+          - generic [ref=e369]: This section provides a step-by-step walkthrough of an MCP client-server interaction, focusing on the data layer protocol. We’ll demonstrate the lifecycle sequence, tool operations, and notifications using JSON-RPC 2.0 messages.
+          - list [ref=e370]:
+            - listitem [ref=e371]:
+              - generic [ref=e374]:
+                - generic [ref=e375]: "1"
+                - link "Navigate to header" [ref=e377] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e379]
+              - generic [ref=e381]:
+                - paragraph [ref=e382]: Initialization (Lifecycle Management)
+                - generic [ref=e383]:
+                  - generic [ref=e384]:
+                    - text: MCP begins with lifecycle management through a capability negotiation handshake. As described in the
+                    - link "lifecycle management" [ref=e385] [cursor=pointer]:
+                      - /url: "#lifecycle-management"
+                    - text: section, the client sends an
+                    - code [ref=e386]: initialize
+                    - text: request to establish the connection and negotiate supported features.
+                  - generic [ref=e387]:
+                    - generic [ref=e388]:
+                      - tablist [ref=e389]:
+                        - tab "Initialize Request" [selected] [ref=e390] [cursor=pointer]:
+                          - generic [ref=e391]: Initialize Request
+                        - tab "Initialize Response" [ref=e393] [cursor=pointer]:
+                          - generic [ref=e394]: Initialize Response
+                      - button "Copy the contents from the code block" [ref=e397] [cursor=pointer]:
+                        - img [ref=e398]
+                    - tabpanel "Initialize Request" [ref=e402]:
+                      - code [ref=e406]:
+                        - generic [ref=e407]: "{"
+                        - generic [ref=e408]: "\"jsonrpc\": \"2.0\","
+                        - generic [ref=e409]: "\"id\": 1,"
+                        - generic [ref=e410]: "\"method\": \"initialize\","
+                        - generic [ref=e411]: "\"params\": {"
+                        - generic [ref=e412]: "\"protocolVersion\": \"2025-06-18\","
+                        - generic [ref=e413]: "\"capabilities\": {"
+                        - generic [ref=e414]: "\"elicitation\": {}"
+                        - generic [ref=e415]: "},"
+                        - generic [ref=e416]: "\"clientInfo\": {"
+                        - generic [ref=e417]: "\"name\": \"example-client\","
+                        - generic [ref=e418]: "\"version\": \"1.0.0\""
+                        - generic [ref=e419]: "}"
+                        - generic [ref=e420]: "}"
+                        - generic [ref=e421]: "}"
+                  - heading "Navigate to header Understanding the Initialization Exchange" [level=4] [ref=e422]:
+                    - link "Navigate to header" [ref=e423] [cursor=pointer]:
+                      - /url: "#understanding-the-initialization-exchange"
+                      - img [ref=e425]
+                    - generic [ref=e427] [cursor=pointer]: Understanding the Initialization Exchange
+                  - generic [ref=e428]: "The initialization process is a key part of MCP’s lifecycle management and serves several critical purposes:"
+                  - list [ref=e429]:
+                    - listitem [ref=e430]:
+                      - generic [ref=e431]:
+                        - strong [ref=e432]: Protocol Version Negotiation
+                        - text: ": The"
+                        - code [ref=e433]: protocolVersion
+                        - text: field (e.g., “2025-06-18”) ensures both client and server are using compatible protocol versions. This prevents communication errors that could occur when different versions attempt to interact. If a mutually compatible version is not negotiated, the connection should be terminated.
+                    - listitem [ref=e434]:
+                      - generic [ref=e435]:
+                        - strong [ref=e436]: Capability Discovery
+                        - text: ": The"
+                        - code [ref=e437]: capabilities
+                        - text: object allows each party to declare what features they support, including which
+                        - link "primitives" [ref=e438] [cursor=pointer]:
+                          - /url: "#primitives"
+                        - text: they can handle (tools, resources, prompts) and whether they support features like
+                        - link "notifications" [ref=e439] [cursor=pointer]:
+                          - /url: "#notifications"
+                        - text: . This enables efficient communication by avoiding unsupported operations.
+                    - listitem [ref=e440]:
+                      - generic [ref=e441]:
+                        - strong [ref=e442]: Identity Exchange
+                        - text: ": The"
+                        - code [ref=e443]: clientInfo
+                        - text: and
+                        - code [ref=e444]: serverInfo
+                        - text: objects provide identification and versioning information for debugging and compatibility purposes.
+                  - generic [ref=e445]: "In this example, the capability negotiation demonstrates how MCP primitives are declared:"
+                  - generic [ref=e446]:
+                    - strong [ref=e447]: Client Capabilities
+                    - text: ":"
+                  - list [ref=e448]:
+                    - listitem [ref=e449]:
+                      - code [ref=e450]: "\"elicitation\": {}"
+                      - text: "- The client declares it can work with user interaction requests (can receive"
+                      - code [ref=e451]: elicitation/create
+                      - text: method calls)
+                  - generic [ref=e452]:
+                    - strong [ref=e453]: Server Capabilities
+                    - text: ":"
+                  - list [ref=e454]:
+                    - listitem [ref=e455]:
+                      - code [ref=e456]: "\"tools\": {\"listChanged\": true}"
+                      - text: "- The server supports the tools primitive AND can send"
+                      - code [ref=e457]: tools/list_changed
+                      - text: notifications when its tool list changes
+                    - listitem [ref=e458]:
+                      - code [ref=e459]: "\"resources\": {}"
+                      - text: "- The server also supports the resources primitive (can handle"
+                      - code [ref=e460]: resources/list
+                      - text: and
+                      - code [ref=e461]: resources/read
+                      - text: methods)
+                  - generic [ref=e462]: "After successful initialization, the client sends a notification to indicate it’s ready:"
+                  - generic [ref=e463]:
+                    - generic [ref=e464]:
+                      - generic "Notification" [ref=e466]
+                      - button "Copy the contents from the code block" [ref=e469] [cursor=pointer]:
+                        - img [ref=e470]
+                    - code [ref=e476]:
+                      - generic [ref=e477]: "{"
+                      - generic [ref=e478]: "\"jsonrpc\": \"2.0\","
+                      - generic [ref=e479]: "\"method\": \"notifications/initialized\""
+                      - generic [ref=e480]: "}"
+                  - heading "Navigate to header How This Works in AI Applications" [level=4] [ref=e481]:
+                    - link "Navigate to header" [ref=e482] [cursor=pointer]:
+                      - /url: "#how-this-works-in-ai-applications"
+                      - img [ref=e484]
+                    - generic [ref=e486] [cursor=pointer]: How This Works in AI Applications
+                  - generic [ref=e487]: During initialization, the AI application’s MCP client manager establishes connections to configured servers and stores their capabilities for later use. The application uses this information to determine which servers can provide specific types of functionality (tools, resources, prompts) and whether they support real-time updates.
+                  - generic [ref=e488]:
+                    - generic [ref=e489]:
+                      - generic "Pseudo-code for AI application initialization" [ref=e491]
+                      - button "Copy the contents from the code block" [ref=e494] [cursor=pointer]:
+                        - img [ref=e495]
+                    - code [ref=e501]:
+                      - generic [ref=e502]: "# Pseudo Code"
+                      - generic [ref=e503]: "async with stdio_client(server_config) as (read, write):"
+                      - generic [ref=e504]: "async with ClientSession(read, write) as session:"
+                      - generic [ref=e505]: init_response = await session.initialize()
+                      - generic [ref=e506]: "if init_response.capabilities.tools:"
+                      - generic [ref=e507]: app.register_mcp_server(session, supports_tools=True)
+                      - generic [ref=e508]: app.set_server_ready(session)
+            - listitem [ref=e509]:
+              - generic [ref=e512]:
+                - generic [ref=e513]: "2"
+                - link "Navigate to header" [ref=e515] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e517]
+              - generic [ref=e519]:
+                - paragraph [ref=e520]: Tool Discovery (Primitives)
+                - generic [ref=e521]:
+                  - generic [ref=e522]:
+                    - text: Now that the connection is established, the client can discover available tools by sending a
+                    - code [ref=e523]: tools/list
+                    - text: request. This request is fundamental to MCP’s tool discovery mechanism — it allows clients to understand what tools are available on the server before attempting to use them.
+                  - generic [ref=e524]:
+                    - generic [ref=e525]:
+                      - tablist [ref=e526]:
+                        - tab "Tools List Request" [selected] [ref=e527] [cursor=pointer]:
+                          - generic [ref=e528]: Tools List Request
+                        - tab "Tools List Response" [ref=e530] [cursor=pointer]:
+                          - generic [ref=e531]: Tools List Response
+                      - button "Copy the contents from the code block" [ref=e534] [cursor=pointer]:
+                        - img [ref=e535]
+                    - tabpanel "Tools List Request" [ref=e539]:
+                      - code [ref=e543]:
+                        - generic [ref=e544]: "{"
+                        - generic [ref=e545]: "\"jsonrpc\": \"2.0\","
+                        - generic [ref=e546]: "\"id\": 2,"
+                        - generic [ref=e547]: "\"method\": \"tools/list\""
+                        - generic [ref=e548]: "}"
+                  - heading "Navigate to header Understanding the Tool Discovery Request" [level=4] [ref=e549]:
+                    - link "Navigate to header" [ref=e550] [cursor=pointer]:
+                      - /url: "#understanding-the-tool-discovery-request"
+                      - img [ref=e552]
+                    - generic [ref=e554] [cursor=pointer]: Understanding the Tool Discovery Request
+                  - generic [ref=e555]:
+                    - text: The
+                    - code [ref=e556]: tools/list
+                    - text: request is simple, containing no parameters.
+                  - heading "Navigate to header Understanding the Tool Discovery Response" [level=4] [ref=e557]:
+                    - link "Navigate to header" [ref=e558] [cursor=pointer]:
+                      - /url: "#understanding-the-tool-discovery-response"
+                      - img [ref=e560]
+                    - generic [ref=e562] [cursor=pointer]: Understanding the Tool Discovery Response
+                  - generic [ref=e563]:
+                    - text: The response contains a
+                    - code [ref=e564]: tools
+                    - text: array that provides comprehensive metadata about each available tool. This array-based structure allows servers to expose multiple tools simultaneously while maintaining clear boundaries between different functionalities.
+                  - generic [ref=e565]: "Each tool object in the response includes several key fields:"
+                  - list [ref=e566]:
+                    - listitem [ref=e567]:
+                      - strong [ref=e568]:
+                        - code [ref=e569]: name
+                      - text: ": A unique identifier for the tool within the server’s namespace. This serves as the primary key for tool execution and should follow a clear naming pattern (e.g.,"
+                      - code [ref=e570]: calculator_arithmetic
+                      - text: rather than just
+                      - code [ref=e571]: calculate
+                      - text: )
+                    - listitem [ref=e572]:
+                      - strong [ref=e573]:
+                        - code [ref=e574]: title
+                      - text: ": A human-readable display name for the tool that clients can show to users"
+                    - listitem [ref=e575]:
+                      - strong [ref=e576]:
+                        - code [ref=e577]: description
+                      - text: ": Detailed explanation of what the tool does and when to use it"
+                    - listitem [ref=e578]:
+                      - strong [ref=e579]:
+                        - code [ref=e580]: inputSchema
+                      - text: ": A JSON Schema that defines the expected input parameters, enabling type validation and providing clear documentation about required and optional parameters"
+                  - heading "Navigate to header How This Works in AI Applications" [level=4] [ref=e581]:
+                    - link "Navigate to header" [ref=e582] [cursor=pointer]:
+                      - /url: "#how-this-works-in-ai-applications-2"
+                      - img [ref=e584]
+                    - generic [ref=e586] [cursor=pointer]: How This Works in AI Applications
+                  - generic [ref=e587]: The AI application fetches available tools from all connected MCP servers and combines them into a unified tool registry that the language model can access. This allows the LLM to understand what actions it can perform and automatically generates the appropriate tool calls during conversations.
+                  - generic [ref=e588]:
+                    - generic [ref=e589]:
+                      - generic "Pseudo-code for AI application tool discovery" [ref=e591]
+                      - button "Copy the contents from the code block" [ref=e594] [cursor=pointer]:
+                        - img [ref=e595]
+                    - code [ref=e601]:
+                      - generic [ref=e602]: "# Pseudo-code using MCP Python SDK patterns"
+                      - generic [ref=e603]: available_tools = []
+                      - generic [ref=e604]: "for session in app.mcp_server_sessions():"
+                      - generic [ref=e605]: tools_response = await session.list_tools()
+                      - generic [ref=e606]: available_tools.extend(tools_response.tools)
+                      - generic [ref=e607]: conversation.register_available_tools(available_tools)
+            - listitem [ref=e608]:
+              - generic [ref=e611]:
+                - generic [ref=e612]: "3"
+                - link "Navigate to header" [ref=e614] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e616]
+              - generic [ref=e618]:
+                - paragraph [ref=e619]: Tool Execution (Primitives)
+                - generic [ref=e620]:
+                  - generic [ref=e621]:
+                    - text: The client can now execute a tool using the
+                    - code [ref=e622]: tools/call
+                    - text: "method. This demonstrates how MCP primitives are used in practice: after discovering available tools, the client can invoke them with appropriate arguments."
+                  - heading "Navigate to header Understanding the Tool Execution Request" [level=4] [ref=e623]:
+                    - link "Navigate to header" [ref=e624] [cursor=pointer]:
+                      - /url: "#understanding-the-tool-execution-request"
+                      - img [ref=e626]
+                    - generic [ref=e628] [cursor=pointer]: Understanding the Tool Execution Request
+                  - generic [ref=e629]:
+                    - text: The
+                    - code [ref=e630]: tools/call
+                    - text: request follows a structured format that ensures type safety and clear communication between client and server. Note that we’re using the proper tool name from the discovery response (
+                    - code [ref=e631]: weather_current
+                    - text: ") rather than a simplified name:"
+                  - generic [ref=e632]:
+                    - generic [ref=e633]:
+                      - tablist [ref=e634]:
+                        - tab "Tool Call Request" [selected] [ref=e635] [cursor=pointer]:
+                          - generic [ref=e636]: Tool Call Request
+                        - tab "Tool Call Response" [ref=e638] [cursor=pointer]:
+                          - generic [ref=e639]: Tool Call Response
+                      - button "Copy the contents from the code block" [ref=e642] [cursor=pointer]:
+                        - img [ref=e643]
+                    - tabpanel "Tool Call Request" [ref=e647]:
+                      - code [ref=e651]:
+                        - generic [ref=e652]: "{"
+                        - generic [ref=e653]: "\"jsonrpc\": \"2.0\","
+                        - generic [ref=e654]: "\"id\": 3,"
+                        - generic [ref=e655]: "\"method\": \"tools/call\","
+                        - generic [ref=e656]: "\"params\": {"
+                        - generic [ref=e657]: "\"name\": \"weather_current\","
+                        - generic [ref=e658]: "\"arguments\": {"
+                        - generic [ref=e659]: "\"location\": \"San Francisco\","
+                        - generic [ref=e660]: "\"units\": \"imperial\""
+                        - generic [ref=e661]: "}"
+                        - generic [ref=e662]: "}"
+                        - generic [ref=e663]: "}"
+                  - heading "Navigate to header Key Elements of Tool Execution" [level=4] [ref=e664]:
+                    - link "Navigate to header" [ref=e665] [cursor=pointer]:
+                      - /url: "#key-elements-of-tool-execution"
+                      - img [ref=e667]
+                    - generic [ref=e669] [cursor=pointer]: Key Elements of Tool Execution
+                  - generic [ref=e670]: "The request structure includes several important components:"
+                  - list [ref=e671]:
+                    - listitem [ref=e672]:
+                      - generic [ref=e673]:
+                        - strong [ref=e674]:
+                          - code [ref=e675]: name
+                        - text: ": Must match exactly the tool name from the discovery response ("
+                        - code [ref=e676]: weather_current
+                        - text: ). This ensures the server can correctly identify which tool to execute.
+                    - listitem [ref=e677]:
+                      - generic [ref=e678]:
+                        - strong [ref=e679]:
+                          - code [ref=e680]: arguments
+                        - text: ": Contains the input parameters as defined by the tool’s"
+                        - code [ref=e681]: inputSchema
+                        - text: ". In this example:"
+                      - list [ref=e682]:
+                        - listitem [ref=e683]:
+                          - code [ref=e684]: location
+                          - text: ": “San Francisco” (required parameter)"
+                        - listitem [ref=e685]:
+                          - code [ref=e686]: units
+                          - text: ": “imperial” (optional parameter, defaults to “metric” if not specified)"
+                    - listitem [ref=e687]:
+                      - generic [ref=e688]:
+                        - strong [ref=e689]: JSON-RPC Structure
+                        - text: ": Uses standard JSON-RPC 2.0 format with unique"
+                        - code [ref=e690]: id
+                        - text: for request-response correlation.
+                  - heading "Navigate to header Understanding the Tool Execution Response" [level=4] [ref=e691]:
+                    - link "Navigate to header" [ref=e692] [cursor=pointer]:
+                      - /url: "#understanding-the-tool-execution-response"
+                      - img [ref=e694]
+                    - generic [ref=e696] [cursor=pointer]: Understanding the Tool Execution Response
+                  - generic [ref=e697]: "The response demonstrates MCP’s flexible content system:"
+                  - list [ref=e698]:
+                    - listitem [ref=e699]:
+                      - generic [ref=e700]:
+                        - strong [ref=e701]:
+                          - code [ref=e702]: content
+                          - text: Array
+                        - text: ": Tool responses return an array of content objects, allowing for rich, multi-format responses (text, images, resources, etc.)"
+                    - listitem [ref=e703]:
+                      - generic [ref=e704]:
+                        - strong [ref=e705]: Content Types
+                        - text: ": Each content object has a"
+                        - code [ref=e706]: type
+                        - text: field. In this example,
+                        - code [ref=e707]: "\"type\": \"text\""
+                        - text: indicates plain text content, but MCP supports various content types for different use cases.
+                    - listitem [ref=e708]:
+                      - generic [ref=e709]:
+                        - strong [ref=e710]: Structured Output
+                        - text: ": The response provides actionable information that the AI application can use as context for language model interactions."
+                  - generic [ref=e711]: This execution pattern allows AI applications to dynamically invoke server functionality and receive structured responses that can be integrated into conversations with language models.
+                  - heading "Navigate to header How This Works in AI Applications" [level=4] [ref=e712]:
+                    - link "Navigate to header" [ref=e713] [cursor=pointer]:
+                      - /url: "#how-this-works-in-ai-applications-3"
+                      - img [ref=e715]
+                    - generic [ref=e717] [cursor=pointer]: How This Works in AI Applications
+                  - generic [ref=e718]: When the language model decides to use a tool during a conversation, the AI application intercepts the tool call, routes it to the appropriate MCP server, executes it, and returns the results back to the LLM as part of the conversation flow. This enables the LLM to access real-time data and perform actions in the external world.
+                  - generic [ref=e719]:
+                    - button "Copy the contents from the code block" [ref=e722] [cursor=pointer]:
+                      - img [ref=e723]
+                    - code [ref=e729]:
+                      - generic [ref=e730]: "# Pseudo-code for AI application tool execution"
+                      - generic [ref=e731]: "async def handle_tool_call(conversation, tool_name, arguments):"
+                      - generic [ref=e732]: session = app.find_mcp_session_for_tool(tool_name)
+                      - generic [ref=e733]: result = await session.call_tool(tool_name, arguments)
+                      - generic [ref=e734]: conversation.add_tool_result(result.content)
+            - listitem [ref=e735]:
+              - generic [ref=e738]:
+                - generic [ref=e739]: "4"
+                - link "Navigate to header" [ref=e741] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e743]
+              - generic [ref=e745]:
+                - paragraph [ref=e746]: Real-time Updates (Notifications)
+                - generic [ref=e747]:
+                  - generic [ref=e748]: MCP supports real-time notifications that enable servers to inform clients about changes without being explicitly requested. This demonstrates the notification system, a key feature that keeps MCP connections synchronized and responsive.
+                  - heading "Navigate to header Understanding Tool List Change Notifications" [level=4] [ref=e749]:
+                    - link "Navigate to header" [ref=e750] [cursor=pointer]:
+                      - /url: "#understanding-tool-list-change-notifications"
+                      - img [ref=e752]
+                    - generic [ref=e754] [cursor=pointer]: Understanding Tool List Change Notifications
+                  - generic [ref=e755]: "When the server’s available tools change—such as when new functionality becomes available, existing tools are modified, or tools become temporarily unavailable—the server can proactively notify connected clients:"
+                  - generic [ref=e756]:
+                    - generic [ref=e757]:
+                      - generic "Request" [ref=e759]
+                      - button "Copy the contents from the code block" [ref=e762] [cursor=pointer]:
+                        - img [ref=e763]
+                    - code [ref=e769]:
+                      - generic [ref=e770]: "{"
+                      - generic [ref=e771]: "\"jsonrpc\": \"2.0\","
+                      - generic [ref=e772]: "\"method\": \"notifications/tools/list_changed\""
+                      - generic [ref=e773]: "}"
+                  - heading "Navigate to header Key Features of MCP Notifications" [level=4] [ref=e774]:
+                    - link "Navigate to header" [ref=e775] [cursor=pointer]:
+                      - /url: "#key-features-of-mcp-notifications"
+                      - img [ref=e777]
+                    - generic [ref=e779] [cursor=pointer]: Key Features of MCP Notifications
+                  - list [ref=e780]:
+                    - listitem [ref=e781]:
+                      - generic [ref=e782]:
+                        - strong [ref=e783]: No Response Required
+                        - text: ": Notice there’s no"
+                        - code [ref=e784]: id
+                        - text: field in the notification. This follows JSON-RPC 2.0 notification semantics where no response is expected or sent.
+                    - listitem [ref=e785]:
+                      - generic [ref=e786]:
+                        - strong [ref=e787]: Capability-Based
+                        - text: ": This notification is only sent by servers that declared"
+                        - code [ref=e788]: "\"listChanged\": true"
+                        - text: in their tools capability during initialization (as shown in Step 1).
+                    - listitem [ref=e789]:
+                      - generic [ref=e790]:
+                        - strong [ref=e791]: Event-Driven
+                        - text: ": The server decides when to send notifications based on internal state changes, making MCP connections dynamic and responsive."
+                  - heading "Navigate to header Client Response to Notifications" [level=4] [ref=e792]:
+                    - link "Navigate to header" [ref=e793] [cursor=pointer]:
+                      - /url: "#client-response-to-notifications"
+                      - img [ref=e795]
+                    - generic [ref=e797] [cursor=pointer]: Client Response to Notifications
+                  - generic [ref=e798]: "Upon receiving this notification, the client typically reacts by requesting the updated tool list. This creates a refresh cycle that keeps the client’s understanding of available tools current:"
+                  - generic [ref=e799]:
+                    - generic [ref=e800]:
+                      - generic "Request" [ref=e802]
+                      - button "Copy the contents from the code block" [ref=e805] [cursor=pointer]:
+                        - img [ref=e806]
+                    - code [ref=e812]:
+                      - generic [ref=e813]: "{"
+                      - generic [ref=e814]: "\"jsonrpc\": \"2.0\","
+                      - generic [ref=e815]: "\"id\": 4,"
+                      - generic [ref=e816]: "\"method\": \"tools/list\""
+                      - generic [ref=e817]: "}"
+                  - heading "Navigate to header Why Notifications Matter" [level=4] [ref=e818]:
+                    - link "Navigate to header" [ref=e819] [cursor=pointer]:
+                      - /url: "#why-notifications-matter"
+                      - img [ref=e821]
+                    - generic [ref=e823] [cursor=pointer]: Why Notifications Matter
+                  - generic [ref=e824]: "This notification system is crucial for several reasons:"
+                  - list [ref=e825]:
+                    - listitem [ref=e826]:
+                      - strong [ref=e827]: Dynamic Environments
+                      - text: ": Tools may come and go based on server state, external dependencies, or user permissions"
+                    - listitem [ref=e828]:
+                      - strong [ref=e829]: Efficiency
+                      - text: ": Clients don’t need to poll for changes; they’re notified when updates occur"
+                    - listitem [ref=e830]:
+                      - strong [ref=e831]: Consistency
+                      - text: ": Ensures clients always have accurate information about available server capabilities"
+                    - listitem [ref=e832]:
+                      - strong [ref=e833]: Real-time Collaboration
+                      - text: ": Enables responsive AI applications that can adapt to changing contexts"
+                  - generic [ref=e834]: This notification pattern extends beyond tools to other MCP primitives, enabling comprehensive real-time synchronization between clients and servers.
+                  - heading "Navigate to header How This Works in AI Applications" [level=4] [ref=e835]:
+                    - link "Navigate to header" [ref=e836] [cursor=pointer]:
+                      - /url: "#how-this-works-in-ai-applications-4"
+                      - img [ref=e838]
+                    - generic [ref=e840] [cursor=pointer]: How This Works in AI Applications
+                  - generic [ref=e841]: When the AI application receives a notification about changed tools, it immediately refreshes its tool registry and updates the LLM’s available capabilities. This ensures that ongoing conversations always have access to the most current set of tools, and the LLM can dynamically adapt to new functionality as it becomes available.
+                  - generic [ref=e842]:
+                    - button "Copy the contents from the code block" [ref=e845] [cursor=pointer]:
+                      - img [ref=e846]
+                    - code [ref=e852]:
+                      - generic [ref=e853]: "# Pseudo-code for AI application notification handling"
+                      - generic [ref=e854]: "async def handle_tools_changed_notification(session):"
+                      - generic [ref=e855]: tools_response = await session.list_tools()
+                      - generic [ref=e856]: app.update_available_tools(session, tools_response.tools)
+                      - generic [ref=e857]: "if app.conversation.is_active():"
+                      - generic [ref=e858]: app.conversation.notify_llm_of_new_capabilities()
+        - generic [ref=e860]:
+          - paragraph [ref=e861]: Was this page helpful?
+          - generic [ref=e863]:
+            - button "Yes" [ref=e864] [cursor=pointer]:
+              - img [ref=e865]
+              - generic [ref=e867]: "Yes"
+            - button "No" [ref=e868] [cursor=pointer]:
+              - img [ref=e869]
+              - generic [ref=e871]: "No"
+        - generic [ref=e872]:
+          - link "What is MCP?" [ref=e873] [cursor=pointer]:
+            - /url: /docs/getting-started/intro
+            - img [ref=e874]
+            - generic [ref=e876]: What is MCP?
+          - link "Servers" [ref=e877] [cursor=pointer]:
+            - /url: /docs/learn/server-concepts
+            - generic [ref=e878]: Servers
+            - img [ref=e879]
+        - contentinfo [ref=e881]:
+          - link "github" [ref=e883] [cursor=pointer]:
+            - /url: https://github.com/modelcontextprotocol
+            - generic [ref=e884]: github
+            - img [ref=e885]

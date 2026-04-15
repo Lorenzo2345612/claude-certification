@@ -1,0 +1,33 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Certified Architect
+      - generic [ref=e7]: Foundations Practice Exam
+  - generic [ref=e9]:
+    - img [ref=e11]
+    - heading "Claude Certified Architect — Foundations" [level=1] [ref=e14]
+    - paragraph [ref=e15]: Practice exam with 304 scenario-based questions from all 5 domains
+    - generic [ref=e16]:
+      - generic [ref=e17]: Domains
+      - generic [ref=e18]:
+        - 'button "D1: Agentic Architecture & Orchestration 27%" [ref=e19] [cursor=pointer]':
+          - generic [ref=e21]: "D1: Agentic Architecture & Orchestration"
+          - generic [ref=e22]: 27%
+        - 'button "D2: Tool Design & MCP Integration 18%" [ref=e23] [cursor=pointer]':
+          - generic [ref=e25]: "D2: Tool Design & MCP Integration"
+          - generic [ref=e26]: 18%
+        - 'button "D3: Claude Code Configuration & Workflows 20%" [ref=e27] [cursor=pointer]':
+          - generic [ref=e29]: "D3: Claude Code Configuration & Workflows"
+          - generic [ref=e30]: 20%
+        - 'button "D4: Prompt Engineering & Optimization 20%" [ref=e31] [cursor=pointer]':
+          - generic [ref=e33]: "D4: Prompt Engineering & Optimization"
+          - generic [ref=e34]: 20%
+        - 'button "D5: Context Management & Reliability 15%" [ref=e35] [cursor=pointer]':
+          - generic [ref=e37]: "D5: Context Management & Reliability"
+          - generic [ref=e38]: 15%
+      - generic [ref=e39]:
+        - generic [ref=e40]: Questions per session (304 available)
+        - generic [ref=e41]:
+          - slider [ref=e42]: "60"
+          - generic [ref=e43]: "60"
+      - button "Start Exam (60 questions)" [ref=e44] [cursor=pointer]

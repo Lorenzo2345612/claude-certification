@@ -1,0 +1,21 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Architect Quiz
+      - generic [ref=e7]: Foundations Certification Practice
+  - generic [ref=e9]:
+    - heading "Claude Certified Architect" [level=1] [ref=e10]
+    - paragraph [ref=e11]: Cuestionario interactivo estilo Oracle para prepararte para la certificacion Foundations de Anthropic. Responde todas las preguntas y al final descubre la respuesta correcta con explicaciones detalladas.
+    - generic [ref=e12]:
+      - generic [ref=e13]: Dominios
+      - generic [ref=e14]:
+        - 'button "D1: Agentic Architecture (27%)" [ref=e15] [cursor=pointer]'
+        - 'button "D2: Tool Design & MCP (18%)" [ref=e16] [cursor=pointer]'
+        - 'button "D3: Claude Code (20%)" [ref=e17] [cursor=pointer]'
+        - 'button "D4: Prompt Engineering (20%)" [ref=e18] [cursor=pointer]'
+        - 'button "D5: Context & Reliability (15%)" [ref=e19] [cursor=pointer]'
+      - generic [ref=e20]: Cantidad de preguntas (204 disponibles)
+      - generic [ref=e21]:
+        - slider [ref=e22]: "60"
+        - generic [ref=e23]: "60"
+      - button "Comenzar Examen (60 preguntas)" [ref=e24] [cursor=pointer]

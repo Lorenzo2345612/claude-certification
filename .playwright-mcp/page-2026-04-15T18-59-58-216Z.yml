@@ -1,0 +1,1265 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Getting started" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/quickstart
+                  - generic [ref=e94]: Quickstart
+              - listitem [ref=e95]:
+                - link "Changelog" [ref=e96] [cursor=pointer]:
+                  - /url: /docs/en/changelog
+                  - generic [ref=e99]: Changelog
+          - generic [ref=e100]:
+            - heading "Core concepts" [level=5] [ref=e102]
+            - list [ref=e103]:
+              - listitem [ref=e104]:
+                - link "How Claude Code works" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/how-claude-code-works
+                  - generic [ref=e108]: How Claude Code works
+              - listitem [ref=e109]:
+                - link "Extend Claude Code" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/features-overview
+                  - generic [ref=e113]: Extend Claude Code
+              - listitem [ref=e114]:
+                - link "Explore the .claude directory" [ref=e115] [cursor=pointer]:
+                  - /url: /docs/en/claude-directory
+                  - generic [ref=e118]: Explore the .claude directory
+              - listitem [ref=e119]:
+                - link "Explore the context window" [ref=e120] [cursor=pointer]:
+                  - /url: /docs/en/context-window
+                  - generic [ref=e123]: Explore the context window
+          - generic [ref=e124]:
+            - heading "Use Claude Code" [level=5] [ref=e126]
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - link "Store instructions and memories" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/memory
+                  - generic [ref=e132]: Store instructions and memories
+              - listitem [ref=e133]:
+                - link "Permission modes" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/permission-modes
+                  - generic [ref=e137]: Permission modes
+              - listitem [ref=e138]:
+                - link "Common workflows" [ref=e139] [cursor=pointer]:
+                  - /url: /docs/en/common-workflows
+                  - generic [ref=e142]: Common workflows
+              - listitem [ref=e143]:
+                - link "Best practices" [ref=e144] [cursor=pointer]:
+                  - /url: /docs/en/best-practices
+                  - generic [ref=e147]: Best practices
+          - generic [ref=e148]:
+            - heading "Platforms and integrations" [level=5] [ref=e150]
+            - list [ref=e151]:
+              - listitem [ref=e152]:
+                - link "Overview" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/platforms
+                  - generic [ref=e156]: Overview
+              - listitem [ref=e157]:
+                - link "Remote Control" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/remote-control
+                  - generic [ref=e161]: Remote Control
+              - listitem [ref=e162]:
+                - button "Toggle Claude Code on the web section" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]: Claude Code on the web
+                  - img [ref=e166]
+              - listitem [ref=e168]:
+                - button "Toggle Claude Code on desktop section" [ref=e169] [cursor=pointer]:
+                  - generic [ref=e170]: Claude Code on desktop
+                  - img [ref=e172]
+              - listitem [ref=e174]:
+                - link "Chrome extension (beta)" [ref=e175] [cursor=pointer]:
+                  - /url: /docs/en/chrome
+                  - generic [ref=e178]: Chrome extension (beta)
+              - listitem [ref=e179]:
+                - link "Computer use (preview)" [ref=e180] [cursor=pointer]:
+                  - /url: /docs/en/computer-use
+                  - generic [ref=e183]: Computer use (preview)
+              - listitem [ref=e184]:
+                - link "Visual Studio Code" [ref=e185] [cursor=pointer]:
+                  - /url: /docs/en/vs-code
+                  - generic [ref=e188]: Visual Studio Code
+              - listitem [ref=e189]:
+                - link "JetBrains IDEs" [ref=e190] [cursor=pointer]:
+                  - /url: /docs/en/jetbrains
+                  - generic [ref=e193]: JetBrains IDEs
+              - listitem [ref=e194]:
+                - button "Toggle Code review & CI/CD section" [expanded] [ref=e195] [cursor=pointer]:
+                  - generic [ref=e196]: Code review & CI/CD
+                  - img [ref=e198]
+                - list [ref=e200]:
+                  - listitem [ref=e201]:
+                    - link "Code Review" [ref=e202] [cursor=pointer]:
+                      - /url: /docs/en/code-review
+                      - generic [ref=e205]: Code Review
+                  - listitem [ref=e206]:
+                    - link "GitHub Actions" [ref=e207] [cursor=pointer]:
+                      - /url: /docs/en/github-actions
+                      - generic [ref=e210]: GitHub Actions
+                  - listitem [ref=e211]:
+                    - link "GitHub Enterprise Server" [ref=e212] [cursor=pointer]:
+                      - /url: /docs/en/github-enterprise-server
+                      - generic [ref=e215]: GitHub Enterprise Server
+                  - listitem [ref=e216]:
+                    - link "GitLab CI/CD" [ref=e217] [cursor=pointer]:
+                      - /url: /docs/en/gitlab-ci-cd
+                      - generic [ref=e220]: GitLab CI/CD
+              - listitem [ref=e221]:
+                - link "Claude Code in Slack" [ref=e222] [cursor=pointer]:
+                  - /url: /docs/en/slack
+                  - generic [ref=e225]: Claude Code in Slack
+        - generic [ref=e228]:
+          - banner [ref=e229]:
+            - generic [ref=e230]:
+              - generic [ref=e231]: Code review & CI/CD
+              - generic [ref=e232]:
+                - heading "Claude Code GitHub Actions" [level=1] [ref=e233]
+                - generic [ref=e234]:
+                  - button "Copy page" [ref=e235] [cursor=pointer]:
+                    - generic [ref=e236]:
+                      - img [ref=e237]
+                      - generic [ref=e240]: Copy page
+                  - button "More actions" [ref=e241] [cursor=pointer]:
+                    - img [ref=e242]
+            - paragraph [ref=e245]: Learn about integrating Claude Code into your development workflow with Claude Code GitHub Actions
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - text: Claude Code GitHub Actions brings AI-powered automation to your GitHub workflow. With a simple
+              - code [ref=e248]: "@claude"
+              - text: mention in any PR or issue, Claude can analyze your code, create pull requests, implement features, and fix bugs - all while following your project’s standards. For automatic reviews posted on every PR without a trigger, see
+              - link "GitHub Code Review" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/code-review
+              - text: .
+            - generic [ref=e250]:
+              - img "Note" [ref=e252]
+              - generic [ref=e255]:
+                - text: Claude Code GitHub Actions is built on top of the
+                - link "Claude Agent SDK" [ref=e256] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                - text: ", which enables programmatic integration of Claude Code into your applications. You can use the SDK to build custom automation workflows beyond GitHub Actions."
+            - generic [ref=e257]:
+              - img "Info" [ref=e259]
+              - generic [ref=e262]:
+                - strong [ref=e263]: Claude Opus 4.6 is now available.
+                - text: Claude Code GitHub Actions default to Sonnet. To use Opus 4.6, configure the
+                - link "model parameter" [ref=e264] [cursor=pointer]:
+                  - /url: "#breaking-changes-reference"
+                - text: to use
+                - code [ref=e265]: claude-opus-4-6
+                - text: .
+            - heading "Navigate to header Why use Claude Code GitHub Actions?" [level=2] [ref=e266]:
+              - link "Navigate to header" [ref=e267] [cursor=pointer]:
+                - /url: "#why-use-claude-code-github-actions"
+                - img [ref=e269]
+              - generic [ref=e271] [cursor=pointer]: Why use Claude Code GitHub Actions?
+            - list [ref=e272]:
+              - listitem [ref=e273]:
+                - strong [ref=e274]: Instant PR creation
+                - text: ": Describe what you need, and Claude creates a complete PR with all necessary changes"
+              - listitem [ref=e275]:
+                - strong [ref=e276]: Automated code implementation
+                - text: ": Turn issues into working code with a single command"
+              - listitem [ref=e277]:
+                - strong [ref=e278]: Follows your standards
+                - text: ": Claude respects your"
+                - code [ref=e279]: CLAUDE.md
+                - text: guidelines and existing code patterns
+              - listitem [ref=e280]:
+                - strong [ref=e281]: Simple setup
+                - text: ": Get started in minutes with our installer and API key"
+              - listitem [ref=e282]:
+                - strong [ref=e283]: Secure by default
+                - text: ": Your code stays on Github’s runners"
+            - heading "Navigate to header What can Claude do?" [level=2] [ref=e284]:
+              - link "Navigate to header" [ref=e285] [cursor=pointer]:
+                - /url: "#what-can-claude-do"
+                - img [ref=e287]
+              - generic [ref=e289] [cursor=pointer]: What can Claude do?
+            - generic [ref=e290]: "Claude Code provides a powerful GitHub Action that transforms how you work with code:"
+            - heading "Navigate to header Claude Code Action" [level=3] [ref=e291]:
+              - link "Navigate to header" [ref=e292] [cursor=pointer]:
+                - /url: "#claude-code-action"
+                - img [ref=e294]
+              - generic [ref=e296] [cursor=pointer]: Claude Code Action
+            - generic [ref=e297]: This GitHub Action allows you to run Claude Code within your GitHub Actions workflows. You can use this to build any custom workflow on top of Claude Code.
+            - link "View repository →" [ref=e299] [cursor=pointer]:
+              - /url: https://github.com/anthropics/claude-code-action
+            - heading "Navigate to header Setup" [level=2] [ref=e300]:
+              - link "Navigate to header" [ref=e301] [cursor=pointer]:
+                - /url: "#setup"
+                - img [ref=e303]
+              - generic [ref=e305] [cursor=pointer]: Setup
+            - heading "Navigate to header Quick setup" [level=2] [ref=e306]:
+              - link "Navigate to header" [ref=e307] [cursor=pointer]:
+                - /url: "#quick-setup"
+                - img [ref=e309]
+              - generic [ref=e311] [cursor=pointer]: Quick setup
+            - generic [ref=e312]:
+              - text: The easiest way to set up this action is through Claude Code in the terminal. Just open claude and run
+              - code [ref=e313]: /install-github-app
+              - text: .
+            - generic [ref=e314]: This command will guide you through setting up the GitHub app and required secrets.
+            - generic [ref=e315]:
+              - img "Note" [ref=e317]
+              - list [ref=e320]:
+                - listitem [ref=e321]: You must be a repository admin to install the GitHub app and add secrets
+                - listitem [ref=e322]: The GitHub app will request read & write permissions for Contents, Issues, and Pull requests
+                - listitem [ref=e323]:
+                  - text: This quickstart method is only available for direct Claude API users. If you’re using AWS Bedrock or Google Vertex AI, please see the
+                  - link "Using with AWS Bedrock & Google Vertex AI" [ref=e324] [cursor=pointer]:
+                    - /url: "#using-with-aws-bedrock-%26-google-vertex-ai"
+                  - text: section.
+            - heading "Navigate to header Manual setup" [level=2] [ref=e325]:
+              - link "Navigate to header" [ref=e326] [cursor=pointer]:
+                - /url: "#manual-setup"
+                - img [ref=e328]
+              - generic [ref=e330] [cursor=pointer]: Manual setup
+            - generic [ref=e331]:
+              - text: If the
+              - code [ref=e332]: /install-github-app
+              - text: "command fails or you prefer manual setup, please follow these manual setup instructions:"
+            - list [ref=e333]:
+              - listitem [ref=e334]:
+                - generic [ref=e335]:
+                  - strong [ref=e336]: Install the Claude GitHub app
+                  - text: "to your repository:"
+                  - link "https://github.com/apps/claude" [ref=e337] [cursor=pointer]:
+                    - /url: https://github.com/apps/claude
+                - generic [ref=e338]: "The Claude GitHub app requires the following repository permissions:"
+                - list [ref=e339]:
+                  - listitem [ref=e340]:
+                    - strong [ref=e341]: Contents
+                    - text: ": Read & write (to modify repository files)"
+                  - listitem [ref=e342]:
+                    - strong [ref=e343]: Issues
+                    - text: ": Read & write (to respond to issues)"
+                  - listitem [ref=e344]:
+                    - strong [ref=e345]: Pull requests
+                    - text: ": Read & write (to create PRs and push changes)"
+                - generic [ref=e346]:
+                  - text: For more details on security and permissions, see the
+                  - link "security documentation" [ref=e347] [cursor=pointer]:
+                    - /url: https://github.com/anthropics/claude-code-action/blob/main/docs/security.md
+                  - text: .
+              - listitem [ref=e348]:
+                - generic [ref=e349]:
+                  - strong [ref=e350]: Add ANTHROPIC_API_KEY
+                  - text: to your repository secrets (
+                  - link "Learn how to use secrets in GitHub Actions" [ref=e351] [cursor=pointer]:
+                    - /url: https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
+                  - text: )
+              - listitem [ref=e352]:
+                - generic [ref=e353]:
+                  - strong [ref=e354]: Copy the workflow file
+                  - text: from
+                  - link "examples/claude.yml" [ref=e355] [cursor=pointer]:
+                    - /url: https://github.com/anthropics/claude-code-action/blob/main/examples/claude.yml
+                  - text: into your repository’s
+                  - code [ref=e356]: .github/workflows/
+            - generic [ref=e357]:
+              - img "Tip" [ref=e359]
+              - generic [ref=e362]:
+                - text: After completing either the quickstart or manual setup, test the action by tagging
+                - code [ref=e363]: "@claude"
+                - text: in an issue or PR comment.
+            - heading "Navigate to header Upgrading from Beta" [level=2] [ref=e364]:
+              - link "Navigate to header" [ref=e365] [cursor=pointer]:
+                - /url: "#upgrading-from-beta"
+                - img [ref=e367]
+              - generic [ref=e369] [cursor=pointer]: Upgrading from Beta
+            - generic [ref=e370]:
+              - img "Warning" [ref=e372]
+              - generic [ref=e375]: Claude Code GitHub Actions v1.0 introduces breaking changes that require updating your workflow files in order to upgrade to v1.0 from the beta version.
+            - generic [ref=e376]: If you’re currently using the beta version of Claude Code GitHub Actions, we recommend that you update your workflows to use the GA version. The new version simplifies configuration while adding powerful new features like automatic mode detection.
+            - heading "Navigate to header Essential changes" [level=3] [ref=e377]:
+              - link "Navigate to header" [ref=e378] [cursor=pointer]:
+                - /url: "#essential-changes"
+                - img [ref=e380]
+              - generic [ref=e382] [cursor=pointer]: Essential changes
+            - generic [ref=e383]: "All beta users must make these changes to their workflow files in order to upgrade:"
+            - list [ref=e384]:
+              - listitem [ref=e385]:
+                - strong [ref=e386]: Update the action version
+                - text: ": Change"
+                - code [ref=e387]: "@beta"
+                - text: to
+                - code [ref=e388]: "@v1"
+              - listitem [ref=e389]:
+                - strong [ref=e390]: Remove mode configuration
+                - text: ": Delete"
+                - code [ref=e391]: "mode: \"tag\""
+                - text: or
+                - code [ref=e392]: "mode: \"agent\""
+                - text: (now auto-detected)
+              - listitem [ref=e393]:
+                - strong [ref=e394]: Update prompt inputs
+                - text: ": Replace"
+                - code [ref=e395]: direct_prompt
+                - text: with
+                - code [ref=e396]: prompt
+              - listitem [ref=e397]:
+                - strong [ref=e398]: Move CLI options
+                - text: ": Convert"
+                - code [ref=e399]: max_turns
+                - text: ","
+                - code [ref=e400]: model
+                - text: ","
+                - code [ref=e401]: custom_instructions
+                - text: ", etc. to"
+                - code [ref=e402]: claude_args
+            - heading "Navigate to header Breaking Changes Reference" [level=3] [ref=e403]:
+              - link "Navigate to header" [ref=e404] [cursor=pointer]:
+                - /url: "#breaking-changes-reference"
+                - img [ref=e406]
+              - generic [ref=e408] [cursor=pointer]: Breaking Changes Reference
+            - table [ref=e411]:
+              - rowgroup [ref=e412]:
+                - row "Old Beta Input New v1.0 Input" [ref=e413]:
+                  - columnheader "Old Beta Input" [ref=e414]
+                  - columnheader "New v1.0 Input" [ref=e415]
+              - rowgroup [ref=e416]:
+                - row "mode (Removed - auto-detected)" [ref=e417]:
+                  - cell "mode" [ref=e418]:
+                    - code [ref=e419]: mode
+                  - cell "(Removed - auto-detected)" [ref=e420]:
+                    - emphasis [ref=e421]: (Removed - auto-detected)
+                - row "direct_prompt prompt" [ref=e422]:
+                  - cell "direct_prompt" [ref=e423]:
+                    - code [ref=e424]: direct_prompt
+                  - cell "prompt" [ref=e425]:
+                    - code [ref=e426]: prompt
+                - row "override_prompt prompt with GitHub variables" [ref=e427]:
+                  - cell "override_prompt" [ref=e428]:
+                    - code [ref=e429]: override_prompt
+                  - cell "prompt with GitHub variables" [ref=e430]:
+                    - code [ref=e431]: prompt
+                    - text: with GitHub variables
+                - 'row "custom_instructions claude_args: --append-system-prompt" [ref=e432]':
+                  - cell "custom_instructions" [ref=e433]:
+                    - code [ref=e434]: custom_instructions
+                  - 'cell "claude_args: --append-system-prompt" [ref=e435]':
+                    - code [ref=e436]: "claude_args: --append-system-prompt"
+                - 'row "max_turns claude_args: --max-turns" [ref=e437]':
+                  - cell "max_turns" [ref=e438]:
+                    - code [ref=e439]: max_turns
+                  - 'cell "claude_args: --max-turns" [ref=e440]':
+                    - code [ref=e441]: "claude_args: --max-turns"
+                - 'row "model claude_args: --model" [ref=e442]':
+                  - cell "model" [ref=e443]:
+                    - code [ref=e444]: model
+                  - 'cell "claude_args: --model" [ref=e445]':
+                    - code [ref=e446]: "claude_args: --model"
+                - 'row "allowed_tools claude_args: --allowedTools" [ref=e447]':
+                  - cell "allowed_tools" [ref=e448]:
+                    - code [ref=e449]: allowed_tools
+                  - 'cell "claude_args: --allowedTools" [ref=e450]':
+                    - code [ref=e451]: "claude_args: --allowedTools"
+                - 'row "disallowed_tools claude_args: --disallowedTools" [ref=e452]':
+                  - cell "disallowed_tools" [ref=e453]:
+                    - code [ref=e454]: disallowed_tools
+                  - 'cell "claude_args: --disallowedTools" [ref=e455]':
+                    - code [ref=e456]: "claude_args: --disallowedTools"
+                - row "claude_env settings JSON format" [ref=e457]:
+                  - cell "claude_env" [ref=e458]:
+                    - code [ref=e459]: claude_env
+                  - cell "settings JSON format" [ref=e460]:
+                    - code [ref=e461]: settings
+                    - text: JSON format
+            - heading "Navigate to header Before and After Example" [level=3] [ref=e462]:
+              - link "Navigate to header" [ref=e463] [cursor=pointer]:
+                - /url: "#before-and-after-example"
+                - img [ref=e465]
+              - generic [ref=e467] [cursor=pointer]: Before and After Example
+            - strong [ref=e469]: "Beta version:"
+            - generic [ref=e470]:
+              - generic [ref=e471]:
+                - button "Report incorrect code" [ref=e473] [cursor=pointer]:
+                  - img [ref=e474]
+                - button "Copy the contents from the code block" [ref=e477] [cursor=pointer]:
+                  - img [ref=e478]
+                - button "Ask AI" [ref=e482] [cursor=pointer]:
+                  - img [ref=e483]
+              - code [ref=e489]:
+                - generic [ref=e490]: "- uses: anthropics/claude-code-action@beta"
+                - generic [ref=e491]: "with:"
+                - generic [ref=e492]: "mode: \"tag\""
+                - generic [ref=e493]: "direct_prompt: \"Review this PR for security issues\""
+                - generic [ref=e494]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e495]: "custom_instructions: \"Follow our coding standards\""
+                - generic [ref=e496]: "max_turns: \"10\""
+                - generic [ref=e497]: "model: \"claude-sonnet-4-6\""
+            - strong [ref=e499]: "GA version (v1.0):"
+            - generic [ref=e500]:
+              - generic [ref=e501]:
+                - button "Report incorrect code" [ref=e503] [cursor=pointer]:
+                  - img [ref=e504]
+                - button "Copy the contents from the code block" [ref=e507] [cursor=pointer]:
+                  - img [ref=e508]
+                - button "Ask AI" [ref=e512] [cursor=pointer]:
+                  - img [ref=e513]
+              - code [ref=e519]:
+                - generic [ref=e520]: "- uses: anthropics/claude-code-action@v1"
+                - generic [ref=e521]: "with:"
+                - generic [ref=e522]: "prompt: \"Review this PR for security issues\""
+                - generic [ref=e523]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e524]: "claude_args: |"
+                - generic [ref=e525]: "--append-system-prompt \"Follow our coding standards\""
+                - generic [ref=e526]: "--max-turns 10"
+                - generic [ref=e527]: "--model claude-sonnet-4-6"
+            - generic [ref=e528]:
+              - img "Tip" [ref=e530]
+              - generic [ref=e533]:
+                - text: The action now automatically detects whether to run in interactive mode (responds to
+                - code [ref=e534]: "@claude"
+                - text: mentions) or automation mode (runs immediately with a prompt) based on your configuration.
+            - heading "Navigate to header Example use cases" [level=2] [ref=e535]:
+              - link "Navigate to header" [ref=e536] [cursor=pointer]:
+                - /url: "#example-use-cases"
+                - img [ref=e538]
+              - generic [ref=e540] [cursor=pointer]: Example use cases
+            - generic [ref=e541]:
+              - text: Claude Code GitHub Actions can help you with a variety of tasks. The
+              - link "examples directory" [ref=e542] [cursor=pointer]:
+                - /url: https://github.com/anthropics/claude-code-action/tree/main/examples
+              - text: contains ready-to-use workflows for different scenarios.
+            - heading "Navigate to header Basic workflow" [level=3] [ref=e543]:
+              - link "Navigate to header" [ref=e544] [cursor=pointer]:
+                - /url: "#basic-workflow"
+                - img [ref=e546]
+              - generic [ref=e548] [cursor=pointer]: Basic workflow
+            - generic [ref=e549]:
+              - generic [ref=e550]:
+                - button "Report incorrect code" [ref=e552] [cursor=pointer]:
+                  - img [ref=e553]
+                - button "Copy the contents from the code block" [ref=e556] [cursor=pointer]:
+                  - img [ref=e557]
+                - button "Ask AI" [ref=e561] [cursor=pointer]:
+                  - img [ref=e562]
+              - code [ref=e568]:
+                - generic [ref=e569]: "name: Claude Code"
+                - generic [ref=e570]: "on:"
+                - generic [ref=e571]: "issue_comment:"
+                - generic [ref=e572]: "types: [created]"
+                - generic [ref=e573]: "pull_request_review_comment:"
+                - generic [ref=e574]: "types: [created]"
+                - generic [ref=e575]: "jobs:"
+                - generic [ref=e576]: "claude:"
+                - generic [ref=e577]: "runs-on: ubuntu-latest"
+                - generic [ref=e578]: "steps:"
+                - generic [ref=e579]: "- uses: anthropics/claude-code-action@v1"
+                - generic [ref=e580]: "with:"
+                - generic [ref=e581]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e582]: "# Responds to @claude mentions in comments"
+            - heading "Navigate to header Using skills" [level=3] [ref=e583]:
+              - link "Navigate to header" [ref=e584] [cursor=pointer]:
+                - /url: "#using-skills"
+                - img [ref=e586]
+              - generic [ref=e588] [cursor=pointer]: Using skills
+            - generic [ref=e589]:
+              - generic [ref=e590]:
+                - button "Report incorrect code" [ref=e592] [cursor=pointer]:
+                  - img [ref=e593]
+                - button "Copy the contents from the code block" [ref=e596] [cursor=pointer]:
+                  - img [ref=e597]
+                - button "Ask AI" [ref=e601] [cursor=pointer]:
+                  - img [ref=e602]
+              - code [ref=e608]:
+                - generic [ref=e609]: "name: Code Review"
+                - generic [ref=e610]: "on:"
+                - generic [ref=e611]: "pull_request:"
+                - generic [ref=e612]: "types: [opened, synchronize]"
+                - generic [ref=e613]: "jobs:"
+                - generic [ref=e614]: "review:"
+                - generic [ref=e615]: "runs-on: ubuntu-latest"
+                - generic [ref=e616]: "steps:"
+                - generic [ref=e617]: "- uses: anthropics/claude-code-action@v1"
+                - generic [ref=e618]: "with:"
+                - generic [ref=e619]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e620]: "prompt: \"Review this pull request for code quality, correctness, and security. Analyze the diff, then post your findings as review comments.\""
+                - generic [ref=e621]: "claude_args: \"--max-turns 5\""
+            - heading "Navigate to header Custom automation with prompts" [level=3] [ref=e622]:
+              - link "Navigate to header" [ref=e623] [cursor=pointer]:
+                - /url: "#custom-automation-with-prompts"
+                - img [ref=e625]
+              - generic [ref=e627] [cursor=pointer]: Custom automation with prompts
+            - generic [ref=e628]:
+              - generic [ref=e629]:
+                - button "Report incorrect code" [ref=e631] [cursor=pointer]:
+                  - img [ref=e632]
+                - button "Copy the contents from the code block" [ref=e635] [cursor=pointer]:
+                  - img [ref=e636]
+                - button "Ask AI" [ref=e640] [cursor=pointer]:
+                  - img [ref=e641]
+              - code [ref=e647]:
+                - generic [ref=e648]: "name: Daily Report"
+                - generic [ref=e649]: "on:"
+                - generic [ref=e650]: "schedule:"
+                - generic [ref=e651]: "- cron: \"0 9 * * *\""
+                - generic [ref=e652]: "jobs:"
+                - generic [ref=e653]: "report:"
+                - generic [ref=e654]: "runs-on: ubuntu-latest"
+                - generic [ref=e655]: "steps:"
+                - generic [ref=e656]: "- uses: anthropics/claude-code-action@v1"
+                - generic [ref=e657]: "with:"
+                - generic [ref=e658]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e659]: "prompt: \"Generate a summary of yesterday's commits and open issues\""
+                - generic [ref=e660]: "claude_args: \"--model opus\""
+            - heading "Navigate to header Common use cases" [level=3] [ref=e661]:
+              - link "Navigate to header" [ref=e662] [cursor=pointer]:
+                - /url: "#common-use-cases"
+                - img [ref=e664]
+              - generic [ref=e666] [cursor=pointer]: Common use cases
+            - generic [ref=e667]: "In issue or PR comments:"
+            - generic [ref=e668]:
+              - generic [ref=e669]:
+                - button "Report incorrect code" [ref=e671] [cursor=pointer]:
+                  - img [ref=e672]
+                - button "Copy the contents from the code block" [ref=e675] [cursor=pointer]:
+                  - img [ref=e676]
+                - button "Ask AI" [ref=e680] [cursor=pointer]:
+                  - img [ref=e681]
+              - code [ref=e687]:
+                - generic [ref=e688]: "@claude implement this feature based on the issue description"
+                - generic [ref=e689]: "@claude how should I implement user authentication for this endpoint?"
+                - generic [ref=e690]: "@claude fix the TypeError in the user dashboard component"
+            - generic [ref=e691]: Claude will automatically analyze the context and respond appropriately.
+            - heading "Navigate to header Best practices" [level=2] [ref=e692]:
+              - link "Navigate to header" [ref=e693] [cursor=pointer]:
+                - /url: "#best-practices"
+                - img [ref=e695]
+              - generic [ref=e697] [cursor=pointer]: Best practices
+            - heading "Navigate to header CLAUDE.md configuration" [level=3] [ref=e698]:
+              - link "Navigate to header" [ref=e699] [cursor=pointer]:
+                - /url: "#claude-md-configuration"
+                - img [ref=e701]
+              - generic [ref=e703] [cursor=pointer]: CLAUDE.md configuration
+            - generic [ref=e704]:
+              - text: Create a
+              - code [ref=e705]: CLAUDE.md
+              - text: file in your repository root to define code style guidelines, review criteria, project-specific rules, and preferred patterns. This file guides Claude’s understanding of your project standards.
+            - heading "Navigate to header Security considerations" [level=3] [ref=e706]:
+              - link "Navigate to header" [ref=e707] [cursor=pointer]:
+                - /url: "#security-considerations"
+                - img [ref=e709]
+              - generic [ref=e711] [cursor=pointer]: Security considerations
+            - generic [ref=e712]:
+              - img "Warning" [ref=e714]
+              - generic [ref=e716]: Never commit API keys directly to your repository.
+            - generic [ref=e717]:
+              - text: For comprehensive security guidance including permissions, authentication, and best practices, see the
+              - link "Claude Code Action security documentation" [ref=e718] [cursor=pointer]:
+                - /url: https://github.com/anthropics/claude-code-action/blob/main/docs/security.md
+              - text: .
+            - generic [ref=e719]: "Always use GitHub Secrets for API keys:"
+            - list [ref=e720]:
+              - listitem [ref=e721]:
+                - text: Add your API key as a repository secret named
+                - code [ref=e722]: ANTHROPIC_API_KEY
+              - listitem [ref=e723]:
+                - text: "Reference it in workflows:"
+                - code [ref=e724]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+              - listitem [ref=e725]: Limit action permissions to only what’s necessary
+              - listitem [ref=e726]: Review Claude’s suggestions before merging
+            - generic [ref=e727]:
+              - text: Always use GitHub Secrets (for example,
+              - code [ref=e728]: "${{ secrets.ANTHROPIC_API_KEY }}"
+              - text: ) rather than hardcoding API keys directly in your workflow files.
+            - heading "Navigate to header Optimizing performance" [level=3] [ref=e729]:
+              - link "Navigate to header" [ref=e730] [cursor=pointer]:
+                - /url: "#optimizing-performance"
+                - img [ref=e732]
+              - generic [ref=e734] [cursor=pointer]: Optimizing performance
+            - generic [ref=e735]:
+              - text: Use issue templates to provide context, keep your
+              - code [ref=e736]: CLAUDE.md
+              - text: concise and focused, and configure appropriate timeouts for your workflows.
+            - heading "Navigate to header CI costs" [level=3] [ref=e737]:
+              - link "Navigate to header" [ref=e738] [cursor=pointer]:
+                - /url: "#ci-costs"
+                - img [ref=e740]
+              - generic [ref=e742] [cursor=pointer]: CI costs
+            - generic [ref=e743]: "When using Claude Code GitHub Actions, be aware of the associated costs:"
+            - strong [ref=e745]: "GitHub Actions costs:"
+            - list [ref=e746]:
+              - listitem [ref=e747]: Claude Code runs on GitHub-hosted runners, which consume your GitHub Actions minutes
+              - listitem [ref=e748]:
+                - text: See
+                - link "GitHub’s billing documentation" [ref=e749] [cursor=pointer]:
+                  - /url: https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions
+                - text: for detailed pricing and minute limits
+            - strong [ref=e751]: "API costs:"
+            - list [ref=e752]:
+              - listitem [ref=e753]: Each Claude interaction consumes API tokens based on the length of prompts and responses
+              - listitem [ref=e754]: Token usage varies by task complexity and codebase size
+              - listitem [ref=e755]:
+                - text: See
+                - link "Claude’s pricing page" [ref=e756] [cursor=pointer]:
+                  - /url: https://claude.com/platform/api
+                - text: for current token rates
+            - strong [ref=e758]: "Cost optimization tips:"
+            - list [ref=e759]:
+              - listitem [ref=e760]:
+                - text: Use specific
+                - code [ref=e761]: "@claude"
+                - text: commands to reduce unnecessary API calls
+              - listitem [ref=e762]:
+                - text: Configure appropriate
+                - code [ref=e763]: "--max-turns"
+                - text: in
+                - code [ref=e764]: claude_args
+                - text: to prevent excessive iterations
+              - listitem [ref=e765]: Set workflow-level timeouts to avoid runaway jobs
+              - listitem [ref=e766]: Consider using GitHub’s concurrency controls to limit parallel runs
+            - heading "Navigate to header Configuration examples" [level=2] [ref=e767]:
+              - link "Navigate to header" [ref=e768] [cursor=pointer]:
+                - /url: "#configuration-examples"
+                - img [ref=e770]
+              - generic [ref=e772] [cursor=pointer]: Configuration examples
+            - generic [ref=e773]: "The Claude Code Action v1 simplifies configuration with unified parameters:"
+            - generic [ref=e774]:
+              - generic [ref=e775]:
+                - button "Report incorrect code" [ref=e777] [cursor=pointer]:
+                  - img [ref=e778]
+                - button "Copy the contents from the code block" [ref=e781] [cursor=pointer]:
+                  - img [ref=e782]
+                - button "Ask AI" [ref=e786] [cursor=pointer]:
+                  - img [ref=e787]
+              - code [ref=e793]:
+                - generic [ref=e794]: "- uses: anthropics/claude-code-action@v1"
+                - generic [ref=e795]: "with:"
+                - generic [ref=e796]: "anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}"
+                - generic [ref=e797]: "prompt: \"Your instructions here\" # Optional"
+                - generic [ref=e798]: "claude_args: \"--max-turns 5\" # Optional CLI arguments"
+            - generic [ref=e799]: "Key features:"
+            - list [ref=e800]:
+              - listitem [ref=e801]:
+                - strong [ref=e802]: Unified prompt interface
+                - text: "- Use"
+                - code [ref=e803]: prompt
+                - text: for all instructions
+              - listitem [ref=e804]:
+                - strong [ref=e805]: Skills
+                - text: "- Invoke installed"
+                - link "skills" [ref=e806] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                - text: directly from the prompt
+              - listitem [ref=e807]:
+                - strong [ref=e808]: CLI passthrough
+                - text: "- Any Claude Code CLI argument via"
+                - code [ref=e809]: claude_args
+              - listitem [ref=e810]:
+                - strong [ref=e811]: Flexible triggers
+                - text: "- Works with any GitHub event"
+            - generic [ref=e812]:
+              - text: Visit the
+              - link "examples directory" [ref=e813] [cursor=pointer]:
+                - /url: https://github.com/anthropics/claude-code-action/tree/main/examples
+              - text: for complete workflow files.
+            - generic [ref=e814]:
+              - img "Tip" [ref=e816]
+              - generic [ref=e819]:
+                - text: When responding to issue or PR comments, Claude automatically responds to @claude mentions. For other events, use the
+                - code [ref=e820]: prompt
+                - text: parameter to provide instructions.
+            - heading "Navigate to header Using with AWS Bedrock & Google Vertex AI" [level=2] [ref=e821]:
+              - link "Navigate to header" [ref=e822] [cursor=pointer]:
+                - /url: "#using-with-aws-bedrock-&-google-vertex-ai"
+                - img [ref=e824]
+              - generic [ref=e826] [cursor=pointer]: Using with AWS Bedrock & Google Vertex AI
+            - generic [ref=e827]: For enterprise environments, you can use Claude Code GitHub Actions with your own cloud infrastructure. This approach gives you control over data residency and billing while maintaining the same functionality.
+            - heading "Navigate to header Prerequisites" [level=3] [ref=e828]:
+              - link "Navigate to header" [ref=e829] [cursor=pointer]:
+                - /url: "#prerequisites"
+                - img [ref=e831]
+              - generic [ref=e833] [cursor=pointer]: Prerequisites
+            - generic [ref=e834]: "Before setting up Claude Code GitHub Actions with cloud providers, you need:"
+            - heading "Navigate to header For Google Cloud Vertex AI:" [level=4] [ref=e835]:
+              - link "Navigate to header" [ref=e836] [cursor=pointer]:
+                - /url: "#for-google-cloud-vertex-ai"
+                - img [ref=e838]
+              - generic [ref=e840] [cursor=pointer]: "For Google Cloud Vertex AI:"
+            - list [ref=e841]:
+              - listitem [ref=e842]: A Google Cloud Project with Vertex AI enabled
+              - listitem [ref=e843]: Workload Identity Federation configured for GitHub Actions
+              - listitem [ref=e844]: A service account with the required permissions
+              - listitem [ref=e845]: A GitHub App (recommended) or use the default GITHUB_TOKEN
+            - heading "Navigate to header For AWS Bedrock:" [level=4] [ref=e846]:
+              - link "Navigate to header" [ref=e847] [cursor=pointer]:
+                - /url: "#for-aws-bedrock"
+                - img [ref=e849]
+              - generic [ref=e851] [cursor=pointer]: "For AWS Bedrock:"
+            - list [ref=e852]:
+              - listitem [ref=e853]: An AWS account with Amazon Bedrock enabled
+              - listitem [ref=e854]: GitHub OIDC Identity Provider configured in AWS
+              - listitem [ref=e855]: An IAM role with Bedrock permissions
+              - listitem [ref=e856]: A GitHub App (recommended) or use the default GITHUB_TOKEN
+            - list [ref=e857]:
+              - listitem [ref=e858]:
+                - generic [ref=e861]:
+                  - generic [ref=e862]: "1"
+                  - link "Navigate to header" [ref=e864] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e866]
+                - generic [ref=e868]:
+                  - paragraph [ref=e869]: Create a custom GitHub App (Recommended for 3P Providers)
+                  - generic [ref=e870]:
+                    - generic [ref=e871]: "For best control and security when using 3P providers like Vertex AI or Bedrock, we recommend creating your own GitHub App:"
+                    - list [ref=e872]:
+                      - listitem [ref=e873]:
+                        - text: Go to
+                        - link "https://github.com/settings/apps/new" [ref=e874] [cursor=pointer]:
+                          - /url: https://github.com/settings/apps/new
+                      - listitem [ref=e875]:
+                        - text: "Fill in the basic information:"
+                        - list [ref=e876]:
+                          - listitem [ref=e877]:
+                            - strong [ref=e878]: GitHub App name
+                            - text: ": Choose a unique name (e.g., “YourOrg Claude Assistant”)"
+                          - listitem [ref=e879]:
+                            - strong [ref=e880]: Homepage URL
+                            - text: ": Your organization’s website or the repository URL"
+                      - listitem [ref=e881]:
+                        - text: "Configure the app settings:"
+                        - list [ref=e882]:
+                          - listitem [ref=e883]:
+                            - strong [ref=e884]: Webhooks
+                            - text: ": Uncheck “Active” (not needed for this integration)"
+                      - listitem [ref=e885]:
+                        - text: "Set the required permissions:"
+                        - list [ref=e886]:
+                          - listitem [ref=e887]:
+                            - strong [ref=e888]: Repository permissions
+                            - text: ":"
+                            - list [ref=e889]:
+                              - listitem [ref=e890]: "Contents: Read & Write"
+                              - listitem [ref=e891]: "Issues: Read & Write"
+                              - listitem [ref=e892]: "Pull requests: Read & Write"
+                      - listitem [ref=e893]: Click “Create GitHub App”
+                      - listitem [ref=e894]:
+                        - text: After creation, click “Generate a private key” and save the downloaded
+                        - code [ref=e895]: .pem
+                        - text: file
+                      - listitem [ref=e896]: Note your App ID from the app settings page
+                      - listitem [ref=e897]:
+                        - text: "Install the app to your repository:"
+                        - list [ref=e898]:
+                          - listitem [ref=e899]: From your app’s settings page, click “Install App” in the left sidebar
+                          - listitem [ref=e900]: Select your account or organization
+                          - listitem [ref=e901]: Choose “Only select repositories” and select the specific repository
+                          - listitem [ref=e902]: Click “Install”
+                      - listitem [ref=e903]:
+                        - text: "Add the private key as a secret to your repository:"
+                        - list [ref=e904]:
+                          - listitem [ref=e905]: Go to your repository’s Settings → Secrets and variables → Actions
+                          - listitem [ref=e906]:
+                            - text: Create a new secret named
+                            - code [ref=e907]: APP_PRIVATE_KEY
+                            - text: with the contents of the
+                            - code [ref=e908]: .pem
+                            - text: file
+                      - listitem [ref=e909]: "Add the App ID as a secret:"
+                    - list [ref=e910]:
+                      - listitem [ref=e911]:
+                        - text: Create a new secret named
+                        - code [ref=e912]: APP_ID
+                        - text: with your GitHub App’s ID
+                    - generic [ref=e913]:
+                      - img "Note" [ref=e915]
+                      - generic [ref=e918]:
+                        - text: This app will be used with the
+                        - link "actions/create-github-app-token" [ref=e919] [cursor=pointer]:
+                          - /url: https://github.com/actions/create-github-app-token
+                        - text: action to generate authentication tokens in your workflows.
+                    - generic [ref=e920]:
+                      - strong [ref=e921]: Alternative for Claude API or if you don’t want to setup your own Github app
+                      - text: ": Use the official Anthropic app:"
+                    - list [ref=e922]:
+                      - listitem [ref=e923]:
+                        - text: "Install from:"
+                        - link "https://github.com/apps/claude" [ref=e924] [cursor=pointer]:
+                          - /url: https://github.com/apps/claude
+                      - listitem [ref=e925]: No additional configuration needed for authentication
+              - listitem [ref=e926]:
+                - generic [ref=e929]:
+                  - generic [ref=e930]: "2"
+                  - link "Navigate to header" [ref=e932] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e934]
+                - generic [ref=e936]:
+                  - paragraph [ref=e937]: Configure cloud provider authentication
+                  - generic [ref=e938]:
+                    - generic [ref=e939]: "Choose your cloud provider and set up secure authentication:"
+                    - generic [ref=e940]:
+                      - group [ref=e941]:
+                        - generic "AWS Bedrock" [ref=e942] [cursor=pointer]:
+                          - img [ref=e944]
+                          - paragraph [ref=e946]: AWS Bedrock
+                      - group [ref=e947]:
+                        - generic "Google Vertex AI" [ref=e948] [cursor=pointer]:
+                          - img [ref=e950]
+                          - paragraph [ref=e952]: Google Vertex AI
+              - listitem [ref=e953]:
+                - generic [ref=e956]:
+                  - generic [ref=e957]: "3"
+                  - link "Navigate to header" [ref=e959] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e961]
+                - generic [ref=e963]:
+                  - paragraph [ref=e964]: Add Required Secrets
+                  - generic [ref=e965]:
+                    - generic [ref=e966]: "Add the following secrets to your repository (Settings → Secrets and variables → Actions):"
+                    - heading "Navigate to header For Claude API (Direct):" [level=4] [ref=e967]:
+                      - link "Navigate to header" [ref=e968] [cursor=pointer]:
+                        - /url: "#for-claude-api-direct-"
+                        - img [ref=e970]
+                      - generic [ref=e972] [cursor=pointer]: "For Claude API (Direct):"
+                    - list [ref=e973]:
+                      - listitem [ref=e974]:
+                        - generic [ref=e975]:
+                          - strong [ref=e976]: For API Authentication
+                          - text: ":"
+                        - list [ref=e977]:
+                          - listitem [ref=e978]:
+                            - code [ref=e979]: ANTHROPIC_API_KEY
+                            - text: ": Your Claude API key from"
+                            - link "console.anthropic.com" [ref=e980] [cursor=pointer]:
+                              - /url: https://console.anthropic.com
+                      - listitem [ref=e981]:
+                        - generic [ref=e982]:
+                          - strong [ref=e983]: For GitHub App (if using your own app)
+                          - text: ":"
+                        - list [ref=e984]:
+                          - listitem [ref=e985]:
+                            - code [ref=e986]: APP_ID
+                            - text: ": Your GitHub App’s ID"
+                          - listitem [ref=e987]:
+                            - code [ref=e988]: APP_PRIVATE_KEY
+                            - text: ": The private key (.pem) content"
+                    - heading "Navigate to header For Google Cloud Vertex AI" [level=4] [ref=e989]:
+                      - link "Navigate to header" [ref=e990] [cursor=pointer]:
+                        - /url: "#for-google-cloud-vertex-ai"
+                        - img [ref=e992]
+                      - generic [ref=e994] [cursor=pointer]: For Google Cloud Vertex AI
+                    - list [ref=e995]:
+                      - listitem [ref=e996]:
+                        - generic [ref=e997]:
+                          - strong [ref=e998]: For GCP Authentication
+                          - text: ":"
+                        - list [ref=e999]:
+                          - listitem [ref=e1000]:
+                            - code [ref=e1001]: GCP_WORKLOAD_IDENTITY_PROVIDER
+                          - listitem [ref=e1002]:
+                            - code [ref=e1003]: GCP_SERVICE_ACCOUNT
+                      - listitem [ref=e1004]:
+                        - generic [ref=e1005]:
+                          - strong [ref=e1006]: For GitHub App (if using your own app)
+                          - text: ":"
+                        - list [ref=e1007]:
+                          - listitem [ref=e1008]:
+                            - code [ref=e1009]: APP_ID
+                            - text: ": Your GitHub App’s ID"
+                          - listitem [ref=e1010]:
+                            - code [ref=e1011]: APP_PRIVATE_KEY
+                            - text: ": The private key (.pem) content"
+                    - heading "Navigate to header For AWS Bedrock" [level=4] [ref=e1012]:
+                      - link "Navigate to header" [ref=e1013] [cursor=pointer]:
+                        - /url: "#for-aws-bedrock"
+                        - img [ref=e1015]
+                      - generic [ref=e1017] [cursor=pointer]: For AWS Bedrock
+                    - list [ref=e1018]:
+                      - listitem [ref=e1019]:
+                        - generic [ref=e1020]:
+                          - strong [ref=e1021]: For AWS Authentication
+                          - text: ":"
+                        - list [ref=e1022]:
+                          - listitem [ref=e1023]:
+                            - code [ref=e1024]: AWS_ROLE_TO_ASSUME
+                      - listitem [ref=e1025]:
+                        - generic [ref=e1026]:
+                          - strong [ref=e1027]: For GitHub App (if using your own app)
+                          - text: ":"
+                        - list [ref=e1028]:
+                          - listitem [ref=e1029]:
+                            - code [ref=e1030]: APP_ID
+                            - text: ": Your GitHub App’s ID"
+                          - listitem [ref=e1031]:
+                            - code [ref=e1032]: APP_PRIVATE_KEY
+                            - text: ": The private key (.pem) content"
+              - listitem [ref=e1033]:
+                - generic [ref=e1036]:
+                  - generic [ref=e1037]: "4"
+                  - link "Navigate to header" [ref=e1039] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1041]
+                - generic [ref=e1043]:
+                  - paragraph [ref=e1044]: Create workflow files
+                  - generic [ref=e1045]:
+                    - generic [ref=e1046]: "Create GitHub Actions workflow files that integrate with your cloud provider. The examples below show complete configurations for both AWS Bedrock and Google Vertex AI:"
+                    - generic [ref=e1047]:
+                      - group [ref=e1048]:
+                        - generic "AWS Bedrock workflow" [ref=e1049] [cursor=pointer]:
+                          - img [ref=e1051]
+                          - paragraph [ref=e1053]: AWS Bedrock workflow
+                      - group [ref=e1054]:
+                        - generic "Google Vertex AI workflow" [ref=e1055] [cursor=pointer]:
+                          - img [ref=e1057]
+                          - paragraph [ref=e1059]: Google Vertex AI workflow
+            - heading "Navigate to header Troubleshooting" [level=2] [ref=e1060]:
+              - link "Navigate to header" [ref=e1061] [cursor=pointer]:
+                - /url: "#troubleshooting"
+                - img [ref=e1063]
+              - generic [ref=e1065] [cursor=pointer]: Troubleshooting
+            - heading "Navigate to header Claude not responding to @claude commands" [level=3] [ref=e1066]:
+              - link "Navigate to header" [ref=e1067] [cursor=pointer]:
+                - /url: "#claude-not-responding-to-@claude-commands"
+                - img [ref=e1069]
+              - generic [ref=e1071] [cursor=pointer]: Claude not responding to @claude commands
+            - generic [ref=e1072]:
+              - text: Verify the GitHub App is installed correctly, check that workflows are enabled, ensure API key is set in repository secrets, and confirm the comment contains
+              - code [ref=e1073]: "@claude"
+              - text: (not
+              - code [ref=e1074]: /claude
+              - text: ).
+            - heading "Navigate to header CI not running on Claude’s commits" [level=3] [ref=e1075]:
+              - link "Navigate to header" [ref=e1076] [cursor=pointer]:
+                - /url: "#ci-not-running-on-claude’s-commits"
+                - img [ref=e1078]
+              - generic [ref=e1080] [cursor=pointer]: CI not running on Claude’s commits
+            - generic [ref=e1081]: Ensure you’re using the GitHub App or custom app (not Actions user), check workflow triggers include the necessary events, and verify app permissions include CI triggers.
+            - heading "Navigate to header Authentication errors" [level=3] [ref=e1082]:
+              - link "Navigate to header" [ref=e1083] [cursor=pointer]:
+                - /url: "#authentication-errors"
+                - img [ref=e1085]
+              - generic [ref=e1087] [cursor=pointer]: Authentication errors
+            - generic [ref=e1088]: Confirm API key is valid and has sufficient permissions. For Bedrock/Vertex, check credentials configuration and ensure secrets are named correctly in workflows.
+            - heading "Navigate to header Advanced configuration" [level=2] [ref=e1089]:
+              - link "Navigate to header" [ref=e1090] [cursor=pointer]:
+                - /url: "#advanced-configuration"
+                - img [ref=e1092]
+              - generic [ref=e1094] [cursor=pointer]: Advanced configuration
+            - heading "Navigate to header Action parameters" [level=3] [ref=e1095]:
+              - link "Navigate to header" [ref=e1096] [cursor=pointer]:
+                - /url: "#action-parameters"
+                - img [ref=e1098]
+              - generic [ref=e1100] [cursor=pointer]: Action parameters
+            - generic [ref=e1101]: "The Claude Code Action v1 uses a simplified configuration:"
+            - table [ref=e1104]:
+              - rowgroup [ref=e1105]:
+                - row "Parameter Description Required" [ref=e1106]:
+                  - columnheader "Parameter" [ref=e1107]
+                  - columnheader "Description" [ref=e1108]
+                  - columnheader "Required" [ref=e1109]
+              - rowgroup [ref=e1110]:
+                - row "prompt Instructions for Claude (plain text or a skill name) No*" [ref=e1111]:
+                  - cell "prompt" [ref=e1112]:
+                    - code [ref=e1113]: prompt
+                  - cell "Instructions for Claude (plain text or a skill name)" [ref=e1114]:
+                    - text: Instructions for Claude (plain text or a
+                    - link "skill" [ref=e1115] [cursor=pointer]:
+                      - /url: /docs/en/skills
+                    - text: name)
+                  - cell "No*" [ref=e1116]
+                - row "claude_args CLI arguments passed to Claude Code No" [ref=e1117]:
+                  - cell "claude_args" [ref=e1118]:
+                    - code [ref=e1119]: claude_args
+                  - cell "CLI arguments passed to Claude Code" [ref=e1120]
+                  - cell "No" [ref=e1121]
+                - row "anthropic_api_key Claude API key Yes**" [ref=e1122]:
+                  - cell "anthropic_api_key" [ref=e1123]:
+                    - code [ref=e1124]: anthropic_api_key
+                  - cell "Claude API key" [ref=e1125]
+                  - cell "Yes**" [ref=e1126]
+                - row "github_token GitHub token for API access No" [ref=e1127]:
+                  - cell "github_token" [ref=e1128]:
+                    - code [ref=e1129]: github_token
+                  - cell "GitHub token for API access" [ref=e1130]
+                  - cell "No" [ref=e1131]
+                - 'row "trigger_phrase Custom trigger phrase (default: “@claude”) No" [ref=e1132]':
+                  - cell "trigger_phrase" [ref=e1133]:
+                    - code [ref=e1134]: trigger_phrase
+                  - 'cell "Custom trigger phrase (default: “@claude”)" [ref=e1135]'
+                  - cell "No" [ref=e1136]
+                - row "use_bedrock Use AWS Bedrock instead of Claude API No" [ref=e1137]:
+                  - cell "use_bedrock" [ref=e1138]:
+                    - code [ref=e1139]: use_bedrock
+                  - cell "Use AWS Bedrock instead of Claude API" [ref=e1140]
+                  - cell "No" [ref=e1141]
+                - row "use_vertex Use Google Vertex AI instead of Claude API No" [ref=e1142]:
+                  - cell "use_vertex" [ref=e1143]:
+                    - code [ref=e1144]: use_vertex
+                  - cell "Use Google Vertex AI instead of Claude API" [ref=e1145]
+                  - cell "No" [ref=e1146]
+            - generic [ref=e1147]:
+              - text: "*Prompt is optional - when omitted for issue/PR comments, Claude responds to trigger phrase"
+              - text: "**Required for direct Claude API, not for Bedrock/Vertex"
+            - heading "Navigate to header Pass CLI arguments" [level=4] [ref=e1148]:
+              - link "Navigate to header" [ref=e1149] [cursor=pointer]:
+                - /url: "#pass-cli-arguments"
+                - img [ref=e1151]
+              - generic [ref=e1153] [cursor=pointer]: Pass CLI arguments
+            - generic [ref=e1154]:
+              - text: The
+              - code [ref=e1155]: claude_args
+              - text: "parameter accepts any Claude Code CLI arguments:"
+            - generic [ref=e1156]:
+              - generic [ref=e1157]:
+                - button "Report incorrect code" [ref=e1159] [cursor=pointer]:
+                  - img [ref=e1160]
+                - button "Copy the contents from the code block" [ref=e1163] [cursor=pointer]:
+                  - img [ref=e1164]
+                - button "Ask AI" [ref=e1168] [cursor=pointer]:
+                  - img [ref=e1169]
+              - code [ref=e1175]:
+                - generic [ref=e1176]: "claude_args: \"--max-turns 5 --model claude-sonnet-4-6 --mcp-config /path/to/config.json\""
+            - generic [ref=e1177]: "Common arguments:"
+            - list [ref=e1178]:
+              - listitem [ref=e1179]:
+                - code [ref=e1180]: "--max-turns"
+                - text: ": Maximum conversation turns (default: 10)"
+              - listitem [ref=e1181]:
+                - code [ref=e1182]: "--model"
+                - text: ": Model to use (for example,"
+                - code [ref=e1183]: claude-sonnet-4-6
+                - text: )
+              - listitem [ref=e1184]:
+                - code [ref=e1185]: "--mcp-config"
+                - text: ": Path to MCP configuration"
+              - listitem [ref=e1186]:
+                - code [ref=e1187]: "--allowedTools"
+                - text: ": Comma-separated list of allowed tools. The"
+                - code [ref=e1188]: "--allowed-tools"
+                - text: alias also works.
+              - listitem [ref=e1189]:
+                - code [ref=e1190]: "--debug"
+                - text: ": Enable debug output"
+            - heading "Navigate to header Alternative integration methods" [level=3] [ref=e1191]:
+              - link "Navigate to header" [ref=e1192] [cursor=pointer]:
+                - /url: "#alternative-integration-methods"
+                - img [ref=e1194]
+              - generic [ref=e1196] [cursor=pointer]: Alternative integration methods
+            - generic [ref=e1197]:
+              - text: While the
+              - code [ref=e1198]: /install-github-app
+              - text: "command is the recommended approach, you can also:"
+            - list [ref=e1199]:
+              - listitem [ref=e1200]:
+                - strong [ref=e1201]: Custom GitHub App
+                - text: ": For organizations needing branded usernames or custom authentication flows. Create your own GitHub App with required permissions (contents, issues, pull requests) and use the actions/create-github-app-token action to generate tokens in your workflows."
+              - listitem [ref=e1202]:
+                - strong [ref=e1203]: Manual GitHub Actions
+                - text: ": Direct workflow configuration for maximum flexibility"
+              - listitem [ref=e1204]:
+                - strong [ref=e1205]: MCP Configuration
+                - text: ": Dynamic loading of Model Context Protocol servers"
+            - generic [ref=e1206]:
+              - text: See the
+              - link "Claude Code Action documentation" [ref=e1207] [cursor=pointer]:
+                - /url: https://github.com/anthropics/claude-code-action/blob/main/docs
+              - text: for detailed guides on authentication, security, and advanced configuration.
+            - heading "Navigate to header Customizing Claude’s behavior" [level=3] [ref=e1208]:
+              - link "Navigate to header" [ref=e1209] [cursor=pointer]:
+                - /url: "#customizing-claude’s-behavior"
+                - img [ref=e1211]
+              - generic [ref=e1213] [cursor=pointer]: Customizing Claude’s behavior
+            - generic [ref=e1214]: "You can configure Claude’s behavior in two ways:"
+            - list [ref=e1215]:
+              - listitem [ref=e1216]:
+                - strong [ref=e1217]: CLAUDE.md
+                - text: ": Define coding standards, review criteria, and project-specific rules in a"
+                - code [ref=e1218]: CLAUDE.md
+                - text: file at the root of your repository. Claude will follow these guidelines when creating PRs and responding to requests. Check out our
+                - link "Memory documentation" [ref=e1219] [cursor=pointer]:
+                  - /url: /docs/en/memory
+                - text: for more details.
+              - listitem [ref=e1220]:
+                - strong [ref=e1221]: Custom prompts
+                - text: ": Use the"
+                - code [ref=e1222]: prompt
+                - text: parameter in the workflow file to provide workflow-specific instructions. This allows you to customize Claude’s behavior for different workflows or tasks.
+            - generic [ref=e1223]: Claude will follow these guidelines when creating PRs and responding to requests.
+          - generic [ref=e1225]:
+            - paragraph [ref=e1226]: Was this page helpful?
+            - generic [ref=e1228]:
+              - button "Yes" [ref=e1229] [cursor=pointer]:
+                - img [ref=e1230]
+                - generic [ref=e1232]: "Yes"
+              - button "No" [ref=e1233] [cursor=pointer]:
+                - img [ref=e1234]
+                - generic [ref=e1236]: "No"
+          - generic [ref=e1237]:
+            - link "Code Review" [ref=e1238] [cursor=pointer]:
+              - /url: /docs/en/code-review
+              - img [ref=e1239]
+              - generic [ref=e1241]: Code Review
+            - link "GitHub Enterprise Server" [ref=e1242] [cursor=pointer]:
+              - /url: /docs/en/github-enterprise-server
+              - generic [ref=e1243]: GitHub Enterprise Server
+              - img [ref=e1244]
+          - generic [ref=e1247]:
+            - textbox "Ask a question..." [ref=e1248]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e1249]:
+              - img [ref=e1250]
+      - contentinfo [ref=e1252]:
+        - generic [ref=e1254]:
+          - generic [ref=e1255]:
+            - link "Claude Code Docs home page light logo" [ref=e1256] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e1257]: Claude Code Docs home page
+              - img "light logo" [ref=e1258]
+            - generic [ref=e1259]:
+              - link "x" [ref=e1260] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e1261]: x
+                - img [ref=e1262]
+              - link "linkedin" [ref=e1263] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e1264]: linkedin
+                - img [ref=e1265]
+          - generic [ref=e1266]:
+            - generic [ref=e1268]:
+              - paragraph [ref=e1269]: Company
+              - link "Anthropic" [ref=e1270] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e1271] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e1272] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e1273] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e1274] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e1275] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e1276] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1278]:
+              - paragraph [ref=e1279]: Help and security
+              - link "Availability" [ref=e1280] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e1281] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e1282] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e1284]:
+              - paragraph [ref=e1285]: Learn
+              - link "Courses" [ref=e1286] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e1287] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e1288] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e1289] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e1290] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e1291] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e1292] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e1293] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e1295]:
+              - paragraph [ref=e1296]: Terms and policies
+              - link "Privacy choices" [ref=e1297] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e1298] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e1299] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e1300] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e1301] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e1302] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e1304]:
+        - generic [ref=e1305]:
+          - img [ref=e1306]
+          - generic [ref=e1309]: Assistant
+        - generic [ref=e1310]:
+          - button [ref=e1311] [cursor=pointer]:
+            - img [ref=e1312]
+          - button [ref=e1317] [cursor=pointer]:
+            - img [ref=e1318]
+      - generic [ref=e1322]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e1324]:
+        - textbox [ref=e1325]:
+          - /placeholder: Ask a question...
+        - generic [ref=e1326]:
+          - button [ref=e1327] [cursor=pointer]:
+            - img [ref=e1328]
+          - button [disabled] [ref=e1330]:
+            - img [ref=e1331]

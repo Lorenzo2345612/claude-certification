@@ -1,0 +1,891 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agent SDK" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/quickstart
+                  - generic [ref=e94]: Quickstart
+          - generic [ref=e95]:
+            - heading "Core concepts" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "How the agent loop works" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop
+                  - generic [ref=e103]: How the agent loop works
+              - listitem [ref=e104]:
+                - link "Use Claude Code features" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/claude-code-features
+                  - generic [ref=e108]: Use Claude Code features
+              - listitem [ref=e109]:
+                - link "Work with sessions" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/sessions
+                  - generic [ref=e113]: Work with sessions
+          - generic [ref=e114]:
+            - heading "Input and output" [level=5] [ref=e116]
+            - list [ref=e117]:
+              - listitem [ref=e118]:
+                - link "Streaming Input" [ref=e119] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-vs-single-mode
+                  - generic [ref=e122]: Streaming Input
+              - listitem [ref=e123]:
+                - link "Handle approvals and user input" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/user-input
+                  - generic [ref=e127]: Handle approvals and user input
+              - listitem [ref=e128]:
+                - link "Stream responses in real-time" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-output
+                  - generic [ref=e132]: Stream responses in real-time
+              - listitem [ref=e133]:
+                - link "Get structured output from agents" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/structured-outputs
+                  - generic [ref=e137]: Get structured output from agents
+          - generic [ref=e138]:
+            - heading "Extend with tools" [level=5] [ref=e140]
+            - list [ref=e141]:
+              - listitem [ref=e142]:
+                - link "Give Claude custom tools" [ref=e143] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/custom-tools
+                  - generic [ref=e146]: Give Claude custom tools
+              - listitem [ref=e147]:
+                - link "Connect to external tools with MCP" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/mcp
+                  - generic [ref=e151]: Connect to external tools with MCP
+              - listitem [ref=e152]:
+                - link "Scale to many tools with tool search" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/tool-search
+                  - generic [ref=e156]: Scale to many tools with tool search
+              - listitem [ref=e157]:
+                - link "Subagents in the SDK" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/subagents
+                  - generic [ref=e161]: Subagents in the SDK
+          - generic [ref=e162]:
+            - heading "Customize behavior" [level=5] [ref=e164]
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - link "Modifying system prompts" [ref=e167] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/modifying-system-prompts
+                  - generic [ref=e170]: Modifying system prompts
+              - listitem [ref=e171]:
+                - link "Slash Commands in the SDK" [ref=e172] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/slash-commands
+                  - generic [ref=e175]: Slash Commands in the SDK
+              - listitem [ref=e176]:
+                - link "Agent Skills in the SDK" [ref=e177] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/skills
+                  - generic [ref=e180]: Agent Skills in the SDK
+              - listitem [ref=e181]:
+                - link "Plugins in the SDK" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/plugins
+                  - generic [ref=e185]: Plugins in the SDK
+          - generic [ref=e186]:
+            - heading "Control and observability" [level=5] [ref=e188]
+            - list [ref=e189]:
+              - listitem [ref=e190]:
+                - link "Configure permissions" [ref=e191] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/permissions
+                  - generic [ref=e194]: Configure permissions
+              - listitem [ref=e195]:
+                - link "Intercept and control agent behavior with hooks" [ref=e196] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hooks
+                  - generic [ref=e199]: Intercept and control agent behavior with hooks
+              - listitem [ref=e200]:
+                - link "Rewind file changes with checkpointing" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                  - generic [ref=e204]: Rewind file changes with checkpointing
+              - listitem [ref=e205]:
+                - link "Track cost and usage" [ref=e206] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/cost-tracking
+                  - generic [ref=e209]: Track cost and usage
+              - listitem [ref=e210]:
+                - link "Observability with OpenTelemetry" [ref=e211] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/observability
+                  - generic [ref=e214]: Observability with OpenTelemetry
+              - listitem [ref=e215]:
+                - link "Todo Lists" [ref=e216] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/todo-tracking
+                  - generic [ref=e219]: Todo Lists
+          - generic [ref=e220]:
+            - heading "Deployment" [level=5] [ref=e222]
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - link "Hosting the Agent SDK" [ref=e225] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hosting
+                  - generic [ref=e228]: Hosting the Agent SDK
+              - listitem [ref=e229]:
+                - link "Securely deploying AI agents" [ref=e230] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/secure-deployment
+                  - generic [ref=e233]: Securely deploying AI agents
+          - generic [ref=e234]:
+            - heading "SDK references" [level=5] [ref=e236]
+            - list [ref=e237]:
+              - listitem [ref=e238]:
+                - link "TypeScript SDK" [ref=e239] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript
+                  - generic [ref=e242]: TypeScript SDK
+              - listitem [ref=e243]:
+                - link "TypeScript V2 (preview)" [ref=e244] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript-v2-preview
+                  - generic [ref=e247]: TypeScript V2 (preview)
+              - listitem [ref=e248]:
+                - link "Python SDK" [ref=e249] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python
+                  - generic [ref=e252]: Python SDK
+              - listitem [ref=e253]:
+                - link "Migration Guide" [ref=e254] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/migration-guide
+                  - generic [ref=e257]: Migration Guide
+        - generic [ref=e260]:
+          - banner [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]: Core concepts
+              - generic [ref=e264]:
+                - heading "Work with sessions" [level=1] [ref=e265]
+                - generic [ref=e266]:
+                  - button "Copy page" [ref=e267] [cursor=pointer]:
+                    - generic [ref=e268]:
+                      - img [ref=e269]
+                      - generic [ref=e272]: Copy page
+                  - button "More actions" [ref=e273] [cursor=pointer]:
+                    - img [ref=e274]
+            - paragraph [ref=e277]: How sessions persist agent conversation history, and when to use continue, resume, and fork to return to a prior run.
+          - generic [ref=e278]:
+            - generic [ref=e279]: A session is the conversation history the SDK accumulates while your agent works. It contains your prompt, every tool call the agent made, every tool result, and every response. The SDK writes it to disk automatically so you can return to it later.
+            - generic [ref=e280]: "Returning to a session means the agent has full context from before: files it already read, analysis it already performed, decisions it already made. You can ask a follow-up question, recover from an interruption, or branch off to try a different approach."
+            - generic [ref=e281]:
+              - img "Note" [ref=e283]
+              - generic [ref=e286]:
+                - text: Sessions persist the
+                - strong [ref=e287]: conversation
+                - text: ", not the filesystem. To snapshot and revert file changes the agent made, use"
+                - link "file checkpointing" [ref=e288] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                - text: .
+            - generic [ref=e289]:
+              - text: This guide covers how to pick the right approach for your app, the SDK interfaces that track sessions automatically, how to capture session IDs and use
+              - code [ref=e290]: resume
+              - text: and
+              - code [ref=e291]: fork
+              - text: manually, and what to know about resuming sessions across hosts.
+            - heading "Navigate to header Choose an approach" [level=2] [ref=e292]:
+              - link "Navigate to header" [ref=e293] [cursor=pointer]:
+                - /url: "#choose-an-approach"
+                - img [ref=e295]
+              - generic [ref=e297] [cursor=pointer]: Choose an approach
+            - generic [ref=e298]:
+              - text: How much session handling you need depends on your application’s shape. Session management comes into play when you send multiple prompts that should share context. Within a single
+              - code [ref=e299]: query()
+              - text: call, the agent already takes as many turns as it needs, and permission prompts and
+              - code [ref=e300]: AskUserQuestion
+              - text: are
+              - link "handled in-loop" [ref=e301] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/user-input
+              - text: (they don’t end the call).
+            - table [ref=e304]:
+              - rowgroup [ref=e305]:
+                - row "What you’re building What to use" [ref=e306]:
+                  - columnheader "What you’re building" [ref=e307]
+                  - columnheader "What to use" [ref=e308]
+              - rowgroup [ref=e309]:
+                - 'row "One-shot task: single prompt, no follow-up Nothing extra. One query() call handles it." [ref=e310]':
+                  - 'cell "One-shot task: single prompt, no follow-up" [ref=e311]'
+                  - cell "Nothing extra. One query() call handles it." [ref=e312]:
+                    - text: Nothing extra. One
+                    - code [ref=e313]: query()
+                    - text: call handles it.
+                - 'row "Multi-turn chat in one process ClaudeSDKClient (Python) or continue: true (TypeScript). The SDK tracks the session for you with no ID handling." [ref=e314]':
+                  - cell "Multi-turn chat in one process" [ref=e315]
+                  - 'cell "ClaudeSDKClient (Python) or continue: true (TypeScript). The SDK tracks the session for you with no ID handling." [ref=e316]':
+                    - 'link "ClaudeSDKClient (Python) or continue: true (TypeScript)" [ref=e317] [cursor=pointer]':
+                      - /url: "#automatic-session-management"
+                      - code [ref=e318]: ClaudeSDKClient
+                      - text: (Python) or
+                      - code [ref=e319]: "continue: true"
+                      - text: (TypeScript)
+                    - text: . The SDK tracks the session for you with no ID handling.
+                - 'row "Pick up where you left off after a process restart continue_conversation=True (Python) / continue: true (TypeScript). Resumes the most recent session in the directory, no ID needed." [ref=e320]':
+                  - cell "Pick up where you left off after a process restart" [ref=e321]
+                  - 'cell "continue_conversation=True (Python) / continue: true (TypeScript). Resumes the most recent session in the directory, no ID needed." [ref=e322]':
+                    - code [ref=e323]: continue_conversation=True
+                    - text: (Python) /
+                    - code [ref=e324]: "continue: true"
+                    - text: (TypeScript). Resumes the most recent session in the directory, no ID needed.
+                - row "Resume a specific past session (not the most recent) Capture the session ID and pass it to resume." [ref=e325]:
+                  - cell "Resume a specific past session (not the most recent)" [ref=e326]
+                  - cell "Capture the session ID and pass it to resume." [ref=e327]:
+                    - text: Capture the session ID and pass it to
+                    - code [ref=e328]: resume
+                    - text: .
+                - row "Try an alternative approach without losing the original Fork the session." [ref=e329]:
+                  - cell "Try an alternative approach without losing the original" [ref=e330]
+                  - cell "Fork the session." [ref=e331]
+                - 'row "Stateless task, don’t want anything written to disk (TypeScript only) Set persistSession: false. The session exists only in memory for the duration of the call. Python always persists to disk." [ref=e332]':
+                  - cell "Stateless task, don’t want anything written to disk (TypeScript only)" [ref=e333]
+                  - 'cell "Set persistSession: false. The session exists only in memory for the duration of the call. Python always persists to disk." [ref=e334]':
+                    - text: Set
+                    - 'link "persistSession: false" [ref=e335] [cursor=pointer]':
+                      - /url: /docs/en/agent-sdk/typescript#options
+                      - code [ref=e336]: "persistSession: false"
+                    - text: . The session exists only in memory for the duration of the call. Python always persists to disk.
+            - heading "Navigate to header Continue, resume, and fork" [level=3] [ref=e337]:
+              - link "Navigate to header" [ref=e338] [cursor=pointer]:
+                - /url: "#continue-resume-and-fork"
+                - img [ref=e340]
+              - generic [ref=e342] [cursor=pointer]: Continue, resume, and fork
+            - generic [ref=e343]:
+              - text: Continue, resume, and fork are option fields you set on
+              - code [ref=e344]: query()
+              - text: (
+              - link "ClaudeAgentOptions" [ref=e345] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#claude-agent-options
+                - code [ref=e346]: ClaudeAgentOptions
+              - text: in Python,
+              - link "Options" [ref=e347] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#options
+                - code [ref=e348]: Options
+              - text: in TypeScript).
+            - generic [ref=e349]:
+              - strong [ref=e350]: Continue
+              - text: and
+              - strong [ref=e351]: resume
+              - text: "both pick up an existing session and add to it. The difference is how they find that session:"
+            - list [ref=e352]:
+              - listitem [ref=e353]:
+                - strong [ref=e354]: Continue
+                - text: finds the most recent session in the current directory. You don’t track anything. Works well when your app runs one conversation at a time.
+              - listitem [ref=e355]:
+                - strong [ref=e356]: Resume
+                - text: takes a specific session ID. You track the ID. Required when you have multiple sessions (for example, one per user in a multi-user app) or want to return to one that isn’t the most recent.
+            - generic [ref=e357]:
+              - strong [ref=e358]: Fork
+              - text: "is different: it creates a new session that starts with a copy of the original’s history. The original stays unchanged. Use fork to try a different direction while keeping the option to go back."
+            - heading "Navigate to header Automatic session management" [level=2] [ref=e359]:
+              - link "Navigate to header" [ref=e360] [cursor=pointer]:
+                - /url: "#automatic-session-management"
+                - img [ref=e362]
+              - generic [ref=e364] [cursor=pointer]: Automatic session management
+            - generic [ref=e365]: Both SDKs offer an interface that tracks session state for you across calls, so you don’t pass IDs around manually. Use these for multi-turn conversations within a single process.
+            - 'heading "Navigate to header Python: ClaudeSDKClient" [level=3] [ref=e366]':
+              - link "Navigate to header" [ref=e367] [cursor=pointer]:
+                - /url: "#python-claudesdkclient"
+                - img [ref=e369]
+              - generic [ref=e371] [cursor=pointer]:
+                - text: "Python:"
+                - code [ref=e372]: ClaudeSDKClient
+            - generic [ref=e373]:
+              - link "ClaudeSDKClient" [ref=e374] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#claude-sdk-client
+                - code [ref=e375]: ClaudeSDKClient
+              - text: handles session IDs internally. Each call to
+              - code [ref=e376]: client.query()
+              - text: automatically continues the same session. Call
+              - link "client.receive_response()" [ref=e377] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#claude-sdk-client
+                - code [ref=e378]: client.receive_response()
+              - text: to iterate over the messages for the current query. The client must be used as an async context manager.
+            - generic [ref=e379]:
+              - text: This example runs two queries against the same
+              - code [ref=e380]: client
+              - text: . The first asks the agent to analyze a module; the second asks it to refactor that module. Because both calls go through the same client instance, the second query has full context from the first without any explicit
+              - code [ref=e381]: resume
+              - text: "or session ID:"
+            - generic [ref=e382]:
+              - generic [ref=e383]:
+                - generic "Python" [ref=e385]
+                - generic [ref=e386]:
+                  - button "Report incorrect code" [ref=e388] [cursor=pointer]:
+                    - img [ref=e389]
+                  - button "Copy the contents from the code block" [ref=e392] [cursor=pointer]:
+                    - img [ref=e393]
+                  - button "Ask AI" [ref=e397] [cursor=pointer]:
+                    - img [ref=e398]
+              - code [ref=e404]:
+                - generic [ref=e405]: import asyncio
+                - generic [ref=e406]: from claude_agent_sdk import (
+                - generic [ref=e407]: ClaudeSDKClient,
+                - generic [ref=e408]: ClaudeAgentOptions,
+                - generic [ref=e409]: AssistantMessage,
+                - generic [ref=e410]: ResultMessage,
+                - generic [ref=e411]: TextBlock,
+                - generic [ref=e412]: )
+                - generic [ref=e413]: "def print_response(message):"
+                - generic [ref=e414]: "\"\"\"Print only the human-readable parts of a message.\"\"\""
+                - generic [ref=e415]: "if isinstance(message, AssistantMessage):"
+                - generic [ref=e416]: "for block in message.content:"
+                - generic [ref=e417]: "if isinstance(block, TextBlock):"
+                - generic [ref=e418]: print(block.text)
+                - generic [ref=e419]: "elif isinstance(message, ResultMessage):"
+                - generic [ref=e420]: cost = (
+                - generic [ref=e421]: "f\"${message.total_cost_usd:.4f}\""
+                - generic [ref=e422]: if message.total_cost_usd is not None
+                - generic [ref=e423]: else "N/A"
+                - generic [ref=e424]: )
+                - generic [ref=e425]: "print(f\"[done: {message.subtype}, cost: {cost}]\")"
+                - generic [ref=e426]: "async def main():"
+                - generic [ref=e427]: options = ClaudeAgentOptions(
+                - generic [ref=e428]: allowed_tools=["Read", "Edit", "Glob", "Grep"],
+                - generic [ref=e429]: )
+                - generic [ref=e430]: "async with ClaudeSDKClient(options=options) as client:"
+                - generic [ref=e431]: "# First query: client captures the session ID internally"
+                - generic [ref=e432]: await client.query("Analyze the auth module")
+                - generic [ref=e433]: "async for message in client.receive_response():"
+                - generic [ref=e434]: print_response(message)
+                - generic [ref=e435]: "# Second query: automatically continues the same session"
+                - generic [ref=e436]: await client.query("Now refactor it to use JWT")
+                - generic [ref=e437]: "async for message in client.receive_response():"
+                - generic [ref=e438]: print_response(message)
+                - generic [ref=e439]: asyncio.run(main())
+            - generic [ref=e440]:
+              - text: See the
+              - link "Python SDK reference" [ref=e441] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#choosing-between-query-and-claude-sdk-client
+              - text: for details on when to use
+              - code [ref=e442]: ClaudeSDKClient
+              - text: vs the standalone
+              - code [ref=e443]: query()
+              - text: function.
+            - 'heading "Navigate to header TypeScript: continue: true" [level=3] [ref=e444]':
+              - link "Navigate to header" [ref=e445] [cursor=pointer]:
+                - /url: "#typescript-continue-true"
+                - img [ref=e447]
+              - generic [ref=e449] [cursor=pointer]:
+                - text: "TypeScript:"
+                - code [ref=e450]: "continue: true"
+            - generic [ref=e451]:
+              - text: The stable TypeScript SDK (the
+              - code [ref=e452]: query()
+              - text: function used throughout these docs, sometimes called V1) doesn’t have a session-holding client object like Python’s
+              - code [ref=e453]: ClaudeSDKClient
+              - text: . Instead, pass
+              - code [ref=e454]: "continue: true"
+              - text: on each subsequent
+              - code [ref=e455]: query()
+              - text: call and the SDK picks up the most recent session in the current directory. No ID tracking required.
+            - generic [ref=e456]:
+              - text: This example makes two separate
+              - code [ref=e457]: query()
+              - text: calls. The first creates a fresh session; the second sets
+              - code [ref=e458]: "continue: true"
+              - text: ", which tells the SDK to find and resume the most recent session on disk. The agent has full context from the first call:"
+            - generic [ref=e459]:
+              - generic [ref=e460]:
+                - generic "TypeScript" [ref=e462]
+                - generic [ref=e463]:
+                  - button "Report incorrect code" [ref=e465] [cursor=pointer]:
+                    - img [ref=e466]
+                  - button "Copy the contents from the code block" [ref=e469] [cursor=pointer]:
+                    - img [ref=e470]
+                  - button "Ask AI" [ref=e474] [cursor=pointer]:
+                    - img [ref=e475]
+              - code [ref=e481]:
+                - generic [ref=e482]: "import { query } from \"@anthropic-ai/claude-agent-sdk\";"
+                - generic [ref=e483]: "// First query: creates a new session"
+                - generic [ref=e484]: "for await (const message of query({"
+                - generic [ref=e485]: "prompt: \"Analyze the auth module\","
+                - generic [ref=e486]: "options: { allowedTools: [\"Read\", \"Glob\", \"Grep\"] }"
+                - generic [ref=e487]: "})) {"
+                - generic [ref=e488]: "if (message.type === \"result\" && message.subtype === \"success\") {"
+                - generic [ref=e489]: console.log(message.result);
+                - generic [ref=e490]: "}"
+                - generic [ref=e491]: "}"
+                - generic [ref=e492]: "// Second query: continue: true resumes the most recent session"
+                - generic [ref=e493]: "for await (const message of query({"
+                - generic [ref=e494]: "prompt: \"Now refactor it to use JWT\","
+                - generic [ref=e495]: "options: {"
+                - generic [ref=e496]: "continue: true,"
+                - generic [ref=e497]: "allowedTools: [\"Read\", \"Edit\", \"Write\", \"Glob\", \"Grep\"]"
+                - generic [ref=e498]: "}"
+                - generic [ref=e499]: "})) {"
+                - generic [ref=e500]: "if (message.type === \"result\" && message.subtype === \"success\") {"
+                - generic [ref=e501]: console.log(message.result);
+                - generic [ref=e502]: "}"
+                - generic [ref=e503]: "}"
+            - generic [ref=e504]:
+              - img "Note" [ref=e506]
+              - generic [ref=e509]:
+                - text: There’s also a
+                - link "V2 preview" [ref=e510] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript-v2-preview
+                - text: of the TypeScript SDK that provides
+                - code [ref=e511]: createSession()
+                - text: with a
+                - code [ref=e512]: send
+                - text: /
+                - code [ref=e513]: stream
+                - text: pattern, closer to Python’s
+                - code [ref=e514]: ClaudeSDKClient
+                - text: in feel. V2 is unstable and its APIs may change; the rest of this documentation uses the stable V1
+                - code [ref=e515]: query()
+                - text: function.
+            - heading "Navigate to header Use session options with query()" [level=2] [ref=e516]:
+              - link "Navigate to header" [ref=e517] [cursor=pointer]:
+                - /url: "#use-session-options-with-query"
+                - img [ref=e519]
+              - generic [ref=e521] [cursor=pointer]:
+                - text: Use session options with
+                - code [ref=e522]: query()
+            - heading "Navigate to header Capture the session ID" [level=3] [ref=e523]:
+              - link "Navigate to header" [ref=e524] [cursor=pointer]:
+                - /url: "#capture-the-session-id"
+                - img [ref=e526]
+              - generic [ref=e528] [cursor=pointer]: Capture the session ID
+            - generic [ref=e529]:
+              - text: Resume and fork require a session ID. Read it from the
+              - code [ref=e530]: session_id
+              - text: field on the result message (
+              - link "ResultMessage" [ref=e531] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#result-message
+                - code [ref=e532]: ResultMessage
+              - text: in Python,
+              - link "SDKResultMessage" [ref=e533] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#sdk-result-message
+                - code [ref=e534]: SDKResultMessage
+              - text: in TypeScript), which is present on every result regardless of success or error. In TypeScript the ID is also available earlier as a direct field on the init
+              - code [ref=e535]: SystemMessage
+              - text: ; in Python it’s nested inside
+              - code [ref=e536]: SystemMessage.data
+              - text: .
+            - generic [ref=e537]:
+              - generic [ref=e538]:
+                - tablist [ref=e539]:
+                  - tab "Python" [selected] [ref=e540] [cursor=pointer]:
+                    - generic [ref=e541]: Python
+                  - tab "TypeScript" [ref=e543] [cursor=pointer]:
+                    - generic [ref=e544]: TypeScript
+                - generic [ref=e545]:
+                  - button "Report incorrect code" [ref=e547] [cursor=pointer]:
+                    - img [ref=e548]
+                  - button "Copy the contents from the code block" [ref=e551] [cursor=pointer]:
+                    - img [ref=e552]
+                  - button "Ask AI" [ref=e556] [cursor=pointer]:
+                    - img [ref=e557]
+              - tabpanel "Python" [ref=e561]:
+                - code [ref=e565]:
+                  - generic [ref=e566]: import asyncio
+                  - generic [ref=e567]: from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
+                  - generic [ref=e568]: "async def main():"
+                  - generic [ref=e569]: session_id = None
+                  - generic [ref=e570]: async for message in query(
+                  - generic [ref=e571]: prompt="Analyze the auth module and suggest improvements",
+                  - generic [ref=e572]: options=ClaudeAgentOptions(
+                  - generic [ref=e573]: allowed_tools=["Read", "Glob", "Grep"],
+                  - generic [ref=e574]: ),
+                  - generic [ref=e575]: "):"
+                  - generic [ref=e576]: "if isinstance(message, ResultMessage):"
+                  - generic [ref=e577]: session_id = message.session_id
+                  - generic [ref=e578]: "if message.subtype == \"success\":"
+                  - generic [ref=e579]: print(message.result)
+                  - generic [ref=e580]: "print(f\"Session ID: {session_id}\")"
+                  - generic [ref=e581]: return session_id
+                  - generic [ref=e582]: session_id = asyncio.run(main())
+            - heading "Navigate to header Resume by ID" [level=3] [ref=e583]:
+              - link "Navigate to header" [ref=e584] [cursor=pointer]:
+                - /url: "#resume-by-id"
+                - img [ref=e586]
+              - generic [ref=e588] [cursor=pointer]: Resume by ID
+            - generic [ref=e589]:
+              - text: Pass a session ID to
+              - code [ref=e590]: resume
+              - text: "to return to that specific session. The agent picks up with full context from wherever the session left off. Common reasons to resume:"
+            - list [ref=e591]:
+              - listitem [ref=e592]:
+                - strong [ref=e593]: Follow up on a completed task.
+                - text: The agent already analyzed something; now you want it to act on that analysis without re-reading files.
+              - listitem [ref=e594]:
+                - strong [ref=e595]: Recover from a limit.
+                - text: The first run ended with
+                - code [ref=e596]: error_max_turns
+                - text: or
+                - code [ref=e597]: error_max_budget_usd
+                - text: (see
+                - link "Handle the result" [ref=e598] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop#handle-the-result
+                - text: ); resume with a higher limit.
+              - listitem [ref=e599]:
+                - strong [ref=e600]: Restart your process.
+                - text: You captured the ID before shutdown and want to restore the conversation.
+            - generic [ref=e601]:
+              - text: This example resumes the session from
+              - link "Capture the session ID" [ref=e602] [cursor=pointer]:
+                - /url: "#capture-the-session-id"
+              - text: "with a follow-up prompt. Because you’re resuming, the agent already has the prior analysis in context:"
+            - generic [ref=e603]:
+              - generic [ref=e604]:
+                - tablist [ref=e605]:
+                  - tab "Python" [selected] [ref=e606] [cursor=pointer]:
+                    - generic [ref=e607]: Python
+                  - tab "TypeScript" [ref=e609] [cursor=pointer]:
+                    - generic [ref=e610]: TypeScript
+                - generic [ref=e611]:
+                  - button "Report incorrect code" [ref=e613] [cursor=pointer]:
+                    - img [ref=e614]
+                  - button "Copy the contents from the code block" [ref=e617] [cursor=pointer]:
+                    - img [ref=e618]
+                  - button "Ask AI" [ref=e622] [cursor=pointer]:
+                    - img [ref=e623]
+              - tabpanel "Python" [ref=e627]:
+                - code [ref=e631]:
+                  - generic [ref=e632]: "# Earlier session analyzed the code; now build on that analysis"
+                  - generic [ref=e633]: async for message in query(
+                  - generic [ref=e634]: prompt="Now implement the refactoring you suggested",
+                  - generic [ref=e635]: options=ClaudeAgentOptions(
+                  - generic [ref=e636]: resume=session_id,
+                  - generic [ref=e637]: allowed_tools=["Read", "Edit", "Write", "Glob", "Grep"],
+                  - generic [ref=e638]: ),
+                  - generic [ref=e639]: "):"
+                  - generic [ref=e640]: "if isinstance(message, ResultMessage) and message.subtype == \"success\":"
+                  - generic [ref=e641]: print(message.result)
+            - generic [ref=e642]:
+              - img "Tip" [ref=e644]
+              - generic [ref=e647]:
+                - text: If a
+                - code [ref=e648]: resume
+                - text: call returns a fresh session instead of the expected history, the most common cause is a mismatched
+                - code [ref=e649]: cwd
+                - text: . Sessions are stored under
+                - code [ref=e650]: ~/.claude/projects/<encoded-cwd>/*.jsonl
+                - text: ", where"
+                - code [ref=e651]: <encoded-cwd>
+                - text: is the absolute working directory with every non-alphanumeric character replaced by
+                - code [ref=e652]: "-"
+                - text: (so
+                - code [ref=e653]: /Users/me/proj
+                - text: becomes
+                - code [ref=e654]: "-Users-me-proj"
+                - text: ). If your resume call runs from a different directory, the SDK looks in the wrong place. The session file also needs to exist on the current machine.
+            - heading "Navigate to header Fork to explore alternatives" [level=3] [ref=e655]:
+              - link "Navigate to header" [ref=e656] [cursor=pointer]:
+                - /url: "#fork-to-explore-alternatives"
+                - img [ref=e658]
+              - generic [ref=e660] [cursor=pointer]: Fork to explore alternatives
+            - generic [ref=e661]: Forking creates a new session that starts with a copy of the original’s history but diverges from that point. The fork gets its own session ID; the original’s ID and history stay unchanged. You end up with two independent sessions you can resume separately.
+            - generic [ref=e662]:
+              - img "Note" [ref=e664]
+              - generic [ref=e667]:
+                - text: Forking branches the conversation history, not the filesystem. If a forked agent edits files, those changes are real and visible to any session working in the same directory. To branch and revert file changes, use
+                - link "file checkpointing" [ref=e668] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                - text: .
+            - generic [ref=e669]:
+              - text: This example builds on
+              - link "Capture the session ID" [ref=e670] [cursor=pointer]:
+                - /url: "#capture-the-session-id"
+              - text: ": you’ve already analyzed an auth module in"
+              - code [ref=e671]: session_id
+              - text: and want to explore OAuth2 without losing the JWT-focused thread. The first block forks the session and captures the fork’s ID (
+              - code [ref=e672]: forked_id
+              - text: ); the second block resumes the original
+              - code [ref=e673]: session_id
+              - text: "to continue down the JWT path. You now have two session IDs pointing at two separate histories:"
+            - generic [ref=e674]:
+              - generic [ref=e675]:
+                - tablist [ref=e676]:
+                  - tab "Python" [selected] [ref=e677] [cursor=pointer]:
+                    - generic [ref=e678]: Python
+                  - tab "TypeScript" [ref=e680] [cursor=pointer]:
+                    - generic [ref=e681]: TypeScript
+                - generic [ref=e682]:
+                  - button "Report incorrect code" [ref=e684] [cursor=pointer]:
+                    - img [ref=e685]
+                  - button "Copy the contents from the code block" [ref=e688] [cursor=pointer]:
+                    - img [ref=e689]
+                  - button "Ask AI" [ref=e693] [cursor=pointer]:
+                    - img [ref=e694]
+              - tabpanel "Python" [ref=e698]:
+                - code [ref=e702]:
+                  - generic [ref=e703]: "# Fork: branch from session_id into a new session"
+                  - generic [ref=e704]: forked_id = None
+                  - generic [ref=e705]: async for message in query(
+                  - generic [ref=e706]: prompt="Instead of JWT, implement OAuth2 for the auth module",
+                  - generic [ref=e707]: options=ClaudeAgentOptions(
+                  - generic [ref=e708]: resume=session_id,
+                  - generic [ref=e709]: fork_session=True,
+                  - generic [ref=e710]: ),
+                  - generic [ref=e711]: "):"
+                  - generic [ref=e712]: "if isinstance(message, ResultMessage):"
+                  - generic [ref=e713]: "forked_id = message.session_id # The fork's ID, distinct from session_id"
+                  - generic [ref=e714]: "if message.subtype == \"success\":"
+                  - generic [ref=e715]: print(message.result)
+                  - generic [ref=e716]: "print(f\"Forked session: {forked_id}\")"
+                  - generic [ref=e717]: "# Original session is untouched; resuming it continues the JWT thread"
+                  - generic [ref=e718]: async for message in query(
+                  - generic [ref=e719]: prompt="Continue with the JWT approach",
+                  - generic [ref=e720]: options=ClaudeAgentOptions(resume=session_id),
+                  - generic [ref=e721]: "):"
+                  - generic [ref=e722]: "if isinstance(message, ResultMessage) and message.subtype == \"success\":"
+                  - generic [ref=e723]: print(message.result)
+            - heading "Navigate to header Resume across hosts" [level=2] [ref=e724]:
+              - link "Navigate to header" [ref=e725] [cursor=pointer]:
+                - /url: "#resume-across-hosts"
+                - img [ref=e727]
+              - generic [ref=e729] [cursor=pointer]: Resume across hosts
+            - generic [ref=e730]: "Session files are local to the machine that created them. To resume a session on a different host (CI workers, ephemeral containers, serverless), you have two options:"
+            - list [ref=e731]:
+              - listitem [ref=e732]:
+                - strong [ref=e733]: Move the session file.
+                - text: Persist
+                - code [ref=e734]: ~/.claude/projects/<encoded-cwd>/<session-id>.jsonl
+                - text: from the first run and restore it to the same path on the new host before calling
+                - code [ref=e735]: resume
+                - text: . The
+                - code [ref=e736]: cwd
+                - text: must match.
+              - listitem [ref=e737]:
+                - strong [ref=e738]: Don’t rely on session resume.
+                - text: Capture the results you need (analysis output, decisions, file diffs) as application state and pass them into a fresh session’s prompt. This is often more robust than shipping transcript files around.
+            - generic [ref=e739]:
+              - text: "Both SDKs expose functions for enumerating sessions on disk and reading their messages:"
+              - link "listSessions()" [ref=e740] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#list-sessions
+                - code [ref=e741]: listSessions()
+              - text: and
+              - link "getSessionMessages()" [ref=e742] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#get-session-messages
+                - code [ref=e743]: getSessionMessages()
+              - text: in TypeScript,
+              - link "list_sessions()" [ref=e744] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#list-sessions
+                - code [ref=e745]: list_sessions()
+              - text: and
+              - link "get_session_messages()" [ref=e746] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#get-session-messages
+                - code [ref=e747]: get_session_messages()
+              - text: in Python. Use them to build custom session pickers, cleanup logic, or transcript viewers.
+            - generic [ref=e748]:
+              - text: "Both SDKs also expose functions for looking up and mutating individual sessions:"
+              - link "get_session_info()" [ref=e749] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#get-session-info
+                - code [ref=e750]: get_session_info()
+              - text: ","
+              - link "rename_session()" [ref=e751] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#rename-session
+                - code [ref=e752]: rename_session()
+              - text: ", and"
+              - link "tag_session()" [ref=e753] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#tag-session
+                - code [ref=e754]: tag_session()
+              - text: in Python, and
+              - link "getSessionInfo()" [ref=e755] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#get-session-info
+                - code [ref=e756]: getSessionInfo()
+              - text: ","
+              - link "renameSession()" [ref=e757] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#rename-session
+                - code [ref=e758]: renameSession()
+              - text: ", and"
+              - link "tagSession()" [ref=e759] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#tag-session
+                - code [ref=e760]: tagSession()
+              - text: in TypeScript. Use them to organize sessions by tag or give them human-readable titles.
+            - heading "Navigate to header Related resources" [level=2] [ref=e761]:
+              - link "Navigate to header" [ref=e762] [cursor=pointer]:
+                - /url: "#related-resources"
+                - img [ref=e764]
+              - generic [ref=e766] [cursor=pointer]: Related resources
+            - list [ref=e767]:
+              - listitem [ref=e768]:
+                - link "How the agent loop works" [ref=e769] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop
+                - text: ": Understand turns, messages, and context accumulation within a session"
+              - listitem [ref=e770]:
+                - link "File checkpointing" [ref=e771] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                - text: ": Track and revert file changes across sessions"
+              - listitem [ref=e772]:
+                - link "Python ClaudeAgentOptions" [ref=e773] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python#claude-agent-options
+                  - text: Python
+                  - code [ref=e774]: ClaudeAgentOptions
+                - text: ": Full session option reference for Python"
+              - listitem [ref=e775]:
+                - link "TypeScript Options" [ref=e776] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript#options
+                  - text: TypeScript
+                  - code [ref=e777]: Options
+                - text: ": Full session option reference for TypeScript"
+          - generic [ref=e779]:
+            - paragraph [ref=e780]: Was this page helpful?
+            - generic [ref=e782]:
+              - button "Yes" [ref=e783] [cursor=pointer]:
+                - img [ref=e784]
+                - generic [ref=e786]: "Yes"
+              - button "No" [ref=e787] [cursor=pointer]:
+                - img [ref=e788]
+                - generic [ref=e790]: "No"
+          - generic [ref=e791]:
+            - link "Use Claude Code features" [ref=e792] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/claude-code-features
+              - img [ref=e793]
+              - generic [ref=e795]: Use Claude Code features
+            - link "Streaming Input" [ref=e796] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/streaming-vs-single-mode
+              - generic [ref=e797]: Streaming Input
+              - img [ref=e798]
+          - generic [ref=e801]:
+            - textbox "Ask a question..." [ref=e802]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e803]:
+              - img [ref=e804]
+      - contentinfo [ref=e806]:
+        - generic [ref=e808]:
+          - generic [ref=e809]:
+            - link "Claude Code Docs home page light logo" [ref=e810] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e811]: Claude Code Docs home page
+              - img "light logo" [ref=e812]
+            - generic [ref=e813]:
+              - link "x" [ref=e814] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e815]: x
+                - img [ref=e816]
+              - link "linkedin" [ref=e817] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e818]: linkedin
+                - img [ref=e819]
+          - generic [ref=e820]:
+            - generic [ref=e822]:
+              - paragraph [ref=e823]: Company
+              - link "Anthropic" [ref=e824] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e825] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e826] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e827] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e828] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e829] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e830] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e832]:
+              - paragraph [ref=e833]: Help and security
+              - link "Availability" [ref=e834] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e835] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e836] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e838]:
+              - paragraph [ref=e839]: Learn
+              - link "Courses" [ref=e840] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e841] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e842] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e843] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e844] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e845] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e846] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e847] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e849]:
+              - paragraph [ref=e850]: Terms and policies
+              - link "Privacy choices" [ref=e851] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e852] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e853] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e854] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e855] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e856] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e858]:
+        - generic [ref=e859]:
+          - img [ref=e860]
+          - generic [ref=e863]: Assistant
+        - generic [ref=e864]:
+          - button [ref=e865] [cursor=pointer]:
+            - img [ref=e866]
+          - button [ref=e871] [cursor=pointer]:
+            - img [ref=e872]
+      - generic [ref=e876]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e878]:
+        - textbox [ref=e879]:
+          - /placeholder: Ask a question...
+        - generic [ref=e880]:
+          - button [ref=e881] [cursor=pointer]:
+            - img [ref=e882]
+          - button [disabled] [ref=e884]:
+            - img [ref=e885]

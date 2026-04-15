@@ -1,0 +1,721 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fbuild-with-claude%2Feffort
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Model capabilities
+              - generic [ref=e287]:
+                - heading "Effort" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+              - generic [ref=e301]: Control how many tokens Claude uses when responding with the effort parameter, trading off between response thoroughness and token efficiency.
+            - generic [ref=e302]:
+              - img [ref=e305]
+              - paragraph [ref=e308]:
+                - text: This feature is eligible for
+                - link "Zero Data Retention (ZDR)" [ref=e309] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/api-and-data-retention
+                - text: . When your organization has a ZDR arrangement, data sent through this feature is not stored after the API response is returned.
+            - paragraph [ref=e310]: The effort parameter allows you to control how eager Claude is about spending tokens when responding to requests. This gives you the ability to trade off between response thoroughness and token efficiency, all with a single model. The effort parameter is generally available on all supported models with no beta header required.
+            - generic [ref=e311]:
+              - img [ref=e314]
+              - paragraph [ref=e317]:
+                - text: The effort parameter is supported by
+                - link "Claude Mythos Preview" [ref=e318] [cursor=pointer]:
+                  - /url: https://anthropic.com/glasswing
+                - text: ", Claude Opus 4.6, Claude Sonnet 4.6, and Claude Opus 4.5."
+            - generic [ref=e319]:
+              - img [ref=e322]
+              - paragraph [ref=e325]:
+                - text: For Claude Opus 4.6 and Sonnet 4.6, effort replaces
+                - code [ref=e326]: budget_tokens
+                - text: as the recommended way to control thinking depth. Combine effort with
+                - link "adaptive thinking" [ref=e327] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/adaptive-thinking
+                - text: (
+                - code [ref=e328]: "thinking: {type: \"adaptive\"}"
+                - text: ) for the best experience. While
+                - code [ref=e329]: budget_tokens
+                - text: is still accepted on Opus 4.6 and Sonnet 4.6, it is deprecated and will be removed in a future model release. At
+                - code [ref=e330]: high
+                - text: (default) and
+                - code [ref=e331]: max
+                - text: effort, Claude will almost always think. At lower effort levels, it may skip thinking for simpler problems.
+            - heading "Copy link to clipboard How effort works" [level=2] [ref=e332]:
+              - generic [ref=e333]:
+                - button "Copy link to clipboard" [ref=e335] [cursor=pointer]:
+                  - img [ref=e337]
+                - generic [ref=e339]: How effort works
+            - paragraph [ref=e340]:
+              - text: By default, Claude uses high effort, spending as many tokens as needed for excellent results. You can raise the effort level to
+              - code [ref=e341]: max
+              - text: for the absolute highest capability, or lower it to be more conservative with token usage, optimizing for speed and cost while accepting some reduction in capability.
+            - generic [ref=e342]:
+              - img [ref=e345]
+              - paragraph [ref=e348]:
+                - text: Setting
+                - code [ref=e349]: effort
+                - text: to
+                - code [ref=e350]: "\"high\""
+                - text: produces exactly the same behavior as omitting the
+                - code [ref=e351]: effort
+                - text: parameter entirely.
+            - paragraph [ref=e352]:
+              - text: The effort parameter affects
+              - strong [ref=e353]: all tokens
+              - text: "in the response, including:"
+            - list [ref=e354]:
+              - listitem [ref=e355]: • Text responses and explanations
+              - listitem [ref=e356]: • Tool calls and function arguments
+              - listitem [ref=e357]: • Extended thinking (when enabled)
+            - paragraph [ref=e358]: "This approach has two major advantages:"
+            - list [ref=e359]:
+              - listitem [ref=e360]: It doesn't require thinking to be enabled in order to use it.
+              - listitem [ref=e361]: It can affect all token spend including tool calls. For example, lower effort would mean Claude makes fewer tool calls. This gives a much greater degree of control over efficiency.
+            - heading "Copy link to clipboard Effort levels" [level=3] [ref=e362]:
+              - generic [ref=e363]:
+                - button "Copy link to clipboard" [ref=e365] [cursor=pointer]:
+                  - img [ref=e367]
+                - generic [ref=e369]: Effort levels
+            - table [ref=e371]:
+              - rowgroup [ref=e372]:
+                - row "Level Description Typical use case" [ref=e373]:
+                  - columnheader "Level" [ref=e374]
+                  - columnheader "Description" [ref=e375]
+                  - columnheader "Typical use case" [ref=e376]
+              - rowgroup [ref=e377]:
+                - row "max Absolute maximum capability with no constraints on token spending. Available on Claude Mythos Preview, Claude Opus 4.6, and Claude Sonnet 4.6. Tasks requiring the deepest possible reasoning and most thorough analysis" [ref=e378]:
+                  - cell "max" [ref=e379]:
+                    - code [ref=e380]: max
+                  - cell "Absolute maximum capability with no constraints on token spending. Available on Claude Mythos Preview, Claude Opus 4.6, and Claude Sonnet 4.6." [ref=e381]
+                  - cell "Tasks requiring the deepest possible reasoning and most thorough analysis" [ref=e382]
+                - row "high High capability. Equivalent to not setting the parameter. Complex reasoning, difficult coding problems, agentic tasks" [ref=e383]:
+                  - cell "high" [ref=e384]:
+                    - code [ref=e385]: high
+                  - cell "High capability. Equivalent to not setting the parameter." [ref=e386]
+                  - cell "Complex reasoning, difficult coding problems, agentic tasks" [ref=e387]
+                - row "medium Balanced approach with moderate token savings. Agentic tasks that require a balance of speed, cost, and performance" [ref=e388]:
+                  - cell "medium" [ref=e389]:
+                    - code [ref=e390]: medium
+                  - cell "Balanced approach with moderate token savings." [ref=e391]
+                  - cell "Agentic tasks that require a balance of speed, cost, and performance" [ref=e392]
+                - row "low Most efficient. Significant token savings with some capability reduction. Simpler tasks that need the best speed and lowest costs, such as subagents" [ref=e393]:
+                  - cell "low" [ref=e394]:
+                    - code [ref=e395]: low
+                  - cell "Most efficient. Significant token savings with some capability reduction." [ref=e396]
+                  - cell "Simpler tasks that need the best speed and lowest costs, such as subagents" [ref=e397]
+            - generic [ref=e398]:
+              - img [ref=e401]
+              - paragraph [ref=e404]: Effort is a behavioral signal, not a strict token budget. At lower effort levels, Claude will still think on sufficiently difficult problems, but it will think less than it would at higher effort levels for the same problem.
+            - heading "Copy link to clipboard Recommended effort levels for Sonnet 4.6" [level=3] [ref=e405]:
+              - generic [ref=e406]:
+                - button "Copy link to clipboard" [ref=e408] [cursor=pointer]:
+                  - img [ref=e410]
+                - generic [ref=e412]: Recommended effort levels for Sonnet 4.6
+            - paragraph [ref=e413]:
+              - text: Sonnet 4.6 defaults to
+              - code [ref=e414]: high
+              - text: "effort. Explicitly set effort when using Sonnet 4.6 to avoid unexpected latency:"
+            - list [ref=e415]:
+              - listitem [ref=e416]:
+                - text: •
+                - strong [ref=e417]: Medium effort
+                - text: "(recommended default): Best balance of speed, cost, and performance for most applications. Suitable for agentic coding, tool-heavy workflows, and code generation."
+              - listitem [ref=e418]:
+                - text: •
+                - strong [ref=e419]: "Low effort:"
+                - text: For high-volume or latency-sensitive workloads. Suitable for chat and non-coding use cases where faster turnaround is prioritized.
+              - listitem [ref=e420]:
+                - text: •
+                - strong [ref=e421]: "High effort:"
+                - text: For tasks requiring maximum intelligence from Sonnet 4.6.
+              - listitem [ref=e422]:
+                - text: •
+                - strong [ref=e423]: "Max effort:"
+                - text: For tasks requiring the absolute highest capability with no constraints on token spending.
+            - heading "Copy link to clipboard Basic usage" [level=2] [ref=e424]:
+              - generic [ref=e425]:
+                - button "Copy link to clipboard" [ref=e427] [cursor=pointer]:
+                  - img [ref=e429]
+                - generic [ref=e431]: Basic usage
+            - generic [ref=e432]:
+              - generic [ref=e433]:
+                - generic [ref=e434]:
+                  - button "Shell" [ref=e435] [cursor=pointer]
+                  - button "CLI" [ref=e436] [cursor=pointer]
+                  - button "Python" [ref=e437] [cursor=pointer]
+                  - button "TypeScript" [ref=e438] [cursor=pointer]
+                  - button "C#" [ref=e439] [cursor=pointer]
+                  - button "Go" [ref=e440] [cursor=pointer]
+                  - button "Java" [ref=e441] [cursor=pointer]
+                  - button "PHP" [ref=e442] [cursor=pointer]
+                  - button "Ruby" [ref=e443] [cursor=pointer]
+                - button "Copy code" [ref=e445] [cursor=pointer]:
+                  - generic [ref=e446]:
+                    - img [ref=e448]
+                    - img [ref=e451]
+              - code [ref=e456]:
+                - generic [ref=e457]: curl https://api.anthropic.com/v1/messages \
+                - generic [ref=e458]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e459]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e460]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e461]: "--data '{"
+                - generic [ref=e462]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e463]: "\"max_tokens\": 4096,"
+                - generic [ref=e464]: "\"messages\": [{"
+                - generic [ref=e465]: "\"role\": \"user\","
+                - generic [ref=e466]: "\"content\": \"Analyze the trade-offs between microservices and monolithic architectures\""
+                - generic [ref=e467]: "}],"
+                - generic [ref=e468]: "\"output_config\": {"
+                - generic [ref=e469]: "\"effort\": \"medium\""
+                - generic [ref=e470]: "}"
+                - generic [ref=e471]: "}'"
+            - heading "Copy link to clipboard When to adjust the effort parameter" [level=2] [ref=e472]:
+              - generic [ref=e473]:
+                - button "Copy link to clipboard" [ref=e475] [cursor=pointer]:
+                  - img [ref=e477]
+                - generic [ref=e479]: When to adjust the effort parameter
+            - list [ref=e480]:
+              - listitem [ref=e481]:
+                - text: • Use
+                - strong [ref=e482]: max effort
+                - text: "when you need the absolute highest capability with no constraints: the most thorough reasoning and deepest analysis. Available on Claude Mythos Preview, Claude Opus 4.6, and Claude Sonnet 4.6."
+              - listitem [ref=e483]:
+                - text: • Use
+                - strong [ref=e484]: high effort
+                - text: "(the default) when you need Claude's best work: complex reasoning, nuanced analysis, difficult coding problems, or any task where quality is the top priority."
+              - listitem [ref=e485]:
+                - text: • Use
+                - strong [ref=e486]: medium effort
+                - text: as a balanced option when you want solid performance without the full token expenditure of high effort.
+              - listitem [ref=e487]:
+                - text: • Use
+                - strong [ref=e488]: low effort
+                - text: when you're optimizing for speed (because Claude answers with fewer tokens) or cost. For example, simple classification tasks, quick lookups, or high-volume use cases where marginal quality improvements don't justify additional latency or spend.
+            - heading "Copy link to clipboard Effort with tool use" [level=2] [ref=e489]:
+              - generic [ref=e490]:
+                - button "Copy link to clipboard" [ref=e492] [cursor=pointer]:
+                  - img [ref=e494]
+                - generic [ref=e496]: Effort with tool use
+            - paragraph [ref=e497]: "When using tools, the effort parameter affects both the explanations around tool calls and the tool calls themselves. Lower effort levels tend to:"
+            - list [ref=e498]:
+              - listitem [ref=e499]: • Combine multiple operations into fewer tool calls
+              - listitem [ref=e500]: • Make fewer tool calls
+              - listitem [ref=e501]: • Proceed directly to action without preamble
+              - listitem [ref=e502]: • Use terse confirmation messages after completion
+            - paragraph [ref=e503]: "Higher effort levels may:"
+            - list [ref=e504]:
+              - listitem [ref=e505]: • Make more tool calls
+              - listitem [ref=e506]: • Explain the plan before taking action
+              - listitem [ref=e507]: • Provide detailed summaries of changes
+              - listitem [ref=e508]: • Include more comprehensive code comments
+            - heading "Copy link to clipboard Effort with extended thinking" [level=2] [ref=e509]:
+              - generic [ref=e510]:
+                - button "Copy link to clipboard" [ref=e512] [cursor=pointer]:
+                  - img [ref=e514]
+                - generic [ref=e516]: Effort with extended thinking
+            - paragraph [ref=e517]: "The effort parameter works alongside extended thinking. Its behavior depends on the model:"
+            - list [ref=e518]:
+              - listitem [ref=e519]:
+                - text: •
+                - strong [ref=e520]: Claude Mythos Preview
+                - text: uses
+                - link "adaptive thinking" [ref=e521] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/adaptive-thinking
+                - text: by default (no
+                - code [ref=e522]: thinking
+                - text: configuration required).
+                - code [ref=e523]: "thinking: {type: \"disabled\"}"
+                - text: is rejected. Effort controls thinking depth the same way as on Opus 4.6.
+              - listitem [ref=e524]:
+                - text: •
+                - strong [ref=e525]: Claude Opus 4.6
+                - text: uses
+                - link "adaptive thinking" [ref=e526] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/adaptive-thinking
+                - text: (
+                - code [ref=e527]: "thinking: {type: \"adaptive\"}"
+                - text: ), where effort is the recommended control for thinking depth. While
+                - code [ref=e528]: budget_tokens
+                - text: is still accepted on Opus 4.6, it is deprecated and will be removed in a future release. At
+                - code [ref=e529]: high
+                - text: and
+                - code [ref=e530]: max
+                - text: effort, Claude almost always thinks deeply. At lower levels, it may skip thinking for simpler problems.
+              - listitem [ref=e531]:
+                - text: •
+                - strong [ref=e532]: Claude Sonnet 4.6
+                - text: uses
+                - link "adaptive thinking" [ref=e533] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/adaptive-thinking
+                - text: (where effort controls thinking depth). Manual thinking with
+                - link "interleaved mode" [ref=e534] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/extended-thinking#interleaved-thinking
+                - text: (
+                - code [ref=e535]: "thinking: {type: \"enabled\", budget_tokens: N}"
+                - text: ) is still functional but deprecated.
+              - listitem [ref=e536]:
+                - text: •
+                - strong [ref=e537]: Claude Opus 4.5 and other Claude 4 models
+                - text: use manual thinking (
+                - code [ref=e538]: "thinking: {type: \"enabled\", budget_tokens: N}"
+                - text: ), where effort works alongside the thinking token budget. Set the effort level for your task, then set the thinking token budget based on task complexity.
+            - paragraph [ref=e539]: The effort parameter can be used with or without extended thinking enabled. When used without thinking, it still controls overall token spend for text responses and tool calls.
+            - heading "Copy link to clipboard Best practices" [level=2] [ref=e540]:
+              - generic [ref=e541]:
+                - button "Copy link to clipboard" [ref=e543] [cursor=pointer]:
+                  - img [ref=e545]
+                - generic [ref=e547]: Best practices
+            - list [ref=e548]:
+              - listitem [ref=e549]:
+                - strong [ref=e550]: "Set effort explicitly:"
+                - text: The API defaults to
+                - code [ref=e551]: high
+                - text: ", but the right starting point depends on your model and workload."
+              - listitem [ref=e552]:
+                - strong [ref=e553]: "Use low for speed-sensitive or simple tasks:"
+                - text: When latency matters or tasks are straightforward, low effort can significantly reduce response times and costs.
+              - listitem [ref=e554]:
+                - strong [ref=e555]: "Test your use case:"
+                - text: The impact of effort levels varies by task type. Evaluate performance on your specific use cases before deploying.
+              - listitem [ref=e556]:
+                - strong [ref=e557]: "Consider dynamic effort:"
+                - text: Adjust effort based on task complexity. Simple queries may warrant low effort while agentic coding and complex reasoning benefit from high effort.
+            - generic [ref=e558]:
+              - paragraph [ref=e559]: Was this page helpful?
+              - generic [ref=e560]:
+                - button "Thumbs up" [ref=e561] [cursor=pointer]:
+                  - img [ref=e563]
+                - button "Thumbs down" [ref=e565] [cursor=pointer]:
+                  - img [ref=e567]
+          - button "Toggle table of contents" [ref=e569] [cursor=pointer]:
+            - img [ref=e570]
+        - generic [ref=e573]:
+          - generic [ref=e574]:
+            - link "Claude API Docs home page" [ref=e576] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e577]
+            - generic [ref=e580]:
+              - link "X (Twitter)" [ref=e581] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e582]
+              - link "LinkedIn" [ref=e584] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e585]
+              - link "Instagram" [ref=e587] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e588]
+          - generic [ref=e591]:
+            - generic [ref=e592]:
+              - generic [ref=e593]:
+                - heading "Solutions" [level=3] [ref=e594]
+                - list [ref=e595]:
+                  - listitem [ref=e596]:
+                    - link "AI agents" [ref=e597] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e598]:
+                    - link "Code modernization" [ref=e599] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e600]:
+                    - link "Coding" [ref=e601] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e602]:
+                    - link "Customer support" [ref=e603] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e604]:
+                    - link "Education" [ref=e605] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e606]:
+                    - link "Financial services" [ref=e607] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e608]:
+                    - link "Government" [ref=e609] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e610]:
+                    - link "Life sciences" [ref=e611] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e612]:
+                - heading "Partners" [level=3] [ref=e613]
+                - list [ref=e614]:
+                  - listitem [ref=e615]:
+                    - link "Amazon Bedrock" [ref=e616] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e617]:
+                    - link "Google Cloud's Vertex AI" [ref=e618] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e619]:
+              - generic [ref=e620]:
+                - heading "Learn" [level=3] [ref=e621]
+                - list [ref=e622]:
+                  - listitem [ref=e623]:
+                    - link "Blog" [ref=e624] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e625]:
+                    - link "Courses" [ref=e626] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e627]:
+                    - link "Use cases" [ref=e628] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e629]:
+                    - link "Connectors" [ref=e630] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e631]:
+                    - link "Customer stories" [ref=e632] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e633]:
+                    - link "Engineering at Anthropic" [ref=e634] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e635]:
+                    - link "Events" [ref=e636] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e637]:
+                    - link "Powered by Claude" [ref=e638] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e639]:
+                    - link "Service partners" [ref=e640] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e641]:
+                    - link "Startups program" [ref=e642] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e643]:
+                - heading "Company" [level=3] [ref=e644]
+                - list [ref=e645]:
+                  - listitem [ref=e646]:
+                    - link "Anthropic" [ref=e647] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e648]:
+                    - link "Careers" [ref=e649] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e650]:
+                    - link "Economic Futures" [ref=e651] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e652]:
+                    - link "Research" [ref=e653] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e654]:
+                    - link "News" [ref=e655] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e656]:
+                    - link "Responsible Scaling Policy" [ref=e657] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e658]:
+                    - link "Security and compliance" [ref=e659] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e660]:
+                    - link "Transparency" [ref=e661] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e662]:
+              - generic [ref=e663]:
+                - heading "Help and security" [level=3] [ref=e664]
+                - list [ref=e665]:
+                  - listitem [ref=e666]:
+                    - link "Availability" [ref=e667] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e668]:
+                    - link "Status" [ref=e669] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e670]:
+                    - link "Support" [ref=e671] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e672]:
+                    - link "Discord" [ref=e673] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e674]:
+                - heading "Terms and policies" [level=3] [ref=e675]
+                - list [ref=e676]:
+                  - listitem [ref=e677]:
+                    - link "Privacy policy" [ref=e678] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e679]:
+                    - link "Responsible disclosure policy" [ref=e680] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e681]:
+                    - 'link "Terms of service: Commercial" [ref=e682] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e683]:
+                    - 'link "Terms of service: Consumer" [ref=e684] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e685]:
+                    - link "Usage policy" [ref=e686] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e690] [cursor=pointer]:
+    - generic [ref=e691]: Ask Docs
+  - alert [ref=e692]

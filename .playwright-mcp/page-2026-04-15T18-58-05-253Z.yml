@@ -1,0 +1,1289 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fbuild-with-claude%2Fstructured-outputs
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Model capabilities
+              - generic [ref=e287]:
+                - heading "Structured outputs" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+              - generic [ref=e301]: Get validated JSON results from agent workflows
+            - paragraph [ref=e302]: "Structured outputs constrain Claude's responses to follow a specific schema, ensuring valid, parseable output for downstream processing. Structured outputs provide two complementary features:"
+            - list [ref=e303]:
+              - listitem [ref=e304]:
+                - text: •
+                - strong [ref=e305]: JSON outputs
+                - text: (
+                - code [ref=e306]: output_config.format
+                - text: "): Get Claude's response in a specific JSON format"
+              - listitem [ref=e307]:
+                - text: •
+                - strong [ref=e308]: Strict tool use
+                - text: (
+                - code [ref=e309]: "strict: true"
+                - text: "): Guarantee schema validation on tool names and inputs"
+            - paragraph [ref=e310]: You can use these features independently or together in the same request.
+            - generic [ref=e311]:
+              - img [ref=e314]
+              - paragraph [ref=e317]:
+                - text: Structured outputs are generally available on the Claude API and Amazon Bedrock for
+                - link "Claude Mythos Preview" [ref=e318] [cursor=pointer]:
+                  - /url: https://anthropic.com/glasswing
+                - text: ", Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5. Structured outputs are in beta on Microsoft Foundry. Structured outputs are not supported on Google Cloud's Vertex AI for Claude Mythos Preview."
+            - generic [ref=e319]:
+              - img [ref=e322]
+              - paragraph [ref=e325]:
+                - text: This feature qualifies for
+                - link "Zero Data Retention (ZDR)" [ref=e326] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/api-and-data-retention
+                - text: with limited technical retention. See the
+                - link "Data retention" [ref=e327] [cursor=pointer]:
+                  - /url: "#data-retention"
+                - text: section for details on what is retained and why.
+            - generic [ref=e328]:
+              - img [ref=e331]
+              - paragraph [ref=e334]:
+                - strong [ref=e335]: Migrating from beta?
+                - text: The
+                - code [ref=e336]: output_format
+                - text: parameter has moved to
+                - code [ref=e337]: output_config.format
+                - text: ", and beta headers are no longer required. The old beta header ("
+                - code [ref=e338]: structured-outputs-2025-11-13
+                - text: ) and
+                - code [ref=e339]: output_format
+                - text: parameter will continue working for a transition period. See code examples below for the updated API shape.
+            - heading "Copy link to clipboard Why use structured outputs" [level=2] [ref=e340]:
+              - generic [ref=e341]:
+                - button "Copy link to clipboard" [ref=e343] [cursor=pointer]:
+                  - img [ref=e345]
+                - generic [ref=e347]: Why use structured outputs
+            - paragraph [ref=e348]: "Without structured outputs, Claude can generate malformed JSON responses or invalid tool inputs that break your applications. Even with careful prompting, you may encounter:"
+            - list [ref=e349]:
+              - listitem [ref=e350]: • Parsing errors from invalid JSON syntax
+              - listitem [ref=e351]: • Missing required fields
+              - listitem [ref=e352]: • Inconsistent data types
+              - listitem [ref=e353]: • Schema violations requiring error handling and retries
+            - paragraph [ref=e354]: "Structured outputs guarantee schema-compliant responses through constrained decoding:"
+            - list [ref=e355]:
+              - listitem [ref=e356]:
+                - text: •
+                - strong [ref=e357]: Always valid
+                - text: ": No more"
+                - code [ref=e358]: JSON.parse()
+                - text: errors
+              - listitem [ref=e359]:
+                - text: •
+                - strong [ref=e360]: Type safe
+                - text: ": Guaranteed field types and required fields"
+              - listitem [ref=e361]:
+                - text: •
+                - strong [ref=e362]: Reliable
+                - text: ": No retries needed for schema violations"
+            - heading "Copy link to clipboard JSON outputs" [level=2] [ref=e363]:
+              - generic [ref=e364]:
+                - button "Copy link to clipboard" [ref=e366] [cursor=pointer]:
+                  - img [ref=e368]
+                - generic [ref=e370]: JSON outputs
+            - paragraph [ref=e371]: "JSON outputs control Claude's response format, ensuring Claude returns valid JSON matching your schema. Use JSON outputs when you need to:"
+            - list [ref=e372]:
+              - listitem [ref=e373]: • Control Claude's response format
+              - listitem [ref=e374]: • Extract data from images or text
+              - listitem [ref=e375]: • Generate structured reports
+              - listitem [ref=e376]: • Format API responses
+            - heading "Copy link to clipboard Quick start" [level=3] [ref=e377]:
+              - generic [ref=e378]:
+                - button "Copy link to clipboard" [ref=e380] [cursor=pointer]:
+                  - img [ref=e382]
+                - generic [ref=e384]: Quick start
+            - generic [ref=e385]:
+              - generic [ref=e386]:
+                - generic [ref=e387]:
+                  - button "Shell" [ref=e388] [cursor=pointer]
+                  - button "CLI" [ref=e389] [cursor=pointer]
+                  - button "Python" [ref=e390] [cursor=pointer]
+                  - button "TypeScript" [ref=e391] [cursor=pointer]
+                  - button "C#" [ref=e392] [cursor=pointer]
+                  - button "Go" [ref=e393] [cursor=pointer]
+                  - button "Java" [ref=e394] [cursor=pointer]
+                  - button "PHP" [ref=e395] [cursor=pointer]
+                  - button "Ruby" [ref=e396] [cursor=pointer]
+                - button "Copy code" [ref=e398] [cursor=pointer]:
+                  - generic [ref=e399]:
+                    - img [ref=e401]
+                    - img [ref=e404]
+              - code [ref=e409]:
+                - generic [ref=e410]: curl https://api.anthropic.com/v1/messages \
+                - generic [ref=e411]: "-H \"content-type: application/json\" \\"
+                - generic [ref=e412]: "-H \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e413]: "-H \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e414]: "-d '{"
+                - generic [ref=e415]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e416]: "\"max_tokens\": 1024,"
+                - generic [ref=e417]: "\"messages\": ["
+                - generic [ref=e418]: "{"
+                - generic [ref=e419]: "\"role\": \"user\","
+                - generic [ref=e420]: "\"content\": \"Extract the key information from this email: John Smith (john@example.com) is interested in our Enterprise plan and wants to schedule a demo for next Tuesday at 2pm.\""
+                - generic [ref=e421]: "}"
+                - generic [ref=e422]: "],"
+                - generic [ref=e423]: "\"output_config\": {"
+                - generic [ref=e424]: "\"format\": {"
+                - generic [ref=e425]: "\"type\": \"json_schema\","
+                - generic [ref=e426]: "\"schema\": {"
+                - generic [ref=e427]: "\"type\": \"object\","
+                - generic [ref=e428]: "\"properties\": {"
+                - generic [ref=e429]: "\"name\": {\"type\": \"string\"},"
+                - generic [ref=e430]: "\"email\": {\"type\": \"string\"},"
+                - generic [ref=e431]: "\"plan_interest\": {\"type\": \"string\"},"
+                - generic [ref=e432]: "\"demo_requested\": {\"type\": \"boolean\"}"
+                - generic [ref=e433]: "},"
+                - generic [ref=e434]: "\"required\": [\"name\", \"email\", \"plan_interest\", \"demo_requested\"],"
+                - generic [ref=e435]: "\"additionalProperties\": false"
+                - generic [ref=e436]: "}"
+                - generic [ref=e437]: "}"
+                - generic [ref=e438]: "}"
+                - generic [ref=e439]: "}'"
+            - paragraph [ref=e440]:
+              - strong [ref=e441]: "Response format:"
+              - text: Valid JSON matching your schema in
+              - code [ref=e442]: response.content[0].text
+            - generic [ref=e443]:
+              - generic [ref=e444]:
+                - generic [ref=e445]: Output
+                - button "Copy code" [ref=e447] [cursor=pointer]:
+                  - generic [ref=e448]:
+                    - img [ref=e450]
+                    - img [ref=e453]
+              - code [ref=e458]:
+                - generic [ref=e459]: "{"
+                - generic [ref=e460]: "\"name\": \"John Smith\","
+                - generic [ref=e461]: "\"email\": \"john@example.com\","
+                - generic [ref=e462]: "\"plan_interest\": \"Enterprise\","
+                - generic [ref=e463]: "\"demo_requested\": true"
+                - generic [ref=e464]: "}"
+            - heading "Copy link to clipboard How it works" [level=3] [ref=e465]:
+              - generic [ref=e466]:
+                - button "Copy link to clipboard" [ref=e468] [cursor=pointer]:
+                  - img [ref=e470]
+                - generic [ref=e472]: How it works
+            - list [ref=e474]:
+              - listitem [ref=e475]:
+                - generic [ref=e476]:
+                  - generic [ref=e477]: "1"
+                  - paragraph [ref=e478]: Define your JSON schema
+                - paragraph [ref=e481]:
+                  - text: Create a JSON schema that describes the structure you want Claude to follow. The schema uses standard JSON Schema format with some limitations (see
+                  - link "JSON Schema limitations" [ref=e482] [cursor=pointer]:
+                    - /url: "#json-schema-limitations"
+                  - text: ).
+              - listitem [ref=e483]:
+                - generic [ref=e484]:
+                  - generic [ref=e485]: "2"
+                  - paragraph [ref=e486]: Add the output_config.format parameter
+                - paragraph [ref=e489]:
+                  - text: Include the
+                  - code [ref=e490]: output_config.format
+                  - text: parameter in your API request with
+                  - code [ref=e491]: "type: \"json_schema\""
+                  - text: and your schema definition.
+              - listitem [ref=e492]:
+                - generic [ref=e493]:
+                  - generic [ref=e494]: "3"
+                  - paragraph [ref=e495]: Parse the response
+                - paragraph [ref=e498]:
+                  - text: Claude's response is valid JSON matching your schema, returned in
+                  - code [ref=e499]: response.content[0].text
+                  - text: .
+            - heading "Copy link to clipboard Working with JSON outputs in SDKs" [level=3] [ref=e500]:
+              - generic [ref=e501]:
+                - button "Copy link to clipboard" [ref=e503] [cursor=pointer]:
+                  - img [ref=e505]
+                - generic [ref=e507]: Working with JSON outputs in SDKs
+            - paragraph [ref=e508]: The SDKs provide helpers that make it easier to work with JSON outputs, including schema transformation, automatic validation, and integration with popular schema libraries.
+            - generic [ref=e509]:
+              - img [ref=e512]
+              - paragraph [ref=e515]:
+                - text: The Python SDK's
+                - code [ref=e516]: client.messages.parse()
+                - text: still accepts
+                - code [ref=e517]: output_format
+                - text: as a convenience parameter and translates it to
+                - code [ref=e518]: output_config.format
+                - text: internally. Other SDKs require
+                - code [ref=e519]: output_config
+                - text: directly. The examples below show the SDK helper syntax.
+            - heading "Copy link to clipboard Using native schema definitions" [level=4] [ref=e520]:
+              - generic [ref=e521]:
+                - button "Copy link to clipboard" [ref=e523] [cursor=pointer]:
+                  - img [ref=e525]
+                - generic [ref=e527]: Using native schema definitions
+            - paragraph [ref=e528]: "Instead of writing raw JSON schemas, you can use familiar schema definition tools in your language:"
+            - list [ref=e529]:
+              - listitem [ref=e530]:
+                - text: •
+                - strong [ref=e531]: Python
+                - text: ":"
+                - link "Pydantic" [ref=e532] [cursor=pointer]:
+                  - /url: https://docs.pydantic.dev/
+                - text: models with
+                - code [ref=e533]: client.messages.parse()
+              - listitem [ref=e534]:
+                - text: •
+                - strong [ref=e535]: TypeScript
+                - text: ":"
+                - link "Zod" [ref=e536] [cursor=pointer]:
+                  - /url: https://zod.dev/
+                - text: schemas with
+                - code [ref=e537]: zodOutputFormat()
+                - text: or typed JSON Schema literals with
+                - code [ref=e538]: jsonSchemaOutputFormat()
+              - listitem [ref=e539]:
+                - text: •
+                - strong [ref=e540]: Java
+                - text: ": Plain Java classes with automatic schema derivation via"
+                - code [ref=e541]: outputConfig(Class<T>)
+              - listitem [ref=e542]:
+                - text: •
+                - strong [ref=e543]: Ruby
+                - text: ":"
+                - code [ref=e544]: Anthropic::BaseModel
+                - text: classes with
+                - code [ref=e545]: "output_config: {format: Model}"
+              - listitem [ref=e546]:
+                - text: •
+                - strong [ref=e547]: PHP
+                - text: ": Classes implementing"
+                - code [ref=e548]: StructuredOutputModel
+                - text: with
+                - code [ref=e549]: "outputConfig: ['format' => MyClass::class]"
+              - listitem [ref=e550]:
+                - text: •
+                - strong [ref=e551]: CLI
+                - text: ","
+                - strong [ref=e552]: C#
+                - text: ","
+                - strong [ref=e553]: Go
+                - text: ": Raw JSON schemas passed via"
+                - code [ref=e554]: output_config
+            - generic [ref=e555]:
+              - generic [ref=e556]:
+                - generic [ref=e557]:
+                  - button "CLI" [ref=e558] [cursor=pointer]
+                  - button "Python" [ref=e559] [cursor=pointer]
+                  - button "TypeScript" [ref=e560] [cursor=pointer]
+                  - button "C#" [ref=e561] [cursor=pointer]
+                  - button "Go" [ref=e562] [cursor=pointer]
+                  - button "Java" [ref=e563] [cursor=pointer]
+                  - button "PHP" [ref=e564] [cursor=pointer]
+                  - button "Ruby" [ref=e565] [cursor=pointer]
+                - button "Copy code" [ref=e567] [cursor=pointer]:
+                  - generic [ref=e568]:
+                    - img [ref=e570]
+                    - img [ref=e573]
+              - code [ref=e578]:
+                - generic [ref=e579]: "{ read -r _ NAME; read -r _ EMAIL; } < <("
+                - generic [ref=e580]: ant messages create \
+                - generic [ref=e581]: "--transform 'content.0.text|@fromstr|{name,email}' --format yaml <<'YAML'"
+                - generic [ref=e582]: "model: claude-opus-4-6"
+                - generic [ref=e583]: "max_tokens: 1024"
+                - generic [ref=e584]: "messages:"
+                - generic [ref=e585]: "- role: user"
+                - generic [ref=e586]: "content: >-"
+                - generic [ref=e587]: "Extract the key information from this email: John Smith"
+                - generic [ref=e588]: (john@example.com) is interested in our Enterprise plan and wants
+                - generic [ref=e589]: to schedule a demo for next Tuesday at 2pm.
+                - generic [ref=e590]: "output_config:"
+                - generic [ref=e591]: "format:"
+                - generic [ref=e592]: "type: json_schema"
+                - generic [ref=e593]: "schema:"
+                - generic [ref=e594]: "type: object"
+                - generic [ref=e595]: "properties:"
+                - generic [ref=e596]: "name: {type: string}"
+                - generic [ref=e597]: "email: {type: string}"
+                - generic [ref=e598]: "plan_interest: {type: string}"
+                - generic [ref=e599]: "demo_requested: {type: boolean}"
+                - generic [ref=e600]: "required: [name, email, plan_interest, demo_requested]"
+                - generic [ref=e601]: "additionalProperties: false"
+                - generic [ref=e602]: YAML
+                - generic [ref=e603]: )
+                - generic [ref=e604]: printf '%s (%s)\n' "$NAME" "$EMAIL"
+            - heading "Copy link to clipboard SDK-specific methods" [level=4] [ref=e605]:
+              - generic [ref=e606]:
+                - button "Copy link to clipboard" [ref=e608] [cursor=pointer]:
+                  - img [ref=e610]
+                - generic [ref=e612]: SDK-specific methods
+            - paragraph [ref=e613]: Each SDK provides helpers that make working with structured outputs easier. See individual SDK pages for full details.
+            - generic [ref=e615]:
+              - tablist "Content tabs" [ref=e616]:
+                - tab "CLI" [selected] [ref=e617] [cursor=pointer]:
+                  - generic [ref=e618]: CLI
+                - tab "Python" [ref=e619] [cursor=pointer]:
+                  - generic [ref=e620]: Python
+                - tab "TypeScript" [ref=e621] [cursor=pointer]:
+                  - generic [ref=e622]: TypeScript
+                - tab "C#" [ref=e623] [cursor=pointer]:
+                  - generic [ref=e624]: C#
+                - tab "Go" [ref=e625] [cursor=pointer]:
+                  - generic [ref=e626]: Go
+                - tab "Java" [ref=e627] [cursor=pointer]:
+                  - generic [ref=e628]: Java
+                - tab "PHP" [ref=e629] [cursor=pointer]:
+                  - generic [ref=e630]: PHP
+                - tab "Ruby" [ref=e631] [cursor=pointer]:
+                  - generic [ref=e632]: Ruby
+              - region "CLI" [ref=e633]:
+                - paragraph [ref=e634]:
+                  - strong [ref=e635]: Raw JSON schemas via heredoc body
+                - paragraph [ref=e636]:
+                  - text: The CLI passes raw JSON schemas as a YAML heredoc body. Use the GJSON
+                  - code [ref=e637]: "@fromstr"
+                  - text: modifier with
+                  - code [ref=e638]: "--transform"
+                  - text: to parse the JSON string returned in
+                  - code [ref=e639]: content[0].text
+                  - text: and project specific fields.
+                - generic [ref=e640]:
+                  - code [ref=e644]:
+                    - generic [ref=e645]: ant messages create \
+                    - generic [ref=e646]: "--transform 'content.0.text|@fromstr|{name,email}' \\"
+                    - generic [ref=e647]: "--format yaml <<'YAML'"
+                    - generic [ref=e648]: "model: claude-opus-4-6"
+                    - generic [ref=e649]: "max_tokens: 1024"
+                    - generic [ref=e650]: "messages:"
+                    - generic [ref=e651]: "- role: user"
+                    - generic [ref=e652]: "content: >-"
+                    - generic [ref=e653]: "Extract contact info: John Smith, john@example.com,"
+                    - generic [ref=e654]: interested in the Pro plan
+                    - generic [ref=e655]: "output_config:"
+                    - generic [ref=e656]: "format:"
+                    - generic [ref=e657]: "type: json_schema"
+                    - generic [ref=e658]: "schema:"
+                    - generic [ref=e659]: "type: object"
+                    - generic [ref=e660]: "properties:"
+                    - generic [ref=e661]: "name: {type: string}"
+                    - generic [ref=e662]: "email: {type: string}"
+                    - generic [ref=e663]: "plan_interest: {type: string}"
+                    - generic [ref=e664]: "required: [name, email, plan_interest]"
+                    - generic [ref=e665]: "additionalProperties: false"
+                    - generic [ref=e666]: YAML
+                  - button "Copy code" [ref=e668] [cursor=pointer]:
+                    - generic [ref=e669]:
+                      - img [ref=e671]
+                      - img [ref=e674]
+                - generic [ref=e676]:
+                  - generic [ref=e677]:
+                    - generic [ref=e678]: Output
+                    - button "Copy code" [ref=e680] [cursor=pointer]:
+                      - generic [ref=e681]:
+                        - img [ref=e683]
+                        - img [ref=e686]
+                  - code [ref=e691]:
+                    - generic [ref=e692]: "name: John Smith"
+                    - generic [ref=e693]: "email: john@example.com"
+            - heading "Copy link to clipboard How SDK transformation works" [level=4] [ref=e694]:
+              - generic [ref=e695]:
+                - button "Copy link to clipboard" [ref=e697] [cursor=pointer]:
+                  - img [ref=e699]
+                - generic [ref=e701]: How SDK transformation works
+            - paragraph [ref=e702]: "The Python, TypeScript, Ruby, and PHP SDKs automatically transform schemas with unsupported features:"
+            - list [ref=e703]:
+              - listitem [ref=e704]:
+                - strong [ref=e705]: Remove unsupported constraints
+                - text: (e.g.,
+                - code [ref=e706]: minimum
+                - text: ","
+                - code [ref=e707]: maximum
+                - text: ","
+                - code [ref=e708]: minLength
+                - text: ","
+                - code [ref=e709]: maxLength
+                - text: )
+              - listitem [ref=e710]:
+                - strong [ref=e711]: Update descriptions
+                - text: with constraint info (e.g., "Must be at least 100"), when the constraint is not directly supported with structured outputs
+              - listitem [ref=e712]:
+                - strong [ref=e713]:
+                  - text: Add
+                  - code [ref=e714]: "additionalProperties: false"
+                - text: to all objects
+              - listitem [ref=e715]:
+                - strong [ref=e716]: Filter string formats
+                - text: to supported list only
+              - listitem [ref=e717]:
+                - strong [ref=e718]: Validate responses
+                - text: against your original schema (with all constraints)
+            - paragraph [ref=e719]: This means Claude receives a simplified schema, but your code still enforces all constraints through validation.
+            - paragraph [ref=e720]:
+              - strong [ref=e721]: "Example:"
+              - text: A Pydantic field with
+              - code [ref=e722]: "minimum: 100"
+              - text: becomes a plain integer in the sent schema, but the SDK updates the description to "Must be at least 100" and validates the response against the original constraint.
+            - heading "Copy link to clipboard Common use cases" [level=3] [ref=e723]:
+              - generic [ref=e724]:
+                - button "Copy link to clipboard" [ref=e726] [cursor=pointer]:
+                  - img [ref=e728]
+                - generic [ref=e730]: Common use cases
+            - generic [ref=e731]:
+              - heading "Data extraction" [level=3] [ref=e733]:
+                - button "Data extraction" [ref=e734] [cursor=pointer]:
+                  - img [ref=e735]
+                  - generic [ref=e737]: Data extraction
+              - heading "Classification" [level=3] [ref=e739]:
+                - button "Classification" [ref=e740] [cursor=pointer]:
+                  - img [ref=e741]
+                  - generic [ref=e743]: Classification
+              - heading "API response formatting" [level=3] [ref=e745]:
+                - button "API response formatting" [ref=e746] [cursor=pointer]:
+                  - img [ref=e747]
+                  - generic [ref=e749]: API response formatting
+            - heading "Copy link to clipboard Strict tool use" [level=2] [ref=e750]:
+              - generic [ref=e751]:
+                - button "Copy link to clipboard" [ref=e753] [cursor=pointer]:
+                  - img [ref=e755]
+                - generic [ref=e757]: Strict tool use
+            - paragraph [ref=e758]:
+              - text: For enforcing JSON Schema compliance on tool inputs with grammar-constrained sampling, see
+              - link "Strict tool use" [ref=e759] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/strict-tool-use
+              - text: .
+            - heading "Copy link to clipboard Using both features together" [level=2] [ref=e760]:
+              - generic [ref=e761]:
+                - button "Copy link to clipboard" [ref=e763] [cursor=pointer]:
+                  - img [ref=e765]
+                - generic [ref=e767]: Using both features together
+            - paragraph [ref=e768]: "JSON outputs and strict tool use solve different problems and work together:"
+            - list [ref=e769]:
+              - listitem [ref=e770]:
+                - text: •
+                - strong [ref=e771]: JSON outputs
+                - text: control Claude's response format (what Claude says)
+              - listitem [ref=e772]:
+                - text: •
+                - strong [ref=e773]: Strict tool use
+                - text: validates tool parameters (how Claude calls your functions)
+            - paragraph [ref=e774]: When combined, Claude can call tools with guaranteed-valid parameters AND return structured JSON responses. This is useful for agentic workflows where you need both reliable tool calls and structured final outputs.
+            - generic [ref=e775]:
+              - generic [ref=e776]:
+                - generic [ref=e777]:
+                  - button "CLI" [ref=e778] [cursor=pointer]
+                  - button "Python" [ref=e779] [cursor=pointer]
+                  - button "TypeScript" [ref=e780] [cursor=pointer]
+                  - button "C#" [ref=e781] [cursor=pointer]
+                  - button "Go" [ref=e782] [cursor=pointer]
+                  - button "Java" [ref=e783] [cursor=pointer]
+                  - button "PHP" [ref=e784] [cursor=pointer]
+                  - button "Ruby" [ref=e785] [cursor=pointer]
+                - button "Copy code" [ref=e787] [cursor=pointer]:
+                  - generic [ref=e788]:
+                    - img [ref=e790]
+                    - img [ref=e793]
+              - code [ref=e798]:
+                - generic [ref=e799]: ant messages create <<'YAML'
+                - generic [ref=e800]: "model: claude-opus-4-6"
+                - generic [ref=e801]: "max_tokens: 1024"
+                - generic [ref=e802]: "messages:"
+                - generic [ref=e803]: "- role: user"
+                - generic [ref=e804]: "content: Help me plan a trip to Paris departing May 15, 2026"
+                - generic [ref=e805]: "# JSON outputs: structured response format"
+                - generic [ref=e806]: "output_config:"
+                - generic [ref=e807]: "format:"
+                - generic [ref=e808]: "type: json_schema"
+                - generic [ref=e809]: "schema:"
+                - generic [ref=e810]: "type: object"
+                - generic [ref=e811]: "properties:"
+                - generic [ref=e812]: "summary:"
+                - generic [ref=e813]: "type: string"
+                - generic [ref=e814]: "next_steps:"
+                - generic [ref=e815]: "type: array"
+                - generic [ref=e816]: "items:"
+                - generic [ref=e817]: "type: string"
+                - generic [ref=e818]: "required: [summary, next_steps]"
+                - generic [ref=e819]: "additionalProperties: false"
+                - generic [ref=e820]: "# Strict tool use: guaranteed tool parameters"
+                - generic [ref=e821]: "tools:"
+                - generic [ref=e822]: "- name: search_flights"
+                - generic [ref=e823]: "strict: true"
+                - generic [ref=e824]: "input_schema:"
+                - generic [ref=e825]: "type: object"
+                - generic [ref=e826]: "properties:"
+                - generic [ref=e827]: "destination:"
+                - generic [ref=e828]: "type: string"
+                - generic [ref=e829]: "date:"
+                - generic [ref=e830]: "type: string"
+                - generic [ref=e831]: "format: date"
+                - generic [ref=e832]: "required: [destination, date]"
+                - generic [ref=e833]: "additionalProperties: false"
+                - generic [ref=e834]: YAML
+            - heading "Copy link to clipboard Important considerations" [level=2] [ref=e835]:
+              - generic [ref=e836]:
+                - button "Copy link to clipboard" [ref=e838] [cursor=pointer]:
+                  - img [ref=e840]
+                - generic [ref=e842]: Important considerations
+            - heading "Copy link to clipboard Grammar compilation and caching" [level=3] [ref=e843]:
+              - generic [ref=e844]:
+                - button "Copy link to clipboard" [ref=e846] [cursor=pointer]:
+                  - img [ref=e848]
+                - generic [ref=e850]: Grammar compilation and caching
+            - paragraph [ref=e851]: "Structured outputs use constrained sampling with compiled grammar artifacts. This introduces some performance characteristics to be aware of:"
+            - list [ref=e852]:
+              - listitem [ref=e853]:
+                - text: •
+                - strong [ref=e854]: "First request latency:"
+                - text: The first time you use a specific schema, there is additional latency while the grammar compiles
+              - listitem [ref=e855]:
+                - text: •
+                - strong [ref=e856]: "Automatic caching:"
+                - text: Compiled grammars are cached for 24 hours from last use, making subsequent requests much faster
+              - listitem [ref=e857]:
+                - text: •
+                - strong [ref=e858]: "Cache invalidation:"
+                - text: "The cache is invalidated if you change:"
+                - list [ref=e859]:
+                  - listitem [ref=e860]: • The JSON schema structure
+                  - listitem [ref=e861]: • The set of tools in your request (when using both structured outputs and tool use)
+                  - listitem [ref=e862]:
+                    - text: • Changing only
+                    - code [ref=e863]: name
+                    - text: or
+                    - code [ref=e864]: description
+                    - text: fields does not invalidate the cache
+            - heading "Copy link to clipboard Prompt modification and token costs" [level=3] [ref=e865]:
+              - generic [ref=e866]:
+                - button "Copy link to clipboard" [ref=e868] [cursor=pointer]:
+                  - img [ref=e870]
+                - generic [ref=e872]: Prompt modification and token costs
+            - paragraph [ref=e873]: "When using structured outputs, Claude automatically receives an additional system prompt explaining the expected output format. This means:"
+            - list [ref=e874]:
+              - listitem [ref=e875]: • Your input token count is slightly higher
+              - listitem [ref=e876]: • The injected prompt costs you tokens like any other system prompt
+              - listitem [ref=e877]:
+                - text: • Changing the
+                - code [ref=e878]: output_config.format
+                - text: parameter will invalidate any
+                - link "prompt cache" [ref=e879] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/prompt-caching
+                - text: for that conversation thread
+            - heading "Copy link to clipboard JSON Schema limitations" [level=3] [ref=e880]:
+              - generic [ref=e881]:
+                - button "Copy link to clipboard" [ref=e883] [cursor=pointer]:
+                  - img [ref=e885]
+                - generic [ref=e887]: JSON Schema limitations
+            - paragraph [ref=e888]: Structured outputs support standard JSON Schema with some limitations. Both JSON outputs and strict tool use share these limitations.
+            - heading "Supported features" [level=3] [ref=e891]:
+              - button "Supported features" [ref=e892] [cursor=pointer]:
+                - img [ref=e893]
+                - generic [ref=e895]: Supported features
+            - heading "Not supported" [level=3] [ref=e898]:
+              - button "Not supported" [ref=e899] [cursor=pointer]:
+                - img [ref=e900]
+                - generic [ref=e902]: Not supported
+            - heading "Pattern support (regex)" [level=3] [ref=e905]:
+              - button "Pattern support (regex)" [ref=e906] [cursor=pointer]:
+                - img [ref=e907]
+                - generic [ref=e909]: Pattern support (regex)
+            - generic [ref=e910]:
+              - img [ref=e913]
+              - paragraph [ref=e916]:
+                - text: The Python, TypeScript, Ruby, and PHP SDKs can automatically transform schemas with unsupported features by removing them and adding constraints to field descriptions. See
+                - link "SDK-specific methods" [ref=e917] [cursor=pointer]:
+                  - /url: "#sdk-specific-methods"
+                - text: for details.
+            - heading "Copy link to clipboard Property ordering" [level=3] [ref=e918]:
+              - generic [ref=e919]:
+                - button "Copy link to clipboard" [ref=e921] [cursor=pointer]:
+                  - img [ref=e923]
+                - generic [ref=e925]: Property ordering
+            - paragraph [ref=e926]:
+              - text: "When using structured outputs, properties in objects maintain their defined ordering from your schema, with one important caveat:"
+              - strong [ref=e927]: required properties appear first, followed by optional properties
+              - text: .
+            - paragraph [ref=e928]: "For example, given this schema:"
+            - generic [ref=e929]:
+              - code [ref=e933]:
+                - generic [ref=e934]: "{"
+                - generic [ref=e935]: "\"type\": \"object\","
+                - generic [ref=e936]: "\"properties\": {"
+                - generic [ref=e937]: "\"notes\": { \"type\": \"string\" },"
+                - generic [ref=e938]: "\"name\": { \"type\": \"string\" },"
+                - generic [ref=e939]: "\"email\": { \"type\": \"string\" },"
+                - generic [ref=e940]: "\"age\": { \"type\": \"integer\" }"
+                - generic [ref=e941]: "},"
+                - generic [ref=e942]: "\"required\": [\"name\", \"email\"],"
+                - generic [ref=e943]: "\"additionalProperties\": false"
+                - generic [ref=e944]: "}"
+              - button "Copy code" [ref=e946] [cursor=pointer]:
+                - generic [ref=e947]:
+                  - img [ref=e949]
+                  - img [ref=e952]
+            - paragraph [ref=e954]: "The output will order properties as:"
+            - list [ref=e955]:
+              - listitem [ref=e956]:
+                - code [ref=e957]: name
+                - text: (required, in schema order)
+              - listitem [ref=e958]:
+                - code [ref=e959]: email
+                - text: (required, in schema order)
+              - listitem [ref=e960]:
+                - code [ref=e961]: notes
+                - text: (optional, in schema order)
+              - listitem [ref=e962]:
+                - code [ref=e963]: age
+                - text: (optional, in schema order)
+            - paragraph [ref=e964]: "This means the output might look like:"
+            - generic [ref=e965]:
+              - code [ref=e969]:
+                - generic [ref=e970]: "{"
+                - generic [ref=e971]: "\"name\": \"John Smith\","
+                - generic [ref=e972]: "\"email\": \"john@example.com\","
+                - generic [ref=e973]: "\"notes\": \"Interested in enterprise plan\","
+                - generic [ref=e974]: "\"age\": 35"
+                - generic [ref=e975]: "}"
+              - button "Copy code" [ref=e977] [cursor=pointer]:
+                - generic [ref=e978]:
+                  - img [ref=e980]
+                  - img [ref=e983]
+            - paragraph [ref=e985]: If property order in the output is important to your application, mark all properties as required, or account for this reordering in your parsing logic.
+            - heading "Copy link to clipboard Invalid outputs" [level=3] [ref=e986]:
+              - generic [ref=e987]:
+                - button "Copy link to clipboard" [ref=e989] [cursor=pointer]:
+                  - img [ref=e991]
+                - generic [ref=e993]: Invalid outputs
+            - paragraph [ref=e994]: "While structured outputs guarantee schema compliance in most cases, there are scenarios where the output may not match your schema:"
+            - paragraph [ref=e995]:
+              - strong [ref=e996]: Refusals
+              - text: (
+              - code [ref=e997]: "stop_reason: \"refusal\""
+              - text: )
+            - paragraph [ref=e998]: "Claude maintains its safety and helpfulness properties even when using structured outputs. If Claude refuses a request for safety reasons:"
+            - list [ref=e999]:
+              - listitem [ref=e1000]:
+                - text: • The response has
+                - code [ref=e1001]: "stop_reason: \"refusal\""
+              - listitem [ref=e1002]: • You'll receive a 200 status code
+              - listitem [ref=e1003]: • You'll be billed for the tokens generated
+              - listitem [ref=e1004]: • The output may not match your schema because the refusal message takes precedence over schema constraints
+            - paragraph [ref=e1005]:
+              - strong [ref=e1006]: Token limit reached
+              - text: (
+              - code [ref=e1007]: "stop_reason: \"max_tokens\""
+              - text: )
+            - paragraph [ref=e1008]:
+              - text: If the response is cut off due to reaching the
+              - code [ref=e1009]: max_tokens
+              - text: "limit:"
+            - list [ref=e1010]:
+              - listitem [ref=e1011]:
+                - text: • The response has
+                - code [ref=e1012]: "stop_reason: \"max_tokens\""
+              - listitem [ref=e1013]: • The output may be incomplete and not match your schema
+              - listitem [ref=e1014]:
+                - text: • Retry with a higher
+                - code [ref=e1015]: max_tokens
+                - text: value to get the complete structured output
+            - heading "Copy link to clipboard Schema complexity limits" [level=3] [ref=e1016]:
+              - generic [ref=e1017]:
+                - button "Copy link to clipboard" [ref=e1019] [cursor=pointer]:
+                  - img [ref=e1021]
+                - generic [ref=e1023]: Schema complexity limits
+            - paragraph [ref=e1024]: Structured outputs work by compiling your JSON schemas into a grammar that constrains Claude's output. More complex schemas produce larger grammars that take longer to compile. To protect against excessive compilation times, the API enforces several complexity limits.
+            - heading "Copy link to clipboard Explicit limits" [level=4] [ref=e1025]:
+              - generic [ref=e1026]:
+                - button "Copy link to clipboard" [ref=e1028] [cursor=pointer]:
+                  - img [ref=e1030]
+                - generic [ref=e1032]: Explicit limits
+            - paragraph [ref=e1033]:
+              - text: The following limits apply to all requests with
+              - code [ref=e1034]: output_config.format
+              - text: or
+              - code [ref=e1035]: "strict: true"
+              - text: ":"
+            - table [ref=e1037]:
+              - rowgroup [ref=e1038]:
+                - row "Limit Value Description" [ref=e1039]:
+                  - columnheader "Limit" [ref=e1040]
+                  - columnheader "Value" [ref=e1041]
+                  - columnheader "Description" [ref=e1042]
+              - rowgroup [ref=e1043]:
+                - 'row "Strict tools per request 20 Maximum number of tools with strict: true. Non-strict tools don''t count toward this limit." [ref=e1044]':
+                  - cell "Strict tools per request" [ref=e1045]
+                  - cell "20" [ref=e1046]
+                  - 'cell "Maximum number of tools with strict: true. Non-strict tools don''t count toward this limit." [ref=e1047]':
+                    - text: Maximum number of tools with
+                    - code [ref=e1048]: "strict: true"
+                    - text: . Non-strict tools don't count toward this limit.
+                - row "Optional parameters 24 Total optional parameters across all strict tool schemas and JSON output schemas. Each parameter not listed in required counts toward this limit." [ref=e1049]:
+                  - cell "Optional parameters" [ref=e1050]
+                  - cell "24" [ref=e1051]
+                  - cell "Total optional parameters across all strict tool schemas and JSON output schemas. Each parameter not listed in required counts toward this limit." [ref=e1052]:
+                    - text: Total optional parameters across all strict tool schemas and JSON output schemas. Each parameter not listed in
+                    - code [ref=e1053]: required
+                    - text: counts toward this limit.
+                - 'row "Parameters with union types 16 Total parameters that use anyOf or type arrays (e.g., \"type\": [\"string\", \"null\"]) across all strict schemas. These are especially expensive because they create exponential compilation cost." [ref=e1054]':
+                  - cell "Parameters with union types" [ref=e1055]
+                  - cell "16" [ref=e1056]
+                  - 'cell "Total parameters that use anyOf or type arrays (e.g., \"type\": [\"string\", \"null\"]) across all strict schemas. These are especially expensive because they create exponential compilation cost." [ref=e1057]':
+                    - text: Total parameters that use
+                    - code [ref=e1058]: anyOf
+                    - text: or type arrays (e.g.,
+                    - code [ref=e1059]: "\"type\": [\"string\", \"null\"]"
+                    - text: ) across all strict schemas. These are especially expensive because they create exponential compilation cost.
+            - generic [ref=e1060]:
+              - img [ref=e1063]
+              - paragraph [ref=e1066]: These limits apply to the combined total across all strict schemas in a single request. For example, if you have 4 strict tools with 6 optional parameters each, you'll reach the 24-parameter limit even though no single tool seems complex.
+            - heading "Copy link to clipboard Additional internal limits" [level=4] [ref=e1067]:
+              - generic [ref=e1068]:
+                - button "Copy link to clipboard" [ref=e1070] [cursor=pointer]:
+                  - img [ref=e1072]
+                - generic [ref=e1074]: Additional internal limits
+            - paragraph [ref=e1075]: "Beyond the explicit limits above, there are additional internal limits on the compiled grammar size. These limits exist because schema complexity doesn't reduce to a single dimension: features like optional parameters, union types, nested objects, and number of tools interact with each other in ways that can make the compiled grammar disproportionately large."
+            - paragraph [ref=e1076]:
+              - text: When these limits are exceeded, you'll receive a 400 error with the message "Schema is too complex for compilation." These errors mean the combined complexity of your schemas exceeds what can be efficiently compiled, even if each individual limit above is satisfied. As a final stop-gap, the API also enforces a
+              - strong [ref=e1077]: compilation timeout of 180 seconds
+              - text: . Schemas that pass all explicit checks but produce very large compiled grammars may hit this timeout.
+            - heading "Copy link to clipboard Tips for reducing schema complexity" [level=4] [ref=e1078]:
+              - generic [ref=e1079]:
+                - button "Copy link to clipboard" [ref=e1081] [cursor=pointer]:
+                  - img [ref=e1083]
+                - generic [ref=e1085]: Tips for reducing schema complexity
+            - paragraph [ref=e1086]: "If you're hitting complexity limits, try these strategies in order:"
+            - list [ref=e1087]:
+              - listitem [ref=e1088]:
+                - paragraph [ref=e1089]:
+                  - strong [ref=e1090]: Mark only critical tools as strict.
+                  - text: If you have many tools, reserve it for tools where schema violations cause real problems, and rely on Claude's natural adherence for simpler tools.
+              - listitem [ref=e1091]:
+                - paragraph [ref=e1092]:
+                  - strong [ref=e1093]: Reduce optional parameters.
+                  - text: Make parameters
+                  - code [ref=e1094]: required
+                  - text: where possible. Each optional parameter roughly doubles a portion of the grammar's state space. If a parameter always has a reasonable default, consider making it required and having Claude provide that default explicitly.
+              - listitem [ref=e1095]:
+                - paragraph [ref=e1096]:
+                  - strong [ref=e1097]: Simplify nested structures.
+                  - text: Deeply nested objects with optional fields compound the complexity. Flatten structures where possible.
+              - listitem [ref=e1098]:
+                - paragraph [ref=e1099]:
+                  - strong [ref=e1100]: Split into multiple requests.
+                  - text: If you have many strict tools, consider splitting them across separate requests or sub-agents.
+            - paragraph [ref=e1101]:
+              - text: For persistent issues with valid schemas,
+              - link "contact support" [ref=e1102] [cursor=pointer]:
+                - /url: https://support.claude.com/en/articles/9015913-how-to-get-support
+              - text: with your schema definition.
+            - heading "Copy link to clipboard Data retention" [level=2] [ref=e1103]:
+              - generic [ref=e1104]:
+                - button "Copy link to clipboard" [ref=e1106] [cursor=pointer]:
+                  - img [ref=e1108]
+                - generic [ref=e1110]: Data retention
+            - paragraph [ref=e1111]: Prompts and responses are processed with ZDR when using structured outputs. However, the JSON schema itself is temporarily cached for up to 24 hours since last use for optimization purposes. No prompt or response data is retained beyond the API response.
+            - paragraph [ref=e1112]:
+              - text: Structured outputs are HIPAA eligible, but
+              - strong [ref=e1113]: PHI must not be included in JSON schema definitions
+              - text: . The API compiles JSON schemas into grammars that are cached separately from message content, and these cached schemas do not receive the same PHI protections as prompts and responses. Do not include PHI in schema property names,
+              - code [ref=e1114]: enum
+              - text: values,
+              - code [ref=e1115]: const
+              - text: values, or
+              - code [ref=e1116]: pattern
+              - text: regular expressions. PHI should only appear in message content (prompts and responses), where it is protected under HIPAA safeguards.
+            - paragraph [ref=e1117]:
+              - text: For ZDR and HIPAA eligibility across all features, see
+              - link "API and data retention" [ref=e1118] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/api-and-data-retention
+              - text: .
+            - heading "Copy link to clipboard Feature compatibility" [level=2] [ref=e1119]:
+              - generic [ref=e1120]:
+                - button "Copy link to clipboard" [ref=e1122] [cursor=pointer]:
+                  - img [ref=e1124]
+                - generic [ref=e1126]: Feature compatibility
+            - paragraph [ref=e1127]:
+              - strong [ref=e1128]: "Works with:"
+            - list [ref=e1129]:
+              - listitem [ref=e1130]:
+                - text: •
+                - strong [ref=e1131]:
+                  - link "Batch processing" [ref=e1132] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/batch-processing
+                - text: ": Process structured outputs at scale with 50% discount"
+              - listitem [ref=e1133]:
+                - text: •
+                - strong [ref=e1134]:
+                  - link "Token counting" [ref=e1135] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/token-counting
+                - text: ": Count tokens without compilation"
+              - listitem [ref=e1136]:
+                - text: •
+                - strong [ref=e1137]:
+                  - link "Streaming" [ref=e1138] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/streaming
+                - text: ": Stream structured outputs like normal responses"
+              - listitem [ref=e1139]:
+                - text: •
+                - strong [ref=e1140]: Combined usage
+                - text: ": Use JSON outputs ("
+                - code [ref=e1141]: output_config.format
+                - text: ) and strict tool use (
+                - code [ref=e1142]: "strict: true"
+                - text: ) together in the same request
+            - paragraph [ref=e1143]:
+              - strong [ref=e1144]: "Incompatible with:"
+            - list [ref=e1145]:
+              - listitem [ref=e1146]:
+                - text: •
+                - strong [ref=e1147]:
+                  - link "Citations" [ref=e1148] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/citations
+                - text: ": Citations require interleaving citation blocks with text, which conflicts with strict JSON schema constraints. Returns 400 error if citations enabled with"
+                - code [ref=e1149]: output_config.format
+                - text: .
+              - listitem [ref=e1150]:
+                - text: •
+                - strong [ref=e1151]: Message Prefilling
+                - text: ": Incompatible with JSON outputs"
+            - generic [ref=e1152]:
+              - img [ref=e1155]
+              - paragraph [ref=e1158]:
+                - strong [ref=e1159]: Grammar scope
+                - text: ": Grammars apply only to Claude's direct output, not to tool use calls, tool results, or thinking tags (when using"
+                - link "Extended Thinking" [ref=e1160] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/extended-thinking
+                - text: ). Grammar state resets between sections, allowing Claude to think freely while still producing structured output in the final response.
+            - generic [ref=e1161]:
+              - paragraph [ref=e1162]: Was this page helpful?
+              - generic [ref=e1163]:
+                - button "Thumbs up" [ref=e1164] [cursor=pointer]:
+                  - img [ref=e1166]
+                - button "Thumbs down" [ref=e1168] [cursor=pointer]:
+                  - img [ref=e1170]
+          - button "Toggle table of contents" [ref=e1172] [cursor=pointer]:
+            - img [ref=e1173]
+        - generic [ref=e1176]:
+          - generic [ref=e1177]:
+            - link "Claude API Docs home page" [ref=e1179] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e1180]
+            - generic [ref=e1183]:
+              - link "X (Twitter)" [ref=e1184] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e1185]
+              - link "LinkedIn" [ref=e1187] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e1188]
+              - link "Instagram" [ref=e1190] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e1191]
+          - generic [ref=e1194]:
+            - generic [ref=e1195]:
+              - generic [ref=e1196]:
+                - heading "Solutions" [level=3] [ref=e1197]
+                - list [ref=e1198]:
+                  - listitem [ref=e1199]:
+                    - link "AI agents" [ref=e1200] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e1201]:
+                    - link "Code modernization" [ref=e1202] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e1203]:
+                    - link "Coding" [ref=e1204] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e1205]:
+                    - link "Customer support" [ref=e1206] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e1207]:
+                    - link "Education" [ref=e1208] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e1209]:
+                    - link "Financial services" [ref=e1210] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e1211]:
+                    - link "Government" [ref=e1212] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e1213]:
+                    - link "Life sciences" [ref=e1214] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e1215]:
+                - heading "Partners" [level=3] [ref=e1216]
+                - list [ref=e1217]:
+                  - listitem [ref=e1218]:
+                    - link "Amazon Bedrock" [ref=e1219] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e1220]:
+                    - link "Google Cloud's Vertex AI" [ref=e1221] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e1222]:
+              - generic [ref=e1223]:
+                - heading "Learn" [level=3] [ref=e1224]
+                - list [ref=e1225]:
+                  - listitem [ref=e1226]:
+                    - link "Blog" [ref=e1227] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e1228]:
+                    - link "Courses" [ref=e1229] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e1230]:
+                    - link "Use cases" [ref=e1231] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e1232]:
+                    - link "Connectors" [ref=e1233] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e1234]:
+                    - link "Customer stories" [ref=e1235] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e1236]:
+                    - link "Engineering at Anthropic" [ref=e1237] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e1238]:
+                    - link "Events" [ref=e1239] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e1240]:
+                    - link "Powered by Claude" [ref=e1241] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e1242]:
+                    - link "Service partners" [ref=e1243] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e1244]:
+                    - link "Startups program" [ref=e1245] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e1246]:
+                - heading "Company" [level=3] [ref=e1247]
+                - list [ref=e1248]:
+                  - listitem [ref=e1249]:
+                    - link "Anthropic" [ref=e1250] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e1251]:
+                    - link "Careers" [ref=e1252] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e1253]:
+                    - link "Economic Futures" [ref=e1254] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e1255]:
+                    - link "Research" [ref=e1256] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e1257]:
+                    - link "News" [ref=e1258] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e1259]:
+                    - link "Responsible Scaling Policy" [ref=e1260] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e1261]:
+                    - link "Security and compliance" [ref=e1262] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e1263]:
+                    - link "Transparency" [ref=e1264] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1265]:
+              - generic [ref=e1266]:
+                - heading "Help and security" [level=3] [ref=e1267]
+                - list [ref=e1268]:
+                  - listitem [ref=e1269]:
+                    - link "Availability" [ref=e1270] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e1271]:
+                    - link "Status" [ref=e1272] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e1273]:
+                    - link "Support" [ref=e1274] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e1275]:
+                    - link "Discord" [ref=e1276] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e1277]:
+                - heading "Terms and policies" [level=3] [ref=e1278]
+                - list [ref=e1279]:
+                  - listitem [ref=e1280]:
+                    - link "Privacy policy" [ref=e1281] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e1282]:
+                    - link "Responsible disclosure policy" [ref=e1283] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e1284]:
+                    - 'link "Terms of service: Commercial" [ref=e1285] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e1286]:
+                    - 'link "Terms of service: Consumer" [ref=e1287] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e1288]:
+                    - link "Usage policy" [ref=e1289] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e1293] [cursor=pointer]:
+    - generic [ref=e1294]: Ask Docs
+  - alert [ref=e1295]

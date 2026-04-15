@@ -1,0 +1,2134 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Anthropic Certification 2025
+    - heading "Claude Certified Architect Foundations" [level=1] [ref=e5]
+    - paragraph [ref=e6]: Guia profundizada de estudio para la certificacion oficial de Anthropic. Cubre los 5 dominios, 6 escenarios de examen, y todos los conceptos clave con ejemplos de codigo y diagramas de arquitectura.
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: "5"
+        - generic [ref=e10]: Dominios
+      - generic [ref=e11]:
+        - generic [ref=e12]: "27"
+        - generic [ref=e13]: Task Statements
+      - generic [ref=e14]:
+        - generic [ref=e15]: "6"
+        - generic [ref=e16]: Escenarios
+      - generic [ref=e17]:
+        - generic [ref=e18]: "720"
+        - generic [ref=e19]: Score Minimo
+  - navigation [ref=e20]:
+    - generic [ref=e21]:
+      - link "Examen" [ref=e22] [cursor=pointer]:
+        - /url: "#exam-overview"
+      - 'link "D1: Agentic Architecture 27%" [ref=e23] [cursor=pointer]':
+        - /url: "#domain-1"
+        - text: "D1: Agentic Architecture"
+        - generic [ref=e24]: 27%
+      - 'link "D2: Tool Design & MCP 18%" [ref=e25] [cursor=pointer]':
+        - /url: "#domain-2"
+        - text: "D2: Tool Design & MCP"
+        - generic [ref=e26]: 18%
+      - 'link "D3: Claude Code 20%" [ref=e27] [cursor=pointer]':
+        - /url: "#domain-3"
+        - text: "D3: Claude Code"
+        - generic [ref=e28]: 20%
+      - 'link "D4: Prompt Engineering 20%" [ref=e29] [cursor=pointer]':
+        - /url: "#domain-4"
+        - text: "D4: Prompt Engineering"
+        - generic [ref=e30]: 20%
+      - 'link "D5: Context & Reliability 15%" [ref=e31] [cursor=pointer]':
+        - /url: "#domain-5"
+        - text: "D5: Context & Reliability"
+        - generic [ref=e32]: 15%
+      - link "Escenarios" [ref=e33] [cursor=pointer]:
+        - /url: "#scenarios"
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - heading "Estructura del Examen" [level=2] [ref=e36]
+      - paragraph [ref=e37]: Multiple choice con 4 opciones (1 correcta, 3 distractores). Scoring de 100-1000, minimo 720 para aprobar. No hay penalidad por adivinar.
+    - generic [ref=e38]:
+      - generic [ref=e39]: "D1: 27%"
+      - generic [ref=e40]: "D2: 18%"
+      - generic [ref=e41]: "D3: 20%"
+      - generic [ref=e42]: "D4: 20%"
+      - generic [ref=e43]: "D5: 15%"
+    - generic [ref=e44]:
+      - heading "Formato del Examen" [level=4] [ref=e45]
+      - paragraph [ref=e46]: El examen presenta 4 escenarios seleccionados al azar de un total de 6. Cada escenario describe un contexto de produccion realista que enmarca un conjunto de preguntas. Las preguntas evaluan juicio practico sobre arquitectura, configuracion y trade-offs, no solo conocimiento conceptual.
+  - generic [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: Dominio 1 — 27% del examen
+      - heading "Agentic Architecture & Orchestration" [level=2] [ref=e50]
+      - paragraph [ref=e51]: Disenar e implementar loops agenticos, orquestar sistemas multi-agente, y gestionar sesiones y handoffs.
+    - generic [ref=e52]:
+      - generic [ref=e53]: El Loop Agentico — Ciclo de Vida
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - text: User
+          - text: Prompt
+        - generic [ref=e56]: →
+        - generic [ref=e57]:
+          - text: Claude
+          - text: Razona
+        - generic [ref=e58]: →
+        - generic [ref=e59]: stop_reason?
+        - generic [ref=e60]: →
+        - generic [ref=e61]:
+          - text: "\"tool_use\""
+          - text: Ejecutar Tool
+        - generic [ref=e62]: →
+        - generic [ref=e63]:
+          - text: Append Result
+          - text: al Historial
+        - generic [ref=e64]: ↓
+        - generic [ref=e65]:
+          - text: "\"end_turn\""
+          - text: Respuesta Final
+    - generic [ref=e66]:
+      - heading "Anti-patrones del Loop Agentico (pregunta frecuente del examen)" [level=4] [ref=e67]
+      - list [ref=e68]:
+        - listitem [ref=e69]: "> Parsear texto en lenguaje natural para determinar si el loop debe terminar"
+        - listitem [ref=e70]: "> Usar caps arbitrarios de iteracion como mecanismo primario de parada"
+        - listitem [ref=e71]: "> Verificar contenido de texto del asistente como indicador de completitud"
+      - paragraph [ref=e72]:
+        - strong [ref=e73]: "Correcto:"
+        - text: Continuar cuando
+        - code [ref=e74]: stop_reason == "tool_use"
+        - text: y terminar cuando
+        - code [ref=e75]: stop_reason == "end_turn"
+    - generic [ref=e76]:
+      - text: python
+      - code [ref=e77]: "# Agentic loop correcto - patron del examen import anthropic client = anthropic.Anthropic() messages = [{\"role\": \"user\", \"content\": prompt}] while True: response = client.messages.create( model=\"claude-opus-4-6\", max_tokens=4096, tools=tools, messages=messages ) # Agregar respuesta al historial messages.append({\"role\": \"assistant\", \"content\": response.content}) if response.stop_reason == \"end_turn\": break # Loop terminado correctamente # Ejecutar herramientas y agregar resultados tool_results = [] for block in response.content: if block.type == \"tool_use\": result = execute_tool(block.name, block.input) tool_results.append({ \"type\": \"tool_result\", \"tool_use_id\": block.id, \"content\": result }) messages.append({\"role\": \"user\", \"content\": tool_results})"
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - heading "1.2 Patron Coordinator-Subagent" [level=3] [ref=e80]:
+          - generic [ref=e81]: "1.2"
+          - text: Patron Coordinator-Subagent
+        - paragraph [ref=e82]: Arquitectura hub-and-spoke donde un coordinador gestiona toda la comunicacion entre sub-agentes.
+        - list [ref=e83]:
+          - listitem [ref=e84]:
+            - text: ">"
+            - strong [ref=e85]: Sub-agentes tienen contexto aislado
+            - text: — NO heredan el historial del coordinador
+          - listitem [ref=e86]: "> El coordinador analiza requerimientos y selecciona dinamicamente que sub-agentes invocar"
+          - listitem [ref=e87]: "> Toda comunicacion pasa por el coordinador para observabilidad"
+          - listitem [ref=e88]: "> Loops de refinamiento iterativo: evaluar sintesis, re-delegar si hay gaps"
+        - generic [ref=e89]:
+          - heading "Riesgo comun de examen" [level=4] [ref=e90]
+          - paragraph [ref=e91]: "La descomposicion demasiado estrecha del coordinador lleva a cobertura incompleta. Ejemplo: \"AI en industrias creativas\" descompuesto solo en artes visuales, omitiendo musica, escritura y cine."
+      - generic [ref=e92]:
+        - heading "1.3 Spawning de Subagentes" [level=3] [ref=e93]:
+          - generic [ref=e94]: "1.3"
+          - text: Spawning de Subagentes
+        - paragraph [ref=e95]:
+          - text: El
+          - code [ref=e96]: Task
+          - text: tool (o
+          - code [ref=e97]: Agent
+          - text: tool en Agent SDK) es el mecanismo para spawnear subagentes.
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - text: ">"
+            - code [ref=e100]: allowedTools
+            - text: debe incluir
+            - code [ref=e101]: "\"Task\""
+            - text: para que el coordinador pueda invocar subagentes
+          - listitem [ref=e102]:
+            - text: "> Contexto debe pasarse"
+            - strong [ref=e103]: explicitamente en el prompt
+            - text: — no hay herencia automatica
+          - listitem [ref=e104]: "> Usar datos estructurados para separar contenido de metadata (URLs, paginas)"
+          - listitem [ref=e105]:
+            - text: ">"
+            - strong [ref=e106]: "Ejecucion paralela:"
+            - text: emitir multiples Task calls en una sola respuesta
+      - generic [ref=e107]:
+        - heading "1.4 Enforcement y Handoffs" [level=3] [ref=e108]:
+          - generic [ref=e109]: "1.4"
+          - text: Enforcement y Handoffs
+        - paragraph [ref=e110]: Diferencia critica entre enforcement programatico (hooks/gates) y prompt-based guidance.
+        - list [ref=e111]:
+          - listitem [ref=e112]: "> Cuando compliance determinista es requerido, prompt instructions solas tienen tasa de fallo no-zero"
+          - listitem [ref=e113]: "> Prerequisitos programaticos bloquean tools downstream hasta completar pasos previos"
+          - listitem [ref=e114]: "> Handoff estructurado: customer ID + root cause + monto + accion recomendada"
+        - generic [ref=e115]:
+          - heading "Regla clave para el examen" [level=4] [ref=e116]
+          - paragraph [ref=e117]:
+            - strong [ref=e118]: Enforcement programatico > Prompt instructions
+            - text: "cuando el error tiene consecuencias financieras o de seguridad. Ejemplo: bloquear"
+            - code [ref=e119]: process_refund
+            - text: hasta que
+            - code [ref=e120]: get_customer
+            - text: retorne un ID verificado.
+      - generic [ref=e121]:
+        - heading "1.5 Agent SDK Hooks" [level=3] [ref=e122]:
+          - generic [ref=e123]: "1.5"
+          - text: Agent SDK Hooks
+        - paragraph [ref=e124]: Hooks interceptan tool calls y tool results para transformacion y enforcement.
+        - list [ref=e125]:
+          - listitem [ref=e126]:
+            - text: ">"
+            - code [ref=e127]: PostToolUse
+            - text: ": normalizar formatos heterogeneos (timestamps, codigos de status)"
+          - listitem [ref=e128]: "> Tool call interception: bloquear acciones que violan politicas (refunds > $500)"
+          - listitem [ref=e129]: "> Hooks para garantias deterministas vs prompts para compliance probabilistico"
+        - generic [ref=e130]:
+          - text: python
+          - code [ref=e131]: "# Hook PostToolUse - normalizar datos hooks = { \"PostToolUse\": [ HookMatcher( matcher=\"get_customer|lookup_order\", hooks=[normalize_timestamps] ) ] } # Hook de interception - bloquear refunds altos async def block_high_refunds(input_data, tool_use_id, ctx): amount = input_data[\"tool_input\"].get(\"amount\", 0) if amount > 500: return {\"decision\": \"block\", \"message\": \"Escalate to human\"}"
+      - generic [ref=e132]:
+        - heading "1.6 Estrategias de Descomposicion" [level=3] [ref=e133]:
+          - generic [ref=e134]: "1.6"
+          - text: Estrategias de Descomposicion
+        - paragraph [ref=e135]: Elegir entre prompt chaining (pipelines fijos) y descomposicion adaptativa.
+        - list [ref=e136]:
+          - listitem [ref=e137]:
+            - text: ">"
+            - strong [ref=e138]: "Prompt chaining:"
+            - text: reviews multi-aspecto predecibles (per-file + cross-file pass)
+          - listitem [ref=e139]:
+            - text: ">"
+            - strong [ref=e140]: "Descomposicion dinamica:"
+            - text: tareas open-ended donde subtasks dependen de hallazgos previos
+          - listitem [ref=e141]: "> Dividir code reviews grandes en analisis local per-file + pass de integracion cross-file"
+      - generic [ref=e142]:
+        - heading "1.7 Session State y Forking" [level=3] [ref=e143]:
+          - generic [ref=e144]: "1.7"
+          - text: Session State y Forking
+        - paragraph [ref=e145]: Gestion de sesiones para continuidad y exploracion paralela.
+        - list [ref=e146]:
+          - listitem [ref=e147]:
+            - text: ">"
+            - code [ref=e148]: "--resume <session-name>"
+            - text: para continuar conversaciones especificas
+          - listitem [ref=e149]:
+            - text: ">"
+            - code [ref=e150]: fork_session
+            - text: para crear ramas independientes desde un baseline compartido
+          - listitem [ref=e151]: "> Nueva sesion con resumen estructurado es mas confiable que resumir con tool results obsoletos"
+          - listitem [ref=e152]: "> Informar al agente sobre cambios en archivos al resumir sesiones"
+    - generic [ref=e153]:
+      - generic [ref=e154]: Respuesta Exacta de la API con tool_use
+      - generic [ref=e155]:
+        - text: json
+        - code [ref=e156]: "{ \"id\": \"msg_01Aq9w938a90dw8q\", \"model\": \"claude-opus-4-6\", \"stop_reason\": \"tool_use\", \"role\": \"assistant\", \"content\": [ { \"type\": \"text\", \"text\": \"I'll check the current weather in San Francisco for you.\" }, { \"type\": \"tool_use\", \"id\": \"toolu_01A09q90qw90lq917835lq9\", \"name\": \"get_weather\", \"input\": { \"location\": \"San Francisco, CA\", \"unit\": \"celsius\" } } ] }"
+      - generic [ref=e157]:
+        - heading "Detalle clave" [level=4] [ref=e158]
+        - paragraph [ref=e159]:
+          - text: Claude puede incluir TANTO bloques
+          - code [ref=e160]: text
+          - text: como
+          - code [ref=e161]: tool_use
+          - text: en una sola respuesta. El texto es comentario en lenguaje natural sobre lo que esta haciendo. El campo
+          - code [ref=e162]: id
+          - text: del
+          - code [ref=e163]: tool_use
+          - text: se usa para correlacionar con el
+          - code [ref=e164]: tool_result
+          - text: posterior.
+    - generic [ref=e166]:
+      - heading "Valores de stop_reason — Tabla Completa" [level=3] [ref=e167]
+      - paragraph [ref=e168]:
+        - text: El loop agentico depende de
+        - code [ref=e169]: stop_reason
+        - text: "para decidir si continuar. Estos son los 6 valores posibles:"
+      - table [ref=e170]:
+        - rowgroup [ref=e171]:
+          - row "Valor Significado Accion" [ref=e172]:
+            - columnheader "Valor" [ref=e173]
+            - columnheader "Significado" [ref=e174]
+            - columnheader "Accion" [ref=e175]
+          - row "\"end_turn\" Claude produjo una respuesta final Salir del loop" [ref=e176]:
+            - cell "\"end_turn\"" [ref=e177]:
+              - code [ref=e178]: "\"end_turn\""
+            - cell "Claude produjo una respuesta final" [ref=e179]
+            - cell "Salir del loop" [ref=e180]
+          - row "\"tool_use\" Claude quiere usar una o mas herramientas Ejecutar tools, continuar loop" [ref=e181]:
+            - cell "\"tool_use\"" [ref=e182]:
+              - code [ref=e183]: "\"tool_use\""
+            - cell "Claude quiere usar una o mas herramientas" [ref=e184]
+            - cell "Ejecutar tools, continuar loop" [ref=e185]
+          - row "\"max_tokens\" La respuesta alcanzo el limite de max_tokens Salir del loop (respuesta truncada)" [ref=e186]:
+            - cell "\"max_tokens\"" [ref=e187]:
+              - code [ref=e188]: "\"max_tokens\""
+            - cell "La respuesta alcanzo el limite de max_tokens" [ref=e189]
+            - cell "Salir del loop (respuesta truncada)" [ref=e190]
+          - row "\"stop_sequence\" Se encontro una stop sequence configurada Salir del loop" [ref=e191]:
+            - cell "\"stop_sequence\"" [ref=e192]:
+              - code [ref=e193]: "\"stop_sequence\""
+            - cell "Se encontro una stop sequence configurada" [ref=e194]
+            - cell "Salir del loop" [ref=e195]
+          - row "\"refusal\" Claude rechazo la solicitud Salir del loop (manejar rechazo)" [ref=e196]:
+            - cell "\"refusal\"" [ref=e197]:
+              - code [ref=e198]: "\"refusal\""
+            - cell "Claude rechazo la solicitud" [ref=e199]
+            - cell "Salir del loop (manejar rechazo)" [ref=e200]
+          - row "\"pause_turn\" Loop server-side alcanzo limite de iteraciones Re-enviar conversacion para continuar" [ref=e201]:
+            - cell "\"pause_turn\"" [ref=e202]:
+              - code [ref=e203]: "\"pause_turn\""
+            - cell "Loop server-side alcanzo limite de iteraciones" [ref=e204]
+            - cell "Re-enviar conversacion para continuar" [ref=e205]
+      - generic [ref=e206]:
+        - heading "pause_turn y el loop server-side" [level=4] [ref=e207]
+        - paragraph [ref=e208]:
+          - text: Los server-executed tools (
+          - code [ref=e209]: web_search
+          - text: ","
+          - code [ref=e210]: code_execution
+          - text: ", etc.) ejecutan su propio loop dentro de la infraestructura de Anthropic. Si el modelo aun esta iterando cuando alcanza el limite de iteraciones, retorna"
+          - code [ref=e211]: "stop_reason: \"pause_turn\""
+          - text: ". Esto indica que el trabajo NO esta terminado: debes re-enviar la conversacion completa (incluyendo la respuesta pausada) para que el modelo continue."
+    - generic [ref=e212]:
+      - 'heading "Regla Critica de Formato: Orden en tool_result" [level=4] [ref=e213]'
+      - paragraph [ref=e214]:
+        - strong [ref=e215]:
+          - text: Los bloques
+          - code [ref=e216]: tool_result
+          - text: deben ir PRIMERO en el array de content. El texto debe ir DESPUES de todos los tool results.
+        - text: Violar este orden causa un error 400.
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - paragraph [ref=e219]: "INCORRECTO (causa error 400):"
+          - generic [ref=e220]:
+            - text: json
+            - code [ref=e221]: "{ \"role\": \"user\", \"content\": [ { \"type\": \"text\", \"text\": \"Here are the results:\" }, { \"type\": \"tool_result\", \"tool_use_id\": \"toolu_01\" } ] }"
+        - generic [ref=e222]:
+          - paragraph [ref=e223]: "CORRECTO:"
+          - generic [ref=e224]:
+            - text: json
+            - code [ref=e225]: "{ \"role\": \"user\", \"content\": [ { \"type\": \"tool_result\", \"tool_use_id\": \"toolu_01\" }, { \"type\": \"text\", \"text\": \"What should I do next?\" } ] }"
+      - paragraph [ref=e226]:
+        - text: Ademas, los bloques
+        - code [ref=e227]: tool_result
+        - text: deben seguir
+        - strong [ref=e228]: inmediatamente
+        - text: al mensaje del asistente con los
+        - code [ref=e229]: tool_use
+        - text: correspondientes. No se pueden insertar mensajes entre ambos.
+    - generic [ref=e231]:
+      - heading "1.5+ Hooks — Los 18 Tipos de Eventos Completos" [level=3] [ref=e232]:
+        - generic [ref=e233]: 1.5+
+        - text: Hooks — Los 18 Tipos de Eventos Completos
+      - paragraph [ref=e234]:
+        - text: El Agent SDK soporta 18 tipos de hook events. Cada callback recibe
+        - strong [ref=e235]: 3 argumentos
+        - text: ": (1) input data con detalles del evento, (2) tool_use_id para correlacionar PreToolUse/PostToolUse, (3) context (TypeScript:"
+        - code [ref=e236]: "{ signal: AbortSignal }"
+        - text: ", Python: reservado)."
+      - table [ref=e237]:
+        - rowgroup [ref=e238]:
+          - row "Hook Event Python TypeScript Trigger" [ref=e239]:
+            - columnheader "Hook Event" [ref=e240]
+            - columnheader "Python" [ref=e241]
+            - columnheader "TypeScript" [ref=e242]
+            - columnheader "Trigger" [ref=e243]
+          - row "PreToolUse Si Si Tool call request (puede bloquear o modificar)" [ref=e244]:
+            - cell "PreToolUse" [ref=e245]:
+              - code [ref=e246]: PreToolUse
+            - cell "Si" [ref=e247]
+            - cell "Si" [ref=e248]
+            - cell "Tool call request (puede bloquear o modificar)" [ref=e249]
+          - row "PostToolUse Si Si Resultado de ejecucion de tool" [ref=e250]:
+            - cell "PostToolUse" [ref=e251]:
+              - code [ref=e252]: PostToolUse
+            - cell "Si" [ref=e253]
+            - cell "Si" [ref=e254]
+            - cell "Resultado de ejecucion de tool" [ref=e255]
+          - row "PostToolUseFailure Si Si Fallo en ejecucion de tool" [ref=e256]:
+            - cell "PostToolUseFailure" [ref=e257]:
+              - code [ref=e258]: PostToolUseFailure
+            - cell "Si" [ref=e259]
+            - cell "Si" [ref=e260]
+            - cell "Fallo en ejecucion de tool" [ref=e261]
+          - row "UserPromptSubmit Si Si Envio de prompt del usuario" [ref=e262]:
+            - cell "UserPromptSubmit" [ref=e263]:
+              - code [ref=e264]: UserPromptSubmit
+            - cell "Si" [ref=e265]
+            - cell "Si" [ref=e266]
+            - cell "Envio de prompt del usuario" [ref=e267]
+          - row "Stop Si Si El agente deja de ejecutar" [ref=e268]:
+            - cell "Stop" [ref=e269]:
+              - code [ref=e270]: Stop
+            - cell "Si" [ref=e271]
+            - cell "Si" [ref=e272]
+            - cell "El agente deja de ejecutar" [ref=e273]
+          - row "SubagentStart Si Si Inicializacion de subagente" [ref=e274]:
+            - cell "SubagentStart" [ref=e275]:
+              - code [ref=e276]: SubagentStart
+            - cell "Si" [ref=e277]
+            - cell "Si" [ref=e278]
+            - cell "Inicializacion de subagente" [ref=e279]
+          - row "SubagentStop Si Si Finalizacion de subagente" [ref=e280]:
+            - cell "SubagentStop" [ref=e281]:
+              - code [ref=e282]: SubagentStop
+            - cell "Si" [ref=e283]
+            - cell "Si" [ref=e284]
+            - cell "Finalizacion de subagente" [ref=e285]
+          - row "PreCompact Si Si Solicitud de compactacion de conversacion" [ref=e286]:
+            - cell "PreCompact" [ref=e287]:
+              - code [ref=e288]: PreCompact
+            - cell "Si" [ref=e289]
+            - cell "Si" [ref=e290]
+            - cell "Solicitud de compactacion de conversacion" [ref=e291]
+          - row "PermissionRequest Si Si Se mostraria dialogo de permiso" [ref=e292]:
+            - cell "PermissionRequest" [ref=e293]:
+              - code [ref=e294]: PermissionRequest
+            - cell "Si" [ref=e295]
+            - cell "Si" [ref=e296]
+            - cell "Se mostraria dialogo de permiso" [ref=e297]
+          - row "Notification Si Si Mensajes de status del agente" [ref=e298]:
+            - cell "Notification" [ref=e299]:
+              - code [ref=e300]: Notification
+            - cell "Si" [ref=e301]
+            - cell "Si" [ref=e302]
+            - cell "Mensajes de status del agente" [ref=e303]
+          - row "SessionStart No* Si Inicializacion de sesion" [ref=e304]:
+            - cell "SessionStart" [ref=e305]:
+              - code [ref=e306]: SessionStart
+            - cell "No*" [ref=e307]
+            - cell "Si" [ref=e308]
+            - cell "Inicializacion de sesion" [ref=e309]
+          - row "SessionEnd No* Si Terminacion de sesion" [ref=e310]:
+            - cell "SessionEnd" [ref=e311]:
+              - code [ref=e312]: SessionEnd
+            - cell "No*" [ref=e313]
+            - cell "Si" [ref=e314]
+            - cell "Terminacion de sesion" [ref=e315]
+          - row "Setup No Si Setup/mantenimiento de sesion" [ref=e316]:
+            - cell "Setup" [ref=e317]:
+              - code [ref=e318]: Setup
+            - cell "No" [ref=e319]
+            - cell "Si" [ref=e320]
+            - cell "Setup/mantenimiento de sesion" [ref=e321]
+          - row "TeammateIdle No Si Un teammate queda inactivo" [ref=e322]:
+            - cell "TeammateIdle" [ref=e323]:
+              - code [ref=e324]: TeammateIdle
+            - cell "No" [ref=e325]
+            - cell "Si" [ref=e326]
+            - cell "Un teammate queda inactivo" [ref=e327]
+          - row "TaskCompleted No Si Tarea en background completada" [ref=e328]:
+            - cell "TaskCompleted" [ref=e329]:
+              - code [ref=e330]: TaskCompleted
+            - cell "No" [ref=e331]
+            - cell "Si" [ref=e332]
+            - cell "Tarea en background completada" [ref=e333]
+          - row "ConfigChange No Si Cambios en archivos de configuracion" [ref=e334]:
+            - cell "ConfigChange" [ref=e335]:
+              - code [ref=e336]: ConfigChange
+            - cell "No" [ref=e337]
+            - cell "Si" [ref=e338]
+            - cell "Cambios en archivos de configuracion" [ref=e339]
+          - row "WorktreeCreate No Si Git worktree creado" [ref=e340]:
+            - cell "WorktreeCreate" [ref=e341]:
+              - code [ref=e342]: WorktreeCreate
+            - cell "No" [ref=e343]
+            - cell "Si" [ref=e344]
+            - cell "Git worktree creado" [ref=e345]
+          - row "WorktreeRemove No Si Git worktree eliminado" [ref=e346]:
+            - cell "WorktreeRemove" [ref=e347]:
+              - code [ref=e348]: WorktreeRemove
+            - cell "No" [ref=e349]
+            - cell "Si" [ref=e350]
+            - cell "Git worktree eliminado" [ref=e351]
+      - paragraph [ref=e352]:
+        - text: "*"
+        - code [ref=e353]: SessionStart
+        - text: "y"
+        - code [ref=e354]: SessionEnd
+        - text: en Python solo estan disponibles como shell command hooks desde archivos de settings, no como SDK callbacks.
+    - generic [ref=e355]:
+      - generic [ref=e356]:
+        - heading "Hook Output — Campos de Retorno" [level=3] [ref=e357]
+        - paragraph [ref=e358]:
+          - text: Los hooks retornan un objeto con campos top-level y campos especificos en
+          - code [ref=e359]: hookSpecificOutput
+          - text: ":"
+        - list [ref=e360]:
+          - listitem [ref=e361]:
+            - text: ">"
+            - code [ref=e362]: systemMessage
+            - text: ": inyecta un mensaje en la conversacion visible al modelo"
+          - listitem [ref=e363]:
+            - text: ">"
+            - code [ref=e364]: continue
+            - text: (
+            - code [ref=e365]: continue_
+            - text: "en Python): si el agente sigue ejecutando despues del hook"
+        - paragraph [ref=e366]:
+          - text: Campos de
+          - code [ref=e367]: hookSpecificOutput
+          - text: "para PreToolUse:"
+        - list [ref=e368]:
+          - listitem [ref=e369]:
+            - text: ">"
+            - code [ref=e370]: permissionDecision
+            - text: ":"
+            - code [ref=e371]: "\"allow\""
+            - text: ","
+            - code [ref=e372]: "\"deny\""
+            - text: o
+            - code [ref=e373]: "\"ask\""
+          - listitem [ref=e374]:
+            - text: ">"
+            - code [ref=e375]: permissionDecisionReason
+            - text: ": string explicando la decision"
+          - listitem [ref=e376]:
+            - text: ">"
+            - code [ref=e377]: updatedInput
+            - text: ": input modificado del tool (requiere tambien"
+            - code [ref=e378]: "permissionDecision: \"allow\""
+            - text: )
+        - generic [ref=e379]:
+          - heading "Regla de Prioridad entre Hooks" [level=4] [ref=e380]
+          - paragraph [ref=e381]:
+            - strong [ref=e382]: deny > ask > allow
+            - text: — Si cualquier hook retorna
+            - code [ref=e383]: "\"deny\""
+            - text: ", la operacion se bloquea sin importar lo que retornen los demas hooks. Retornar"
+            - code [ref=e384]: "{}"
+            - text: (objeto vacio) equivale a permitir sin cambios.
+      - generic [ref=e385]:
+        - heading "Hook Output — Ejemplos Exactos" [level=3] [ref=e386]
+        - generic [ref=e387]:
+          - text: typescript
+          - code [ref=e388]: "// Bloquear un tool return { systemMessage: \"Remember: system directories like /etc are protected.\", hookSpecificOutput: { hookEventName: \"PreToolUse\", permissionDecision: \"deny\", permissionDecisionReason: \"Writing to /etc is not allowed\" } }; // Modificar input (REQUIERE permissionDecision: \"allow\") return { hookSpecificOutput: { hookEventName: preInput.hook_event_name, permissionDecision: \"allow\", updatedInput: { ...toolInput, file_path: `/sandbox${originalPath}` } } };"
+        - generic [ref=e389]:
+          - heading "Critico al usar updatedInput" [level=4] [ref=e390]
+          - paragraph [ref=e391]:
+            - text: Cuando usas
+            - code [ref=e392]: updatedInput
+            - text: ", DEBES incluir tambien"
+            - code [ref=e393]: "permissionDecision: \"allow\""
+            - text: . Siempre retorna un objeto nuevo en vez de mutar el
+            - code [ref=e394]: tool_input
+            - text: original. El
+            - code [ref=e395]: updatedInput
+            - text: debe estar dentro de
+            - code [ref=e396]: hookSpecificOutput
+            - text: ", no a nivel top."
+    - generic [ref=e397]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e398]
+      - generic [ref=e399]:
+        - generic [ref=e400] [cursor=pointer]:
+          - img "How Tool Use Works - Agentic Loop" [ref=e401]
+          - generic [ref=e402]: How Tool Use Works - Agentic Loop Lifecycle
+          - link "platform.claude.com/docs →" [ref=e403]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works
+        - generic [ref=e404] [cursor=pointer]:
+          - img "Agent SDK Overview" [ref=e405]
+          - generic [ref=e406]: Agent SDK - Hooks, Subagents, Sessions
+          - link "code.claude.com/docs →" [ref=e407]:
+            - /url: https://code.claude.com/docs/en/agent-sdk/overview
+        - generic [ref=e408] [cursor=pointer]:
+          - img "Create Custom Subagents" [ref=e409]
+          - generic [ref=e410]: Create Custom Subagents - Task Delegation
+          - link "code.claude.com/docs →" [ref=e411]:
+            - /url: https://code.claude.com/docs/en/sub-agents
+        - generic [ref=e412] [cursor=pointer]:
+          - img "Hooks Reference" [ref=e413]
+          - generic [ref=e414]: Hooks Reference - PostToolUse, PreToolUse
+          - link "code.claude.com/docs →" [ref=e415]:
+            - /url: https://code.claude.com/docs/en/hooks
+  - generic [ref=e416]:
+    - generic [ref=e417]:
+      - generic [ref=e418]: Dominio 2 — 18% del examen
+      - heading "Tool Design & MCP Integration" [level=2] [ref=e419]
+      - paragraph [ref=e420]: Disenar interfaces de herramientas efectivas, implementar error handling estructurado, y configurar MCP servers.
+    - generic [ref=e421]:
+      - generic [ref=e422]:
+        - heading "2.1 Tool Descriptions Efectivas" [level=3] [ref=e423]:
+          - generic [ref=e424]: "2.1"
+          - text: Tool Descriptions Efectivas
+        - paragraph [ref=e425]: Las descripciones son el mecanismo principal que los LLMs usan para seleccionar herramientas.
+        - list [ref=e426]:
+          - listitem [ref=e427]: "> Descripciones minimas causan seleccion no confiable entre tools similares"
+          - listitem [ref=e428]: "> Incluir formatos de input, queries de ejemplo, edge cases y limites"
+          - listitem [ref=e429]: "> Renombrar tools para eliminar solapamiento funcional"
+          - listitem [ref=e430]: "> Dividir tools genericos en tools especificos con contratos definidos"
+        - generic [ref=e431]:
+          - heading "Ejemplo del examen" [level=4] [ref=e432]
+          - paragraph [ref=e433]:
+            - text: Si
+            - code [ref=e434]: get_customer
+            - text: "y"
+            - code [ref=e435]: lookup_order
+            - text: tienen descripciones minimas ("Retrieves customer info" / "Retrieves order details"), el primer paso es expandir las descripciones de cada tool con formatos de input, queries de ejemplo y limites — no agregar few-shot examples ni routing layers.
+      - generic [ref=e436]:
+        - heading "2.2 Error Responses Estructuradas" [level=3] [ref=e437]:
+          - generic [ref=e438]: "2.2"
+          - text: Error Responses Estructuradas
+        - paragraph [ref=e439]:
+          - text: El patron
+          - code [ref=e440]: isError
+          - text: de MCP para comunicar fallos al agente.
+        - list [ref=e441]:
+          - listitem [ref=e442]:
+            - text: ">"
+            - code [ref=e443]: errorCategory
+            - text: ": transient / validation / permission / business"
+          - listitem [ref=e444]:
+            - text: ">"
+            - code [ref=e445]: isRetryable
+            - text: ": boolean para prevenir reintentos inutiles"
+          - listitem [ref=e446]: "> Distinguir access failures (timeout) de empty results validos (query exitosa sin matches)"
+          - listitem [ref=e447]: "> Recovery local en subagentes; propagar solo errores irresolubles al coordinador"
+        - generic [ref=e448]:
+          - text: json
+          - code [ref=e449]: "{ \"isError\": true, \"content\": [{ \"type\": \"text\", \"text\": JSON.stringify({ \"errorCategory\": \"transient\", \"isRetryable\": true, \"description\": \"Database timeout after 30s\", \"attempted\": \"SELECT * FROM orders WHERE id=123\", \"partialResults\": null }) }] }"
+      - generic [ref=e450]:
+        - heading "2.3 Distribucion de Tools y tool_choice" [level=3] [ref=e451]:
+          - generic [ref=e452]: "2.3"
+          - text: Distribucion de Tools y tool_choice
+        - paragraph [ref=e453]: Dar muchas tools a un agente (18 vs 4-5) degrada la confiabilidad de seleccion.
+        - list [ref=e454]:
+          - listitem [ref=e455]: "> Restringir tools por rol: cada subagente solo recibe las herramientas de su especializacion"
+          - listitem [ref=e456]: "> Tools cross-role limitadas para necesidades de alta frecuencia"
+          - listitem [ref=e457]:
+            - text: ">"
+            - code [ref=e458]: "tool_choice: \"auto\""
+            - text: — modelo puede retornar texto en vez de llamar tool
+          - listitem [ref=e459]:
+            - text: ">"
+            - code [ref=e460]: "tool_choice: \"any\""
+            - text: — garantiza que el modelo llama alguna tool
+          - listitem [ref=e461]:
+            - text: ">"
+            - code [ref=e462]: "tool_choice: {\"type\": \"tool\", \"name\": \"...\"}"
+            - text: — fuerza tool especifico
+        - table [ref=e463]:
+          - rowgroup [ref=e464]:
+            - row "tool_choice Comportamiento Caso de uso" [ref=e465]:
+              - columnheader "tool_choice" [ref=e466]
+              - columnheader "Comportamiento" [ref=e467]
+              - columnheader "Caso de uso" [ref=e468]
+            - row "\"auto\" Modelo decide si llamar tool o responder Conversacion general" [ref=e469]:
+              - cell "\"auto\"" [ref=e470]:
+                - code [ref=e471]: "\"auto\""
+              - cell "Modelo decide si llamar tool o responder" [ref=e472]
+              - cell "Conversacion general" [ref=e473]
+            - row "\"any\" Debe llamar alguna tool Structured output garantizado" [ref=e474]:
+              - cell "\"any\"" [ref=e475]:
+                - code [ref=e476]: "\"any\""
+              - cell "Debe llamar alguna tool" [ref=e477]
+              - cell "Structured output garantizado" [ref=e478]
+            - 'row "{\"type\":\"tool\",\"name\":\"X\"} Debe llamar tool X Forzar extraction antes de enrichment" [ref=e479]':
+              - 'cell "{\"type\":\"tool\",\"name\":\"X\"}" [ref=e480]':
+                - code [ref=e481]: "{\"type\":\"tool\",\"name\":\"X\"}"
+              - cell "Debe llamar tool X" [ref=e482]
+              - cell "Forzar extraction antes de enrichment" [ref=e483]
+      - generic [ref=e484]:
+        - heading "2.4 MCP Server Configuration" [level=3] [ref=e485]:
+          - generic [ref=e486]: "2.4"
+          - text: MCP Server Configuration
+        - paragraph [ref=e487]: Model Context Protocol conecta agentes AI con sistemas externos.
+        - list [ref=e488]:
+          - listitem [ref=e489]:
+            - text: ">"
+            - strong [ref=e490]: "Project scope:"
+            - code [ref=e491]: .mcp.json
+            - text: — shared via version control
+          - listitem [ref=e492]:
+            - text: ">"
+            - strong [ref=e493]: "User scope:"
+            - code [ref=e494]: ~/.claude.json
+            - text: — personal/experimental
+          - listitem [ref=e495]:
+            - text: "> Variables de entorno:"
+            - code [ref=e496]: "${GITHUB_TOKEN}"
+            - text: en .mcp.json para credenciales
+          - listitem [ref=e497]: "> MCP resources exponen catalogos de contenido para reducir tool calls exploratorias"
+          - listitem [ref=e498]: "> Preferir community MCP servers existentes sobre implementaciones custom"
+        - generic [ref=e499]:
+          - text: json
+          - code [ref=e500]: "// .mcp.json - project-scoped { \"mcpServers\": { \"github\": { \"command\": \"npx\", \"args\": [\"@modelcontextprotocol/server-github\"], \"env\": { \"GITHUB_TOKEN\": \"${GITHUB_TOKEN}\" } } } }"
+      - generic [ref=e501]:
+        - heading "2.5 Built-in Tools" [level=3] [ref=e502]:
+          - generic [ref=e503]: "2.5"
+          - text: Built-in Tools
+        - paragraph [ref=e504]: Herramientas integradas y sus usos correctos.
+        - table [ref=e505]:
+          - rowgroup [ref=e506]:
+            - row "Tool Proposito Ejemplo" [ref=e507]:
+              - columnheader "Tool" [ref=e508]
+              - columnheader "Proposito" [ref=e509]
+              - columnheader "Ejemplo" [ref=e510]
+            - row "Grep Buscar contenido en archivos Encontrar callers de una funcion" [ref=e511]:
+              - cell "Grep" [ref=e512]:
+                - code [ref=e513]: Grep
+              - cell "Buscar contenido en archivos" [ref=e514]
+              - cell "Encontrar callers de una funcion" [ref=e515]
+            - row "Glob Buscar archivos por patron **/*.test.tsx" [ref=e516]:
+              - cell "Glob" [ref=e517]:
+                - code [ref=e518]: Glob
+              - cell "Buscar archivos por patron" [ref=e519]
+              - cell "**/*.test.tsx" [ref=e520]:
+                - code [ref=e521]: "**/*.test.tsx"
+            - row "Read Leer contenido completo de archivo Cargar un archivo para analisis" [ref=e522]:
+              - cell "Read" [ref=e523]:
+                - code [ref=e524]: Read
+              - cell "Leer contenido completo de archivo" [ref=e525]
+              - cell "Cargar un archivo para analisis" [ref=e526]
+            - row "Edit Modificaciones precisas con text matching Cambiar una linea especifica" [ref=e527]:
+              - cell "Edit" [ref=e528]:
+                - code [ref=e529]: Edit
+              - cell "Modificaciones precisas con text matching" [ref=e530]
+              - cell "Cambiar una linea especifica" [ref=e531]
+            - row "Write Crear/reescribir archivos completos Crear archivo nuevo" [ref=e532]:
+              - cell "Write" [ref=e533]:
+                - code [ref=e534]: Write
+              - cell "Crear/reescribir archivos completos" [ref=e535]
+              - cell "Crear archivo nuevo" [ref=e536]
+            - row "Bash Ejecutar comandos de terminal Correr tests, git operations" [ref=e537]:
+              - cell "Bash" [ref=e538]:
+                - code [ref=e539]: Bash
+              - cell "Ejecutar comandos de terminal" [ref=e540]
+              - cell "Correr tests, git operations" [ref=e541]
+        - generic [ref=e542]:
+          - heading "Patron de exploracion incremental" [level=4] [ref=e543]
+          - paragraph [ref=e544]:
+            - text: Comenzar con
+            - code [ref=e545]: Grep
+            - text: para encontrar entry points → luego
+            - code [ref=e546]: Read
+            - text: para seguir imports y trazar flujos, en vez de leer todos los archivos por adelantado.
+    - generic [ref=e547]:
+      - generic [ref=e548]:
+        - 'heading "2.3+ strict: true — Sampling con Restriccion de Gramatica" [level=3] [ref=e549]':
+          - generic [ref=e550]: 2.3+
+          - text: "strict: true — Sampling con Restriccion de Gramatica"
+        - paragraph [ref=e551]:
+          - text: Activar
+          - code [ref=e552]: "\"strict\": true"
+          - text: como propiedad top-level en la definicion del tool (junto a
+          - code [ref=e553]: name
+          - text: ","
+          - code [ref=e554]: description
+          - text: ","
+          - code [ref=e555]: input_schema
+          - text: ) habilita grammar-constrained sampling.
+        - list [ref=e556]:
+          - listitem [ref=e557]:
+            - text: ">"
+            - strong [ref=e558]: "Garantias:"
+            - text: el
+            - code [ref=e559]: input
+            - text: del tool sigue
+            - strong [ref=e560]: estrictamente
+            - text: el
+            - code [ref=e561]: input_schema
+          - listitem [ref=e562]:
+            - text: "> El"
+            - code [ref=e563]: name
+            - text: del tool siempre es valido (de los tools provistos o server tools)
+          - listitem [ref=e564]: "> Las funciones reciben argumentos correctamente tipados cada vez — no necesitas validar y reintentar"
+          - listitem [ref=e565]:
+            - text: ">"
+            - strong [ref=e566]: "Best practice:"
+            - text: usar
+            - code [ref=e567]: "\"additionalProperties\": false"
+            - text: en el
+            - code [ref=e568]: input_schema
+            - text: con strict mode
+          - listitem [ref=e569]:
+            - text: "> Combinar"
+            - code [ref=e570]: "tool_choice: {\"type\": \"any\"}"
+            - text: +
+            - code [ref=e571]: "strict: true"
+            - text: "garantiza AMBAS cosas: que se llame un tool Y que los inputs cumplan el schema"
+          - listitem [ref=e572]:
+            - text: "> Los schemas se compilan en gramaticas (mismo pipeline que structured outputs) y se cachean hasta"
+            - strong [ref=e573]: 24 horas
+          - listitem [ref=e574]:
+            - text: "> HIPAA eligible, pero"
+            - strong [ref=e575]: PHI no debe estar en las definiciones del schema
+            - text: (ni en nombres de propiedades, enum values, const values, ni pattern regexes)
+        - generic [ref=e576]:
+          - text: json
+          - code [ref=e577]: "{ \"name\": \"get_weather\", \"description\": \"Get the current weather in a given location\", \"strict\": true, \"input_schema\": { \"type\": \"object\", \"properties\": { \"location\": { \"type\": \"string\", \"description\": \"The city and state, e.g. San Francisco, CA\" }, \"unit\": { \"type\": \"string\", \"enum\": [\"celsius\", \"fahrenheit\"] } }, \"required\": [\"location\"], \"additionalProperties\": false } }"
+      - generic [ref=e578]:
+        - heading "2.3+ tool_choice — Las 4 Opciones Completas" [level=3] [ref=e579]:
+          - generic [ref=e580]: 2.3+
+          - text: tool_choice — Las 4 Opciones Completas
+        - paragraph [ref=e581]:
+          - text: Cuatro opciones posibles para
+          - code [ref=e582]: tool_choice
+          - text: ", incluyendo"
+          - code [ref=e583]: "\"none\""
+          - text: ":"
+        - table [ref=e584]:
+          - rowgroup [ref=e585]:
+            - row "Opcion Sintaxis Comportamiento" [ref=e586]:
+              - columnheader "Opcion" [ref=e587]
+              - columnheader "Sintaxis" [ref=e588]
+              - columnheader "Comportamiento" [ref=e589]
+            - 'row "auto {\"type\": \"auto\"} Claude decide si llamar tools. Default cuando se proveen tools." [ref=e590]':
+              - cell "auto" [ref=e591]:
+                - code [ref=e592]: auto
+              - 'cell "{\"type\": \"auto\"}" [ref=e593]':
+                - code [ref=e594]: "{\"type\": \"auto\"}"
+              - cell "Claude decide si llamar tools. Default cuando se proveen tools." [ref=e595]:
+                - text: Claude decide si llamar tools.
+                - strong [ref=e596]: Default cuando se proveen tools.
+            - 'row "any {\"type\": \"any\"} Claude debe usar algun tool, pero no uno especifico" [ref=e597]':
+              - cell "any" [ref=e598]:
+                - code [ref=e599]: any
+              - 'cell "{\"type\": \"any\"}" [ref=e600]':
+                - code [ref=e601]: "{\"type\": \"any\"}"
+              - cell "Claude debe usar algun tool, pero no uno especifico" [ref=e602]:
+                - text: Claude
+                - strong [ref=e603]: debe
+                - text: usar algun tool, pero no uno especifico
+            - 'row "tool {\"type\": \"tool\", \"name\": \"X\"} Fuerza a Claude a usar siempre un tool particular" [ref=e604]':
+              - cell "tool" [ref=e605]:
+                - code [ref=e606]: tool
+              - 'cell "{\"type\": \"tool\", \"name\": \"X\"}" [ref=e607]':
+                - code [ref=e608]: "{\"type\": \"tool\", \"name\": \"X\"}"
+              - cell "Fuerza a Claude a usar siempre un tool particular" [ref=e609]:
+                - text: Fuerza a Claude a usar
+                - strong [ref=e610]: siempre
+                - text: un tool particular
+            - 'row "none {\"type\": \"none\"} Previene que Claude use cualquier tool. Default cuando no se proveen tools." [ref=e611]':
+              - cell "none" [ref=e612]:
+                - code [ref=e613]: none
+              - 'cell "{\"type\": \"none\"}" [ref=e614]':
+                - code [ref=e615]: "{\"type\": \"none\"}"
+              - cell "Previene que Claude use cualquier tool. Default cuando no se proveen tools." [ref=e616]:
+                - text: Previene que Claude use cualquier tool.
+                - strong [ref=e617]: Default cuando no se proveen tools.
+        - generic [ref=e618]:
+          - heading "Restriccion con Extended Thinking" [level=4] [ref=e619]
+          - paragraph [ref=e620]:
+            - text: Con
+            - strong [ref=e621]: extended thinking
+            - text: habilitado, solo
+            - code [ref=e622]: auto
+            - text: "y"
+            - code [ref=e623]: none
+            - text: estan soportados. Usar
+            - code [ref=e624]: any
+            - text: o
+            - code [ref=e625]: tool
+            - text: retorna un error. Lo mismo aplica con
+            - strong [ref=e626]: Claude Mythos Preview
+            - text: (retorna error 400).
+        - generic [ref=e627]:
+          - heading "Detalle importante de prefill" [level=4] [ref=e628]
+          - paragraph [ref=e629]:
+            - text: Cuando
+            - code [ref=e630]: tool_choice
+            - text: es
+            - code [ref=e631]: any
+            - text: o
+            - code [ref=e632]: tool
+            - text: ", la API"
+            - strong [ref=e633]: prefills el mensaje del asistente
+            - text: para forzar tool use. Esto significa que el modelo
+            - strong [ref=e634]: NO emitira lenguaje natural
+            - text: antes de los bloques
+            - code [ref=e635]: tool_use
+            - text: ", incluso si se le pide explicitamente. Cambiar"
+            - code [ref=e636]: tool_choice
+            - text: tambien
+            - strong [ref=e637]: invalida bloques de mensaje cacheados
+            - text: .
+    - generic [ref=e638]:
+      - generic [ref=e639]:
+        - heading "2.1+ Campo input_examples — Ejemplos Opcionales" [level=3] [ref=e640]:
+          - generic [ref=e641]: 2.1+
+          - text: Campo input_examples — Ejemplos Opcionales
+        - paragraph [ref=e642]: "Campo opcional en la definicion del tool para proveer ejemplos de inputs:"
+        - list [ref=e643]:
+          - listitem [ref=e644]: "> Array de objetos de ejemplo de input"
+          - listitem [ref=e645]:
+            - text: "> Cada ejemplo"
+            - strong [ref=e646]:
+              - text: debe ser valido segun el
+              - code [ref=e647]: input_schema
+            - text: del tool (ejemplos invalidos retornan error 400)
+          - listitem [ref=e648]:
+            - text: ">"
+            - strong [ref=e649]: No soportado para server-side tools
+            - text: — solo para tools user-defined y Anthropic-schema client tools
+          - listitem [ref=e650]: "> Costo en tokens: ~20-50 tokens para ejemplos simples, ~100-200 tokens para objetos nested complejos"
+          - listitem [ref=e651]: "> Recomendado para tools con inputs complejos, objetos nested, o parametros sensibles al formato"
+        - generic [ref=e652]:
+          - text: json
+          - code [ref=e653]: "{ \"name\": \"get_weather\", \"description\": \"Get the current weather in a given location\", \"input_schema\": { ... }, \"input_examples\": [ {\"location\": \"San Francisco, CA\", \"unit\": \"fahrenheit\"}, {\"location\": \"Tokyo, Japan\", \"unit\": \"celsius\"}, {\"location\": \"New York, NY\"} ] }"
+      - generic [ref=e654]:
+        - heading "2.4+ Formatos .mcp.json — Configuraciones Exactas" [level=3] [ref=e655]:
+          - generic [ref=e656]: 2.4+
+          - text: Formatos .mcp.json — Configuraciones Exactas
+        - paragraph [ref=e657]: "Formatos exactos para las distintas configuraciones de MCP servers:"
+        - generic [ref=e658]:
+          - text: json
+          - code [ref=e659]: "// Project scope (.mcp.json en raiz del proyecto) { \"mcpServers\": { \"shared-server\": { \"command\": \"/path/to/server\", \"args\": [], \"env\": {} } } } // HTTP server { \"mcpServers\": { \"stripe\": { \"type\": \"http\", \"url\": \"https://mcp.stripe.com\" } } } // Con OAuth { \"mcpServers\": { \"my-server\": { \"type\": \"http\", \"url\": \"https://mcp.example.com/mcp\", \"oauth\": { \"clientId\": \"your-client-id\", \"callbackPort\": 8080 } } } } // Con headersHelper (comando con timeout de 10s) { \"mcpServers\": { \"internal-api\": { \"type\": \"http\", \"url\": \"https://mcp.internal.example.com\", \"headersHelper\": \"/opt/bin/get-mcp-auth-headers.sh\" } } }"
+        - generic [ref=e660]:
+          - heading "headersHelper" [level=4] [ref=e661]
+          - paragraph [ref=e662]:
+            - text: El comando debe escribir un objeto JSON de pares clave-valor a stdout. Se ejecuta con un timeout de
+            - strong [ref=e663]: 10 segundos
+            - text: . Los headers dinamicos sobreescriben headers estaticos con el mismo nombre. El helper se ejecuta fresco en cada conexion (sin cache).
+    - generic [ref=e665]:
+      - heading "2.4+ Las 3 Primitivas de MCP" [level=3] [ref=e666]:
+        - generic [ref=e667]: 2.4+
+        - text: Las 3 Primitivas de MCP
+      - paragraph [ref=e668]: "MCP define tres primitivas fundamentales, cada una controlada por un actor diferente:"
+      - table [ref=e669]:
+        - rowgroup [ref=e670]:
+          - row "Primitiva Descripcion Quien Controla Operaciones" [ref=e671]:
+            - columnheader "Primitiva" [ref=e672]
+            - columnheader "Descripcion" [ref=e673]
+            - columnheader "Quien Controla" [ref=e674]
+            - columnheader "Operaciones" [ref=e675]
+          - row "Tools Funciones que el LLM puede llamar activamente; pueden escribir en DBs, llamar APIs, modificar archivos Modelo (model-controlled) tools/list, tools/call" [ref=e676]:
+            - cell "Tools" [ref=e677]:
+              - strong [ref=e678]: Tools
+            - cell "Funciones que el LLM puede llamar activamente; pueden escribir en DBs, llamar APIs, modificar archivos" [ref=e679]
+            - cell "Modelo (model-controlled)" [ref=e680]
+            - cell "tools/list, tools/call" [ref=e681]:
+              - code [ref=e682]: tools/list
+              - text: ","
+              - code [ref=e683]: tools/call
+          - row "Resources Fuentes de datos pasivas que proveen acceso read-only a informacion para contexto Aplicacion (application-controlled) resources/list, resources/templates/list, resources/read, resources/subscribe" [ref=e684]:
+            - cell "Resources" [ref=e685]:
+              - strong [ref=e686]: Resources
+            - cell "Fuentes de datos pasivas que proveen acceso read-only a informacion para contexto" [ref=e687]
+            - cell "Aplicacion (application-controlled)" [ref=e688]
+            - cell "resources/list, resources/templates/list, resources/read, resources/subscribe" [ref=e689]:
+              - code [ref=e690]: resources/list
+              - text: ","
+              - code [ref=e691]: resources/templates/list
+              - text: ","
+              - code [ref=e692]: resources/read
+              - text: ","
+              - code [ref=e693]: resources/subscribe
+          - row "Prompts Templates de instrucciones pre-construidos que indican al modelo como trabajar con tools y resources especificos Usuario (user-controlled) prompts/list, prompts/get" [ref=e694]:
+            - cell "Prompts" [ref=e695]:
+              - strong [ref=e696]: Prompts
+            - cell "Templates de instrucciones pre-construidos que indican al modelo como trabajar con tools y resources especificos" [ref=e697]
+            - cell "Usuario (user-controlled)" [ref=e698]
+            - cell "prompts/list, prompts/get" [ref=e699]:
+              - code [ref=e700]: prompts/list
+              - text: ","
+              - code [ref=e701]: prompts/get
+      - generic [ref=e702]:
+        - heading "Regla mnemotecnica para el examen" [level=4] [ref=e703]
+        - paragraph [ref=e704]:
+          - strong [ref=e705]: Tools = Modelo decide llamarlos
+          - text: "|"
+          - strong [ref=e706]: Resources = La aplicacion los gestiona
+          - text: "|"
+          - strong [ref=e707]: Prompts = El usuario los invoca
+          - text: "(ej: slash commands, paletas de comandos, botones de UI)."
+    - generic [ref=e708]:
+      - generic [ref=e709]:
+        - heading "2.4+ MCP — Precedencia de Scopes" [level=3] [ref=e710]:
+          - generic [ref=e711]: 2.4+
+          - text: MCP — Precedencia de Scopes
+        - paragraph [ref=e712]: "Cuando multiples scopes definen el mismo servidor MCP, se aplica esta jerarquia de precedencia (de mayor a menor):"
+        - generic [ref=e713]:
+          - generic [ref=e714]:
+            - generic [ref=e715]: "1"
+            - generic [ref=e716]:
+              - generic [ref=e717]: Local
+              - generic [ref=e718]:
+                - text: Solo tu, solo este proyecto. Almacenado en
+                - code [ref=e719]: ~/.claude.json
+                - text: (no en
+                - code [ref=e720]: .claude/settings.local.json
+                - text: )
+          - generic [ref=e722]:
+            - generic [ref=e723]: "2"
+            - generic [ref=e724]:
+              - generic [ref=e725]: Project
+              - generic [ref=e726]:
+                - text: Compartido via version control en
+                - code [ref=e727]: .mcp.json
+                - text: del proyecto
+          - generic [ref=e729]:
+            - generic [ref=e730]: "3"
+            - generic [ref=e731]:
+              - generic [ref=e732]: User
+              - generic [ref=e733]:
+                - text: Tu configuracion personal para todos los proyectos en
+                - code [ref=e734]: ~/.claude.json
+          - generic [ref=e736]:
+            - generic [ref=e737]: "4"
+            - generic [ref=e738]:
+              - generic [ref=e739]: Plugin
+              - generic [ref=e740]: Servers provistos por plugins instalados
+          - generic [ref=e742]:
+            - generic [ref=e743]: "5"
+            - generic [ref=e744]:
+              - generic [ref=e745]: Connectors
+              - generic [ref=e746]: Connectors de claude.ai
+        - paragraph [ref=e747]:
+          - text: "Duplicados se resuelven por nombre (scopes) o por endpoint (plugins/connectors). CLI flags:"
+          - code [ref=e748]: "--scope local"
+          - text: (default),
+          - code [ref=e749]: "--scope project"
+          - text: ","
+          - code [ref=e750]: "--scope user"
+          - text: .
+      - generic [ref=e751]:
+        - heading "2.4+ MCP — Nota sobre camelCase vs snake_case" [level=3] [ref=e752]:
+          - generic [ref=e753]: 2.4+
+          - text: MCP — Nota sobre camelCase vs snake_case
+        - paragraph [ref=e754]: "Diferencia critica en el naming de schemas entre MCP y la Claude API:"
+        - table [ref=e755]:
+          - rowgroup [ref=e756]:
+            - row "Contexto Campo Ejemplo" [ref=e757]:
+              - columnheader "Contexto" [ref=e758]
+              - columnheader "Campo" [ref=e759]
+              - columnheader "Ejemplo" [ref=e760]
+            - row "MCP Protocol inputSchema (camelCase) Definiciones de tools MCP" [ref=e761]:
+              - cell "MCP Protocol" [ref=e762]:
+                - strong [ref=e763]: MCP Protocol
+              - cell "inputSchema (camelCase)" [ref=e764]:
+                - code [ref=e765]: inputSchema
+                - text: (camelCase)
+              - cell "Definiciones de tools MCP" [ref=e766]
+            - row "Claude API input_schema (snake_case) Parametro tools en Messages API" [ref=e767]:
+              - cell "Claude API" [ref=e768]:
+                - strong [ref=e769]: Claude API
+              - cell "input_schema (snake_case)" [ref=e770]:
+                - code [ref=e771]: input_schema
+                - text: (snake_case)
+              - cell "Parametro tools en Messages API" [ref=e772]:
+                - text: Parametro
+                - code [ref=e773]: tools
+                - text: en Messages API
+        - generic [ref=e774]:
+          - heading "Variables de entorno en .mcp.json" [level=4] [ref=e775]
+          - paragraph [ref=e776]:
+            - text: "Sintaxis soportada:"
+            - code [ref=e777]: "${VAR}"
+            - text: "y"
+            - code [ref=e778]: "${VAR:-default}"
+            - text: . Se expanden en
+            - code [ref=e779]: command
+            - text: ","
+            - code [ref=e780]: args
+            - text: ","
+            - code [ref=e781]: env
+            - text: ","
+            - code [ref=e782]: url
+            - text: "y"
+            - code [ref=e783]: headers
+            - text: . Si una variable requerida no esta definida y no tiene valor por defecto, Claude Code
+            - strong [ref=e784]: falla al parsear la config
+            - text: ". Variables especiales de plugins:"
+            - code [ref=e785]: "${CLAUDE_PLUGIN_ROOT}"
+            - text: "y"
+            - code [ref=e786]: "${CLAUDE_PLUGIN_DATA}"
+            - text: .
+    - generic [ref=e787]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e788]
+      - generic [ref=e789]:
+        - generic [ref=e790] [cursor=pointer]:
+          - img "Tool Use Overview" [ref=e791]
+          - generic [ref=e792]: Tool Use with Claude - Overview
+          - link "platform.claude.com/docs →" [ref=e793]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
+        - generic [ref=e794] [cursor=pointer]:
+          - img "Define Tools" [ref=e795]
+          - generic [ref=e796]: Define Tools - Schemas, tool_choice, Descriptions
+          - link "platform.claude.com/docs →" [ref=e797]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools
+        - generic [ref=e798] [cursor=pointer]:
+          - img "MCP Introduction" [ref=e799]
+          - generic [ref=e800]: Model Context Protocol - Introduction
+          - link "modelcontextprotocol.io →" [ref=e801]:
+            - /url: https://modelcontextprotocol.io/introduction
+        - generic [ref=e802] [cursor=pointer]:
+          - img "MCP Server Concepts" [ref=e803]
+          - generic [ref=e804]: MCP Server Concepts - Tools vs Resources
+          - link "modelcontextprotocol.io →" [ref=e805]:
+            - /url: https://modelcontextprotocol.io/docs/learn/server-concepts
+  - generic [ref=e806]:
+    - generic [ref=e807]:
+      - generic [ref=e808]: Dominio 3 — 20% del examen
+      - heading "Claude Code Configuration & Workflows" [level=2] [ref=e809]
+      - paragraph [ref=e810]: Configurar CLAUDE.md, comandos personalizados, skills, plan mode, y CI/CD integration.
+    - generic [ref=e811]:
+      - generic [ref=e812]: Jerarquia de Configuracion CLAUDE.md
+      - generic [ref=e813]:
+        - generic [ref=e814]:
+          - generic [ref=e815]: "1"
+          - generic [ref=e816]:
+            - generic [ref=e817]: ~/.claude/CLAUDE.md
+            - generic [ref=e818]: User-level — preferencias personales, solo para ti, NO compartido via version control
+        - generic [ref=e820]:
+          - generic [ref=e821]: "2"
+          - generic [ref=e822]:
+            - generic [ref=e823]: ./CLAUDE.md o ./.claude/CLAUDE.md
+            - generic [ref=e824]: Project-level — instrucciones de equipo compartidas via version control
+        - generic [ref=e826]:
+          - generic [ref=e827]: "3"
+          - generic [ref=e828]:
+            - generic [ref=e829]: ./subdir/CLAUDE.md
+            - generic [ref=e830]: Directory-level — se carga on-demand al leer archivos en ese directorio
+        - generic [ref=e832]:
+          - generic [ref=e833]: "4"
+          - generic [ref=e834]:
+            - generic [ref=e835]: .claude/rules/*.md
+            - generic [ref=e836]:
+              - text: Rules con YAML frontmatter — carga condicional por
+              - code [ref=e837]: paths
+              - text: glob patterns
+    - generic [ref=e838]:
+      - generic [ref=e839]:
+        - heading "3.1 CLAUDE.md Hierarchy & @import" [level=3] [ref=e840]:
+          - generic [ref=e841]: "3.1"
+          - text: CLAUDE.md Hierarchy & @import
+        - list [ref=e842]:
+          - listitem [ref=e843]:
+            - text: "> User-level ("
+            - code [ref=e844]: ~/.claude/CLAUDE.md
+            - text: "): NO se comparte con teammates"
+          - listitem [ref=e845]: "> Project-level: se comparte via version control"
+          - listitem [ref=e846]:
+            - text: ">"
+            - code [ref=e847]: "@import"
+            - text: para referenciar archivos externos y mantener modularidad
+          - listitem [ref=e848]:
+            - text: ">"
+            - code [ref=e849]: .claude/rules/
+            - text: como alternativa a CLAUDE.md monolitico
+          - listitem [ref=e850]:
+            - text: "> Usar"
+            - code [ref=e851]: /memory
+            - text: para verificar que archivos estan cargados
+        - generic [ref=e852]:
+          - text: markdown
+          - code [ref=e853]: "# .claude/rules/testing.md --- paths: - \"**/*.test.tsx\" - \"**/*.spec.ts\" --- # Testing Conventions - Use React Testing Library, not Enzyme - Mock external APIs, never databases - Each test file must have describe blocks"
+      - generic [ref=e854]:
+        - heading "3.2 Custom Slash Commands & Skills" [level=3] [ref=e855]:
+          - generic [ref=e856]: "3.2"
+          - text: Custom Slash Commands & Skills
+        - list [ref=e857]:
+          - listitem [ref=e858]:
+            - text: ">"
+            - code [ref=e859]: .claude/commands/
+            - text: — project-scoped, shared via VCS
+          - listitem [ref=e860]:
+            - text: ">"
+            - code [ref=e861]: ~/.claude/commands/
+            - text: — user-scoped, personal
+          - listitem [ref=e862]:
+            - text: ">"
+            - code [ref=e863]: .claude/skills/
+            - text: con SKILL.md y frontmatter YAML
+          - listitem [ref=e864]:
+            - text: ">"
+            - code [ref=e865]: "context: fork"
+            - text: — ejecutar en subagente aislado
+          - listitem [ref=e866]:
+            - text: ">"
+            - code [ref=e867]: allowed-tools
+            - text: — restringir herramientas durante ejecucion
+          - listitem [ref=e868]:
+            - text: ">"
+            - code [ref=e869]: argument-hint
+            - text: — prompt para parametros requeridos
+        - generic [ref=e870]:
+          - text: yaml
+          - code [ref=e871]: "# .claude/skills/review/SKILL.md --- name: review description: Run team code review checklist context: fork allowed-tools: Read Grep Glob argument-hint: [file-path] --- Review $ARGUMENTS for: 1. Security vulnerabilities 2. Performance anti-patterns 3. Missing error handling"
+      - generic [ref=e872]:
+        - heading "3.3 Path-Specific Rules" [level=3] [ref=e873]:
+          - generic [ref=e874]: "3.3"
+          - text: Path-Specific Rules
+        - paragraph [ref=e875]:
+          - text: Reglas con YAML frontmatter
+          - code [ref=e876]: paths
+          - text: con glob patterns para carga condicional.
+        - list [ref=e877]:
+          - listitem [ref=e878]: "> Solo se cargan al editar archivos que matchean el patron"
+          - listitem [ref=e879]: "> Mejor que subdirectory CLAUDE.md cuando la convencion abarca multiples directorios"
+          - listitem [ref=e880]:
+            - text: "> Ejemplo:"
+            - code [ref=e881]: "paths: [\"**/*.test.tsx\"]"
+            - text: para todos los archivos de test
+      - generic [ref=e882]:
+        - heading "3.4 Plan Mode vs Direct Execution" [level=3] [ref=e883]:
+          - generic [ref=e884]: "3.4"
+          - text: Plan Mode vs Direct Execution
+        - table [ref=e885]:
+          - rowgroup [ref=e886]:
+            - row "Criterio Plan Mode Direct Execution" [ref=e887]:
+              - columnheader "Criterio" [ref=e888]
+              - columnheader "Plan Mode" [ref=e889]
+              - columnheader "Direct Execution" [ref=e890]
+            - row "Complejidad Multi-file, architectural Single-file, well-scoped" [ref=e891]:
+              - cell "Complejidad" [ref=e892]
+              - cell "Multi-file, architectural" [ref=e893]
+              - cell "Single-file, well-scoped" [ref=e894]
+            - row "Ejemplo Microservice restructuring Add validation to one fn" [ref=e895]:
+              - cell "Ejemplo" [ref=e896]
+              - cell "Microservice restructuring" [ref=e897]
+              - cell "Add validation to one fn" [ref=e898]
+            - row "Riesgo Multiples enfoques validos Scope claro y definido" [ref=e899]:
+              - cell "Riesgo" [ref=e900]
+              - cell "Multiples enfoques validos" [ref=e901]
+              - cell "Scope claro y definido" [ref=e902]
+            - row "Exploracion Explore subagent para discovery Cambio directo" [ref=e903]:
+              - cell "Exploracion" [ref=e904]
+              - cell "Explore subagent para discovery" [ref=e905]
+              - cell "Cambio directo" [ref=e906]
+        - generic [ref=e907]:
+          - heading "Pregunta frecuente" [level=4] [ref=e908]
+          - paragraph [ref=e909]:
+            - text: "Para restructurar un monolito en microservicios (cambios en docenas de archivos):"
+            - strong [ref=e910]: Plan mode primero
+            - text: . No direct execution con instrucciones comprehensivas, no empezar incrementalmente, no esperar a que surja complejidad.
+      - generic [ref=e911]:
+        - heading "3.5 Iterative Refinement" [level=3] [ref=e912]:
+          - generic [ref=e913]: "3.5"
+          - text: Iterative Refinement
+        - list [ref=e914]:
+          - listitem [ref=e915]:
+            - text: ">"
+            - strong [ref=e916]: Input/output examples
+            - text: son la forma mas efectiva de comunicar transformaciones
+          - listitem [ref=e917]:
+            - text: ">"
+            - strong [ref=e918]: "Test-driven iteration:"
+            - text: escribir tests primero, iterar compartiendo failures
+          - listitem [ref=e919]:
+            - text: ">"
+            - strong [ref=e920]: "Interview pattern:"
+            - text: hacer que Claude pregunte para surfacear consideraciones
+          - listitem [ref=e921]: "> Multiples issues interactivos en un mensaje vs sequencial para independientes"
+      - generic [ref=e922]:
+        - heading "3.6 CI/CD Integration" [level=3] [ref=e923]:
+          - generic [ref=e924]: "3.6"
+          - text: CI/CD Integration
+        - list [ref=e925]:
+          - listitem [ref=e926]:
+            - text: ">"
+            - code [ref=e927]: "-p"
+            - text: /
+            - code [ref=e928]: "--print"
+            - text: para modo no-interactivo en pipelines
+          - listitem [ref=e929]:
+            - text: ">"
+            - code [ref=e930]: "--output-format json"
+            - text: +
+            - code [ref=e931]: "--json-schema"
+            - text: para output estructurado
+          - listitem [ref=e932]: "> CLAUDE.md provee contexto de proyecto en CI (standards, fixtures, review criteria)"
+          - listitem [ref=e933]: "> Session context isolation: la misma sesion que genero codigo es menos efectiva revisandolo"
+        - generic [ref=e934]:
+          - text: bash
+          - code [ref=e935]: "# CI pipeline - review automatizado claude -p \\ --output-format json \\ --json-schema '{\"type\":\"object\",\"properties\":{\"findings\":{\"type\":\"array\"}}}' \\ \"Review this PR for security issues. Output structured findings.\" # Incluir findings previos para evitar duplicados claude -p \"Review changes since last commit. Previous findings: ${PREV_FINDINGS} Report only NEW or still-unaddressed issues.\""
+      - generic [ref=e936]:
+        - heading "3.7 CLAUDE.md Managed Policy" [level=3] [ref=e937]:
+          - generic [ref=e938]: "3.7"
+          - text: CLAUDE.md Managed Policy
+        - paragraph [ref=e939]:
+          - text: Archivo CLAUDE.md administrado por IT/DevOps a nivel organizacional.
+          - strong [ref=e940]: No puede ser excluido
+          - text: por configuraciones individuales ni por
+          - code [ref=e941]: claudeMdExcludes
+          - text: .
+        - table [ref=e942]:
+          - rowgroup [ref=e943]:
+            - row "Sistema Operativo Ruta" [ref=e944]:
+              - columnheader "Sistema Operativo" [ref=e945]
+              - columnheader "Ruta" [ref=e946]
+            - row "macOS /Library/Application Support/ClaudeCode/CLAUDE.md" [ref=e947]:
+              - cell "macOS" [ref=e948]
+              - cell "/Library/Application Support/ClaudeCode/CLAUDE.md" [ref=e949]:
+                - code [ref=e950]: /Library/Application Support/ClaudeCode/CLAUDE.md
+            - row "Linux / WSL /etc/claude-code/CLAUDE.md" [ref=e951]:
+              - cell "Linux / WSL" [ref=e952]
+              - cell "/etc/claude-code/CLAUDE.md" [ref=e953]:
+                - code [ref=e954]: /etc/claude-code/CLAUDE.md
+            - row "Windows C:\\Program Files\\ClaudeCode\\CLAUDE.md" [ref=e955]:
+              - cell "Windows" [ref=e956]
+              - cell "C:\\Program Files\\ClaudeCode\\CLAUDE.md" [ref=e957]:
+                - code [ref=e958]: C:\Program Files\ClaudeCode\CLAUDE.md
+        - list [ref=e959]:
+          - listitem [ref=e960]: "> Instrucciones organizacionales compartidas con todos los usuarios"
+          - listitem [ref=e961]: "> Tiene la mayor prioridad en la jerarquia (mas especifico gana)"
+          - listitem [ref=e962]: "> Se concatena con otros CLAUDE.md (no los sobreescribe)"
+          - listitem [ref=e963]: "> Contenido entregado como USER MESSAGE despues del system prompt"
+      - generic [ref=e964]:
+        - heading "3.8 Skill Frontmatter Completo" [level=3] [ref=e965]:
+          - generic [ref=e966]: "3.8"
+          - text: Skill Frontmatter Completo
+        - paragraph [ref=e967]:
+          - text: Todos los campos disponibles en el YAML frontmatter de
+          - code [ref=e968]: SKILL.md
+          - text: (15 campos).
+        - table [ref=e969]:
+          - rowgroup [ref=e970]:
+            - row "Campo Descripcion" [ref=e971]:
+              - columnheader "Campo" [ref=e972]
+              - columnheader "Descripcion" [ref=e973]
+            - 'row "name Nombre de display. Solo letras minusculas, numeros, guiones (max 64 chars). Default: nombre del directorio" [ref=e974]':
+              - cell "name" [ref=e975]:
+                - code [ref=e976]: name
+              - 'cell "Nombre de display. Solo letras minusculas, numeros, guiones (max 64 chars). Default: nombre del directorio" [ref=e977]'
+            - row "description Que hace el skill y cuando usarlo. Combinado con when_to_use se trunca a 1,536 caracteres" [ref=e978]:
+              - cell "description" [ref=e979]:
+                - code [ref=e980]: description
+              - cell "Que hace el skill y cuando usarlo. Combinado con when_to_use se trunca a 1,536 caracteres" [ref=e981]:
+                - text: Que hace el skill y cuando usarlo. Combinado con
+                - code [ref=e982]: when_to_use
+                - text: se trunca a
+                - strong [ref=e983]: 1,536 caracteres
+            - row "when_to_use Contexto adicional de activacion. Se agrega a description, cuenta hacia el limite de 1,536" [ref=e984]:
+              - cell "when_to_use" [ref=e985]:
+                - code [ref=e986]: when_to_use
+              - cell "Contexto adicional de activacion. Se agrega a description, cuenta hacia el limite de 1,536" [ref=e987]
+            - 'row "argument-hint Hint en autocomplete. Ej: [issue-number] o [filename] [format]" [ref=e988]':
+              - cell "argument-hint" [ref=e989]:
+                - code [ref=e990]: argument-hint
+              - 'cell "Hint en autocomplete. Ej: [issue-number] o [filename] [format]" [ref=e991]':
+                - text: "Hint en autocomplete. Ej:"
+                - code [ref=e992]: "[issue-number]"
+                - text: o
+                - code [ref=e993]: "[filename] [format]"
+            - 'row "disable-model-invocation true impide que Claude lo cargue automaticamente. Default: false" [ref=e994]':
+              - cell "disable-model-invocation" [ref=e995]:
+                - code [ref=e996]: disable-model-invocation
+              - 'cell "true impide que Claude lo cargue automaticamente. Default: false" [ref=e997]':
+                - code [ref=e998]: "true"
+                - text: "impide que Claude lo cargue automaticamente. Default:"
+                - code [ref=e999]: "false"
+            - 'row "user-invocable false lo oculta del menu /. Default: true" [ref=e1000]':
+              - cell "user-invocable" [ref=e1001]:
+                - code [ref=e1002]: user-invocable
+              - 'cell "false lo oculta del menu /. Default: true" [ref=e1003]':
+                - code [ref=e1004]: "false"
+                - text: lo oculta del menu
+                - code [ref=e1005]: /
+                - text: ". Default:"
+                - code [ref=e1006]: "true"
+            - row "allowed-tools String separado por espacios o lista YAML de herramientas permitidas" [ref=e1007]:
+              - cell "allowed-tools" [ref=e1008]:
+                - code [ref=e1009]: allowed-tools
+              - cell "String separado por espacios o lista YAML de herramientas permitidas" [ref=e1010]
+            - row "model Modelo a usar cuando el skill esta activo" [ref=e1011]:
+              - cell "model" [ref=e1012]:
+                - code [ref=e1013]: model
+              - cell "Modelo a usar cuando el skill esta activo" [ref=e1014]
+            - row "effort low, medium, high, max (max solo Opus 4.6). Sobreescribe effort de sesion" [ref=e1015]:
+              - cell "effort" [ref=e1016]:
+                - code [ref=e1017]: effort
+              - cell "low, medium, high, max (max solo Opus 4.6). Sobreescribe effort de sesion" [ref=e1018]:
+                - code [ref=e1019]: low
+                - text: ","
+                - code [ref=e1020]: medium
+                - text: ","
+                - code [ref=e1021]: high
+                - text: ","
+                - code [ref=e1022]: max
+                - text: (max solo Opus 4.6). Sobreescribe effort de sesion
+            - row "context fork para ejecutar en subagente con contexto aislado" [ref=e1023]:
+              - cell "context" [ref=e1024]:
+                - code [ref=e1025]: context
+              - cell "fork para ejecutar en subagente con contexto aislado" [ref=e1026]:
+                - code [ref=e1027]: fork
+                - text: para ejecutar en subagente con contexto aislado
+            - 'row "agent Tipo de subagente: Explore, Plan, general-purpose, o custom" [ref=e1028]':
+              - cell "agent" [ref=e1029]:
+                - code [ref=e1030]: agent
+              - 'cell "Tipo de subagente: Explore, Plan, general-purpose, o custom" [ref=e1031]':
+                - text: "Tipo de subagente:"
+                - code [ref=e1032]: Explore
+                - text: ","
+                - code [ref=e1033]: Plan
+                - text: ","
+                - code [ref=e1034]: general-purpose
+                - text: ", o custom"
+            - row "hooks Hooks con scope al ciclo de vida del skill (ej. PreToolUse con matcher)" [ref=e1035]:
+              - cell "hooks" [ref=e1036]:
+                - code [ref=e1037]: hooks
+              - cell "Hooks con scope al ciclo de vida del skill (ej. PreToolUse con matcher)" [ref=e1038]:
+                - text: Hooks con scope al ciclo de vida del skill (ej.
+                - code [ref=e1039]: PreToolUse
+                - text: con matcher)
+            - row "paths Glob patterns que limitan activacion. Separados por coma o lista YAML" [ref=e1040]:
+              - cell "paths" [ref=e1041]:
+                - code [ref=e1042]: paths
+              - cell "Glob patterns que limitan activacion. Separados por coma o lista YAML" [ref=e1043]
+            - row "shell bash (default) o powershell. Requiere CLAUDE_CODE_USE_POWERSHELL_TOOL=1" [ref=e1044]:
+              - cell "shell" [ref=e1045]:
+                - code [ref=e1046]: shell
+              - cell "bash (default) o powershell. Requiere CLAUDE_CODE_USE_POWERSHELL_TOOL=1" [ref=e1047]:
+                - code [ref=e1048]: bash
+                - text: (default) o
+                - code [ref=e1049]: powershell
+                - text: . Requiere
+                - code [ref=e1050]: CLAUDE_CODE_USE_POWERSHELL_TOOL=1
+        - list [ref=e1051]:
+          - listitem [ref=e1052]:
+            - text: ">"
+            - strong [ref=e1053]: "$ARGUMENTS:"
+            - text: todos los argumentos pasados. Si no esta presente en el contenido, se agrega como
+            - code [ref=e1054]: "ARGUMENTS: <value>"
+          - listitem [ref=e1055]:
+            - text: ">"
+            - code [ref=e1056]: $ARGUMENTS[N]
+            - text: o
+            - code [ref=e1057]: $N
+            - text: para argumento especifico (0-based). Shell-style quoting para multi-word
+          - listitem [ref=e1058]:
+            - text: ">"
+            - strong [ref=e1059]: "!`command`:"
+            - text: inyeccion dinamica. El comando se ejecuta INMEDIATAMENTE (preprocesamiento) y el output reemplaza el placeholder
+          - listitem [ref=e1060]:
+            - text: "> Bloque multi-linea con"
+            - code [ref=e1061]: "```!"
+            - text: para multiples comandos. Deshabilitar con
+            - code [ref=e1062]: "disableSkillShellExecution: true"
+      - generic [ref=e1063]:
+        - heading "3.9 CLI Flags para CI/CD" [level=3] [ref=e1064]:
+          - generic [ref=e1065]: "3.9"
+          - text: CLI Flags para CI/CD
+        - paragraph [ref=e1066]: Flags clave para integracion en pipelines de CI/CD y automatizacion.
+        - table [ref=e1067]:
+          - rowgroup [ref=e1068]:
+            - row "Flag Descripcion" [ref=e1069]:
+              - columnheader "Flag" [ref=e1070]
+              - columnheader "Descripcion" [ref=e1071]
+            - 'row "--bare Modo minimo: omite hooks, skills, plugins, MCP, auto memory, CLAUDE.md. Setea CLAUDE_CODE_SIMPLE" [ref=e1072]':
+              - cell "--bare" [ref=e1073]:
+                - code [ref=e1074]: "--bare"
+              - 'cell "Modo minimo: omite hooks, skills, plugins, MCP, auto memory, CLAUDE.md. Setea CLAUDE_CODE_SIMPLE" [ref=e1075]':
+                - text: "Modo minimo: omite hooks, skills, plugins, MCP, auto memory, CLAUDE.md. Setea"
+                - code [ref=e1076]: CLAUDE_CODE_SIMPLE
+            - row "--max-turns Limita turnos agentivos (print mode). Sale con error al alcanzar el limite" [ref=e1077]:
+              - cell "--max-turns" [ref=e1078]:
+                - code [ref=e1079]: "--max-turns"
+              - cell "Limita turnos agentivos (print mode). Sale con error al alcanzar el limite" [ref=e1080]
+            - row "--max-budget-usd Monto maximo en dolares para llamadas API (print mode)" [ref=e1081]:
+              - cell "--max-budget-usd" [ref=e1082]:
+                - code [ref=e1083]: "--max-budget-usd"
+              - cell "Monto maximo en dolares para llamadas API (print mode)" [ref=e1084]
+            - row "--fork-session Crea nuevo session ID al resumir una sesion existente" [ref=e1085]:
+              - cell "--fork-session" [ref=e1086]:
+                - code [ref=e1087]: "--fork-session"
+              - cell "Crea nuevo session ID al resumir una sesion existente" [ref=e1088]
+            - 'row "--permission-mode 6 valores: default, acceptEdits, plan, auto, dontAsk, bypassPermissions" [ref=e1089]':
+              - cell "--permission-mode" [ref=e1090]:
+                - code [ref=e1091]: "--permission-mode"
+              - 'cell "6 valores: default, acceptEdits, plan, auto, dontAsk, bypassPermissions" [ref=e1092]':
+                - text: "6 valores:"
+                - code [ref=e1093]: default
+                - text: ","
+                - code [ref=e1094]: acceptEdits
+                - text: ","
+                - code [ref=e1095]: plan
+                - text: ","
+                - code [ref=e1096]: auto
+                - text: ","
+                - code [ref=e1097]: dontAsk
+                - text: ","
+                - code [ref=e1098]: bypassPermissions
+            - row "--exclude-dynamic-system-prompt-sections Mueve secciones per-machine a user message (optimizacion de cache)" [ref=e1099]:
+              - cell "--exclude-dynamic-system-prompt-sections" [ref=e1100]:
+                - code [ref=e1101]: "--exclude-dynamic-system-prompt-sections"
+              - cell "Mueve secciones per-machine a user message (optimizacion de cache)" [ref=e1102]
+            - row "--append-system-prompt Agrega texto al system prompt default (combinable con otros flags)" [ref=e1103]:
+              - cell "--append-system-prompt" [ref=e1104]:
+                - code [ref=e1105]: "--append-system-prompt"
+              - cell "Agrega texto al system prompt default (combinable con otros flags)" [ref=e1106]
+            - row "--system-prompt Reemplaza el system prompt COMPLETO. Mutuamente exclusivo con --system-prompt-file" [ref=e1107]:
+              - cell "--system-prompt" [ref=e1108]:
+                - code [ref=e1109]: "--system-prompt"
+              - cell "Reemplaza el system prompt COMPLETO. Mutuamente exclusivo con --system-prompt-file" [ref=e1110]:
+                - text: Reemplaza el system prompt COMPLETO. Mutuamente exclusivo con
+                - code [ref=e1111]: "--system-prompt-file"
+      - generic [ref=e1112]:
+        - heading "Limites de CLAUDE.md y Auto Memory" [level=4] [ref=e1113]
+        - paragraph [ref=e1114]:
+          - code [ref=e1115]: "@import"
+          - text: tiene una profundidad maxima de
+          - strong [ref=e1116]: 5 hops
+          - text: . Auto memory carga las primeras
+          - strong [ref=e1117]: 200 lineas
+          - text: o
+          - strong [ref=e1118]: 25KB
+          - text: (lo que ocurra primero). Los comentarios HTML en bloque (
+          - code [ref=e1119]: <!-- ... -->
+          - text: ) se eliminan de CLAUDE.md antes de inyectar para ahorrar tokens.
+    - generic [ref=e1120]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e1121]
+      - generic [ref=e1122]:
+        - generic [ref=e1123] [cursor=pointer]:
+          - img "Claude Code Overview" [ref=e1124]
+          - generic [ref=e1125]: Claude Code Overview - Features & Capabilities
+          - link "code.claude.com/docs →" [ref=e1126]:
+            - /url: https://code.claude.com/docs/en/overview
+        - generic [ref=e1127] [cursor=pointer]:
+          - img "CLAUDE.md Memory" [ref=e1128]
+          - generic [ref=e1129]: CLAUDE.md - Hierarchy, Rules, Auto Memory
+          - link "code.claude.com/docs →" [ref=e1130]:
+            - /url: https://code.claude.com/docs/en/memory
+        - generic [ref=e1131] [cursor=pointer]:
+          - img "Skills Overview" [ref=e1132]
+          - generic [ref=e1133]: Skills - Custom Commands, SKILL.md, Frontmatter
+          - link "code.claude.com/docs →" [ref=e1134]:
+            - /url: https://code.claude.com/docs/en/skills
+        - generic [ref=e1135] [cursor=pointer]:
+          - img "GitHub Actions CI/CD" [ref=e1136]
+          - generic [ref=e1137]: GitHub Actions - CI/CD Integration
+          - link "code.claude.com/docs →" [ref=e1138]:
+            - /url: https://code.claude.com/docs/en/github-actions
+  - generic [ref=e1139]:
+    - generic [ref=e1140]:
+      - generic [ref=e1141]: Dominio 4 — 20% del examen
+      - heading "Prompt Engineering & Structured Output" [level=2] [ref=e1142]
+      - paragraph [ref=e1143]: Disenar prompts con criterios explicitos, few-shot examples, JSON schemas via tool_use, y batch processing.
+    - generic [ref=e1144]:
+      - generic [ref=e1145]:
+        - heading "4.1 Criterios Explicitos" [level=3] [ref=e1146]:
+          - generic [ref=e1147]: "4.1"
+          - text: Criterios Explicitos
+        - list [ref=e1148]:
+          - listitem [ref=e1149]: "> Criterios especificos > instrucciones vagas (\"flag comments only when behavior contradicts code\" vs \"check comments are accurate\")"
+          - listitem [ref=e1150]: "> \"Be conservative\" o \"only report high-confidence\" NO mejora la precision"
+          - listitem [ref=e1151]: "> Categorias con alto false-positive rate destruyen confianza en categorias precisas"
+          - listitem [ref=e1152]: "> Deshabilitar temporalmente categorias problematicas mientras se mejoran prompts"
+      - generic [ref=e1153]:
+        - heading "4.2 Few-Shot Prompting" [level=3] [ref=e1154]:
+          - generic [ref=e1155]: "4.2"
+          - text: Few-Shot Prompting
+        - list [ref=e1156]:
+          - listitem [ref=e1157]: "> La tecnica mas efectiva para output consistente y formateado"
+          - listitem [ref=e1158]: "> 2-4 examples targeting ambiguous scenarios con reasoning"
+          - listitem [ref=e1159]: "> Muestran handling de casos ambiguos y razones de decision"
+          - listitem [ref=e1160]: "> Permiten generalizacion a patrones nuevos (no solo match literal)"
+          - listitem [ref=e1161]: "> Reducen hallucination en extraction tasks"
+        - generic [ref=e1162]:
+          - heading "Best Practice" [level=4] [ref=e1163]
+          - paragraph [ref=e1164]:
+            - text: Envolver ejemplos en tags
+            - code [ref=e1165]: <example>
+            - text: dentro de
+            - code [ref=e1166]: <examples>
+            - text: . Cada ejemplo debe mostrar input, output esperado y reasoning para decisiones ambiguas. 3-5 ejemplos diversos para mejores resultados.
+      - generic [ref=e1167]:
+        - heading "4.3 Structured Output via tool_use" [level=3] [ref=e1168]:
+          - generic [ref=e1169]: "4.3"
+          - text: Structured Output via tool_use
+        - paragraph [ref=e1170]:
+          - code [ref=e1171]: tool_use
+          - text: con JSON schemas es el approach mas confiable para output estructurado garantizado.
+        - list [ref=e1172]:
+          - listitem [ref=e1173]: "> Elimina errores de sintaxis JSON, pero NO previene errores semanticos"
+          - listitem [ref=e1174]:
+            - text: "> Campos"
+            - code [ref=e1175]: optional
+            - text: (nullable) cuando el source puede no tener la info → previene fabricacion
+          - listitem [ref=e1176]: "> Enum con \"other\" + detail string para categorias extensibles"
+          - listitem [ref=e1177]:
+            - text: ">"
+            - code [ref=e1178]: "strict: true"
+            - text: en tool definitions para conformancia de schema garantizada
+        - generic [ref=e1179]:
+          - text: python
+          - code [ref=e1180]: "# Extraction tool con JSON schema tools = [{ \"name\": \"extract_invoice\", \"description\": \"Extract structured data from invoice\", \"input_schema\": { \"type\": \"object\", \"properties\": { \"vendor\": {\"type\": \"string\"}, \"total\": {\"type\": \"number\"}, \"date\": {\"type\": [\"string\", \"null\"]}, # nullable! \"category\": { \"type\": \"string\", \"enum\": [\"supplies\", \"services\", \"other\"] }, \"category_detail\": {\"type\": [\"string\", \"null\"]} }, \"required\": [\"vendor\", \"total\"] } }] # Forzar que se use este tool tool_choice = {\"type\": \"tool\", \"name\": \"extract_invoice\"}"
+      - generic [ref=e1181]:
+        - heading "4.4 Validation & Retry Loops" [level=3] [ref=e1182]:
+          - generic [ref=e1183]: "4.4"
+          - text: Validation & Retry Loops
+        - list [ref=e1184]:
+          - listitem [ref=e1185]:
+            - text: ">"
+            - strong [ref=e1186]: "Retry-with-error-feedback:"
+            - text: incluir errores de validacion especificos en el retry prompt
+          - listitem [ref=e1187]: "> Retries son inefectivos cuando la info simplemente no existe en el source"
+          - listitem [ref=e1188]:
+            - text: ">"
+            - code [ref=e1189]: detected_pattern
+            - text: field para analizar patrones de falsos positivos
+          - listitem [ref=e1190]:
+            - text: "> Self-correction: extraer"
+            - code [ref=e1191]: calculated_total
+            - text: junto a
+            - code [ref=e1192]: stated_total
+            - text: para flaggear discrepancias
+      - generic [ref=e1193]:
+        - heading "4.5 Batch Processing (Message Batches API)" [level=3] [ref=e1194]:
+          - generic [ref=e1195]: "4.5"
+          - text: Batch Processing (Message Batches API)
+        - table [ref=e1196]:
+          - rowgroup [ref=e1197]:
+            - row "Aspecto Sync API Batch API" [ref=e1198]:
+              - columnheader "Aspecto" [ref=e1199]
+              - columnheader "Sync API" [ref=e1200]
+              - columnheader "Batch API" [ref=e1201]
+            - row "Costo Full price 50% descuento" [ref=e1202]:
+              - cell "Costo" [ref=e1203]
+              - cell "Full price" [ref=e1204]
+              - cell "50% descuento" [ref=e1205]
+            - row "Latencia Inmediata Hasta 24 horas" [ref=e1206]:
+              - cell "Latencia" [ref=e1207]
+              - cell "Inmediata" [ref=e1208]
+              - cell "Hasta 24 horas" [ref=e1209]
+            - row "SLA Garantizado Sin SLA de latencia" [ref=e1210]:
+              - cell "SLA" [ref=e1211]
+              - cell "Garantizado" [ref=e1212]
+              - cell "Sin SLA de latencia" [ref=e1213]
+            - row "Tool calling Multi-turn No soporta" [ref=e1214]:
+              - cell "Tool calling" [ref=e1215]
+              - cell "Multi-turn" [ref=e1216]
+              - cell "No soporta" [ref=e1217]
+            - row "Correlacion N/A custom_id" [ref=e1218]:
+              - cell "Correlacion" [ref=e1219]
+              - cell "N/A" [ref=e1220]
+              - cell "custom_id" [ref=e1221]:
+                - code [ref=e1222]: custom_id
+        - generic [ref=e1223]:
+          - heading "Pregunta clasica del examen" [level=4] [ref=e1224]
+          - paragraph [ref=e1225]:
+            - strong [ref=e1226]: Batch API para overnight reports/weekly audits.
+            - text: Sync API para pre-merge checks bloqueantes. NUNCA usar Batch API para workflows que bloquean desarrolladores.
+      - generic [ref=e1227]:
+        - heading "4.6 Multi-Instance Review" [level=3] [ref=e1228]:
+          - generic [ref=e1229]: "4.6"
+          - text: Multi-Instance Review
+        - list [ref=e1230]:
+          - listitem [ref=e1231]: "> Self-review es limitado: el modelo retiene contexto de razonamiento previo"
+          - listitem [ref=e1232]: "> Instancia independiente (sin contexto previo) es mas efectiva para catch issues"
+          - listitem [ref=e1233]: "> Multi-pass: per-file local analysis + cross-file integration passes"
+          - listitem [ref=e1234]: "> Verification passes con confidence scores para routing calibrado"
+      - generic [ref=e1235]:
+        - heading "4.7 Adaptive Thinking" [level=3] [ref=e1236]:
+          - generic [ref=e1237]: "4.7"
+          - text: Adaptive Thinking
+        - paragraph [ref=e1238]:
+          - text: Reemplaza
+          - code [ref=e1239]: budget_tokens
+          - text: del extended thinking anterior. Claude decide dinamicamente cuanto pensar.
+        - list [ref=e1240]:
+          - listitem [ref=e1241]:
+            - text: ">"
+            - code [ref=e1242]: "thinking: {\"type\": \"adaptive\"}"
+            - text: reemplaza
+            - code [ref=e1243]: "{\"type\": \"enabled\", \"budget_tokens\": N}"
+          - listitem [ref=e1244]:
+            - text: "> Calibrado por: parametro"
+            - code [ref=e1245]: effort
+            - text: Y complejidad de la query
+          - listitem [ref=e1246]:
+            - text: "> Niveles de effort:"
+            - code [ref=e1247]: low
+            - text: ","
+            - code [ref=e1248]: medium
+            - text: ","
+            - code [ref=e1249]: high
+            - text: ","
+            - code [ref=e1250]: max
+            - text: —
+            - strong [ref=e1251]: max es exclusivo de Opus 4.6
+          - listitem [ref=e1252]: "> En queries faciles, responde directamente sin pensar"
+          - listitem [ref=e1253]:
+            - text: ">"
+            - strong [ref=e1254]: Prefilled responses (ultimo turno asistente) deprecados en Claude 4.6
+          - listitem [ref=e1255]: "> Migracion de prefill: usar Structured Outputs para formato, instrucciones directas para eliminar preambulos"
+        - generic [ref=e1256]:
+          - text: python
+          - code [ref=e1257]: "client.messages.create( model=\"claude-opus-4-6\", max_tokens=64000, thinking={\"type\": \"adaptive\"}, output_config={\"effort\": \"high\"}, messages=[...] )"
+      - generic [ref=e1258]:
+        - heading "4.8 Structured Outputs Completo" [level=3] [ref=e1259]:
+          - generic [ref=e1260]: "4.8"
+          - text: Structured Outputs Completo
+        - paragraph [ref=e1261]: Dos mecanismos complementarios para output estructurado garantizado.
+        - table [ref=e1262]:
+          - rowgroup [ref=e1263]:
+            - row "Mecanismo Parametro Uso" [ref=e1264]:
+              - columnheader "Mecanismo" [ref=e1265]
+              - columnheader "Parametro" [ref=e1266]
+              - columnheader "Uso" [ref=e1267]
+            - 'row "JSON outputs output_config.format con type: \"json_schema\" Control del formato de respuesta directa de Claude" [ref=e1268]':
+              - cell "JSON outputs" [ref=e1269]
+              - 'cell "output_config.format con type: \"json_schema\"" [ref=e1270]':
+                - code [ref=e1271]: output_config.format
+                - text: con
+                - code [ref=e1272]: "type: \"json_schema\""
+              - cell "Control del formato de respuesta directa de Claude" [ref=e1273]
+            - 'row "Strict tool use strict: true en tool definitions Garantizar validacion de schema en inputs de tools" [ref=e1274]':
+              - cell "Strict tool use" [ref=e1275]
+              - 'cell "strict: true en tool definitions" [ref=e1276]':
+                - code [ref=e1277]: "strict: true"
+                - text: en tool definitions
+              - cell "Garantizar validacion de schema en inputs de tools" [ref=e1278]
+        - list [ref=e1279]:
+          - listitem [ref=e1280]: "> Se pueden usar independientemente o juntos en la misma request"
+          - listitem [ref=e1281]: "> Garantia: siempre JSON valido, tipos seguros, campos requeridos presentes. Sin necesidad de retries"
+          - listitem [ref=e1282]: "> Usa constrained decoding internamente"
+        - paragraph [ref=e1283]:
+          - strong [ref=e1284]: "SDK Helpers para definicion de schemas:"
+        - table [ref=e1285]:
+          - rowgroup [ref=e1286]:
+            - row "Lenguaje Herramienta Metodo" [ref=e1287]:
+              - columnheader "Lenguaje" [ref=e1288]
+              - columnheader "Herramienta" [ref=e1289]
+              - columnheader "Metodo" [ref=e1290]
+            - row "Python Pydantic models client.messages.parse() con output_format=MyModel" [ref=e1291]:
+              - cell "Python" [ref=e1292]
+              - cell "Pydantic models" [ref=e1293]
+              - cell "client.messages.parse() con output_format=MyModel" [ref=e1294]:
+                - code [ref=e1295]: client.messages.parse()
+                - text: con
+                - code [ref=e1296]: output_format=MyModel
+            - row "TypeScript Zod schemas zodOutputFormat() con client.messages.parse()" [ref=e1297]:
+              - cell "TypeScript" [ref=e1298]
+              - cell "Zod schemas" [ref=e1299]
+              - cell "zodOutputFormat() con client.messages.parse()" [ref=e1300]:
+                - code [ref=e1301]: zodOutputFormat()
+                - text: con
+                - code [ref=e1302]: client.messages.parse()
+            - row "TypeScript JSON Schema jsonSchemaOutputFormat() con as const para inferencia de tipos" [ref=e1303]:
+              - cell "TypeScript" [ref=e1304]
+              - cell "JSON Schema" [ref=e1305]
+              - cell "jsonSchemaOutputFormat() con as const para inferencia de tipos" [ref=e1306]:
+                - code [ref=e1307]: jsonSchemaOutputFormat()
+                - text: con
+                - code [ref=e1308]: as const
+                - text: para inferencia de tipos
+      - generic [ref=e1309]:
+        - heading "4.9 Batch API Details" [level=3] [ref=e1310]:
+          - generic [ref=e1311]: "4.9"
+          - text: Batch API Details
+        - paragraph [ref=e1312]: Detalles tecnicos del Message Batches API para procesamiento masivo.
+        - table [ref=e1313]:
+          - rowgroup [ref=e1314]:
+            - row "Aspecto Detalle" [ref=e1315]:
+              - columnheader "Aspecto" [ref=e1316]
+              - columnheader "Detalle" [ref=e1317]
+            - 'row "custom_id regex ^[a-zA-Z0-9_-]{1,64}$ — solo alfanumericos, guiones, guiones bajos" [ref=e1318]':
+              - cell "custom_id regex" [ref=e1319]:
+                - code [ref=e1320]: custom_id
+                - text: regex
+              - 'cell "^[a-zA-Z0-9_-]{1,64}$ — solo alfanumericos, guiones, guiones bajos" [ref=e1321]':
+                - code [ref=e1322]: "^[a-zA-Z0-9_-]{1,64}$"
+                - text: — solo alfanumericos, guiones, guiones bajos
+            - 'row "processing_status Solo 2 valores: in_progress y ended" [ref=e1323]':
+              - cell "processing_status" [ref=e1324]:
+                - code [ref=e1325]: processing_status
+              - 'cell "Solo 2 valores: in_progress y ended" [ref=e1326]':
+                - text: "Solo 2 valores:"
+                - code [ref=e1327]: in_progress
+                - text: "y"
+                - code [ref=e1328]: ended
+            - row "Tipos de resultado succeeded (facturado), errored, canceled, expired (no facturados)" [ref=e1329]:
+              - cell "Tipos de resultado" [ref=e1330]
+              - cell "succeeded (facturado), errored, canceled, expired (no facturados)" [ref=e1331]:
+                - code [ref=e1332]: succeeded
+                - text: (facturado),
+                - code [ref=e1333]: errored
+                - text: ","
+                - code [ref=e1334]: canceled
+                - text: ","
+                - code [ref=e1335]: expired
+                - text: (no facturados)
+            - row "Limite de requests 100,000 requests O 256 MB (lo que ocurra primero)" [ref=e1336]:
+              - cell "Limite de requests" [ref=e1337]
+              - cell "100,000 requests O 256 MB (lo que ocurra primero)" [ref=e1338]:
+                - strong [ref=e1339]: 100,000 requests
+                - text: O
+                - strong [ref=e1340]: 256 MB
+                - text: (lo que ocurra primero)
+            - row "Retencion de resultados 29 dias despues de creacion. Batch visible despues, pero resultados no descargables" [ref=e1341]:
+              - cell "Retencion de resultados" [ref=e1342]
+              - cell "29 dias despues de creacion. Batch visible despues, pero resultados no descargables" [ref=e1343]:
+                - strong [ref=e1344]: 29 dias
+                - text: despues de creacion. Batch visible despues, pero resultados no descargables
+            - row "Expiracion 24 horas. Requests no procesadas a tiempo marcan como expired" [ref=e1345]:
+              - cell "Expiracion" [ref=e1346]
+              - cell "24 horas. Requests no procesadas a tiempo marcan como expired" [ref=e1347]:
+                - text: 24 horas. Requests no procesadas a tiempo marcan como
+                - code [ref=e1348]: expired
+            - row "ZDR NO elegible para Zero Data Retention" [ref=e1349]:
+              - cell "ZDR" [ref=e1350]
+              - cell "NO elegible para Zero Data Retention" [ref=e1351]:
+                - strong [ref=e1352]: NO elegible
+                - text: para Zero Data Retention
+      - generic [ref=e1353]:
+        - 'heading "Long context: posicionamiento optimo" [level=4] [ref=e1354]'
+        - paragraph [ref=e1355]:
+          - text: Datos extensos al
+          - strong [ref=e1356]: inicio
+          - text: del prompt, queries/instrucciones al
+          - strong [ref=e1357]: final
+          - text: = mejora de hasta
+          - strong [ref=e1358]: 30%
+          - text: en calidad de respuesta. Envolver ejemplos en tags
+          - code [ref=e1359]: <example>
+          - text: dentro de
+          - code [ref=e1360]: <examples>
+          - text: para separarlos claramente de las instrucciones.
+    - generic [ref=e1361]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e1362]
+      - generic [ref=e1363]:
+        - generic [ref=e1364] [cursor=pointer]:
+          - img "Prompting Best Practices" [ref=e1365]
+          - generic [ref=e1366]: Prompting Best Practices - Clarity, Examples, XML
+          - link "platform.claude.com/docs →" [ref=e1367]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+        - generic [ref=e1368] [cursor=pointer]:
+          - img "Structured Outputs" [ref=e1369]
+          - generic [ref=e1370]: Structured Outputs - JSON, strict:true, tool_use
+          - link "platform.claude.com/docs →" [ref=e1371]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
+        - generic [ref=e1372] [cursor=pointer]:
+          - img "Batch Processing" [ref=e1373]
+          - generic [ref=e1374]: Message Batches API - 50% Savings, custom_id
+          - link "platform.claude.com/docs →" [ref=e1375]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/batch-processing
+        - generic [ref=e1376] [cursor=pointer]:
+          - img "Handle Tool Calls" [ref=e1377]
+          - generic [ref=e1378]: Handle Tool Calls - tool_result, isError
+          - link "platform.claude.com/docs →" [ref=e1379]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls
+  - generic [ref=e1380]:
+    - generic [ref=e1381]:
+      - generic [ref=e1382]: Dominio 5 — 15% del examen
+      - heading "Context Management & Reliability" [level=2] [ref=e1383]
+      - paragraph [ref=e1384]: Preservar informacion critica, escalation patterns, error propagation, y human review workflows.
+    - generic [ref=e1385]:
+      - generic [ref=e1386]:
+        - heading "5.1 Context Window Management" [level=3] [ref=e1387]:
+          - generic [ref=e1388]: "5.1"
+          - text: Context Window Management
+        - list [ref=e1389]:
+          - listitem [ref=e1390]:
+            - text: ">"
+            - strong [ref=e1391]: "Lost in the middle:"
+            - text: modelos procesan bien inicio y final, pueden omitir secciones medias
+          - listitem [ref=e1392]: "> Progressive summarization pierde numeros, fechas, porcentajes criticos"
+          - listitem [ref=e1393]: "> Extraer \"case facts\" transaccionales a un bloque persistente fuera del historial resumido"
+          - listitem [ref=e1394]: "> Trimming de tool outputs verbosos: mantener solo campos relevantes"
+          - listitem [ref=e1395]: "> Key findings al inicio + section headers explicitos para mitigar position effects"
+        - generic [ref=e1396]:
+          - 'heading "Patron: Case Facts Block" [level=4] [ref=e1397]'
+          - paragraph [ref=e1398]: Extraer datos transaccionales (montos, IDs de orden, fechas, estados) en un bloque "case facts" que se incluye en cada prompt, separado del historial resumido. Esto previene perdida de datos criticos durante compaction.
+      - generic [ref=e1399]:
+        - heading "5.2 Escalation & Ambiguity Resolution" [level=3] [ref=e1400]:
+          - generic [ref=e1401]: "5.2"
+          - text: Escalation & Ambiguity Resolution
+        - list [ref=e1402]:
+          - listitem [ref=e1403]:
+            - text: ">"
+            - strong [ref=e1404]: "Escalar cuando:"
+            - text: cliente pide humano, policy gaps, no se puede progresar
+          - listitem [ref=e1405]: "> Honrar request explicito del cliente para agente humano inmediatamente"
+          - listitem [ref=e1406]: "> Sentiment-based escalation y self-reported confidence NO son confiables"
+          - listitem [ref=e1407]: "> Multiples customer matches: pedir identificadores adicionales, no seleccion heuristica"
+        - generic [ref=e1408]:
+          - heading "Trampa comun del examen" [level=4] [ref=e1409]
+          - paragraph [ref=e1410]:
+            - text: Confidence scores self-reported (1-10) son
+            - strong [ref=e1411]: poorly calibrated
+            - text: . El agente puede estar incorrectamente confiado en casos dificiles. Clasificadores de sentimiento resuelven un problema diferente (frustración =/= complejidad del caso).
+      - generic [ref=e1412]:
+        - heading "5.3 Error Propagation Multi-Agent" [level=3] [ref=e1413]:
+          - generic [ref=e1414]: "5.3"
+          - text: Error Propagation Multi-Agent
+        - list [ref=e1415]:
+          - listitem [ref=e1416]: "> Retornar contexto estructurado: tipo de fallo, query intentada, resultados parciales, alternativas"
+          - listitem [ref=e1417]: "> Anti-patron: suprimir errores silenciosamente (retornar vacio como exito)"
+          - listitem [ref=e1418]: "> Anti-patron: terminar workflow entero por un solo fallo"
+          - listitem [ref=e1419]: "> Subagentes: recovery local para errores transientes, propagar solo irresolubles"
+      - generic [ref=e1420]:
+        - heading "5.4 Large Codebase Exploration" [level=3] [ref=e1421]:
+          - generic [ref=e1422]: "5.4"
+          - text: Large Codebase Exploration
+        - list [ref=e1423]:
+          - listitem [ref=e1424]: "> Context degradation: respuestas inconsistentes refiriendo \"typical patterns\" en vez de clases descubiertas"
+          - listitem [ref=e1425]:
+            - text: ">"
+            - strong [ref=e1426]: Scratchpad files
+            - text: para persistir hallazgos clave entre limites de contexto
+          - listitem [ref=e1427]: "> Subagent delegation para aislar output verboso de exploracion"
+          - listitem [ref=e1428]:
+            - text: ">"
+            - code [ref=e1429]: /compact
+            - text: para reducir uso de contexto durante sesiones extendidas
+          - listitem [ref=e1430]: "> Crash recovery: state exports estructurados que el coordinador carga al resumir"
+      - generic [ref=e1431]:
+        - heading "5.5 Human Review & Confidence Calibration" [level=3] [ref=e1432]:
+          - generic [ref=e1433]: "5.5"
+          - text: Human Review & Confidence Calibration
+        - list [ref=e1434]:
+          - listitem [ref=e1435]: "> 97% accuracy global puede ocultar performance pobre en tipos especificos de documentos"
+          - listitem [ref=e1436]:
+            - text: ">"
+            - strong [ref=e1437]: Stratified random sampling
+            - text: de extracciones high-confidence para medir error rates
+          - listitem [ref=e1438]: "> Field-level confidence scores calibrados con labeled validation sets"
+          - listitem [ref=e1439]: "> Validar accuracy por document type Y field antes de automatizar extracciones"
+      - generic [ref=e1440]:
+        - heading "5.6 Information Provenance" [level=3] [ref=e1441]:
+          - generic [ref=e1442]: "5.6"
+          - text: Information Provenance
+        - list [ref=e1443]:
+          - listitem [ref=e1444]: "> Source attribution se pierde durante pasos de summarization"
+          - listitem [ref=e1445]: "> Claim-source mappings estructurados que la sintesis debe preservar"
+          - listitem [ref=e1446]: "> Datos conflictivos: anotar con source attribution, no seleccionar uno arbitrariamente"
+          - listitem [ref=e1447]: "> Temporal data: requerir publication/collection dates para interpretacion correcta"
+          - listitem [ref=e1448]: "> Secciones explicitas distinguiendo hallazgos bien-establecidos de contestados"
+      - generic [ref=e1449]:
+        - heading "5.7 Context Window Startup" [level=3] [ref=e1450]:
+          - generic [ref=e1451]: "5.7"
+          - text: Context Window Startup
+        - paragraph [ref=e1452]:
+          - text: 7 elementos se cargan al inicio de sesion, consumiendo aproximadamente
+          - strong [ref=e1453]: ~7,850 tokens
+          - text: antes del primer prompt.
+        - table [ref=e1454]:
+          - rowgroup [ref=e1455]:
+            - row "Orden Elemento Tokens (aprox.)" [ref=e1456]:
+              - columnheader "Orden" [ref=e1457]
+              - columnheader "Elemento" [ref=e1458]
+              - columnheader "Tokens (aprox.)" [ref=e1459]
+            - row "1 System prompt ~4,200" [ref=e1460]:
+              - cell "1" [ref=e1461]
+              - cell "System prompt" [ref=e1462]
+              - cell "~4,200" [ref=e1463]
+            - row "2 Auto memory (MEMORY.md) ~680" [ref=e1464]:
+              - cell "2" [ref=e1465]
+              - cell "Auto memory (MEMORY.md)" [ref=e1466]
+              - cell "~680" [ref=e1467]
+            - row "3 Environment info ~280" [ref=e1468]:
+              - cell "3" [ref=e1469]
+              - cell "Environment info" [ref=e1470]
+              - cell "~280" [ref=e1471]
+            - row "4 MCP tools (deferred) ~120" [ref=e1472]:
+              - cell "4" [ref=e1473]
+              - cell "MCP tools (deferred)" [ref=e1474]
+              - cell "~120" [ref=e1475]
+            - row "5 Skill descriptions ~450" [ref=e1476]:
+              - cell "5" [ref=e1477]
+              - cell "Skill descriptions" [ref=e1478]
+              - cell "~450" [ref=e1479]
+            - row "6 ~/.claude/CLAUDE.md ~320" [ref=e1480]:
+              - cell "6" [ref=e1481]
+              - cell "~/.claude/CLAUDE.md" [ref=e1482]
+              - cell "~320" [ref=e1483]
+            - row "7 Project CLAUDE.md ~1,800" [ref=e1484]:
+              - cell "7" [ref=e1485]
+              - cell "Project CLAUDE.md" [ref=e1486]
+              - cell "~1,800" [ref=e1487]
+        - list [ref=e1488]:
+          - listitem [ref=e1489]:
+            - text: "> Compaction produce un resumen de ~"
+            - strong [ref=e1490]: 12%
+            - text: del total de tokens de la conversacion original
+          - listitem [ref=e1491]:
+            - text: "> Project CLAUDE.md"
+            - strong [ref=e1492]: sobrevive
+            - text: compaction (se re-lee del disco y se re-inyecta)
+          - listitem [ref=e1493]:
+            - text: "> CLAUDE.md nested (subdirectorios) y skill descriptions"
+            - strong [ref=e1494]: NO sobreviven
+            - text: compaction
+          - listitem [ref=e1495]: "> CLAUDE.md nested se recarga cuando Claude lee un archivo en ese subdirectorio"
+      - generic [ref=e1496]:
+        - heading "5.8 Hooks en settings.json" [level=3] [ref=e1497]:
+          - generic [ref=e1498]: "5.8"
+          - text: Hooks en settings.json
+        - paragraph [ref=e1499]: Sistema de hooks para interceptar y controlar acciones de Claude Code.
+        - table [ref=e1500]:
+          - rowgroup [ref=e1501]:
+            - row "Tipo de Handler Descripcion" [ref=e1502]:
+              - columnheader "Tipo de Handler" [ref=e1503]
+              - columnheader "Descripcion" [ref=e1504]
+            - row "command Ejecuta un script/comando. Soporta async, asyncRewake, shell, timeout, once" [ref=e1505]:
+              - cell "command" [ref=e1506]:
+                - code [ref=e1507]: command
+              - cell "Ejecuta un script/comando. Soporta async, asyncRewake, shell, timeout, once" [ref=e1508]:
+                - text: Ejecuta un script/comando. Soporta
+                - code [ref=e1509]: async
+                - text: ","
+                - code [ref=e1510]: asyncRewake
+                - text: ","
+                - code [ref=e1511]: shell
+                - text: ","
+                - code [ref=e1512]: timeout
+                - text: ","
+                - code [ref=e1513]: once
+            - row "http Llama a un endpoint HTTP. Soporta headers, allowedEnvVars, timeout" [ref=e1514]:
+              - cell "http" [ref=e1515]:
+                - code [ref=e1516]: http
+              - cell "Llama a un endpoint HTTP. Soporta headers, allowedEnvVars, timeout" [ref=e1517]:
+                - text: Llama a un endpoint HTTP. Soporta
+                - code [ref=e1518]: headers
+                - text: ","
+                - code [ref=e1519]: allowedEnvVars
+                - text: ","
+                - code [ref=e1520]: timeout
+            - row "prompt Consulta a un modelo con un prompt. Soporta model, timeout" [ref=e1521]:
+              - cell "prompt" [ref=e1522]:
+                - code [ref=e1523]: prompt
+              - cell "Consulta a un modelo con un prompt. Soporta model, timeout" [ref=e1524]:
+                - text: Consulta a un modelo con un prompt. Soporta
+                - code [ref=e1525]: model
+                - text: ","
+                - code [ref=e1526]: timeout
+            - row "agent Lanza un agente para verificar/procesar. Soporta prompt, timeout" [ref=e1527]:
+              - cell "agent" [ref=e1528]:
+                - code [ref=e1529]: agent
+              - cell "Lanza un agente para verificar/procesar. Soporta prompt, timeout" [ref=e1530]:
+                - text: Lanza un agente para verificar/procesar. Soporta
+                - code [ref=e1531]: prompt
+                - text: ","
+                - code [ref=e1532]: timeout
+        - list [ref=e1533]:
+          - listitem [ref=e1534]:
+            - text: ">"
+            - strong [ref=e1535]: Exit code 2
+            - text: bloquea la accion (en PreToolUse, PermissionRequest, UserPromptSubmit, Stop, etc.)
+          - listitem [ref=e1536]:
+            - text: "> Output cap:"
+            - strong [ref=e1537]: 10,000 caracteres
+            - text: para
+            - code [ref=e1538]: additionalContext
+            - text: ","
+            - code [ref=e1539]: systemMessage
+            - text: ","
+            - code [ref=e1540]: updatedMCPToolOutput
+          - listitem [ref=e1541]:
+            - text: "> Matcher patterns:"
+            - code [ref=e1542]: "\"*\""
+            - text: /vacio = todos; solo letras/digitos/
+            - code [ref=e1543]: "|"
+            - text: = match exacto o lista; otro caracter = regex JavaScript
+          - listitem [ref=e1544]:
+            - text: ">"
+            - code [ref=e1545]: "asyncRewake: true"
+            - text: ejecuta en background y DESPIERTA a Claude en exit code 2 (implica
+            - code [ref=e1546]: "async: true"
+            - text: )
+          - listitem [ref=e1547]:
+            - text: "> MCP tool naming:"
+            - code [ref=e1548]: mcp__<server>__<tool>
+            - text: (ej.
+            - code [ref=e1549]: mcp__memory__create_entities
+            - text: )
+      - generic [ref=e1550]:
+        - 'heading "Context Window: 200K tokens y limites de Skills" [level=4] [ref=e1551]'
+        - paragraph [ref=e1552]:
+          - text: "Ventana de contexto:"
+          - strong [ref=e1553]: 200,000 tokens
+          - text: ". Skills despues de compaction:"
+          - strong [ref=e1554]: 5,000 tokens
+          - text: por skill,
+          - strong [ref=e1555]: 25,000 tokens
+          - text: de presupuesto total combinado. Los skills invocados mas recientemente tienen prioridad. Skills con
+          - code [ref=e1556]: "disable-model-invocation: true"
+          - text: cuestan
+          - strong [ref=e1557]: cero contexto
+          - text: hasta ser invocados manualmente.
+    - generic [ref=e1558]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e1559]
+      - generic [ref=e1560]:
+        - generic [ref=e1561] [cursor=pointer]:
+          - img "Context Window" [ref=e1562]
+          - generic [ref=e1563]: Explore the Context Window - Token Management
+          - link "code.claude.com/docs →" [ref=e1564]:
+            - /url: https://code.claude.com/docs/en/context-window
+        - generic [ref=e1565] [cursor=pointer]:
+          - img "MCP Architecture" [ref=e1566]
+          - generic [ref=e1567]: MCP Architecture - Client/Server, Error Propagation
+          - link "modelcontextprotocol.io →" [ref=e1568]:
+            - /url: https://modelcontextprotocol.io/docs/learn/architecture
+        - generic [ref=e1569] [cursor=pointer]:
+          - img "MCP Config" [ref=e1570]
+          - generic [ref=e1571]: MCP Config - .mcp.json, Multi-server Access
+          - link "code.claude.com/docs →" [ref=e1572]:
+            - /url: https://code.claude.com/docs/en/mcp
+  - generic [ref=e1574]:
+    - generic [ref=e1575]:
+      - heading "Los 6 Escenarios del Examen" [level=2] [ref=e1576]
+      - paragraph [ref=e1577]: 4 escenarios se presentan al azar en cada examen. Cada uno enmarca preguntas en un contexto de produccion realista.
+    - generic [ref=e1578]:
+      - generic [ref=e1579]:
+        - generic [ref=e1580]: "1"
+        - heading "Customer Support Resolution Agent" [level=3] [ref=e1581]
+        - paragraph [ref=e1582]: "Agente de soporte con MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Target: 80%+ first-contact resolution con escalation calibrado."
+        - generic [ref=e1583]:
+          - generic [ref=e1584]: "D1: Agentic"
+          - generic [ref=e1585]: "D2: MCP"
+          - generic [ref=e1586]: "D5: Reliability"
+      - generic [ref=e1587]:
+        - generic [ref=e1588]: "2"
+        - heading "Code Generation con Claude Code" [level=3] [ref=e1589]
+        - paragraph [ref=e1590]: Claude Code para generacion de codigo, refactoring, debugging. Custom slash commands, CLAUDE.md configs, plan mode vs direct execution.
+        - generic [ref=e1591]:
+          - generic [ref=e1592]: "D3: Claude Code"
+          - generic [ref=e1593]: "D5: Reliability"
+      - generic [ref=e1594]:
+        - generic [ref=e1595]: "3"
+        - heading "Multi-Agent Research System" [level=3] [ref=e1596]
+        - paragraph [ref=e1597]: "Coordinador delegando a sub-agentes: web search, document analysis, synthesis, report generation. Reportes comprehensivos con citas."
+        - generic [ref=e1598]:
+          - generic [ref=e1599]: "D1: Agentic"
+          - generic [ref=e1600]: "D2: MCP"
+          - generic [ref=e1601]: "D5: Reliability"
+      - generic [ref=e1602]:
+        - generic [ref=e1603]: "4"
+        - heading "Developer Productivity" [level=3] [ref=e1604]
+        - paragraph [ref=e1605]: Agente para explorar codebases, entender sistemas legacy, generar boilerplate. Built-in tools + MCP servers integrados.
+        - generic [ref=e1606]:
+          - generic [ref=e1607]: "D2: MCP"
+          - generic [ref=e1608]: "D3: Claude Code"
+          - generic [ref=e1609]: "D1: Agentic"
+      - generic [ref=e1610]:
+        - generic [ref=e1611]: "5"
+        - heading "Claude Code para CI" [level=3] [ref=e1612]
+        - paragraph [ref=e1613]: "Integrar Claude Code en CI/CD: reviews automatizados, generacion de tests, feedback en PRs. Prompts para feedback accionable con minimos false positives."
+        - generic [ref=e1614]:
+          - generic [ref=e1615]: "D3: Claude Code"
+          - generic [ref=e1616]: "D4: Prompts"
+      - generic [ref=e1617]:
+        - generic [ref=e1618]: "6"
+        - heading "Structured Data Extraction" [level=3] [ref=e1619]
+        - paragraph [ref=e1620]: Extraer info de documentos no estructurados, validar con JSON schemas, mantener alta precision. Edge cases y downstream integration.
+        - generic [ref=e1621]:
+          - generic [ref=e1622]: "D4: Prompts"
+          - generic [ref=e1623]: "D5: Reliability"
+  - generic [ref=e1624]:
+    - generic [ref=e1625]:
+      - heading "Fuera del Alcance del Examen" [level=2] [ref=e1626]
+      - paragraph [ref=e1627]: Estos temas NO aparecen en el examen.
+    - generic [ref=e1628]:
+      - list [ref=e1630]:
+        - listitem [ref=e1631]: "> Fine-tuning o training de modelos custom"
+        - listitem [ref=e1632]: "> Autenticacion, billing o account management de la API"
+        - listitem [ref=e1633]: "> Deploy/hosting de MCP servers (infra, networking)"
+        - listitem [ref=e1634]: "> Arquitectura interna de Claude, training, model weights"
+        - listitem [ref=e1635]: "> Constitutional AI, RLHF, safety training"
+      - list [ref=e1637]:
+        - listitem [ref=e1638]: "> Embedding models o vector databases"
+        - listitem [ref=e1639]: "> Computer use (browser/desktop automation)"
+        - listitem [ref=e1640]: "> Vision/image analysis capabilities"
+        - listitem [ref=e1641]: "> Streaming API o server-sent events"
+        - listitem [ref=e1642]: "> Rate limiting, quotas, pricing calculations"
+      - list [ref=e1644]:
+        - listitem [ref=e1645]: "> OAuth, API key rotation, auth protocols"
+        - listitem [ref=e1646]: "> Cloud provider configs (AWS, GCP, Azure)"
+        - listitem [ref=e1647]: "> Performance benchmarking"
+        - listitem [ref=e1648]: "> Prompt caching implementation details"
+        - listitem [ref=e1649]: "> Token counting algorithms"
+  - contentinfo [ref=e1650]:
+    - paragraph [ref=e1651]:
+      - text: Basado en la guia oficial
+      - strong [ref=e1652]: Claude Certified Architect – Foundations Certification Exam Guide
+      - text: de Anthropic (v0.1, Feb 2025)
+    - paragraph [ref=e1653]:
+      - text: Profundizado con documentacion oficial de
+      - link "Claude API Docs" [ref=e1654] [cursor=pointer]:
+        - /url: https://platform.claude.com/docs
+      - text: ","
+      - link "Claude Code Docs" [ref=e1655] [cursor=pointer]:
+        - /url: https://code.claude.com/docs
+      - text: "y"
+      - link "MCP Docs" [ref=e1656] [cursor=pointer]:
+        - /url: https://modelcontextprotocol.io
+    - paragraph [ref=e1657]: Creado para estudio — no es material oficial de Anthropic

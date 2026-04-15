@@ -1,0 +1,2425 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agents" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Create custom subagents" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/sub-agents
+                  - generic [ref=e89]: Create custom subagents
+              - listitem [ref=e90]:
+                - link "Run agent teams" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-teams
+                  - generic [ref=e94]: Run agent teams
+          - generic [ref=e95]:
+            - heading "Tools and plugins" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "Model Context Protocol (MCP)" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/mcp
+                  - generic [ref=e103]: Model Context Protocol (MCP)
+              - listitem [ref=e104]:
+                - link "Discover and install prebuilt plugins" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/discover-plugins
+                  - generic [ref=e108]: Discover and install prebuilt plugins
+              - listitem [ref=e109]:
+                - link "Create plugins" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/plugins
+                  - generic [ref=e113]: Create plugins
+              - listitem [ref=e114]:
+                - link "Extend Claude with skills" [ref=e115] [cursor=pointer]:
+                  - /url: /docs/en/skills
+                  - generic [ref=e118]: Extend Claude with skills
+          - generic [ref=e119]:
+            - heading "Automation" [level=5] [ref=e121]
+            - list [ref=e122]:
+              - listitem [ref=e123]:
+                - link "Automate with hooks" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/hooks-guide
+                  - generic [ref=e127]: Automate with hooks
+              - listitem [ref=e128]:
+                - link "Push external events to Claude" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/channels
+                  - generic [ref=e132]: Push external events to Claude
+              - listitem [ref=e133]:
+                - link "Run prompts on a schedule" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/scheduled-tasks
+                  - generic [ref=e137]: Run prompts on a schedule
+              - listitem [ref=e138]:
+                - link "Programmatic usage" [ref=e139] [cursor=pointer]:
+                  - /url: /docs/en/headless
+                  - generic [ref=e142]: Programmatic usage
+          - generic [ref=e143]:
+            - heading "Troubleshooting" [level=5] [ref=e145]
+            - list [ref=e146]:
+              - listitem [ref=e147]:
+                - link "Troubleshooting" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/troubleshooting
+                  - generic [ref=e151]: Troubleshooting
+        - generic [ref=e154]:
+          - banner [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: Tools and plugins
+              - generic [ref=e158]:
+                - heading "Connect Claude Code to tools via MCP" [level=1] [ref=e159]
+                - generic [ref=e160]:
+                  - button "Copy page" [ref=e161] [cursor=pointer]:
+                    - generic [ref=e162]:
+                      - img [ref=e163]
+                      - generic [ref=e166]: Copy page
+                  - button "More actions" [ref=e167] [cursor=pointer]:
+                    - img [ref=e168]
+            - paragraph [ref=e171]: Learn how to connect Claude Code to your tools with the Model Context Protocol.
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - text: Claude Code can connect to hundreds of external tools and data sources through the
+              - link "Model Context Protocol (MCP)" [ref=e174] [cursor=pointer]:
+                - /url: https://modelcontextprotocol.io/introduction
+              - text: ", an open source standard for AI-tool integrations. MCP servers give Claude Code access to your tools, databases, and APIs."
+            - generic [ref=e175]: Connect a server when you find yourself copying data into chat from another tool, like an issue tracker or a monitoring dashboard. Once connected, Claude can read and act on that system directly instead of working from what you paste.
+            - heading "Navigate to header What you can do with MCP" [level=2] [ref=e176]:
+              - link "Navigate to header" [ref=e177] [cursor=pointer]:
+                - /url: "#what-you-can-do-with-mcp"
+                - img [ref=e179]
+              - generic [ref=e181] [cursor=pointer]: What you can do with MCP
+            - generic [ref=e182]: "With MCP servers connected, you can ask Claude Code to:"
+            - list [ref=e183]:
+              - listitem [ref=e184]:
+                - strong [ref=e185]: Implement features from issue trackers
+                - text: ": “Add the feature described in JIRA issue ENG-4521 and create a PR on GitHub.”"
+              - listitem [ref=e186]:
+                - strong [ref=e187]: Analyze monitoring data
+                - text: ": “Check Sentry and Statsig to check the usage of the feature described in ENG-4521.”"
+              - listitem [ref=e188]:
+                - strong [ref=e189]: Query databases
+                - text: ": “Find emails of 10 random users who used feature ENG-4521, based on our PostgreSQL database.”"
+              - listitem [ref=e190]:
+                - strong [ref=e191]: Integrate designs
+                - text: ": “Update our standard email template based on the new Figma designs that were posted in Slack”"
+              - listitem [ref=e192]:
+                - strong [ref=e193]: Automate workflows
+                - text: ": “Create Gmail drafts inviting these 10 users to a feedback session about the new feature.”"
+              - listitem [ref=e194]:
+                - strong [ref=e195]: React to external events
+                - text: ": An MCP server can also act as a"
+                - link "channel" [ref=e196] [cursor=pointer]:
+                  - /url: /docs/en/channels
+                - text: that pushes messages into your session, so Claude reacts to Telegram messages, Discord chats, or webhook events while you’re away.
+            - heading "Navigate to header Popular MCP servers" [level=2] [ref=e197]:
+              - link "Navigate to header" [ref=e198] [cursor=pointer]:
+                - /url: "#popular-mcp-servers"
+                - img [ref=e200]
+              - generic [ref=e202] [cursor=pointer]: Popular MCP servers
+            - generic [ref=e203]: "Here are some commonly used MCP servers you can connect to Claude Code:"
+            - generic [ref=e204]:
+              - img "Warning" [ref=e206]
+              - generic [ref=e209]: Use third party MCP servers at your own risk - Anthropic has not verified the correctness or security of all these servers. Make sure you trust MCP servers you are installing. Be especially careful when using MCP servers that could fetch untrusted content, as these can expose you to prompt injection risk.
+            - generic [ref=e210]:
+              - img "Note" [ref=e212]
+              - generic [ref=e215]:
+                - strong [ref=e216]: Need a specific integration?
+                - link "Find hundreds more MCP servers on GitHub" [ref=e217] [cursor=pointer]:
+                  - /url: https://github.com/modelcontextprotocol/servers
+                - text: ", or build your own using the"
+                - link "MCP SDK" [ref=e218] [cursor=pointer]:
+                  - /url: https://modelcontextprotocol.io/quickstart/server
+                - text: .
+            - heading "Navigate to header Installing MCP servers" [level=2] [ref=e219]:
+              - link "Navigate to header" [ref=e220] [cursor=pointer]:
+                - /url: "#installing-mcp-servers"
+                - img [ref=e222]
+              - generic [ref=e224] [cursor=pointer]: Installing MCP servers
+            - generic [ref=e225]: "MCP servers can be configured in three different ways depending on your needs:"
+            - 'heading "Navigate to header Option 1: Add a remote HTTP server" [level=3] [ref=e226]':
+              - link "Navigate to header" [ref=e227] [cursor=pointer]:
+                - /url: "#option-1-add-a-remote-http-server"
+                - img [ref=e229]
+              - generic [ref=e231] [cursor=pointer]: "Option 1: Add a remote HTTP server"
+            - generic [ref=e232]: HTTP servers are the recommended option for connecting to remote MCP servers. This is the most widely supported transport for cloud-based services.
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - button "Report incorrect code" [ref=e236] [cursor=pointer]:
+                  - img [ref=e237]
+                - button "Copy the contents from the code block" [ref=e240] [cursor=pointer]:
+                  - img [ref=e241]
+                - button "Ask AI" [ref=e245] [cursor=pointer]:
+                  - img [ref=e246]
+              - code [ref=e252]:
+                - generic [ref=e253]: "# Basic syntax"
+                - generic [ref=e254]: claude mcp add --transport http <name> <url>
+                - generic [ref=e255]: "# Real example: Connect to Notion"
+                - generic [ref=e256]: claude mcp add --transport http notion https://mcp.notion.com/mcp
+                - generic [ref=e257]: "# Example with Bearer token"
+                - generic [ref=e258]: claude mcp add --transport http secure-api https://api.example.com/mcp \
+                - generic [ref=e259]: "--header \"Authorization: Bearer your-token\""
+            - 'heading "Navigate to header Option 2: Add a remote SSE server" [level=3] [ref=e260]':
+              - link "Navigate to header" [ref=e261] [cursor=pointer]:
+                - /url: "#option-2-add-a-remote-sse-server"
+                - img [ref=e263]
+              - generic [ref=e265] [cursor=pointer]: "Option 2: Add a remote SSE server"
+            - generic [ref=e266]:
+              - img "Warning" [ref=e268]
+              - generic [ref=e271]: The SSE (Server-Sent Events) transport is deprecated. Use HTTP servers instead, where available.
+            - generic [ref=e272]:
+              - generic [ref=e273]:
+                - button "Report incorrect code" [ref=e275] [cursor=pointer]:
+                  - img [ref=e276]
+                - button "Copy the contents from the code block" [ref=e279] [cursor=pointer]:
+                  - img [ref=e280]
+                - button "Ask AI" [ref=e284] [cursor=pointer]:
+                  - img [ref=e285]
+              - code [ref=e291]:
+                - generic [ref=e292]: "# Basic syntax"
+                - generic [ref=e293]: claude mcp add --transport sse <name> <url>
+                - generic [ref=e294]: "# Real example: Connect to Asana"
+                - generic [ref=e295]: claude mcp add --transport sse asana https://mcp.asana.com/sse
+                - generic [ref=e296]: "# Example with authentication header"
+                - generic [ref=e297]: claude mcp add --transport sse private-api https://api.company.com/sse \
+                - generic [ref=e298]: "--header \"X-API-Key: your-key-here\""
+            - 'heading "Navigate to header Option 3: Add a local stdio server" [level=3] [ref=e299]':
+              - link "Navigate to header" [ref=e300] [cursor=pointer]:
+                - /url: "#option-3-add-a-local-stdio-server"
+                - img [ref=e302]
+              - generic [ref=e304] [cursor=pointer]: "Option 3: Add a local stdio server"
+            - generic [ref=e305]: Stdio servers run as local processes on your machine. They’re ideal for tools that need direct system access or custom scripts.
+            - generic [ref=e306]:
+              - generic [ref=e307]:
+                - button "Report incorrect code" [ref=e309] [cursor=pointer]:
+                  - img [ref=e310]
+                - button "Copy the contents from the code block" [ref=e313] [cursor=pointer]:
+                  - img [ref=e314]
+                - button "Ask AI" [ref=e318] [cursor=pointer]:
+                  - img [ref=e319]
+              - code [ref=e325]:
+                - generic [ref=e326]: "# Basic syntax"
+                - generic [ref=e327]: claude mcp add [options] <name> -- <command> [args...]
+                - generic [ref=e328]: "# Real example: Add Airtable server"
+                - generic [ref=e329]: claude mcp add --transport stdio --env AIRTABLE_API_KEY=YOUR_KEY airtable \
+                - generic [ref=e330]: "-- npx -y airtable-mcp-server"
+            - generic [ref=e331]:
+              - img "Note" [ref=e333]
+              - generic [ref=e335]:
+                - strong [ref=e337]: "Important: Option ordering"
+                - generic [ref=e338]:
+                  - text: All options (
+                  - code [ref=e339]: "--transport"
+                  - text: ","
+                  - code [ref=e340]: "--env"
+                  - text: ","
+                  - code [ref=e341]: "--scope"
+                  - text: ","
+                  - code [ref=e342]: "--header"
+                  - text: ) must come
+                  - strong [ref=e343]: before
+                  - text: the server name. The
+                  - code [ref=e344]: "--"
+                  - text: (double dash) then separates the server name from the command and arguments that get passed to the MCP server.
+                - generic [ref=e345]: "For example:"
+                - list [ref=e346]:
+                  - listitem [ref=e347]:
+                    - code [ref=e348]: claude mcp add --transport stdio myserver -- npx server
+                    - text: → runs
+                    - code [ref=e349]: npx server
+                  - listitem [ref=e350]:
+                    - code [ref=e351]: claude mcp add --transport stdio --env KEY=value myserver -- python server.py --port 8080
+                    - text: → runs
+                    - code [ref=e352]: python server.py --port 8080
+                    - text: with
+                    - code [ref=e353]: KEY=value
+                    - text: in environment
+                - generic [ref=e354]: This prevents conflicts between Claude’s flags and the server’s flags.
+            - heading "Navigate to header Managing your servers" [level=3] [ref=e355]:
+              - link "Navigate to header" [ref=e356] [cursor=pointer]:
+                - /url: "#managing-your-servers"
+                - img [ref=e358]
+              - generic [ref=e360] [cursor=pointer]: Managing your servers
+            - generic [ref=e361]: "Once configured, you can manage your MCP servers with these commands:"
+            - generic [ref=e362]:
+              - generic [ref=e363]:
+                - button "Report incorrect code" [ref=e365] [cursor=pointer]:
+                  - img [ref=e366]
+                - button "Copy the contents from the code block" [ref=e369] [cursor=pointer]:
+                  - img [ref=e370]
+                - button "Ask AI" [ref=e374] [cursor=pointer]:
+                  - img [ref=e375]
+              - code [ref=e381]:
+                - generic [ref=e382]: "# List all configured servers"
+                - generic [ref=e383]: claude mcp list
+                - generic [ref=e384]: "# Get details for a specific server"
+                - generic [ref=e385]: claude mcp get github
+                - generic [ref=e386]: "# Remove a server"
+                - generic [ref=e387]: claude mcp remove github
+                - generic [ref=e388]: "# (within Claude Code) Check server status"
+                - generic [ref=e389]: /mcp
+            - heading "Navigate to header Dynamic tool updates" [level=3] [ref=e390]:
+              - link "Navigate to header" [ref=e391] [cursor=pointer]:
+                - /url: "#dynamic-tool-updates"
+                - img [ref=e393]
+              - generic [ref=e395] [cursor=pointer]: Dynamic tool updates
+            - generic [ref=e396]:
+              - text: Claude Code supports MCP
+              - code [ref=e397]: list_changed
+              - text: notifications, allowing MCP servers to dynamically update their available tools, prompts, and resources without requiring you to disconnect and reconnect. When an MCP server sends a
+              - code [ref=e398]: list_changed
+              - text: notification, Claude Code automatically refreshes the available capabilities from that server.
+            - heading "Navigate to header Push messages with channels" [level=3] [ref=e399]:
+              - link "Navigate to header" [ref=e400] [cursor=pointer]:
+                - /url: "#push-messages-with-channels"
+                - img [ref=e402]
+              - generic [ref=e404] [cursor=pointer]: Push messages with channels
+            - generic [ref=e405]:
+              - text: An MCP server can also push messages directly into your session so Claude can react to external events like CI results, monitoring alerts, or chat messages. To enable this, your server declares the
+              - code [ref=e406]: claude/channel
+              - text: capability and you opt it in with the
+              - code [ref=e407]: "--channels"
+              - text: flag at startup. See
+              - link "Channels" [ref=e408] [cursor=pointer]:
+                - /url: /docs/en/channels
+              - text: to use an officially supported channel, or
+              - link "Channels reference" [ref=e409] [cursor=pointer]:
+                - /url: /docs/en/channels-reference
+              - text: to build your own.
+            - generic [ref=e410]:
+              - img "Tip" [ref=e412]
+              - generic [ref=e414]:
+                - generic [ref=e415]: "Tips:"
+                - list [ref=e416]:
+                  - listitem [ref=e417]:
+                    - text: Use the
+                    - code [ref=e418]: "--scope"
+                    - text: "flag to specify where the configuration is stored:"
+                    - list [ref=e419]:
+                      - listitem [ref=e420]:
+                        - code [ref=e421]: local
+                        - text: "(default): Available only to you in the current project (was called"
+                        - code [ref=e422]: project
+                        - text: in older versions)
+                      - listitem [ref=e423]:
+                        - code [ref=e424]: project
+                        - text: ": Shared with everyone in the project via"
+                        - code [ref=e425]: .mcp.json
+                        - text: file
+                      - listitem [ref=e426]:
+                        - code [ref=e427]: user
+                        - text: ": Available to you across all projects (was called"
+                        - code [ref=e428]: global
+                        - text: in older versions)
+                  - listitem [ref=e429]:
+                    - text: Set environment variables with
+                    - code [ref=e430]: "--env"
+                    - text: flags (for example,
+                    - code [ref=e431]: "--env KEY=value"
+                    - text: )
+                  - listitem [ref=e432]:
+                    - text: Configure MCP server startup timeout using the MCP_TIMEOUT environment variable (for example,
+                    - code [ref=e433]: MCP_TIMEOUT=10000 claude
+                    - text: sets a 10-second timeout)
+                  - listitem [ref=e434]:
+                    - text: Claude Code will display a warning when MCP tool output exceeds 10,000 tokens. To increase this limit, set the
+                    - code [ref=e435]: MAX_MCP_OUTPUT_TOKENS
+                    - text: environment variable (for example,
+                    - code [ref=e436]: MAX_MCP_OUTPUT_TOKENS=50000
+                    - text: )
+                  - listitem [ref=e437]:
+                    - text: Use
+                    - code [ref=e438]: /mcp
+                    - text: to authenticate with remote servers that require OAuth 2.0 authentication
+            - generic [ref=e439]:
+              - img "Warning" [ref=e441]
+              - generic [ref=e443]:
+                - generic [ref=e444]:
+                  - strong [ref=e445]: Windows Users
+                  - text: ": On native Windows (not WSL), local MCP servers that use"
+                  - code [ref=e446]: npx
+                  - text: require the
+                  - code [ref=e447]: cmd /c
+                  - text: wrapper to ensure proper execution.
+                - generic [ref=e448]:
+                  - generic [ref=e449]:
+                    - button "Report incorrect code" [ref=e451] [cursor=pointer]:
+                      - img [ref=e452]
+                    - button "Copy the contents from the code block" [ref=e455] [cursor=pointer]:
+                      - img [ref=e456]
+                    - button "Ask AI" [ref=e460] [cursor=pointer]:
+                      - img [ref=e461]
+                  - code [ref=e467]:
+                    - generic [ref=e468]: "# This creates command=\"cmd\" which Windows can execute"
+                    - generic [ref=e469]: claude mcp add --transport stdio my-server -- cmd /c npx -y @some/package
+                - generic [ref=e470]:
+                  - text: Without the
+                  - code [ref=e471]: cmd /c
+                  - text: wrapper, you’ll encounter “Connection closed” errors because Windows cannot directly execute
+                  - code [ref=e472]: npx
+                  - text: . (See the note above for an explanation of the
+                  - code [ref=e473]: "--"
+                  - text: parameter.)
+            - heading "Navigate to header Plugin-provided MCP servers" [level=3] [ref=e474]:
+              - link "Navigate to header" [ref=e475] [cursor=pointer]:
+                - /url: "#plugin-provided-mcp-servers"
+                - img [ref=e477]
+              - generic [ref=e479] [cursor=pointer]: Plugin-provided MCP servers
+            - generic [ref=e480]:
+              - link "Plugins" [ref=e481] [cursor=pointer]:
+                - /url: /docs/en/plugins
+              - text: can bundle MCP servers, automatically providing tools and integrations when the plugin is enabled. Plugin MCP servers work identically to user-configured servers.
+            - generic [ref=e482]:
+              - strong [ref=e483]: How plugin MCP servers work
+              - text: ":"
+            - list [ref=e484]:
+              - listitem [ref=e485]:
+                - text: Plugins define MCP servers in
+                - code [ref=e486]: .mcp.json
+                - text: at the plugin root or inline in
+                - code [ref=e487]: plugin.json
+              - listitem [ref=e488]: When a plugin is enabled, its MCP servers start automatically
+              - listitem [ref=e489]: Plugin MCP tools appear alongside manually configured MCP tools
+              - listitem [ref=e490]:
+                - text: Plugin servers are managed through plugin installation (not
+                - code [ref=e491]: /mcp
+                - text: commands)
+            - generic [ref=e492]:
+              - strong [ref=e493]: Example plugin MCP configuration
+              - text: ":"
+            - generic [ref=e494]:
+              - text: In
+              - code [ref=e495]: .mcp.json
+              - text: "at plugin root:"
+            - generic [ref=e496]:
+              - generic [ref=e497]:
+                - button "Report incorrect code" [ref=e499] [cursor=pointer]:
+                  - img [ref=e500]
+                - button "Copy the contents from the code block" [ref=e503] [cursor=pointer]:
+                  - img [ref=e504]
+                - button "Ask AI" [ref=e508] [cursor=pointer]:
+                  - img [ref=e509]
+              - code [ref=e515]:
+                - generic [ref=e516]: "{"
+                - generic [ref=e517]: "\"mcpServers\": {"
+                - generic [ref=e518]: "\"database-tools\": {"
+                - generic [ref=e519]: "\"command\": \"${CLAUDE_PLUGIN_ROOT}/servers/db-server\","
+                - generic [ref=e520]: "\"args\": [\"--config\", \"${CLAUDE_PLUGIN_ROOT}/config.json\"],"
+                - generic [ref=e521]: "\"env\": {"
+                - generic [ref=e522]: "\"DB_URL\": \"${DB_URL}\""
+                - generic [ref=e523]: "}"
+                - generic [ref=e524]: "}"
+                - generic [ref=e525]: "}"
+                - generic [ref=e526]: "}"
+            - generic [ref=e527]:
+              - text: Or inline in
+              - code [ref=e528]: plugin.json
+              - text: ":"
+            - generic [ref=e529]:
+              - generic [ref=e530]:
+                - button "Report incorrect code" [ref=e532] [cursor=pointer]:
+                  - img [ref=e533]
+                - button "Copy the contents from the code block" [ref=e536] [cursor=pointer]:
+                  - img [ref=e537]
+                - button "Ask AI" [ref=e541] [cursor=pointer]:
+                  - img [ref=e542]
+              - code [ref=e548]:
+                - generic [ref=e549]: "{"
+                - generic [ref=e550]: "\"name\": \"my-plugin\","
+                - generic [ref=e551]: "\"mcpServers\": {"
+                - generic [ref=e552]: "\"plugin-api\": {"
+                - generic [ref=e553]: "\"command\": \"${CLAUDE_PLUGIN_ROOT}/servers/api-server\","
+                - generic [ref=e554]: "\"args\": [\"--port\", \"8080\"]"
+                - generic [ref=e555]: "}"
+                - generic [ref=e556]: "}"
+                - generic [ref=e557]: "}"
+            - generic [ref=e558]:
+              - strong [ref=e559]: Plugin MCP features
+              - text: ":"
+            - list [ref=e560]:
+              - listitem [ref=e561]:
+                - strong [ref=e562]: Automatic lifecycle
+                - text: ": At session startup, servers for enabled plugins connect automatically. If you enable or disable a plugin during a session, run"
+                - code [ref=e563]: /reload-plugins
+                - text: to connect or disconnect its MCP servers
+              - listitem [ref=e564]:
+                - strong [ref=e565]: Environment variables
+                - text: ": use"
+                - code [ref=e566]: "${CLAUDE_PLUGIN_ROOT}"
+                - text: for bundled plugin files and
+                - code [ref=e567]: "${CLAUDE_PLUGIN_DATA}"
+                - text: for
+                - link "persistent state" [ref=e568] [cursor=pointer]:
+                  - /url: /docs/en/plugins-reference#persistent-data-directory
+                - text: that survives plugin updates
+              - listitem [ref=e569]:
+                - strong [ref=e570]: User environment access
+                - text: ": Access to same environment variables as manually configured servers"
+              - listitem [ref=e571]:
+                - strong [ref=e572]: Multiple transport types
+                - text: ": Support stdio, SSE, and HTTP transports (transport support may vary by server)"
+            - generic [ref=e573]:
+              - strong [ref=e574]: Viewing plugin MCP servers
+              - text: ":"
+            - generic [ref=e575]:
+              - generic [ref=e576]:
+                - button "Report incorrect code" [ref=e578] [cursor=pointer]:
+                  - img [ref=e579]
+                - button "Copy the contents from the code block" [ref=e582] [cursor=pointer]:
+                  - img [ref=e583]
+                - button "Ask AI" [ref=e587] [cursor=pointer]:
+                  - img [ref=e588]
+              - code [ref=e594]:
+                - generic [ref=e595]: "# Within Claude Code, see all MCP servers including plugin ones"
+                - generic [ref=e596]: /mcp
+            - generic [ref=e597]: Plugin servers appear in the list with indicators showing they come from plugins.
+            - generic [ref=e598]:
+              - strong [ref=e599]: Benefits of plugin MCP servers
+              - text: ":"
+            - list [ref=e600]:
+              - listitem [ref=e601]:
+                - strong [ref=e602]: Bundled distribution
+                - text: ": Tools and servers packaged together"
+              - listitem [ref=e603]:
+                - strong [ref=e604]: Automatic setup
+                - text: ": No manual MCP configuration needed"
+              - listitem [ref=e605]:
+                - strong [ref=e606]: Team consistency
+                - text: ": Everyone gets the same tools when plugin is installed"
+            - generic [ref=e607]:
+              - text: See the
+              - link "plugin components reference" [ref=e608] [cursor=pointer]:
+                - /url: /docs/en/plugins-reference#mcp-servers
+              - text: for details on bundling MCP servers with plugins.
+            - heading "Navigate to header MCP installation scopes" [level=2] [ref=e609]:
+              - link "Navigate to header" [ref=e610] [cursor=pointer]:
+                - /url: "#mcp-installation-scopes"
+                - img [ref=e612]
+              - generic [ref=e614] [cursor=pointer]: MCP installation scopes
+            - generic [ref=e615]: MCP servers can be configured at three scopes. The scope you choose controls which projects the server loads in and whether the configuration is shared with your team.
+            - table [ref=e618]:
+              - rowgroup [ref=e619]:
+                - row "Scope Loads in Shared with team Stored in" [ref=e620]:
+                  - columnheader "Scope" [ref=e621]
+                  - columnheader "Loads in" [ref=e622]
+                  - columnheader "Shared with team" [ref=e623]
+                  - columnheader "Stored in" [ref=e624]
+              - rowgroup [ref=e625]:
+                - row "Local Current project only No ~/.claude.json" [ref=e626]:
+                  - cell "Local" [ref=e627]:
+                    - link "Local" [ref=e628] [cursor=pointer]:
+                      - /url: "#local-scope"
+                  - cell "Current project only" [ref=e629]
+                  - cell "No" [ref=e630]
+                  - cell "~/.claude.json" [ref=e631]:
+                    - code [ref=e632]: ~/.claude.json
+                - row "Project Current project only Yes, via version control .mcp.json in project root" [ref=e633]:
+                  - cell "Project" [ref=e634]:
+                    - link "Project" [ref=e635] [cursor=pointer]:
+                      - /url: "#project-scope"
+                  - cell "Current project only" [ref=e636]
+                  - cell "Yes, via version control" [ref=e637]
+                  - cell ".mcp.json in project root" [ref=e638]:
+                    - code [ref=e639]: .mcp.json
+                    - text: in project root
+                - row "User All your projects No ~/.claude.json" [ref=e640]:
+                  - cell "User" [ref=e641]:
+                    - link "User" [ref=e642] [cursor=pointer]:
+                      - /url: "#user-scope"
+                  - cell "All your projects" [ref=e643]
+                  - cell "No" [ref=e644]
+                  - cell "~/.claude.json" [ref=e645]:
+                    - code [ref=e646]: ~/.claude.json
+            - heading "Navigate to header Local scope" [level=3] [ref=e647]:
+              - link "Navigate to header" [ref=e648] [cursor=pointer]:
+                - /url: "#local-scope"
+                - img [ref=e650]
+              - generic [ref=e652] [cursor=pointer]: Local scope
+            - generic [ref=e653]:
+              - text: Local scope is the default. A local-scoped server loads only in the project where you added it and stays private to you. Claude Code stores it in
+              - code [ref=e654]: ~/.claude.json
+              - text: under that project’s path, so the same server won’t appear in your other projects. Use local scope for personal development servers, experimental configurations, or servers with credentials you don’t want in version control.
+            - generic [ref=e655]:
+              - img "Note" [ref=e657]
+              - generic [ref=e660]:
+                - text: The term “local scope” for MCP servers differs from general local settings. MCP local-scoped servers are stored in
+                - code [ref=e661]: ~/.claude.json
+                - text: (your home directory), while general local settings use
+                - code [ref=e662]: .claude/settings.local.json
+                - text: (in the project directory). See
+                - link "Settings" [ref=e663] [cursor=pointer]:
+                  - /url: /docs/en/settings#settings-files
+                - text: for details on settings file locations.
+            - generic [ref=e664]:
+              - generic [ref=e665]:
+                - button "Report incorrect code" [ref=e667] [cursor=pointer]:
+                  - img [ref=e668]
+                - button "Copy the contents from the code block" [ref=e671] [cursor=pointer]:
+                  - img [ref=e672]
+                - button "Ask AI" [ref=e676] [cursor=pointer]:
+                  - img [ref=e677]
+              - code [ref=e683]:
+                - generic [ref=e684]: "# Add a local-scoped server (default)"
+                - generic [ref=e685]: claude mcp add --transport http stripe https://mcp.stripe.com
+                - generic [ref=e686]: "# Explicitly specify local scope"
+                - generic [ref=e687]: claude mcp add --transport http stripe --scope local https://mcp.stripe.com
+            - generic [ref=e688]:
+              - text: The command writes the server into the entry for your current project inside
+              - code [ref=e689]: ~/.claude.json
+              - text: . The example below shows the result when you run it from
+              - code [ref=e690]: /path/to/your/project
+              - text: ":"
+            - generic [ref=e691]:
+              - generic [ref=e692]:
+                - button "Report incorrect code" [ref=e694] [cursor=pointer]:
+                  - img [ref=e695]
+                - button "Copy the contents from the code block" [ref=e698] [cursor=pointer]:
+                  - img [ref=e699]
+                - button "Ask AI" [ref=e703] [cursor=pointer]:
+                  - img [ref=e704]
+              - code [ref=e710]:
+                - generic [ref=e711]: "{"
+                - generic [ref=e712]: "\"projects\": {"
+                - generic [ref=e713]: "\"/path/to/your/project\": {"
+                - generic [ref=e714]: "\"mcpServers\": {"
+                - generic [ref=e715]: "\"stripe\": {"
+                - generic [ref=e716]: "\"type\": \"http\","
+                - generic [ref=e717]: "\"url\": \"https://mcp.stripe.com\""
+                - generic [ref=e718]: "}"
+                - generic [ref=e719]: "}"
+                - generic [ref=e720]: "}"
+                - generic [ref=e721]: "}"
+                - generic [ref=e722]: "}"
+            - heading "Navigate to header Project scope" [level=3] [ref=e723]:
+              - link "Navigate to header" [ref=e724] [cursor=pointer]:
+                - /url: "#project-scope"
+                - img [ref=e726]
+              - generic [ref=e728] [cursor=pointer]: Project scope
+            - generic [ref=e729]:
+              - text: Project-scoped servers enable team collaboration by storing configurations in a
+              - code [ref=e730]: .mcp.json
+              - text: file at your project’s root directory. This file is designed to be checked into version control, ensuring all team members have access to the same MCP tools and services. When you add a project-scoped server, Claude Code automatically creates or updates this file with the appropriate configuration structure.
+            - generic [ref=e731]:
+              - generic [ref=e732]:
+                - button "Report incorrect code" [ref=e734] [cursor=pointer]:
+                  - img [ref=e735]
+                - button "Copy the contents from the code block" [ref=e738] [cursor=pointer]:
+                  - img [ref=e739]
+                - button "Ask AI" [ref=e743] [cursor=pointer]:
+                  - img [ref=e744]
+              - code [ref=e750]:
+                - generic [ref=e751]: "# Add a project-scoped server"
+                - generic [ref=e752]: claude mcp add --transport http paypal --scope project https://mcp.paypal.com/mcp
+            - generic [ref=e753]:
+              - text: The resulting
+              - code [ref=e754]: .mcp.json
+              - text: "file follows a standardized format:"
+            - generic [ref=e755]:
+              - generic [ref=e756]:
+                - button "Report incorrect code" [ref=e758] [cursor=pointer]:
+                  - img [ref=e759]
+                - button "Copy the contents from the code block" [ref=e762] [cursor=pointer]:
+                  - img [ref=e763]
+                - button "Ask AI" [ref=e767] [cursor=pointer]:
+                  - img [ref=e768]
+              - code [ref=e774]:
+                - generic [ref=e775]: "{"
+                - generic [ref=e776]: "\"mcpServers\": {"
+                - generic [ref=e777]: "\"shared-server\": {"
+                - generic [ref=e778]: "\"command\": \"/path/to/server\","
+                - generic [ref=e779]: "\"args\": [],"
+                - generic [ref=e780]: "\"env\": {}"
+                - generic [ref=e781]: "}"
+                - generic [ref=e782]: "}"
+                - generic [ref=e783]: "}"
+            - generic [ref=e784]:
+              - text: For security reasons, Claude Code prompts for approval before using project-scoped servers from
+              - code [ref=e785]: .mcp.json
+              - text: files. If you need to reset these approval choices, use the
+              - code [ref=e786]: claude mcp reset-project-choices
+              - text: command.
+            - heading "Navigate to header User scope" [level=3] [ref=e787]:
+              - link "Navigate to header" [ref=e788] [cursor=pointer]:
+                - /url: "#user-scope"
+                - img [ref=e790]
+              - generic [ref=e792] [cursor=pointer]: User scope
+            - generic [ref=e793]:
+              - text: User-scoped servers are stored in
+              - code [ref=e794]: ~/.claude.json
+              - text: and provide cross-project accessibility, making them available across all projects on your machine while remaining private to your user account. This scope works well for personal utility servers, development tools, or services you frequently use across different projects.
+            - generic [ref=e795]:
+              - generic [ref=e796]:
+                - button "Report incorrect code" [ref=e798] [cursor=pointer]:
+                  - img [ref=e799]
+                - button "Copy the contents from the code block" [ref=e802] [cursor=pointer]:
+                  - img [ref=e803]
+                - button "Ask AI" [ref=e807] [cursor=pointer]:
+                  - img [ref=e808]
+              - code [ref=e814]:
+                - generic [ref=e815]: "# Add a user server"
+                - generic [ref=e816]: claude mcp add --transport http hubspot --scope user https://mcp.hubspot.com/anthropic
+            - heading "Navigate to header Scope hierarchy and precedence" [level=3] [ref=e817]:
+              - link "Navigate to header" [ref=e818] [cursor=pointer]:
+                - /url: "#scope-hierarchy-and-precedence"
+                - img [ref=e820]
+              - generic [ref=e822] [cursor=pointer]: Scope hierarchy and precedence
+            - generic [ref=e823]: "When the same server is defined in more than one place, Claude Code connects to it once, using the definition from the highest-precedence source:"
+            - list [ref=e824]:
+              - listitem [ref=e825]: Local scope
+              - listitem [ref=e826]: Project scope
+              - listitem [ref=e827]: User scope
+              - listitem [ref=e828]:
+                - link "Plugin-provided servers" [ref=e829] [cursor=pointer]:
+                  - /url: /docs/en/plugins
+              - listitem [ref=e830]:
+                - link "claude.ai connectors" [ref=e831] [cursor=pointer]:
+                  - /url: "#use-mcp-servers-from-claude-ai"
+            - generic [ref=e832]: The three scopes match duplicates by name. Plugins and connectors match by endpoint, so one that points at the same URL or command as a server above is treated as a duplicate.
+            - heading "Navigate to header Environment variable expansion in .mcp.json" [level=3] [ref=e833]:
+              - link "Navigate to header" [ref=e834] [cursor=pointer]:
+                - /url: "#environment-variable-expansion-in-mcp-json"
+                - img [ref=e836]
+              - generic [ref=e838] [cursor=pointer]:
+                - text: Environment variable expansion in
+                - code [ref=e839]: .mcp.json
+            - generic [ref=e840]:
+              - text: Claude Code supports environment variable expansion in
+              - code [ref=e841]: .mcp.json
+              - text: files, allowing teams to share configurations while maintaining flexibility for machine-specific paths and sensitive values like API keys.
+            - strong [ref=e843]: "Supported syntax:"
+            - list [ref=e844]:
+              - listitem [ref=e845]:
+                - code [ref=e846]: "${VAR}"
+                - text: "- Expands to the value of environment variable"
+                - code [ref=e847]: VAR
+              - listitem [ref=e848]:
+                - code [ref=e849]: "${VAR:-default}"
+                - text: "- Expands to"
+                - code [ref=e850]: VAR
+                - text: if set, otherwise uses
+                - code [ref=e851]: default
+            - generic [ref=e852]:
+              - strong [ref=e853]: "Expansion locations:"
+              - text: "Environment variables can be expanded in:"
+            - list [ref=e854]:
+              - listitem [ref=e855]:
+                - code [ref=e856]: command
+                - text: "- The server executable path"
+              - listitem [ref=e857]:
+                - code [ref=e858]: args
+                - text: "- Command-line arguments"
+              - listitem [ref=e859]:
+                - code [ref=e860]: env
+                - text: "- Environment variables passed to the server"
+              - listitem [ref=e861]:
+                - code [ref=e862]: url
+                - text: "- For HTTP server types"
+              - listitem [ref=e863]:
+                - code [ref=e864]: headers
+                - text: "- For HTTP server authentication"
+            - strong [ref=e866]: "Example with variable expansion:"
+            - generic [ref=e867]:
+              - generic [ref=e868]:
+                - button "Report incorrect code" [ref=e870] [cursor=pointer]:
+                  - img [ref=e871]
+                - button "Copy the contents from the code block" [ref=e874] [cursor=pointer]:
+                  - img [ref=e875]
+                - button "Ask AI" [ref=e879] [cursor=pointer]:
+                  - img [ref=e880]
+              - code [ref=e886]:
+                - generic [ref=e887]: "{"
+                - generic [ref=e888]: "\"mcpServers\": {"
+                - generic [ref=e889]: "\"api-server\": {"
+                - generic [ref=e890]: "\"type\": \"http\","
+                - generic [ref=e891]: "\"url\": \"${API_BASE_URL:-https://api.example.com}/mcp\","
+                - generic [ref=e892]: "\"headers\": {"
+                - generic [ref=e893]: "\"Authorization\": \"Bearer ${API_KEY}\""
+                - generic [ref=e894]: "}"
+                - generic [ref=e895]: "}"
+                - generic [ref=e896]: "}"
+                - generic [ref=e897]: "}"
+            - generic [ref=e898]: If a required environment variable is not set and has no default value, Claude Code will fail to parse the config.
+            - heading "Navigate to header Practical examples" [level=2] [ref=e899]:
+              - link "Navigate to header" [ref=e900] [cursor=pointer]:
+                - /url: "#practical-examples"
+                - img [ref=e902]
+              - generic [ref=e904] [cursor=pointer]: Practical examples
+            - 'heading "Navigate to header Example: Monitor errors with Sentry" [level=3] [ref=e905]':
+              - link "Navigate to header" [ref=e906] [cursor=pointer]:
+                - /url: "#example-monitor-errors-with-sentry"
+                - img [ref=e908]
+              - generic [ref=e910] [cursor=pointer]: "Example: Monitor errors with Sentry"
+            - generic [ref=e911]:
+              - generic [ref=e912]:
+                - button "Report incorrect code" [ref=e914] [cursor=pointer]:
+                  - img [ref=e915]
+                - button "Copy the contents from the code block" [ref=e918] [cursor=pointer]:
+                  - img [ref=e919]
+                - button "Ask AI" [ref=e923] [cursor=pointer]:
+                  - img [ref=e924]
+              - code [ref=e930]:
+                - generic [ref=e931]: claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+            - generic [ref=e932]: "Authenticate with your Sentry account:"
+            - generic [ref=e933]:
+              - generic [ref=e934]:
+                - button "Report incorrect code" [ref=e936] [cursor=pointer]:
+                  - img [ref=e937]
+                - button "Copy the contents from the code block" [ref=e940] [cursor=pointer]:
+                  - img [ref=e941]
+                - button "Ask AI" [ref=e945] [cursor=pointer]:
+                  - img [ref=e946]
+              - code [ref=e952]:
+                - generic [ref=e953]: /mcp
+            - generic [ref=e954]: "Then debug production issues:"
+            - generic [ref=e955]:
+              - generic [ref=e956]:
+                - button "Report incorrect code" [ref=e958] [cursor=pointer]:
+                  - img [ref=e959]
+                - button "Copy the contents from the code block" [ref=e962] [cursor=pointer]:
+                  - img [ref=e963]
+                - button "Ask AI" [ref=e967] [cursor=pointer]:
+                  - img [ref=e968]
+              - code [ref=e974]:
+                - generic [ref=e975]: What are the most common errors in the last 24 hours?
+            - generic [ref=e976]:
+              - generic [ref=e977]:
+                - button "Report incorrect code" [ref=e979] [cursor=pointer]:
+                  - img [ref=e980]
+                - button "Copy the contents from the code block" [ref=e983] [cursor=pointer]:
+                  - img [ref=e984]
+                - button "Ask AI" [ref=e988] [cursor=pointer]:
+                  - img [ref=e989]
+              - code [ref=e995]:
+                - generic [ref=e996]: Show me the stack trace for error ID abc123
+            - generic [ref=e997]:
+              - generic [ref=e998]:
+                - button "Report incorrect code" [ref=e1000] [cursor=pointer]:
+                  - img [ref=e1001]
+                - button "Copy the contents from the code block" [ref=e1004] [cursor=pointer]:
+                  - img [ref=e1005]
+                - button "Ask AI" [ref=e1009] [cursor=pointer]:
+                  - img [ref=e1010]
+              - code [ref=e1016]:
+                - generic [ref=e1017]: Which deployment introduced these new errors?
+            - 'heading "Navigate to header Example: Connect to GitHub for code reviews" [level=3] [ref=e1018]':
+              - link "Navigate to header" [ref=e1019] [cursor=pointer]:
+                - /url: "#example-connect-to-github-for-code-reviews"
+                - img [ref=e1021]
+              - generic [ref=e1023] [cursor=pointer]: "Example: Connect to GitHub for code reviews"
+            - generic [ref=e1024]:
+              - generic [ref=e1025]:
+                - button "Report incorrect code" [ref=e1027] [cursor=pointer]:
+                  - img [ref=e1028]
+                - button "Copy the contents from the code block" [ref=e1031] [cursor=pointer]:
+                  - img [ref=e1032]
+                - button "Ask AI" [ref=e1036] [cursor=pointer]:
+                  - img [ref=e1037]
+              - code [ref=e1043]:
+                - generic [ref=e1044]: claude mcp add --transport http github https://api.githubcopilot.com/mcp/
+            - generic [ref=e1045]: "Authenticate if needed by selecting “Authenticate” for GitHub:"
+            - generic [ref=e1046]:
+              - generic [ref=e1047]:
+                - button "Report incorrect code" [ref=e1049] [cursor=pointer]:
+                  - img [ref=e1050]
+                - button "Copy the contents from the code block" [ref=e1053] [cursor=pointer]:
+                  - img [ref=e1054]
+                - button "Ask AI" [ref=e1058] [cursor=pointer]:
+                  - img [ref=e1059]
+              - code [ref=e1065]:
+                - generic [ref=e1066]: /mcp
+            - generic [ref=e1067]: "Then work with GitHub:"
+            - generic [ref=e1068]:
+              - generic [ref=e1069]:
+                - button "Report incorrect code" [ref=e1071] [cursor=pointer]:
+                  - img [ref=e1072]
+                - button "Copy the contents from the code block" [ref=e1075] [cursor=pointer]:
+                  - img [ref=e1076]
+                - button "Ask AI" [ref=e1080] [cursor=pointer]:
+                  - img [ref=e1081]
+              - code [ref=e1087]:
+                - generic [ref=e1088]: "Review PR #456 and suggest improvements"
+            - generic [ref=e1089]:
+              - generic [ref=e1090]:
+                - button "Report incorrect code" [ref=e1092] [cursor=pointer]:
+                  - img [ref=e1093]
+                - button "Copy the contents from the code block" [ref=e1096] [cursor=pointer]:
+                  - img [ref=e1097]
+                - button "Ask AI" [ref=e1101] [cursor=pointer]:
+                  - img [ref=e1102]
+              - code [ref=e1108]:
+                - generic [ref=e1109]: Create a new issue for the bug we just found
+            - generic [ref=e1110]:
+              - generic [ref=e1111]:
+                - button "Report incorrect code" [ref=e1113] [cursor=pointer]:
+                  - img [ref=e1114]
+                - button "Copy the contents from the code block" [ref=e1117] [cursor=pointer]:
+                  - img [ref=e1118]
+                - button "Ask AI" [ref=e1122] [cursor=pointer]:
+                  - img [ref=e1123]
+              - code [ref=e1129]:
+                - generic [ref=e1130]: Show me all open PRs assigned to me
+            - 'heading "Navigate to header Example: Query your PostgreSQL database" [level=3] [ref=e1131]':
+              - link "Navigate to header" [ref=e1132] [cursor=pointer]:
+                - /url: "#example-query-your-postgresql-database"
+                - img [ref=e1134]
+              - generic [ref=e1136] [cursor=pointer]: "Example: Query your PostgreSQL database"
+            - generic [ref=e1137]:
+              - generic [ref=e1138]:
+                - button "Report incorrect code" [ref=e1140] [cursor=pointer]:
+                  - img [ref=e1141]
+                - button "Copy the contents from the code block" [ref=e1144] [cursor=pointer]:
+                  - img [ref=e1145]
+                - button "Ask AI" [ref=e1149] [cursor=pointer]:
+                  - img [ref=e1150]
+              - code [ref=e1156]:
+                - generic [ref=e1157]: claude mcp add --transport stdio db -- npx -y @bytebase/dbhub \
+                - generic [ref=e1158]:
+                  - text: "--dsn"
+                  - generic [ref=e1159]: "\"postgresql://readonly:pass@prod.db.com:5432/analytics\""
+            - generic [ref=e1160]: "Then query your database naturally:"
+            - generic [ref=e1161]:
+              - generic [ref=e1162]:
+                - button "Report incorrect code" [ref=e1164] [cursor=pointer]:
+                  - img [ref=e1165]
+                - button "Copy the contents from the code block" [ref=e1168] [cursor=pointer]:
+                  - img [ref=e1169]
+                - button "Ask AI" [ref=e1173] [cursor=pointer]:
+                  - img [ref=e1174]
+              - code [ref=e1180]:
+                - generic [ref=e1181]: What's our total revenue this month?
+            - generic [ref=e1182]:
+              - generic [ref=e1183]:
+                - button "Report incorrect code" [ref=e1185] [cursor=pointer]:
+                  - img [ref=e1186]
+                - button "Copy the contents from the code block" [ref=e1189] [cursor=pointer]:
+                  - img [ref=e1190]
+                - button "Ask AI" [ref=e1194] [cursor=pointer]:
+                  - img [ref=e1195]
+              - code [ref=e1201]:
+                - generic [ref=e1202]: Show me the schema for the orders table
+            - generic [ref=e1203]:
+              - generic [ref=e1204]:
+                - button "Report incorrect code" [ref=e1206] [cursor=pointer]:
+                  - img [ref=e1207]
+                - button "Copy the contents from the code block" [ref=e1210] [cursor=pointer]:
+                  - img [ref=e1211]
+                - button "Ask AI" [ref=e1215] [cursor=pointer]:
+                  - img [ref=e1216]
+              - code [ref=e1222]:
+                - generic [ref=e1223]: Find customers who haven't made a purchase in 90 days
+            - heading "Navigate to header Authenticate with remote MCP servers" [level=2] [ref=e1224]:
+              - link "Navigate to header" [ref=e1225] [cursor=pointer]:
+                - /url: "#authenticate-with-remote-mcp-servers"
+                - img [ref=e1227]
+              - generic [ref=e1229] [cursor=pointer]: Authenticate with remote MCP servers
+            - generic [ref=e1230]: Many cloud-based MCP servers require authentication. Claude Code supports OAuth 2.0 for secure connections.
+            - list [ref=e1231]:
+              - listitem [ref=e1232]:
+                - generic [ref=e1235]:
+                  - generic [ref=e1236]: "1"
+                  - link "Navigate to header" [ref=e1238] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1240]
+                - generic [ref=e1242]:
+                  - paragraph [ref=e1243]: Add the server that requires authentication
+                  - generic [ref=e1244]:
+                    - generic [ref=e1245]: "For example:"
+                    - generic [ref=e1246]:
+                      - generic [ref=e1247]:
+                        - button "Report incorrect code" [ref=e1249] [cursor=pointer]:
+                          - img [ref=e1250]
+                        - button "Copy the contents from the code block" [ref=e1253] [cursor=pointer]:
+                          - img [ref=e1254]
+                        - button "Ask AI" [ref=e1258] [cursor=pointer]:
+                          - img [ref=e1259]
+                      - code [ref=e1265]:
+                        - generic [ref=e1266]: claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+              - listitem [ref=e1267]:
+                - generic [ref=e1270]:
+                  - generic [ref=e1271]: "2"
+                  - link "Navigate to header" [ref=e1273] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1275]
+                - generic [ref=e1277]:
+                  - paragraph [ref=e1278]: Use the /mcp command within Claude Code
+                  - generic [ref=e1279]:
+                    - generic [ref=e1280]: "In Claude code, use the command:"
+                    - generic [ref=e1281]:
+                      - generic [ref=e1282]:
+                        - button "Report incorrect code" [ref=e1284] [cursor=pointer]:
+                          - img [ref=e1285]
+                        - button "Copy the contents from the code block" [ref=e1288] [cursor=pointer]:
+                          - img [ref=e1289]
+                        - button "Ask AI" [ref=e1293] [cursor=pointer]:
+                          - img [ref=e1294]
+                      - code [ref=e1300]:
+                        - generic [ref=e1301]: /mcp
+                    - generic [ref=e1302]: Then follow the steps in your browser to login.
+            - generic [ref=e1303]:
+              - img "Tip" [ref=e1305]
+              - generic [ref=e1307]:
+                - generic [ref=e1308]: "Tips:"
+                - list [ref=e1309]:
+                  - listitem [ref=e1310]: Authentication tokens are stored securely and refreshed automatically
+                  - listitem [ref=e1311]:
+                    - text: Use “Clear authentication” in the
+                    - code [ref=e1312]: /mcp
+                    - text: menu to revoke access
+                  - listitem [ref=e1313]: If your browser doesn’t open automatically, copy the provided URL and open it manually
+                  - listitem [ref=e1314]: If the browser redirect fails with a connection error after authenticating, paste the full callback URL from your browser’s address bar into the URL prompt that appears in Claude Code
+                  - listitem [ref=e1315]: OAuth authentication works with HTTP servers
+            - heading "Navigate to header Use a fixed OAuth callback port" [level=3] [ref=e1316]:
+              - link "Navigate to header" [ref=e1317] [cursor=pointer]:
+                - /url: "#use-a-fixed-oauth-callback-port"
+                - img [ref=e1319]
+              - generic [ref=e1321] [cursor=pointer]: Use a fixed OAuth callback port
+            - generic [ref=e1322]:
+              - text: Some MCP servers require a specific redirect URI registered in advance. By default, Claude Code picks a random available port for the OAuth callback. Use
+              - code [ref=e1323]: "--callback-port"
+              - text: to fix the port so it matches a pre-registered redirect URI of the form
+              - code [ref=e1324]: http://localhost:PORT/callback
+              - text: .
+            - generic [ref=e1325]:
+              - text: You can use
+              - code [ref=e1326]: "--callback-port"
+              - text: on its own (with dynamic client registration) or together with
+              - code [ref=e1327]: "--client-id"
+              - text: (with pre-configured credentials).
+            - generic [ref=e1328]:
+              - generic [ref=e1329]:
+                - button "Report incorrect code" [ref=e1331] [cursor=pointer]:
+                  - img [ref=e1332]
+                - button "Copy the contents from the code block" [ref=e1335] [cursor=pointer]:
+                  - img [ref=e1336]
+                - button "Ask AI" [ref=e1340] [cursor=pointer]:
+                  - img [ref=e1341]
+              - code [ref=e1347]:
+                - generic [ref=e1348]: "# Fixed callback port with dynamic client registration"
+                - generic [ref=e1349]: claude mcp add --transport http \
+                - generic [ref=e1350]: "--callback-port 8080 \\"
+                - generic [ref=e1351]: my-server https://mcp.example.com/mcp
+            - heading "Navigate to header Use pre-configured OAuth credentials" [level=3] [ref=e1352]:
+              - link "Navigate to header" [ref=e1353] [cursor=pointer]:
+                - /url: "#use-pre-configured-oauth-credentials"
+                - img [ref=e1355]
+              - generic [ref=e1357] [cursor=pointer]: Use pre-configured OAuth credentials
+            - generic [ref=e1358]: "Some MCP servers don’t support automatic OAuth setup via Dynamic Client Registration. If you see an error like “Incompatible auth server: does not support dynamic client registration,” the server requires pre-configured credentials. Claude Code also supports servers that use a Client ID Metadata Document (CIMD) instead of Dynamic Client Registration, and discovers these automatically. If automatic discovery fails, register an OAuth app through the server’s developer portal first, then provide the credentials when adding the server."
+            - list [ref=e1359]:
+              - listitem [ref=e1360]:
+                - generic [ref=e1363]:
+                  - generic [ref=e1364]: "1"
+                  - link "Navigate to header" [ref=e1366] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1368]
+                - generic [ref=e1370]:
+                  - paragraph [ref=e1371]: Register an OAuth app with the server
+                  - generic [ref=e1372]:
+                    - generic [ref=e1373]: Create an app through the server’s developer portal and note your client ID and client secret.
+                    - generic [ref=e1374]:
+                      - text: Many servers also require a redirect URI. If so, choose a port and register a redirect URI in the format
+                      - code [ref=e1375]: http://localhost:PORT/callback
+                      - text: . Use that same port with
+                      - code [ref=e1376]: "--callback-port"
+                      - text: in the next step.
+              - listitem [ref=e1377]:
+                - generic [ref=e1380]:
+                  - generic [ref=e1381]: "2"
+                  - link "Navigate to header" [ref=e1383] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1385]
+                - generic [ref=e1387]:
+                  - paragraph [ref=e1388]: Add the server with your credentials
+                  - generic [ref=e1389]:
+                    - generic [ref=e1390]:
+                      - text: Choose one of the following methods. The port used for
+                      - code [ref=e1391]: "--callback-port"
+                      - text: can be any available port. It just needs to match the redirect URI you registered in the previous step.
+                    - generic [ref=e1392]:
+                      - tablist [ref=e1393]:
+                        - tab "claude mcp add" [selected] [ref=e1394] [cursor=pointer]:
+                          - generic [ref=e1395]: claude mcp add
+                        - tab "claude mcp add-json" [ref=e1396] [cursor=pointer]:
+                          - generic [ref=e1397]: claude mcp add-json
+                        - tab "claude mcp add-json (callback port only)" [ref=e1398] [cursor=pointer]:
+                          - generic [ref=e1399]: claude mcp add-json (callback port only)
+                        - tab "CI / env var" [ref=e1400] [cursor=pointer]:
+                          - generic [ref=e1401]: CI / env var
+                      - 'tabpanel "claude mcp add claude mcp add-json claude mcp add-json (callback port only) CI / env var Use --client-id to pass your app’s client ID. The --client-secret flag prompts for the secret with masked input: Report incorrect code Copy the contents from the code block Ask AI claude mcp add --transport http \\ --client-id your-client-id --client-secret --callback-port 8080 \\ my-server https://mcp.example.com/mcp" [ref=e1403]':
+                        - generic [ref=e1404]:
+                          - text: Use
+                          - code [ref=e1405]: "--client-id"
+                          - text: to pass your app’s client ID. The
+                          - code [ref=e1406]: "--client-secret"
+                          - text: "flag prompts for the secret with masked input:"
+                        - generic [ref=e1407]:
+                          - generic [ref=e1408]:
+                            - button "Report incorrect code" [ref=e1410] [cursor=pointer]:
+                              - img [ref=e1411]
+                            - button "Copy the contents from the code block" [ref=e1414] [cursor=pointer]:
+                              - img [ref=e1415]
+                            - button "Ask AI" [ref=e1419] [cursor=pointer]:
+                              - img [ref=e1420]
+                          - code [ref=e1426]:
+                            - generic [ref=e1427]: claude mcp add --transport http \
+                            - generic [ref=e1428]: "--client-id your-client-id --client-secret --callback-port 8080 \\"
+                            - generic [ref=e1429]: my-server https://mcp.example.com/mcp
+              - listitem [ref=e1430]:
+                - generic [ref=e1433]:
+                  - generic [ref=e1434]: "3"
+                  - link "Navigate to header" [ref=e1436] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1438]
+                - generic [ref=e1440]:
+                  - paragraph [ref=e1441]: Authenticate in Claude Code
+                  - generic [ref=e1443]:
+                    - text: Run
+                    - code [ref=e1444]: /mcp
+                    - text: in Claude Code and follow the browser login flow.
+            - generic [ref=e1445]:
+              - img "Tip" [ref=e1447]
+              - generic [ref=e1449]:
+                - generic [ref=e1450]: "Tips:"
+                - list [ref=e1451]:
+                  - listitem [ref=e1452]: The client secret is stored securely in your system keychain (macOS) or a credentials file, not in your config
+                  - listitem [ref=e1453]:
+                    - text: If the server uses a public OAuth client with no secret, use only
+                    - code [ref=e1454]: "--client-id"
+                    - text: without
+                    - code [ref=e1455]: "--client-secret"
+                  - listitem [ref=e1456]:
+                    - code [ref=e1457]: "--callback-port"
+                    - text: can be used with or without
+                    - code [ref=e1458]: "--client-id"
+                  - listitem [ref=e1459]: These flags only apply to HTTP and SSE transports. They have no effect on stdio servers
+                  - listitem [ref=e1460]:
+                    - text: Use
+                    - code [ref=e1461]: claude mcp get <name>
+                    - text: to verify that OAuth credentials are configured for a server
+            - heading "Navigate to header Override OAuth metadata discovery" [level=3] [ref=e1462]:
+              - link "Navigate to header" [ref=e1463] [cursor=pointer]:
+                - /url: "#override-oauth-metadata-discovery"
+                - img [ref=e1465]
+              - generic [ref=e1467] [cursor=pointer]: Override OAuth metadata discovery
+            - generic [ref=e1468]:
+              - text: If your MCP server’s standard OAuth metadata endpoints return errors but the server exposes a working OIDC endpoint, you can point Claude Code at a specific metadata URL to bypass the default discovery chain. By default, Claude Code first checks RFC 9728 Protected Resource Metadata at
+              - code [ref=e1469]: /.well-known/oauth-protected-resource
+              - text: ", then falls back to RFC 8414 authorization server metadata at"
+              - code [ref=e1470]: /.well-known/oauth-authorization-server
+              - text: .
+            - generic [ref=e1471]:
+              - text: Set
+              - code [ref=e1472]: authServerMetadataUrl
+              - text: in the
+              - code [ref=e1473]: oauth
+              - text: object of your server’s config in
+              - code [ref=e1474]: .mcp.json
+              - text: ":"
+            - generic [ref=e1475]:
+              - generic [ref=e1476]:
+                - button "Report incorrect code" [ref=e1478] [cursor=pointer]:
+                  - img [ref=e1479]
+                - button "Copy the contents from the code block" [ref=e1482] [cursor=pointer]:
+                  - img [ref=e1483]
+                - button "Ask AI" [ref=e1487] [cursor=pointer]:
+                  - img [ref=e1488]
+              - code [ref=e1494]:
+                - generic [ref=e1495]: "{"
+                - generic [ref=e1496]: "\"mcpServers\": {"
+                - generic [ref=e1497]: "\"my-server\": {"
+                - generic [ref=e1498]: "\"type\": \"http\","
+                - generic [ref=e1499]: "\"url\": \"https://mcp.example.com/mcp\","
+                - generic [ref=e1500]: "\"oauth\": {"
+                - generic [ref=e1501]: "\"authServerMetadataUrl\": \"https://auth.example.com/.well-known/openid-configuration\""
+                - generic [ref=e1502]: "}"
+                - generic [ref=e1503]: "}"
+                - generic [ref=e1504]: "}"
+                - generic [ref=e1505]: "}"
+            - generic [ref=e1506]:
+              - text: The URL must use
+              - code [ref=e1507]: https://
+              - text: . This option requires Claude Code v2.1.64 or later.
+            - heading "Navigate to header Use dynamic headers for custom authentication" [level=3] [ref=e1508]:
+              - link "Navigate to header" [ref=e1509] [cursor=pointer]:
+                - /url: "#use-dynamic-headers-for-custom-authentication"
+                - img [ref=e1511]
+              - generic [ref=e1513] [cursor=pointer]: Use dynamic headers for custom authentication
+            - generic [ref=e1514]:
+              - text: If your MCP server uses an authentication scheme other than OAuth (such as Kerberos, short-lived tokens, or an internal SSO), use
+              - code [ref=e1515]: headersHelper
+              - text: to generate request headers at connection time. Claude Code runs the command and merges its output into the connection headers.
+            - generic [ref=e1516]:
+              - generic [ref=e1517]:
+                - button "Report incorrect code" [ref=e1519] [cursor=pointer]:
+                  - img [ref=e1520]
+                - button "Copy the contents from the code block" [ref=e1523] [cursor=pointer]:
+                  - img [ref=e1524]
+                - button "Ask AI" [ref=e1528] [cursor=pointer]:
+                  - img [ref=e1529]
+              - code [ref=e1535]:
+                - generic [ref=e1536]: "{"
+                - generic [ref=e1537]: "\"mcpServers\": {"
+                - generic [ref=e1538]: "\"internal-api\": {"
+                - generic [ref=e1539]: "\"type\": \"http\","
+                - generic [ref=e1540]: "\"url\": \"https://mcp.internal.example.com\","
+                - generic [ref=e1541]: "\"headersHelper\": \"/opt/bin/get-mcp-auth-headers.sh\""
+                - generic [ref=e1542]: "}"
+                - generic [ref=e1543]: "}"
+                - generic [ref=e1544]: "}"
+            - generic [ref=e1545]: "The command can also be inline:"
+            - generic [ref=e1546]:
+              - generic [ref=e1547]:
+                - button "Report incorrect code" [ref=e1549] [cursor=pointer]:
+                  - img [ref=e1550]
+                - button "Copy the contents from the code block" [ref=e1553] [cursor=pointer]:
+                  - img [ref=e1554]
+                - button "Ask AI" [ref=e1558] [cursor=pointer]:
+                  - img [ref=e1559]
+              - code [ref=e1565]:
+                - generic [ref=e1566]: "{"
+                - generic [ref=e1567]: "\"mcpServers\": {"
+                - generic [ref=e1568]: "\"internal-api\": {"
+                - generic [ref=e1569]: "\"type\": \"http\","
+                - generic [ref=e1570]: "\"url\": \"https://mcp.internal.example.com\","
+                - generic [ref=e1571]: "\"headersHelper\": \"echo '{\\\"Authorization\\\": \\\"Bearer '\\\"$(get-token)\\\"'\\\"}'\""
+                - generic [ref=e1572]: "}"
+                - generic [ref=e1573]: "}"
+                - generic [ref=e1574]: "}"
+            - strong [ref=e1576]: "Requirements:"
+            - list [ref=e1577]:
+              - listitem [ref=e1578]: The command must write a JSON object of string key-value pairs to stdout
+              - listitem [ref=e1579]: The command runs in a shell with a 10-second timeout
+              - listitem [ref=e1580]:
+                - text: Dynamic headers override any static
+                - code [ref=e1581]: headers
+                - text: with the same name
+            - generic [ref=e1582]: The helper runs fresh on each connection (at session start and on reconnect). There is no caching, so your script is responsible for any token reuse.
+            - generic [ref=e1583]: "Claude Code sets these environment variables when executing the helper:"
+            - table [ref=e1586]:
+              - rowgroup [ref=e1587]:
+                - row "Variable Value" [ref=e1588]:
+                  - columnheader "Variable" [ref=e1589]
+                  - columnheader "Value" [ref=e1590]
+              - rowgroup [ref=e1591]:
+                - row "CLAUDE_CODE_MCP_SERVER_NAME the name of the MCP server" [ref=e1592]:
+                  - cell "CLAUDE_CODE_MCP_SERVER_NAME" [ref=e1593]:
+                    - code [ref=e1594]: CLAUDE_CODE_MCP_SERVER_NAME
+                  - cell "the name of the MCP server" [ref=e1595]
+                - row "CLAUDE_CODE_MCP_SERVER_URL the URL of the MCP server" [ref=e1596]:
+                  - cell "CLAUDE_CODE_MCP_SERVER_URL" [ref=e1597]:
+                    - code [ref=e1598]: CLAUDE_CODE_MCP_SERVER_URL
+                  - cell "the URL of the MCP server" [ref=e1599]
+            - generic [ref=e1600]: Use these to write a single helper script that serves multiple MCP servers.
+            - generic [ref=e1601]:
+              - img "Note" [ref=e1603]
+              - generic [ref=e1606]:
+                - code [ref=e1607]: headersHelper
+                - text: executes arbitrary shell commands. When defined at project or local scope, it only runs after you accept the workspace trust dialog.
+            - heading "Navigate to header Add MCP servers from JSON configuration" [level=2] [ref=e1608]:
+              - link "Navigate to header" [ref=e1609] [cursor=pointer]:
+                - /url: "#add-mcp-servers-from-json-configuration"
+                - img [ref=e1611]
+              - generic [ref=e1613] [cursor=pointer]: Add MCP servers from JSON configuration
+            - generic [ref=e1614]: "If you have a JSON configuration for an MCP server, you can add it directly:"
+            - list [ref=e1615]:
+              - listitem [ref=e1616]:
+                - generic [ref=e1619]:
+                  - generic [ref=e1620]: "1"
+                  - link "Navigate to header" [ref=e1622] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1624]
+                - generic [ref=e1626]:
+                  - paragraph [ref=e1627]: Add an MCP server from JSON
+                  - generic [ref=e1629]:
+                    - generic [ref=e1630]:
+                      - button "Report incorrect code" [ref=e1632] [cursor=pointer]:
+                        - img [ref=e1633]
+                      - button "Copy the contents from the code block" [ref=e1636] [cursor=pointer]:
+                        - img [ref=e1637]
+                      - button "Ask AI" [ref=e1641] [cursor=pointer]:
+                        - img [ref=e1642]
+                    - code [ref=e1648]:
+                      - generic [ref=e1649]: "# Basic syntax"
+                      - generic [ref=e1650]: claude mcp add-json <name> '<json>'
+                      - generic [ref=e1651]: "# Example: Adding an HTTP server with JSON configuration"
+                      - generic [ref=e1652]: "claude mcp add-json weather-api '{\"type\":\"http\",\"url\":\"https://api.weather.com/mcp\",\"headers\":{\"Authorization\":\"Bearer token\"}}'"
+                      - generic [ref=e1653]: "# Example: Adding a stdio server with JSON configuration"
+                      - generic [ref=e1654]: "claude mcp add-json local-weather '{\"type\":\"stdio\",\"command\":\"/path/to/weather-cli\",\"args\":[\"--api-key\",\"abc123\"],\"env\":{\"CACHE_DIR\":\"/tmp\"}}'"
+                      - generic [ref=e1655]: "# Example: Adding an HTTP server with pre-configured OAuth credentials"
+                      - generic [ref=e1656]: "claude mcp add-json my-server '{\"type\":\"http\",\"url\":\"https://mcp.example.com/mcp\",\"oauth\":{\"clientId\":\"your-client-id\",\"callbackPort\":8080}}' --client-secret"
+              - listitem [ref=e1657]:
+                - generic [ref=e1660]:
+                  - generic [ref=e1661]: "2"
+                  - link "Navigate to header" [ref=e1663] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1665]
+                - generic [ref=e1667]:
+                  - paragraph [ref=e1668]: Verify the server was added
+                  - generic [ref=e1670]:
+                    - generic [ref=e1671]:
+                      - button "Report incorrect code" [ref=e1673] [cursor=pointer]:
+                        - img [ref=e1674]
+                      - button "Copy the contents from the code block" [ref=e1677] [cursor=pointer]:
+                        - img [ref=e1678]
+                      - button "Ask AI" [ref=e1682] [cursor=pointer]:
+                        - img [ref=e1683]
+                    - code [ref=e1689]:
+                      - generic [ref=e1690]: claude mcp get weather-api
+            - generic [ref=e1691]:
+              - img "Tip" [ref=e1693]
+              - generic [ref=e1695]:
+                - generic [ref=e1696]: "Tips:"
+                - list [ref=e1697]:
+                  - listitem [ref=e1698]: Make sure the JSON is properly escaped in your shell
+                  - listitem [ref=e1699]: The JSON must conform to the MCP server configuration schema
+                  - listitem [ref=e1700]:
+                    - text: You can use
+                    - code [ref=e1701]: "--scope user"
+                    - text: to add the server to your user configuration instead of the project-specific one
+            - heading "Navigate to header Import MCP servers from Claude Desktop" [level=2] [ref=e1702]:
+              - link "Navigate to header" [ref=e1703] [cursor=pointer]:
+                - /url: "#import-mcp-servers-from-claude-desktop"
+                - img [ref=e1705]
+              - generic [ref=e1707] [cursor=pointer]: Import MCP servers from Claude Desktop
+            - generic [ref=e1708]: "If you’ve already configured MCP servers in Claude Desktop, you can import them:"
+            - list [ref=e1709]:
+              - listitem [ref=e1710]:
+                - generic [ref=e1713]:
+                  - generic [ref=e1714]: "1"
+                  - link "Navigate to header" [ref=e1716] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1718]
+                - generic [ref=e1720]:
+                  - paragraph [ref=e1721]: Import servers from Claude Desktop
+                  - generic [ref=e1723]:
+                    - generic [ref=e1724]:
+                      - button "Report incorrect code" [ref=e1726] [cursor=pointer]:
+                        - img [ref=e1727]
+                      - button "Copy the contents from the code block" [ref=e1730] [cursor=pointer]:
+                        - img [ref=e1731]
+                      - button "Ask AI" [ref=e1735] [cursor=pointer]:
+                        - img [ref=e1736]
+                    - code [ref=e1742]:
+                      - generic [ref=e1743]: "# Basic syntax"
+                      - generic [ref=e1744]: claude mcp add-from-claude-desktop
+              - listitem [ref=e1745]:
+                - generic [ref=e1748]:
+                  - generic [ref=e1749]: "2"
+                  - link "Navigate to header" [ref=e1751] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1753]
+                - generic [ref=e1755]:
+                  - paragraph [ref=e1756]: Select which servers to import
+                  - generic [ref=e1758]: After running the command, you’ll see an interactive dialog that allows you to select which servers you want to import.
+              - listitem [ref=e1759]:
+                - generic [ref=e1762]:
+                  - generic [ref=e1763]: "3"
+                  - link "Navigate to header" [ref=e1765] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1767]
+                - generic [ref=e1769]:
+                  - paragraph [ref=e1770]: Verify the servers were imported
+                  - generic [ref=e1772]:
+                    - generic [ref=e1773]:
+                      - button "Report incorrect code" [ref=e1775] [cursor=pointer]:
+                        - img [ref=e1776]
+                      - button "Copy the contents from the code block" [ref=e1779] [cursor=pointer]:
+                        - img [ref=e1780]
+                      - button "Ask AI" [ref=e1784] [cursor=pointer]:
+                        - img [ref=e1785]
+                    - code [ref=e1791]:
+                      - generic [ref=e1792]: claude mcp list
+            - generic [ref=e1793]:
+              - img "Tip" [ref=e1795]
+              - generic [ref=e1797]:
+                - generic [ref=e1798]: "Tips:"
+                - list [ref=e1799]:
+                  - listitem [ref=e1800]: This feature only works on macOS and Windows Subsystem for Linux (WSL)
+                  - listitem [ref=e1801]: It reads the Claude Desktop configuration file from its standard location on those platforms
+                  - listitem [ref=e1802]:
+                    - text: Use the
+                    - code [ref=e1803]: "--scope user"
+                    - text: flag to add servers to your user configuration
+                  - listitem [ref=e1804]: Imported servers will have the same names as in Claude Desktop
+                  - listitem [ref=e1805]:
+                    - text: If servers with the same names already exist, they will get a numerical suffix (for example,
+                    - code [ref=e1806]: server_1
+                    - text: )
+            - heading "Navigate to header Use MCP servers from Claude.ai" [level=2] [ref=e1807]:
+              - link "Navigate to header" [ref=e1808] [cursor=pointer]:
+                - /url: "#use-mcp-servers-from-claude-ai"
+                - img [ref=e1810]
+              - generic [ref=e1812] [cursor=pointer]: Use MCP servers from Claude.ai
+            - generic [ref=e1813]:
+              - text: If you’ve logged into Claude Code with a
+              - link "Claude.ai" [ref=e1814] [cursor=pointer]:
+                - /url: https://claude.ai
+              - text: "account, MCP servers you’ve added in Claude.ai are automatically available in Claude Code:"
+            - list [ref=e1815]:
+              - listitem [ref=e1816]:
+                - generic [ref=e1819]:
+                  - generic [ref=e1820]: "1"
+                  - link "Navigate to header" [ref=e1822] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1824]
+                - generic [ref=e1826]:
+                  - paragraph [ref=e1827]: Configure MCP servers in Claude.ai
+                  - generic [ref=e1829]:
+                    - text: Add servers at
+                    - link "claude.ai/settings/connectors" [ref=e1830] [cursor=pointer]:
+                      - /url: https://claude.ai/settings/connectors
+                    - text: . On Team and Enterprise plans, only admins can add servers.
+              - listitem [ref=e1831]:
+                - generic [ref=e1834]:
+                  - generic [ref=e1835]: "2"
+                  - link "Navigate to header" [ref=e1837] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1839]
+                - generic [ref=e1841]:
+                  - paragraph [ref=e1842]: Authenticate the MCP server
+                  - generic [ref=e1844]: Complete any required authentication steps in Claude.ai.
+              - listitem [ref=e1845]:
+                - generic [ref=e1848]:
+                  - generic [ref=e1849]: "3"
+                  - link "Navigate to header" [ref=e1851] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e1853]
+                - generic [ref=e1855]:
+                  - paragraph [ref=e1856]: View and manage servers in Claude Code
+                  - generic [ref=e1857]:
+                    - generic [ref=e1858]: "In Claude Code, use the command:"
+                    - generic [ref=e1859]:
+                      - generic [ref=e1860]:
+                        - button "Report incorrect code" [ref=e1862] [cursor=pointer]:
+                          - img [ref=e1863]
+                        - button "Copy the contents from the code block" [ref=e1866] [cursor=pointer]:
+                          - img [ref=e1867]
+                        - button "Ask AI" [ref=e1871] [cursor=pointer]:
+                          - img [ref=e1872]
+                      - code [ref=e1878]:
+                        - generic [ref=e1879]: /mcp
+                    - generic [ref=e1880]: Claude.ai servers appear in the list with indicators showing they come from Claude.ai.
+            - generic [ref=e1881]:
+              - text: To disable claude.ai MCP servers in Claude Code, set the
+              - code [ref=e1882]: ENABLE_CLAUDEAI_MCP_SERVERS
+              - text: environment variable to
+              - code [ref=e1883]: "false"
+              - text: ":"
+            - generic [ref=e1884]:
+              - generic [ref=e1885]:
+                - button "Report incorrect code" [ref=e1887] [cursor=pointer]:
+                  - img [ref=e1888]
+                - button "Copy the contents from the code block" [ref=e1891] [cursor=pointer]:
+                  - img [ref=e1892]
+                - button "Ask AI" [ref=e1896] [cursor=pointer]:
+                  - img [ref=e1897]
+              - code [ref=e1903]:
+                - generic [ref=e1904]: ENABLE_CLAUDEAI_MCP_SERVERS=false claude
+            - heading "Navigate to header Use Claude Code as an MCP server" [level=2] [ref=e1905]:
+              - link "Navigate to header" [ref=e1906] [cursor=pointer]:
+                - /url: "#use-claude-code-as-an-mcp-server"
+                - img [ref=e1908]
+              - generic [ref=e1910] [cursor=pointer]: Use Claude Code as an MCP server
+            - generic [ref=e1911]: "You can use Claude Code itself as an MCP server that other applications can connect to:"
+            - generic [ref=e1912]:
+              - generic [ref=e1913]:
+                - button "Report incorrect code" [ref=e1915] [cursor=pointer]:
+                  - img [ref=e1916]
+                - button "Copy the contents from the code block" [ref=e1919] [cursor=pointer]:
+                  - img [ref=e1920]
+                - button "Ask AI" [ref=e1924] [cursor=pointer]:
+                  - img [ref=e1925]
+              - code [ref=e1931]:
+                - generic [ref=e1932]: "# Start Claude as a stdio MCP server"
+                - generic [ref=e1933]: claude mcp serve
+            - generic [ref=e1934]: "You can use this in Claude Desktop by adding this configuration to claude_desktop_config.json:"
+            - generic [ref=e1935]:
+              - generic [ref=e1936]:
+                - button "Report incorrect code" [ref=e1938] [cursor=pointer]:
+                  - img [ref=e1939]
+                - button "Copy the contents from the code block" [ref=e1942] [cursor=pointer]:
+                  - img [ref=e1943]
+                - button "Ask AI" [ref=e1947] [cursor=pointer]:
+                  - img [ref=e1948]
+              - code [ref=e1954]:
+                - generic [ref=e1955]: "{"
+                - generic [ref=e1956]: "\"mcpServers\": {"
+                - generic [ref=e1957]: "\"claude-code\": {"
+                - generic [ref=e1958]: "\"type\": \"stdio\","
+                - generic [ref=e1959]: "\"command\": \"claude\","
+                - generic [ref=e1960]: "\"args\": [\"mcp\", \"serve\"],"
+                - generic [ref=e1961]: "\"env\": {}"
+                - generic [ref=e1962]: "}"
+                - generic [ref=e1963]: "}"
+                - generic [ref=e1964]: "}"
+            - generic [ref=e1965]:
+              - img "Warning" [ref=e1967]
+              - generic [ref=e1969]:
+                - generic [ref=e1970]:
+                  - strong [ref=e1971]: Configuring the executable path
+                  - text: ": The"
+                  - code [ref=e1972]: command
+                  - text: field must reference the Claude Code executable. If the
+                  - code [ref=e1973]: claude
+                  - text: command is not in your system’s PATH, you’ll need to specify the full path to the executable.
+                - generic [ref=e1974]: "To find the full path:"
+                - generic [ref=e1975]:
+                  - generic [ref=e1976]:
+                    - button "Report incorrect code" [ref=e1978] [cursor=pointer]:
+                      - img [ref=e1979]
+                    - button "Copy the contents from the code block" [ref=e1982] [cursor=pointer]:
+                      - img [ref=e1983]
+                    - button "Ask AI" [ref=e1987] [cursor=pointer]:
+                      - img [ref=e1988]
+                  - code [ref=e1994]:
+                    - generic [ref=e1995]: which claude
+                - generic [ref=e1996]: "Then use the full path in your configuration:"
+                - generic [ref=e1997]:
+                  - generic [ref=e1998]:
+                    - button "Report incorrect code" [ref=e2000] [cursor=pointer]:
+                      - img [ref=e2001]
+                    - button "Copy the contents from the code block" [ref=e2004] [cursor=pointer]:
+                      - img [ref=e2005]
+                    - button "Ask AI" [ref=e2009] [cursor=pointer]:
+                      - img [ref=e2010]
+                  - code [ref=e2016]:
+                    - generic [ref=e2017]: "{"
+                    - generic [ref=e2018]: "\"mcpServers\": {"
+                    - generic [ref=e2019]: "\"claude-code\": {"
+                    - generic [ref=e2020]: "\"type\": \"stdio\","
+                    - generic [ref=e2021]: "\"command\": \"/full/path/to/claude\","
+                    - generic [ref=e2022]: "\"args\": [\"mcp\", \"serve\"],"
+                    - generic [ref=e2023]: "\"env\": {}"
+                    - generic [ref=e2024]: "}"
+                    - generic [ref=e2025]: "}"
+                    - generic [ref=e2026]: "}"
+                - generic [ref=e2027]:
+                  - text: Without the correct executable path, you’ll encounter errors like
+                  - code [ref=e2028]: spawn claude ENOENT
+                  - text: .
+            - generic [ref=e2029]:
+              - img "Tip" [ref=e2031]
+              - generic [ref=e2033]:
+                - generic [ref=e2034]: "Tips:"
+                - list [ref=e2035]:
+                  - listitem [ref=e2036]: The server provides access to Claude’s tools like View, Edit, LS, etc.
+                  - listitem [ref=e2037]: In Claude Desktop, try asking Claude to read files in a directory, make edits, and more.
+                  - listitem [ref=e2038]: Note that this MCP server is only exposing Claude Code’s tools to your MCP client, so your own client is responsible for implementing user confirmation for individual tool calls.
+            - heading "Navigate to header MCP output limits and warnings" [level=2] [ref=e2039]:
+              - link "Navigate to header" [ref=e2040] [cursor=pointer]:
+                - /url: "#mcp-output-limits-and-warnings"
+                - img [ref=e2042]
+              - generic [ref=e2044] [cursor=pointer]: MCP output limits and warnings
+            - generic [ref=e2045]: "When MCP tools produce large outputs, Claude Code helps manage the token usage to prevent overwhelming your conversation context:"
+            - list [ref=e2046]:
+              - listitem [ref=e2047]:
+                - strong [ref=e2048]: Output warning threshold
+                - text: ": Claude Code displays a warning when any MCP tool output exceeds 10,000 tokens"
+              - listitem [ref=e2049]:
+                - strong [ref=e2050]: Configurable limit
+                - text: ": you can adjust the maximum allowed MCP output tokens using the"
+                - code [ref=e2051]: MAX_MCP_OUTPUT_TOKENS
+                - text: environment variable
+              - listitem [ref=e2052]:
+                - strong [ref=e2053]: Default limit
+                - text: ": the default maximum is 25,000 tokens"
+              - listitem [ref=e2054]:
+                - strong [ref=e2055]: Scope
+                - text: ": the environment variable applies to tools that don’t declare their own limit. Tools that set"
+                - link "anthropic/maxResultSizeChars" [ref=e2056] [cursor=pointer]:
+                  - /url: "#raise-the-limit-for-a-specific-tool"
+                  - code [ref=e2057]: anthropic/maxResultSizeChars
+                - text: use that value instead for text content, regardless of what
+                - code [ref=e2058]: MAX_MCP_OUTPUT_TOKENS
+                - text: is set to. Tools that return image data are still subject to
+                - code [ref=e2059]: MAX_MCP_OUTPUT_TOKENS
+            - generic [ref=e2060]: "To increase the limit for tools that produce large outputs:"
+            - generic [ref=e2061]:
+              - generic [ref=e2062]:
+                - button "Report incorrect code" [ref=e2064] [cursor=pointer]:
+                  - img [ref=e2065]
+                - button "Copy the contents from the code block" [ref=e2068] [cursor=pointer]:
+                  - img [ref=e2069]
+                - button "Ask AI" [ref=e2073] [cursor=pointer]:
+                  - img [ref=e2074]
+              - code [ref=e2080]:
+                - generic [ref=e2081]: export MAX_MCP_OUTPUT_TOKENS=50000
+                - generic [ref=e2082]: claude
+            - generic [ref=e2083]: "This is particularly useful when working with MCP servers that:"
+            - list [ref=e2084]:
+              - listitem [ref=e2085]: Query large datasets or databases
+              - listitem [ref=e2086]: Generate detailed reports or documentation
+              - listitem [ref=e2087]: Process extensive log files or debugging information
+            - heading "Navigate to header Raise the limit for a specific tool" [level=3] [ref=e2088]:
+              - link "Navigate to header" [ref=e2089] [cursor=pointer]:
+                - /url: "#raise-the-limit-for-a-specific-tool"
+                - img [ref=e2091]
+              - generic [ref=e2093] [cursor=pointer]: Raise the limit for a specific tool
+            - generic [ref=e2094]:
+              - text: If you’re building an MCP server, you can allow individual tools to return results larger than the default persist-to-disk threshold by setting
+              - code [ref=e2095]: _meta["anthropic/maxResultSizeChars"]
+              - text: in the tool’s
+              - code [ref=e2096]: tools/list
+              - text: response entry. Claude Code raises that tool’s threshold to the annotated value, up to a hard ceiling of 500,000 characters.
+            - generic [ref=e2097]: This is useful for tools that return inherently large but necessary outputs, such as database schemas or full file trees. Without the annotation, results that exceed the default threshold are persisted to disk and replaced with a file reference in the conversation.
+            - generic [ref=e2098]:
+              - generic [ref=e2099]:
+                - button "Report incorrect code" [ref=e2101] [cursor=pointer]:
+                  - img [ref=e2102]
+                - button "Copy the contents from the code block" [ref=e2105] [cursor=pointer]:
+                  - img [ref=e2106]
+                - button "Ask AI" [ref=e2110] [cursor=pointer]:
+                  - img [ref=e2111]
+              - code [ref=e2117]:
+                - generic [ref=e2118]: "{"
+                - generic [ref=e2119]: "\"name\": \"get_schema\","
+                - generic [ref=e2120]: "\"description\": \"Returns the full database schema\","
+                - generic [ref=e2121]: "\"_meta\": {"
+                - generic [ref=e2122]: "\"anthropic/maxResultSizeChars\": 200000"
+                - generic [ref=e2123]: "}"
+                - generic [ref=e2124]: "}"
+            - generic [ref=e2125]:
+              - text: The annotation applies independently of
+              - code [ref=e2126]: MAX_MCP_OUTPUT_TOKENS
+              - text: for text content, so users don’t need to raise the environment variable for tools that declare it. Tools that return image data are still subject to the token limit.
+            - generic [ref=e2127]:
+              - img "Warning" [ref=e2129]
+              - generic [ref=e2132]:
+                - text: If you frequently encounter output warnings with specific MCP servers you don’t control, consider increasing the
+                - code [ref=e2133]: MAX_MCP_OUTPUT_TOKENS
+                - text: limit. You can also ask the server author to add the
+                - code [ref=e2134]: anthropic/maxResultSizeChars
+                - text: annotation or to paginate their responses. The annotation has no effect on tools that return image content; for those, raising
+                - code [ref=e2135]: MAX_MCP_OUTPUT_TOKENS
+                - text: is the only option.
+            - heading "Navigate to header Respond to MCP elicitation requests" [level=2] [ref=e2136]:
+              - link "Navigate to header" [ref=e2137] [cursor=pointer]:
+                - /url: "#respond-to-mcp-elicitation-requests"
+                - img [ref=e2139]
+              - generic [ref=e2141] [cursor=pointer]: Respond to MCP elicitation requests
+            - generic [ref=e2142]: "MCP servers can request structured input from you mid-task using elicitation. When a server needs information it can’t get on its own, Claude Code displays an interactive dialog and passes your response back to the server. No configuration is required on your side: elicitation dialogs appear automatically when a server requests them."
+            - generic [ref=e2143]: "Servers can request input in two ways:"
+            - list [ref=e2144]:
+              - listitem [ref=e2145]:
+                - strong [ref=e2146]: Form mode
+                - text: ": Claude Code shows a dialog with form fields defined by the server (for example, a username and password prompt). Fill in the fields and submit."
+              - listitem [ref=e2147]:
+                - strong [ref=e2148]: URL mode
+                - text: ": Claude Code opens a browser URL for authentication or approval. Complete the flow in the browser, then confirm in the CLI."
+            - generic [ref=e2149]:
+              - text: To auto-respond to elicitation requests without showing a dialog, use the
+              - link "Elicitation hook" [ref=e2150] [cursor=pointer]:
+                - /url: /docs/en/hooks#elicitation
+                - code [ref=e2151]: Elicitation
+                - text: hook
+              - text: .
+            - generic [ref=e2152]:
+              - text: If you’re building an MCP server that uses elicitation, see the
+              - link "MCP elicitation specification" [ref=e2153] [cursor=pointer]:
+                - /url: https://modelcontextprotocol.io/docs/learn/client-concepts#elicitation
+              - text: for protocol details and schema examples.
+            - heading "Navigate to header Use MCP resources" [level=2] [ref=e2154]:
+              - link "Navigate to header" [ref=e2155] [cursor=pointer]:
+                - /url: "#use-mcp-resources"
+                - img [ref=e2157]
+              - generic [ref=e2159] [cursor=pointer]: Use MCP resources
+            - generic [ref=e2160]: MCP servers can expose resources that you can reference using @ mentions, similar to how you reference files.
+            - heading "Navigate to header Reference MCP resources" [level=3] [ref=e2161]:
+              - link "Navigate to header" [ref=e2162] [cursor=pointer]:
+                - /url: "#reference-mcp-resources"
+                - img [ref=e2164]
+              - generic [ref=e2166] [cursor=pointer]: Reference MCP resources
+            - list [ref=e2167]:
+              - listitem [ref=e2168]:
+                - generic [ref=e2171]:
+                  - generic [ref=e2172]: "1"
+                  - link "Navigate to header" [ref=e2174] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2176]
+                - generic [ref=e2178]:
+                  - paragraph [ref=e2179]: List available resources
+                  - generic [ref=e2181]:
+                    - text: Type
+                    - code [ref=e2182]: "@"
+                    - text: in your prompt to see available resources from all connected MCP servers. Resources appear alongside files in the autocomplete menu.
+              - listitem [ref=e2183]:
+                - generic [ref=e2186]:
+                  - generic [ref=e2187]: "2"
+                  - link "Navigate to header" [ref=e2189] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2191]
+                - generic [ref=e2193]:
+                  - paragraph [ref=e2194]: Reference a specific resource
+                  - generic [ref=e2195]:
+                    - generic [ref=e2196]:
+                      - text: Use the format
+                      - code [ref=e2197]: "@server:protocol://resource/path"
+                      - text: "to reference a resource:"
+                    - generic [ref=e2198]:
+                      - generic [ref=e2199]:
+                        - button "Report incorrect code" [ref=e2201] [cursor=pointer]:
+                          - img [ref=e2202]
+                        - button "Copy the contents from the code block" [ref=e2205] [cursor=pointer]:
+                          - img [ref=e2206]
+                        - button "Ask AI" [ref=e2210] [cursor=pointer]:
+                          - img [ref=e2211]
+                      - code [ref=e2217]:
+                        - generic [ref=e2218]: Can you analyze @github:issue://123 and suggest a fix?
+                    - generic [ref=e2219]:
+                      - generic [ref=e2220]:
+                        - button "Report incorrect code" [ref=e2222] [cursor=pointer]:
+                          - img [ref=e2223]
+                        - button "Copy the contents from the code block" [ref=e2226] [cursor=pointer]:
+                          - img [ref=e2227]
+                        - button "Ask AI" [ref=e2231] [cursor=pointer]:
+                          - img [ref=e2232]
+                      - code [ref=e2238]:
+                        - generic [ref=e2239]: Please review the API documentation at @docs:file://api/authentication
+              - listitem [ref=e2240]:
+                - generic [ref=e2243]:
+                  - generic [ref=e2244]: "3"
+                  - link "Navigate to header" [ref=e2246] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2248]
+                - generic [ref=e2250]:
+                  - paragraph [ref=e2251]: Multiple resource references
+                  - generic [ref=e2252]:
+                    - generic [ref=e2253]: "You can reference multiple resources in a single prompt:"
+                    - generic [ref=e2254]:
+                      - generic [ref=e2255]:
+                        - button "Report incorrect code" [ref=e2257] [cursor=pointer]:
+                          - img [ref=e2258]
+                        - button "Copy the contents from the code block" [ref=e2261] [cursor=pointer]:
+                          - img [ref=e2262]
+                        - button "Ask AI" [ref=e2266] [cursor=pointer]:
+                          - img [ref=e2267]
+                      - code [ref=e2273]:
+                        - generic [ref=e2274]: Compare @postgres:schema://users with @docs:file://database/user-model
+            - generic [ref=e2275]:
+              - img "Tip" [ref=e2277]
+              - generic [ref=e2279]:
+                - generic [ref=e2280]: "Tips:"
+                - list [ref=e2281]:
+                  - listitem [ref=e2282]: Resources are automatically fetched and included as attachments when referenced
+                  - listitem [ref=e2283]: Resource paths are fuzzy-searchable in the @ mention autocomplete
+                  - listitem [ref=e2284]: Claude Code automatically provides tools to list and read MCP resources when servers support them
+                  - listitem [ref=e2285]: Resources can contain any type of content that the MCP server provides (text, JSON, structured data, etc.)
+            - heading "Navigate to header Scale with MCP Tool Search" [level=2] [ref=e2286]:
+              - link "Navigate to header" [ref=e2287] [cursor=pointer]:
+                - /url: "#scale-with-mcp-tool-search"
+                - img [ref=e2289]
+              - generic [ref=e2291] [cursor=pointer]: Scale with MCP Tool Search
+            - generic [ref=e2292]: Tool search keeps MCP context usage low by deferring tool definitions until Claude needs them. Only tool names load at session start, so adding more MCP servers has minimal impact on your context window.
+            - heading "Navigate to header How it works" [level=3] [ref=e2293]:
+              - link "Navigate to header" [ref=e2294] [cursor=pointer]:
+                - /url: "#how-it-works"
+                - img [ref=e2296]
+              - generic [ref=e2298] [cursor=pointer]: How it works
+            - generic [ref=e2299]: Tool search is enabled by default. MCP tools are deferred rather than loaded into context upfront, and Claude uses a search tool to discover relevant ones when a task needs them. Only the tools Claude actually uses enter context. From your perspective, MCP tools work exactly as before.
+            - generic [ref=e2300]:
+              - text: If you prefer threshold-based loading, set
+              - code [ref=e2301]: ENABLE_TOOL_SEARCH=auto
+              - text: to load schemas upfront when they fit within 10% of the context window and defer only the overflow. See
+              - link "Configure tool search" [ref=e2302] [cursor=pointer]:
+                - /url: "#configure-tool-search"
+              - text: for all options.
+            - heading "Navigate to header For MCP server authors" [level=3] [ref=e2303]:
+              - link "Navigate to header" [ref=e2304] [cursor=pointer]:
+                - /url: "#for-mcp-server-authors"
+                - img [ref=e2306]
+              - generic [ref=e2308] [cursor=pointer]: For MCP server authors
+            - generic [ref=e2309]:
+              - text: If you’re building an MCP server, the server instructions field becomes more useful with Tool Search enabled. Server instructions help Claude understand when to search for your tools, similar to how
+              - link "skills" [ref=e2310] [cursor=pointer]:
+                - /url: /docs/en/skills
+              - text: work.
+            - generic [ref=e2311]: "Add clear, descriptive server instructions that explain:"
+            - list [ref=e2312]:
+              - listitem [ref=e2313]: What category of tasks your tools handle
+              - listitem [ref=e2314]: When Claude should search for your tools
+              - listitem [ref=e2315]: Key capabilities your server provides
+            - generic [ref=e2316]: Claude Code truncates tool descriptions and server instructions at 2KB each. Keep them concise to avoid truncation, and put critical details near the start.
+            - heading "Navigate to header Configure tool search" [level=3] [ref=e2317]:
+              - link "Navigate to header" [ref=e2318] [cursor=pointer]:
+                - /url: "#configure-tool-search"
+                - img [ref=e2320]
+              - generic [ref=e2322] [cursor=pointer]: Configure tool search
+            - generic [ref=e2323]:
+              - text: "Tool search is enabled by default: MCP tools are deferred and discovered on demand. When"
+              - code [ref=e2324]: ANTHROPIC_BASE_URL
+              - text: points to a non-first-party host, tool search is disabled by default because most proxies do not forward
+              - code [ref=e2325]: tool_reference
+              - text: blocks. Set
+              - code [ref=e2326]: ENABLE_TOOL_SEARCH
+              - text: explicitly if your proxy does. This feature requires models that support
+              - code [ref=e2327]: tool_reference
+              - text: "blocks: Sonnet 4 and later, or Opus 4 and later. Haiku models do not support tool search."
+            - generic [ref=e2328]:
+              - text: Control tool search behavior with the
+              - code [ref=e2329]: ENABLE_TOOL_SEARCH
+              - text: "environment variable:"
+            - table [ref=e2332]:
+              - rowgroup [ref=e2333]:
+                - row "Value Behavior" [ref=e2334]:
+                  - columnheader "Value" [ref=e2335]
+                  - columnheader "Behavior" [ref=e2336]
+              - rowgroup [ref=e2337]:
+                - row "(unset) All MCP tools deferred and loaded on demand. Falls back to loading upfront when ANTHROPIC_BASE_URL is a non-first-party host" [ref=e2338]:
+                  - cell "(unset)" [ref=e2339]
+                  - cell "All MCP tools deferred and loaded on demand. Falls back to loading upfront when ANTHROPIC_BASE_URL is a non-first-party host" [ref=e2340]:
+                    - text: All MCP tools deferred and loaded on demand. Falls back to loading upfront when
+                    - code [ref=e2341]: ANTHROPIC_BASE_URL
+                    - text: is a non-first-party host
+                - row "true All MCP tools deferred, including for non-first-party ANTHROPIC_BASE_URL" [ref=e2342]:
+                  - cell "true" [ref=e2343]:
+                    - code [ref=e2344]: "true"
+                  - cell "All MCP tools deferred, including for non-first-party ANTHROPIC_BASE_URL" [ref=e2345]:
+                    - text: All MCP tools deferred, including for non-first-party
+                    - code [ref=e2346]: ANTHROPIC_BASE_URL
+                - 'row "auto Threshold mode: tools load upfront if they fit within 10% of the context window, deferred otherwise" [ref=e2347]':
+                  - cell "auto" [ref=e2348]:
+                    - code [ref=e2349]: auto
+                  - 'cell "Threshold mode: tools load upfront if they fit within 10% of the context window, deferred otherwise" [ref=e2350]'
+                - row "auto:<N> Threshold mode with a custom percentage, where <N> is 0-100 (e.g., auto:5 for 5%)" [ref=e2351]:
+                  - cell "auto:<N>" [ref=e2352]:
+                    - code [ref=e2353]: auto:<N>
+                  - cell "Threshold mode with a custom percentage, where <N> is 0-100 (e.g., auto:5 for 5%)" [ref=e2354]:
+                    - text: Threshold mode with a custom percentage, where
+                    - code [ref=e2355]: <N>
+                    - text: is 0-100 (e.g.,
+                    - code [ref=e2356]: auto:5
+                    - text: for 5%)
+                - row "false All MCP tools loaded upfront, no deferral" [ref=e2357]:
+                  - cell "false" [ref=e2358]:
+                    - code [ref=e2359]: "false"
+                  - cell "All MCP tools loaded upfront, no deferral" [ref=e2360]
+            - generic [ref=e2361]:
+              - generic [ref=e2362]:
+                - button "Report incorrect code" [ref=e2364] [cursor=pointer]:
+                  - img [ref=e2365]
+                - button "Copy the contents from the code block" [ref=e2368] [cursor=pointer]:
+                  - img [ref=e2369]
+                - button "Ask AI" [ref=e2373] [cursor=pointer]:
+                  - img [ref=e2374]
+              - code [ref=e2380]:
+                - generic [ref=e2381]: "# Use a custom 5% threshold"
+                - generic [ref=e2382]: ENABLE_TOOL_SEARCH=auto:5 claude
+                - generic [ref=e2383]: "# Disable tool search entirely"
+                - generic [ref=e2384]: ENABLE_TOOL_SEARCH=false claude
+            - generic [ref=e2385]:
+              - text: Or set the value in your
+              - link "settings.json env field" [ref=e2386] [cursor=pointer]:
+                - /url: /docs/en/settings#available-settings
+                - text: settings.json
+                - code [ref=e2387]: env
+                - text: field
+              - text: .
+            - generic [ref=e2388]:
+              - text: You can also disable the
+              - code [ref=e2389]: ToolSearch
+              - text: "tool specifically:"
+            - generic [ref=e2390]:
+              - generic [ref=e2391]:
+                - button "Report incorrect code" [ref=e2393] [cursor=pointer]:
+                  - img [ref=e2394]
+                - button "Copy the contents from the code block" [ref=e2397] [cursor=pointer]:
+                  - img [ref=e2398]
+                - button "Ask AI" [ref=e2402] [cursor=pointer]:
+                  - img [ref=e2403]
+              - code [ref=e2409]:
+                - generic [ref=e2410]: "{"
+                - generic [ref=e2411]: "\"permissions\": {"
+                - generic [ref=e2412]: "\"deny\": [\"ToolSearch\"]"
+                - generic [ref=e2413]: "}"
+                - generic [ref=e2414]: "}"
+            - heading "Navigate to header Use MCP prompts as commands" [level=2] [ref=e2415]:
+              - link "Navigate to header" [ref=e2416] [cursor=pointer]:
+                - /url: "#use-mcp-prompts-as-commands"
+                - img [ref=e2418]
+              - generic [ref=e2420] [cursor=pointer]: Use MCP prompts as commands
+            - generic [ref=e2421]: MCP servers can expose prompts that become available as commands in Claude Code.
+            - heading "Navigate to header Execute MCP prompts" [level=3] [ref=e2422]:
+              - link "Navigate to header" [ref=e2423] [cursor=pointer]:
+                - /url: "#execute-mcp-prompts"
+                - img [ref=e2425]
+              - generic [ref=e2427] [cursor=pointer]: Execute MCP prompts
+            - list [ref=e2428]:
+              - listitem [ref=e2429]:
+                - generic [ref=e2432]:
+                  - generic [ref=e2433]: "1"
+                  - link "Navigate to header" [ref=e2435] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2437]
+                - generic [ref=e2439]:
+                  - paragraph [ref=e2440]: Discover available prompts
+                  - generic [ref=e2442]:
+                    - text: Type
+                    - code [ref=e2443]: /
+                    - text: to see all available commands, including those from MCP servers. MCP prompts appear with the format
+                    - code [ref=e2444]: /mcp__servername__promptname
+                    - text: .
+              - listitem [ref=e2445]:
+                - generic [ref=e2448]:
+                  - generic [ref=e2449]: "2"
+                  - link "Navigate to header" [ref=e2451] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2453]
+                - generic [ref=e2455]:
+                  - paragraph [ref=e2456]: Execute a prompt without arguments
+                  - generic [ref=e2458]:
+                    - generic [ref=e2459]:
+                      - button "Report incorrect code" [ref=e2461] [cursor=pointer]:
+                        - img [ref=e2462]
+                      - button "Copy the contents from the code block" [ref=e2465] [cursor=pointer]:
+                        - img [ref=e2466]
+                      - button "Ask AI" [ref=e2470] [cursor=pointer]:
+                        - img [ref=e2471]
+                    - code [ref=e2477]:
+                      - generic [ref=e2478]: /mcp__github__list_prs
+              - listitem [ref=e2479]:
+                - generic [ref=e2482]:
+                  - generic [ref=e2483]: "3"
+                  - link "Navigate to header" [ref=e2485] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e2487]
+                - generic [ref=e2489]:
+                  - paragraph [ref=e2490]: Execute a prompt with arguments
+                  - generic [ref=e2491]:
+                    - generic [ref=e2492]: "Many prompts accept arguments. Pass them space-separated after the command:"
+                    - generic [ref=e2493]:
+                      - generic [ref=e2494]:
+                        - button "Report incorrect code" [ref=e2496] [cursor=pointer]:
+                          - img [ref=e2497]
+                        - button "Copy the contents from the code block" [ref=e2500] [cursor=pointer]:
+                          - img [ref=e2501]
+                        - button "Ask AI" [ref=e2505] [cursor=pointer]:
+                          - img [ref=e2506]
+                      - code [ref=e2512]:
+                        - generic [ref=e2513]: /mcp__github__pr_review 456
+                    - generic [ref=e2514]:
+                      - generic [ref=e2515]:
+                        - button "Report incorrect code" [ref=e2517] [cursor=pointer]:
+                          - img [ref=e2518]
+                        - button "Copy the contents from the code block" [ref=e2521] [cursor=pointer]:
+                          - img [ref=e2522]
+                        - button "Ask AI" [ref=e2526] [cursor=pointer]:
+                          - img [ref=e2527]
+                      - code [ref=e2533]:
+                        - generic [ref=e2534]: /mcp__jira__create_issue "Bug in login flow" high
+            - generic [ref=e2535]:
+              - img "Tip" [ref=e2537]
+              - generic [ref=e2539]:
+                - generic [ref=e2540]: "Tips:"
+                - list [ref=e2541]:
+                  - listitem [ref=e2542]: MCP prompts are dynamically discovered from connected servers
+                  - listitem [ref=e2543]: Arguments are parsed based on the prompt’s defined parameters
+                  - listitem [ref=e2544]: Prompt results are injected directly into the conversation
+                  - listitem [ref=e2545]: Server and prompt names are normalized (spaces become underscores)
+            - heading "Navigate to header Managed MCP configuration" [level=2] [ref=e2546]:
+              - link "Navigate to header" [ref=e2547] [cursor=pointer]:
+                - /url: "#managed-mcp-configuration"
+                - img [ref=e2549]
+              - generic [ref=e2551] [cursor=pointer]: Managed MCP configuration
+            - generic [ref=e2552]: "For organizations that need centralized control over MCP servers, Claude Code supports two configuration options:"
+            - list [ref=e2553]:
+              - listitem [ref=e2554]:
+                - strong [ref=e2555]:
+                  - text: Exclusive control with
+                  - code [ref=e2556]: managed-mcp.json
+                - text: ": Deploy a fixed set of MCP servers that users cannot modify or extend"
+              - listitem [ref=e2557]:
+                - strong [ref=e2558]: Policy-based control with allowlists/denylists
+                - text: ": Allow users to add their own servers, but restrict which ones are permitted"
+            - generic [ref=e2559]: "These options allow IT administrators to:"
+            - list [ref=e2560]:
+              - listitem [ref=e2561]:
+                - strong [ref=e2562]: Control which MCP servers employees can access
+                - text: ": Deploy a standardized set of approved MCP servers across the organization"
+              - listitem [ref=e2563]:
+                - strong [ref=e2564]: Prevent unauthorized MCP servers
+                - text: ": Restrict users from adding unapproved MCP servers"
+              - listitem [ref=e2565]:
+                - strong [ref=e2566]: Disable MCP entirely
+                - text: ": Remove MCP functionality completely if needed"
+            - 'heading "Navigate to header Option 1: Exclusive control with managed-mcp.json" [level=3] [ref=e2567]':
+              - link "Navigate to header" [ref=e2568] [cursor=pointer]:
+                - /url: "#option-1-exclusive-control-with-managed-mcp-json"
+                - img [ref=e2570]
+              - generic [ref=e2572] [cursor=pointer]: "Option 1: Exclusive control with managed-mcp.json"
+            - generic [ref=e2573]:
+              - text: When you deploy a
+              - code [ref=e2574]: managed-mcp.json
+              - text: file, it takes
+              - strong [ref=e2575]: exclusive control
+              - text: over all MCP servers. Users cannot add, modify, or use any MCP servers other than those defined in this file. This is the simplest approach for organizations that want complete control.
+            - generic [ref=e2576]: "System administrators deploy the configuration file to a system-wide directory:"
+            - list [ref=e2577]:
+              - listitem [ref=e2578]:
+                - text: "macOS:"
+                - code [ref=e2579]: /Library/Application Support/ClaudeCode/managed-mcp.json
+              - listitem [ref=e2580]:
+                - text: "Linux and WSL:"
+                - code [ref=e2581]: /etc/claude-code/managed-mcp.json
+              - listitem [ref=e2582]:
+                - text: "Windows:"
+                - code [ref=e2583]: C:\Program Files\ClaudeCode\managed-mcp.json
+            - generic [ref=e2584]:
+              - img "Note" [ref=e2586]
+              - generic [ref=e2589]:
+                - text: These are system-wide paths (not user home directories like
+                - code [ref=e2590]: ~/Library/...
+                - text: ) that require administrator privileges. They are designed to be deployed by IT administrators.
+            - generic [ref=e2591]:
+              - text: The
+              - code [ref=e2592]: managed-mcp.json
+              - text: file uses the same format as a standard
+              - code [ref=e2593]: .mcp.json
+              - text: "file:"
+            - generic [ref=e2594]:
+              - generic [ref=e2595]:
+                - button "Report incorrect code" [ref=e2597] [cursor=pointer]:
+                  - img [ref=e2598]
+                - button "Copy the contents from the code block" [ref=e2601] [cursor=pointer]:
+                  - img [ref=e2602]
+                - button "Ask AI" [ref=e2606] [cursor=pointer]:
+                  - img [ref=e2607]
+              - code [ref=e2613]:
+                - generic [ref=e2614]: "{"
+                - generic [ref=e2615]: "\"mcpServers\": {"
+                - generic [ref=e2616]: "\"github\": {"
+                - generic [ref=e2617]: "\"type\": \"http\","
+                - generic [ref=e2618]: "\"url\": \"https://api.githubcopilot.com/mcp/\""
+                - generic [ref=e2619]: "},"
+                - generic [ref=e2620]: "\"sentry\": {"
+                - generic [ref=e2621]: "\"type\": \"http\","
+                - generic [ref=e2622]: "\"url\": \"https://mcp.sentry.dev/mcp\""
+                - generic [ref=e2623]: "},"
+                - generic [ref=e2624]: "\"company-internal\": {"
+                - generic [ref=e2625]: "\"type\": \"stdio\","
+                - generic [ref=e2626]: "\"command\": \"/usr/local/bin/company-mcp-server\","
+                - generic [ref=e2627]: "\"args\": [\"--config\", \"/etc/company/mcp-config.json\"],"
+                - generic [ref=e2628]: "\"env\": {"
+                - generic [ref=e2629]: "\"COMPANY_API_URL\": \"https://internal.company.com\""
+                - generic [ref=e2630]: "}"
+                - generic [ref=e2631]: "}"
+                - generic [ref=e2632]: "}"
+                - generic [ref=e2633]: "}"
+            - 'heading "Navigate to header Option 2: Policy-based control with allowlists and denylists" [level=3] [ref=e2634]':
+              - link "Navigate to header" [ref=e2635] [cursor=pointer]:
+                - /url: "#option-2-policy-based-control-with-allowlists-and-denylists"
+                - img [ref=e2637]
+              - generic [ref=e2639] [cursor=pointer]: "Option 2: Policy-based control with allowlists and denylists"
+            - generic [ref=e2640]:
+              - text: Instead of taking exclusive control, administrators can allow users to configure their own MCP servers while enforcing restrictions on which servers are permitted. This approach uses
+              - code [ref=e2641]: allowedMcpServers
+              - text: and
+              - code [ref=e2642]: deniedMcpServers
+              - text: in the
+              - link "managed settings file" [ref=e2643] [cursor=pointer]:
+                - /url: /docs/en/settings#settings-files
+              - text: .
+            - generic [ref=e2644]:
+              - img "Note" [ref=e2646]
+              - generic [ref=e2649]:
+                - strong [ref=e2650]: Choosing between options
+                - text: ": Use Option 1 ("
+                - code [ref=e2651]: managed-mcp.json
+                - text: ) when you want to deploy a fixed set of servers with no user customization. Use Option 2 (allowlists/denylists) when you want to allow users to add their own servers within policy constraints.
+            - heading "Navigate to header Restriction options" [level=4] [ref=e2652]:
+              - link "Navigate to header" [ref=e2653] [cursor=pointer]:
+                - /url: "#restriction-options"
+                - img [ref=e2655]
+              - generic [ref=e2657] [cursor=pointer]: Restriction options
+            - generic [ref=e2658]: "Each entry in the allowlist or denylist can restrict servers in three ways:"
+            - list [ref=e2659]:
+              - listitem [ref=e2660]:
+                - strong [ref=e2661]: By server name
+                - text: (
+                - code [ref=e2662]: serverName
+                - text: "): Matches the configured name of the server"
+              - listitem [ref=e2663]:
+                - strong [ref=e2664]: By command
+                - text: (
+                - code [ref=e2665]: serverCommand
+                - text: "): Matches the exact command and arguments used to start stdio servers"
+              - listitem [ref=e2666]:
+                - strong [ref=e2667]: By URL pattern
+                - text: (
+                - code [ref=e2668]: serverUrl
+                - text: "): Matches remote server URLs with wildcard support"
+            - generic [ref=e2669]:
+              - strong [ref=e2670]: Important
+              - text: ": Each entry must have exactly one of"
+              - code [ref=e2671]: serverName
+              - text: ","
+              - code [ref=e2672]: serverCommand
+              - text: ", or"
+              - code [ref=e2673]: serverUrl
+              - text: .
+            - heading "Navigate to header Example configuration" [level=4] [ref=e2674]:
+              - link "Navigate to header" [ref=e2675] [cursor=pointer]:
+                - /url: "#example-configuration"
+                - img [ref=e2677]
+              - generic [ref=e2679] [cursor=pointer]: Example configuration
+            - generic [ref=e2680]:
+              - generic [ref=e2681]:
+                - button "Report incorrect code" [ref=e2683] [cursor=pointer]:
+                  - img [ref=e2684]
+                - button "Copy the contents from the code block" [ref=e2687] [cursor=pointer]:
+                  - img [ref=e2688]
+                - button "Ask AI" [ref=e2692] [cursor=pointer]:
+                  - img [ref=e2693]
+              - code [ref=e2699]:
+                - generic [ref=e2700]: "{"
+                - generic [ref=e2701]: "\"allowedMcpServers\": ["
+                - generic [ref=e2702]: // Allow by server name
+                - generic [ref=e2703]: "{ \"serverName\": \"github\" },"
+                - generic [ref=e2704]: "{ \"serverName\": \"sentry\" },"
+                - generic [ref=e2705]: // Allow by exact command (for stdio servers)
+                - generic [ref=e2706]: "{ \"serverCommand\": [\"npx\", \"-y\", \"@modelcontextprotocol/server-filesystem\"] },"
+                - generic [ref=e2707]: "{ \"serverCommand\": [\"python\", \"/usr/local/bin/approved-server.py\"] },"
+                - generic [ref=e2708]: // Allow by URL pattern (for remote servers)
+                - generic [ref=e2709]: "{ \"serverUrl\": \"https://mcp.company.com/*\" },"
+                - generic [ref=e2710]: "{ \"serverUrl\": \"https://*.internal.corp/*\" }"
+                - generic [ref=e2711]: "],"
+                - generic [ref=e2712]: "\"deniedMcpServers\": ["
+                - generic [ref=e2713]: // Block by server name
+                - generic [ref=e2714]: "{ \"serverName\": \"dangerous-server\" },"
+                - generic [ref=e2715]: // Block by exact command (for stdio servers)
+                - generic [ref=e2716]: "{ \"serverCommand\": [\"npx\", \"-y\", \"unapproved-package\"] },"
+                - generic [ref=e2717]: // Block by URL pattern (for remote servers)
+                - generic [ref=e2718]: "{ \"serverUrl\": \"https://*.untrusted.com/*\" }"
+                - generic [ref=e2719]: "]"
+                - generic [ref=e2720]: "}"
+            - heading "Navigate to header How command-based restrictions work" [level=4] [ref=e2721]:
+              - link "Navigate to header" [ref=e2722] [cursor=pointer]:
+                - /url: "#how-command-based-restrictions-work"
+                - img [ref=e2724]
+              - generic [ref=e2726] [cursor=pointer]: How command-based restrictions work
+            - generic [ref=e2727]:
+              - strong [ref=e2728]: Exact matching
+              - text: ":"
+            - list [ref=e2729]:
+              - listitem [ref=e2730]:
+                - text: Command arrays must match
+                - strong [ref=e2731]: exactly
+                - text: "- both the command and all arguments in the correct order"
+              - listitem [ref=e2732]:
+                - text: "Example:"
+                - code [ref=e2733]: "[\"npx\", \"-y\", \"server\"]"
+                - text: will NOT match
+                - code [ref=e2734]: "[\"npx\", \"server\"]"
+                - text: or
+                - code [ref=e2735]: "[\"npx\", \"-y\", \"server\", \"--flag\"]"
+            - generic [ref=e2736]:
+              - strong [ref=e2737]: Stdio server behavior
+              - text: ":"
+            - list [ref=e2738]:
+              - listitem [ref=e2739]:
+                - text: When the allowlist contains
+                - strong [ref=e2740]: any
+                - code [ref=e2741]: serverCommand
+                - text: entries, stdio servers
+                - strong [ref=e2742]: must
+                - text: match one of those commands
+              - listitem [ref=e2743]: Stdio servers cannot pass by name alone when command restrictions are present
+              - listitem [ref=e2744]: This ensures administrators can enforce which commands are allowed to run
+            - generic [ref=e2745]:
+              - strong [ref=e2746]: Non-stdio server behavior
+              - text: ":"
+            - list [ref=e2747]:
+              - listitem [ref=e2748]:
+                - text: Remote servers (HTTP, SSE, WebSocket) use URL-based matching when
+                - code [ref=e2749]: serverUrl
+                - text: entries exist in the allowlist
+              - listitem [ref=e2750]: If no URL entries exist, remote servers fall back to name-based matching
+              - listitem [ref=e2751]: Command restrictions do not apply to remote servers
+            - heading "Navigate to header How URL-based restrictions work" [level=4] [ref=e2752]:
+              - link "Navigate to header" [ref=e2753] [cursor=pointer]:
+                - /url: "#how-url-based-restrictions-work"
+                - img [ref=e2755]
+              - generic [ref=e2757] [cursor=pointer]: How URL-based restrictions work
+            - generic [ref=e2758]:
+              - text: URL patterns support wildcards using
+              - code [ref=e2759]: "*"
+              - text: to match any sequence of characters. This is useful for allowing entire domains or subdomains.
+            - generic [ref=e2760]:
+              - strong [ref=e2761]: Wildcard examples
+              - text: ":"
+            - list [ref=e2762]:
+              - listitem [ref=e2763]:
+                - code [ref=e2764]: https://mcp.company.com/*
+                - text: "- Allow all paths on a specific domain"
+              - listitem [ref=e2765]:
+                - code [ref=e2766]: https://*.example.com/*
+                - text: "- Allow any subdomain of example.com"
+              - listitem [ref=e2767]:
+                - code [ref=e2768]: http://localhost:*/*
+                - text: "- Allow any port on localhost"
+            - generic [ref=e2769]:
+              - strong [ref=e2770]: Remote server behavior
+              - text: ":"
+            - list [ref=e2771]:
+              - listitem [ref=e2772]:
+                - text: When the allowlist contains
+                - strong [ref=e2773]: any
+                - code [ref=e2774]: serverUrl
+                - text: entries, remote servers
+                - strong [ref=e2775]: must
+                - text: match one of those URL patterns
+              - listitem [ref=e2776]: Remote servers cannot pass by name alone when URL restrictions are present
+              - listitem [ref=e2777]: This ensures administrators can enforce which remote endpoints are allowed
+            - group [ref=e2778]:
+              - 'generic "Example: URL-only allowlist" [ref=e2779] [cursor=pointer]':
+                - img [ref=e2781]
+                - paragraph [ref=e2783]: "Example: URL-only allowlist"
+            - group [ref=e2784]:
+              - 'generic "Example: Command-only allowlist" [ref=e2785] [cursor=pointer]':
+                - img [ref=e2787]
+                - paragraph [ref=e2789]: "Example: Command-only allowlist"
+            - group [ref=e2790]:
+              - 'generic "Example: Mixed name and command allowlist" [ref=e2791] [cursor=pointer]':
+                - img [ref=e2793]
+                - paragraph [ref=e2795]: "Example: Mixed name and command allowlist"
+            - group [ref=e2796]:
+              - 'generic "Example: Name-only allowlist" [ref=e2797] [cursor=pointer]':
+                - img [ref=e2799]
+                - paragraph [ref=e2801]: "Example: Name-only allowlist"
+            - heading "Navigate to header Allowlist behavior (allowedMcpServers)" [level=4] [ref=e2802]:
+              - link "Navigate to header" [ref=e2803] [cursor=pointer]:
+                - /url: "#allowlist-behavior-allowedmcpservers"
+                - img [ref=e2805]
+              - generic [ref=e2807] [cursor=pointer]:
+                - text: Allowlist behavior (
+                - code [ref=e2808]: allowedMcpServers
+                - text: )
+            - list [ref=e2809]:
+              - listitem [ref=e2810]:
+                - code [ref=e2811]: undefined
+                - text: "(default): No restrictions - users can configure any MCP server"
+              - listitem [ref=e2812]:
+                - text: Empty array
+                - code [ref=e2813]: "[]"
+                - text: ": Complete lockdown - users cannot configure any MCP servers"
+              - listitem [ref=e2814]: "List of entries: Users can only configure servers that match by name, command, or URL pattern"
+            - heading "Navigate to header Denylist behavior (deniedMcpServers)" [level=4] [ref=e2815]:
+              - link "Navigate to header" [ref=e2816] [cursor=pointer]:
+                - /url: "#denylist-behavior-deniedmcpservers"
+                - img [ref=e2818]
+              - generic [ref=e2820] [cursor=pointer]:
+                - text: Denylist behavior (
+                - code [ref=e2821]: deniedMcpServers
+                - text: )
+            - list [ref=e2822]:
+              - listitem [ref=e2823]:
+                - code [ref=e2824]: undefined
+                - text: "(default): No servers are blocked"
+              - listitem [ref=e2825]:
+                - text: Empty array
+                - code [ref=e2826]: "[]"
+                - text: ": No servers are blocked"
+              - listitem [ref=e2827]: "List of entries: Specified servers are explicitly blocked across all scopes"
+            - heading "Navigate to header Important notes" [level=4] [ref=e2828]:
+              - link "Navigate to header" [ref=e2829] [cursor=pointer]:
+                - /url: "#important-notes"
+                - img [ref=e2831]
+              - generic [ref=e2833] [cursor=pointer]: Important notes
+            - list [ref=e2834]:
+              - listitem [ref=e2835]:
+                - strong [ref=e2836]: Option 1 and Option 2 can be combined
+                - text: ": If"
+                - code [ref=e2837]: managed-mcp.json
+                - text: exists, it has exclusive control and users cannot add servers. Allowlists/denylists still apply to the managed servers themselves.
+              - listitem [ref=e2838]:
+                - strong [ref=e2839]: Denylist takes absolute precedence
+                - text: ": If a server matches a denylist entry (by name, command, or URL), it will be blocked even if it’s on the allowlist"
+              - listitem [ref=e2840]:
+                - text: "Name-based, command-based, and URL-based restrictions work together: a server passes if it matches"
+                - strong [ref=e2841]: either
+                - text: a name entry, a command entry, or a URL pattern (unless blocked by denylist)
+            - generic [ref=e2842]:
+              - img "Note" [ref=e2844]
+              - generic [ref=e2847]:
+                - strong [ref=e2848]:
+                  - text: When using
+                  - code [ref=e2849]: managed-mcp.json
+                - text: ": Users cannot add MCP servers through"
+                - code [ref=e2850]: claude mcp add
+                - text: or configuration files. The
+                - code [ref=e2851]: allowedMcpServers
+                - text: and
+                - code [ref=e2852]: deniedMcpServers
+                - text: settings still apply to filter which managed servers are actually loaded.
+          - generic [ref=e2854]:
+            - paragraph [ref=e2855]: Was this page helpful?
+            - generic [ref=e2857]:
+              - button "Yes" [ref=e2858] [cursor=pointer]:
+                - img [ref=e2859]
+                - generic [ref=e2861]: "Yes"
+              - button "No" [ref=e2862] [cursor=pointer]:
+                - img [ref=e2863]
+                - generic [ref=e2865]: "No"
+          - generic [ref=e2866]:
+            - link "Run agent teams" [ref=e2867] [cursor=pointer]:
+              - /url: /docs/en/agent-teams
+              - img [ref=e2868]
+              - generic [ref=e2870]: Run agent teams
+            - link "Discover and install prebuilt plugins" [ref=e2871] [cursor=pointer]:
+              - /url: /docs/en/discover-plugins
+              - generic [ref=e2872]: Discover and install prebuilt plugins
+              - img [ref=e2873]
+          - generic [ref=e2876]:
+            - textbox "Ask a question..." [ref=e2877]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e2878]:
+              - img [ref=e2879]
+      - contentinfo [ref=e2881]:
+        - generic [ref=e2883]:
+          - generic [ref=e2884]:
+            - link "Claude Code Docs home page light logo" [ref=e2885] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e2886]: Claude Code Docs home page
+              - img "light logo" [ref=e2887]
+            - generic [ref=e2888]:
+              - link "x" [ref=e2889] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e2890]: x
+                - img [ref=e2891]
+              - link "linkedin" [ref=e2892] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e2893]: linkedin
+                - img [ref=e2894]
+          - generic [ref=e2895]:
+            - generic [ref=e2897]:
+              - paragraph [ref=e2898]: Company
+              - link "Anthropic" [ref=e2899] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e2900] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e2901] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e2902] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e2903] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e2904] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e2905] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e2907]:
+              - paragraph [ref=e2908]: Help and security
+              - link "Availability" [ref=e2909] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e2910] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e2911] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e2913]:
+              - paragraph [ref=e2914]: Learn
+              - link "Courses" [ref=e2915] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e2916] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e2917] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e2918] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e2919] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e2920] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e2921] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e2922] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e2924]:
+              - paragraph [ref=e2925]: Terms and policies
+              - link "Privacy choices" [ref=e2926] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e2927] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e2928] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e2929] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e2930] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e2931] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e2933]:
+        - generic [ref=e2934]:
+          - img [ref=e2935]
+          - generic [ref=e2938]: Assistant
+        - generic [ref=e2939]:
+          - button [ref=e2940] [cursor=pointer]:
+            - img [ref=e2941]
+          - button [ref=e2946] [cursor=pointer]:
+            - img [ref=e2947]
+      - generic [ref=e2951]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e2953]:
+        - textbox [ref=e2954]:
+          - /placeholder: Ask a question...
+        - generic [ref=e2955]:
+          - button [ref=e2956] [cursor=pointer]:
+            - img [ref=e2957]
+          - button [disabled] [ref=e2959]:
+            - img [ref=e2960]

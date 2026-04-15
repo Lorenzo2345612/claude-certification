@@ -1,0 +1,27 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Certified Architect
+      - generic [ref=e7]: Foundations Practice Exam
+    - generic [ref=e46]: 0 / 5 answered
+  - generic [ref=e47]:
+    - generic [ref=e49]:
+      - generic [ref=e50]: Question 1 of 5
+      - generic [ref=e51]: "D5: Context Management & Reliability"
+    - generic [ref=e54]:
+      - generic [ref=e55]: ◆ Message Batches API
+      - generic [ref=e56]: You are polling the status of a batch. What are the ONLY two possible values of processing_status?
+      - generic [ref=e57]:
+        - button "d \"in_progress\", \"succeeded\", and \"failed\" — three states including the result." [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]: d
+          - generic [ref=e60]: "\"in_progress\", \"succeeded\", and \"failed\" — three states including the result."
+        - button "a \"queued\" and \"completed\" — representing the states before and after processing." [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]: a
+          - generic [ref=e63]: "\"queued\" and \"completed\" — representing the states before and after processing."
+        - button "b \"in_progress\" and \"ended\" — the batch is being processed or all requests have finished." [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]: b
+          - generic [ref=e66]: "\"in_progress\" and \"ended\" — the batch is being processed or all requests have finished."
+        - button "c \"pending\", \"in_progress\", and \"completed\" — three states representing the lifecycle." [ref=e67] [cursor=pointer]:
+          - generic [ref=e68]: c
+          - generic [ref=e69]: "\"pending\", \"in_progress\", and \"completed\" — three states representing the lifecycle."
+      - button "Confirm Answer" [disabled] [ref=e71]

@@ -1,0 +1,1627 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content-area"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: ⌘K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agent SDK" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/quickstart
+                  - generic [ref=e94]: Quickstart
+          - generic [ref=e95]:
+            - heading "Core concepts" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "How the agent loop works" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop
+                  - generic [ref=e103]: How the agent loop works
+              - listitem [ref=e104]:
+                - link "Use Claude Code features" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/claude-code-features
+                  - generic [ref=e108]: Use Claude Code features
+              - listitem [ref=e109]:
+                - link "Work with sessions" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/sessions
+                  - generic [ref=e113]: Work with sessions
+          - generic [ref=e114]:
+            - heading "Input and output" [level=5] [ref=e116]
+            - list [ref=e117]:
+              - listitem [ref=e118]:
+                - link "Streaming Input" [ref=e119] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-vs-single-mode
+                  - generic [ref=e122]: Streaming Input
+              - listitem [ref=e123]:
+                - link "Handle approvals and user input" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/user-input
+                  - generic [ref=e127]: Handle approvals and user input
+              - listitem [ref=e128]:
+                - link "Stream responses in real-time" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-output
+                  - generic [ref=e132]: Stream responses in real-time
+              - listitem [ref=e133]:
+                - link "Get structured output from agents" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/structured-outputs
+                  - generic [ref=e137]: Get structured output from agents
+          - generic [ref=e138]:
+            - heading "Extend with tools" [level=5] [ref=e140]
+            - list [ref=e141]:
+              - listitem [ref=e142]:
+                - link "Give Claude custom tools" [ref=e143] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/custom-tools
+                  - generic [ref=e146]: Give Claude custom tools
+              - listitem [ref=e147]:
+                - link "Connect to external tools with MCP" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/mcp
+                  - generic [ref=e151]: Connect to external tools with MCP
+              - listitem [ref=e152]:
+                - link "Scale to many tools with tool search" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/tool-search
+                  - generic [ref=e156]: Scale to many tools with tool search
+              - listitem [ref=e157]:
+                - link "Subagents in the SDK" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/subagents
+                  - generic [ref=e161]: Subagents in the SDK
+          - generic [ref=e162]:
+            - heading "Customize behavior" [level=5] [ref=e164]
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - link "Modifying system prompts" [ref=e167] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/modifying-system-prompts
+                  - generic [ref=e170]: Modifying system prompts
+              - listitem [ref=e171]:
+                - link "Slash Commands in the SDK" [ref=e172] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/slash-commands
+                  - generic [ref=e175]: Slash Commands in the SDK
+              - listitem [ref=e176]:
+                - link "Agent Skills in the SDK" [ref=e177] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/skills
+                  - generic [ref=e180]: Agent Skills in the SDK
+              - listitem [ref=e181]:
+                - link "Plugins in the SDK" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/plugins
+                  - generic [ref=e185]: Plugins in the SDK
+          - generic [ref=e186]:
+            - heading "Control and observability" [level=5] [ref=e188]
+            - list [ref=e189]:
+              - listitem [ref=e190]:
+                - link "Configure permissions" [ref=e191] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/permissions
+                  - generic [ref=e194]: Configure permissions
+              - listitem [ref=e195]:
+                - link "Intercept and control agent behavior with hooks" [ref=e196] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hooks
+                  - generic [ref=e199]: Intercept and control agent behavior with hooks
+              - listitem [ref=e200]:
+                - link "Rewind file changes with checkpointing" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                  - generic [ref=e204]: Rewind file changes with checkpointing
+              - listitem [ref=e205]:
+                - link "Track cost and usage" [ref=e206] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/cost-tracking
+                  - generic [ref=e209]: Track cost and usage
+              - listitem [ref=e210]:
+                - link "Observability with OpenTelemetry" [ref=e211] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/observability
+                  - generic [ref=e214]: Observability with OpenTelemetry
+              - listitem [ref=e215]:
+                - link "Todo Lists" [ref=e216] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/todo-tracking
+                  - generic [ref=e219]: Todo Lists
+          - generic [ref=e220]:
+            - heading "Deployment" [level=5] [ref=e222]
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - link "Hosting the Agent SDK" [ref=e225] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hosting
+                  - generic [ref=e228]: Hosting the Agent SDK
+              - listitem [ref=e229]:
+                - link "Securely deploying AI agents" [ref=e230] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/secure-deployment
+                  - generic [ref=e233]: Securely deploying AI agents
+          - generic [ref=e234]:
+            - heading "SDK references" [level=5] [ref=e236]
+            - list [ref=e237]:
+              - listitem [ref=e238]:
+                - link "TypeScript SDK" [ref=e239] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript
+                  - generic [ref=e242]: TypeScript SDK
+              - listitem [ref=e243]:
+                - link "TypeScript V2 (preview)" [ref=e244] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript-v2-preview
+                  - generic [ref=e247]: TypeScript V2 (preview)
+              - listitem [ref=e248]:
+                - link "Python SDK" [ref=e249] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python
+                  - generic [ref=e252]: Python SDK
+              - listitem [ref=e253]:
+                - link "Migration Guide" [ref=e254] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/migration-guide
+                  - generic [ref=e257]: Migration Guide
+        - generic [ref=e260]:
+          - banner [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]: Control and observability
+              - generic [ref=e264]:
+                - heading "Intercept and control agent behavior with hooks" [level=1] [ref=e265]
+                - generic [ref=e266]:
+                  - button "Copy page" [ref=e267] [cursor=pointer]:
+                    - generic [ref=e268]:
+                      - img [ref=e269]
+                      - generic [ref=e272]: Copy page
+                  - button "More actions" [ref=e273] [cursor=pointer]:
+                    - img [ref=e274]
+            - paragraph [ref=e277]: Intercept and customize agent behavior at key execution points with hooks
+          - generic [ref=e278]:
+            - generic [ref=e279]: "Hooks are callback functions that run your code in response to agent events, like a tool being called, a session starting, or execution stopping. With hooks, you can:"
+            - list [ref=e280]:
+              - listitem [ref=e281]:
+                - strong [ref=e282]: Block dangerous operations
+                - text: before they execute, like destructive shell commands or unauthorized file access
+              - listitem [ref=e283]:
+                - strong [ref=e284]: Log and audit
+                - text: every tool call for compliance, debugging, or analytics
+              - listitem [ref=e285]:
+                - strong [ref=e286]: Transform inputs and outputs
+                - text: to sanitize data, inject credentials, or redirect file paths
+              - listitem [ref=e287]:
+                - strong [ref=e288]: Require human approval
+                - text: for sensitive actions like database writes or API calls
+              - listitem [ref=e289]:
+                - strong [ref=e290]: Track session lifecycle
+                - text: to manage state, clean up resources, or send notifications
+            - generic [ref=e291]: This guide covers how hooks work, how to configure them, and provides examples for common patterns like blocking tools, modifying inputs, and forwarding notifications.
+            - heading "Navigate to header How hooks work" [level=2] [ref=e292]:
+              - link "Navigate to header" [ref=e293] [cursor=pointer]:
+                - /url: "#how-hooks-work"
+                - img [ref=e295]
+              - generic [ref=e297] [cursor=pointer]: How hooks work
+            - list [ref=e298]:
+              - listitem [ref=e299]:
+                - generic [ref=e302]:
+                  - generic [ref=e303]: "1"
+                  - link "Navigate to header" [ref=e305] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e307]
+                - generic [ref=e309]:
+                  - paragraph [ref=e310]: An event fires
+                  - generic [ref=e312]:
+                    - text: "Something happens during agent execution and the SDK fires an event: a tool is about to be called ("
+                    - code [ref=e313]: PreToolUse
+                    - text: ), a tool returned a result (
+                    - code [ref=e314]: PostToolUse
+                    - text: ), a subagent started or stopped, the agent is idle, or execution finished. See the
+                    - link "full list of events" [ref=e315] [cursor=pointer]:
+                      - /url: "#available-hooks"
+                    - text: .
+              - listitem [ref=e316]:
+                - generic [ref=e319]:
+                  - generic [ref=e320]: "2"
+                  - link "Navigate to header" [ref=e322] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e324]
+                - generic [ref=e326]:
+                  - paragraph [ref=e327]: The SDK collects registered hooks
+                  - generic [ref=e329]:
+                    - text: The SDK checks for hooks registered for that event type. This includes callback hooks you pass in
+                    - code [ref=e330]: options.hooks
+                    - text: and shell command hooks from settings files, but only if you explicitly load them with
+                    - link "settingSources" [ref=e331] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/typescript#setting-source
+                      - code [ref=e332]: settingSources
+                    - text: or
+                    - link "setting_sources" [ref=e333] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/python#setting-source
+                      - code [ref=e334]: setting_sources
+                    - text: .
+              - listitem [ref=e335]:
+                - generic [ref=e338]:
+                  - generic [ref=e339]: "3"
+                  - link "Navigate to header" [ref=e341] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e343]
+                - generic [ref=e345]:
+                  - paragraph [ref=e346]: Matchers filter which hooks run
+                  - generic [ref=e348]:
+                    - text: If a hook has a
+                    - link "matcher" [ref=e349] [cursor=pointer]:
+                      - /url: "#matchers"
+                      - code [ref=e350]: matcher
+                    - text: pattern (like
+                    - code [ref=e351]: "\"Write|Edit\""
+                    - text: ), the SDK tests it against the event’s target (for example, the tool name). Hooks without a matcher run for every event of that type.
+              - listitem [ref=e352]:
+                - generic [ref=e355]:
+                  - generic [ref=e356]: "4"
+                  - link "Navigate to header" [ref=e358] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e360]
+                - generic [ref=e362]:
+                  - paragraph [ref=e363]: Callback functions execute
+                  - generic [ref=e365]:
+                    - text: Each matching hook’s
+                    - link "callback function" [ref=e366] [cursor=pointer]:
+                      - /url: "#callback-functions"
+                    - text: "receives input about what’s happening: the tool name, its arguments, the session ID, and other event-specific details."
+              - listitem [ref=e367]:
+                - generic [ref=e370]:
+                  - generic [ref=e371]: "5"
+                  - link "Navigate to header" [ref=e373] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e375]
+                - generic [ref=e377]:
+                  - paragraph [ref=e378]: Your callback returns a decision
+                  - generic [ref=e380]:
+                    - text: After performing any operations (logging, API calls, validation), your callback returns an
+                    - link "output object" [ref=e381] [cursor=pointer]:
+                      - /url: "#outputs"
+                    - text: "that tells the agent what to do: allow the operation, block it, modify the input, or inject context into the conversation."
+            - generic [ref=e382]:
+              - text: The following example puts these steps together. It registers a
+              - code [ref=e383]: PreToolUse
+              - text: hook (step 1) with a
+              - code [ref=e384]: "\"Write|Edit\""
+              - text: matcher (step 3) so the callback only fires for file-writing tools. When triggered, the callback receives the tool’s input (step 4), checks if the file path targets a
+              - code [ref=e385]: .env
+              - text: file, and returns
+              - code [ref=e386]: "permissionDecision: \"deny\""
+              - text: "to block the operation (step 5):"
+            - generic [ref=e387]:
+              - generic [ref=e388]:
+                - tablist [ref=e389]:
+                  - tab "Python" [selected] [ref=e390] [cursor=pointer]:
+                    - generic [ref=e391]: Python
+                  - tab "TypeScript" [ref=e393] [cursor=pointer]:
+                    - generic [ref=e394]: TypeScript
+                - generic [ref=e395]:
+                  - button "Report incorrect code" [ref=e397] [cursor=pointer]:
+                    - img [ref=e398]
+                  - button "Copy the contents from the code block" [ref=e401] [cursor=pointer]:
+                    - img [ref=e402]
+                  - button "Ask AI" [ref=e406] [cursor=pointer]:
+                    - img [ref=e407]
+              - tabpanel "Python" [ref=e411]:
+                - code [ref=e415]:
+                  - generic [ref=e416]: import asyncio
+                  - generic [ref=e417]: from claude_agent_sdk import (
+                  - generic [ref=e418]: AssistantMessage,
+                  - generic [ref=e419]: ClaudeSDKClient,
+                  - generic [ref=e420]: ClaudeAgentOptions,
+                  - generic [ref=e421]: HookMatcher,
+                  - generic [ref=e422]: ResultMessage,
+                  - generic [ref=e423]: )
+                  - generic [ref=e424]: "# Define a hook callback that receives tool call details"
+                  - generic [ref=e425]: "async def protect_env_files(input_data, tool_use_id, context):"
+                  - generic [ref=e426]: "# Extract the file path from the tool's input arguments"
+                  - generic [ref=e427]: file_path = input_data["tool_input"].get("file_path", "")
+                  - generic [ref=e428]: file_name = file_path.split("/")[-1]
+                  - generic [ref=e429]: "# Block the operation if targeting a .env file"
+                  - generic [ref=e430]: "if file_name == \".env\":"
+                  - generic [ref=e431]: "return {"
+                  - generic [ref=e432]: "\"hookSpecificOutput\": {"
+                  - generic [ref=e433]: "\"hookEventName\": input_data[\"hook_event_name\"],"
+                  - generic [ref=e434]: "\"permissionDecision\": \"deny\","
+                  - generic [ref=e435]: "\"permissionDecisionReason\": \"Cannot modify .env files\","
+                  - generic [ref=e436]: "}"
+                  - generic [ref=e437]: "}"
+                  - generic [ref=e438]: "# Return empty object to allow the operation"
+                  - generic [ref=e439]: "return {}"
+                  - generic [ref=e440]: "async def main():"
+                  - generic [ref=e441]: options = ClaudeAgentOptions(
+                  - generic [ref=e442]: "hooks={"
+                  - generic [ref=e443]: "# Register the hook for PreToolUse events"
+                  - generic [ref=e444]: "# The matcher filters to only Write and Edit tool calls"
+                  - generic [ref=e445]: "\"PreToolUse\": [HookMatcher(matcher=\"Write|Edit\", hooks=[protect_env_files])]"
+                  - generic [ref=e446]: "}"
+                  - generic [ref=e447]: )
+                  - generic [ref=e448]: "async with ClaudeSDKClient(options=options) as client:"
+                  - generic [ref=e449]: await client.query("Update the database configuration")
+                  - generic [ref=e450]: "async for message in client.receive_response():"
+                  - generic [ref=e451]: "# Filter for assistant and result messages"
+                  - generic [ref=e452]: "if isinstance(message, (AssistantMessage, ResultMessage)):"
+                  - generic [ref=e453]: print(message)
+                  - generic [ref=e454]: asyncio.run(main())
+            - heading "Navigate to header Available hooks" [level=2] [ref=e455]:
+              - link "Navigate to header" [ref=e456] [cursor=pointer]:
+                - /url: "#available-hooks"
+                - img [ref=e458]
+              - generic [ref=e460] [cursor=pointer]: Available hooks
+            - generic [ref=e461]: The SDK provides hooks for different stages of agent execution. Some hooks are available in both SDKs, while others are TypeScript-only.
+            - table [ref=e464]:
+              - rowgroup [ref=e465]:
+                - row "Hook Event Python SDK TypeScript SDK What triggers it Example use case" [ref=e466]:
+                  - columnheader "Hook Event" [ref=e467]
+                  - columnheader "Python SDK" [ref=e468]
+                  - columnheader "TypeScript SDK" [ref=e469]
+                  - columnheader "What triggers it" [ref=e470]
+                  - columnheader "Example use case" [ref=e471]
+              - rowgroup [ref=e472]:
+                - row "PreToolUse Yes Yes Tool call request (can block or modify) Block dangerous shell commands" [ref=e473]:
+                  - cell "PreToolUse" [ref=e474]:
+                    - code [ref=e475]: PreToolUse
+                  - cell "Yes" [ref=e476]
+                  - cell "Yes" [ref=e477]
+                  - cell "Tool call request (can block or modify)" [ref=e478]
+                  - cell "Block dangerous shell commands" [ref=e479]
+                - row "PostToolUse Yes Yes Tool execution result Log all file changes to audit trail" [ref=e480]:
+                  - cell "PostToolUse" [ref=e481]:
+                    - code [ref=e482]: PostToolUse
+                  - cell "Yes" [ref=e483]
+                  - cell "Yes" [ref=e484]
+                  - cell "Tool execution result" [ref=e485]
+                  - cell "Log all file changes to audit trail" [ref=e486]
+                - row "PostToolUseFailure Yes Yes Tool execution failure Handle or log tool errors" [ref=e487]:
+                  - cell "PostToolUseFailure" [ref=e488]:
+                    - code [ref=e489]: PostToolUseFailure
+                  - cell "Yes" [ref=e490]
+                  - cell "Yes" [ref=e491]
+                  - cell "Tool execution failure" [ref=e492]
+                  - cell "Handle or log tool errors" [ref=e493]
+                - row "UserPromptSubmit Yes Yes User prompt submission Inject additional context into prompts" [ref=e494]:
+                  - cell "UserPromptSubmit" [ref=e495]:
+                    - code [ref=e496]: UserPromptSubmit
+                  - cell "Yes" [ref=e497]
+                  - cell "Yes" [ref=e498]
+                  - cell "User prompt submission" [ref=e499]
+                  - cell "Inject additional context into prompts" [ref=e500]
+                - row "Stop Yes Yes Agent execution stop Save session state before exit" [ref=e501]:
+                  - cell "Stop" [ref=e502]:
+                    - code [ref=e503]: Stop
+                  - cell "Yes" [ref=e504]
+                  - cell "Yes" [ref=e505]
+                  - cell "Agent execution stop" [ref=e506]
+                  - cell "Save session state before exit" [ref=e507]
+                - row "SubagentStart Yes Yes Subagent initialization Track parallel task spawning" [ref=e508]:
+                  - cell "SubagentStart" [ref=e509]:
+                    - code [ref=e510]: SubagentStart
+                  - cell "Yes" [ref=e511]
+                  - cell "Yes" [ref=e512]
+                  - cell "Subagent initialization" [ref=e513]
+                  - cell "Track parallel task spawning" [ref=e514]
+                - row "SubagentStop Yes Yes Subagent completion Aggregate results from parallel tasks" [ref=e515]:
+                  - cell "SubagentStop" [ref=e516]:
+                    - code [ref=e517]: SubagentStop
+                  - cell "Yes" [ref=e518]
+                  - cell "Yes" [ref=e519]
+                  - cell "Subagent completion" [ref=e520]
+                  - cell "Aggregate results from parallel tasks" [ref=e521]
+                - row "PreCompact Yes Yes Conversation compaction request Archive full transcript before summarizing" [ref=e522]:
+                  - cell "PreCompact" [ref=e523]:
+                    - code [ref=e524]: PreCompact
+                  - cell "Yes" [ref=e525]
+                  - cell "Yes" [ref=e526]
+                  - cell "Conversation compaction request" [ref=e527]
+                  - cell "Archive full transcript before summarizing" [ref=e528]
+                - row "PermissionRequest Yes Yes Permission dialog would be displayed Custom permission handling" [ref=e529]:
+                  - cell "PermissionRequest" [ref=e530]:
+                    - code [ref=e531]: PermissionRequest
+                  - cell "Yes" [ref=e532]
+                  - cell "Yes" [ref=e533]
+                  - cell "Permission dialog would be displayed" [ref=e534]
+                  - cell "Custom permission handling" [ref=e535]
+                - row "SessionStart No Yes Session initialization Initialize logging and telemetry" [ref=e536]:
+                  - cell "SessionStart" [ref=e537]:
+                    - code [ref=e538]: SessionStart
+                  - cell "No" [ref=e539]
+                  - cell "Yes" [ref=e540]
+                  - cell "Session initialization" [ref=e541]
+                  - cell "Initialize logging and telemetry" [ref=e542]
+                - row "SessionEnd No Yes Session termination Clean up temporary resources" [ref=e543]:
+                  - cell "SessionEnd" [ref=e544]:
+                    - code [ref=e545]: SessionEnd
+                  - cell "No" [ref=e546]
+                  - cell "Yes" [ref=e547]
+                  - cell "Session termination" [ref=e548]
+                  - cell "Clean up temporary resources" [ref=e549]
+                - row "Notification Yes Yes Agent status messages Send agent status updates to Slack or PagerDuty" [ref=e550]:
+                  - cell "Notification" [ref=e551]:
+                    - code [ref=e552]: Notification
+                  - cell "Yes" [ref=e553]
+                  - cell "Yes" [ref=e554]
+                  - cell "Agent status messages" [ref=e555]
+                  - cell "Send agent status updates to Slack or PagerDuty" [ref=e556]
+                - row "Setup No Yes Session setup/maintenance Run initialization tasks" [ref=e557]:
+                  - cell "Setup" [ref=e558]:
+                    - code [ref=e559]: Setup
+                  - cell "No" [ref=e560]
+                  - cell "Yes" [ref=e561]
+                  - cell "Session setup/maintenance" [ref=e562]
+                  - cell "Run initialization tasks" [ref=e563]
+                - row "TeammateIdle No Yes Teammate becomes idle Reassign work or notify" [ref=e564]:
+                  - cell "TeammateIdle" [ref=e565]:
+                    - code [ref=e566]: TeammateIdle
+                  - cell "No" [ref=e567]
+                  - cell "Yes" [ref=e568]
+                  - cell "Teammate becomes idle" [ref=e569]
+                  - cell "Reassign work or notify" [ref=e570]
+                - row "TaskCompleted No Yes Background task completes Aggregate results from parallel tasks" [ref=e571]:
+                  - cell "TaskCompleted" [ref=e572]:
+                    - code [ref=e573]: TaskCompleted
+                  - cell "No" [ref=e574]
+                  - cell "Yes" [ref=e575]
+                  - cell "Background task completes" [ref=e576]
+                  - cell "Aggregate results from parallel tasks" [ref=e577]
+                - row "ConfigChange No Yes Configuration file changes Reload settings dynamically" [ref=e578]:
+                  - cell "ConfigChange" [ref=e579]:
+                    - code [ref=e580]: ConfigChange
+                  - cell "No" [ref=e581]
+                  - cell "Yes" [ref=e582]
+                  - cell "Configuration file changes" [ref=e583]
+                  - cell "Reload settings dynamically" [ref=e584]
+                - row "WorktreeCreate No Yes Git worktree created Track isolated workspaces" [ref=e585]:
+                  - cell "WorktreeCreate" [ref=e586]:
+                    - code [ref=e587]: WorktreeCreate
+                  - cell "No" [ref=e588]
+                  - cell "Yes" [ref=e589]
+                  - cell "Git worktree created" [ref=e590]
+                  - cell "Track isolated workspaces" [ref=e591]
+                - row "WorktreeRemove No Yes Git worktree removed Clean up workspace resources" [ref=e592]:
+                  - cell "WorktreeRemove" [ref=e593]:
+                    - code [ref=e594]: WorktreeRemove
+                  - cell "No" [ref=e595]
+                  - cell "Yes" [ref=e596]
+                  - cell "Git worktree removed" [ref=e597]
+                  - cell "Clean up workspace resources" [ref=e598]
+            - heading "Navigate to header Configure hooks" [level=2] [ref=e599]:
+              - link "Navigate to header" [ref=e600] [cursor=pointer]:
+                - /url: "#configure-hooks"
+                - img [ref=e602]
+              - generic [ref=e604] [cursor=pointer]: Configure hooks
+            - generic [ref=e605]:
+              - text: To configure a hook, pass it in the
+              - code [ref=e606]: hooks
+              - text: field of your agent options (
+              - code [ref=e607]: ClaudeAgentOptions
+              - text: in Python, the
+              - code [ref=e608]: options
+              - text: "object in TypeScript):"
+            - generic [ref=e609]:
+              - generic [ref=e610]:
+                - tablist [ref=e611]:
+                  - tab "Python" [selected] [ref=e612] [cursor=pointer]:
+                    - generic [ref=e613]: Python
+                  - tab "TypeScript" [ref=e615] [cursor=pointer]:
+                    - generic [ref=e616]: TypeScript
+                - generic [ref=e617]:
+                  - button "Report incorrect code" [ref=e619] [cursor=pointer]:
+                    - img [ref=e620]
+                  - button "Copy the contents from the code block" [ref=e623] [cursor=pointer]:
+                    - img [ref=e624]
+                  - button "Ask AI" [ref=e628] [cursor=pointer]:
+                    - img [ref=e629]
+              - tabpanel "Python" [ref=e633]:
+                - code [ref=e637]:
+                  - generic [ref=e638]: options = ClaudeAgentOptions(
+                  - generic [ref=e639]: "hooks={\"PreToolUse\": [HookMatcher(matcher=\"Bash\", hooks=[my_callback])]}"
+                  - generic [ref=e640]: )
+                  - generic [ref=e641]: "async with ClaudeSDKClient(options=options) as client:"
+                  - generic [ref=e642]: await client.query("Your prompt")
+                  - generic [ref=e643]: "async for message in client.receive_response():"
+                  - generic [ref=e644]: print(message)
+            - generic [ref=e645]:
+              - text: The
+              - code [ref=e646]: hooks
+              - text: "option is a dictionary (Python) or object (TypeScript) where:"
+            - list [ref=e647]:
+              - listitem [ref=e648]:
+                - strong [ref=e649]: Keys
+                - text: are
+                - link "hook event names" [ref=e650] [cursor=pointer]:
+                  - /url: "#available-hooks"
+                - text: (e.g.,
+                - code [ref=e651]: "'PreToolUse'"
+                - text: ","
+                - code [ref=e652]: "'PostToolUse'"
+                - text: ","
+                - code [ref=e653]: "'Stop'"
+                - text: )
+              - listitem [ref=e654]:
+                - strong [ref=e655]: Values
+                - text: are arrays of
+                - link "matchers" [ref=e656] [cursor=pointer]:
+                  - /url: "#matchers"
+                - text: ", each containing an optional filter pattern and your"
+                - link "callback functions" [ref=e657] [cursor=pointer]:
+                  - /url: "#callback-functions"
+            - heading "Navigate to header Matchers" [level=3] [ref=e658]:
+              - link "Navigate to header" [ref=e659] [cursor=pointer]:
+                - /url: "#matchers"
+                - img [ref=e661]
+              - generic [ref=e663] [cursor=pointer]: Matchers
+            - generic [ref=e664]:
+              - text: Use matchers to filter when your callbacks fire. The
+              - code [ref=e665]: matcher
+              - text: field is a regex string that matches against a different value depending on the hook event type. For example, tool-based hooks match against the tool name, while
+              - code [ref=e666]: Notification
+              - text: hooks match against the notification type. See the
+              - link "Claude Code hooks reference" [ref=e667] [cursor=pointer]:
+                - /url: /docs/en/hooks#matcher-patterns
+              - text: for the full list of matcher values for each event type.
+            - table [ref=e670]:
+              - rowgroup [ref=e671]:
+                - row "Option Type Default Description" [ref=e672]:
+                  - columnheader "Option" [ref=e673]
+                  - columnheader "Type" [ref=e674]
+                  - columnheader "Default" [ref=e675]
+                  - columnheader "Description" [ref=e676]
+              - rowgroup [ref=e677]:
+                - row "matcher string undefined Regex pattern matched against the event’s filter field. For tool hooks, this is the tool name. Built-in tools include Bash, Read, Write, Edit, Glob, Grep, WebFetch, Agent, and others (see Tool Input Types for the full list). MCP tools use the pattern mcp__<server>__<action>." [ref=e678]:
+                  - cell "matcher" [ref=e679]:
+                    - code [ref=e680]: matcher
+                  - cell "string" [ref=e681]:
+                    - code [ref=e682]: string
+                  - cell "undefined" [ref=e683]:
+                    - code [ref=e684]: undefined
+                  - cell "Regex pattern matched against the event’s filter field. For tool hooks, this is the tool name. Built-in tools include Bash, Read, Write, Edit, Glob, Grep, WebFetch, Agent, and others (see Tool Input Types for the full list). MCP tools use the pattern mcp__<server>__<action>." [ref=e685]:
+                    - text: Regex pattern matched against the event’s filter field. For tool hooks, this is the tool name. Built-in tools include
+                    - code [ref=e686]: Bash
+                    - text: ","
+                    - code [ref=e687]: Read
+                    - text: ","
+                    - code [ref=e688]: Write
+                    - text: ","
+                    - code [ref=e689]: Edit
+                    - text: ","
+                    - code [ref=e690]: Glob
+                    - text: ","
+                    - code [ref=e691]: Grep
+                    - text: ","
+                    - code [ref=e692]: WebFetch
+                    - text: ","
+                    - code [ref=e693]: Agent
+                    - text: ", and others (see"
+                    - link "Tool Input Types" [ref=e694] [cursor=pointer]:
+                      - /url: /docs/en/agent-sdk/typescript#tool-input-types
+                    - text: for the full list). MCP tools use the pattern
+                    - code [ref=e695]: mcp__<server>__<action>
+                    - text: .
+                - row "hooks HookCallback[] - Required. Array of callback functions to execute when the pattern matches" [ref=e696]:
+                  - cell "hooks" [ref=e697]:
+                    - code [ref=e698]: hooks
+                  - cell "HookCallback[]" [ref=e699]:
+                    - code [ref=e700]: HookCallback[]
+                  - cell "-" [ref=e701]
+                  - cell "Required. Array of callback functions to execute when the pattern matches" [ref=e702]
+                - row "timeout number 60 Timeout in seconds" [ref=e703]:
+                  - cell "timeout" [ref=e704]:
+                    - code [ref=e705]: timeout
+                  - cell "number" [ref=e706]:
+                    - code [ref=e707]: number
+                  - cell "60" [ref=e708]:
+                    - code [ref=e709]: "60"
+                  - cell "Timeout in seconds" [ref=e710]
+            - generic [ref=e711]:
+              - text: Use the
+              - code [ref=e712]: matcher
+              - text: pattern to target specific tools whenever possible. A matcher with
+              - code [ref=e713]: "'Bash'"
+              - text: only runs for Bash commands, while omitting the pattern runs your callbacks for every occurrence of the event. Note that for tool-based hooks, matchers only filter by
+              - strong [ref=e714]: tool name
+              - text: ", not by file paths or other arguments. To filter by file path, check"
+              - code [ref=e715]: tool_input.file_path
+              - text: inside your callback.
+            - generic [ref=e716]:
+              - img "Tip" [ref=e718]
+              - generic [ref=e720]:
+                - generic [ref=e721]:
+                  - strong [ref=e722]: "Discovering tool names:"
+                  - text: See
+                  - link "Tool Input Types" [ref=e723] [cursor=pointer]:
+                    - /url: /docs/en/agent-sdk/typescript#tool-input-types
+                  - text: for the full list of built-in tool names, or add a hook without a matcher to log all tool calls your session makes.
+                - generic [ref=e724]:
+                  - strong [ref=e725]: "MCP tool naming:"
+                  - text: MCP tools always start with
+                  - code [ref=e726]: mcp__
+                  - text: "followed by the server name and action:"
+                  - code [ref=e727]: mcp__<server>__<action>
+                  - text: . For example, if you configure a server named
+                  - code [ref=e728]: playwright
+                  - text: ", its tools will be named"
+                  - code [ref=e729]: mcp__playwright__browser_screenshot
+                  - text: ","
+                  - code [ref=e730]: mcp__playwright__browser_click
+                  - text: ", etc. The server name comes from the key you use in the"
+                  - code [ref=e731]: mcpServers
+                  - text: configuration.
+            - heading "Navigate to header Callback functions" [level=3] [ref=e732]:
+              - link "Navigate to header" [ref=e733] [cursor=pointer]:
+                - /url: "#callback-functions"
+                - img [ref=e735]
+              - generic [ref=e737] [cursor=pointer]: Callback functions
+            - heading "Navigate to header Inputs" [level=4] [ref=e738]:
+              - link "Navigate to header" [ref=e739] [cursor=pointer]:
+                - /url: "#inputs"
+                - img [ref=e741]
+              - generic [ref=e743] [cursor=pointer]: Inputs
+            - generic [ref=e744]: "Every hook callback receives three arguments:"
+            - list [ref=e745]:
+              - listitem [ref=e746]:
+                - strong [ref=e747]: "Input data:"
+                - text: a typed object containing event details. Each hook type has its own input shape (for example,
+                - code [ref=e748]: PreToolUseHookInput
+                - text: includes
+                - code [ref=e749]: tool_name
+                - text: and
+                - code [ref=e750]: tool_input
+                - text: ", while"
+                - code [ref=e751]: NotificationHookInput
+                - text: includes
+                - code [ref=e752]: message
+                - text: ). See the full type definitions in the
+                - link "TypeScript" [ref=e753] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript#hook-input
+                - text: and
+                - link "Python" [ref=e754] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python#hook-input
+                - text: SDK references.
+                - list [ref=e755]:
+                  - listitem [ref=e756]:
+                    - text: All hook inputs share
+                    - code [ref=e757]: session_id
+                    - text: ","
+                    - code [ref=e758]: cwd
+                    - text: ", and"
+                    - code [ref=e759]: hook_event_name
+                    - text: .
+                  - listitem [ref=e760]:
+                    - code [ref=e761]: agent_id
+                    - text: and
+                    - code [ref=e762]: agent_type
+                    - text: are populated when the hook fires inside a subagent. In TypeScript, these are on the base hook input and available to all hook types. In Python, they are on
+                    - code [ref=e763]: PreToolUse
+                    - text: ","
+                    - code [ref=e764]: PostToolUse
+                    - text: ", and"
+                    - code [ref=e765]: PostToolUseFailure
+                    - text: only.
+              - listitem [ref=e766]:
+                - strong [ref=e767]: Tool use ID
+                - text: (
+                - code [ref=e768]: str | None
+                - text: /
+                - code [ref=e769]: string | undefined
+                - text: "): correlates"
+                - code [ref=e770]: PreToolUse
+                - text: and
+                - code [ref=e771]: PostToolUse
+                - text: events for the same tool call.
+              - listitem [ref=e772]:
+                - strong [ref=e773]: "Context:"
+                - text: in TypeScript, contains a
+                - code [ref=e774]: signal
+                - text: property (
+                - code [ref=e775]: AbortSignal
+                - text: ) for cancellation. In Python, this argument is reserved for future use.
+            - heading "Navigate to header Outputs" [level=4] [ref=e776]:
+              - link "Navigate to header" [ref=e777] [cursor=pointer]:
+                - /url: "#outputs"
+                - img [ref=e779]
+              - generic [ref=e781] [cursor=pointer]: Outputs
+            - generic [ref=e782]: "Your callback returns an object with two categories of fields:"
+            - list [ref=e783]:
+              - listitem [ref=e784]:
+                - strong [ref=e785]: Top-level fields
+                - text: "control the conversation:"
+                - code [ref=e786]: systemMessage
+                - text: injects a message into the conversation visible to the model, and
+                - code [ref=e787]: continue
+                - text: (
+                - code [ref=e788]: continue_
+                - text: in Python) determines whether the agent keeps running after this hook.
+              - listitem [ref=e789]:
+                - strong [ref=e790]:
+                  - code [ref=e791]: hookSpecificOutput
+                - text: controls the current operation. The fields inside depend on the hook event type. For
+                - code [ref=e792]: PreToolUse
+                - text: hooks, this is where you set
+                - code [ref=e793]: permissionDecision
+                - text: (
+                - code [ref=e794]: "\"allow\""
+                - text: ","
+                - code [ref=e795]: "\"deny\""
+                - text: ", or"
+                - code [ref=e796]: "\"ask\""
+                - text: ),
+                - code [ref=e797]: permissionDecisionReason
+                - text: ", and"
+                - code [ref=e798]: updatedInput
+                - text: . For
+                - code [ref=e799]: PostToolUse
+                - text: hooks, you can set
+                - code [ref=e800]: additionalContext
+                - text: to append information to the tool result.
+            - generic [ref=e801]:
+              - text: Return
+              - code [ref=e802]: "{}"
+              - text: to allow the operation without changes. SDK callback hooks use the same JSON output format as
+              - link "Claude Code shell command hooks" [ref=e803] [cursor=pointer]:
+                - /url: /docs/en/hooks#json-output
+              - text: ", which documents every field and event-specific option. For the SDK type definitions, see the"
+              - link "TypeScript" [ref=e804] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#sync-hook-json-output
+              - text: and
+              - link "Python" [ref=e805] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#sync-hook-json-output
+              - text: SDK references.
+            - generic [ref=e806]:
+              - img "Note" [ref=e808]
+              - generic [ref=e811]:
+                - text: When multiple hooks or permission rules apply,
+                - strong [ref=e812]: deny
+                - text: takes priority over
+                - strong [ref=e813]: ask
+                - text: ", which takes priority over"
+                - strong [ref=e814]: allow
+                - text: . If any hook returns
+                - code [ref=e815]: deny
+                - text: ", the operation is blocked regardless of other hooks."
+            - heading "Navigate to header Asynchronous output" [level=4] [ref=e816]:
+              - link "Navigate to header" [ref=e817] [cursor=pointer]:
+                - /url: "#asynchronous-output"
+                - img [ref=e819]
+              - generic [ref=e821] [cursor=pointer]: Asynchronous output
+            - generic [ref=e822]: "By default, the agent waits for your hook to return before proceeding. If your hook performs a side effect (logging, sending a webhook) and doesn’t need to influence the agent’s behavior, you can return an async output instead. This tells the agent to continue immediately without waiting for the hook to finish:"
+            - generic [ref=e823]:
+              - generic [ref=e824]:
+                - tablist [ref=e825]:
+                  - tab "Python" [selected] [ref=e826] [cursor=pointer]:
+                    - generic [ref=e827]: Python
+                  - tab "TypeScript" [ref=e829] [cursor=pointer]:
+                    - generic [ref=e830]: TypeScript
+                - generic [ref=e831]:
+                  - button "Report incorrect code" [ref=e833] [cursor=pointer]:
+                    - img [ref=e834]
+                  - button "Copy the contents from the code block" [ref=e837] [cursor=pointer]:
+                    - img [ref=e838]
+                  - button "Ask AI" [ref=e842] [cursor=pointer]:
+                    - img [ref=e843]
+              - tabpanel "Python" [ref=e847]:
+                - code [ref=e851]:
+                  - generic [ref=e852]: "async def async_hook(input_data, tool_use_id, context):"
+                  - generic [ref=e853]: "# Start a background task, then return immediately"
+                  - generic [ref=e854]: asyncio.create_task(send_to_logging_service(input_data))
+                  - generic [ref=e855]: "return {\"async_\": True, \"asyncTimeout\": 30000}"
+            - table [ref=e858]:
+              - rowgroup [ref=e859]:
+                - row "Field Type Description" [ref=e860]:
+                  - columnheader "Field" [ref=e861]
+                  - columnheader "Type" [ref=e862]
+                  - columnheader "Description" [ref=e863]
+              - rowgroup [ref=e864]:
+                - row "async true Signals async mode. The agent proceeds without waiting. In Python, use async_ to avoid the reserved keyword." [ref=e865]:
+                  - cell "async" [ref=e866]:
+                    - code [ref=e867]: async
+                  - cell "true" [ref=e868]:
+                    - code [ref=e869]: "true"
+                  - cell "Signals async mode. The agent proceeds without waiting. In Python, use async_ to avoid the reserved keyword." [ref=e870]:
+                    - text: Signals async mode. The agent proceeds without waiting. In Python, use
+                    - code [ref=e871]: async_
+                    - text: to avoid the reserved keyword.
+                - row "asyncTimeout number Optional timeout in milliseconds for the background operation" [ref=e872]:
+                  - cell "asyncTimeout" [ref=e873]:
+                    - code [ref=e874]: asyncTimeout
+                  - cell "number" [ref=e875]:
+                    - code [ref=e876]: number
+                  - cell "Optional timeout in milliseconds for the background operation" [ref=e877]
+            - generic [ref=e878]:
+              - img "Note" [ref=e880]
+              - generic [ref=e883]: Async outputs cannot block, modify, or inject context into the operation since the agent has already moved on. Use them only for side effects like logging, metrics, or notifications.
+            - heading "Navigate to header Examples" [level=2] [ref=e884]:
+              - link "Navigate to header" [ref=e885] [cursor=pointer]:
+                - /url: "#examples"
+                - img [ref=e887]
+              - generic [ref=e889] [cursor=pointer]: Examples
+            - heading "Navigate to header Modify tool input" [level=3] [ref=e890]:
+              - link "Navigate to header" [ref=e891] [cursor=pointer]:
+                - /url: "#modify-tool-input"
+                - img [ref=e893]
+              - generic [ref=e895] [cursor=pointer]: Modify tool input
+            - generic [ref=e896]:
+              - text: This example intercepts Write tool calls and rewrites the
+              - code [ref=e897]: file_path
+              - text: argument to prepend
+              - code [ref=e898]: /sandbox
+              - text: ", redirecting all file writes to a sandboxed directory. The callback returns"
+              - code [ref=e899]: updatedInput
+              - text: with the modified path and
+              - code [ref=e900]: "permissionDecision: 'allow'"
+              - text: "to auto-approve the rewritten operation:"
+            - generic [ref=e901]:
+              - generic [ref=e902]:
+                - tablist [ref=e903]:
+                  - tab "Python" [selected] [ref=e904] [cursor=pointer]:
+                    - generic [ref=e905]: Python
+                  - tab "TypeScript" [ref=e907] [cursor=pointer]:
+                    - generic [ref=e908]: TypeScript
+                - generic [ref=e909]:
+                  - button "Report incorrect code" [ref=e911] [cursor=pointer]:
+                    - img [ref=e912]
+                  - button "Copy the contents from the code block" [ref=e915] [cursor=pointer]:
+                    - img [ref=e916]
+                  - button "Ask AI" [ref=e920] [cursor=pointer]:
+                    - img [ref=e921]
+              - tabpanel "Python" [ref=e925]:
+                - code [ref=e929]:
+                  - generic [ref=e930]: "async def redirect_to_sandbox(input_data, tool_use_id, context):"
+                  - generic [ref=e931]: "if input_data[\"hook_event_name\"] != \"PreToolUse\":"
+                  - generic [ref=e932]: "return {}"
+                  - generic [ref=e933]: "if input_data[\"tool_name\"] == \"Write\":"
+                  - generic [ref=e934]: original_path = input_data["tool_input"].get("file_path", "")
+                  - generic [ref=e935]: "return {"
+                  - generic [ref=e936]: "\"hookSpecificOutput\": {"
+                  - generic [ref=e937]: "\"hookEventName\": input_data[\"hook_event_name\"],"
+                  - generic [ref=e938]: "\"permissionDecision\": \"allow\","
+                  - generic [ref=e939]: "\"updatedInput\": {"
+                  - generic [ref=e940]: "**input_data[\"tool_input\"],"
+                  - generic [ref=e941]: "\"file_path\": f\"/sandbox{original_path}\","
+                  - generic [ref=e942]: "},"
+                  - generic [ref=e943]: "}"
+                  - generic [ref=e944]: "}"
+                  - generic [ref=e945]: "return {}"
+            - generic [ref=e946]:
+              - img "Note" [ref=e948]
+              - generic [ref=e951]:
+                - text: When using
+                - code [ref=e952]: updatedInput
+                - text: ", you must also include"
+                - code [ref=e953]: "permissionDecision: 'allow'"
+                - text: . Always return a new object rather than mutating the original
+                - code [ref=e954]: tool_input
+                - text: .
+            - heading "Navigate to header Add context and block a tool" [level=3] [ref=e955]:
+              - link "Navigate to header" [ref=e956] [cursor=pointer]:
+                - /url: "#add-context-and-block-a-tool"
+                - img [ref=e958]
+              - generic [ref=e960] [cursor=pointer]: Add context and block a tool
+            - generic [ref=e961]:
+              - text: This example blocks any attempt to write to the
+              - code [ref=e962]: /etc
+              - text: "directory and uses two output fields together:"
+              - code [ref=e963]: "permissionDecision: 'deny'"
+              - text: stops the tool call, while
+              - code [ref=e964]: systemMessage
+              - text: "injects a reminder into the conversation so the agent receives context about why the operation was blocked and avoids retrying it:"
+            - generic [ref=e965]:
+              - generic [ref=e966]:
+                - tablist [ref=e967]:
+                  - tab "Python" [selected] [ref=e968] [cursor=pointer]:
+                    - generic [ref=e969]: Python
+                  - tab "TypeScript" [ref=e971] [cursor=pointer]:
+                    - generic [ref=e972]: TypeScript
+                - generic [ref=e973]:
+                  - button "Report incorrect code" [ref=e975] [cursor=pointer]:
+                    - img [ref=e976]
+                  - button "Copy the contents from the code block" [ref=e979] [cursor=pointer]:
+                    - img [ref=e980]
+                  - button "Ask AI" [ref=e984] [cursor=pointer]:
+                    - img [ref=e985]
+              - tabpanel "Python" [ref=e989]:
+                - code [ref=e993]:
+                  - generic [ref=e994]: "async def block_etc_writes(input_data, tool_use_id, context):"
+                  - generic [ref=e995]: file_path = input_data["tool_input"].get("file_path", "")
+                  - generic [ref=e996]: "if file_path.startswith(\"/etc\"):"
+                  - generic [ref=e997]: "return {"
+                  - generic [ref=e998]: "# Top-level field: inject guidance into the conversation"
+                  - generic [ref=e999]: "\"systemMessage\": \"Remember: system directories like /etc are protected.\","
+                  - generic [ref=e1000]: "# hookSpecificOutput: block the operation"
+                  - generic [ref=e1001]: "\"hookSpecificOutput\": {"
+                  - generic [ref=e1002]: "\"hookEventName\": input_data[\"hook_event_name\"],"
+                  - generic [ref=e1003]: "\"permissionDecision\": \"deny\","
+                  - generic [ref=e1004]: "\"permissionDecisionReason\": \"Writing to /etc is not allowed\","
+                  - generic [ref=e1005]: "},"
+                  - generic [ref=e1006]: "}"
+                  - generic [ref=e1007]: "return {}"
+            - heading "Navigate to header Auto-approve specific tools" [level=3] [ref=e1008]:
+              - link "Navigate to header" [ref=e1009] [cursor=pointer]:
+                - /url: "#auto-approve-specific-tools"
+                - img [ref=e1011]
+              - generic [ref=e1013] [cursor=pointer]: Auto-approve specific tools
+            - generic [ref=e1014]:
+              - text: By default, the agent may prompt for permission before using certain tools. This example auto-approves read-only filesystem tools (Read, Glob, Grep) by returning
+              - code [ref=e1015]: "permissionDecision: 'allow'"
+              - text: ", letting them run without user confirmation while leaving all other tools subject to normal permission checks:"
+            - generic [ref=e1016]:
+              - generic [ref=e1017]:
+                - tablist [ref=e1018]:
+                  - tab "Python" [selected] [ref=e1019] [cursor=pointer]:
+                    - generic [ref=e1020]: Python
+                  - tab "TypeScript" [ref=e1022] [cursor=pointer]:
+                    - generic [ref=e1023]: TypeScript
+                - generic [ref=e1024]:
+                  - button "Report incorrect code" [ref=e1026] [cursor=pointer]:
+                    - img [ref=e1027]
+                  - button "Copy the contents from the code block" [ref=e1030] [cursor=pointer]:
+                    - img [ref=e1031]
+                  - button "Ask AI" [ref=e1035] [cursor=pointer]:
+                    - img [ref=e1036]
+              - tabpanel "Python" [ref=e1040]:
+                - code [ref=e1044]:
+                  - generic [ref=e1045]: "async def auto_approve_read_only(input_data, tool_use_id, context):"
+                  - generic [ref=e1046]: "if input_data[\"hook_event_name\"] != \"PreToolUse\":"
+                  - generic [ref=e1047]: "return {}"
+                  - generic [ref=e1048]: read_only_tools = ["Read", "Glob", "Grep"]
+                  - generic [ref=e1049]: "if input_data[\"tool_name\"] in read_only_tools:"
+                  - generic [ref=e1050]: "return {"
+                  - generic [ref=e1051]: "\"hookSpecificOutput\": {"
+                  - generic [ref=e1052]: "\"hookEventName\": input_data[\"hook_event_name\"],"
+                  - generic [ref=e1053]: "\"permissionDecision\": \"allow\","
+                  - generic [ref=e1054]: "\"permissionDecisionReason\": \"Read-only tool auto-approved\","
+                  - generic [ref=e1055]: "}"
+                  - generic [ref=e1056]: "}"
+                  - generic [ref=e1057]: "return {}"
+            - heading "Navigate to header Chain multiple hooks" [level=3] [ref=e1058]:
+              - link "Navigate to header" [ref=e1059] [cursor=pointer]:
+                - /url: "#chain-multiple-hooks"
+                - img [ref=e1061]
+              - generic [ref=e1063] [cursor=pointer]: Chain multiple hooks
+            - generic [ref=e1064]: "Hooks execute in the order they appear in the array. Keep each hook focused on a single responsibility and chain multiple hooks for complex logic:"
+            - generic [ref=e1065]:
+              - generic [ref=e1066]:
+                - tablist [ref=e1067]:
+                  - tab "Python" [selected] [ref=e1068] [cursor=pointer]:
+                    - generic [ref=e1069]: Python
+                  - tab "TypeScript" [ref=e1071] [cursor=pointer]:
+                    - generic [ref=e1072]: TypeScript
+                - generic [ref=e1073]:
+                  - button "Report incorrect code" [ref=e1075] [cursor=pointer]:
+                    - img [ref=e1076]
+                  - button "Copy the contents from the code block" [ref=e1079] [cursor=pointer]:
+                    - img [ref=e1080]
+                  - button "Ask AI" [ref=e1084] [cursor=pointer]:
+                    - img [ref=e1085]
+              - tabpanel "Python" [ref=e1089]:
+                - code [ref=e1093]:
+                  - generic [ref=e1094]: options = ClaudeAgentOptions(
+                  - generic [ref=e1095]: "hooks={"
+                  - generic [ref=e1096]: "\"PreToolUse\": ["
+                  - generic [ref=e1097]: "HookMatcher(hooks=[rate_limiter]), # First: check rate limits"
+                  - generic [ref=e1098]: "HookMatcher(hooks=[authorization_check]), # Second: verify permissions"
+                  - generic [ref=e1099]: "HookMatcher(hooks=[input_sanitizer]), # Third: sanitize inputs"
+                  - generic [ref=e1100]: "HookMatcher(hooks=[audit_logger]), # Last: log the action"
+                  - generic [ref=e1101]: "]"
+                  - generic [ref=e1102]: "}"
+                  - generic [ref=e1103]: )
+            - heading "Navigate to header Filter with regex matchers" [level=3] [ref=e1104]:
+              - link "Navigate to header" [ref=e1105] [cursor=pointer]:
+                - /url: "#filter-with-regex-matchers"
+                - img [ref=e1107]
+              - generic [ref=e1109] [cursor=pointer]: Filter with regex matchers
+            - generic [ref=e1110]:
+              - text: "Use regex patterns to match multiple tools. This example registers three matchers with different scopes: the first triggers"
+              - code [ref=e1111]: file_security_hook
+              - text: only for file modification tools, the second triggers
+              - code [ref=e1112]: mcp_audit_hook
+              - text: for any MCP tool (tools whose names start with
+              - code [ref=e1113]: mcp__
+              - text: ), and the third triggers
+              - code [ref=e1114]: global_logger
+              - text: "for every tool call regardless of name:"
+            - generic [ref=e1115]:
+              - generic [ref=e1116]:
+                - tablist [ref=e1117]:
+                  - tab "Python" [selected] [ref=e1118] [cursor=pointer]:
+                    - generic [ref=e1119]: Python
+                  - tab "TypeScript" [ref=e1121] [cursor=pointer]:
+                    - generic [ref=e1122]: TypeScript
+                - generic [ref=e1123]:
+                  - button "Report incorrect code" [ref=e1125] [cursor=pointer]:
+                    - img [ref=e1126]
+                  - button "Copy the contents from the code block" [ref=e1129] [cursor=pointer]:
+                    - img [ref=e1130]
+                  - button "Ask AI" [ref=e1134] [cursor=pointer]:
+                    - img [ref=e1135]
+              - tabpanel "Python" [ref=e1139]:
+                - code [ref=e1143]:
+                  - generic [ref=e1144]: options = ClaudeAgentOptions(
+                  - generic [ref=e1145]: "hooks={"
+                  - generic [ref=e1146]: "\"PreToolUse\": ["
+                  - generic [ref=e1147]: "# Match file modification tools"
+                  - generic [ref=e1148]: HookMatcher(matcher="Write|Edit|Delete", hooks=[file_security_hook]),
+                  - generic [ref=e1149]: "# Match all MCP tools"
+                  - generic [ref=e1150]: HookMatcher(matcher="^mcp__", hooks=[mcp_audit_hook]),
+                  - generic [ref=e1151]: "# Match everything (no matcher)"
+                  - generic [ref=e1152]: HookMatcher(hooks=[global_logger]),
+                  - generic [ref=e1153]: "]"
+                  - generic [ref=e1154]: "}"
+                  - generic [ref=e1155]: )
+            - heading "Navigate to header Track subagent activity" [level=3] [ref=e1156]:
+              - link "Navigate to header" [ref=e1157] [cursor=pointer]:
+                - /url: "#track-subagent-activity"
+                - img [ref=e1159]
+              - generic [ref=e1161] [cursor=pointer]: Track subagent activity
+            - generic [ref=e1162]:
+              - text: Use
+              - code [ref=e1163]: SubagentStop
+              - text: hooks to monitor when subagents finish their work. See the full input type in the
+              - link "TypeScript" [ref=e1164] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#hook-input
+              - text: and
+              - link "Python" [ref=e1165] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#hook-input
+              - text: "SDK references. This example logs a summary each time a subagent completes:"
+            - generic [ref=e1166]:
+              - generic [ref=e1167]:
+                - tablist [ref=e1168]:
+                  - tab "Python" [selected] [ref=e1169] [cursor=pointer]:
+                    - generic [ref=e1170]: Python
+                  - tab "TypeScript" [ref=e1172] [cursor=pointer]:
+                    - generic [ref=e1173]: TypeScript
+                - generic [ref=e1174]:
+                  - button "Report incorrect code" [ref=e1176] [cursor=pointer]:
+                    - img [ref=e1177]
+                  - button "Copy the contents from the code block" [ref=e1180] [cursor=pointer]:
+                    - img [ref=e1181]
+                  - button "Ask AI" [ref=e1185] [cursor=pointer]:
+                    - img [ref=e1186]
+              - tabpanel "Python" [ref=e1190]:
+                - code [ref=e1194]:
+                  - generic [ref=e1195]: "async def subagent_tracker(input_data, tool_use_id, context):"
+                  - generic [ref=e1196]: "# Log subagent details when it finishes"
+                  - generic [ref=e1197]: "print(f\"[SUBAGENT] Completed: {input_data['agent_id']}\")"
+                  - generic [ref=e1198]: "print(f\" Transcript: {input_data['agent_transcript_path']}\")"
+                  - generic [ref=e1199]: "print(f\" Tool use ID: {tool_use_id}\")"
+                  - generic [ref=e1200]: "print(f\" Stop hook active: {input_data.get('stop_hook_active')}\")"
+                  - generic [ref=e1201]: "return {}"
+                  - generic [ref=e1202]: options = ClaudeAgentOptions(
+                  - generic [ref=e1203]: "hooks={\"SubagentStop\": [HookMatcher(hooks=[subagent_tracker])]}"
+                  - generic [ref=e1204]: )
+            - heading "Navigate to header Make HTTP requests from hooks" [level=3] [ref=e1205]:
+              - link "Navigate to header" [ref=e1206] [cursor=pointer]:
+                - /url: "#make-http-requests-from-hooks"
+                - img [ref=e1208]
+              - generic [ref=e1210] [cursor=pointer]: Make HTTP requests from hooks
+            - generic [ref=e1211]: Hooks can perform asynchronous operations like HTTP requests. Catch errors inside your hook instead of letting them propagate, since an unhandled exception can interrupt the agent.
+            - generic [ref=e1212]: "This example sends a webhook after each tool completes, logging which tool ran and when. The hook catches errors so a failed webhook doesn’t interrupt the agent:"
+            - generic [ref=e1213]:
+              - generic [ref=e1214]:
+                - tablist [ref=e1215]:
+                  - tab "Python" [selected] [ref=e1216] [cursor=pointer]:
+                    - generic [ref=e1217]: Python
+                  - tab "TypeScript" [ref=e1219] [cursor=pointer]:
+                    - generic [ref=e1220]: TypeScript
+                - generic [ref=e1221]:
+                  - button "Report incorrect code" [ref=e1223] [cursor=pointer]:
+                    - img [ref=e1224]
+                  - button "Copy the contents from the code block" [ref=e1227] [cursor=pointer]:
+                    - img [ref=e1228]
+                  - button "Ask AI" [ref=e1232] [cursor=pointer]:
+                    - img [ref=e1233]
+              - tabpanel "Python" [ref=e1237]:
+                - code [ref=e1241]:
+                  - generic [ref=e1242]: import asyncio
+                  - generic [ref=e1243]: import json
+                  - generic [ref=e1244]: import urllib.request
+                  - generic [ref=e1245]: from datetime import datetime
+                  - generic [ref=e1246]: "def _send_webhook(tool_name):"
+                  - generic [ref=e1247]: "\"\"\"Synchronous helper that POSTs tool usage data to an external webhook.\"\"\""
+                  - generic [ref=e1248]: data = json.dumps(
+                  - generic [ref=e1249]: "{"
+                  - generic [ref=e1250]: "\"tool\": tool_name,"
+                  - generic [ref=e1251]: "\"timestamp\": datetime.now().isoformat(),"
+                  - generic [ref=e1252]: "}"
+                  - generic [ref=e1253]: ).encode()
+                  - generic [ref=e1254]: req = urllib.request.Request(
+                  - generic [ref=e1255]: "\"https://api.example.com/webhook\","
+                  - generic [ref=e1256]: data=data,
+                  - generic [ref=e1257]: "headers={\"Content-Type\": \"application/json\"},"
+                  - generic [ref=e1258]: method="POST",
+                  - generic [ref=e1259]: )
+                  - generic [ref=e1260]: urllib.request.urlopen(req)
+                  - generic [ref=e1261]: "async def webhook_notifier(input_data, tool_use_id, context):"
+                  - generic [ref=e1262]: "# Only fire after a tool completes (PostToolUse), not before"
+                  - generic [ref=e1263]: "if input_data[\"hook_event_name\"] != \"PostToolUse\":"
+                  - generic [ref=e1264]: "return {}"
+                  - generic [ref=e1265]: "try:"
+                  - generic [ref=e1266]: "# Run the blocking HTTP call in a thread to avoid blocking the event loop"
+                  - generic [ref=e1267]: await asyncio.to_thread(_send_webhook, input_data["tool_name"])
+                  - generic [ref=e1268]: "except Exception as e:"
+                  - generic [ref=e1269]: "# Log the error but don't raise. A failed webhook shouldn't stop the agent"
+                  - generic [ref=e1270]: "print(f\"Webhook request failed: {e}\")"
+                  - generic [ref=e1271]: "return {}"
+            - heading "Navigate to header Forward notifications to Slack" [level=3] [ref=e1272]:
+              - link "Navigate to header" [ref=e1273] [cursor=pointer]:
+                - /url: "#forward-notifications-to-slack"
+                - img [ref=e1275]
+              - generic [ref=e1277] [cursor=pointer]: Forward notifications to Slack
+            - generic [ref=e1278]:
+              - text: Use
+              - code [ref=e1279]: Notification
+              - text: "hooks to receive system notifications from the agent and forward them to external services. Notifications fire for specific event types:"
+              - code [ref=e1280]: permission_prompt
+              - text: (Claude needs permission),
+              - code [ref=e1281]: idle_prompt
+              - text: (Claude is waiting for input),
+              - code [ref=e1282]: auth_success
+              - text: (authentication completed), and
+              - code [ref=e1283]: elicitation_dialog
+              - text: (Claude is prompting the user). Each notification includes a
+              - code [ref=e1284]: message
+              - text: field with a human-readable description and optionally a
+              - code [ref=e1285]: title
+              - text: .
+            - generic [ref=e1286]:
+              - text: This example forwards every notification to a Slack channel. It requires a
+              - link "Slack incoming webhook URL" [ref=e1287] [cursor=pointer]:
+                - /url: https://api.slack.com/messaging/webhooks
+              - text: ", which you create by adding an app to your Slack workspace and enabling incoming webhooks:"
+            - generic [ref=e1288]:
+              - generic [ref=e1289]:
+                - tablist [ref=e1290]:
+                  - tab "Python" [selected] [ref=e1291] [cursor=pointer]:
+                    - generic [ref=e1292]: Python
+                  - tab "TypeScript" [ref=e1294] [cursor=pointer]:
+                    - generic [ref=e1295]: TypeScript
+                - generic [ref=e1296]:
+                  - button "Report incorrect code" [ref=e1298] [cursor=pointer]:
+                    - img [ref=e1299]
+                  - button "Copy the contents from the code block" [ref=e1302] [cursor=pointer]:
+                    - img [ref=e1303]
+                  - button "Ask AI" [ref=e1307] [cursor=pointer]:
+                    - img [ref=e1308]
+              - tabpanel "Python" [ref=e1312]:
+                - code [ref=e1316]:
+                  - generic [ref=e1317]: import asyncio
+                  - generic [ref=e1318]: import json
+                  - generic [ref=e1319]: import urllib.request
+                  - generic [ref=e1320]: from claude_agent_sdk import ClaudeSDKClient, ClaudeAgentOptions, HookMatcher
+                  - generic [ref=e1321]: "def _send_slack_notification(message):"
+                  - generic [ref=e1322]: "\"\"\"Synchronous helper that sends a message to Slack via incoming webhook.\"\"\""
+                  - generic [ref=e1323]: "data = json.dumps({\"text\": f\"Agent status: {message}\"}).encode()"
+                  - generic [ref=e1324]: req = urllib.request.Request(
+                  - generic [ref=e1325]: "\"https://hooks.slack.com/services/YOUR/WEBHOOK/URL\","
+                  - generic [ref=e1326]: data=data,
+                  - generic [ref=e1327]: "headers={\"Content-Type\": \"application/json\"},"
+                  - generic [ref=e1328]: method="POST",
+                  - generic [ref=e1329]: )
+                  - generic [ref=e1330]: urllib.request.urlopen(req)
+                  - generic [ref=e1331]: "async def notification_handler(input_data, tool_use_id, context):"
+                  - generic [ref=e1332]: "try:"
+                  - generic [ref=e1333]: "# Run the blocking HTTP call in a thread to avoid blocking the event loop"
+                  - generic [ref=e1334]: await asyncio.to_thread(_send_slack_notification, input_data.get("message", ""))
+                  - generic [ref=e1335]: "except Exception as e:"
+                  - generic [ref=e1336]: "print(f\"Failed to send notification: {e}\")"
+                  - generic [ref=e1337]: "# Return empty object. Notification hooks don't modify agent behavior"
+                  - generic [ref=e1338]: "return {}"
+                  - generic [ref=e1339]: "async def main():"
+                  - generic [ref=e1340]: options = ClaudeAgentOptions(
+                  - generic [ref=e1341]: "hooks={"
+                  - generic [ref=e1342]: "# Register the hook for Notification events (no matcher needed)"
+                  - generic [ref=e1343]: "\"Notification\": [HookMatcher(hooks=[notification_handler])],"
+                  - generic [ref=e1344]: "},"
+                  - generic [ref=e1345]: )
+                  - generic [ref=e1346]: "async with ClaudeSDKClient(options=options) as client:"
+                  - generic [ref=e1347]: await client.query("Analyze this codebase")
+                  - generic [ref=e1348]: "async for message in client.receive_response():"
+                  - generic [ref=e1349]: print(message)
+                  - generic [ref=e1350]: asyncio.run(main())
+            - heading "Navigate to header Fix common issues" [level=2] [ref=e1351]:
+              - link "Navigate to header" [ref=e1352] [cursor=pointer]:
+                - /url: "#fix-common-issues"
+                - img [ref=e1354]
+              - generic [ref=e1356] [cursor=pointer]: Fix common issues
+            - heading "Navigate to header Hook not firing" [level=3] [ref=e1357]:
+              - link "Navigate to header" [ref=e1358] [cursor=pointer]:
+                - /url: "#hook-not-firing"
+                - img [ref=e1360]
+              - generic [ref=e1362] [cursor=pointer]: Hook not firing
+            - list [ref=e1363]:
+              - listitem [ref=e1364]:
+                - text: Verify the hook event name is correct and case-sensitive (
+                - code [ref=e1365]: PreToolUse
+                - text: ", not"
+                - code [ref=e1366]: preToolUse
+                - text: )
+              - listitem [ref=e1367]: Check that your matcher pattern matches the tool name exactly
+              - listitem [ref=e1368]:
+                - text: Ensure the hook is under the correct event type in
+                - code [ref=e1369]: options.hooks
+              - listitem [ref=e1370]:
+                - text: For non-tool hooks like
+                - code [ref=e1371]: Stop
+                - text: and
+                - code [ref=e1372]: SubagentStop
+                - text: ", matchers match against different fields (see"
+                - link "matcher patterns" [ref=e1373] [cursor=pointer]:
+                  - /url: /docs/en/hooks#matcher-patterns
+                - text: )
+              - listitem [ref=e1374]:
+                - text: Hooks may not fire when the agent hits the
+                - link "max_turns" [ref=e1375] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python#claude-agent-options
+                  - code [ref=e1376]: max_turns
+                - text: limit because the session ends before hooks can execute
+            - heading "Navigate to header Matcher not filtering as expected" [level=3] [ref=e1377]:
+              - link "Navigate to header" [ref=e1378] [cursor=pointer]:
+                - /url: "#matcher-not-filtering-as-expected"
+                - img [ref=e1380]
+              - generic [ref=e1382] [cursor=pointer]: Matcher not filtering as expected
+            - generic [ref=e1383]:
+              - text: Matchers only match
+              - strong [ref=e1384]: tool names
+              - text: ", not file paths or other arguments. To filter by file path, check"
+              - code [ref=e1385]: tool_input.file_path
+              - text: "inside your hook:"
+            - generic [ref=e1386]:
+              - generic [ref=e1387]:
+                - button "Report incorrect code" [ref=e1389] [cursor=pointer]:
+                  - img [ref=e1390]
+                - button "Copy the contents from the code block" [ref=e1393] [cursor=pointer]:
+                  - img [ref=e1394]
+                - button "Ask AI" [ref=e1398] [cursor=pointer]:
+                  - img [ref=e1399]
+              - code [ref=e1405]:
+                - generic [ref=e1406]: "const myHook: HookCallback = async (input, toolUseID, { signal }) => {"
+                - generic [ref=e1407]: const preInput = input as PreToolUseHookInput;
+                - generic [ref=e1408]: const toolInput = preInput.tool_input as Record<string, unknown>;
+                - generic [ref=e1409]: const filePath = toolInput?.file_path as string;
+                - generic [ref=e1410]: "if (!filePath?.endsWith(\".md\")) return {}; // Skip non-markdown files"
+                - generic [ref=e1411]: // Process markdown files...
+                - generic [ref=e1412]: "return {};"
+                - generic [ref=e1413]: "};"
+            - heading "Navigate to header Hook timeout" [level=3] [ref=e1414]:
+              - link "Navigate to header" [ref=e1415] [cursor=pointer]:
+                - /url: "#hook-timeout"
+                - img [ref=e1417]
+              - generic [ref=e1419] [cursor=pointer]: Hook timeout
+            - list [ref=e1420]:
+              - listitem [ref=e1421]:
+                - text: Increase the
+                - code [ref=e1422]: timeout
+                - text: value in the
+                - code [ref=e1423]: HookMatcher
+                - text: configuration
+              - listitem [ref=e1424]:
+                - text: Use the
+                - code [ref=e1425]: AbortSignal
+                - text: from the third callback argument to handle cancellation gracefully in TypeScript
+            - heading "Navigate to header Tool blocked unexpectedly" [level=3] [ref=e1426]:
+              - link "Navigate to header" [ref=e1427] [cursor=pointer]:
+                - /url: "#tool-blocked-unexpectedly"
+                - img [ref=e1429]
+              - generic [ref=e1431] [cursor=pointer]: Tool blocked unexpectedly
+            - list [ref=e1432]:
+              - listitem [ref=e1433]:
+                - text: Check all
+                - code [ref=e1434]: PreToolUse
+                - text: hooks for
+                - code [ref=e1435]: "permissionDecision: 'deny'"
+                - text: returns
+              - listitem [ref=e1436]:
+                - text: Add logging to your hooks to see what
+                - code [ref=e1437]: permissionDecisionReason
+                - text: they’re returning
+              - listitem [ref=e1438]: Verify matcher patterns aren’t too broad (an empty matcher matches all tools)
+            - heading "Navigate to header Modified input not applied" [level=3] [ref=e1439]:
+              - link "Navigate to header" [ref=e1440] [cursor=pointer]:
+                - /url: "#modified-input-not-applied"
+                - img [ref=e1442]
+              - generic [ref=e1444] [cursor=pointer]: Modified input not applied
+            - list [ref=e1445]:
+              - listitem [ref=e1446]:
+                - generic [ref=e1447]:
+                  - text: Ensure
+                  - code [ref=e1448]: updatedInput
+                  - text: is inside
+                  - code [ref=e1449]: hookSpecificOutput
+                  - text: ", not at the top level:"
+                - generic [ref=e1450]:
+                  - generic [ref=e1451]:
+                    - button "Report incorrect code" [ref=e1453] [cursor=pointer]:
+                      - img [ref=e1454]
+                    - button "Copy the contents from the code block" [ref=e1457] [cursor=pointer]:
+                      - img [ref=e1458]
+                    - button "Ask AI" [ref=e1462] [cursor=pointer]:
+                      - img [ref=e1463]
+                  - code [ref=e1469]:
+                    - generic [ref=e1470]: "return {"
+                    - generic [ref=e1471]: "hookSpecificOutput: {"
+                    - generic [ref=e1472]: "hookEventName: \"PreToolUse\","
+                    - generic [ref=e1473]: "permissionDecision: \"allow\","
+                    - generic [ref=e1474]: "updatedInput: { command: \"new command\" }"
+                    - generic [ref=e1475]: "}"
+                    - generic [ref=e1476]: "};"
+              - listitem [ref=e1477]:
+                - generic [ref=e1478]:
+                  - text: You must also return
+                  - code [ref=e1479]: "permissionDecision: 'allow'"
+                  - text: for the input modification to take effect
+              - listitem [ref=e1480]:
+                - generic [ref=e1481]:
+                  - text: Include
+                  - code [ref=e1482]: hookEventName
+                  - text: in
+                  - code [ref=e1483]: hookSpecificOutput
+                  - text: to identify which hook type the output is for
+            - heading "Navigate to header Session hooks not available in Python" [level=3] [ref=e1484]:
+              - link "Navigate to header" [ref=e1485] [cursor=pointer]:
+                - /url: "#session-hooks-not-available-in-python"
+                - img [ref=e1487]
+              - generic [ref=e1489] [cursor=pointer]: Session hooks not available in Python
+            - generic [ref=e1490]:
+              - code [ref=e1491]: SessionStart
+              - text: and
+              - code [ref=e1492]: SessionEnd
+              - text: can be registered as SDK callback hooks in TypeScript, but are not available in the Python SDK (
+              - code [ref=e1493]: HookEvent
+              - text: omits them). In Python, they are only available as
+              - link "shell command hooks" [ref=e1494] [cursor=pointer]:
+                - /url: /docs/en/hooks#hook-events
+              - text: defined in settings files (for example,
+              - code [ref=e1495]: .claude/settings.json
+              - text: ). To load shell command hooks from your SDK application, include the appropriate setting source with
+              - link "setting_sources" [ref=e1496] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/python#setting-source
+                - code [ref=e1497]: setting_sources
+              - text: or
+              - link "settingSources" [ref=e1498] [cursor=pointer]:
+                - /url: /docs/en/agent-sdk/typescript#setting-source
+                - code [ref=e1499]: settingSources
+              - text: ":"
+            - generic [ref=e1500]:
+              - generic [ref=e1501]:
+                - tablist [ref=e1502]:
+                  - tab "Python" [selected] [ref=e1503] [cursor=pointer]:
+                    - generic [ref=e1504]: Python
+                  - tab "TypeScript" [ref=e1506] [cursor=pointer]:
+                    - generic [ref=e1507]: TypeScript
+                - generic [ref=e1508]:
+                  - button "Report incorrect code" [ref=e1510] [cursor=pointer]:
+                    - img [ref=e1511]
+                  - button "Copy the contents from the code block" [ref=e1514] [cursor=pointer]:
+                    - img [ref=e1515]
+                  - button "Ask AI" [ref=e1519] [cursor=pointer]:
+                    - img [ref=e1520]
+              - tabpanel "Python" [ref=e1524]:
+                - code [ref=e1528]:
+                  - generic [ref=e1529]: options = ClaudeAgentOptions(
+                  - generic [ref=e1530]: "setting_sources=[\"project\"], # Loads .claude/settings.json including hooks"
+                  - generic [ref=e1531]: )
+            - generic [ref=e1532]:
+              - text: To run initialization logic as a Python SDK callback instead, use the first message from
+              - code [ref=e1533]: client.receive_response()
+              - text: as your trigger.
+            - heading "Navigate to header Subagent permission prompts multiplying" [level=3] [ref=e1534]:
+              - link "Navigate to header" [ref=e1535] [cursor=pointer]:
+                - /url: "#subagent-permission-prompts-multiplying"
+                - img [ref=e1537]
+              - generic [ref=e1539] [cursor=pointer]: Subagent permission prompts multiplying
+            - generic [ref=e1540]:
+              - text: When spawning multiple subagents, each one may request permissions separately. Subagents do not automatically inherit parent agent permissions. To avoid repeated prompts, use
+              - code [ref=e1541]: PreToolUse
+              - text: hooks to auto-approve specific tools, or configure permission rules that apply to subagent sessions.
+            - heading "Navigate to header Recursive hook loops with subagents" [level=3] [ref=e1542]:
+              - link "Navigate to header" [ref=e1543] [cursor=pointer]:
+                - /url: "#recursive-hook-loops-with-subagents"
+                - img [ref=e1545]
+              - generic [ref=e1547] [cursor=pointer]: Recursive hook loops with subagents
+            - generic [ref=e1548]:
+              - text: A
+              - code [ref=e1549]: UserPromptSubmit
+              - text: "hook that spawns subagents can create infinite loops if those subagents trigger the same hook. To prevent this:"
+            - list [ref=e1550]:
+              - listitem [ref=e1551]: Check for a subagent indicator in the hook input before spawning
+              - listitem [ref=e1552]: Use a shared variable or session state to track whether you’re already inside a subagent
+              - listitem [ref=e1553]: Scope hooks to only run for the top-level agent session
+            - heading "Navigate to header systemMessage not appearing in output" [level=3] [ref=e1554]:
+              - link "Navigate to header" [ref=e1555] [cursor=pointer]:
+                - /url: "#systemmessage-not-appearing-in-output"
+                - img [ref=e1557]
+              - generic [ref=e1559] [cursor=pointer]: systemMessage not appearing in output
+            - generic [ref=e1560]:
+              - text: The
+              - code [ref=e1561]: systemMessage
+              - text: field adds context to the conversation that the model sees, but it may not appear in all SDK output modes. If you need to surface hook decisions to your application, log them separately or use a dedicated output channel.
+            - heading "Navigate to header Related resources" [level=2] [ref=e1562]:
+              - link "Navigate to header" [ref=e1563] [cursor=pointer]:
+                - /url: "#related-resources"
+                - img [ref=e1565]
+              - generic [ref=e1567] [cursor=pointer]: Related resources
+            - list [ref=e1568]:
+              - listitem [ref=e1569]:
+                - link "Claude Code hooks reference" [ref=e1570] [cursor=pointer]:
+                  - /url: /docs/en/hooks
+                - text: ": full JSON input/output schemas, event documentation, and matcher patterns"
+              - listitem [ref=e1571]:
+                - link "Claude Code hooks guide" [ref=e1572] [cursor=pointer]:
+                  - /url: /docs/en/hooks-guide
+                - text: ": shell command hook examples and walkthroughs"
+              - listitem [ref=e1573]:
+                - link "TypeScript SDK reference" [ref=e1574] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript
+                - text: ": hook types, input/output definitions, and configuration options"
+              - listitem [ref=e1575]:
+                - link "Python SDK reference" [ref=e1576] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python
+                - text: ": hook types, input/output definitions, and configuration options"
+              - listitem [ref=e1577]:
+                - link "Permissions" [ref=e1578] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/permissions
+                - text: ": control what your agent can do"
+              - listitem [ref=e1579]:
+                - link "Custom tools" [ref=e1580] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/custom-tools
+                - text: ": build tools to extend agent capabilities"
+          - generic [ref=e1582]:
+            - paragraph [ref=e1583]: Was this page helpful?
+            - generic [ref=e1585]:
+              - button "Yes" [ref=e1586] [cursor=pointer]:
+                - img [ref=e1587]
+                - generic [ref=e1589]: "Yes"
+              - button "No" [ref=e1590] [cursor=pointer]:
+                - img [ref=e1591]
+                - generic [ref=e1593]: "No"
+          - generic [ref=e1594]:
+            - link "Configure permissions" [ref=e1595] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/permissions
+              - img [ref=e1596]
+              - generic [ref=e1598]: Configure permissions
+            - link "Rewind file changes with checkpointing" [ref=e1599] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/file-checkpointing
+              - generic [ref=e1600]: Rewind file changes with checkpointing
+              - img [ref=e1601]
+          - generic [ref=e1604]:
+            - textbox "Ask a question..." [ref=e1605]
+            - generic: ⌘I
+            - button "Send message" [disabled] [ref=e1606]:
+              - img [ref=e1607]
+      - contentinfo [ref=e1609]:
+        - generic [ref=e1611]:
+          - generic [ref=e1612]:
+            - link "Claude Code Docs home page light logo" [ref=e1613] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e1614]: Claude Code Docs home page
+              - img "light logo" [ref=e1615]
+            - generic [ref=e1616]:
+              - link "x" [ref=e1617] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e1618]: x
+                - img [ref=e1619]
+              - link "linkedin" [ref=e1620] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e1621]: linkedin
+                - img [ref=e1622]
+          - generic [ref=e1623]:
+            - generic [ref=e1625]:
+              - paragraph [ref=e1626]: Company
+              - link "Anthropic" [ref=e1627] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e1628] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e1629] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e1630] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e1631] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e1632] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e1633] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1635]:
+              - paragraph [ref=e1636]: Help and security
+              - link "Availability" [ref=e1637] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e1638] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e1639] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e1641]:
+              - paragraph [ref=e1642]: Learn
+              - link "Courses" [ref=e1643] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e1644] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e1645] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e1646] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e1647] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e1648] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e1649] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e1650] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e1652]:
+              - paragraph [ref=e1653]: Terms and policies
+              - link "Privacy choices" [ref=e1654] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e1655] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e1656] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e1657] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e1658] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e1659] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+    - generic:
+      - generic [ref=e1661]:
+        - generic [ref=e1662]:
+          - img [ref=e1663]
+          - generic [ref=e1666]: Assistant
+        - generic [ref=e1667]:
+          - button [ref=e1668] [cursor=pointer]:
+            - img [ref=e1669]
+          - button [ref=e1674] [cursor=pointer]:
+            - img [ref=e1675]
+      - generic [ref=e1679]: Responses are generated using AI and may contain mistakes.
+      - generic [ref=e1681]:
+        - textbox [ref=e1682]:
+          - /placeholder: Ask a question...
+        - generic [ref=e1683]:
+          - button [ref=e1684] [cursor=pointer]:
+            - img [ref=e1685]
+          - button [disabled] [ref=e1687]:
+            - img [ref=e1688]

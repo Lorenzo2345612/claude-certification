@@ -1,0 +1,1063 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#content-area"
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - link "Claude Code Docs home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e15]: Claude Code Docs home page
+              - img "light logo" [ref=e16]
+            - button "English" [ref=e18] [cursor=pointer]:
+              - generic [ref=e19]: English
+              - img [ref=e20]
+          - generic [ref=e22]:
+            - button "Open search" [ref=e23] [cursor=pointer]:
+              - generic [ref=e24]:
+                - img [ref=e25]
+                - generic [ref=e28]: Search...
+              - generic [ref=e29]: Ctrl K
+            - button "Toggle assistant panel" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Ask AI
+          - generic [ref=e35]:
+            - navigation [ref=e36]:
+              - list [ref=e37]:
+                - listitem [ref=e38]:
+                  - link "Claude Developer Platform" [ref=e39] [cursor=pointer]:
+                    - /url: https://platform.claude.com/
+                - listitem [ref=e40]:
+                  - link "Claude Code on the Web" [ref=e41] [cursor=pointer]:
+                    - /url: https://claude.ai/code
+                    - generic [ref=e43]:
+                      - generic [ref=e44]: Claude Code on the Web
+                      - img [ref=e45]
+            - button "Toggle dark mode" [ref=e48] [cursor=pointer]:
+              - img [ref=e49]
+        - generic [ref=e57]:
+          - link "Getting started" [ref=e58] [cursor=pointer]:
+            - /url: /docs/en/overview
+            - text: Getting started
+          - link "Build with Claude Code" [ref=e60] [cursor=pointer]:
+            - /url: /docs/en/sub-agents
+            - text: Build with Claude Code
+          - link "Deployment" [ref=e62] [cursor=pointer]:
+            - /url: /docs/en/third-party-integrations
+            - text: Deployment
+          - link "Administration" [ref=e64] [cursor=pointer]:
+            - /url: /docs/en/setup
+            - text: Administration
+          - link "Configuration" [ref=e66] [cursor=pointer]:
+            - /url: /docs/en/settings
+            - text: Configuration
+          - link "Reference" [ref=e68] [cursor=pointer]:
+            - /url: /docs/en/cli-reference
+            - text: Reference
+          - link "Agent SDK" [ref=e70] [cursor=pointer]:
+            - /url: /docs/en/agent-sdk/overview
+            - text: Agent SDK
+          - link "What's New" [ref=e72] [cursor=pointer]:
+            - /url: /docs/en/whats-new
+            - text: What's New
+          - link "Resources" [ref=e74] [cursor=pointer]:
+            - /url: /docs/en/legal-and-compliance
+            - text: Resources
+      - generic [ref=e76]:
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - heading "Agent SDK" [level=5] [ref=e83]
+            - list [ref=e84]:
+              - listitem [ref=e85]:
+                - link "Overview" [ref=e86] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                  - generic [ref=e89]: Overview
+              - listitem [ref=e90]:
+                - link "Quickstart" [ref=e91] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/quickstart
+                  - generic [ref=e94]: Quickstart
+          - generic [ref=e95]:
+            - heading "Core concepts" [level=5] [ref=e97]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "How the agent loop works" [ref=e100] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/agent-loop
+                  - generic [ref=e103]: How the agent loop works
+              - listitem [ref=e104]:
+                - link "Use Claude Code features" [ref=e105] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/claude-code-features
+                  - generic [ref=e108]: Use Claude Code features
+              - listitem [ref=e109]:
+                - link "Work with sessions" [ref=e110] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/sessions
+                  - generic [ref=e113]: Work with sessions
+          - generic [ref=e114]:
+            - heading "Input and output" [level=5] [ref=e116]
+            - list [ref=e117]:
+              - listitem [ref=e118]:
+                - link "Streaming Input" [ref=e119] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-vs-single-mode
+                  - generic [ref=e122]: Streaming Input
+              - listitem [ref=e123]:
+                - link "Handle approvals and user input" [ref=e124] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/user-input
+                  - generic [ref=e127]: Handle approvals and user input
+              - listitem [ref=e128]:
+                - link "Stream responses in real-time" [ref=e129] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/streaming-output
+                  - generic [ref=e132]: Stream responses in real-time
+              - listitem [ref=e133]:
+                - link "Get structured output from agents" [ref=e134] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/structured-outputs
+                  - generic [ref=e137]: Get structured output from agents
+          - generic [ref=e138]:
+            - heading "Extend with tools" [level=5] [ref=e140]
+            - list [ref=e141]:
+              - listitem [ref=e142]:
+                - link "Give Claude custom tools" [ref=e143] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/custom-tools
+                  - generic [ref=e146]: Give Claude custom tools
+              - listitem [ref=e147]:
+                - link "Connect to external tools with MCP" [ref=e148] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/mcp
+                  - generic [ref=e151]: Connect to external tools with MCP
+              - listitem [ref=e152]:
+                - link "Scale to many tools with tool search" [ref=e153] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/tool-search
+                  - generic [ref=e156]: Scale to many tools with tool search
+              - listitem [ref=e157]:
+                - link "Subagents in the SDK" [ref=e158] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/subagents
+                  - generic [ref=e161]: Subagents in the SDK
+          - generic [ref=e162]:
+            - heading "Customize behavior" [level=5] [ref=e164]
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - link "Modifying system prompts" [ref=e167] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/modifying-system-prompts
+                  - generic [ref=e170]: Modifying system prompts
+              - listitem [ref=e171]:
+                - link "Slash Commands in the SDK" [ref=e172] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/slash-commands
+                  - generic [ref=e175]: Slash Commands in the SDK
+              - listitem [ref=e176]:
+                - link "Agent Skills in the SDK" [ref=e177] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/skills
+                  - generic [ref=e180]: Agent Skills in the SDK
+              - listitem [ref=e181]:
+                - link "Plugins in the SDK" [ref=e182] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/plugins
+                  - generic [ref=e185]: Plugins in the SDK
+          - generic [ref=e186]:
+            - heading "Control and observability" [level=5] [ref=e188]
+            - list [ref=e189]:
+              - listitem [ref=e190]:
+                - link "Configure permissions" [ref=e191] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/permissions
+                  - generic [ref=e194]: Configure permissions
+              - listitem [ref=e195]:
+                - link "Intercept and control agent behavior with hooks" [ref=e196] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hooks
+                  - generic [ref=e199]: Intercept and control agent behavior with hooks
+              - listitem [ref=e200]:
+                - link "Rewind file changes with checkpointing" [ref=e201] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/file-checkpointing
+                  - generic [ref=e204]: Rewind file changes with checkpointing
+              - listitem [ref=e205]:
+                - link "Track cost and usage" [ref=e206] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/cost-tracking
+                  - generic [ref=e209]: Track cost and usage
+              - listitem [ref=e210]:
+                - link "Observability with OpenTelemetry" [ref=e211] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/observability
+                  - generic [ref=e214]: Observability with OpenTelemetry
+              - listitem [ref=e215]:
+                - link "Todo Lists" [ref=e216] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/todo-tracking
+                  - generic [ref=e219]: Todo Lists
+          - generic [ref=e220]:
+            - heading "Deployment" [level=5] [ref=e222]
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - link "Hosting the Agent SDK" [ref=e225] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/hosting
+                  - generic [ref=e228]: Hosting the Agent SDK
+              - listitem [ref=e229]:
+                - link "Securely deploying AI agents" [ref=e230] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/secure-deployment
+                  - generic [ref=e233]: Securely deploying AI agents
+          - generic [ref=e234]:
+            - heading "SDK references" [level=5] [ref=e236]
+            - list [ref=e237]:
+              - listitem [ref=e238]:
+                - link "TypeScript SDK" [ref=e239] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript
+                  - generic [ref=e242]: TypeScript SDK
+              - listitem [ref=e243]:
+                - link "TypeScript V2 (preview)" [ref=e244] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript-v2-preview
+                  - generic [ref=e247]: TypeScript V2 (preview)
+              - listitem [ref=e248]:
+                - link "Python SDK" [ref=e249] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python
+                  - generic [ref=e252]: Python SDK
+              - listitem [ref=e253]:
+                - link "Migration Guide" [ref=e254] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/migration-guide
+                  - generic [ref=e257]: Migration Guide
+        - generic [ref=e260]:
+          - banner [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]: Extend with tools
+              - generic [ref=e264]:
+                - heading "Subagents in the SDK" [level=1] [ref=e265]
+                - generic [ref=e266]:
+                  - button "Copy page" [ref=e267] [cursor=pointer]:
+                    - generic [ref=e268]:
+                      - img [ref=e269]
+                      - generic [ref=e272]: Copy page
+                  - button "More actions" [ref=e273] [cursor=pointer]:
+                    - img [ref=e274]
+            - paragraph [ref=e277]: Define and invoke subagents to isolate context, run tasks in parallel, and apply specialized instructions in your Claude Agent SDK applications.
+          - generic [ref=e278]:
+            - generic [ref=e279]: Subagents are separate agent instances that your main agent can spawn to handle focused subtasks. Use subagents to isolate context for focused subtasks, run multiple analyses in parallel, and apply specialized instructions without bloating the main agent’s prompt.
+            - generic [ref=e280]:
+              - text: This guide explains how to define and use subagents in the SDK using the
+              - code [ref=e281]: agents
+              - text: parameter.
+            - heading "Navigate to header Overview" [level=2] [ref=e282]:
+              - link "Navigate to header" [ref=e283] [cursor=pointer]:
+                - /url: "#overview"
+                - img [ref=e285]
+              - generic [ref=e287] [cursor=pointer]: Overview
+            - generic [ref=e288]: "You can create subagents in three ways:"
+            - list [ref=e289]:
+              - listitem [ref=e290]:
+                - strong [ref=e291]: Programmatically
+                - text: ": use the"
+                - code [ref=e292]: agents
+                - text: parameter in your
+                - code [ref=e293]: query()
+                - text: options (
+                - link "TypeScript" [ref=e294] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/typescript#agent-definition
+                - text: ","
+                - link "Python" [ref=e295] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/python#agent-definition
+                - text: )
+              - listitem [ref=e296]:
+                - strong [ref=e297]: Filesystem-based
+                - text: ": define agents as markdown files in"
+                - code [ref=e298]: .claude/agents/
+                - text: directories (see
+                - link "defining subagents as files" [ref=e299] [cursor=pointer]:
+                  - /url: /docs/en/sub-agents
+                - text: )
+              - listitem [ref=e300]:
+                - strong [ref=e301]: Built-in general-purpose
+                - text: ": Claude can invoke the built-in"
+                - code [ref=e302]: general-purpose
+                - text: subagent at any time via the Agent tool without you defining anything
+            - generic [ref=e303]: This guide focuses on the programmatic approach, which is recommended for SDK applications.
+            - generic [ref=e304]:
+              - text: When you define subagents, Claude determines whether to invoke them based on each subagent’s
+              - code [ref=e305]: description
+              - text: field. Write clear descriptions that explain when the subagent should be used, and Claude will automatically delegate appropriate tasks. You can also explicitly request a subagent by name in your prompt (for example, “Use the code-reviewer agent to…”).
+            - heading "Navigate to header Benefits of using subagents" [level=2] [ref=e306]:
+              - link "Navigate to header" [ref=e307] [cursor=pointer]:
+                - /url: "#benefits-of-using-subagents"
+                - img [ref=e309]
+              - generic [ref=e311] [cursor=pointer]: Benefits of using subagents
+            - heading "Navigate to header Context isolation" [level=3] [ref=e312]:
+              - link "Navigate to header" [ref=e313] [cursor=pointer]:
+                - /url: "#context-isolation"
+                - img [ref=e315]
+              - generic [ref=e317] [cursor=pointer]: Context isolation
+            - generic [ref=e318]:
+              - text: Each subagent runs in its own fresh conversation. Intermediate tool calls and results stay inside the subagent; only its final message returns to the parent. See
+              - link "What subagents inherit" [ref=e319] [cursor=pointer]:
+                - /url: "#what-subagents-inherit"
+              - text: for exactly what’s in the subagent’s context.
+            - generic [ref=e320]:
+              - strong [ref=e321]: "Example:"
+              - text: a
+              - code [ref=e322]: research-assistant
+              - text: subagent can explore dozens of files without any of that content accumulating in the main conversation. The parent receives a concise summary, not every file the subagent read.
+            - heading "Navigate to header Parallelization" [level=3] [ref=e323]:
+              - link "Navigate to header" [ref=e324] [cursor=pointer]:
+                - /url: "#parallelization"
+                - img [ref=e326]
+              - generic [ref=e328] [cursor=pointer]: Parallelization
+            - generic [ref=e329]: Multiple subagents can run concurrently, dramatically speeding up complex workflows.
+            - generic [ref=e330]:
+              - strong [ref=e331]: "Example:"
+              - text: during a code review, you can run
+              - code [ref=e332]: style-checker
+              - text: ","
+              - code [ref=e333]: security-scanner
+              - text: ", and"
+              - code [ref=e334]: test-coverage
+              - text: subagents simultaneously, reducing review time from minutes to seconds.
+            - heading "Navigate to header Specialized instructions and knowledge" [level=3] [ref=e335]:
+              - link "Navigate to header" [ref=e336] [cursor=pointer]:
+                - /url: "#specialized-instructions-and-knowledge"
+                - img [ref=e338]
+              - generic [ref=e340] [cursor=pointer]: Specialized instructions and knowledge
+            - generic [ref=e341]: Each subagent can have tailored system prompts with specific expertise, best practices, and constraints.
+            - generic [ref=e342]:
+              - strong [ref=e343]: "Example:"
+              - text: a
+              - code [ref=e344]: database-migration
+              - text: subagent can have detailed knowledge about SQL best practices, rollback strategies, and data integrity checks that would be unnecessary noise in the main agent’s instructions.
+            - heading "Navigate to header Tool restrictions" [level=3] [ref=e345]:
+              - link "Navigate to header" [ref=e346] [cursor=pointer]:
+                - /url: "#tool-restrictions"
+                - img [ref=e348]
+              - generic [ref=e350] [cursor=pointer]: Tool restrictions
+            - generic [ref=e351]: Subagents can be limited to specific tools, reducing the risk of unintended actions.
+            - generic [ref=e352]:
+              - strong [ref=e353]: "Example:"
+              - text: a
+              - code [ref=e354]: doc-reviewer
+              - text: subagent might only have access to Read and Grep tools, ensuring it can analyze but never accidentally modify your documentation files.
+            - heading "Navigate to header Creating subagents" [level=2] [ref=e355]:
+              - link "Navigate to header" [ref=e356] [cursor=pointer]:
+                - /url: "#creating-subagents"
+                - img [ref=e358]
+              - generic [ref=e360] [cursor=pointer]: Creating subagents
+            - heading "Navigate to header Programmatic definition (recommended)" [level=3] [ref=e361]:
+              - link "Navigate to header" [ref=e362] [cursor=pointer]:
+                - /url: "#programmatic-definition-recommended"
+                - img [ref=e364]
+              - generic [ref=e366] [cursor=pointer]: Programmatic definition (recommended)
+            - generic [ref=e367]:
+              - text: Define subagents directly in your code using the
+              - code [ref=e368]: agents
+              - text: "parameter. This example creates two subagents: a code reviewer with read-only access and a test runner that can execute commands. The"
+              - code [ref=e369]: Agent
+              - text: tool must be included in
+              - code [ref=e370]: allowedTools
+              - text: since Claude invokes subagents through the Agent tool.
+            - generic [ref=e371]:
+              - generic [ref=e372]:
+                - tablist [ref=e373]:
+                  - tab "Python" [selected] [ref=e374] [cursor=pointer]:
+                    - generic [ref=e375]: Python
+                  - tab "TypeScript" [ref=e377] [cursor=pointer]:
+                    - generic [ref=e378]: TypeScript
+                - generic [ref=e379]:
+                  - button "Report incorrect code" [ref=e381] [cursor=pointer]:
+                    - img [ref=e382]
+                  - button "Copy the contents from the code block" [ref=e385] [cursor=pointer]:
+                    - img [ref=e386]
+                  - button "Ask AI" [ref=e390] [cursor=pointer]:
+                    - img [ref=e391]
+              - tabpanel "Python" [ref=e395]:
+                - code [ref=e399]:
+                  - generic [ref=e400]: import asyncio
+                  - generic [ref=e401]: from claude_agent_sdk import query, ClaudeAgentOptions, AgentDefinition
+                  - generic [ref=e402]: "async def main():"
+                  - generic [ref=e403]: async for message in query(
+                  - generic [ref=e404]: prompt="Review the authentication module for security issues",
+                  - generic [ref=e405]: options=ClaudeAgentOptions(
+                  - generic [ref=e406]: "# Agent tool is required for subagent invocation"
+                  - generic [ref=e407]: allowed_tools=["Read", "Grep", "Glob", "Agent"],
+                  - generic [ref=e408]: "agents={"
+                  - generic [ref=e409]: "\"code-reviewer\": AgentDefinition("
+                  - generic [ref=e410]: "# description tells Claude when to use this subagent"
+                  - generic [ref=e411]: description="Expert code review specialist. Use for quality, security, and maintainability reviews.",
+                  - generic [ref=e412]: "# prompt defines the subagent's behavior and expertise"
+                  - generic [ref=e413]: prompt="""You are a code review specialist with expertise in security, performance, and best practices.
+                  - generic [ref=e414]: "When reviewing code:"
+                  - generic [ref=e415]: "- Identify security vulnerabilities"
+                  - generic [ref=e416]: "- Check for performance issues"
+                  - generic [ref=e417]: "- Verify adherence to coding standards"
+                  - generic [ref=e418]: "- Suggest specific improvements"
+                  - generic [ref=e419]: Be thorough but concise in your feedback.""",
+                  - generic [ref=e420]: "# tools restricts what the subagent can do (read-only here)"
+                  - generic [ref=e421]: tools=["Read", "Grep", "Glob"],
+                  - generic [ref=e422]: "# model overrides the default model for this subagent"
+                  - generic [ref=e423]: model="sonnet",
+                  - generic [ref=e424]: ),
+                  - generic [ref=e425]: "\"test-runner\": AgentDefinition("
+                  - generic [ref=e426]: description="Runs and analyzes test suites. Use for test execution and coverage analysis.",
+                  - generic [ref=e427]: prompt="""You are a test execution specialist. Run tests and provide clear analysis of results.
+                  - generic [ref=e428]: "Focus on:"
+                  - generic [ref=e429]: "- Running test commands"
+                  - generic [ref=e430]: "- Analyzing test output"
+                  - generic [ref=e431]: "- Identifying failing tests"
+                  - generic [ref=e432]: "- Suggesting fixes for failures\"\"\","
+                  - generic [ref=e433]: "# Bash access lets this subagent run test commands"
+                  - generic [ref=e434]: tools=["Bash", "Read", "Grep"],
+                  - generic [ref=e435]: ),
+                  - generic [ref=e436]: "},"
+                  - generic [ref=e437]: ),
+                  - generic [ref=e438]: "):"
+                  - generic [ref=e439]: "if hasattr(message, \"result\"):"
+                  - generic [ref=e440]: print(message.result)
+                  - generic [ref=e441]: asyncio.run(main())
+            - heading "Navigate to header AgentDefinition configuration" [level=3] [ref=e442]:
+              - link "Navigate to header" [ref=e443] [cursor=pointer]:
+                - /url: "#agentdefinition-configuration"
+                - img [ref=e445]
+              - generic [ref=e447] [cursor=pointer]: AgentDefinition configuration
+            - table [ref=e450]:
+              - rowgroup [ref=e451]:
+                - row "Field Type Required Description" [ref=e452]:
+                  - columnheader "Field" [ref=e453]
+                  - columnheader "Type" [ref=e454]
+                  - columnheader "Required" [ref=e455]
+                  - columnheader "Description" [ref=e456]
+              - rowgroup [ref=e457]:
+                - row "description string Yes Natural language description of when to use this agent" [ref=e458]:
+                  - cell "description" [ref=e459]:
+                    - code [ref=e460]: description
+                  - cell "string" [ref=e461]:
+                    - code [ref=e462]: string
+                  - cell "Yes" [ref=e463]
+                  - cell "Natural language description of when to use this agent" [ref=e464]
+                - row "prompt string Yes The agent’s system prompt defining its role and behavior" [ref=e465]:
+                  - cell "prompt" [ref=e466]:
+                    - code [ref=e467]: prompt
+                  - cell "string" [ref=e468]:
+                    - code [ref=e469]: string
+                  - cell "Yes" [ref=e470]
+                  - cell "The agent’s system prompt defining its role and behavior" [ref=e471]
+                - row "tools string[] No Array of allowed tool names. If omitted, inherits all tools" [ref=e472]:
+                  - cell "tools" [ref=e473]:
+                    - code [ref=e474]: tools
+                  - cell "string[]" [ref=e475]:
+                    - code [ref=e476]: string[]
+                  - cell "No" [ref=e477]
+                  - cell "Array of allowed tool names. If omitted, inherits all tools" [ref=e478]
+                - row "model 'sonnet' | 'opus' | 'haiku' | 'inherit' No Model override for this agent. Defaults to main model if omitted" [ref=e479]:
+                  - cell "model" [ref=e480]:
+                    - code [ref=e481]: model
+                  - cell "'sonnet' | 'opus' | 'haiku' | 'inherit'" [ref=e482]:
+                    - code [ref=e483]: "'sonnet' | 'opus' | 'haiku' | 'inherit'"
+                  - cell "No" [ref=e484]
+                  - cell "Model override for this agent. Defaults to main model if omitted" [ref=e485]
+                - row "skills string[] No List of skill names available to this agent" [ref=e486]:
+                  - cell "skills" [ref=e487]:
+                    - code [ref=e488]: skills
+                  - cell "string[]" [ref=e489]:
+                    - code [ref=e490]: string[]
+                  - cell "No" [ref=e491]
+                  - cell "List of skill names available to this agent" [ref=e492]
+                - row "memory 'user' | 'project' | 'local' No Memory source for this agent (Python only)" [ref=e493]:
+                  - cell "memory" [ref=e494]:
+                    - code [ref=e495]: memory
+                  - cell "'user' | 'project' | 'local'" [ref=e496]:
+                    - code [ref=e497]: "'user' | 'project' | 'local'"
+                  - cell "No" [ref=e498]
+                  - cell "Memory source for this agent (Python only)" [ref=e499]
+                - row "mcpServers (string | object)[] No MCP servers available to this agent, by name or inline config" [ref=e500]:
+                  - cell "mcpServers" [ref=e501]:
+                    - code [ref=e502]: mcpServers
+                  - cell "(string | object)[]" [ref=e503]:
+                    - code [ref=e504]: (string | object)[]
+                  - cell "No" [ref=e505]
+                  - cell "MCP servers available to this agent, by name or inline config" [ref=e506]
+            - generic [ref=e507]:
+              - img "Note" [ref=e509]
+              - generic [ref=e512]:
+                - text: Subagents cannot spawn their own subagents. Don’t include
+                - code [ref=e513]: Agent
+                - text: in a subagent’s
+                - code [ref=e514]: tools
+                - text: array.
+            - heading "Navigate to header Filesystem-based definition (alternative)" [level=3] [ref=e515]:
+              - link "Navigate to header" [ref=e516] [cursor=pointer]:
+                - /url: "#filesystem-based-definition-alternative"
+                - img [ref=e518]
+              - generic [ref=e520] [cursor=pointer]: Filesystem-based definition (alternative)
+            - generic [ref=e521]:
+              - text: You can also define subagents as markdown files in
+              - code [ref=e522]: .claude/agents/
+              - text: directories. See the
+              - link "Claude Code subagents documentation" [ref=e523] [cursor=pointer]:
+                - /url: /docs/en/sub-agents
+              - text: for details on this approach. Programmatically defined agents take precedence over filesystem-based agents with the same name.
+            - generic [ref=e524]:
+              - img "Note" [ref=e526]
+              - generic [ref=e529]:
+                - text: Even without defining custom subagents, Claude can spawn the built-in
+                - code [ref=e530]: general-purpose
+                - text: subagent when
+                - code [ref=e531]: Agent
+                - text: is in your
+                - code [ref=e532]: allowedTools
+                - text: . This is useful for delegating research or exploration tasks without creating specialized agents.
+            - heading "Navigate to header What subagents inherit" [level=2] [ref=e533]:
+              - link "Navigate to header" [ref=e534] [cursor=pointer]:
+                - /url: "#what-subagents-inherit"
+                - img [ref=e536]
+              - generic [ref=e538] [cursor=pointer]: What subagents inherit
+            - generic [ref=e539]: A subagent’s context window starts fresh (no parent conversation) but isn’t empty. The only channel from parent to subagent is the Agent tool’s prompt string, so include any file paths, error messages, or decisions the subagent needs directly in that prompt.
+            - table [ref=e542]:
+              - rowgroup [ref=e543]:
+                - row "The subagent receives The subagent does not receive" [ref=e544]:
+                  - columnheader "The subagent receives" [ref=e545]
+                  - columnheader "The subagent does not receive" [ref=e546]
+              - rowgroup [ref=e547]:
+                - row "Its own system prompt (AgentDefinition.prompt) and the Agent tool’s prompt The parent’s conversation history or tool results" [ref=e548]:
+                  - cell "Its own system prompt (AgentDefinition.prompt) and the Agent tool’s prompt" [ref=e549]:
+                    - text: Its own system prompt (
+                    - code [ref=e550]: AgentDefinition.prompt
+                    - text: ) and the Agent tool’s prompt
+                  - cell "The parent’s conversation history or tool results" [ref=e551]
+                - row "Project CLAUDE.md (loaded via settingSources) Skills (unless listed in AgentDefinition.skills)" [ref=e552]:
+                  - cell "Project CLAUDE.md (loaded via settingSources)" [ref=e553]:
+                    - text: Project CLAUDE.md (loaded via
+                    - code [ref=e554]: settingSources
+                    - text: )
+                  - cell "Skills (unless listed in AgentDefinition.skills)" [ref=e555]:
+                    - text: Skills (unless listed in
+                    - code [ref=e556]: AgentDefinition.skills
+                    - text: )
+                - row "Tool definitions (inherited from parent, or the subset in tools) The parent’s system prompt" [ref=e557]:
+                  - cell "Tool definitions (inherited from parent, or the subset in tools)" [ref=e558]:
+                    - text: Tool definitions (inherited from parent, or the subset in
+                    - code [ref=e559]: tools
+                    - text: )
+                  - cell "The parent’s system prompt" [ref=e560]
+            - generic [ref=e561]:
+              - img "Note" [ref=e563]
+              - generic [ref=e566]:
+                - text: The parent receives the subagent’s final message verbatim as the Agent tool result, but may summarize it in its own response. To preserve subagent output verbatim in the user-facing response, include an instruction to do so in the prompt or
+                - code [ref=e567]: systemPrompt
+                - text: option you pass to the
+                - strong [ref=e568]: main
+                - code [ref=e569]: query()
+                - text: call.
+            - heading "Navigate to header Invoking subagents" [level=2] [ref=e570]:
+              - link "Navigate to header" [ref=e571] [cursor=pointer]:
+                - /url: "#invoking-subagents"
+                - img [ref=e573]
+              - generic [ref=e575] [cursor=pointer]: Invoking subagents
+            - heading "Navigate to header Automatic invocation" [level=3] [ref=e576]:
+              - link "Navigate to header" [ref=e577] [cursor=pointer]:
+                - /url: "#automatic-invocation"
+                - img [ref=e579]
+              - generic [ref=e581] [cursor=pointer]: Automatic invocation
+            - generic [ref=e582]:
+              - text: Claude automatically decides when to invoke subagents based on the task and each subagent’s
+              - code [ref=e583]: description
+              - text: . For example, if you define a
+              - code [ref=e584]: performance-optimizer
+              - text: subagent with the description “Performance optimization specialist for query tuning”, Claude will invoke it when your prompt mentions optimizing queries.
+            - generic [ref=e585]: Write clear, specific descriptions so Claude can match tasks to the right subagent.
+            - heading "Navigate to header Explicit invocation" [level=3] [ref=e586]:
+              - link "Navigate to header" [ref=e587] [cursor=pointer]:
+                - /url: "#explicit-invocation"
+                - img [ref=e589]
+              - generic [ref=e591] [cursor=pointer]: Explicit invocation
+            - generic [ref=e592]: "To guarantee Claude uses a specific subagent, mention it by name in your prompt:"
+            - generic [ref=e593]:
+              - generic [ref=e594]:
+                - button "Report incorrect code" [ref=e596] [cursor=pointer]:
+                  - img [ref=e597]
+                - button "Copy the contents from the code block" [ref=e600] [cursor=pointer]:
+                  - img [ref=e601]
+                - button "Ask AI" [ref=e605] [cursor=pointer]:
+                  - img [ref=e606]
+              - code [ref=e612]:
+                - generic [ref=e613]: "\"Use the code-reviewer agent to check the authentication module\""
+            - generic [ref=e614]: This bypasses automatic matching and directly invokes the named subagent.
+            - heading "Navigate to header Dynamic agent configuration" [level=3] [ref=e615]:
+              - link "Navigate to header" [ref=e616] [cursor=pointer]:
+                - /url: "#dynamic-agent-configuration"
+                - img [ref=e618]
+              - generic [ref=e620] [cursor=pointer]: Dynamic agent configuration
+            - generic [ref=e621]: You can create agent definitions dynamically based on runtime conditions. This example creates a security reviewer with different strictness levels, using a more powerful model for strict reviews.
+            - generic [ref=e622]:
+              - generic [ref=e623]:
+                - tablist [ref=e624]:
+                  - tab "Python" [selected] [ref=e625] [cursor=pointer]:
+                    - generic [ref=e626]: Python
+                  - tab "TypeScript" [ref=e628] [cursor=pointer]:
+                    - generic [ref=e629]: TypeScript
+                - generic [ref=e630]:
+                  - button "Report incorrect code" [ref=e632] [cursor=pointer]:
+                    - img [ref=e633]
+                  - button "Copy the contents from the code block" [ref=e636] [cursor=pointer]:
+                    - img [ref=e637]
+                  - button "Ask AI" [ref=e641] [cursor=pointer]:
+                    - img [ref=e642]
+              - tabpanel "Python" [ref=e646]:
+                - code [ref=e650]:
+                  - generic [ref=e651]: import asyncio
+                  - generic [ref=e652]: from claude_agent_sdk import query, ClaudeAgentOptions, AgentDefinition
+                  - generic [ref=e653]: "# Factory function that returns an AgentDefinition"
+                  - generic [ref=e654]: "# This pattern lets you customize agents based on runtime conditions"
+                  - generic [ref=e655]: "def create_security_agent(security_level: str) -> AgentDefinition:"
+                  - generic [ref=e656]: is_strict = security_level == "strict"
+                  - generic [ref=e657]: return AgentDefinition(
+                  - generic [ref=e658]: description="Security code reviewer",
+                  - generic [ref=e659]: "# Customize the prompt based on strictness level"
+                  - generic [ref=e660]: "prompt=f\"You are a {'strict' if is_strict else 'balanced'} security reviewer...\","
+                  - generic [ref=e661]: tools=["Read", "Grep", "Glob"],
+                  - generic [ref=e662]: "# Key insight: use a more capable model for high-stakes reviews"
+                  - generic [ref=e663]: model="opus" if is_strict else "sonnet",
+                  - generic [ref=e664]: )
+                  - generic [ref=e665]: "async def main():"
+                  - generic [ref=e666]: "# The agent is created at query time, so each request can use different settings"
+                  - generic [ref=e667]: async for message in query(
+                  - generic [ref=e668]: prompt="Review this PR for security issues",
+                  - generic [ref=e669]: options=ClaudeAgentOptions(
+                  - generic [ref=e670]: allowed_tools=["Read", "Grep", "Glob", "Agent"],
+                  - generic [ref=e671]: "agents={"
+                  - generic [ref=e672]: "# Call the factory with your desired configuration"
+                  - generic [ref=e673]: "\"security-reviewer\": create_security_agent(\"strict\")"
+                  - generic [ref=e674]: "},"
+                  - generic [ref=e675]: ),
+                  - generic [ref=e676]: "):"
+                  - generic [ref=e677]: "if hasattr(message, \"result\"):"
+                  - generic [ref=e678]: print(message.result)
+                  - generic [ref=e679]: asyncio.run(main())
+            - heading "Navigate to header Detecting subagent invocation" [level=2] [ref=e680]:
+              - link "Navigate to header" [ref=e681] [cursor=pointer]:
+                - /url: "#detecting-subagent-invocation"
+                - img [ref=e683]
+              - generic [ref=e685] [cursor=pointer]: Detecting subagent invocation
+            - generic [ref=e686]:
+              - text: Subagents are invoked via the Agent tool. To detect when a subagent is invoked, check for
+              - code [ref=e687]: tool_use
+              - text: blocks where
+              - code [ref=e688]: name
+              - text: is
+              - code [ref=e689]: "\"Agent\""
+              - text: . Messages from within a subagent’s context include a
+              - code [ref=e690]: parent_tool_use_id
+              - text: field.
+            - generic [ref=e691]:
+              - img "Note" [ref=e693]
+              - generic [ref=e696]:
+                - text: The tool name was renamed from
+                - code [ref=e697]: "\"Task\""
+                - text: to
+                - code [ref=e698]: "\"Agent\""
+                - text: in Claude Code v2.1.63. Current SDK releases emit
+                - code [ref=e699]: "\"Agent\""
+                - text: in
+                - code [ref=e700]: tool_use
+                - text: blocks but still use
+                - code [ref=e701]: "\"Task\""
+                - text: in the
+                - code [ref=e702]: system:init
+                - text: tools list and in
+                - code [ref=e703]: result.permission_denials[].tool_name
+                - text: . Checking both values in
+                - code [ref=e704]: block.name
+                - text: ensures compatibility across SDK versions.
+            - generic [ref=e705]: This example iterates through streamed messages, logging when a subagent is invoked and when subsequent messages originate from within that subagent’s execution context.
+            - generic [ref=e706]:
+              - img "Note" [ref=e708]
+              - generic [ref=e711]:
+                - text: The message structure differs between SDKs. In Python, content blocks are accessed directly via
+                - code [ref=e712]: message.content
+                - text: . In TypeScript,
+                - code [ref=e713]: SDKAssistantMessage
+                - text: wraps the Claude API message, so content is accessed via
+                - code [ref=e714]: message.message.content
+                - text: .
+            - generic [ref=e715]:
+              - generic [ref=e716]:
+                - tablist [ref=e717]:
+                  - tab "Python" [selected] [ref=e718] [cursor=pointer]:
+                    - generic [ref=e719]: Python
+                  - tab "TypeScript" [ref=e721] [cursor=pointer]:
+                    - generic [ref=e722]: TypeScript
+                - generic [ref=e723]:
+                  - button "Report incorrect code" [ref=e725] [cursor=pointer]:
+                    - img [ref=e726]
+                  - button "Copy the contents from the code block" [ref=e729] [cursor=pointer]:
+                    - img [ref=e730]
+                  - button "Ask AI" [ref=e734] [cursor=pointer]:
+                    - img [ref=e735]
+              - tabpanel "Python" [ref=e739]:
+                - code [ref=e743]:
+                  - generic [ref=e744]: import asyncio
+                  - generic [ref=e745]: from claude_agent_sdk import query, ClaudeAgentOptions, AgentDefinition
+                  - generic [ref=e746]: "async def main():"
+                  - generic [ref=e747]: async for message in query(
+                  - generic [ref=e748]: prompt="Use the code-reviewer agent to review this codebase",
+                  - generic [ref=e749]: options=ClaudeAgentOptions(
+                  - generic [ref=e750]: allowed_tools=["Read", "Glob", "Grep", "Agent"],
+                  - generic [ref=e751]: "agents={"
+                  - generic [ref=e752]: "\"code-reviewer\": AgentDefinition("
+                  - generic [ref=e753]: description="Expert code reviewer.",
+                  - generic [ref=e754]: prompt="Analyze code quality and suggest improvements.",
+                  - generic [ref=e755]: tools=["Read", "Glob", "Grep"],
+                  - generic [ref=e756]: )
+                  - generic [ref=e757]: "},"
+                  - generic [ref=e758]: ),
+                  - generic [ref=e759]: "):"
+                  - generic [ref=e760]: "# Check for subagent invocation. Match both names: older SDK"
+                  - generic [ref=e761]: "# versions emitted \"Task\", current versions emit \"Agent\"."
+                  - generic [ref=e762]: "if hasattr(message, \"content\") and message.content:"
+                  - generic [ref=e763]: "for block in message.content:"
+                  - generic [ref=e764]: if getattr(block, "type", None) == "tool_use" and block.name in (
+                  - generic [ref=e765]: "\"Task\","
+                  - generic [ref=e766]: "\"Agent\","
+                  - generic [ref=e767]: "):"
+                  - generic [ref=e768]: "print(f\"Subagent invoked: {block.input.get('subagent_type')}\")"
+                  - generic [ref=e769]: "# Check if this message is from within a subagent's context"
+                  - generic [ref=e770]: "if hasattr(message, \"parent_tool_use_id\") and message.parent_tool_use_id:"
+                  - generic [ref=e771]: print(" (running inside subagent)")
+                  - generic [ref=e772]: "if hasattr(message, \"result\"):"
+                  - generic [ref=e773]: print(message.result)
+                  - generic [ref=e774]: asyncio.run(main())
+            - heading "Navigate to header Resuming subagents" [level=2] [ref=e775]:
+              - link "Navigate to header" [ref=e776] [cursor=pointer]:
+                - /url: "#resuming-subagents"
+                - img [ref=e778]
+              - generic [ref=e780] [cursor=pointer]: Resuming subagents
+            - generic [ref=e781]: Subagents can be resumed to continue where they left off. Resumed subagents retain their full conversation history, including all previous tool calls, results, and reasoning. The subagent picks up exactly where it stopped rather than starting fresh.
+            - generic [ref=e782]: "When a subagent completes, Claude receives its agent ID in the Agent tool result. To resume a subagent programmatically:"
+            - list [ref=e783]:
+              - listitem [ref=e784]:
+                - strong [ref=e785]: Capture the session ID
+                - text: ": Extract"
+                - code [ref=e786]: session_id
+                - text: from messages during the first query
+              - listitem [ref=e787]:
+                - strong [ref=e788]: Extract the agent ID
+                - text: ": Parse"
+                - code [ref=e789]: agentId
+                - text: from the message content
+              - listitem [ref=e790]:
+                - strong [ref=e791]: Resume the session
+                - text: ": Pass"
+                - code [ref=e792]: "resume: sessionId"
+                - text: in the second query’s options, and include the agent ID in your prompt
+            - generic [ref=e793]:
+              - img "Note" [ref=e795]
+              - generic [ref=e797]:
+                - generic [ref=e798]:
+                  - text: You must resume the same session to access the subagent’s transcript. Each
+                  - code [ref=e799]: query()
+                  - text: call starts a new session by default, so pass
+                  - code [ref=e800]: "resume: sessionId"
+                  - text: to continue in the same session.
+                - generic [ref=e801]:
+                  - text: If you’re using a custom agent (not a built-in one), you also need to pass the same agent definition in the
+                  - code [ref=e802]: agents
+                  - text: parameter for both queries.
+            - generic [ref=e803]: "The example below demonstrates this flow: the first query runs a subagent and captures the session ID and agent ID, then the second query resumes the session to ask a follow-up question that requires context from the first analysis."
+            - generic [ref=e804]:
+              - generic [ref=e805]:
+                - tablist [ref=e806]:
+                  - tab "TypeScript" [selected] [ref=e807] [cursor=pointer]:
+                    - generic [ref=e808]: TypeScript
+                  - tab "Python" [ref=e810] [cursor=pointer]:
+                    - generic [ref=e811]: Python
+                - generic [ref=e812]:
+                  - button "Report incorrect code" [ref=e814] [cursor=pointer]:
+                    - img [ref=e815]
+                  - button "Copy the contents from the code block" [ref=e818] [cursor=pointer]:
+                    - img [ref=e819]
+                  - button "Ask AI" [ref=e823] [cursor=pointer]:
+                    - img [ref=e824]
+              - tabpanel "TypeScript" [ref=e828]:
+                - code [ref=e832]:
+                  - generic [ref=e833]: "import { query, type SDKMessage } from \"@anthropic-ai/claude-agent-sdk\";"
+                  - generic [ref=e834]: // Helper to extract agentId from message content
+                  - generic [ref=e835]: // Stringify to avoid traversing different block types (TextBlock, ToolResultBlock, etc.)
+                  - generic [ref=e836]: "function extractAgentId(message: SDKMessage): string | undefined {"
+                  - generic [ref=e837]: if (!("message" in message)) return undefined;
+                  - generic [ref=e838]: // Stringify the content so we can search it without traversing nested blocks
+                  - generic [ref=e839]: const content = JSON.stringify(message.message.content);
+                  - generic [ref=e840]: const match = content.match(/agentId:\s*([a-f0-9-]+)/);
+                  - generic [ref=e841]: return match?.[1];
+                  - generic [ref=e842]: "}"
+                  - generic [ref=e843]: "let agentId: string | undefined;"
+                  - generic [ref=e844]: "let sessionId: string | undefined;"
+                  - generic [ref=e845]: // First invocation - use the Explore agent to find API endpoints
+                  - generic [ref=e846]: "for await (const message of query({"
+                  - generic [ref=e847]: "prompt: \"Use the Explore agent to find all API endpoints in this codebase\","
+                  - generic [ref=e848]: "options: { allowedTools: [\"Read\", \"Grep\", \"Glob\", \"Agent\"] }"
+                  - generic [ref=e849]: "})) {"
+                  - generic [ref=e850]: // Capture session_id from ResultMessage (needed to resume this session)
+                  - generic [ref=e851]: if ("session_id" in message) sessionId = message.session_id;
+                  - generic [ref=e852]: // Search message content for the agentId (appears in Agent tool results)
+                  - generic [ref=e853]: const extractedId = extractAgentId(message);
+                  - generic [ref=e854]: if (extractedId) agentId = extractedId;
+                  - generic [ref=e855]: // Print the final result
+                  - generic [ref=e856]: if ("result" in message) console.log(message.result);
+                  - generic [ref=e857]: "}"
+                  - generic [ref=e858]: // Second invocation - resume and ask follow-up
+                  - generic [ref=e859]: "if (agentId && sessionId) {"
+                  - generic [ref=e860]: "for await (const message of query({"
+                  - generic [ref=e861]: "prompt: `Resume agent ${agentId} and list the top 3 most complex endpoints`,"
+                  - generic [ref=e862]: "options: { allowedTools: [\"Read\", \"Grep\", \"Glob\", \"Agent\"], resume: sessionId }"
+                  - generic [ref=e863]: "})) {"
+                  - generic [ref=e864]: if ("result" in message) console.log(message.result);
+                  - generic [ref=e865]: "}"
+                  - generic [ref=e866]: "}"
+            - generic [ref=e867]: "Subagent transcripts persist independently of the main conversation:"
+            - list [ref=e868]:
+              - listitem [ref=e869]:
+                - strong [ref=e870]: Main conversation compaction
+                - text: ": When the main conversation compacts, subagent transcripts are unaffected. They’re stored in separate files."
+              - listitem [ref=e871]:
+                - strong [ref=e872]: Session persistence
+                - text: ": Subagent transcripts persist within their session. You can resume a subagent after restarting Claude Code by resuming the same session."
+              - listitem [ref=e873]:
+                - strong [ref=e874]: Automatic cleanup
+                - text: ": Transcripts are cleaned up based on the"
+                - code [ref=e875]: cleanupPeriodDays
+                - text: "setting (default: 30 days)."
+            - heading "Navigate to header Tool restrictions" [level=2] [ref=e876]:
+              - link "Navigate to header" [ref=e877] [cursor=pointer]:
+                - /url: "#tool-restrictions-2"
+                - img [ref=e879]
+              - generic [ref=e881] [cursor=pointer]: Tool restrictions
+            - generic [ref=e882]:
+              - text: Subagents can have restricted tool access via the
+              - code [ref=e883]: tools
+              - text: "field:"
+            - list [ref=e884]:
+              - listitem [ref=e885]:
+                - strong [ref=e886]: Omit the field
+                - text: ": agent inherits all available tools (default)"
+              - listitem [ref=e887]:
+                - strong [ref=e888]: Specify tools
+                - text: ": agent can only use listed tools"
+            - generic [ref=e889]: This example creates a read-only analysis agent that can examine code but cannot modify files or run commands.
+            - generic [ref=e890]:
+              - generic [ref=e891]:
+                - tablist [ref=e892]:
+                  - tab "Python" [selected] [ref=e893] [cursor=pointer]:
+                    - generic [ref=e894]: Python
+                  - tab "TypeScript" [ref=e896] [cursor=pointer]:
+                    - generic [ref=e897]: TypeScript
+                - generic [ref=e898]:
+                  - button "Report incorrect code" [ref=e900] [cursor=pointer]:
+                    - img [ref=e901]
+                  - button "Copy the contents from the code block" [ref=e904] [cursor=pointer]:
+                    - img [ref=e905]
+                  - button "Ask AI" [ref=e909] [cursor=pointer]:
+                    - img [ref=e910]
+              - tabpanel "Python" [ref=e914]:
+                - code [ref=e918]:
+                  - generic [ref=e919]: import asyncio
+                  - generic [ref=e920]: from claude_agent_sdk import query, ClaudeAgentOptions, AgentDefinition
+                  - generic [ref=e921]: "async def main():"
+                  - generic [ref=e922]: async for message in query(
+                  - generic [ref=e923]: prompt="Analyze the architecture of this codebase",
+                  - generic [ref=e924]: options=ClaudeAgentOptions(
+                  - generic [ref=e925]: allowed_tools=["Read", "Grep", "Glob", "Agent"],
+                  - generic [ref=e926]: "agents={"
+                  - generic [ref=e927]: "\"code-analyzer\": AgentDefinition("
+                  - generic [ref=e928]: description="Static code analysis and architecture review",
+                  - generic [ref=e929]: prompt="""You are a code architecture analyst. Analyze code structure,
+                  - generic [ref=e930]: identify patterns, and suggest improvements without making changes.""",
+                  - generic [ref=e931]: "# Read-only tools: no Edit, Write, or Bash access"
+                  - generic [ref=e932]: tools=["Read", "Grep", "Glob"],
+                  - generic [ref=e933]: )
+                  - generic [ref=e934]: "},"
+                  - generic [ref=e935]: ),
+                  - generic [ref=e936]: "):"
+                  - generic [ref=e937]: "if hasattr(message, \"result\"):"
+                  - generic [ref=e938]: print(message.result)
+                  - generic [ref=e939]: asyncio.run(main())
+            - heading "Navigate to header Common tool combinations" [level=3] [ref=e940]:
+              - link "Navigate to header" [ref=e941] [cursor=pointer]:
+                - /url: "#common-tool-combinations"
+                - img [ref=e943]
+              - generic [ref=e945] [cursor=pointer]: Common tool combinations
+            - table [ref=e948]:
+              - rowgroup [ref=e949]:
+                - row "Use case Tools Description" [ref=e950]:
+                  - columnheader "Use case" [ref=e951]
+                  - columnheader "Tools" [ref=e952]
+                  - columnheader "Description" [ref=e953]
+              - rowgroup [ref=e954]:
+                - row "Read-only analysis Read, Grep, Glob Can examine code but not modify or execute" [ref=e955]:
+                  - cell "Read-only analysis" [ref=e956]
+                  - cell "Read, Grep, Glob" [ref=e957]:
+                    - code [ref=e958]: Read
+                    - text: ","
+                    - code [ref=e959]: Grep
+                    - text: ","
+                    - code [ref=e960]: Glob
+                  - cell "Can examine code but not modify or execute" [ref=e961]
+                - row "Test execution Bash, Read, Grep Can run commands and analyze output" [ref=e962]:
+                  - cell "Test execution" [ref=e963]
+                  - cell "Bash, Read, Grep" [ref=e964]:
+                    - code [ref=e965]: Bash
+                    - text: ","
+                    - code [ref=e966]: Read
+                    - text: ","
+                    - code [ref=e967]: Grep
+                  - cell "Can run commands and analyze output" [ref=e968]
+                - row "Code modification Read, Edit, Write, Grep, Glob Full read/write access without command execution" [ref=e969]:
+                  - cell "Code modification" [ref=e970]
+                  - cell "Read, Edit, Write, Grep, Glob" [ref=e971]:
+                    - code [ref=e972]: Read
+                    - text: ","
+                    - code [ref=e973]: Edit
+                    - text: ","
+                    - code [ref=e974]: Write
+                    - text: ","
+                    - code [ref=e975]: Grep
+                    - text: ","
+                    - code [ref=e976]: Glob
+                  - cell "Full read/write access without command execution" [ref=e977]
+                - row "Full access All tools Inherits all tools from parent (omit tools field)" [ref=e978]:
+                  - cell "Full access" [ref=e979]
+                  - cell "All tools" [ref=e980]
+                  - cell "Inherits all tools from parent (omit tools field)" [ref=e981]:
+                    - text: Inherits all tools from parent (omit
+                    - code [ref=e982]: tools
+                    - text: field)
+            - heading "Navigate to header Troubleshooting" [level=2] [ref=e983]:
+              - link "Navigate to header" [ref=e984] [cursor=pointer]:
+                - /url: "#troubleshooting"
+                - img [ref=e986]
+              - generic [ref=e988] [cursor=pointer]: Troubleshooting
+            - heading "Navigate to header Claude not delegating to subagents" [level=3] [ref=e989]:
+              - link "Navigate to header" [ref=e990] [cursor=pointer]:
+                - /url: "#claude-not-delegating-to-subagents"
+                - img [ref=e992]
+              - generic [ref=e994] [cursor=pointer]: Claude not delegating to subagents
+            - generic [ref=e995]: "If Claude completes tasks directly instead of delegating to your subagent:"
+            - list [ref=e996]:
+              - listitem [ref=e997]:
+                - strong [ref=e998]: Include the Agent tool
+                - text: ": subagents are invoked via the Agent tool, so it must be in"
+                - code [ref=e999]: allowedTools
+              - listitem [ref=e1000]:
+                - strong [ref=e1001]: Use explicit prompting
+                - text: ": mention the subagent by name in your prompt (for example, “Use the code-reviewer agent to…”)"
+              - listitem [ref=e1002]:
+                - strong [ref=e1003]: Write a clear description
+                - text: ": explain exactly when the subagent should be used so Claude can match tasks appropriately"
+            - heading "Navigate to header Filesystem-based agents not loading" [level=3] [ref=e1004]:
+              - link "Navigate to header" [ref=e1005] [cursor=pointer]:
+                - /url: "#filesystem-based-agents-not-loading"
+                - img [ref=e1007]
+              - generic [ref=e1009] [cursor=pointer]: Filesystem-based agents not loading
+            - generic [ref=e1010]:
+              - text: Agents defined in
+              - code [ref=e1011]: .claude/agents/
+              - text: are loaded at startup only. If you create a new agent file while Claude Code is running, restart the session to load it.
+            - 'heading "Navigate to header Windows: long prompt failures" [level=3] [ref=e1012]':
+              - link "Navigate to header" [ref=e1013] [cursor=pointer]:
+                - /url: "#windows-long-prompt-failures"
+                - img [ref=e1015]
+              - generic [ref=e1017] [cursor=pointer]: "Windows: long prompt failures"
+            - generic [ref=e1018]: On Windows, subagents with very long prompts may fail due to command line length limits (8191 chars). Keep prompts concise or use filesystem-based agents for complex instructions.
+            - heading "Navigate to header Related documentation" [level=2] [ref=e1019]:
+              - link "Navigate to header" [ref=e1020] [cursor=pointer]:
+                - /url: "#related-documentation"
+                - img [ref=e1022]
+              - generic [ref=e1024] [cursor=pointer]: Related documentation
+            - list [ref=e1025]:
+              - listitem [ref=e1026]:
+                - link "Claude Code subagents" [ref=e1027] [cursor=pointer]:
+                  - /url: /docs/en/sub-agents
+                - text: ": comprehensive subagent documentation including filesystem-based definitions"
+              - listitem [ref=e1028]:
+                - link "SDK overview" [ref=e1029] [cursor=pointer]:
+                  - /url: /docs/en/agent-sdk/overview
+                - text: ": getting started with the Claude Agent SDK"
+          - generic [ref=e1031]:
+            - paragraph [ref=e1032]: Was this page helpful?
+            - generic [ref=e1034]:
+              - button "Yes" [ref=e1035] [cursor=pointer]:
+                - img [ref=e1036]
+                - generic [ref=e1038]: "Yes"
+              - button "No" [ref=e1039] [cursor=pointer]:
+                - img [ref=e1040]
+                - generic [ref=e1042]: "No"
+          - generic [ref=e1043]:
+            - link "Scale to many tools with tool search" [ref=e1044] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/tool-search
+              - img [ref=e1045]
+              - generic [ref=e1047]: Scale to many tools with tool search
+            - link "Modifying system prompts" [ref=e1048] [cursor=pointer]:
+              - /url: /docs/en/agent-sdk/modifying-system-prompts
+              - generic [ref=e1049]: Modifying system prompts
+              - img [ref=e1050]
+          - generic [ref=e1053]:
+            - textbox "Ask a question..." [ref=e1054]
+            - generic: Ctrl+I
+            - button "Send message" [disabled] [ref=e1055]:
+              - img [ref=e1056]
+      - contentinfo [ref=e1058]:
+        - generic [ref=e1060]:
+          - generic [ref=e1061]:
+            - link "Claude Code Docs home page light logo" [ref=e1062] [cursor=pointer]:
+              - /url: /docs/en/overview
+              - generic [ref=e1063]: Claude Code Docs home page
+              - img "light logo" [ref=e1064]
+            - generic [ref=e1065]:
+              - link "x" [ref=e1066] [cursor=pointer]:
+                - /url: https://x.com/AnthropicAI
+                - generic [ref=e1067]: x
+                - img [ref=e1068]
+              - link "linkedin" [ref=e1069] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/anthropicresearch
+                - generic [ref=e1070]: linkedin
+                - img [ref=e1071]
+          - generic [ref=e1072]:
+            - generic [ref=e1074]:
+              - paragraph [ref=e1075]: Company
+              - link "Anthropic" [ref=e1076] [cursor=pointer]:
+                - /url: https://www.anthropic.com/company
+              - link "Careers" [ref=e1077] [cursor=pointer]:
+                - /url: https://www.anthropic.com/careers
+              - link "Economic Futures" [ref=e1078] [cursor=pointer]:
+                - /url: https://www.anthropic.com/economic-futures
+              - link "Research" [ref=e1079] [cursor=pointer]:
+                - /url: https://www.anthropic.com/research
+              - link "News" [ref=e1080] [cursor=pointer]:
+                - /url: https://www.anthropic.com/news
+              - link "Trust center" [ref=e1081] [cursor=pointer]:
+                - /url: https://trust.anthropic.com/
+              - link "Transparency" [ref=e1082] [cursor=pointer]:
+                - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1084]:
+              - paragraph [ref=e1085]: Help and security
+              - link "Availability" [ref=e1086] [cursor=pointer]:
+                - /url: https://www.anthropic.com/supported-countries
+              - link "Status" [ref=e1087] [cursor=pointer]:
+                - /url: https://status.anthropic.com/
+              - link "Support center" [ref=e1088] [cursor=pointer]:
+                - /url: https://support.claude.com/
+            - generic [ref=e1090]:
+              - paragraph [ref=e1091]: Learn
+              - link "Courses" [ref=e1092] [cursor=pointer]:
+                - /url: https://www.anthropic.com/learn
+              - link "MCP connectors" [ref=e1093] [cursor=pointer]:
+                - /url: https://claude.com/partners/mcp
+              - link "Customer stories" [ref=e1094] [cursor=pointer]:
+                - /url: https://www.claude.com/customers
+              - link "Engineering blog" [ref=e1095] [cursor=pointer]:
+                - /url: https://www.anthropic.com/engineering
+              - link "Events" [ref=e1096] [cursor=pointer]:
+                - /url: https://www.anthropic.com/events
+              - link "Powered by Claude" [ref=e1097] [cursor=pointer]:
+                - /url: https://claude.com/partners/powered-by-claude
+              - link "Service partners" [ref=e1098] [cursor=pointer]:
+                - /url: https://claude.com/partners/services
+              - link "Startups program" [ref=e1099] [cursor=pointer]:
+                - /url: https://claude.com/programs/startups
+            - generic [ref=e1101]:
+              - paragraph [ref=e1102]: Terms and policies
+              - link "Privacy choices" [ref=e1103] [cursor=pointer]:
+                - /url: "#"
+              - link "Privacy policy" [ref=e1104] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/privacy
+              - link "Disclosure policy" [ref=e1105] [cursor=pointer]:
+                - /url: https://www.anthropic.com/responsible-disclosure-policy
+              - link "Usage policy" [ref=e1106] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/aup
+              - link "Commercial terms" [ref=e1107] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/commercial-terms
+              - link "Consumer terms" [ref=e1108] [cursor=pointer]:
+                - /url: https://www.anthropic.com/legal/consumer-terms
+  - alert [ref=e1109]

@@ -1,0 +1,1143 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fbuild-with-claude%2Fadaptive-thinking
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Model capabilities
+              - generic [ref=e287]:
+                - heading "Adaptive thinking" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+              - generic [ref=e301]: Let Claude dynamically determine when and how much to use extended thinking with adaptive thinking mode.
+            - generic [ref=e302]:
+              - img [ref=e305]
+              - paragraph [ref=e308]:
+                - text: This feature is eligible for
+                - link "Zero Data Retention (ZDR)" [ref=e309] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/api-and-data-retention
+                - text: . When your organization has a ZDR arrangement, data sent through this feature is not stored after the API response is returned.
+            - paragraph [ref=e310]:
+              - text: Adaptive thinking is the recommended way to use
+              - link "extended thinking" [ref=e311] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+              - text: with Claude Opus 4.6 and Claude Sonnet 4.6, and is the default mode on
+              - link "Claude Mythos Preview" [ref=e312] [cursor=pointer]:
+                - /url: https://anthropic.com/glasswing
+              - text: (where it auto-applies whenever
+              - code [ref=e313]: thinking
+              - text: is unset). Instead of manually setting a thinking token budget, adaptive thinking lets Claude dynamically determine when and how much to use extended thinking based on the complexity of each request.
+            - generic [ref=e314]:
+              - img [ref=e317]
+              - generic [ref=e319]:
+                - paragraph [ref=e320]:
+                  - text: Adaptive thinking can drive better performance than extended thinking with a fixed
+                  - code [ref=e321]: budget_tokens
+                  - text: for many workloads, especially bimodal tasks and long-horizon agentic workflows. No beta header is required.
+                - paragraph [ref=e322]:
+                  - text: If your workload requires predictable latency or precise control over thinking costs, extended thinking with
+                  - code [ref=e323]: budget_tokens
+                  - text: is still functional on these models but is deprecated and no longer recommended. See the warning below.
+            - heading "Copy link to clipboard Supported models" [level=2] [ref=e324]:
+              - generic [ref=e325]:
+                - button "Copy link to clipboard" [ref=e327] [cursor=pointer]:
+                  - img [ref=e329]
+                - generic [ref=e331]: Supported models
+            - paragraph [ref=e332]: "Adaptive thinking is supported on the following models:"
+            - list [ref=e333]:
+              - listitem [ref=e334]:
+                - text: • Claude Mythos Preview (
+                - code [ref=e335]: claude-mythos-preview
+                - text: ), adaptive thinking is the default;
+                - code [ref=e336]: "thinking: {type: \"disabled\"}"
+                - text: is not supported
+              - listitem [ref=e337]:
+                - text: • Claude Opus 4.6 (
+                - code [ref=e338]: claude-opus-4-6
+                - text: )
+              - listitem [ref=e339]:
+                - text: • Claude Sonnet 4.6 (
+                - code [ref=e340]: claude-sonnet-4-6
+                - text: )
+            - generic [ref=e341]:
+              - img [ref=e344]
+              - generic [ref=e346]:
+                - paragraph [ref=e347]:
+                  - code [ref=e348]: "thinking.type: \"enabled\""
+                  - text: and
+                  - code [ref=e349]: budget_tokens
+                  - text: are
+                  - link "deprecated" [ref=e350] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/overview#feature-availability
+                    - strong [ref=e351]: deprecated
+                  - text: on Opus 4.6 and Sonnet 4.6 and will be removed in a future model release. Use
+                  - code [ref=e352]: "thinking.type: \"adaptive\""
+                  - text: with the
+                  - code [ref=e353]: effort
+                  - text: parameter instead. Existing
+                  - code [ref=e354]: budget_tokens
+                  - text: configurations are still functional but no longer recommended; plan to migrate.
+                - paragraph [ref=e355]:
+                  - text: Older models (Sonnet 4.5, Opus 4.5, etc.) do not support adaptive thinking and require
+                  - code [ref=e356]: "thinking.type: \"enabled\""
+                  - text: with
+                  - code [ref=e357]: budget_tokens
+                  - text: .
+            - heading "Copy link to clipboard How adaptive thinking works" [level=2] [ref=e358]:
+              - generic [ref=e359]:
+                - button "Copy link to clipboard" [ref=e361] [cursor=pointer]:
+                  - img [ref=e363]
+                - generic [ref=e365]: How adaptive thinking works
+            - paragraph [ref=e366]:
+              - text: In adaptive mode, thinking is optional for the model. Claude evaluates the complexity of each request and determines whether and how much to use extended thinking. At the default effort level (
+              - code [ref=e367]: high
+              - text: ), Claude almost always thinks. At lower effort levels, Claude may skip thinking for simpler problems.
+            - paragraph [ref=e368]:
+              - text: Adaptive thinking also automatically enables
+              - link "interleaved thinking" [ref=e369] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking#interleaved-thinking
+              - text: . This means Claude can think between tool calls, making it especially effective for agentic workflows.
+            - heading "Copy link to clipboard How to use adaptive thinking" [level=2] [ref=e370]:
+              - generic [ref=e371]:
+                - button "Copy link to clipboard" [ref=e373] [cursor=pointer]:
+                  - img [ref=e375]
+                - generic [ref=e377]: How to use adaptive thinking
+            - paragraph [ref=e378]:
+              - text: Set
+              - code [ref=e379]: thinking.type
+              - text: to
+              - code [ref=e380]: "\"adaptive\""
+              - text: "in your API request:"
+            - generic [ref=e381]:
+              - generic [ref=e382]:
+                - generic [ref=e383]:
+                  - button "Shell" [ref=e384] [cursor=pointer]
+                  - button "CLI" [ref=e385] [cursor=pointer]
+                  - button "Python" [ref=e386] [cursor=pointer]
+                  - button "TypeScript" [ref=e387] [cursor=pointer]
+                  - button "C#" [ref=e388] [cursor=pointer]
+                  - button "Go" [ref=e389] [cursor=pointer]
+                  - button "Java" [ref=e390] [cursor=pointer]
+                  - button "PHP" [ref=e391] [cursor=pointer]
+                  - button "Ruby" [ref=e392] [cursor=pointer]
+                - button "Copy code" [ref=e394] [cursor=pointer]:
+                  - generic [ref=e395]:
+                    - img [ref=e397]
+                    - img [ref=e400]
+              - code [ref=e405]:
+                - generic [ref=e406]: curl https://api.anthropic.com/v1/messages \
+                - generic [ref=e407]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e408]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e409]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e410]: "--data \\"
+                - generic [ref=e411]: "'{"
+                - generic [ref=e412]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e413]: "\"max_tokens\": 16000,"
+                - generic [ref=e414]: "\"thinking\": {"
+                - generic [ref=e415]: "\"type\": \"adaptive\""
+                - generic [ref=e416]: "},"
+                - generic [ref=e417]: "\"messages\": ["
+                - generic [ref=e418]: "{"
+                - generic [ref=e419]: "\"role\": \"user\","
+                - generic [ref=e420]: "\"content\": \"Explain why the sum of two even numbers is always even.\""
+                - generic [ref=e421]: "}"
+                - generic [ref=e422]: "]"
+                - generic [ref=e423]: "}'"
+            - heading "Copy link to clipboard Adaptive thinking with the effort parameter" [level=2] [ref=e424]:
+              - generic [ref=e425]:
+                - button "Copy link to clipboard" [ref=e427] [cursor=pointer]:
+                  - img [ref=e429]
+                - generic [ref=e431]: Adaptive thinking with the effort parameter
+            - paragraph [ref=e432]:
+              - text: You can combine adaptive thinking with the
+              - link "effort parameter" [ref=e433] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+              - text: "to guide how much thinking Claude does. The effort level acts as soft guidance for Claude's thinking allocation:"
+            - table [ref=e435]:
+              - rowgroup [ref=e436]:
+                - row "Effort level Thinking behavior" [ref=e437]:
+                  - columnheader "Effort level" [ref=e438]
+                  - columnheader "Thinking behavior" [ref=e439]
+              - rowgroup [ref=e440]:
+                - row "max Claude always thinks with no constraints on thinking depth. Available on Claude Opus 4.6 and Claude Sonnet 4.6." [ref=e441]:
+                  - cell "max" [ref=e442]:
+                    - code [ref=e443]: max
+                  - cell "Claude always thinks with no constraints on thinking depth. Available on Claude Opus 4.6 and Claude Sonnet 4.6." [ref=e444]
+                - row "high (default) Claude always thinks. Provides deep reasoning on complex tasks." [ref=e445]:
+                  - cell "high (default)" [ref=e446]:
+                    - code [ref=e447]: high
+                    - text: (default)
+                  - cell "Claude always thinks. Provides deep reasoning on complex tasks." [ref=e448]
+                - row "medium Claude uses moderate thinking. May skip thinking for very simple queries." [ref=e449]:
+                  - cell "medium" [ref=e450]:
+                    - code [ref=e451]: medium
+                  - cell "Claude uses moderate thinking. May skip thinking for very simple queries." [ref=e452]
+                - row "low Claude minimizes thinking. Skips thinking for simple tasks where speed matters most." [ref=e453]:
+                  - cell "low" [ref=e454]:
+                    - code [ref=e455]: low
+                  - cell "Claude minimizes thinking. Skips thinking for simple tasks where speed matters most." [ref=e456]
+            - generic [ref=e457]:
+              - generic [ref=e458]:
+                - generic [ref=e459]:
+                  - button "Shell" [ref=e460] [cursor=pointer]
+                  - button "CLI" [ref=e461] [cursor=pointer]
+                  - button "Python" [ref=e462] [cursor=pointer]
+                  - button "TypeScript" [ref=e463] [cursor=pointer]
+                  - button "C#" [ref=e464] [cursor=pointer]
+                  - button "Go" [ref=e465] [cursor=pointer]
+                  - button "Java" [ref=e466] [cursor=pointer]
+                  - button "PHP" [ref=e467] [cursor=pointer]
+                  - button "Ruby" [ref=e468] [cursor=pointer]
+                - button "Copy code" [ref=e470] [cursor=pointer]:
+                  - generic [ref=e471]:
+                    - img [ref=e473]
+                    - img [ref=e476]
+              - code [ref=e481]:
+                - generic [ref=e482]: curl https://api.anthropic.com/v1/messages \
+                - generic [ref=e483]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e484]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e485]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e486]: "--data \\"
+                - generic [ref=e487]: "'{"
+                - generic [ref=e488]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e489]: "\"max_tokens\": 16000,"
+                - generic [ref=e490]: "\"thinking\": {"
+                - generic [ref=e491]: "\"type\": \"adaptive\""
+                - generic [ref=e492]: "},"
+                - generic [ref=e493]: "\"output_config\": {"
+                - generic [ref=e494]: "\"effort\": \"medium\""
+                - generic [ref=e495]: "},"
+                - generic [ref=e496]: "\"messages\": ["
+                - generic [ref=e497]: "{"
+                - generic [ref=e498]: "\"role\": \"user\","
+                - generic [ref=e499]: "\"content\": \"What is the capital of France?\""
+                - generic [ref=e500]: "}"
+                - generic [ref=e501]: "]"
+                - generic [ref=e502]: "}'"
+            - heading "Copy link to clipboard Streaming with adaptive thinking" [level=2] [ref=e503]:
+              - generic [ref=e504]:
+                - button "Copy link to clipboard" [ref=e506] [cursor=pointer]:
+                  - img [ref=e508]
+                - generic [ref=e510]: Streaming with adaptive thinking
+            - paragraph [ref=e511]:
+              - text: Adaptive thinking works seamlessly with
+              - link "streaming" [ref=e512] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+              - text: . Thinking blocks are streamed via
+              - code [ref=e513]: thinking_delta
+              - text: "events just like manual thinking mode:"
+            - generic [ref=e514]:
+              - generic [ref=e515]:
+                - generic [ref=e516]:
+                  - button "CLI" [ref=e517] [cursor=pointer]
+                  - button "Python" [ref=e518] [cursor=pointer]
+                  - button "TypeScript" [ref=e519] [cursor=pointer]
+                  - button "C#" [ref=e520] [cursor=pointer]
+                  - button "Go" [ref=e521] [cursor=pointer]
+                  - button "Java" [ref=e522] [cursor=pointer]
+                  - button "PHP" [ref=e523] [cursor=pointer]
+                  - button "Ruby" [ref=e524] [cursor=pointer]
+                - button "Copy code" [ref=e526] [cursor=pointer]:
+                  - generic [ref=e527]:
+                    - img [ref=e529]
+                    - img [ref=e532]
+              - code [ref=e537]:
+                - generic [ref=e538]: ant messages create --stream --format jsonl \
+                - generic [ref=e539]: "--model claude-opus-4-6 \\"
+                - generic [ref=e540]: "--max-tokens 16000 \\"
+                - generic [ref=e541]: "--thinking '{type: adaptive}' \\"
+                - generic [ref=e542]: "--message '{role: user, content: What is the greatest common divisor of 1071 and 462?}'"
+            - heading "Copy link to clipboard Adaptive vs manual vs disabled thinking" [level=2] [ref=e543]:
+              - generic [ref=e544]:
+                - button "Copy link to clipboard" [ref=e546] [cursor=pointer]:
+                  - img [ref=e548]
+                - generic [ref=e550]: Adaptive vs manual vs disabled thinking
+            - table [ref=e552]:
+              - rowgroup [ref=e553]:
+                - row "Mode Config Availability When to use" [ref=e554]:
+                  - columnheader "Mode" [ref=e555]
+                  - columnheader "Config" [ref=e556]
+                  - columnheader "Availability" [ref=e557]
+                  - columnheader "When to use" [ref=e558]
+              - rowgroup [ref=e559]:
+                - 'row "Adaptive thinking: {type: \"adaptive\"} Claude Mythos Preview (default), Opus 4.6, Sonnet 4.6 Claude determines when and how much to use extended thinking. Use effort to guide." [ref=e560]':
+                  - cell "Adaptive" [ref=e561]:
+                    - strong [ref=e562]: Adaptive
+                  - 'cell "thinking: {type: \"adaptive\"}" [ref=e563]':
+                    - code [ref=e564]: "thinking: {type: \"adaptive\"}"
+                  - cell "Claude Mythos Preview (default), Opus 4.6, Sonnet 4.6" [ref=e565]
+                  - cell "Claude determines when and how much to use extended thinking. Use effort to guide." [ref=e566]:
+                    - text: Claude determines when and how much to use extended thinking. Use
+                    - code [ref=e567]: effort
+                    - text: to guide.
+                - 'row "Manual thinking: {type: \"enabled\", budget_tokens: N} All models. Deprecated on Opus 4.6 and Sonnet 4.6 (consider adaptive mode instead). When you need precise control over thinking token spend." [ref=e568]':
+                  - cell "Manual" [ref=e569]:
+                    - strong [ref=e570]: Manual
+                  - 'cell "thinking: {type: \"enabled\", budget_tokens: N}" [ref=e571]':
+                    - code [ref=e572]: "thinking: {type: \"enabled\", budget_tokens: N}"
+                  - cell "All models. Deprecated on Opus 4.6 and Sonnet 4.6 (consider adaptive mode instead)." [ref=e573]
+                  - cell "When you need precise control over thinking token spend." [ref=e574]
+                - 'row "Disabled Omit thinking parameter or pass {type: \"disabled\"} All models except Claude Mythos Preview When you don''t need extended thinking and want the lowest latency." [ref=e575]':
+                  - cell "Disabled" [ref=e576]:
+                    - strong [ref=e577]: Disabled
+                  - 'cell "Omit thinking parameter or pass {type: \"disabled\"}" [ref=e578]':
+                    - text: Omit
+                    - code [ref=e579]: thinking
+                    - text: parameter or pass
+                    - code [ref=e580]: "{type: \"disabled\"}"
+                  - cell "All models except Claude Mythos Preview" [ref=e581]
+                  - cell "When you don't need extended thinking and want the lowest latency." [ref=e582]
+            - generic [ref=e583]:
+              - img [ref=e586]
+              - generic [ref=e588]:
+                - paragraph [ref=e589]:
+                  - text: Adaptive thinking is available on Claude Mythos Preview, Opus 4.6, and Sonnet 4.6. On Mythos Preview, adaptive thinking is the default and applies automatically whenever
+                  - code [ref=e590]: thinking
+                  - text: is unset. Older models only support
+                  - code [ref=e591]: "type: \"enabled\""
+                  - text: with
+                  - code [ref=e592]: budget_tokens
+                  - text: . On Opus 4.6 and Sonnet 4.6,
+                  - code [ref=e593]: "type: \"enabled\""
+                  - text: with
+                  - code [ref=e594]: budget_tokens
+                  - text: is still functional but deprecated.
+                - paragraph [ref=e595]:
+                  - strong [ref=e596]: "Interleaved thinking availability by mode:"
+                - list [ref=e597]:
+                  - listitem [ref=e598]:
+                    - text: •
+                    - strong [ref=e599]: "Adaptive mode:"
+                    - text: Interleaved thinking is automatically enabled on Claude Mythos Preview, Opus 4.6, and Sonnet 4.6. On Mythos Preview, inter-tool reasoning always lives inside thinking blocks.
+                  - listitem [ref=e600]:
+                    - text: •
+                    - strong [ref=e601]: "Manual mode on Sonnet 4.6:"
+                    - text: Interleaved thinking works via the
+                    - code [ref=e602]: interleaved-thinking-2025-05-14
+                    - text: beta header.
+                  - listitem [ref=e603]:
+                    - text: •
+                    - strong [ref=e604]: "Manual mode on Opus 4.6:"
+                    - text: Interleaved thinking is not available. If your agentic workflow requires thinking between tool calls on Opus 4.6, use adaptive mode.
+            - heading "Copy link to clipboard Important considerations" [level=2] [ref=e605]:
+              - generic [ref=e606]:
+                - button "Copy link to clipboard" [ref=e608] [cursor=pointer]:
+                  - img [ref=e610]
+                - generic [ref=e612]: Important considerations
+            - heading "Copy link to clipboard Validation changes" [level=3] [ref=e613]:
+              - generic [ref=e614]:
+                - button "Copy link to clipboard" [ref=e616] [cursor=pointer]:
+                  - img [ref=e618]
+                - generic [ref=e620]: Validation changes
+            - paragraph [ref=e621]: When using adaptive thinking, previous assistant turns don't need to start with thinking blocks. This is more flexible than manual mode, where the API enforces that thinking-enabled turns begin with a thinking block.
+            - heading "Copy link to clipboard Prompt caching" [level=3] [ref=e622]:
+              - generic [ref=e623]:
+                - button "Copy link to clipboard" [ref=e625] [cursor=pointer]:
+                  - img [ref=e627]
+                - generic [ref=e629]: Prompt caching
+            - paragraph [ref=e630]:
+              - text: Consecutive requests using
+              - code [ref=e631]: adaptive
+              - text: thinking preserve
+              - link "prompt cache" [ref=e632] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+              - text: breakpoints. However, switching between
+              - code [ref=e633]: adaptive
+              - text: and
+              - code [ref=e634]: enabled
+              - text: /
+              - code [ref=e635]: disabled
+              - text: thinking modes breaks cache breakpoints for messages. System prompts and tool definitions remain cached regardless of mode changes.
+            - heading "Copy link to clipboard Tuning thinking behavior" [level=3] [ref=e636]:
+              - generic [ref=e637]:
+                - button "Copy link to clipboard" [ref=e639] [cursor=pointer]:
+                  - img [ref=e641]
+                - generic [ref=e643]: Tuning thinking behavior
+            - paragraph [ref=e644]: "Adaptive thinking's triggering behavior is promptable. If Claude is thinking more or less often than you'd like, you can add guidance to your system prompt:"
+            - generic [ref=e645]:
+              - code [ref=e648]: Extended thinking adds latency and should only be used when it will meaningfully improve answer quality — typically for problems that require multi-step reasoning. When in doubt, respond directly.
+              - button "Copy code" [ref=e650] [cursor=pointer]:
+                - generic [ref=e651]:
+                  - img [ref=e653]
+                  - img [ref=e656]
+            - generic [ref=e658]:
+              - img [ref=e661]
+              - paragraph [ref=e664]:
+                - text: Steering Claude to think less often may reduce quality on tasks that benefit from reasoning. Measure the impact on your specific workloads before deploying prompt-based tuning to production. Consider testing with lower
+                - link "effort levels" [ref=e665] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/effort
+                - text: first.
+            - heading "Copy link to clipboard Cost control" [level=3] [ref=e666]:
+              - generic [ref=e667]:
+                - button "Copy link to clipboard" [ref=e669] [cursor=pointer]:
+                  - img [ref=e671]
+                - generic [ref=e673]: Cost control
+            - paragraph [ref=e674]:
+              - text: Use
+              - code [ref=e675]: max_tokens
+              - text: as a hard limit on total output (thinking + response text). The
+              - code [ref=e676]: effort
+              - text: parameter provides additional soft guidance on how much thinking Claude allocates. Together, these give you effective control over cost.
+            - paragraph [ref=e677]:
+              - text: At
+              - code [ref=e678]: high
+              - text: and
+              - code [ref=e679]: max
+              - text: effort levels, Claude may think more extensively and can be more likely to exhaust the
+              - code [ref=e680]: max_tokens
+              - text: budget. If you observe
+              - code [ref=e681]: "stop_reason: \"max_tokens\""
+              - text: in responses, consider increasing
+              - code [ref=e682]: max_tokens
+              - text: to give the model more room, or lowering the effort level.
+            - heading "Copy link to clipboard Working with thinking blocks" [level=2] [ref=e683]:
+              - generic [ref=e684]:
+                - button "Copy link to clipboard" [ref=e686] [cursor=pointer]:
+                  - img [ref=e688]
+                - generic [ref=e690]: Working with thinking blocks
+            - paragraph [ref=e691]: The following concepts apply to all models that support extended thinking, regardless of whether you use adaptive or manual mode.
+            - heading "Copy link to clipboard Summarized thinking" [level=3] [ref=e692]:
+              - generic [ref=e693]:
+                - button "Copy link to clipboard" [ref=e695] [cursor=pointer]:
+                  - img [ref=e697]
+                - generic [ref=e699]: Summarized thinking
+            - paragraph [ref=e700]:
+              - text: With extended thinking enabled, the Messages API for Claude 4 models returns a summary of Claude's full thinking process. Summarized thinking provides the full intelligence benefits of extended thinking, while preventing misuse. This is the default behavior on Claude 4 models when the
+              - code [ref=e701]: display
+              - text: field on the thinking configuration is unset or set to
+              - code [ref=e702]: "\"summarized\""
+              - text: . On
+              - link "Claude Mythos Preview" [ref=e703] [cursor=pointer]:
+                - /url: https://anthropic.com/glasswing
+              - text: ","
+              - code [ref=e704]: display
+              - text: defaults to
+              - code [ref=e705]: "\"omitted\""
+              - text: instead, so you must set
+              - code [ref=e706]: "display: \"summarized\""
+              - text: explicitly to receive summarized thinking.
+            - paragraph [ref=e707]: "Here are some important considerations for summarized thinking:"
+            - list [ref=e708]:
+              - listitem [ref=e709]: • You're charged for the full thinking tokens generated by the original request, not the summary tokens.
+              - listitem [ref=e710]:
+                - text: • The billed output token count will
+                - strong [ref=e711]: not match
+                - text: the count of tokens you see in the response.
+              - listitem [ref=e712]:
+                - text: • On Claude 4 models, the first few lines of thinking output are more verbose, providing detailed reasoning that's particularly helpful for prompt engineering purposes.
+                - link "Claude Mythos Preview" [ref=e713] [cursor=pointer]:
+                  - /url: https://anthropic.com/glasswing
+                - text: summarizes from the first token, so its thinking blocks do not show this verbose preamble.
+              - listitem [ref=e714]: • As Anthropic seeks to improve the extended thinking feature, summarization behavior is subject to change.
+              - listitem [ref=e715]: • Summarization preserves the key ideas of Claude's thinking process with minimal added latency, enabling a streamable user experience and easy migration from Claude Sonnet 3.7 to Claude 4 and later models.
+              - listitem [ref=e716]: • Summarization is processed by a different model than the one you target in your requests. The thinking model does not see the summarized output.
+            - generic [ref=e717]:
+              - img [ref=e720]
+              - generic [ref=e722]:
+                - paragraph [ref=e723]: Claude Sonnet 3.7 continues to return full thinking output.
+                - paragraph [ref=e724]:
+                  - text: In rare cases where you need access to full thinking output for Claude 4 models,
+                  - link "contact our sales team" [ref=e725] [cursor=pointer]:
+                    - /url: /cdn-cgi/l/email-protection#a2d1c3cec7d1e2c3ccd6cad0cdd2cbc18cc1cdcf
+                  - text: .
+            - heading "Copy link to clipboard Controlling thinking display" [level=3] [ref=e726]:
+              - generic [ref=e727]:
+                - button "Copy link to clipboard" [ref=e729] [cursor=pointer]:
+                  - img [ref=e731]
+                - generic [ref=e733]: Controlling thinking display
+            - paragraph [ref=e734]:
+              - text: The
+              - code [ref=e735]: display
+              - text: "field on the thinking configuration controls how thinking content is returned in API responses. It accepts two values:"
+            - list [ref=e736]:
+              - listitem [ref=e737]:
+                - text: •
+                - code [ref=e738]: "\"summarized\""
+                - text: ": Thinking blocks contain summarized thinking text. See"
+                - link "Summarized thinking" [ref=e739] [cursor=pointer]:
+                  - /url: "#summarized-thinking"
+                - text: for details. This is the default on Claude 4 models.
+              - listitem [ref=e740]:
+                - text: •
+                - code [ref=e741]: "\"omitted\""
+                - text: ": Thinking blocks are returned with an empty"
+                - code [ref=e742]: thinking
+                - text: field. The
+                - code [ref=e743]: signature
+                - text: field still carries the encrypted full thinking for multi-turn continuity (see
+                - link "Thinking encryption" [ref=e744] [cursor=pointer]:
+                  - /url: "#thinking-encryption"
+                - text: ). This is the default on
+                - link "Claude Mythos Preview" [ref=e745] [cursor=pointer]:
+                  - /url: https://anthropic.com/glasswing
+                - text: .
+            - paragraph [ref=e746]:
+              - text: Setting
+              - code [ref=e747]: "display: \"omitted\""
+              - text: is useful when your application doesn't surface thinking content to users. The primary benefit is
+              - strong [ref=e748]: "faster time-to-first-text-token when streaming:"
+              - text: The server skips streaming thinking tokens entirely and delivers only the signature, so the final text response begins streaming sooner.
+            - generic [ref=e749]:
+              - img [ref=e752]
+              - paragraph [ref=e755]:
+                - text: No SDK currently includes
+                - code [ref=e756]: display
+                - text: in its type definitions. The Python SDK forwards unrecognized dict keys to the API at runtime; passing
+                - code [ref=e757]: display
+                - text: in the thinking dict works transparently. The TypeScript SDK requires a type assertion. The C#, Go, Java, PHP, and Ruby SDKs require a direct HTTP request until native support lands.
+            - paragraph [ref=e758]: "Here are some important considerations for omitted thinking:"
+            - list [ref=e759]:
+              - listitem [ref=e760]: • You're still charged for the full thinking tokens. Omitting reduces latency, not cost.
+              - listitem [ref=e761]:
+                - text: • If you pass thinking blocks back in multi-turn conversations, pass them unchanged. The server decrypts the
+                - code [ref=e762]: signature
+                - text: to reconstruct the original thinking for prompt construction (see
+                - link "Preserving thinking blocks" [ref=e763] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/extended-thinking#preserving-thinking-blocks
+                - text: ). Any text you place in the
+                - code [ref=e764]: thinking
+                - text: field of a round-tripped omitted block is ignored.
+              - listitem [ref=e765]:
+                - text: •
+                - code [ref=e766]: display
+                - text: is invalid with
+                - code [ref=e767]: "thinking.type: \"disabled\""
+                - text: (there is nothing to display).
+              - listitem [ref=e768]:
+                - text: • When using
+                - code [ref=e769]: "thinking.type: \"adaptive\""
+                - text: and the model skips thinking for a simple request, no thinking block is produced regardless of
+                - code [ref=e770]: display
+                - text: .
+            - generic [ref=e771]:
+              - img [ref=e774]
+              - paragraph [ref=e777]:
+                - text: The
+                - code [ref=e778]: signature
+                - text: field is identical whether
+                - code [ref=e779]: display
+                - text: is
+                - code [ref=e780]: "\"summarized\""
+                - text: or
+                - code [ref=e781]: "\"omitted\""
+                - text: . Switching
+                - code [ref=e782]: display
+                - text: values between turns in a conversation is supported.
+            - paragraph [ref=e783]:
+              - text: For code examples and streaming behavior with
+              - code [ref=e784]: "display: \"omitted\""
+              - text: ", see"
+              - link "Controlling thinking display" [ref=e785] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking#controlling-thinking-display
+              - text: on the extended thinking page. The examples there use
+              - code [ref=e786]: "type: \"enabled\""
+              - text: "; with adaptive thinking, use:"
+            - generic [ref=e787]:
+              - code [ref=e791]:
+                - generic [ref=e792]: "thinking = {\"type\": \"adaptive\", \"display\": \"omitted\"}"
+              - button "Copy code" [ref=e794] [cursor=pointer]:
+                - generic [ref=e795]:
+                  - img [ref=e797]
+                  - img [ref=e800]
+            - heading "Copy link to clipboard Thinking encryption" [level=3] [ref=e802]:
+              - generic [ref=e803]:
+                - button "Copy link to clipboard" [ref=e805] [cursor=pointer]:
+                  - img [ref=e807]
+                - generic [ref=e809]: Thinking encryption
+            - paragraph [ref=e810]:
+              - text: Full thinking content is encrypted and returned in the
+              - code [ref=e811]: signature
+              - text: field. This field is used to verify that thinking blocks were generated by Claude when passed back to the API.
+            - generic [ref=e812]:
+              - img [ref=e815]
+              - generic [ref=e817]:
+                - paragraph [ref=e818]:
+                  - text: It is only strictly necessary to send back thinking blocks when using
+                  - link "tools with extended thinking" [ref=e819] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#extended-thinking-with-tool-use
+                  - text: . Otherwise you can omit thinking blocks from previous turns, or let the API strip them for you if you pass them back.
+                - paragraph [ref=e820]: If sending back thinking blocks, we recommend passing everything back as you received it for consistency and to avoid potential issues.
+            - paragraph [ref=e821]: "Here are some important considerations on thinking encryption:"
+            - list [ref=e822]:
+              - listitem [ref=e823]:
+                - text: • When
+                - link "streaming responses" [ref=e824] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/extended-thinking#streaming-thinking
+                - text: ", the signature is added via a"
+                - code [ref=e825]: signature_delta
+                - text: inside a
+                - code [ref=e826]: content_block_delta
+                - text: event just before the
+                - code [ref=e827]: content_block_stop
+                - text: event.
+              - listitem [ref=e828]:
+                - text: •
+                - code [ref=e829]: signature
+                - text: values are significantly longer in Claude 4 models than in previous models.
+              - listitem [ref=e830]:
+                - text: • The
+                - code [ref=e831]: signature
+                - text: field is an opaque field and should not be interpreted or parsed.
+              - listitem [ref=e832]:
+                - text: •
+                - code [ref=e833]: signature
+                - text: values are compatible across platforms (Claude APIs,
+                - link "Amazon Bedrock" [ref=e834] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/claude-on-amazon-bedrock
+                - text: ", and"
+                - link "Vertex AI" [ref=e835] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/claude-on-vertex-ai
+                - text: ). Values generated on one platform will be compatible with another.
+            - heading "Copy link to clipboard Pricing" [level=3] [ref=e836]:
+              - generic [ref=e837]:
+                - button "Copy link to clipboard" [ref=e839] [cursor=pointer]:
+                  - img [ref=e841]
+                - generic [ref=e843]: Pricing
+            - paragraph [ref=e844]:
+              - text: For complete pricing information including base rates, cache writes, cache hits, and output tokens, see the
+              - link "pricing page" [ref=e845] [cursor=pointer]:
+                - /url: /docs/en/about-claude/pricing
+              - text: .
+            - paragraph [ref=e846]: "The thinking process incurs charges for:"
+            - list [ref=e847]:
+              - listitem [ref=e848]: • Tokens used during thinking (output tokens)
+              - listitem [ref=e849]: • Thinking blocks from the last assistant turn included in subsequent requests (input tokens)
+              - listitem [ref=e850]: • Standard text output tokens
+            - generic [ref=e851]:
+              - img [ref=e854]
+              - paragraph [ref=e857]: When extended thinking is enabled, a specialized system prompt is automatically included to support this feature.
+            - paragraph [ref=e858]: "When using summarized thinking:"
+            - list [ref=e859]:
+              - listitem [ref=e860]:
+                - text: •
+                - strong [ref=e861]: "Input tokens:"
+                - text: Tokens in your original request (excludes thinking tokens from previous turns)
+              - listitem [ref=e862]:
+                - text: •
+                - strong [ref=e863]: "Output tokens (billed):"
+                - text: The original thinking tokens that Claude generated internally
+              - listitem [ref=e864]:
+                - text: •
+                - strong [ref=e865]: "Output tokens (visible):"
+                - text: The summarized thinking tokens you see in the response
+              - listitem [ref=e866]:
+                - text: •
+                - strong [ref=e867]: "No charge:"
+                - text: Tokens used to generate the summary
+            - paragraph [ref=e868]:
+              - text: When using
+              - code [ref=e869]: "display: \"omitted\""
+              - text: ":"
+            - list [ref=e870]:
+              - listitem [ref=e871]:
+                - text: •
+                - strong [ref=e872]: "Input tokens:"
+                - text: Tokens in your original request (same as summarized)
+              - listitem [ref=e873]:
+                - text: •
+                - strong [ref=e874]: "Output tokens (billed):"
+                - text: The original thinking tokens that Claude generated internally (same as summarized)
+              - listitem [ref=e875]:
+                - text: •
+                - strong [ref=e876]: "Output tokens (visible):"
+                - text: Zero thinking tokens (the
+                - code [ref=e877]: thinking
+                - text: field is empty)
+            - generic [ref=e878]:
+              - img [ref=e881]
+              - paragraph [ref=e884]:
+                - text: The billed output token count will
+                - strong [ref=e885]: not
+                - text: match the visible token count in the response. You are billed for the full thinking process, not the thinking content visible in the response.
+            - heading "Copy link to clipboard Additional topics" [level=3] [ref=e886]:
+              - generic [ref=e887]:
+                - button "Copy link to clipboard" [ref=e889] [cursor=pointer]:
+                  - img [ref=e891]
+                - generic [ref=e893]: Additional topics
+            - paragraph [ref=e894]: "The extended thinking page covers several topics in more detail with mode-specific code examples:"
+            - list [ref=e895]:
+              - listitem [ref=e896]:
+                - text: •
+                - strong [ref=e897]:
+                  - link "Tool use with thinking" [ref=e898] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#extended-thinking-with-tool-use
+                - text: ": The same rules apply for adaptive thinking: preserve thinking blocks between tool calls and be aware of"
+                - code [ref=e899]: tool_choice
+                - text: limitations when thinking is active.
+              - listitem [ref=e900]:
+                - text: •
+                - strong [ref=e901]:
+                  - link "Prompt caching" [ref=e902] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#extended-thinking-with-prompt-caching
+                - text: ": With adaptive thinking, consecutive requests using the same thinking mode preserve cache breakpoints. Switching between"
+                - code [ref=e903]: adaptive
+                - text: and
+                - code [ref=e904]: enabled
+                - text: /
+                - code [ref=e905]: disabled
+                - text: modes breaks cache breakpoints for messages (system prompts and tool definitions remain cached).
+              - listitem [ref=e906]:
+                - text: •
+                - strong [ref=e907]:
+                  - link "Context windows" [ref=e908] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#max-tokens-and-context-window-size-with-extended-thinking
+                - text: ": How thinking tokens interact with"
+                - code [ref=e909]: max_tokens
+                - text: and context window limits.
+            - heading "Copy link to clipboard Next steps" [level=2] [ref=e910]:
+              - generic [ref=e911]:
+                - button "Copy link to clipboard" [ref=e913] [cursor=pointer]:
+                  - img [ref=e915]
+                - generic [ref=e917]: Next steps
+            - generic [ref=e918]:
+              - link "Extended thinking Learn more about extended thinking, including manual mode, tool use, and prompt caching." [ref=e919] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e920]:
+                  - img [ref=e923]
+                  - generic [ref=e925]:
+                    - generic [ref=e927]: Extended thinking
+                    - paragraph [ref=e929]: Learn more about extended thinking, including manual mode, tool use, and prompt caching.
+              - link "Effort parameter Control how thoroughly Claude responds with the effort parameter." [ref=e930] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e931]:
+                  - img [ref=e933]
+                  - generic [ref=e935]:
+                    - generic [ref=e937]: Effort parameter
+                    - paragraph [ref=e939]: Control how thoroughly Claude responds with the effort parameter.
+            - generic [ref=e940]:
+              - paragraph [ref=e941]: Was this page helpful?
+              - generic [ref=e942]:
+                - button "Thumbs up" [ref=e943] [cursor=pointer]:
+                  - img [ref=e945]
+                - button "Thumbs down" [ref=e947] [cursor=pointer]:
+                  - img [ref=e949]
+          - button "Toggle table of contents" [ref=e951] [cursor=pointer]:
+            - img [ref=e952]
+        - generic [ref=e955]:
+          - generic [ref=e956]:
+            - link "Claude API Docs home page" [ref=e958] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e959]
+            - generic [ref=e962]:
+              - link "X (Twitter)" [ref=e963] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e964]
+              - link "LinkedIn" [ref=e966] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e967]
+              - link "Instagram" [ref=e969] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e970]
+          - generic [ref=e973]:
+            - generic [ref=e974]:
+              - generic [ref=e975]:
+                - heading "Solutions" [level=3] [ref=e976]
+                - list [ref=e977]:
+                  - listitem [ref=e978]:
+                    - link "AI agents" [ref=e979] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e980]:
+                    - link "Code modernization" [ref=e981] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e982]:
+                    - link "Coding" [ref=e983] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e984]:
+                    - link "Customer support" [ref=e985] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e986]:
+                    - link "Education" [ref=e987] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e988]:
+                    - link "Financial services" [ref=e989] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e990]:
+                    - link "Government" [ref=e991] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e992]:
+                    - link "Life sciences" [ref=e993] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e994]:
+                - heading "Partners" [level=3] [ref=e995]
+                - list [ref=e996]:
+                  - listitem [ref=e997]:
+                    - link "Amazon Bedrock" [ref=e998] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e999]:
+                    - link "Google Cloud's Vertex AI" [ref=e1000] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e1001]:
+              - generic [ref=e1002]:
+                - heading "Learn" [level=3] [ref=e1003]
+                - list [ref=e1004]:
+                  - listitem [ref=e1005]:
+                    - link "Blog" [ref=e1006] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e1007]:
+                    - link "Courses" [ref=e1008] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e1009]:
+                    - link "Use cases" [ref=e1010] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e1011]:
+                    - link "Connectors" [ref=e1012] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e1013]:
+                    - link "Customer stories" [ref=e1014] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e1015]:
+                    - link "Engineering at Anthropic" [ref=e1016] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e1017]:
+                    - link "Events" [ref=e1018] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e1019]:
+                    - link "Powered by Claude" [ref=e1020] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e1021]:
+                    - link "Service partners" [ref=e1022] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e1023]:
+                    - link "Startups program" [ref=e1024] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e1025]:
+                - heading "Company" [level=3] [ref=e1026]
+                - list [ref=e1027]:
+                  - listitem [ref=e1028]:
+                    - link "Anthropic" [ref=e1029] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e1030]:
+                    - link "Careers" [ref=e1031] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e1032]:
+                    - link "Economic Futures" [ref=e1033] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e1034]:
+                    - link "Research" [ref=e1035] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e1036]:
+                    - link "News" [ref=e1037] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e1038]:
+                    - link "Responsible Scaling Policy" [ref=e1039] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e1040]:
+                    - link "Security and compliance" [ref=e1041] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e1042]:
+                    - link "Transparency" [ref=e1043] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1044]:
+              - generic [ref=e1045]:
+                - heading "Help and security" [level=3] [ref=e1046]
+                - list [ref=e1047]:
+                  - listitem [ref=e1048]:
+                    - link "Availability" [ref=e1049] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e1050]:
+                    - link "Status" [ref=e1051] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e1052]:
+                    - link "Support" [ref=e1053] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e1054]:
+                    - link "Discord" [ref=e1055] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e1056]:
+                - heading "Terms and policies" [level=3] [ref=e1057]
+                - list [ref=e1058]:
+                  - listitem [ref=e1059]:
+                    - link "Privacy policy" [ref=e1060] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e1061]:
+                    - link "Responsible disclosure policy" [ref=e1062] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e1063]:
+                    - 'link "Terms of service: Commercial" [ref=e1064] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e1065]:
+                    - 'link "Terms of service: Consumer" [ref=e1066] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e1067]:
+                    - link "Usage policy" [ref=e1068] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e1072] [cursor=pointer]:
+    - generic [ref=e1073]: Ask Docs
+  - alert [ref=e1074]

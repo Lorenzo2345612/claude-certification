@@ -1,0 +1,951 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Anthropic Certification 2025
+    - heading "Claude Certified Architect Foundations" [level=1] [ref=e5]
+    - paragraph [ref=e6]: Guia profundizada de estudio para la certificacion oficial de Anthropic. Cubre los 5 dominios, 6 escenarios de examen, y todos los conceptos clave con ejemplos de codigo y diagramas de arquitectura.
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: "5"
+        - generic [ref=e10]: Dominios
+      - generic [ref=e11]:
+        - generic [ref=e12]: "27"
+        - generic [ref=e13]: Task Statements
+      - generic [ref=e14]:
+        - generic [ref=e15]: "6"
+        - generic [ref=e16]: Escenarios
+      - generic [ref=e17]:
+        - generic [ref=e18]: "720"
+        - generic [ref=e19]: Score Minimo
+  - navigation [ref=e20]:
+    - generic [ref=e21]:
+      - link "Examen" [ref=e22] [cursor=pointer]:
+        - /url: "#exam-overview"
+      - 'link "D1: Agentic Architecture 27%" [ref=e23] [cursor=pointer]':
+        - /url: "#domain-1"
+        - text: "D1: Agentic Architecture"
+        - generic [ref=e24]: 27%
+      - 'link "D2: Tool Design & MCP 18%" [ref=e25] [cursor=pointer]':
+        - /url: "#domain-2"
+        - text: "D2: Tool Design & MCP"
+        - generic [ref=e26]: 18%
+      - 'link "D3: Claude Code 20%" [ref=e27] [cursor=pointer]':
+        - /url: "#domain-3"
+        - text: "D3: Claude Code"
+        - generic [ref=e28]: 20%
+      - 'link "D4: Prompt Engineering 20%" [ref=e29] [cursor=pointer]':
+        - /url: "#domain-4"
+        - text: "D4: Prompt Engineering"
+        - generic [ref=e30]: 20%
+      - 'link "D5: Context & Reliability 15%" [ref=e31] [cursor=pointer]':
+        - /url: "#domain-5"
+        - text: "D5: Context & Reliability"
+        - generic [ref=e32]: 15%
+      - link "Escenarios" [ref=e33] [cursor=pointer]:
+        - /url: "#scenarios"
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - heading "Estructura del Examen" [level=2] [ref=e36]
+      - paragraph [ref=e37]: Multiple choice con 4 opciones (1 correcta, 3 distractores). Scoring de 100-1000, minimo 720 para aprobar. No hay penalidad por adivinar.
+    - generic [ref=e38]:
+      - generic [ref=e39]: "D1: 27%"
+      - generic [ref=e40]: "D2: 18%"
+      - generic [ref=e41]: "D3: 20%"
+      - generic [ref=e42]: "D4: 20%"
+      - generic [ref=e43]: "D5: 15%"
+    - generic [ref=e44]:
+      - heading "Formato del Examen" [level=4] [ref=e45]
+      - paragraph [ref=e46]: El examen presenta 4 escenarios seleccionados al azar de un total de 6. Cada escenario describe un contexto de produccion realista que enmarca un conjunto de preguntas. Las preguntas evaluan juicio practico sobre arquitectura, configuracion y trade-offs, no solo conocimiento conceptual.
+  - generic [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: Dominio 1 — 27% del examen
+      - heading "Agentic Architecture & Orchestration" [level=2] [ref=e50]
+      - paragraph [ref=e51]: Disenar e implementar loops agenticos, orquestar sistemas multi-agente, y gestionar sesiones y handoffs.
+    - generic [ref=e52]:
+      - generic [ref=e53]: El Loop Agentico — Ciclo de Vida
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - text: User
+          - text: Prompt
+        - generic [ref=e56]: →
+        - generic [ref=e57]:
+          - text: Claude
+          - text: Razona
+        - generic [ref=e58]: →
+        - generic [ref=e59]: stop_reason?
+        - generic [ref=e60]: →
+        - generic [ref=e61]:
+          - text: "\"tool_use\""
+          - text: Ejecutar Tool
+        - generic [ref=e62]: →
+        - generic [ref=e63]:
+          - text: Append Result
+          - text: al Historial
+        - generic [ref=e64]: ↓
+        - generic [ref=e65]:
+          - text: "\"end_turn\""
+          - text: Respuesta Final
+    - generic [ref=e66]:
+      - heading "Anti-patrones del Loop Agentico (pregunta frecuente del examen)" [level=4] [ref=e67]
+      - list [ref=e68]:
+        - listitem [ref=e69]: "> Parsear texto en lenguaje natural para determinar si el loop debe terminar"
+        - listitem [ref=e70]: "> Usar caps arbitrarios de iteracion como mecanismo primario de parada"
+        - listitem [ref=e71]: "> Verificar contenido de texto del asistente como indicador de completitud"
+      - paragraph [ref=e72]:
+        - strong [ref=e73]: "Correcto:"
+        - text: Continuar cuando
+        - code [ref=e74]: stop_reason == "tool_use"
+        - text: y terminar cuando
+        - code [ref=e75]: stop_reason == "end_turn"
+    - generic [ref=e76]:
+      - text: python
+      - code [ref=e77]: "# Agentic loop correcto - patron del examen import anthropic client = anthropic.Anthropic() messages = [{\"role\": \"user\", \"content\": prompt}] while True: response = client.messages.create( model=\"claude-opus-4-6\", max_tokens=4096, tools=tools, messages=messages ) # Agregar respuesta al historial messages.append({\"role\": \"assistant\", \"content\": response.content}) if response.stop_reason == \"end_turn\": break # Loop terminado correctamente # Ejecutar herramientas y agregar resultados tool_results = [] for block in response.content: if block.type == \"tool_use\": result = execute_tool(block.name, block.input) tool_results.append({ \"type\": \"tool_result\", \"tool_use_id\": block.id, \"content\": result }) messages.append({\"role\": \"user\", \"content\": tool_results})"
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - heading "1.2 Patron Coordinator-Subagent" [level=3] [ref=e80]:
+          - generic [ref=e81]: "1.2"
+          - text: Patron Coordinator-Subagent
+        - paragraph [ref=e82]: Arquitectura hub-and-spoke donde un coordinador gestiona toda la comunicacion entre sub-agentes.
+        - list [ref=e83]:
+          - listitem [ref=e84]:
+            - text: ">"
+            - strong [ref=e85]: Sub-agentes tienen contexto aislado
+            - text: — NO heredan el historial del coordinador
+          - listitem [ref=e86]: "> El coordinador analiza requerimientos y selecciona dinamicamente que sub-agentes invocar"
+          - listitem [ref=e87]: "> Toda comunicacion pasa por el coordinador para observabilidad"
+          - listitem [ref=e88]: "> Loops de refinamiento iterativo: evaluar sintesis, re-delegar si hay gaps"
+        - generic [ref=e89]:
+          - heading "Riesgo comun de examen" [level=4] [ref=e90]
+          - paragraph [ref=e91]: "La descomposicion demasiado estrecha del coordinador lleva a cobertura incompleta. Ejemplo: \"AI en industrias creativas\" descompuesto solo en artes visuales, omitiendo musica, escritura y cine."
+      - generic [ref=e92]:
+        - heading "1.3 Spawning de Subagentes" [level=3] [ref=e93]:
+          - generic [ref=e94]: "1.3"
+          - text: Spawning de Subagentes
+        - paragraph [ref=e95]:
+          - text: El
+          - code [ref=e96]: Task
+          - text: tool (o
+          - code [ref=e97]: Agent
+          - text: tool en Agent SDK) es el mecanismo para spawnear subagentes.
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - text: ">"
+            - code [ref=e100]: allowedTools
+            - text: debe incluir
+            - code [ref=e101]: "\"Task\""
+            - text: para que el coordinador pueda invocar subagentes
+          - listitem [ref=e102]:
+            - text: "> Contexto debe pasarse"
+            - strong [ref=e103]: explicitamente en el prompt
+            - text: — no hay herencia automatica
+          - listitem [ref=e104]: "> Usar datos estructurados para separar contenido de metadata (URLs, paginas)"
+          - listitem [ref=e105]:
+            - text: ">"
+            - strong [ref=e106]: "Ejecucion paralela:"
+            - text: emitir multiples Task calls en una sola respuesta
+      - generic [ref=e107]:
+        - heading "1.4 Enforcement y Handoffs" [level=3] [ref=e108]:
+          - generic [ref=e109]: "1.4"
+          - text: Enforcement y Handoffs
+        - paragraph [ref=e110]: Diferencia critica entre enforcement programatico (hooks/gates) y prompt-based guidance.
+        - list [ref=e111]:
+          - listitem [ref=e112]: "> Cuando compliance determinista es requerido, prompt instructions solas tienen tasa de fallo no-zero"
+          - listitem [ref=e113]: "> Prerequisitos programaticos bloquean tools downstream hasta completar pasos previos"
+          - listitem [ref=e114]: "> Handoff estructurado: customer ID + root cause + monto + accion recomendada"
+        - generic [ref=e115]:
+          - heading "Regla clave para el examen" [level=4] [ref=e116]
+          - paragraph [ref=e117]:
+            - strong [ref=e118]: Enforcement programatico > Prompt instructions
+            - text: "cuando el error tiene consecuencias financieras o de seguridad. Ejemplo: bloquear"
+            - code [ref=e119]: process_refund
+            - text: hasta que
+            - code [ref=e120]: get_customer
+            - text: retorne un ID verificado.
+      - generic [ref=e121]:
+        - heading "1.5 Agent SDK Hooks" [level=3] [ref=e122]:
+          - generic [ref=e123]: "1.5"
+          - text: Agent SDK Hooks
+        - paragraph [ref=e124]: Hooks interceptan tool calls y tool results para transformacion y enforcement.
+        - list [ref=e125]:
+          - listitem [ref=e126]:
+            - text: ">"
+            - code [ref=e127]: PostToolUse
+            - text: ": normalizar formatos heterogeneos (timestamps, codigos de status)"
+          - listitem [ref=e128]: "> Tool call interception: bloquear acciones que violan politicas (refunds > $500)"
+          - listitem [ref=e129]: "> Hooks para garantias deterministas vs prompts para compliance probabilistico"
+        - generic [ref=e130]:
+          - text: python
+          - code [ref=e131]: "# Hook PostToolUse - normalizar datos hooks = { \"PostToolUse\": [ HookMatcher( matcher=\"get_customer|lookup_order\", hooks=[normalize_timestamps] ) ] } # Hook de interception - bloquear refunds altos async def block_high_refunds(input_data, tool_use_id, ctx): amount = input_data[\"tool_input\"].get(\"amount\", 0) if amount > 500: return {\"decision\": \"block\", \"message\": \"Escalate to human\"}"
+      - generic [ref=e132]:
+        - heading "1.6 Estrategias de Descomposicion" [level=3] [ref=e133]:
+          - generic [ref=e134]: "1.6"
+          - text: Estrategias de Descomposicion
+        - paragraph [ref=e135]: Elegir entre prompt chaining (pipelines fijos) y descomposicion adaptativa.
+        - list [ref=e136]:
+          - listitem [ref=e137]:
+            - text: ">"
+            - strong [ref=e138]: "Prompt chaining:"
+            - text: reviews multi-aspecto predecibles (per-file + cross-file pass)
+          - listitem [ref=e139]:
+            - text: ">"
+            - strong [ref=e140]: "Descomposicion dinamica:"
+            - text: tareas open-ended donde subtasks dependen de hallazgos previos
+          - listitem [ref=e141]: "> Dividir code reviews grandes en analisis local per-file + pass de integracion cross-file"
+      - generic [ref=e142]:
+        - heading "1.7 Session State y Forking" [level=3] [ref=e143]:
+          - generic [ref=e144]: "1.7"
+          - text: Session State y Forking
+        - paragraph [ref=e145]: Gestion de sesiones para continuidad y exploracion paralela.
+        - list [ref=e146]:
+          - listitem [ref=e147]:
+            - text: ">"
+            - code [ref=e148]: "--resume <session-name>"
+            - text: para continuar conversaciones especificas
+          - listitem [ref=e149]:
+            - text: ">"
+            - code [ref=e150]: fork_session
+            - text: para crear ramas independientes desde un baseline compartido
+          - listitem [ref=e151]: "> Nueva sesion con resumen estructurado es mas confiable que resumir con tool results obsoletos"
+          - listitem [ref=e152]: "> Informar al agente sobre cambios en archivos al resumir sesiones"
+    - generic [ref=e153]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e154]
+      - generic [ref=e155]:
+        - generic [ref=e156] [cursor=pointer]:
+          - img "How Tool Use Works - Agentic Loop" [ref=e157]
+          - generic [ref=e158]: How Tool Use Works - Agentic Loop Lifecycle
+          - link "platform.claude.com/docs →" [ref=e159]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works
+        - generic [ref=e160] [cursor=pointer]:
+          - img "Agent SDK Overview" [ref=e161]
+          - generic [ref=e162]: Agent SDK - Hooks, Subagents, Sessions
+          - link "code.claude.com/docs →" [ref=e163]:
+            - /url: https://code.claude.com/docs/en/agent-sdk/overview
+        - generic [ref=e164] [cursor=pointer]:
+          - img "Create Custom Subagents" [ref=e165]
+          - generic [ref=e166]: Create Custom Subagents - Task Delegation
+          - link "code.claude.com/docs →" [ref=e167]:
+            - /url: https://code.claude.com/docs/en/sub-agents
+        - generic [ref=e168] [cursor=pointer]:
+          - img "Hooks Reference" [ref=e169]
+          - generic [ref=e170]: Hooks Reference - PostToolUse, PreToolUse
+          - link "code.claude.com/docs →" [ref=e171]:
+            - /url: https://code.claude.com/docs/en/hooks
+  - generic [ref=e172]:
+    - generic [ref=e173]:
+      - generic [ref=e174]: Dominio 2 — 18% del examen
+      - heading "Tool Design & MCP Integration" [level=2] [ref=e175]
+      - paragraph [ref=e176]: Disenar interfaces de herramientas efectivas, implementar error handling estructurado, y configurar MCP servers.
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - heading "2.1 Tool Descriptions Efectivas" [level=3] [ref=e179]:
+          - generic [ref=e180]: "2.1"
+          - text: Tool Descriptions Efectivas
+        - paragraph [ref=e181]: Las descripciones son el mecanismo principal que los LLMs usan para seleccionar herramientas.
+        - list [ref=e182]:
+          - listitem [ref=e183]: "> Descripciones minimas causan seleccion no confiable entre tools similares"
+          - listitem [ref=e184]: "> Incluir formatos de input, queries de ejemplo, edge cases y limites"
+          - listitem [ref=e185]: "> Renombrar tools para eliminar solapamiento funcional"
+          - listitem [ref=e186]: "> Dividir tools genericos en tools especificos con contratos definidos"
+        - generic [ref=e187]:
+          - heading "Ejemplo del examen" [level=4] [ref=e188]
+          - paragraph [ref=e189]:
+            - text: Si
+            - code [ref=e190]: get_customer
+            - text: "y"
+            - code [ref=e191]: lookup_order
+            - text: tienen descripciones minimas ("Retrieves customer info" / "Retrieves order details"), el primer paso es expandir las descripciones de cada tool con formatos de input, queries de ejemplo y limites — no agregar few-shot examples ni routing layers.
+      - generic [ref=e192]:
+        - heading "2.2 Error Responses Estructuradas" [level=3] [ref=e193]:
+          - generic [ref=e194]: "2.2"
+          - text: Error Responses Estructuradas
+        - paragraph [ref=e195]:
+          - text: El patron
+          - code [ref=e196]: isError
+          - text: de MCP para comunicar fallos al agente.
+        - list [ref=e197]:
+          - listitem [ref=e198]:
+            - text: ">"
+            - code [ref=e199]: errorCategory
+            - text: ": transient / validation / permission / business"
+          - listitem [ref=e200]:
+            - text: ">"
+            - code [ref=e201]: isRetryable
+            - text: ": boolean para prevenir reintentos inutiles"
+          - listitem [ref=e202]: "> Distinguir access failures (timeout) de empty results validos (query exitosa sin matches)"
+          - listitem [ref=e203]: "> Recovery local en subagentes; propagar solo errores irresolubles al coordinador"
+        - generic [ref=e204]:
+          - text: json
+          - code [ref=e205]: "{ \"isError\": true, \"content\": [{ \"type\": \"text\", \"text\": JSON.stringify({ \"errorCategory\": \"transient\", \"isRetryable\": true, \"description\": \"Database timeout after 30s\", \"attempted\": \"SELECT * FROM orders WHERE id=123\", \"partialResults\": null }) }] }"
+      - generic [ref=e206]:
+        - heading "2.3 Distribucion de Tools y tool_choice" [level=3] [ref=e207]:
+          - generic [ref=e208]: "2.3"
+          - text: Distribucion de Tools y tool_choice
+        - paragraph [ref=e209]: Dar muchas tools a un agente (18 vs 4-5) degrada la confiabilidad de seleccion.
+        - list [ref=e210]:
+          - listitem [ref=e211]: "> Restringir tools por rol: cada subagente solo recibe las herramientas de su especializacion"
+          - listitem [ref=e212]: "> Tools cross-role limitadas para necesidades de alta frecuencia"
+          - listitem [ref=e213]:
+            - text: ">"
+            - code [ref=e214]: "tool_choice: \"auto\""
+            - text: — modelo puede retornar texto en vez de llamar tool
+          - listitem [ref=e215]:
+            - text: ">"
+            - code [ref=e216]: "tool_choice: \"any\""
+            - text: — garantiza que el modelo llama alguna tool
+          - listitem [ref=e217]:
+            - text: ">"
+            - code [ref=e218]: "tool_choice: {\"type\": \"tool\", \"name\": \"...\"}"
+            - text: — fuerza tool especifico
+        - table [ref=e219]:
+          - rowgroup [ref=e220]:
+            - row "tool_choice Comportamiento Caso de uso" [ref=e221]:
+              - columnheader "tool_choice" [ref=e222]
+              - columnheader "Comportamiento" [ref=e223]
+              - columnheader "Caso de uso" [ref=e224]
+            - row "\"auto\" Modelo decide si llamar tool o responder Conversacion general" [ref=e225]:
+              - cell "\"auto\"" [ref=e226]:
+                - code [ref=e227]: "\"auto\""
+              - cell "Modelo decide si llamar tool o responder" [ref=e228]
+              - cell "Conversacion general" [ref=e229]
+            - row "\"any\" Debe llamar alguna tool Structured output garantizado" [ref=e230]:
+              - cell "\"any\"" [ref=e231]:
+                - code [ref=e232]: "\"any\""
+              - cell "Debe llamar alguna tool" [ref=e233]
+              - cell "Structured output garantizado" [ref=e234]
+            - 'row "{\"type\":\"tool\",\"name\":\"X\"} Debe llamar tool X Forzar extraction antes de enrichment" [ref=e235]':
+              - 'cell "{\"type\":\"tool\",\"name\":\"X\"}" [ref=e236]':
+                - code [ref=e237]: "{\"type\":\"tool\",\"name\":\"X\"}"
+              - cell "Debe llamar tool X" [ref=e238]
+              - cell "Forzar extraction antes de enrichment" [ref=e239]
+      - generic [ref=e240]:
+        - heading "2.4 MCP Server Configuration" [level=3] [ref=e241]:
+          - generic [ref=e242]: "2.4"
+          - text: MCP Server Configuration
+        - paragraph [ref=e243]: Model Context Protocol conecta agentes AI con sistemas externos.
+        - list [ref=e244]:
+          - listitem [ref=e245]:
+            - text: ">"
+            - strong [ref=e246]: "Project scope:"
+            - code [ref=e247]: .mcp.json
+            - text: — shared via version control
+          - listitem [ref=e248]:
+            - text: ">"
+            - strong [ref=e249]: "User scope:"
+            - code [ref=e250]: ~/.claude.json
+            - text: — personal/experimental
+          - listitem [ref=e251]:
+            - text: "> Variables de entorno:"
+            - code [ref=e252]: "${GITHUB_TOKEN}"
+            - text: en .mcp.json para credenciales
+          - listitem [ref=e253]: "> MCP resources exponen catalogos de contenido para reducir tool calls exploratorias"
+          - listitem [ref=e254]: "> Preferir community MCP servers existentes sobre implementaciones custom"
+        - generic [ref=e255]:
+          - text: json
+          - code [ref=e256]: "// .mcp.json - project-scoped { \"mcpServers\": { \"github\": { \"command\": \"npx\", \"args\": [\"@modelcontextprotocol/server-github\"], \"env\": { \"GITHUB_TOKEN\": \"${GITHUB_TOKEN}\" } } } }"
+      - generic [ref=e257]:
+        - heading "2.5 Built-in Tools" [level=3] [ref=e258]:
+          - generic [ref=e259]: "2.5"
+          - text: Built-in Tools
+        - paragraph [ref=e260]: Herramientas integradas y sus usos correctos.
+        - table [ref=e261]:
+          - rowgroup [ref=e262]:
+            - row "Tool Proposito Ejemplo" [ref=e263]:
+              - columnheader "Tool" [ref=e264]
+              - columnheader "Proposito" [ref=e265]
+              - columnheader "Ejemplo" [ref=e266]
+            - row "Grep Buscar contenido en archivos Encontrar callers de una funcion" [ref=e267]:
+              - cell "Grep" [ref=e268]:
+                - code [ref=e269]: Grep
+              - cell "Buscar contenido en archivos" [ref=e270]
+              - cell "Encontrar callers de una funcion" [ref=e271]
+            - row "Glob Buscar archivos por patron **/*.test.tsx" [ref=e272]:
+              - cell "Glob" [ref=e273]:
+                - code [ref=e274]: Glob
+              - cell "Buscar archivos por patron" [ref=e275]
+              - cell "**/*.test.tsx" [ref=e276]:
+                - code [ref=e277]: "**/*.test.tsx"
+            - row "Read Leer contenido completo de archivo Cargar un archivo para analisis" [ref=e278]:
+              - cell "Read" [ref=e279]:
+                - code [ref=e280]: Read
+              - cell "Leer contenido completo de archivo" [ref=e281]
+              - cell "Cargar un archivo para analisis" [ref=e282]
+            - row "Edit Modificaciones precisas con text matching Cambiar una linea especifica" [ref=e283]:
+              - cell "Edit" [ref=e284]:
+                - code [ref=e285]: Edit
+              - cell "Modificaciones precisas con text matching" [ref=e286]
+              - cell "Cambiar una linea especifica" [ref=e287]
+            - row "Write Crear/reescribir archivos completos Crear archivo nuevo" [ref=e288]:
+              - cell "Write" [ref=e289]:
+                - code [ref=e290]: Write
+              - cell "Crear/reescribir archivos completos" [ref=e291]
+              - cell "Crear archivo nuevo" [ref=e292]
+            - row "Bash Ejecutar comandos de terminal Correr tests, git operations" [ref=e293]:
+              - cell "Bash" [ref=e294]:
+                - code [ref=e295]: Bash
+              - cell "Ejecutar comandos de terminal" [ref=e296]
+              - cell "Correr tests, git operations" [ref=e297]
+        - generic [ref=e298]:
+          - heading "Patron de exploracion incremental" [level=4] [ref=e299]
+          - paragraph [ref=e300]:
+            - text: Comenzar con
+            - code [ref=e301]: Grep
+            - text: para encontrar entry points → luego
+            - code [ref=e302]: Read
+            - text: para seguir imports y trazar flujos, en vez de leer todos los archivos por adelantado.
+    - generic [ref=e303]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e304]
+      - generic [ref=e305]:
+        - generic [ref=e306] [cursor=pointer]:
+          - img "Tool Use Overview" [ref=e307]
+          - generic [ref=e308]: Tool Use with Claude - Overview
+          - link "platform.claude.com/docs →" [ref=e309]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
+        - generic [ref=e310] [cursor=pointer]:
+          - img "Define Tools" [ref=e311]
+          - generic [ref=e312]: Define Tools - Schemas, tool_choice, Descriptions
+          - link "platform.claude.com/docs →" [ref=e313]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools
+        - generic [ref=e314] [cursor=pointer]:
+          - img "MCP Introduction" [ref=e315]
+          - generic [ref=e316]: Model Context Protocol - Introduction
+          - link "modelcontextprotocol.io →" [ref=e317]:
+            - /url: https://modelcontextprotocol.io/introduction
+        - generic [ref=e318] [cursor=pointer]:
+          - img "MCP Server Concepts" [ref=e319]
+          - generic [ref=e320]: MCP Server Concepts - Tools vs Resources
+          - link "modelcontextprotocol.io →" [ref=e321]:
+            - /url: https://modelcontextprotocol.io/docs/learn/server-concepts
+  - generic [ref=e322]:
+    - generic [ref=e323]:
+      - generic [ref=e324]: Dominio 3 — 20% del examen
+      - heading "Claude Code Configuration & Workflows" [level=2] [ref=e325]
+      - paragraph [ref=e326]: Configurar CLAUDE.md, comandos personalizados, skills, plan mode, y CI/CD integration.
+    - generic [ref=e327]:
+      - generic [ref=e328]: Jerarquia de Configuracion CLAUDE.md
+      - generic [ref=e329]:
+        - generic [ref=e330]:
+          - generic [ref=e331]: "1"
+          - generic [ref=e332]:
+            - generic [ref=e333]: ~/.claude/CLAUDE.md
+            - generic [ref=e334]: User-level — preferencias personales, solo para ti, NO compartido via version control
+        - generic [ref=e336]:
+          - generic [ref=e337]: "2"
+          - generic [ref=e338]:
+            - generic [ref=e339]: ./CLAUDE.md o ./.claude/CLAUDE.md
+            - generic [ref=e340]: Project-level — instrucciones de equipo compartidas via version control
+        - generic [ref=e342]:
+          - generic [ref=e343]: "3"
+          - generic [ref=e344]:
+            - generic [ref=e345]: ./subdir/CLAUDE.md
+            - generic [ref=e346]: Directory-level — se carga on-demand al leer archivos en ese directorio
+        - generic [ref=e348]:
+          - generic [ref=e349]: "4"
+          - generic [ref=e350]:
+            - generic [ref=e351]: .claude/rules/*.md
+            - generic [ref=e352]:
+              - text: Rules con YAML frontmatter — carga condicional por
+              - code [ref=e353]: paths
+              - text: glob patterns
+    - generic [ref=e354]:
+      - generic [ref=e355]:
+        - heading "3.1 CLAUDE.md Hierarchy & @import" [level=3] [ref=e356]:
+          - generic [ref=e357]: "3.1"
+          - text: CLAUDE.md Hierarchy & @import
+        - list [ref=e358]:
+          - listitem [ref=e359]:
+            - text: "> User-level ("
+            - code [ref=e360]: ~/.claude/CLAUDE.md
+            - text: "): NO se comparte con teammates"
+          - listitem [ref=e361]: "> Project-level: se comparte via version control"
+          - listitem [ref=e362]:
+            - text: ">"
+            - code [ref=e363]: "@import"
+            - text: para referenciar archivos externos y mantener modularidad
+          - listitem [ref=e364]:
+            - text: ">"
+            - code [ref=e365]: .claude/rules/
+            - text: como alternativa a CLAUDE.md monolitico
+          - listitem [ref=e366]:
+            - text: "> Usar"
+            - code [ref=e367]: /memory
+            - text: para verificar que archivos estan cargados
+        - generic [ref=e368]:
+          - text: markdown
+          - code [ref=e369]: "# .claude/rules/testing.md --- paths: - \"**/*.test.tsx\" - \"**/*.spec.ts\" --- # Testing Conventions - Use React Testing Library, not Enzyme - Mock external APIs, never databases - Each test file must have describe blocks"
+      - generic [ref=e370]:
+        - heading "3.2 Custom Slash Commands & Skills" [level=3] [ref=e371]:
+          - generic [ref=e372]: "3.2"
+          - text: Custom Slash Commands & Skills
+        - list [ref=e373]:
+          - listitem [ref=e374]:
+            - text: ">"
+            - code [ref=e375]: .claude/commands/
+            - text: — project-scoped, shared via VCS
+          - listitem [ref=e376]:
+            - text: ">"
+            - code [ref=e377]: ~/.claude/commands/
+            - text: — user-scoped, personal
+          - listitem [ref=e378]:
+            - text: ">"
+            - code [ref=e379]: .claude/skills/
+            - text: con SKILL.md y frontmatter YAML
+          - listitem [ref=e380]:
+            - text: ">"
+            - code [ref=e381]: "context: fork"
+            - text: — ejecutar en subagente aislado
+          - listitem [ref=e382]:
+            - text: ">"
+            - code [ref=e383]: allowed-tools
+            - text: — restringir herramientas durante ejecucion
+          - listitem [ref=e384]:
+            - text: ">"
+            - code [ref=e385]: argument-hint
+            - text: — prompt para parametros requeridos
+        - generic [ref=e386]:
+          - text: yaml
+          - code [ref=e387]: "# .claude/skills/review/SKILL.md --- name: review description: Run team code review checklist context: fork allowed-tools: Read Grep Glob argument-hint: [file-path] --- Review $ARGUMENTS for: 1. Security vulnerabilities 2. Performance anti-patterns 3. Missing error handling"
+      - generic [ref=e388]:
+        - heading "3.3 Path-Specific Rules" [level=3] [ref=e389]:
+          - generic [ref=e390]: "3.3"
+          - text: Path-Specific Rules
+        - paragraph [ref=e391]:
+          - text: Reglas con YAML frontmatter
+          - code [ref=e392]: paths
+          - text: con glob patterns para carga condicional.
+        - list [ref=e393]:
+          - listitem [ref=e394]: "> Solo se cargan al editar archivos que matchean el patron"
+          - listitem [ref=e395]: "> Mejor que subdirectory CLAUDE.md cuando la convencion abarca multiples directorios"
+          - listitem [ref=e396]:
+            - text: "> Ejemplo:"
+            - code [ref=e397]: "paths: [\"**/*.test.tsx\"]"
+            - text: para todos los archivos de test
+      - generic [ref=e398]:
+        - heading "3.4 Plan Mode vs Direct Execution" [level=3] [ref=e399]:
+          - generic [ref=e400]: "3.4"
+          - text: Plan Mode vs Direct Execution
+        - table [ref=e401]:
+          - rowgroup [ref=e402]:
+            - row "Criterio Plan Mode Direct Execution" [ref=e403]:
+              - columnheader "Criterio" [ref=e404]
+              - columnheader "Plan Mode" [ref=e405]
+              - columnheader "Direct Execution" [ref=e406]
+            - row "Complejidad Multi-file, architectural Single-file, well-scoped" [ref=e407]:
+              - cell "Complejidad" [ref=e408]
+              - cell "Multi-file, architectural" [ref=e409]
+              - cell "Single-file, well-scoped" [ref=e410]
+            - row "Ejemplo Microservice restructuring Add validation to one fn" [ref=e411]:
+              - cell "Ejemplo" [ref=e412]
+              - cell "Microservice restructuring" [ref=e413]
+              - cell "Add validation to one fn" [ref=e414]
+            - row "Riesgo Multiples enfoques validos Scope claro y definido" [ref=e415]:
+              - cell "Riesgo" [ref=e416]
+              - cell "Multiples enfoques validos" [ref=e417]
+              - cell "Scope claro y definido" [ref=e418]
+            - row "Exploracion Explore subagent para discovery Cambio directo" [ref=e419]:
+              - cell "Exploracion" [ref=e420]
+              - cell "Explore subagent para discovery" [ref=e421]
+              - cell "Cambio directo" [ref=e422]
+        - generic [ref=e423]:
+          - heading "Pregunta frecuente" [level=4] [ref=e424]
+          - paragraph [ref=e425]:
+            - text: "Para restructurar un monolito en microservicios (cambios en docenas de archivos):"
+            - strong [ref=e426]: Plan mode primero
+            - text: . No direct execution con instrucciones comprehensivas, no empezar incrementalmente, no esperar a que surja complejidad.
+      - generic [ref=e427]:
+        - heading "3.5 Iterative Refinement" [level=3] [ref=e428]:
+          - generic [ref=e429]: "3.5"
+          - text: Iterative Refinement
+        - list [ref=e430]:
+          - listitem [ref=e431]:
+            - text: ">"
+            - strong [ref=e432]: Input/output examples
+            - text: son la forma mas efectiva de comunicar transformaciones
+          - listitem [ref=e433]:
+            - text: ">"
+            - strong [ref=e434]: "Test-driven iteration:"
+            - text: escribir tests primero, iterar compartiendo failures
+          - listitem [ref=e435]:
+            - text: ">"
+            - strong [ref=e436]: "Interview pattern:"
+            - text: hacer que Claude pregunte para surfacear consideraciones
+          - listitem [ref=e437]: "> Multiples issues interactivos en un mensaje vs sequencial para independientes"
+      - generic [ref=e438]:
+        - heading "3.6 CI/CD Integration" [level=3] [ref=e439]:
+          - generic [ref=e440]: "3.6"
+          - text: CI/CD Integration
+        - list [ref=e441]:
+          - listitem [ref=e442]:
+            - text: ">"
+            - code [ref=e443]: "-p"
+            - text: /
+            - code [ref=e444]: "--print"
+            - text: para modo no-interactivo en pipelines
+          - listitem [ref=e445]:
+            - text: ">"
+            - code [ref=e446]: "--output-format json"
+            - text: +
+            - code [ref=e447]: "--json-schema"
+            - text: para output estructurado
+          - listitem [ref=e448]: "> CLAUDE.md provee contexto de proyecto en CI (standards, fixtures, review criteria)"
+          - listitem [ref=e449]: "> Session context isolation: la misma sesion que genero codigo es menos efectiva revisandolo"
+        - generic [ref=e450]:
+          - text: bash
+          - code [ref=e451]: "# CI pipeline - review automatizado claude -p \\ --output-format json \\ --json-schema '{\"type\":\"object\",\"properties\":{\"findings\":{\"type\":\"array\"}}}' \\ \"Review this PR for security issues. Output structured findings.\" # Incluir findings previos para evitar duplicados claude -p \"Review changes since last commit. Previous findings: ${PREV_FINDINGS} Report only NEW or still-unaddressed issues.\""
+    - generic [ref=e452]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e453]
+      - generic [ref=e454]:
+        - generic [ref=e455] [cursor=pointer]:
+          - img "Claude Code Overview" [ref=e456]
+          - generic [ref=e457]: Claude Code Overview - Features & Capabilities
+          - link "code.claude.com/docs →" [ref=e458]:
+            - /url: https://code.claude.com/docs/en/overview
+        - generic [ref=e459] [cursor=pointer]:
+          - img "CLAUDE.md Memory" [ref=e460]
+          - generic [ref=e461]: CLAUDE.md - Hierarchy, Rules, Auto Memory
+          - link "code.claude.com/docs →" [ref=e462]:
+            - /url: https://code.claude.com/docs/en/memory
+        - generic [ref=e463] [cursor=pointer]:
+          - img "Skills Overview" [ref=e464]
+          - generic [ref=e465]: Skills - Custom Commands, SKILL.md, Frontmatter
+          - link "code.claude.com/docs →" [ref=e466]:
+            - /url: https://code.claude.com/docs/en/skills
+        - generic [ref=e467] [cursor=pointer]:
+          - img "GitHub Actions CI/CD" [ref=e468]
+          - generic [ref=e469]: GitHub Actions - CI/CD Integration
+          - link "code.claude.com/docs →" [ref=e470]:
+            - /url: https://code.claude.com/docs/en/github-actions
+  - generic [ref=e471]:
+    - generic [ref=e472]:
+      - generic [ref=e473]: Dominio 4 — 20% del examen
+      - heading "Prompt Engineering & Structured Output" [level=2] [ref=e474]
+      - paragraph [ref=e475]: Disenar prompts con criterios explicitos, few-shot examples, JSON schemas via tool_use, y batch processing.
+    - generic [ref=e476]:
+      - generic [ref=e477]:
+        - heading "4.1 Criterios Explicitos" [level=3] [ref=e478]:
+          - generic [ref=e479]: "4.1"
+          - text: Criterios Explicitos
+        - list [ref=e480]:
+          - listitem [ref=e481]: "> Criterios especificos > instrucciones vagas (\"flag comments only when behavior contradicts code\" vs \"check comments are accurate\")"
+          - listitem [ref=e482]: "> \"Be conservative\" o \"only report high-confidence\" NO mejora la precision"
+          - listitem [ref=e483]: "> Categorias con alto false-positive rate destruyen confianza en categorias precisas"
+          - listitem [ref=e484]: "> Deshabilitar temporalmente categorias problematicas mientras se mejoran prompts"
+      - generic [ref=e485]:
+        - heading "4.2 Few-Shot Prompting" [level=3] [ref=e486]:
+          - generic [ref=e487]: "4.2"
+          - text: Few-Shot Prompting
+        - list [ref=e488]:
+          - listitem [ref=e489]: "> La tecnica mas efectiva para output consistente y formateado"
+          - listitem [ref=e490]: "> 2-4 examples targeting ambiguous scenarios con reasoning"
+          - listitem [ref=e491]: "> Muestran handling de casos ambiguos y razones de decision"
+          - listitem [ref=e492]: "> Permiten generalizacion a patrones nuevos (no solo match literal)"
+          - listitem [ref=e493]: "> Reducen hallucination en extraction tasks"
+        - generic [ref=e494]:
+          - heading "Best Practice" [level=4] [ref=e495]
+          - paragraph [ref=e496]:
+            - text: Envolver ejemplos en tags
+            - code [ref=e497]: <example>
+            - text: dentro de
+            - code [ref=e498]: <examples>
+            - text: . Cada ejemplo debe mostrar input, output esperado y reasoning para decisiones ambiguas. 3-5 ejemplos diversos para mejores resultados.
+      - generic [ref=e499]:
+        - heading "4.3 Structured Output via tool_use" [level=3] [ref=e500]:
+          - generic [ref=e501]: "4.3"
+          - text: Structured Output via tool_use
+        - paragraph [ref=e502]:
+          - code [ref=e503]: tool_use
+          - text: con JSON schemas es el approach mas confiable para output estructurado garantizado.
+        - list [ref=e504]:
+          - listitem [ref=e505]: "> Elimina errores de sintaxis JSON, pero NO previene errores semanticos"
+          - listitem [ref=e506]:
+            - text: "> Campos"
+            - code [ref=e507]: optional
+            - text: (nullable) cuando el source puede no tener la info → previene fabricacion
+          - listitem [ref=e508]: "> Enum con \"other\" + detail string para categorias extensibles"
+          - listitem [ref=e509]:
+            - text: ">"
+            - code [ref=e510]: "strict: true"
+            - text: en tool definitions para conformancia de schema garantizada
+        - generic [ref=e511]:
+          - text: python
+          - code [ref=e512]: "# Extraction tool con JSON schema tools = [{ \"name\": \"extract_invoice\", \"description\": \"Extract structured data from invoice\", \"input_schema\": { \"type\": \"object\", \"properties\": { \"vendor\": {\"type\": \"string\"}, \"total\": {\"type\": \"number\"}, \"date\": {\"type\": [\"string\", \"null\"]}, # nullable! \"category\": { \"type\": \"string\", \"enum\": [\"supplies\", \"services\", \"other\"] }, \"category_detail\": {\"type\": [\"string\", \"null\"]} }, \"required\": [\"vendor\", \"total\"] } }] # Forzar que se use este tool tool_choice = {\"type\": \"tool\", \"name\": \"extract_invoice\"}"
+      - generic [ref=e513]:
+        - heading "4.4 Validation & Retry Loops" [level=3] [ref=e514]:
+          - generic [ref=e515]: "4.4"
+          - text: Validation & Retry Loops
+        - list [ref=e516]:
+          - listitem [ref=e517]:
+            - text: ">"
+            - strong [ref=e518]: "Retry-with-error-feedback:"
+            - text: incluir errores de validacion especificos en el retry prompt
+          - listitem [ref=e519]: "> Retries son inefectivos cuando la info simplemente no existe en el source"
+          - listitem [ref=e520]:
+            - text: ">"
+            - code [ref=e521]: detected_pattern
+            - text: field para analizar patrones de falsos positivos
+          - listitem [ref=e522]:
+            - text: "> Self-correction: extraer"
+            - code [ref=e523]: calculated_total
+            - text: junto a
+            - code [ref=e524]: stated_total
+            - text: para flaggear discrepancias
+      - generic [ref=e525]:
+        - heading "4.5 Batch Processing (Message Batches API)" [level=3] [ref=e526]:
+          - generic [ref=e527]: "4.5"
+          - text: Batch Processing (Message Batches API)
+        - table [ref=e528]:
+          - rowgroup [ref=e529]:
+            - row "Aspecto Sync API Batch API" [ref=e530]:
+              - columnheader "Aspecto" [ref=e531]
+              - columnheader "Sync API" [ref=e532]
+              - columnheader "Batch API" [ref=e533]
+            - row "Costo Full price 50% descuento" [ref=e534]:
+              - cell "Costo" [ref=e535]
+              - cell "Full price" [ref=e536]
+              - cell "50% descuento" [ref=e537]
+            - row "Latencia Inmediata Hasta 24 horas" [ref=e538]:
+              - cell "Latencia" [ref=e539]
+              - cell "Inmediata" [ref=e540]
+              - cell "Hasta 24 horas" [ref=e541]
+            - row "SLA Garantizado Sin SLA de latencia" [ref=e542]:
+              - cell "SLA" [ref=e543]
+              - cell "Garantizado" [ref=e544]
+              - cell "Sin SLA de latencia" [ref=e545]
+            - row "Tool calling Multi-turn No soporta" [ref=e546]:
+              - cell "Tool calling" [ref=e547]
+              - cell "Multi-turn" [ref=e548]
+              - cell "No soporta" [ref=e549]
+            - row "Correlacion N/A custom_id" [ref=e550]:
+              - cell "Correlacion" [ref=e551]
+              - cell "N/A" [ref=e552]
+              - cell "custom_id" [ref=e553]:
+                - code [ref=e554]: custom_id
+        - generic [ref=e555]:
+          - heading "Pregunta clasica del examen" [level=4] [ref=e556]
+          - paragraph [ref=e557]:
+            - strong [ref=e558]: Batch API para overnight reports/weekly audits.
+            - text: Sync API para pre-merge checks bloqueantes. NUNCA usar Batch API para workflows que bloquean desarrolladores.
+      - generic [ref=e559]:
+        - heading "4.6 Multi-Instance Review" [level=3] [ref=e560]:
+          - generic [ref=e561]: "4.6"
+          - text: Multi-Instance Review
+        - list [ref=e562]:
+          - listitem [ref=e563]: "> Self-review es limitado: el modelo retiene contexto de razonamiento previo"
+          - listitem [ref=e564]: "> Instancia independiente (sin contexto previo) es mas efectiva para catch issues"
+          - listitem [ref=e565]: "> Multi-pass: per-file local analysis + cross-file integration passes"
+          - listitem [ref=e566]: "> Verification passes con confidence scores para routing calibrado"
+    - generic [ref=e567]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e568]
+      - generic [ref=e569]:
+        - generic [ref=e570] [cursor=pointer]:
+          - img "Prompting Best Practices" [ref=e571]
+          - generic [ref=e572]: Prompting Best Practices - Clarity, Examples, XML
+          - link "platform.claude.com/docs →" [ref=e573]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+        - generic [ref=e574] [cursor=pointer]:
+          - img "Structured Outputs" [ref=e575]
+          - generic [ref=e576]: Structured Outputs - JSON, strict:true, tool_use
+          - link "platform.claude.com/docs →" [ref=e577]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
+        - generic [ref=e578] [cursor=pointer]:
+          - img "Batch Processing" [ref=e579]
+          - generic [ref=e580]: Message Batches API - 50% Savings, custom_id
+          - link "platform.claude.com/docs →" [ref=e581]:
+            - /url: https://platform.claude.com/docs/en/build-with-claude/batch-processing
+        - generic [ref=e582] [cursor=pointer]:
+          - img "Handle Tool Calls" [ref=e583]
+          - generic [ref=e584]: Handle Tool Calls - tool_result, isError
+          - link "platform.claude.com/docs →" [ref=e585]:
+            - /url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls
+  - generic [ref=e586]:
+    - generic [ref=e587]:
+      - generic [ref=e588]: Dominio 5 — 15% del examen
+      - heading "Context Management & Reliability" [level=2] [ref=e589]
+      - paragraph [ref=e590]: Preservar informacion critica, escalation patterns, error propagation, y human review workflows.
+    - generic [ref=e591]:
+      - generic [ref=e592]:
+        - heading "5.1 Context Window Management" [level=3] [ref=e593]:
+          - generic [ref=e594]: "5.1"
+          - text: Context Window Management
+        - list [ref=e595]:
+          - listitem [ref=e596]:
+            - text: ">"
+            - strong [ref=e597]: "Lost in the middle:"
+            - text: modelos procesan bien inicio y final, pueden omitir secciones medias
+          - listitem [ref=e598]: "> Progressive summarization pierde numeros, fechas, porcentajes criticos"
+          - listitem [ref=e599]: "> Extraer \"case facts\" transaccionales a un bloque persistente fuera del historial resumido"
+          - listitem [ref=e600]: "> Trimming de tool outputs verbosos: mantener solo campos relevantes"
+          - listitem [ref=e601]: "> Key findings al inicio + section headers explicitos para mitigar position effects"
+        - generic [ref=e602]:
+          - 'heading "Patron: Case Facts Block" [level=4] [ref=e603]'
+          - paragraph [ref=e604]: Extraer datos transaccionales (montos, IDs de orden, fechas, estados) en un bloque "case facts" que se incluye en cada prompt, separado del historial resumido. Esto previene perdida de datos criticos durante compaction.
+      - generic [ref=e605]:
+        - heading "5.2 Escalation & Ambiguity Resolution" [level=3] [ref=e606]:
+          - generic [ref=e607]: "5.2"
+          - text: Escalation & Ambiguity Resolution
+        - list [ref=e608]:
+          - listitem [ref=e609]:
+            - text: ">"
+            - strong [ref=e610]: "Escalar cuando:"
+            - text: cliente pide humano, policy gaps, no se puede progresar
+          - listitem [ref=e611]: "> Honrar request explicito del cliente para agente humano inmediatamente"
+          - listitem [ref=e612]: "> Sentiment-based escalation y self-reported confidence NO son confiables"
+          - listitem [ref=e613]: "> Multiples customer matches: pedir identificadores adicionales, no seleccion heuristica"
+        - generic [ref=e614]:
+          - heading "Trampa comun del examen" [level=4] [ref=e615]
+          - paragraph [ref=e616]:
+            - text: Confidence scores self-reported (1-10) son
+            - strong [ref=e617]: poorly calibrated
+            - text: . El agente puede estar incorrectamente confiado en casos dificiles. Clasificadores de sentimiento resuelven un problema diferente (frustración =/= complejidad del caso).
+      - generic [ref=e618]:
+        - heading "5.3 Error Propagation Multi-Agent" [level=3] [ref=e619]:
+          - generic [ref=e620]: "5.3"
+          - text: Error Propagation Multi-Agent
+        - list [ref=e621]:
+          - listitem [ref=e622]: "> Retornar contexto estructurado: tipo de fallo, query intentada, resultados parciales, alternativas"
+          - listitem [ref=e623]: "> Anti-patron: suprimir errores silenciosamente (retornar vacio como exito)"
+          - listitem [ref=e624]: "> Anti-patron: terminar workflow entero por un solo fallo"
+          - listitem [ref=e625]: "> Subagentes: recovery local para errores transientes, propagar solo irresolubles"
+      - generic [ref=e626]:
+        - heading "5.4 Large Codebase Exploration" [level=3] [ref=e627]:
+          - generic [ref=e628]: "5.4"
+          - text: Large Codebase Exploration
+        - list [ref=e629]:
+          - listitem [ref=e630]: "> Context degradation: respuestas inconsistentes refiriendo \"typical patterns\" en vez de clases descubiertas"
+          - listitem [ref=e631]:
+            - text: ">"
+            - strong [ref=e632]: Scratchpad files
+            - text: para persistir hallazgos clave entre limites de contexto
+          - listitem [ref=e633]: "> Subagent delegation para aislar output verboso de exploracion"
+          - listitem [ref=e634]:
+            - text: ">"
+            - code [ref=e635]: /compact
+            - text: para reducir uso de contexto durante sesiones extendidas
+          - listitem [ref=e636]: "> Crash recovery: state exports estructurados que el coordinador carga al resumir"
+      - generic [ref=e637]:
+        - heading "5.5 Human Review & Confidence Calibration" [level=3] [ref=e638]:
+          - generic [ref=e639]: "5.5"
+          - text: Human Review & Confidence Calibration
+        - list [ref=e640]:
+          - listitem [ref=e641]: "> 97% accuracy global puede ocultar performance pobre en tipos especificos de documentos"
+          - listitem [ref=e642]:
+            - text: ">"
+            - strong [ref=e643]: Stratified random sampling
+            - text: de extracciones high-confidence para medir error rates
+          - listitem [ref=e644]: "> Field-level confidence scores calibrados con labeled validation sets"
+          - listitem [ref=e645]: "> Validar accuracy por document type Y field antes de automatizar extracciones"
+      - generic [ref=e646]:
+        - heading "5.6 Information Provenance" [level=3] [ref=e647]:
+          - generic [ref=e648]: "5.6"
+          - text: Information Provenance
+        - list [ref=e649]:
+          - listitem [ref=e650]: "> Source attribution se pierde durante pasos de summarization"
+          - listitem [ref=e651]: "> Claim-source mappings estructurados que la sintesis debe preservar"
+          - listitem [ref=e652]: "> Datos conflictivos: anotar con source attribution, no seleccionar uno arbitrariamente"
+          - listitem [ref=e653]: "> Temporal data: requerir publication/collection dates para interpretacion correcta"
+          - listitem [ref=e654]: "> Secciones explicitas distinguiendo hallazgos bien-establecidos de contestados"
+    - generic [ref=e655]:
+      - heading "Documentacion Oficial Relacionada" [level=4] [ref=e656]
+      - generic [ref=e657]:
+        - generic [ref=e658] [cursor=pointer]:
+          - img "Context Window" [ref=e659]
+          - generic [ref=e660]: Explore the Context Window - Token Management
+          - link "code.claude.com/docs →" [ref=e661]:
+            - /url: https://code.claude.com/docs/en/context-window
+        - generic [ref=e662] [cursor=pointer]:
+          - img "MCP Architecture" [ref=e663]
+          - generic [ref=e664]: MCP Architecture - Client/Server, Error Propagation
+          - link "modelcontextprotocol.io →" [ref=e665]:
+            - /url: https://modelcontextprotocol.io/docs/learn/architecture
+        - generic [ref=e666] [cursor=pointer]:
+          - img "MCP Config" [ref=e667]
+          - generic [ref=e668]: MCP Config - .mcp.json, Multi-server Access
+          - link "code.claude.com/docs →" [ref=e669]:
+            - /url: https://code.claude.com/docs/en/mcp
+  - generic [ref=e671]:
+    - generic [ref=e672]:
+      - heading "Los 6 Escenarios del Examen" [level=2] [ref=e673]
+      - paragraph [ref=e674]: 4 escenarios se presentan al azar en cada examen. Cada uno enmarca preguntas en un contexto de produccion realista.
+    - generic [ref=e675]:
+      - generic [ref=e676]:
+        - generic [ref=e677]: "1"
+        - heading "Customer Support Resolution Agent" [level=3] [ref=e678]
+        - paragraph [ref=e679]: "Agente de soporte con MCP tools (get_customer, lookup_order, process_refund, escalate_to_human). Target: 80%+ first-contact resolution con escalation calibrado."
+        - generic [ref=e680]:
+          - generic [ref=e681]: "D1: Agentic"
+          - generic [ref=e682]: "D2: MCP"
+          - generic [ref=e683]: "D5: Reliability"
+      - generic [ref=e684]:
+        - generic [ref=e685]: "2"
+        - heading "Code Generation con Claude Code" [level=3] [ref=e686]
+        - paragraph [ref=e687]: Claude Code para generacion de codigo, refactoring, debugging. Custom slash commands, CLAUDE.md configs, plan mode vs direct execution.
+        - generic [ref=e688]:
+          - generic [ref=e689]: "D3: Claude Code"
+          - generic [ref=e690]: "D5: Reliability"
+      - generic [ref=e691]:
+        - generic [ref=e692]: "3"
+        - heading "Multi-Agent Research System" [level=3] [ref=e693]
+        - paragraph [ref=e694]: "Coordinador delegando a sub-agentes: web search, document analysis, synthesis, report generation. Reportes comprehensivos con citas."
+        - generic [ref=e695]:
+          - generic [ref=e696]: "D1: Agentic"
+          - generic [ref=e697]: "D2: MCP"
+          - generic [ref=e698]: "D5: Reliability"
+      - generic [ref=e699]:
+        - generic [ref=e700]: "4"
+        - heading "Developer Productivity" [level=3] [ref=e701]
+        - paragraph [ref=e702]: Agente para explorar codebases, entender sistemas legacy, generar boilerplate. Built-in tools + MCP servers integrados.
+        - generic [ref=e703]:
+          - generic [ref=e704]: "D2: MCP"
+          - generic [ref=e705]: "D3: Claude Code"
+          - generic [ref=e706]: "D1: Agentic"
+      - generic [ref=e707]:
+        - generic [ref=e708]: "5"
+        - heading "Claude Code para CI" [level=3] [ref=e709]
+        - paragraph [ref=e710]: "Integrar Claude Code en CI/CD: reviews automatizados, generacion de tests, feedback en PRs. Prompts para feedback accionable con minimos false positives."
+        - generic [ref=e711]:
+          - generic [ref=e712]: "D3: Claude Code"
+          - generic [ref=e713]: "D4: Prompts"
+      - generic [ref=e714]:
+        - generic [ref=e715]: "6"
+        - heading "Structured Data Extraction" [level=3] [ref=e716]
+        - paragraph [ref=e717]: Extraer info de documentos no estructurados, validar con JSON schemas, mantener alta precision. Edge cases y downstream integration.
+        - generic [ref=e718]:
+          - generic [ref=e719]: "D4: Prompts"
+          - generic [ref=e720]: "D5: Reliability"
+  - generic [ref=e721]:
+    - generic [ref=e722]:
+      - heading "Fuera del Alcance del Examen" [level=2] [ref=e723]
+      - paragraph [ref=e724]: Estos temas NO aparecen en el examen.
+    - generic [ref=e725]:
+      - list [ref=e727]:
+        - listitem [ref=e728]: "> Fine-tuning o training de modelos custom"
+        - listitem [ref=e729]: "> Autenticacion, billing o account management de la API"
+        - listitem [ref=e730]: "> Deploy/hosting de MCP servers (infra, networking)"
+        - listitem [ref=e731]: "> Arquitectura interna de Claude, training, model weights"
+        - listitem [ref=e732]: "> Constitutional AI, RLHF, safety training"
+      - list [ref=e734]:
+        - listitem [ref=e735]: "> Embedding models o vector databases"
+        - listitem [ref=e736]: "> Computer use (browser/desktop automation)"
+        - listitem [ref=e737]: "> Vision/image analysis capabilities"
+        - listitem [ref=e738]: "> Streaming API o server-sent events"
+        - listitem [ref=e739]: "> Rate limiting, quotas, pricing calculations"
+      - list [ref=e741]:
+        - listitem [ref=e742]: "> OAuth, API key rotation, auth protocols"
+        - listitem [ref=e743]: "> Cloud provider configs (AWS, GCP, Azure)"
+        - listitem [ref=e744]: "> Performance benchmarking"
+        - listitem [ref=e745]: "> Prompt caching implementation details"
+        - listitem [ref=e746]: "> Token counting algorithms"
+  - contentinfo [ref=e747]:
+    - paragraph [ref=e748]:
+      - text: Basado en la guia oficial
+      - strong [ref=e749]: Claude Certified Architect – Foundations Certification Exam Guide
+      - text: de Anthropic (v0.1, Feb 2025)
+    - paragraph [ref=e750]:
+      - text: Profundizado con documentacion oficial de
+      - link "Claude API Docs" [ref=e751] [cursor=pointer]:
+        - /url: https://platform.claude.com/docs
+      - text: ","
+      - link "Claude Code Docs" [ref=e752] [cursor=pointer]:
+        - /url: https://code.claude.com/docs
+      - text: "y"
+      - link "MCP Docs" [ref=e753] [cursor=pointer]:
+        - /url: https://modelcontextprotocol.io
+    - paragraph [ref=e754]: Creado para estudio — no es material oficial de Anthropic

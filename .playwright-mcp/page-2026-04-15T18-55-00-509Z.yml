@@ -1,0 +1,1300 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fbuild-with-claude%2Fbatch-processing
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Model capabilities
+              - generic [ref=e287]:
+                - heading "Batch processing" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+            - paragraph [ref=e301]: "Batch processing is a powerful approach for handling large volumes of requests efficiently. Instead of processing requests one at a time with immediate responses, batch processing allows you to submit multiple requests together for asynchronous processing. This pattern is particularly useful when:"
+            - list [ref=e302]:
+              - listitem [ref=e303]: • You need to process large volumes of data
+              - listitem [ref=e304]: • Immediate responses are not required
+              - listitem [ref=e305]: • You want to optimize for cost efficiency
+              - listitem [ref=e306]: • You're running large-scale evaluations or analyses
+            - paragraph [ref=e307]: The Message Batches API is Anthropic's first implementation of this pattern.
+            - generic [ref=e308]:
+              - img [ref=e311]
+              - paragraph [ref=e314]:
+                - text: This feature is
+                - strong [ref=e315]: not
+                - text: eligible for
+                - link "Zero Data Retention (ZDR)" [ref=e316] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/api-and-data-retention
+                - text: . Data is retained according to the feature's standard retention policy.
+            - separator [ref=e317]
+            - heading "Copy link to clipboard Message Batches API" [level=1] [ref=e318]:
+              - generic [ref=e319]:
+                - button "Copy link to clipboard" [ref=e321] [cursor=pointer]:
+                  - img [ref=e323]
+                - generic [ref=e325]: Message Batches API
+            - paragraph [ref=e326]:
+              - text: The Message Batches API is a powerful, cost-effective way to asynchronously process large volumes of
+              - link "Messages" [ref=e327] [cursor=pointer]:
+                - /url: /docs/en/api/messages/create
+              - text: requests. This approach is well-suited to tasks that do not require immediate responses, with most batches finishing in less than 1 hour while reducing costs by 50% and increasing throughput.
+            - paragraph [ref=e328]:
+              - text: You can
+              - link "explore the API reference directly" [ref=e329] [cursor=pointer]:
+                - /url: /docs/en/api/creating-message-batches
+              - text: ", in addition to this guide."
+            - heading "Copy link to clipboard How the Message Batches API works" [level=2] [ref=e330]:
+              - generic [ref=e331]:
+                - button "Copy link to clipboard" [ref=e333] [cursor=pointer]:
+                  - img [ref=e335]
+                - generic [ref=e337]: How the Message Batches API works
+            - paragraph [ref=e338]: "When you send a request to the Message Batches API:"
+            - list [ref=e339]:
+              - listitem [ref=e340]: The system creates a new Message Batch with the provided Messages requests.
+              - listitem [ref=e341]: The batch is then processed asynchronously, with each request handled independently.
+              - listitem [ref=e342]: You can poll for the status of the batch and retrieve results when processing has ended for all requests.
+            - paragraph [ref=e343]: "This is especially useful for bulk operations that don't require immediate results, such as:"
+            - list [ref=e344]:
+              - listitem [ref=e345]: "• Large-scale evaluations: Process thousands of test cases efficiently."
+              - listitem [ref=e346]: "• Content moderation: Analyze large volumes of user-generated content asynchronously."
+              - listitem [ref=e347]: "• Data analysis: Generate insights or summaries for large datasets."
+              - listitem [ref=e348]: "• Bulk content generation: Create large amounts of text for various purposes (e.g., product descriptions, article summaries)."
+            - heading "Copy link to clipboard Batch limitations" [level=3] [ref=e349]:
+              - generic [ref=e350]:
+                - button "Copy link to clipboard" [ref=e352] [cursor=pointer]:
+                  - img [ref=e354]
+                - generic [ref=e356]: Batch limitations
+            - list [ref=e357]:
+              - listitem [ref=e358]: • A Message Batch is limited to either 100,000 Message requests or 256 MB in size, whichever is reached first.
+              - listitem [ref=e359]: • The system processes each batch as fast as possible, with most batches completing within 1 hour. You can access batch results when all messages have completed or after 24 hours, whichever comes first. Batches expire if processing does not complete within 24 hours.
+              - listitem [ref=e360]: • Batch results are available for 29 days after creation. After that, you may still view the Batch, but its results will no longer be available for download.
+              - listitem [ref=e361]:
+                - text: • Batches are scoped to a
+                - link "Workspace" [ref=e362] [cursor=pointer]:
+                  - /url: /settings/workspaces
+                - text: . You may view all batches (and their results) that were created within the Workspace that your API key belongs to.
+              - listitem [ref=e363]:
+                - text: • Rate limits apply to both Batches API HTTP requests and the number of requests within a batch waiting to be processed. See
+                - link "Message Batches API rate limits" [ref=e364] [cursor=pointer]:
+                  - /url: /docs/en/api/rate-limits#message-batches-api
+                - text: . Additionally, processing may be slowed down based on current demand and your request volume. In that case, you may see more requests expiring after 24 hours.
+              - listitem [ref=e365]:
+                - text: • Due to high throughput and concurrent processing, batches may go slightly over your Workspace's configured
+                - link "spend limit" [ref=e366] [cursor=pointer]:
+                  - /url: /settings/limits
+                - text: .
+            - heading "Copy link to clipboard Supported models" [level=3] [ref=e367]:
+              - generic [ref=e368]:
+                - button "Copy link to clipboard" [ref=e370] [cursor=pointer]:
+                  - img [ref=e372]
+                - generic [ref=e374]: Supported models
+            - paragraph [ref=e375]:
+              - text: All
+              - link "active models" [ref=e376] [cursor=pointer]:
+                - /url: /docs/en/about-claude/models/overview
+              - text: support the Message Batches API.
+            - heading "Copy link to clipboard What can be batched" [level=3] [ref=e377]:
+              - generic [ref=e378]:
+                - button "Copy link to clipboard" [ref=e380] [cursor=pointer]:
+                  - img [ref=e382]
+                - generic [ref=e384]: What can be batched
+            - paragraph [ref=e385]: "Any request that you can make to the Messages API can be included in a batch. This includes:"
+            - list [ref=e386]:
+              - listitem [ref=e387]: • Vision
+              - listitem [ref=e388]: • Tool use
+              - listitem [ref=e389]: • System messages
+              - listitem [ref=e390]: • Multi-turn conversations
+              - listitem [ref=e391]: • Any beta features
+            - paragraph [ref=e392]: Since each request in the batch is processed independently, you can mix different types of requests within a single batch.
+            - generic [ref=e393]:
+              - img [ref=e396]
+              - paragraph [ref=e399]:
+                - text: Since batches can take longer than 5 minutes to process, consider using the
+                - link "1-hour cache duration" [ref=e400] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/prompt-caching#1-hour-cache-duration
+                - text: with prompt caching for better cache hit rates when processing batches with shared context.
+            - separator [ref=e401]
+            - heading "Copy link to clipboard Pricing" [level=2] [ref=e402]:
+              - generic [ref=e403]:
+                - button "Copy link to clipboard" [ref=e405] [cursor=pointer]:
+                  - img [ref=e407]
+                - generic [ref=e409]: Pricing
+            - paragraph [ref=e410]: The Batches API offers significant cost savings. All usage is charged at 50% of the standard API prices.
+            - table [ref=e412]:
+              - rowgroup [ref=e413]:
+                - row "Model Batch input Batch output" [ref=e414]:
+                  - columnheader "Model" [ref=e415]
+                  - columnheader "Batch input" [ref=e416]
+                  - columnheader "Batch output" [ref=e417]
+              - rowgroup [ref=e418]:
+                - row "Claude Opus 4.6 $2.50 / MTok $12.50 / MTok" [ref=e419]:
+                  - cell "Claude Opus 4.6" [ref=e420]
+                  - cell "$2.50 / MTok" [ref=e421]
+                  - cell "$12.50 / MTok" [ref=e422]
+                - row "Claude Opus 4.5 $2.50 / MTok $12.50 / MTok" [ref=e423]:
+                  - cell "Claude Opus 4.5" [ref=e424]
+                  - cell "$2.50 / MTok" [ref=e425]
+                  - cell "$12.50 / MTok" [ref=e426]
+                - row "Claude Opus 4.1 $7.50 / MTok $37.50 / MTok" [ref=e427]:
+                  - cell "Claude Opus 4.1" [ref=e428]
+                  - cell "$7.50 / MTok" [ref=e429]
+                  - cell "$37.50 / MTok" [ref=e430]
+                - row "Claude Opus 4 $7.50 / MTok $37.50 / MTok" [ref=e431]:
+                  - cell "Claude Opus 4" [ref=e432]
+                  - cell "$7.50 / MTok" [ref=e433]
+                  - cell "$37.50 / MTok" [ref=e434]
+                - row "Claude Sonnet 4.6 $1.50 / MTok $7.50 / MTok" [ref=e435]:
+                  - cell "Claude Sonnet 4.6" [ref=e436]
+                  - cell "$1.50 / MTok" [ref=e437]
+                  - cell "$7.50 / MTok" [ref=e438]
+                - row "Claude Sonnet 4.5 $1.50 / MTok $7.50 / MTok" [ref=e439]:
+                  - cell "Claude Sonnet 4.5" [ref=e440]
+                  - cell "$1.50 / MTok" [ref=e441]
+                  - cell "$7.50 / MTok" [ref=e442]
+                - row "Claude Sonnet 4 $1.50 / MTok $7.50 / MTok" [ref=e443]:
+                  - cell "Claude Sonnet 4" [ref=e444]
+                  - cell "$1.50 / MTok" [ref=e445]
+                  - cell "$7.50 / MTok" [ref=e446]
+                - row "Claude Sonnet 3.7 (deprecated) $1.50 / MTok $7.50 / MTok" [ref=e447]:
+                  - cell "Claude Sonnet 3.7 (deprecated)" [ref=e448]:
+                    - text: Claude Sonnet 3.7 (
+                    - link "deprecated" [ref=e449] [cursor=pointer]:
+                      - /url: /docs/en/about-claude/model-deprecations
+                    - text: )
+                  - cell "$1.50 / MTok" [ref=e450]
+                  - cell "$7.50 / MTok" [ref=e451]
+                - row "Claude Haiku 4.5 $0.50 / MTok $2.50 / MTok" [ref=e452]:
+                  - cell "Claude Haiku 4.5" [ref=e453]
+                  - cell "$0.50 / MTok" [ref=e454]
+                  - cell "$2.50 / MTok" [ref=e455]
+                - row "Claude Haiku 3.5 $0.40 / MTok $2 / MTok" [ref=e456]:
+                  - cell "Claude Haiku 3.5" [ref=e457]
+                  - cell "$0.40 / MTok" [ref=e458]
+                  - cell "$2 / MTok" [ref=e459]
+                - row "Claude Opus 3 (deprecated) $7.50 / MTok $37.50 / MTok" [ref=e460]:
+                  - cell "Claude Opus 3 (deprecated)" [ref=e461]:
+                    - text: Claude Opus 3 (
+                    - link "deprecated" [ref=e462] [cursor=pointer]:
+                      - /url: /docs/en/about-claude/model-deprecations
+                    - text: )
+                  - cell "$7.50 / MTok" [ref=e463]
+                  - cell "$37.50 / MTok" [ref=e464]
+                - row "Claude Haiku 3 $0.125 / MTok $0.625 / MTok" [ref=e465]:
+                  - cell "Claude Haiku 3" [ref=e466]
+                  - cell "$0.125 / MTok" [ref=e467]
+                  - cell "$0.625 / MTok" [ref=e468]
+            - separator [ref=e469]
+            - heading "Copy link to clipboard How to use the Message Batches API" [level=2] [ref=e470]:
+              - generic [ref=e471]:
+                - button "Copy link to clipboard" [ref=e473] [cursor=pointer]:
+                  - img [ref=e475]
+                - generic [ref=e477]: How to use the Message Batches API
+            - heading "Copy link to clipboard Prepare and create your batch" [level=3] [ref=e478]:
+              - generic [ref=e479]:
+                - button "Copy link to clipboard" [ref=e481] [cursor=pointer]:
+                  - img [ref=e483]
+                - generic [ref=e485]: Prepare and create your batch
+            - paragraph [ref=e486]: "A Message Batch is composed of a list of requests to create a Message. The shape of an individual request is comprised of:"
+            - list [ref=e487]:
+              - listitem [ref=e488]:
+                - text: • A unique
+                - code [ref=e489]: custom_id
+                - text: for identifying the Messages request. Must be 1 to 64 characters and contain only alphanumeric characters, hyphens, and underscores (matching
+                - code [ref=e490]: "^[a-zA-Z0-9_-]{1,64}$"
+                - text: ).
+              - listitem [ref=e491]:
+                - text: • A
+                - code [ref=e492]: params
+                - text: object with the standard
+                - link "Messages API" [ref=e493] [cursor=pointer]:
+                  - /url: /docs/en/api/messages/create
+                - text: parameters
+            - paragraph [ref=e494]:
+              - text: You can
+              - link "create a batch" [ref=e495] [cursor=pointer]:
+                - /url: /docs/en/api/creating-message-batches
+              - text: by passing this list into the
+              - code [ref=e496]: requests
+              - text: "parameter:"
+            - generic [ref=e497]:
+              - generic [ref=e498]:
+                - generic [ref=e499]:
+                  - button "Shell" [ref=e500] [cursor=pointer]
+                  - button "CLI" [ref=e501] [cursor=pointer]
+                  - button "Python" [ref=e502] [cursor=pointer]
+                  - button "TypeScript" [ref=e503] [cursor=pointer]
+                  - button "C#" [ref=e504] [cursor=pointer]
+                  - button "Go" [ref=e505] [cursor=pointer]
+                  - button "Java" [ref=e506] [cursor=pointer]
+                  - button "PHP" [ref=e507] [cursor=pointer]
+                  - button "Ruby" [ref=e508] [cursor=pointer]
+                - button "Copy code" [ref=e510] [cursor=pointer]:
+                  - generic [ref=e511]:
+                    - img [ref=e513]
+                    - img [ref=e516]
+              - code [ref=e521]:
+                - generic [ref=e522]: curl https://api.anthropic.com/v1/messages/batches \
+                - generic [ref=e523]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e524]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e525]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e526]: "--data \\"
+                - generic [ref=e527]: "'{"
+                - generic [ref=e528]: "\"requests\": ["
+                - generic [ref=e529]: "{"
+                - generic [ref=e530]: "\"custom_id\": \"my-first-request\","
+                - generic [ref=e531]: "\"params\": {"
+                - generic [ref=e532]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e533]: "\"max_tokens\": 1024,"
+                - generic [ref=e534]: "\"messages\": ["
+                - generic [ref=e535]: "{\"role\": \"user\", \"content\": \"Hello, world\"}"
+                - generic [ref=e536]: "]"
+                - generic [ref=e537]: "}"
+                - generic [ref=e538]: "},"
+                - generic [ref=e539]: "{"
+                - generic [ref=e540]: "\"custom_id\": \"my-second-request\","
+                - generic [ref=e541]: "\"params\": {"
+                - generic [ref=e542]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e543]: "\"max_tokens\": 1024,"
+                - generic [ref=e544]: "\"messages\": ["
+                - generic [ref=e545]: "{\"role\": \"user\", \"content\": \"Hi again, friend\"}"
+                - generic [ref=e546]: "]"
+                - generic [ref=e547]: "}"
+                - generic [ref=e548]: "}"
+                - generic [ref=e549]: "]"
+                - generic [ref=e550]: "}'"
+            - paragraph [ref=e551]:
+              - text: In this example, two separate requests are batched together for asynchronous processing. Each request has a unique
+              - code [ref=e552]: custom_id
+              - text: and contains the standard parameters you'd use for a Messages API call.
+            - generic [ref=e553]:
+              - img [ref=e556]
+              - generic [ref=e558]:
+                - paragraph [ref=e559]:
+                  - strong [ref=e560]: Test your batch requests with the Messages API
+                - paragraph [ref=e561]:
+                  - text: Validation of the
+                  - code [ref=e562]: params
+                  - text: object for each message request is performed asynchronously, and validation errors are returned when processing of the entire batch has ended. You can ensure that you are building your input correctly by verifying your request shape with the
+                  - link "Messages API" [ref=e563] [cursor=pointer]:
+                    - /url: /docs/en/api/messages/create
+                  - text: first.
+            - paragraph [ref=e564]:
+              - text: When a batch is first created, the response will have a processing status of
+              - code [ref=e565]: in_progress
+              - text: .
+            - generic [ref=e566]:
+              - generic [ref=e567]:
+                - generic [ref=e568]: Output
+                - button "Copy code" [ref=e570] [cursor=pointer]:
+                  - generic [ref=e571]:
+                    - img [ref=e573]
+                    - img [ref=e576]
+              - code [ref=e581]:
+                - generic [ref=e582]: "{"
+                - generic [ref=e583]: "\"id\": \"msgbatch_01HkcTjaV5uDC8jWR4ZsDV8d\","
+                - generic [ref=e584]: "\"type\": \"message_batch\","
+                - generic [ref=e585]: "\"processing_status\": \"in_progress\","
+                - generic [ref=e586]: "\"request_counts\": {"
+                - generic [ref=e587]: "\"processing\": 2,"
+                - generic [ref=e588]: "\"succeeded\": 0,"
+                - generic [ref=e589]: "\"errored\": 0,"
+                - generic [ref=e590]: "\"canceled\": 0,"
+                - generic [ref=e591]: "\"expired\": 0"
+                - generic [ref=e592]: "},"
+                - generic [ref=e593]: "\"ended_at\": null,"
+                - generic [ref=e594]: "\"created_at\": \"2024-09-24T18:37:24.100435Z\","
+                - generic [ref=e595]: "\"expires_at\": \"2024-09-25T18:37:24.100435Z\","
+                - generic [ref=e596]: "\"cancel_initiated_at\": null,"
+                - generic [ref=e597]: "\"results_url\": null"
+                - generic [ref=e598]: "}"
+            - heading "Copy link to clipboard Tracking your batch" [level=3] [ref=e599]:
+              - generic [ref=e600]:
+                - button "Copy link to clipboard" [ref=e602] [cursor=pointer]:
+                  - img [ref=e604]
+                - generic [ref=e606]: Tracking your batch
+            - paragraph [ref=e607]:
+              - text: The Message Batch's
+              - code [ref=e608]: processing_status
+              - text: field indicates the stage of processing the batch is in. It starts as
+              - code [ref=e609]: in_progress
+              - text: ", then updates to"
+              - code [ref=e610]: ended
+              - text: once all the requests in the batch have finished processing, and results are ready. You can monitor the state of your batch by visiting the
+              - link "Console" [ref=e611] [cursor=pointer]:
+                - /url: /settings/workspaces/default/batches
+              - text: ", or using the"
+              - link "retrieval endpoint" [ref=e612] [cursor=pointer]:
+                - /url: /docs/en/api/retrieving-message-batches
+              - text: .
+            - heading "Copy link to clipboard Polling for Message Batch completion" [level=4] [ref=e613]:
+              - generic [ref=e614]:
+                - button "Copy link to clipboard" [ref=e616] [cursor=pointer]:
+                  - img [ref=e618]
+                - generic [ref=e620]: Polling for Message Batch completion
+            - paragraph [ref=e621]:
+              - text: To poll a Message Batch, you'll need its
+              - code [ref=e622]: id
+              - text: ", which is provided in the response when creating a batch or by listing batches. You can implement a polling loop that checks the batch status periodically until processing has ended:"
+            - generic [ref=e623]:
+              - generic [ref=e624]:
+                - generic [ref=e625]:
+                  - button "Shell" [ref=e626] [cursor=pointer]
+                  - button "CLI" [ref=e627] [cursor=pointer]
+                  - button "Python" [ref=e628] [cursor=pointer]
+                  - button "TypeScript" [ref=e629] [cursor=pointer]
+                  - button "C#" [ref=e630] [cursor=pointer]
+                  - button "Go" [ref=e631] [cursor=pointer]
+                  - button "Java" [ref=e632] [cursor=pointer]
+                  - button "PHP" [ref=e633] [cursor=pointer]
+                  - button "Ruby" [ref=e634] [cursor=pointer]
+                - button "Copy code" [ref=e636] [cursor=pointer]:
+                  - generic [ref=e637]:
+                    - img [ref=e639]
+                    - img [ref=e642]
+              - code [ref=e647]:
+                - generic [ref=e648]: "#!/bin/sh"
+                - generic [ref=e649]: "# ..."
+                - generic [ref=e650]: until [[ $(curl -s "https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID" \
+                - generic [ref=e651]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e652]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e653]: "| grep -o '\"processing_status\":[[:space:]]*\"[^\"]*\"' \\"
+                - generic [ref=e654]: "| cut -d'\"' -f4) == \"ended\" ]]; do"
+                - generic [ref=e655]: echo "Batch $MESSAGE_BATCH_ID is still processing..."
+                - generic [ref=e656]: "# ..."
+                - generic [ref=e657]: sleep 60
+                - generic [ref=e658]: done
+                - generic [ref=e659]: echo "Batch $MESSAGE_BATCH_ID has finished processing"
+            - heading "Copy link to clipboard Listing all Message Batches" [level=3] [ref=e660]:
+              - generic [ref=e661]:
+                - button "Copy link to clipboard" [ref=e663] [cursor=pointer]:
+                  - img [ref=e665]
+                - generic [ref=e667]: Listing all Message Batches
+            - paragraph [ref=e668]:
+              - text: You can list all Message Batches in your Workspace using the
+              - link "list endpoint" [ref=e669] [cursor=pointer]:
+                - /url: /docs/en/api/listing-message-batches
+              - text: ". The API supports pagination, automatically fetching additional pages as needed:"
+            - generic [ref=e670]:
+              - generic [ref=e671]:
+                - generic [ref=e672]:
+                  - button "Shell" [ref=e673] [cursor=pointer]
+                  - button "CLI" [ref=e674] [cursor=pointer]
+                  - button "Python" [ref=e675] [cursor=pointer]
+                  - button "TypeScript" [ref=e676] [cursor=pointer]
+                  - button "C#" [ref=e677] [cursor=pointer]
+                  - button "Go" [ref=e678] [cursor=pointer]
+                  - button "Java" [ref=e679] [cursor=pointer]
+                  - button "PHP" [ref=e680] [cursor=pointer]
+                  - button "Ruby" [ref=e681] [cursor=pointer]
+                - button "Copy code" [ref=e683] [cursor=pointer]:
+                  - generic [ref=e684]:
+                    - img [ref=e686]
+                    - img [ref=e689]
+              - code [ref=e694]:
+                - generic [ref=e695]: "#!/bin/sh"
+                - generic [ref=e696]: if ! command -v jq &> /dev/null; then
+                - generic [ref=e697]: "echo \"Error: This script requires jq. Please install it first.\""
+                - generic [ref=e698]: exit 1
+                - generic [ref=e699]: fi
+                - generic [ref=e700]: BASE_URL="https://api.anthropic.com/v1/messages/batches"
+                - generic [ref=e701]: has_more=true
+                - generic [ref=e702]: after_id=""
+                - generic [ref=e703]: while [ "$has_more" = true ]; do
+                - generic [ref=e704]: "# Construct URL with after_id if it exists"
+                - generic [ref=e705]: if [ -n "$after_id" ]; then
+                - generic [ref=e706]: "url=\"${BASE_URL}?limit=20&after_id=${after_id}\""
+                - generic [ref=e707]: else
+                - generic [ref=e708]: url="$BASE_URL?limit=20"
+                - generic [ref=e709]: fi
+                - generic [ref=e710]: response=$(curl -s "$url" \
+                - generic [ref=e711]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e712]: "--header \"anthropic-version: 2023-06-01\")"
+                - generic [ref=e713]: "# Extract values using jq"
+                - generic [ref=e714]: has_more=$(echo "$response" | jq -r '.has_more')
+                - generic [ref=e715]: after_id=$(echo "$response" | jq -r '.last_id')
+                - generic [ref=e716]: "# Process and print each entry in the data array"
+                - generic [ref=e717]: echo "$response" | jq -c '.data[]' | while read -r entry; do
+                - generic [ref=e718]: echo "$entry" | jq '.'
+                - generic [ref=e719]: done
+                - generic [ref=e720]: done
+            - heading "Copy link to clipboard Retrieving batch results" [level=3] [ref=e721]:
+              - generic [ref=e722]:
+                - button "Copy link to clipboard" [ref=e724] [cursor=pointer]:
+                  - img [ref=e726]
+                - generic [ref=e728]: Retrieving batch results
+            - paragraph [ref=e729]: "Once batch processing has ended, each Messages request in the batch has a result. There are 4 result types:"
+            - table [ref=e731]:
+              - rowgroup [ref=e732]:
+                - row "Result Type Description" [ref=e733]:
+                  - columnheader "Result Type" [ref=e734]
+                  - columnheader "Description" [ref=e735]
+              - rowgroup [ref=e736]:
+                - row "succeeded Request was successful. Includes the message result." [ref=e737]:
+                  - cell "succeeded" [ref=e738]:
+                    - code [ref=e739]: succeeded
+                  - cell "Request was successful. Includes the message result." [ref=e740]
+                - row "errored Request encountered an error and a message was not created. Possible errors include invalid requests and internal server errors. You will not be billed for these requests." [ref=e741]:
+                  - cell "errored" [ref=e742]:
+                    - code [ref=e743]: errored
+                  - cell "Request encountered an error and a message was not created. Possible errors include invalid requests and internal server errors. You will not be billed for these requests." [ref=e744]
+                - row "canceled User canceled the batch before this request could be sent to the model. You will not be billed for these requests." [ref=e745]:
+                  - cell "canceled" [ref=e746]:
+                    - code [ref=e747]: canceled
+                  - cell "User canceled the batch before this request could be sent to the model. You will not be billed for these requests." [ref=e748]
+                - row "expired Batch reached its 24 hour expiration before this request could be sent to the model. You will not be billed for these requests." [ref=e749]:
+                  - cell "expired" [ref=e750]:
+                    - code [ref=e751]: expired
+                  - cell "Batch reached its 24 hour expiration before this request could be sent to the model. You will not be billed for these requests." [ref=e752]
+            - paragraph [ref=e753]:
+              - text: You will see an overview of your results with the batch's
+              - code [ref=e754]: request_counts
+              - text: ", which shows how many requests reached each of these four states."
+            - paragraph [ref=e755]:
+              - text: Results of the batch are available for download at the
+              - code [ref=e756]: results_url
+              - text: property on the Message Batch, and if the organization permission allows, in the Console. Because of the potentially large size of the results, it's recommended to
+              - link "stream results" [ref=e757] [cursor=pointer]:
+                - /url: /docs/en/api/retrieving-message-batch-results
+              - text: back rather than download them all at once.
+            - generic [ref=e758]:
+              - generic [ref=e759]:
+                - generic [ref=e760]:
+                  - button "Shell" [ref=e761] [cursor=pointer]
+                  - button "CLI" [ref=e762] [cursor=pointer]
+                  - button "Python" [ref=e763] [cursor=pointer]
+                  - button "TypeScript" [ref=e764] [cursor=pointer]
+                  - button "C#" [ref=e765] [cursor=pointer]
+                  - button "Go" [ref=e766] [cursor=pointer]
+                  - button "Java" [ref=e767] [cursor=pointer]
+                  - button "PHP" [ref=e768] [cursor=pointer]
+                  - button "Ruby" [ref=e769] [cursor=pointer]
+                - button "Copy code" [ref=e771] [cursor=pointer]:
+                  - generic [ref=e772]:
+                    - img [ref=e774]
+                    - img [ref=e777]
+              - code [ref=e782]:
+                - generic [ref=e783]: "#!/bin/sh"
+                - generic [ref=e784]: curl "https://api.anthropic.com/v1/messages/batches/msgbatch_01HkcTjaV5uDC8jWR4ZsDV8d" \
+                - generic [ref=e785]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e786]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e787]: "| grep -o '\"results_url\":[[:space:]]*\"[^\"]*\"' \\"
+                - generic [ref=e788]: "| cut -d'\"' -f4 \\"
+                - generic [ref=e789]: "| while read -r url; do"
+                - generic [ref=e790]: curl -s "$url" \
+                - generic [ref=e791]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e792]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e793]: "| sed 's/}{/}\\n{/g' \\"
+                - generic [ref=e794]: "| while IFS= read -r line"
+                - generic [ref=e795]: do
+                - generic [ref=e796]: "result_type=$(echo \"$line\" | sed -n 's/.*\"result\":[[:space:]]*{[[:space:]]*\"type\":[[:space:]]*\"\\([^\"]*\\)\".*/\\1/p')"
+                - generic [ref=e797]: custom_id=$(echo "$line" | sed -n 's/.*"custom_id":[[:space:]]*"\([^"]*\)".*/\1/p')
+                - generic [ref=e798]: "error_type=$(echo \"$line\" | sed -n 's/.*\"error\":[[:space:]]*{[[:space:]]*\"type\":[[:space:]]*\"\\([^\"]*\\)\".*/\\1/p')"
+                - generic [ref=e799]: case "$result_type" in
+                - generic [ref=e800]: "\"succeeded\")"
+                - generic [ref=e801]: echo "Success! $custom_id"
+                - generic [ref=e802]: ;;
+                - generic [ref=e803]: "\"errored\")"
+                - generic [ref=e804]: if [ "$error_type" = "invalid_request_error" ]; then
+                - generic [ref=e805]: "# Request body must be fixed before re-sending request"
+                - generic [ref=e806]: "echo \"Validation error: $custom_id\""
+                - generic [ref=e807]: else
+                - generic [ref=e808]: "# Request can be retried directly"
+                - generic [ref=e809]: "echo \"Server error: $custom_id\""
+                - generic [ref=e810]: fi
+                - generic [ref=e811]: ;;
+                - generic [ref=e812]: "\"expired\")"
+                - generic [ref=e813]: "echo \"Expired: $line\""
+                - generic [ref=e814]: ;;
+                - generic [ref=e815]: esac
+                - generic [ref=e816]: done
+                - generic [ref=e817]: done
+            - paragraph [ref=e818]:
+              - text: The results are in
+              - code [ref=e819]: .jsonl
+              - text: format, where each line is a valid JSON object representing the result of a single request in the Message Batch. For each streamed result, you can do something different depending on its
+              - code [ref=e820]: custom_id
+              - text: "and result type. Here is an example set of results:"
+            - generic [ref=e821]:
+              - generic [ref=e822]:
+                - generic [ref=e823]: .jsonl file
+                - button "Copy code" [ref=e825] [cursor=pointer]:
+                  - generic [ref=e826]:
+                    - img [ref=e828]
+                    - img [ref=e831]
+              - code [ref=e836]:
+                - generic [ref=e837]: "{\"custom_id\":\"my-second-request\",\"result\":{\"type\":\"succeeded\",\"message\":{\"id\":\"msg_014VwiXbi91y3JMjcpyGBHX5\",\"type\":\"message\",\"role\":\"assistant\",\"model\":\"claude-opus-4-6\",\"content\":[{\"type\":\"text\",\"text\":\"Hello again! It's nice to see you. How can I assist you today? Is there anything specific you'd like to chat about or any questions you have?\"}],\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"usage\":{\"input_tokens\":11,\"output_tokens\":36}}}}"
+                - generic [ref=e838]: "{\"custom_id\":\"my-first-request\",\"result\":{\"type\":\"succeeded\",\"message\":{\"id\":\"msg_01FqfsLoHwgeFbguDgpz48m7\",\"type\":\"message\",\"role\":\"assistant\",\"model\":\"claude-opus-4-6\",\"content\":[{\"type\":\"text\",\"text\":\"Hello! How can I assist you today? Feel free to ask me any questions or let me know if there's anything you'd like to chat about.\"}],\"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"usage\":{\"input_tokens\":10,\"output_tokens\":34}}}}"
+            - paragraph [ref=e839]:
+              - text: If your result has an error, its
+              - code [ref=e840]: result.error
+              - text: will be set to the standard
+              - link "error shape" [ref=e841] [cursor=pointer]:
+                - /url: /docs/en/api/errors#error-shapes
+              - text: .
+            - generic [ref=e842]:
+              - img [ref=e845]
+              - generic [ref=e847]:
+                - paragraph [ref=e848]:
+                  - strong [ref=e849]: Batch results may not match input order
+                - paragraph [ref=e850]:
+                  - text: Batch results can be returned in any order, and may not match the ordering of requests when the batch was created. In the above example, the result for the second batch request is returned before the first. To correctly match results with their corresponding requests, always use the
+                  - code [ref=e851]: custom_id
+                  - text: field.
+            - heading "Copy link to clipboard Canceling a Message Batch" [level=3] [ref=e852]:
+              - generic [ref=e853]:
+                - button "Copy link to clipboard" [ref=e855] [cursor=pointer]:
+                  - img [ref=e857]
+                - generic [ref=e859]: Canceling a Message Batch
+            - paragraph [ref=e860]:
+              - text: You can cancel a Message Batch that is currently processing using the
+              - link "cancel endpoint" [ref=e861] [cursor=pointer]:
+                - /url: /docs/en/api/canceling-message-batches
+              - text: . Immediately after cancellation, a batch's
+              - code [ref=e862]: processing_status
+              - text: will be
+              - code [ref=e863]: canceling
+              - text: . You can use the same polling technique described above to wait until cancellation is finalized. Canceled batches end up with a status of
+              - code [ref=e864]: ended
+              - text: and may contain partial results for requests that were processed before cancellation.
+            - generic [ref=e865]:
+              - generic [ref=e866]:
+                - generic [ref=e867]:
+                  - button "Shell" [ref=e868] [cursor=pointer]
+                  - button "CLI" [ref=e869] [cursor=pointer]
+                  - button "Python" [ref=e870] [cursor=pointer]
+                  - button "TypeScript" [ref=e871] [cursor=pointer]
+                  - button "C#" [ref=e872] [cursor=pointer]
+                  - button "Go" [ref=e873] [cursor=pointer]
+                  - button "Java" [ref=e874] [cursor=pointer]
+                  - button "PHP" [ref=e875] [cursor=pointer]
+                  - button "Ruby" [ref=e876] [cursor=pointer]
+                - button "Copy code" [ref=e878] [cursor=pointer]:
+                  - generic [ref=e879]:
+                    - img [ref=e881]
+                    - img [ref=e884]
+              - code [ref=e889]:
+                - generic [ref=e890]: "#!/bin/sh"
+                - generic [ref=e891]: "# ..."
+                - generic [ref=e892]: curl --request POST https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/cancel \
+                - generic [ref=e893]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e894]: "--header \"anthropic-version: 2023-06-01\""
+            - paragraph [ref=e895]:
+              - text: The response will show the batch in a
+              - code [ref=e896]: canceling
+              - text: "state:"
+            - generic [ref=e897]:
+              - generic [ref=e898]:
+                - generic [ref=e899]: Output
+                - button "Copy code" [ref=e901] [cursor=pointer]:
+                  - generic [ref=e902]:
+                    - img [ref=e904]
+                    - img [ref=e907]
+              - code [ref=e912]:
+                - generic [ref=e913]: "{"
+                - generic [ref=e914]: "\"id\": \"msgbatch_013Zva2CMHLNnXjNJJKqJ2EF\","
+                - generic [ref=e915]: "\"type\": \"message_batch\","
+                - generic [ref=e916]: "\"processing_status\": \"canceling\","
+                - generic [ref=e917]: "\"request_counts\": {"
+                - generic [ref=e918]: "\"processing\": 2,"
+                - generic [ref=e919]: "\"succeeded\": 0,"
+                - generic [ref=e920]: "\"errored\": 0,"
+                - generic [ref=e921]: "\"canceled\": 0,"
+                - generic [ref=e922]: "\"expired\": 0"
+                - generic [ref=e923]: "},"
+                - generic [ref=e924]: "\"ended_at\": null,"
+                - generic [ref=e925]: "\"created_at\": \"2024-09-24T18:37:24.100435Z\","
+                - generic [ref=e926]: "\"expires_at\": \"2024-09-25T18:37:24.100435Z\","
+                - generic [ref=e927]: "\"cancel_initiated_at\": \"2024-09-24T18:39:03.114875Z\","
+                - generic [ref=e928]: "\"results_url\": null"
+                - generic [ref=e929]: "}"
+            - heading "Copy link to clipboard Using prompt caching with Message Batches" [level=3] [ref=e930]:
+              - generic [ref=e931]:
+                - button "Copy link to clipboard" [ref=e933] [cursor=pointer]:
+                  - img [ref=e935]
+                - generic [ref=e937]: Using prompt caching with Message Batches
+            - paragraph [ref=e938]: The Message Batches API supports prompt caching, allowing you to potentially reduce costs and processing time for batch requests. The pricing discounts from prompt caching and Message Batches can stack, providing even greater cost savings when both features are used together. However, since batch requests are processed asynchronously and concurrently, cache hits are provided on a best-effort basis. Users typically experience cache hit rates ranging from 30% to 98%, depending on their traffic patterns.
+            - paragraph [ref=e939]: "To maximize the likelihood of cache hits in your batch requests:"
+            - list [ref=e940]:
+              - listitem [ref=e941]:
+                - text: Include identical
+                - code [ref=e942]: cache_control
+                - text: blocks in every Message request within your batch
+              - listitem [ref=e943]: Maintain a steady stream of requests to prevent cache entries from expiring after their 5-minute lifetime
+              - listitem [ref=e944]: Structure your requests to share as much cached content as possible
+            - paragraph [ref=e945]: "Example of implementing prompt caching in a batch:"
+            - generic [ref=e946]:
+              - generic [ref=e947]:
+                - generic [ref=e948]:
+                  - button "Shell" [ref=e949] [cursor=pointer]
+                  - button "CLI" [ref=e950] [cursor=pointer]
+                  - button "Python" [ref=e951] [cursor=pointer]
+                  - button "TypeScript" [ref=e952] [cursor=pointer]
+                  - button "C#" [ref=e953] [cursor=pointer]
+                  - button "Go" [ref=e954] [cursor=pointer]
+                  - button "Java" [ref=e955] [cursor=pointer]
+                  - button "PHP" [ref=e956] [cursor=pointer]
+                  - button "Ruby" [ref=e957] [cursor=pointer]
+                - button "Copy code" [ref=e959] [cursor=pointer]:
+                  - generic [ref=e960]:
+                    - img [ref=e962]
+                    - img [ref=e965]
+              - code [ref=e970]:
+                - generic [ref=e971]: curl https://api.anthropic.com/v1/messages/batches \
+                - generic [ref=e972]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e973]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e974]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e975]: "--data \\"
+                - generic [ref=e976]: "'{"
+                - generic [ref=e977]: "\"requests\": ["
+                - generic [ref=e978]: "{"
+                - generic [ref=e979]: "\"custom_id\": \"my-first-request\","
+                - generic [ref=e980]: "\"params\": {"
+                - generic [ref=e981]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e982]: "\"max_tokens\": 1024,"
+                - generic [ref=e983]: "\"system\": ["
+                - generic [ref=e984]: "{"
+                - generic [ref=e985]: "\"type\": \"text\","
+                - generic [ref=e986]: "\"text\": \"You are an AI assistant tasked with analyzing literary works. Your goal is to provide insightful commentary on themes, characters, and writing style.\\n\""
+                - generic [ref=e987]: "},"
+                - generic [ref=e988]: "{"
+                - generic [ref=e989]: "\"type\": \"text\","
+                - generic [ref=e990]: "\"text\": \"<the entire contents of Pride and Prejudice>\","
+                - generic [ref=e991]: "\"cache_control\": {\"type\": \"ephemeral\"}"
+                - generic [ref=e992]: "}"
+                - generic [ref=e993]: "],"
+                - generic [ref=e994]: "\"messages\": ["
+                - generic [ref=e995]: "{\"role\": \"user\", \"content\": \"Analyze the major themes in Pride and Prejudice.\"}"
+                - generic [ref=e996]: "]"
+                - generic [ref=e997]: "}"
+                - generic [ref=e998]: "},"
+                - generic [ref=e999]: "{"
+                - generic [ref=e1000]: "\"custom_id\": \"my-second-request\","
+                - generic [ref=e1001]: "\"params\": {"
+                - generic [ref=e1002]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e1003]: "\"max_tokens\": 1024,"
+                - generic [ref=e1004]: "\"system\": ["
+                - generic [ref=e1005]: "{"
+                - generic [ref=e1006]: "\"type\": \"text\","
+                - generic [ref=e1007]: "\"text\": \"You are an AI assistant tasked with analyzing literary works. Your goal is to provide insightful commentary on themes, characters, and writing style.\\n\""
+                - generic [ref=e1008]: "},"
+                - generic [ref=e1009]: "{"
+                - generic [ref=e1010]: "\"type\": \"text\","
+                - generic [ref=e1011]: "\"text\": \"<the entire contents of Pride and Prejudice>\","
+                - generic [ref=e1012]: "\"cache_control\": {\"type\": \"ephemeral\"}"
+                - generic [ref=e1013]: "}"
+                - generic [ref=e1014]: "],"
+                - generic [ref=e1015]: "\"messages\": ["
+                - generic [ref=e1016]: "{\"role\": \"user\", \"content\": \"Write a summary of Pride and Prejudice.\"}"
+                - generic [ref=e1017]: "]"
+                - generic [ref=e1018]: "}"
+                - generic [ref=e1019]: "}"
+                - generic [ref=e1020]: "]"
+                - generic [ref=e1021]: "}'"
+            - paragraph [ref=e1022]:
+              - text: In this example, both requests in the batch include identical system messages and the full text of Pride and Prejudice marked with
+              - code [ref=e1023]: cache_control
+              - text: to increase the likelihood of cache hits.
+            - heading "Copy link to clipboard Extended output (beta)" [level=3] [ref=e1024]:
+              - generic [ref=e1025]:
+                - button "Copy link to clipboard" [ref=e1027] [cursor=pointer]:
+                  - img [ref=e1029]
+                - generic [ref=e1031]: Extended output (beta)
+            - paragraph [ref=e1032]:
+              - text: The
+              - code [ref=e1033]: output-300k-2026-03-24
+              - text: beta header raises the
+              - code [ref=e1034]: max_tokens
+              - text: cap to 300,000 for batch requests using Claude Opus 4.6 or Claude Sonnet 4.6. Include the header to generate outputs far longer than the standard limit (64k to 128k depending on model) in a single turn.
+            - generic [ref=e1035]:
+              - img [ref=e1038]
+              - paragraph [ref=e1041]: Extended output is available on the Message Batches API only, not the synchronous Messages API. It is supported on the Claude API and is not available on Amazon Bedrock, Vertex AI, or Microsoft Foundry.
+            - paragraph [ref=e1042]: Use extended output for long-form generation such as book-length drafts and technical documentation, exhaustive structured data extraction, large code-generation scaffolds, and long reasoning chains.
+            - paragraph [ref=e1043]: A single 300k-token generation can take over an hour to complete, so plan your batch submissions with the 24-hour processing window in mind. Standard batch pricing (50% of standard API prices) applies.
+            - generic [ref=e1044]:
+              - generic [ref=e1045]:
+                - generic [ref=e1046]:
+                  - button "Shell" [ref=e1047] [cursor=pointer]
+                  - button "CLI" [ref=e1048] [cursor=pointer]
+                  - button "Python" [ref=e1049] [cursor=pointer]
+                  - button "TypeScript" [ref=e1050] [cursor=pointer]
+                  - button "C#" [ref=e1051] [cursor=pointer]
+                  - button "Go" [ref=e1052] [cursor=pointer]
+                  - button "Java" [ref=e1053] [cursor=pointer]
+                  - button "PHP" [ref=e1054] [cursor=pointer]
+                  - button "Ruby" [ref=e1055] [cursor=pointer]
+                - button "Copy code" [ref=e1057] [cursor=pointer]:
+                  - generic [ref=e1058]:
+                    - img [ref=e1060]
+                    - img [ref=e1063]
+              - code [ref=e1068]:
+                - generic [ref=e1069]: curl https://api.anthropic.com/v1/messages/batches \
+                - generic [ref=e1070]: "--header \"x-api-key: $ANTHROPIC_API_KEY\" \\"
+                - generic [ref=e1071]: "--header \"anthropic-version: 2023-06-01\" \\"
+                - generic [ref=e1072]: "--header \"anthropic-beta: output-300k-2026-03-24\" \\"
+                - generic [ref=e1073]: "--header \"content-type: application/json\" \\"
+                - generic [ref=e1074]: "--data \\"
+                - generic [ref=e1075]: "'{"
+                - generic [ref=e1076]: "\"requests\": ["
+                - generic [ref=e1077]: "{"
+                - generic [ref=e1078]: "\"custom_id\": \"long-form-request\","
+                - generic [ref=e1079]: "\"params\": {"
+                - generic [ref=e1080]: "\"model\": \"claude-opus-4-6\","
+                - generic [ref=e1081]: "\"max_tokens\": 300000,"
+                - generic [ref=e1082]: "\"messages\": ["
+                - generic [ref=e1083]: "{\"role\": \"user\", \"content\": \"Write a comprehensive technical guide to building distributed systems, covering architecture patterns, consistency models, fault tolerance, and operational best practices.\"}"
+                - generic [ref=e1084]: "]"
+                - generic [ref=e1085]: "}"
+                - generic [ref=e1086]: "}"
+                - generic [ref=e1087]: "]"
+                - generic [ref=e1088]: "}'"
+            - heading "Copy link to clipboard Best practices for effective batching" [level=3] [ref=e1089]:
+              - generic [ref=e1090]:
+                - button "Copy link to clipboard" [ref=e1092] [cursor=pointer]:
+                  - img [ref=e1094]
+                - generic [ref=e1096]: Best practices for effective batching
+            - paragraph [ref=e1097]: "To get the most out of the Batches API:"
+            - list [ref=e1098]:
+              - listitem [ref=e1099]: • Monitor batch processing status regularly and implement appropriate retry logic for failed requests.
+              - listitem [ref=e1100]:
+                - text: • Use meaningful
+                - code [ref=e1101]: custom_id
+                - text: values to easily match results with requests, since order is not guaranteed.
+              - listitem [ref=e1102]: • Consider breaking very large datasets into multiple batches for better manageability.
+              - listitem [ref=e1103]: • Dry run a single request shape with the Messages API to avoid validation errors.
+            - heading "Copy link to clipboard Troubleshooting common issues" [level=3] [ref=e1104]:
+              - generic [ref=e1105]:
+                - button "Copy link to clipboard" [ref=e1107] [cursor=pointer]:
+                  - img [ref=e1109]
+                - generic [ref=e1111]: Troubleshooting common issues
+            - paragraph [ref=e1112]: "If experiencing unexpected behavior:"
+            - list [ref=e1113]:
+              - listitem [ref=e1114]:
+                - text: • Verify that the total batch request size doesn't exceed 256 MB. If the request size is too large, you may get a 413
+                - code [ref=e1115]: request_too_large
+                - text: error.
+              - listitem [ref=e1116]:
+                - text: • Check that you're using
+                - link "supported models" [ref=e1117] [cursor=pointer]:
+                  - /url: "#supported-models"
+                - text: for all requests in the batch.
+              - listitem [ref=e1118]:
+                - text: • Ensure each request in the batch has a unique
+                - code [ref=e1119]: custom_id
+                - text: .
+              - listitem [ref=e1120]:
+                - text: • Ensure that it has been less than 29 days since batch
+                - code [ref=e1121]: created_at
+                - text: (not processing
+                - code [ref=e1122]: ended_at
+                - text: ) time. If over 29 days have passed, results will no longer be viewable.
+              - listitem [ref=e1123]: • Confirm that the batch has not been canceled.
+            - paragraph [ref=e1124]: Note that the failure of one request in a batch does not affect the processing of other requests.
+            - separator [ref=e1125]
+            - heading "Copy link to clipboard Batch storage and privacy" [level=2] [ref=e1126]:
+              - generic [ref=e1127]:
+                - button "Copy link to clipboard" [ref=e1129] [cursor=pointer]:
+                  - img [ref=e1131]
+                - generic [ref=e1133]: Batch storage and privacy
+            - list [ref=e1134]:
+              - listitem [ref=e1135]:
+                - text: •
+                - paragraph [ref=e1136]:
+                  - strong [ref=e1137]: Workspace isolation
+                  - text: ": Batches are isolated within the Workspace they are created in. They can only be accessed by API keys associated with that Workspace, or users with permission to view Workspace batches in the Console."
+              - listitem [ref=e1138]:
+                - text: •
+                - paragraph [ref=e1139]:
+                  - strong [ref=e1140]: Result availability
+                  - text: ": Batch results are available for 29 days after the batch is created, allowing ample time for retrieval and processing."
+            - separator [ref=e1141]
+            - heading "Copy link to clipboard Data retention" [level=2] [ref=e1142]:
+              - generic [ref=e1143]:
+                - button "Copy link to clipboard" [ref=e1145] [cursor=pointer]:
+                  - img [ref=e1147]
+                - generic [ref=e1149]: Data retention
+            - paragraph [ref=e1150]:
+              - text: Batch processing stores request and response data for up to 29 days after batch creation. You can delete a message batch at any time after processing using the
+              - code [ref=e1151]: "DELETE /v1/messages/batches/{batch_id}"
+              - text: endpoint. To delete an in-progress batch, cancel it first. Asynchronous processing requires server-side storage of both inputs and outputs until batch completion and result retrieval.
+            - paragraph [ref=e1152]:
+              - text: For ZDR eligibility across all features, see
+              - link "API and data retention" [ref=e1153] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/api-and-data-retention
+              - text: .
+            - heading "Copy link to clipboard FAQ" [level=2] [ref=e1154]:
+              - generic [ref=e1155]:
+                - button "Copy link to clipboard" [ref=e1157] [cursor=pointer]:
+                  - img [ref=e1159]
+                - generic [ref=e1161]: FAQ
+            - generic [ref=e1162]:
+              - heading "How long does it take for a batch to process?" [level=3] [ref=e1164]:
+                - button "How long does it take for a batch to process?" [ref=e1165] [cursor=pointer]:
+                  - img [ref=e1166]
+                  - generic [ref=e1168]: How long does it take for a batch to process?
+              - heading "Is the Batches API available for all models?" [level=3] [ref=e1170]:
+                - button "Is the Batches API available for all models?" [ref=e1171] [cursor=pointer]:
+                  - img [ref=e1172]
+                  - generic [ref=e1174]: Is the Batches API available for all models?
+              - heading "Can I use the Message Batches API with other API features?" [level=3] [ref=e1176]:
+                - button "Can I use the Message Batches API with other API features?" [ref=e1177] [cursor=pointer]:
+                  - img [ref=e1178]
+                  - generic [ref=e1180]: Can I use the Message Batches API with other API features?
+              - heading "How does the Message Batches API affect pricing?" [level=3] [ref=e1182]:
+                - button "How does the Message Batches API affect pricing?" [ref=e1183] [cursor=pointer]:
+                  - img [ref=e1184]
+                  - generic [ref=e1186]: How does the Message Batches API affect pricing?
+              - heading "Can I update a batch after it's been submitted?" [level=3] [ref=e1188]:
+                - button "Can I update a batch after it's been submitted?" [ref=e1189] [cursor=pointer]:
+                  - img [ref=e1190]
+                  - generic [ref=e1192]: Can I update a batch after it's been submitted?
+              - heading "Are there Message Batches API rate limits and do they interact with the Messages API rate limits?" [level=3] [ref=e1194]:
+                - button "Are there Message Batches API rate limits and do they interact with the Messages API rate limits?" [ref=e1195] [cursor=pointer]:
+                  - img [ref=e1196]
+                  - generic [ref=e1198]: Are there Message Batches API rate limits and do they interact with the Messages API rate limits?
+              - heading "How do I handle errors in my batch requests?" [level=3] [ref=e1200]:
+                - button "How do I handle errors in my batch requests?" [ref=e1201] [cursor=pointer]:
+                  - img [ref=e1202]
+                  - generic [ref=e1204]: How do I handle errors in my batch requests?
+              - heading "How does the Message Batches API handle privacy and data separation?" [level=3] [ref=e1206]:
+                - button "How does the Message Batches API handle privacy and data separation?" [ref=e1207] [cursor=pointer]:
+                  - img [ref=e1208]
+                  - generic [ref=e1210]: How does the Message Batches API handle privacy and data separation?
+              - heading "Can I use prompt caching in the Message Batches API?" [level=3] [ref=e1212]:
+                - button "Can I use prompt caching in the Message Batches API?" [ref=e1213] [cursor=pointer]:
+                  - img [ref=e1214]
+                  - generic [ref=e1216]: Can I use prompt caching in the Message Batches API?
+            - generic [ref=e1217]:
+              - paragraph [ref=e1218]: Was this page helpful?
+              - generic [ref=e1219]:
+                - button "Thumbs up" [ref=e1220] [cursor=pointer]:
+                  - img [ref=e1222]
+                - button "Thumbs down" [ref=e1224] [cursor=pointer]:
+                  - img [ref=e1226]
+          - button "Toggle table of contents" [ref=e1228] [cursor=pointer]:
+            - img [ref=e1229]
+        - generic [ref=e1232]:
+          - generic [ref=e1233]:
+            - link "Claude API Docs home page" [ref=e1235] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e1236]
+            - generic [ref=e1239]:
+              - link "X (Twitter)" [ref=e1240] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e1241]
+              - link "LinkedIn" [ref=e1243] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e1244]
+              - link "Instagram" [ref=e1246] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e1247]
+          - generic [ref=e1250]:
+            - generic [ref=e1251]:
+              - generic [ref=e1252]:
+                - heading "Solutions" [level=3] [ref=e1253]
+                - list [ref=e1254]:
+                  - listitem [ref=e1255]:
+                    - link "AI agents" [ref=e1256] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e1257]:
+                    - link "Code modernization" [ref=e1258] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e1259]:
+                    - link "Coding" [ref=e1260] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e1261]:
+                    - link "Customer support" [ref=e1262] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e1263]:
+                    - link "Education" [ref=e1264] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e1265]:
+                    - link "Financial services" [ref=e1266] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e1267]:
+                    - link "Government" [ref=e1268] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e1269]:
+                    - link "Life sciences" [ref=e1270] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e1271]:
+                - heading "Partners" [level=3] [ref=e1272]
+                - list [ref=e1273]:
+                  - listitem [ref=e1274]:
+                    - link "Amazon Bedrock" [ref=e1275] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e1276]:
+                    - link "Google Cloud's Vertex AI" [ref=e1277] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e1278]:
+              - generic [ref=e1279]:
+                - heading "Learn" [level=3] [ref=e1280]
+                - list [ref=e1281]:
+                  - listitem [ref=e1282]:
+                    - link "Blog" [ref=e1283] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e1284]:
+                    - link "Courses" [ref=e1285] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e1286]:
+                    - link "Use cases" [ref=e1287] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e1288]:
+                    - link "Connectors" [ref=e1289] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e1290]:
+                    - link "Customer stories" [ref=e1291] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e1292]:
+                    - link "Engineering at Anthropic" [ref=e1293] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e1294]:
+                    - link "Events" [ref=e1295] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e1296]:
+                    - link "Powered by Claude" [ref=e1297] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e1298]:
+                    - link "Service partners" [ref=e1299] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e1300]:
+                    - link "Startups program" [ref=e1301] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e1302]:
+                - heading "Company" [level=3] [ref=e1303]
+                - list [ref=e1304]:
+                  - listitem [ref=e1305]:
+                    - link "Anthropic" [ref=e1306] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e1307]:
+                    - link "Careers" [ref=e1308] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e1309]:
+                    - link "Economic Futures" [ref=e1310] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e1311]:
+                    - link "Research" [ref=e1312] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e1313]:
+                    - link "News" [ref=e1314] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e1315]:
+                    - link "Responsible Scaling Policy" [ref=e1316] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e1317]:
+                    - link "Security and compliance" [ref=e1318] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e1319]:
+                    - link "Transparency" [ref=e1320] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e1321]:
+              - generic [ref=e1322]:
+                - heading "Help and security" [level=3] [ref=e1323]
+                - list [ref=e1324]:
+                  - listitem [ref=e1325]:
+                    - link "Availability" [ref=e1326] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e1327]:
+                    - link "Status" [ref=e1328] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e1329]:
+                    - link "Support" [ref=e1330] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e1331]:
+                    - link "Discord" [ref=e1332] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e1333]:
+                - heading "Terms and policies" [level=3] [ref=e1334]
+                - list [ref=e1335]:
+                  - listitem [ref=e1336]:
+                    - link "Privacy policy" [ref=e1337] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e1338]:
+                    - link "Responsible disclosure policy" [ref=e1339] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e1340]:
+                    - 'link "Terms of service: Commercial" [ref=e1341] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e1342]:
+                    - 'link "Terms of service: Consumer" [ref=e1343] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e1344]:
+                    - link "Usage policy" [ref=e1345] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e1349] [cursor=pointer]:
+    - generic [ref=e1350]: Ask Docs
+  - alert [ref=e1351]

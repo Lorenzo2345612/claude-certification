@@ -1,0 +1,809 @@
+- generic [active] [ref=e1]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Claude API Docs Home" [ref=e6] [cursor=pointer]:
+          - /url: /docs/en/home
+          - img "Claude API Docs" [ref=e7]
+        - button "Switch product surface" [ref=e11] [cursor=pointer]:
+          - text: Messages
+          - img [ref=e13]
+      - navigation [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Build" [ref=e18] [cursor=pointer]:
+              - /url: /docs/en/intro
+          - listitem [ref=e19]:
+            - link "Admin" [ref=e20] [cursor=pointer]:
+              - /url: /docs/en/build-with-claude/administration-api
+          - listitem [ref=e21]:
+            - link "Models & pricing" [ref=e22] [cursor=pointer]:
+              - /url: /docs/en/about-claude/models/overview
+          - listitem [ref=e23]:
+            - link "Client SDKs" [ref=e24] [cursor=pointer]:
+              - /url: /docs/en/api/client-sdks
+          - listitem [ref=e25]:
+            - link "API Reference" [ref=e26] [cursor=pointer]:
+              - /url: /docs/en/api/overview
+      - generic [ref=e28]:
+        - button [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+        - button "English" [ref=e33] [cursor=pointer]:
+          - text: English
+          - img [ref=e35]
+        - link "Log in" [ref=e37] [cursor=pointer]:
+          - /url: /login?returnTo=%2Fdocs%2Fen%2Fbuild-with-claude%2Fcontext-windows
+          - button "Log in" [ref=e38]
+    - generic [ref=e40]:
+      - complementary [ref=e41]:
+        - button "Search documentation" [ref=e43] [cursor=pointer]:
+          - generic:
+            - generic:
+              - img
+          - generic [ref=e44]: Search...
+          - generic:
+            - generic: ⌘K
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: First steps
+            - generic [ref=e50]:
+              - link "Intro to Claude" [ref=e51] [cursor=pointer]:
+                - /url: /docs/en/intro
+                - generic [ref=e53]: Intro to Claude
+              - link "Quickstart" [ref=e54] [cursor=pointer]:
+                - /url: /docs/en/get-started
+                - generic [ref=e56]: Quickstart
+          - generic [ref=e57]:
+            - generic [ref=e58]: Building with Claude
+            - generic [ref=e59]:
+              - link "Features overview" [ref=e60] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/overview
+                - generic [ref=e62]: Features overview
+              - link "Using the Messages API" [ref=e63] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/working-with-messages
+                - generic [ref=e65]: Using the Messages API
+              - link "Handling stop reasons" [ref=e66] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/handling-stop-reasons
+                - generic [ref=e68]: Handling stop reasons
+          - generic [ref=e69]:
+            - generic [ref=e70]: Model capabilities
+            - generic [ref=e71]:
+              - link "Extended thinking" [ref=e72] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e74]: Extended thinking
+              - link "Adaptive thinking" [ref=e75] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+                - generic [ref=e77]: Adaptive thinking
+              - link "Effort" [ref=e78] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/effort
+                - generic [ref=e80]: Effort
+              - 'link "Fast mode (beta: research preview)" [ref=e81] [cursor=pointer]':
+                - /url: /docs/en/build-with-claude/fast-mode
+                - generic [ref=e83]: "Fast mode (beta: research preview)"
+              - link "Structured outputs" [ref=e84] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/structured-outputs
+                - generic [ref=e86]: Structured outputs
+              - link "Citations" [ref=e87] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/citations
+                - generic [ref=e89]: Citations
+              - link "Streaming Messages" [ref=e90] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/streaming
+                - generic [ref=e92]: Streaming Messages
+              - link "Batch processing" [ref=e93] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/batch-processing
+                - generic [ref=e95]: Batch processing
+              - link "Search results" [ref=e96] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/search-results
+                - generic [ref=e98]: Search results
+              - link "Streaming refusals" [ref=e99] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
+                - generic [ref=e101]: Streaming refusals
+              - link "Multilingual support" [ref=e102] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/multilingual-support
+                - generic [ref=e104]: Multilingual support
+              - link "Embeddings" [ref=e105] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/embeddings
+                - generic [ref=e107]: Embeddings
+          - generic [ref=e108]:
+            - generic [ref=e109]: Tools
+            - generic [ref=e110]:
+              - link "Overview" [ref=e111] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/overview
+                - generic [ref=e113]: Overview
+              - link "How tool use works" [ref=e114] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/how-tool-use-works
+                - generic [ref=e116]: How tool use works
+              - link "Web search tool" [ref=e117] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-search-tool
+                - generic [ref=e119]: Web search tool
+              - link "Web fetch tool" [ref=e120] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/web-fetch-tool
+                - generic [ref=e122]: Web fetch tool
+              - link "Code execution tool" [ref=e123] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/code-execution-tool
+                - generic [ref=e125]: Code execution tool
+              - link "Advisor tool" [ref=e126] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/advisor-tool
+                - generic [ref=e128]: Advisor tool
+              - link "Memory tool" [ref=e129] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/memory-tool
+                - generic [ref=e131]: Memory tool
+              - link "Bash tool" [ref=e132] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/bash-tool
+                - generic [ref=e134]: Bash tool
+              - link "Computer use tool" [ref=e135] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/computer-use-tool
+                - generic [ref=e137]: Computer use tool
+              - link "Text editor tool" [ref=e138] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/text-editor-tool
+                - generic [ref=e140]: Text editor tool
+          - generic [ref=e141]:
+            - generic [ref=e142]: Tool infrastructure
+            - generic [ref=e143]:
+              - link "Tool reference" [ref=e144] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-reference
+                - generic [ref=e146]: Tool reference
+              - link "Tool search" [ref=e147] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/tool-search-tool
+                - generic [ref=e149]: Tool search
+              - link "Programmatic tool calling" [ref=e150] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/programmatic-tool-calling
+                - generic [ref=e152]: Programmatic tool calling
+              - link "Fine-grained tool streaming" [ref=e153] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming
+                - generic [ref=e155]: Fine-grained tool streaming
+          - generic [ref=e156]:
+            - generic [ref=e157]: Context management
+            - generic [ref=e158]:
+              - link "Context windows" [ref=e159] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-windows
+                - generic [ref=e161]: Context windows
+              - link "Compaction" [ref=e162] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e164]: Compaction
+              - link "Context editing" [ref=e165] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e167]: Context editing
+              - link "Prompt caching" [ref=e168] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-caching
+                - generic [ref=e170]: Prompt caching
+              - link "Token counting" [ref=e171] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+                - generic [ref=e173]: Token counting
+          - generic [ref=e174]:
+            - generic [ref=e175]: Working with files
+            - generic [ref=e176]:
+              - link "Files API" [ref=e177] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/files
+                - generic [ref=e179]: Files API
+              - link "PDF support" [ref=e180] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/pdf-support
+                - generic [ref=e182]: PDF support
+              - link "Images and vision" [ref=e183] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/vision
+                - generic [ref=e185]: Images and vision
+          - generic [ref=e186]:
+            - generic [ref=e187]: Skills
+            - generic [ref=e188]:
+              - link "Overview" [ref=e189] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/overview
+                - generic [ref=e191]: Overview
+              - link "Quickstart" [ref=e192] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/quickstart
+                - generic [ref=e194]: Quickstart
+              - link "Best practices" [ref=e195] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/best-practices
+                - generic [ref=e197]: Best practices
+              - link "Skills for enterprise" [ref=e198] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/agent-skills/enterprise
+                - generic [ref=e200]: Skills for enterprise
+              - link "Skills in the API" [ref=e201] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/skills-guide
+                - generic [ref=e203]: Skills in the API
+          - generic [ref=e204]:
+            - generic [ref=e205]: MCP
+            - generic [ref=e206]:
+              - link "Remote MCP servers" [ref=e207] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/remote-mcp-servers
+                - generic [ref=e209]: Remote MCP servers
+              - link "MCP connector" [ref=e210] [cursor=pointer]:
+                - /url: /docs/en/agents-and-tools/mcp-connector
+                - generic [ref=e212]: MCP connector
+          - generic [ref=e213]:
+            - generic [ref=e214]: Prompt engineering
+            - generic [ref=e215]:
+              - link "Overview" [ref=e216] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/overview
+                - generic [ref=e218]: Overview
+              - link "Prompting best practices" [ref=e219] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+                - generic [ref=e221]: Prompting best practices
+              - link "Console prompting tools" [ref=e222] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/prompting-tools
+                - generic [ref=e224]: Console prompting tools
+          - generic [ref=e225]:
+            - generic [ref=e226]: Test and evaluate
+            - generic [ref=e227]:
+              - link "Define success and build evaluations" [ref=e228] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/develop-tests
+                - generic [ref=e230]: Define success and build evaluations
+              - link "Using the Evaluation Tool in Console" [ref=e231] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/eval-tool
+                - generic [ref=e233]: Using the Evaluation Tool in Console
+              - link "Reducing latency" [ref=e234] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency
+                - generic [ref=e236]: Reducing latency
+          - generic [ref=e237]:
+            - generic [ref=e238]: Strengthen guardrails
+            - generic [ref=e239]:
+              - link "Reduce hallucinations" [ref=e240] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
+                - generic [ref=e242]: Reduce hallucinations
+              - link "Increase output consistency" [ref=e243] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
+                - generic [ref=e245]: Increase output consistency
+              - link "Mitigate jailbreaks" [ref=e246] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
+                - generic [ref=e248]: Mitigate jailbreaks
+              - link "Reduce prompt leak" [ref=e249] [cursor=pointer]:
+                - /url: /docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
+                - generic [ref=e251]: Reduce prompt leak
+          - generic [ref=e252]:
+            - generic [ref=e253]: Resources
+            - generic [ref=e254]:
+              - link "Glossary" [ref=e255] [cursor=pointer]:
+                - /url: /docs/en/about-claude/glossary
+                - generic [ref=e257]: Glossary
+              - button "Use cases" [ref=e259] [cursor=pointer]:
+                - generic [ref=e260]: Use cases
+                - img [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Release notes
+            - link "Claude Platform" [ref=e268] [cursor=pointer]:
+              - /url: /docs/en/release-notes/overview
+              - generic [ref=e270]: Claude Platform
+        - link "Console" [ref=e273] [cursor=pointer]:
+          - /url: /
+          - img [ref=e275]
+          - generic [ref=e278]: Console
+      - main [ref=e280]:
+        - generic [ref=e281]:
+          - article [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: Context management
+              - generic [ref=e287]:
+                - heading "Context windows" [level=1] [ref=e288]
+                - generic [ref=e290]:
+                  - button "Copy page" [ref=e291] [cursor=pointer]:
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - img
+                        - img [ref=e294]
+                        - img
+                        - img
+                      - generic [ref=e296]: Copy page
+                  - button [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+            - generic [ref=e301]:
+              - img [ref=e304]
+              - paragraph [ref=e307]:
+                - text: This feature is eligible for
+                - link "Zero Data Retention (ZDR)" [ref=e308] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/api-and-data-retention
+                - text: . When your organization has a ZDR arrangement, data sent through this feature is not stored after the API response is returned.
+            - paragraph [ref=e309]: As conversations grow, you'll eventually approach context window limits. This guide explains how context windows work and introduces strategies for managing them effectively.
+            - paragraph [ref=e310]:
+              - text: For long-running conversations and agentic workflows,
+              - link "server-side compaction" [ref=e311] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+              - text: is the primary strategy for context management. For more specialized needs,
+              - link "context editing" [ref=e312] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+              - text: offers additional strategies like tool result clearing and thinking block clearing.
+            - heading "Copy link to clipboard Understanding the context window" [level=2] [ref=e313]:
+              - generic [ref=e314]:
+                - button "Copy link to clipboard" [ref=e316] [cursor=pointer]:
+                  - img [ref=e318]
+                - generic [ref=e320]: Understanding the context window
+            - paragraph [ref=e321]:
+              - text: The "context window" refers to all the text a language model can reference when generating a response, including the response itself. This is different from the large corpus of data the language model was trained on, and instead represents a "working memory" for the model. A larger context window allows the model to handle more complex and lengthy prompts, but more context isn't automatically better. As token count grows, accuracy and recall degrade, a phenomenon known as
+              - emphasis [ref=e322]: context rot
+              - text: . This makes curating what's in context just as important as how much space is available.
+            - paragraph [ref=e323]:
+              - text: Claude achieves state-of-the-art results on long-context retrieval benchmarks like
+              - link "MRCR" [ref=e324] [cursor=pointer]:
+                - /url: https://arxiv.org/abs/2501.03276
+              - text: and
+              - link "GraphWalks" [ref=e325] [cursor=pointer]:
+                - /url: https://arxiv.org/abs/2412.04360
+              - text: ", but these gains depend on what's in context, not just how much fits."
+            - generic [ref=e326]:
+              - img [ref=e329]
+              - paragraph [ref=e332]:
+                - text: For a deep dive into why long contexts degrade and how to engineer around it, see
+                - link "Effective context engineering" [ref=e333] [cursor=pointer]:
+                  - /url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+                - text: .
+            - paragraph [ref=e334]:
+              - text: The diagram below illustrates the standard context window behavior for API requests
+              - superscript [ref=e335]: "1"
+              - text: ":"
+            - paragraph [ref=e336]:
+              - img "Context window diagram" [ref=e337]
+            - paragraph [ref=e338]:
+              - emphasis [ref=e339]:
+                - superscript [ref=e340]: "1"
+                - text: For chat interfaces, such as for
+                - link "claude.ai" [ref=e341] [cursor=pointer]:
+                  - /url: https://claude.ai/
+                - text: ", context windows can also be set up on a rolling \"first in, first out\" system."
+            - list [ref=e342]:
+              - listitem [ref=e343]:
+                - text: •
+                - strong [ref=e344]: "Progressive token accumulation:"
+                - text: As the conversation advances through turns, each user message and assistant response accumulates within the context window. Previous turns are preserved completely.
+              - listitem [ref=e345]:
+                - text: •
+                - strong [ref=e346]: "Linear growth pattern:"
+                - text: The context usage grows linearly with each turn, with previous turns preserved completely.
+              - listitem [ref=e347]:
+                - text: •
+                - strong [ref=e348]: "Context window capacity:"
+                - text: The total available context window (up to 1M tokens) represents the maximum capacity for storing conversation history and generating new output from Claude.
+              - listitem [ref=e349]:
+                - text: •
+                - strong [ref=e350]: "Input-output flow:"
+                - text: "Each turn consists of:"
+                - list [ref=e351]:
+                  - listitem [ref=e352]:
+                    - text: •
+                    - strong [ref=e353]: "Input phase:"
+                    - text: Contains all previous conversation history plus the current user message
+                  - listitem [ref=e354]:
+                    - text: •
+                    - strong [ref=e355]: "Output phase:"
+                    - text: Generates a text response that becomes part of a future input
+            - heading "Copy link to clipboard The context window with extended thinking" [level=2] [ref=e356]:
+              - generic [ref=e357]:
+                - button "Copy link to clipboard" [ref=e359] [cursor=pointer]:
+                  - img [ref=e361]
+                - generic [ref=e363]: The context window with extended thinking
+            - paragraph [ref=e364]:
+              - text: When using
+              - link "extended thinking" [ref=e365] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+              - text: ", all input and output tokens, including the tokens used for thinking, count toward the context window limit, with a few nuances in multi-turn situations."
+            - paragraph [ref=e366]:
+              - text: The thinking budget tokens are a subset of your
+              - code [ref=e367]: max_tokens
+              - text: parameter, are billed as output tokens, and count towards rate limits. With
+              - link "adaptive thinking" [ref=e368] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/adaptive-thinking
+              - text: ", Claude dynamically decides its thinking allocation, so actual thinking token usage may vary per request."
+            - paragraph [ref=e369]: However, previous thinking blocks are automatically stripped from the context window calculation by the Claude API and are not part of the conversation history that the model "sees" for subsequent turns, preserving token capacity for actual conversation content.
+            - paragraph [ref=e370]: "The diagram below demonstrates the specialized token management when extended thinking is enabled:"
+            - paragraph [ref=e371]:
+              - img "Context window diagram with extended thinking" [ref=e372]
+            - list [ref=e373]:
+              - listitem [ref=e374]:
+                - text: •
+                - strong [ref=e375]: "Stripping extended thinking:"
+                - text: Extended thinking blocks (shown in dark gray) are generated during each turn's output phase,
+                - strong [ref=e376]: but are not carried forward as input tokens for subsequent turns
+                - text: . You do not need to strip the thinking blocks yourself. The Claude API automatically does this for you if you pass them back.
+              - listitem [ref=e377]:
+                - text: •
+                - strong [ref=e378]: "Technical implementation details:"
+                - list [ref=e379]:
+                  - listitem [ref=e380]: • The API automatically excludes thinking blocks from previous turns when you pass them back as part of the conversation history.
+                  - listitem [ref=e381]: • Extended thinking tokens are billed as output tokens only once, during their generation.
+                  - listitem [ref=e382]:
+                    - text: "• The effective context window calculation becomes:"
+                    - code [ref=e383]: context_window = (input_tokens - previous_thinking_tokens) + current_turn_tokens
+                    - text: .
+                  - listitem [ref=e384]:
+                    - text: • Thinking tokens include
+                    - code [ref=e385]: thinking
+                    - text: blocks.
+            - paragraph [ref=e386]: This architecture is token efficient and allows for extensive reasoning without token waste, as thinking blocks can be substantial in length.
+            - generic [ref=e387]:
+              - img [ref=e390]
+              - paragraph [ref=e393]:
+                - text: You can read more about the context window and extended thinking in the
+                - link "extended thinking guide" [ref=e394] [cursor=pointer]:
+                  - /url: /docs/en/build-with-claude/extended-thinking
+                - text: .
+            - heading "Copy link to clipboard The context window with extended thinking and tool use" [level=2] [ref=e395]:
+              - generic [ref=e396]:
+                - button "Copy link to clipboard" [ref=e398] [cursor=pointer]:
+                  - img [ref=e400]
+                - generic [ref=e402]: The context window with extended thinking and tool use
+            - paragraph [ref=e403]: "The diagram below illustrates the context window token management when combining extended thinking with tool use:"
+            - paragraph [ref=e404]:
+              - img "Context window diagram with extended thinking and tool use" [ref=e405]
+            - list [ref=e407]:
+              - listitem [ref=e408]:
+                - generic [ref=e409]:
+                  - generic [ref=e410]: "1"
+                  - paragraph [ref=e411]: First turn architecture
+                - list [ref=e414]:
+                  - listitem [ref=e415]:
+                    - text: •
+                    - strong [ref=e416]: "Input components:"
+                    - text: Tools configuration and user message
+                  - listitem [ref=e417]:
+                    - text: •
+                    - strong [ref=e418]: "Output components:"
+                    - text: Extended thinking + text response + tool use request
+                  - listitem [ref=e419]:
+                    - text: •
+                    - strong [ref=e420]: "Token calculation:"
+                    - text: All input and output components count toward the context window, and all output components are billed as output tokens.
+              - listitem [ref=e421]:
+                - generic [ref=e422]:
+                  - generic [ref=e423]: "2"
+                  - paragraph [ref=e424]: Tool result handling (turn 2)
+                - list [ref=e427]:
+                  - listitem [ref=e428]:
+                    - text: •
+                    - strong [ref=e429]: "Input components:"
+                    - text: Every block in the first turn as well as the
+                    - code [ref=e430]: tool_result
+                    - text: . The extended thinking block
+                    - strong [ref=e431]: must
+                    - text: be returned with the corresponding tool results. This is the only case wherein you
+                    - strong [ref=e432]: have to
+                    - text: return thinking blocks.
+                  - listitem [ref=e433]:
+                    - text: •
+                    - strong [ref=e434]: "Output components:"
+                    - text: After tool results have been passed back to Claude, Claude will respond with only text (no additional extended thinking until the next
+                    - code [ref=e435]: user
+                    - text: message).
+                  - listitem [ref=e436]:
+                    - text: •
+                    - strong [ref=e437]: "Token calculation:"
+                    - text: All input and output components count toward the context window, and all output components are billed as output tokens.
+              - listitem [ref=e438]:
+                - generic [ref=e439]:
+                  - generic [ref=e440]: "3"
+                  - paragraph [ref=e441]: Third Step
+                - list [ref=e444]:
+                  - listitem [ref=e445]:
+                    - text: •
+                    - strong [ref=e446]: "Input components:"
+                    - text: All inputs and the output from the previous turn is carried forward with the exception of the thinking block, which can be dropped now that Claude has completed the entire tool use cycle. The API will automatically strip the thinking block for you if you pass it back, or you can feel free to strip it yourself at this stage. This is also where you would add the next
+                    - code [ref=e447]: User
+                    - text: turn.
+                  - listitem [ref=e448]:
+                    - text: •
+                    - strong [ref=e449]: "Output components:"
+                    - text: Since there is a new
+                    - code [ref=e450]: User
+                    - text: turn outside of the tool use cycle, Claude generates a new extended thinking block and continues from there.
+                  - listitem [ref=e451]:
+                    - text: •
+                    - strong [ref=e452]: "Token calculation:"
+                    - text: Previous thinking tokens are automatically stripped from context window calculations. All other previous blocks still count as part of the token window, and the thinking block in the current
+                    - code [ref=e453]: Assistant
+                    - text: turn counts as part of the context window.
+            - list [ref=e454]:
+              - listitem [ref=e455]:
+                - text: •
+                - strong [ref=e456]: "Considerations for tool use with extended thinking:"
+                - list [ref=e457]:
+                  - listitem [ref=e458]: • When posting tool results, the entire unmodified thinking block that accompanies that specific tool request (including signature portions) must be included.
+                  - listitem [ref=e459]:
+                    - text: "• The effective context window calculation for extended thinking with tool use becomes:"
+                    - code [ref=e460]: context_window = input_tokens + current_turn_tokens
+                    - text: .
+                  - listitem [ref=e461]: • The system uses cryptographic signatures to verify thinking block authenticity. Failing to preserve thinking blocks during tool use can break Claude's reasoning continuity. Thus, if you modify thinking blocks, the API returns an error.
+            - generic [ref=e462]:
+              - img [ref=e465]
+              - generic [ref=e467]:
+                - paragraph [ref=e468]:
+                  - text: Claude 4 models support
+                  - link "interleaved thinking" [ref=e469] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#interleaved-thinking
+                  - text: ", which enables Claude to think between tool calls and make more sophisticated reasoning after receiving tool results."
+                - paragraph [ref=e470]:
+                  - text: Claude Sonnet 3.7 does not support interleaved thinking, so there is no interleaving of extended thinking and tool calls without a non-
+                  - code [ref=e471]: tool_result
+                  - text: user turn in between.
+                - paragraph [ref=e472]:
+                  - text: For more information about using tools with extended thinking, see the
+                  - link "extended thinking guide" [ref=e473] [cursor=pointer]:
+                    - /url: /docs/en/build-with-claude/extended-thinking#extended-thinking-with-tool-use
+                  - text: .
+            - paragraph [ref=e474]:
+              - link "Claude Mythos Preview" [ref=e475] [cursor=pointer]:
+                - /url: https://anthropic.com/glasswing
+              - text: ", Claude Opus 4.6, and Claude Sonnet 4.6 have a 1M-token context window. Other Claude models, including Claude Sonnet 4.5 and Sonnet 4 (deprecated), have a 200k-token context window."
+            - paragraph [ref=e476]:
+              - text: A single request can include up to 600 images or PDF pages (100 for models with a 200k-token context window). When sending many images or large documents, you may approach
+              - link "request size limits" [ref=e477] [cursor=pointer]:
+                - /url: /docs/en/api/overview#request-size-limits
+              - text: before the token limit.
+            - heading "Copy link to clipboard Context awareness in Claude Sonnet 4.6, Sonnet 4.5, and Haiku 4.5" [level=2] [ref=e478]:
+              - generic [ref=e479]:
+                - button "Copy link to clipboard" [ref=e481] [cursor=pointer]:
+                  - img [ref=e483]
+                - generic [ref=e485]: Context awareness in Claude Sonnet 4.6, Sonnet 4.5, and Haiku 4.5
+            - paragraph [ref=e486]:
+              - text: Claude Sonnet 4.6, Claude Sonnet 4.5, and Claude Haiku 4.5 feature
+              - strong [ref=e487]: context awareness
+              - text: . This capability lets these models track their remaining context window (i.e. "token budget") throughout a conversation. This enables Claude to execute tasks and manage context more effectively by understanding how much space it has to work. Claude is trained to use this context precisely, persisting in the task until the very end rather than guessing how many tokens remain. For a model, lacking context awareness is like competing in a cooking show without a clock. Claude 4.5+ models change this by explicitly informing the model about its remaining context, so it can take maximum advantage of the available tokens.
+            - paragraph [ref=e488]:
+              - strong [ref=e489]: "How it works:"
+            - paragraph [ref=e490]: "At the start of a conversation, Claude receives information about its total context window:"
+            - generic [ref=e491]:
+              - code [ref=e495]:
+                - generic [ref=e496]: <budget:token_budget>1000000</budget:token_budget>
+              - button "Copy code" [ref=e498] [cursor=pointer]:
+                - generic [ref=e499]:
+                  - img [ref=e501]
+                  - img [ref=e504]
+            - paragraph [ref=e506]: The budget is set to 1M tokens (200k for models with a smaller context window).
+            - paragraph [ref=e507]: "After each tool call, Claude receives an update on remaining capacity:"
+            - generic [ref=e508]:
+              - code [ref=e512]:
+                - generic [ref=e513]: "<system_warning>Token usage: 35000/1000000; 965000 remaining</system_warning>"
+              - button "Copy code" [ref=e515] [cursor=pointer]:
+                - generic [ref=e516]:
+                  - img [ref=e518]
+                  - img [ref=e521]
+            - paragraph [ref=e523]: This awareness helps Claude determine how much capacity remains for work and enables more effective execution on long-running tasks. Image tokens are included in these budgets.
+            - paragraph [ref=e524]:
+              - strong [ref=e525]: "Benefits:"
+            - paragraph [ref=e526]: "Context awareness is particularly valuable for:"
+            - list [ref=e527]:
+              - listitem [ref=e528]: • Long-running agent sessions that require sustained focus
+              - listitem [ref=e529]: • Multi-context-window workflows where state transitions matter
+              - listitem [ref=e530]: • Complex tasks requiring careful token management
+            - generic [ref=e531]:
+              - img [ref=e534]
+              - paragraph [ref=e537]:
+                - text: For agents that span multiple sessions, design your state artifacts so that context recovery is fast when a new session starts. The
+                - link "memory tool's multi-session pattern" [ref=e538] [cursor=pointer]:
+                  - /url: /docs/en/agents-and-tools/tool-use/memory-tool#multi-session-software-development-pattern
+                - text: walks through a concrete approach. See also
+                - link "Effective harnesses for long-running agents" [ref=e539] [cursor=pointer]:
+                  - /url: https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+                - text: .
+            - paragraph [ref=e540]:
+              - text: For prompting guidance on leveraging context awareness, see the
+              - link "prompting best practices guide" [ref=e541] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#context-awareness-and-multi-window-workflows
+              - text: .
+            - heading "Copy link to clipboard Managing context with compaction" [level=2] [ref=e542]:
+              - generic [ref=e543]:
+                - button "Copy link to clipboard" [ref=e545] [cursor=pointer]:
+                  - img [ref=e547]
+                - generic [ref=e549]: Managing context with compaction
+            - paragraph [ref=e550]:
+              - text: If your conversations regularly approach context window limits,
+              - link "server-side compaction" [ref=e551] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+              - text: is the recommended approach. Compaction provides server-side summarization that automatically condenses earlier parts of a conversation, enabling long-running conversations beyond context limits with minimal integration work. It is currently available in beta for Claude Opus 4.6 and Sonnet 4.6.
+            - paragraph [ref=e552]:
+              - text: For more specialized needs,
+              - link "context editing" [ref=e553] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+              - text: "offers additional strategies:"
+            - list [ref=e554]:
+              - listitem [ref=e555]:
+                - text: •
+                - strong [ref=e556]: Tool result clearing
+                - text: "- Clear old tool results in agentic workflows"
+              - listitem [ref=e557]:
+                - text: •
+                - strong [ref=e558]: Thinking block clearing
+                - text: "- Manage thinking blocks with extended thinking"
+            - heading "Copy link to clipboard Context window management with newer Claude models" [level=2] [ref=e559]:
+              - generic [ref=e560]:
+                - button "Copy link to clipboard" [ref=e562] [cursor=pointer]:
+                  - img [ref=e564]
+                - generic [ref=e566]: Context window management with newer Claude models
+            - paragraph [ref=e567]: Newer Claude models (starting with Claude Sonnet 3.7) return a validation error when prompt and output tokens exceed the context window, rather than silently truncating. This change provides more predictable behavior but requires more careful token management.
+            - paragraph [ref=e568]:
+              - text: Use the
+              - link "token counting API" [ref=e569] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/token-counting
+              - text: to estimate token usage before sending messages to Claude. This helps you plan and stay within context window limits.
+            - paragraph [ref=e570]:
+              - text: See the
+              - link "model comparison" [ref=e571] [cursor=pointer]:
+                - /url: /docs/en/about-claude/models/overview#latest-models-comparison
+              - text: table for a list of context window sizes by model.
+            - heading "Copy link to clipboard Next steps" [level=2] [ref=e572]:
+              - generic [ref=e573]:
+                - button "Copy link to clipboard" [ref=e575] [cursor=pointer]:
+                  - img [ref=e577]
+                - generic [ref=e579]: Next steps
+            - generic [ref=e580]:
+              - link "Compaction The recommended strategy for managing context in long-running conversations." [ref=e581] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/compaction
+                - generic [ref=e583]:
+                  - generic [ref=e585]: Compaction
+                  - paragraph [ref=e587]: The recommended strategy for managing context in long-running conversations.
+              - link "Context editing Fine-grained strategies like tool result clearing and thinking block clearing." [ref=e588] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/context-editing
+                - generic [ref=e590]:
+                  - generic [ref=e592]: Context editing
+                  - paragraph [ref=e594]: Fine-grained strategies like tool result clearing and thinking block clearing.
+              - link "Model comparison table See the model comparison table for a list of context window sizes and input / output token pricing by model." [ref=e595] [cursor=pointer]:
+                - /url: /docs/en/about-claude/models/overview#latest-models-comparison
+                - generic [ref=e596]:
+                  - img [ref=e598]
+                  - generic [ref=e600]:
+                    - generic [ref=e602]: Model comparison table
+                    - paragraph [ref=e604]: See the model comparison table for a list of context window sizes and input / output token pricing by model.
+              - link "Extended thinking overview Learn more about how extended thinking works and how to implement it alongside other features such as tool use and prompt caching." [ref=e605] [cursor=pointer]:
+                - /url: /docs/en/build-with-claude/extended-thinking
+                - generic [ref=e606]:
+                  - img [ref=e609]
+                  - generic [ref=e611]:
+                    - generic [ref=e613]: Extended thinking overview
+                    - paragraph [ref=e615]: Learn more about how extended thinking works and how to implement it alongside other features such as tool use and prompt caching.
+            - generic [ref=e616]:
+              - paragraph [ref=e617]: Was this page helpful?
+              - generic [ref=e618]:
+                - button "Thumbs up" [ref=e619] [cursor=pointer]:
+                  - img [ref=e621]
+                - button "Thumbs down" [ref=e623] [cursor=pointer]:
+                  - img [ref=e625]
+          - button "Toggle table of contents" [ref=e627] [cursor=pointer]:
+            - img [ref=e628]
+        - generic [ref=e631]:
+          - generic [ref=e632]:
+            - link "Claude API Docs home page" [ref=e634] [cursor=pointer]:
+              - /url: /docs
+              - img "Claude API Docs" [ref=e635]
+            - generic [ref=e638]:
+              - link "X (Twitter)" [ref=e639] [cursor=pointer]:
+                - /url: https://x.com/claudeai
+                - img [ref=e640]
+              - link "LinkedIn" [ref=e642] [cursor=pointer]:
+                - /url: https://www.linkedin.com/showcase/claude
+                - img [ref=e643]
+              - link "Instagram" [ref=e645] [cursor=pointer]:
+                - /url: https://instagram.com/claudeai
+                - img [ref=e646]
+          - generic [ref=e649]:
+            - generic [ref=e650]:
+              - generic [ref=e651]:
+                - heading "Solutions" [level=3] [ref=e652]
+                - list [ref=e653]:
+                  - listitem [ref=e654]:
+                    - link "AI agents" [ref=e655] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/agents
+                  - listitem [ref=e656]:
+                    - link "Code modernization" [ref=e657] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/code-modernization
+                  - listitem [ref=e658]:
+                    - link "Coding" [ref=e659] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/coding
+                  - listitem [ref=e660]:
+                    - link "Customer support" [ref=e661] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/customer-support
+                  - listitem [ref=e662]:
+                    - link "Education" [ref=e663] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/education
+                  - listitem [ref=e664]:
+                    - link "Financial services" [ref=e665] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/financial-services
+                  - listitem [ref=e666]:
+                    - link "Government" [ref=e667] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/government
+                  - listitem [ref=e668]:
+                    - link "Life sciences" [ref=e669] [cursor=pointer]:
+                      - /url: https://claude.com/solutions/life-sciences
+              - generic [ref=e670]:
+                - heading "Partners" [level=3] [ref=e671]
+                - list [ref=e672]:
+                  - listitem [ref=e673]:
+                    - link "Amazon Bedrock" [ref=e674] [cursor=pointer]:
+                      - /url: https://claude.com/partners/amazon-bedrock
+                  - listitem [ref=e675]:
+                    - link "Google Cloud's Vertex AI" [ref=e676] [cursor=pointer]:
+                      - /url: https://claude.com/partners/google-cloud-vertex-ai
+            - generic [ref=e677]:
+              - generic [ref=e678]:
+                - heading "Learn" [level=3] [ref=e679]
+                - list [ref=e680]:
+                  - listitem [ref=e681]:
+                    - link "Blog" [ref=e682] [cursor=pointer]:
+                      - /url: https://claude.com/blog
+                  - listitem [ref=e683]:
+                    - link "Courses" [ref=e684] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/learn
+                  - listitem [ref=e685]:
+                    - link "Use cases" [ref=e686] [cursor=pointer]:
+                      - /url: https://claude.com/resources/use-cases
+                  - listitem [ref=e687]:
+                    - link "Connectors" [ref=e688] [cursor=pointer]:
+                      - /url: https://claude.com/partners/mcp
+                  - listitem [ref=e689]:
+                    - link "Customer stories" [ref=e690] [cursor=pointer]:
+                      - /url: https://claude.com/customers
+                  - listitem [ref=e691]:
+                    - link "Engineering at Anthropic" [ref=e692] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/engineering
+                  - listitem [ref=e693]:
+                    - link "Events" [ref=e694] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/events
+                  - listitem [ref=e695]:
+                    - link "Powered by Claude" [ref=e696] [cursor=pointer]:
+                      - /url: https://claude.com/partners/powered-by-claude
+                  - listitem [ref=e697]:
+                    - link "Service partners" [ref=e698] [cursor=pointer]:
+                      - /url: https://claude.com/partners/services
+                  - listitem [ref=e699]:
+                    - link "Startups program" [ref=e700] [cursor=pointer]:
+                      - /url: https://claude.com/programs/startups
+              - generic [ref=e701]:
+                - heading "Company" [level=3] [ref=e702]
+                - list [ref=e703]:
+                  - listitem [ref=e704]:
+                    - link "Anthropic" [ref=e705] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/company
+                  - listitem [ref=e706]:
+                    - link "Careers" [ref=e707] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/careers
+                  - listitem [ref=e708]:
+                    - link "Economic Futures" [ref=e709] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/economic-futures
+                  - listitem [ref=e710]:
+                    - link "Research" [ref=e711] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/research
+                  - listitem [ref=e712]:
+                    - link "News" [ref=e713] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news
+                  - listitem [ref=e714]:
+                    - link "Responsible Scaling Policy" [ref=e715] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy
+                  - listitem [ref=e716]:
+                    - link "Security and compliance" [ref=e717] [cursor=pointer]:
+                      - /url: https://trust.anthropic.com
+                  - listitem [ref=e718]:
+                    - link "Transparency" [ref=e719] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/transparency
+            - generic [ref=e720]:
+              - generic [ref=e721]:
+                - heading "Help and security" [level=3] [ref=e722]
+                - list [ref=e723]:
+                  - listitem [ref=e724]:
+                    - link "Availability" [ref=e725] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/supported-countries
+                  - listitem [ref=e726]:
+                    - link "Status" [ref=e727] [cursor=pointer]:
+                      - /url: https://status.claude.com/
+                  - listitem [ref=e728]:
+                    - link "Support" [ref=e729] [cursor=pointer]:
+                      - /url: https://support.claude.com/
+                  - listitem [ref=e730]:
+                    - link "Discord" [ref=e731] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/discord
+              - generic [ref=e732]:
+                - heading "Terms and policies" [level=3] [ref=e733]
+                - list [ref=e734]:
+                  - listitem [ref=e735]:
+                    - link "Privacy policy" [ref=e736] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/privacy
+                  - listitem [ref=e737]:
+                    - link "Responsible disclosure policy" [ref=e738] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/responsible-disclosure-policy
+                  - listitem [ref=e739]:
+                    - 'link "Terms of service: Commercial" [ref=e740] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/commercial-terms
+                  - listitem [ref=e741]:
+                    - 'link "Terms of service: Consumer" [ref=e742] [cursor=pointer]':
+                      - /url: https://www.anthropic.com/legal/consumer-terms
+                  - listitem [ref=e743]:
+                    - link "Usage policy" [ref=e744] [cursor=pointer]:
+                      - /url: https://www.anthropic.com/legal/aup
+  - button "Ask Docs" [ref=e748] [cursor=pointer]:
+    - generic [ref=e749]: Ask Docs
+  - alert [ref=e750]

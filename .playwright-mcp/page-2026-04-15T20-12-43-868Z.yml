@@ -1,0 +1,45 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: Claude Architect Quiz
+      - generic [ref=e7]: Foundations Certification Practice
+    - generic [ref=e25]: 2 / 60 respondidas
+  - generic [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: Pregunta 2 de 60
+      - generic [ref=e30]: "D1: Agentic Architecture & Orchestration"
+    - generic [ref=e33]:
+      - generic [ref=e34]: ◆ Multi-Agent Research System
+      - generic [ref=e35]: Tu coordinador delega una tarea de investigación a un subagente. El subagente retorna resultados parciales junto con una nota indicando que no pudo acceder a dos fuentes importantes por errores de timeout. ¿Cómo debería responder el coordinador?
+      - generic [ref=e36]:
+        - button "c Evaluar si los resultados parciales son suficientes para el research goal. Si las fuentes faltantes son críticas, spawner un nuevo subagente enfocado solo en esas fuentes. Si no son críticas, proceder con anotación. ✓" [ref=e74]:
+          - generic [ref=e47]: c
+          - generic [ref=e48]: Evaluar si los resultados parciales son suficientes para el research goal. Si las fuentes faltantes son críticas, spawner un nuevo subagente enfocado solo en esas fuentes. Si no son críticas, proceder con anotación.
+          - generic [ref=e75]: ✓
+        - button "b Descartar los resultados parciales y re-ejecutar el subagente desde cero con un timeout más largo. ✗" [ref=e76]:
+          - generic [ref=e41]: b
+          - generic [ref=e42]: Descartar los resultados parciales y re-ejecutar el subagente desde cero con un timeout más largo.
+          - generic [ref=e77]: ✗
+        - button "d Escalar al usuario humano para que decida si los resultados parciales son aceptables." [ref=e71]:
+          - generic [ref=e44]: d
+          - generic [ref=e45]: Escalar al usuario humano para que decida si los resultados parciales son aceptables.
+        - button "a Aceptar los resultados parciales y proceder a la fase de síntesis, mencionando los gaps al final del reporte." [ref=e72]:
+          - generic [ref=e38]: a
+          - generic [ref=e39]: Aceptar los resultados parciales y proceder a la fase de síntesis, mencionando los gaps al final del reporte.
+      - button "Siguiente Pregunta →" [active] [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - heading "✗ Incorrecto" [level=4] [ref=e80]
+        - paragraph [ref=e81]:
+          - strong [ref=e82]: "Respuesta correcta (C):"
+          - text: El coordinador debe tomar decisiones informadas basadas en la criticidad de la información faltante. Esto preserva el trabajo completado mientras asegura que gaps críticos se aborden con acciones targeted.
+        - generic [ref=e83]:
+          - heading "Por que las otras opciones son incorrectas" [level=5] [ref=e84]
+          - generic [ref=e85]:
+            - generic [ref=e86]: A)
+            - generic [ref=e87]: Proceder sin evaluar la criticidad de las fuentes faltantes puede resultar en un reporte con gaps significativos. Algunas fuentes pueden ser fundamentales para las conclusiones.
+          - generic [ref=e88]:
+            - generic [ref=e89]: B)
+            - generic [ref=e90]: Descartar resultados parciales válidos es desperdicio. Los resultados ya obtenidos son útiles — solo las fuentes faltantes necesitan re-intento.
+          - generic [ref=e91]:
+            - generic [ref=e92]: D)
+            - generic [ref=e93]: Escalar decisiones operacionales rutinarias al usuario interrumpe el workflow. El coordinador debería poder evaluar criticidad de gaps y actuar autónomamente.
