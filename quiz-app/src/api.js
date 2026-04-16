@@ -18,7 +18,7 @@ async function request(path, options = {}) {
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
   }
-  if (options.body && typeof options.body === 'object' && !(options.body instanceof FormData)) {
+  if (options.body && typeof options.body === 'object' && !(options.body instanceof FormData) && !(options.body instanceof URLSearchParams)) {
     headers['Content-Type'] = 'application/json'
     options.body = JSON.stringify(options.body)
   }
