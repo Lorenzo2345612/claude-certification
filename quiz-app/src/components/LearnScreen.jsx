@@ -233,7 +233,9 @@ export default function LearnScreen() {
                   <div className="learn-summary-concepts">
                     <div className="learn-summary-concepts-label">Key Concepts</div>
                     {learnSummaries[currentTopic.id].keyConcepts.map((concept, i) => (
-                      <span key={i} className="learn-concept-tag">{concept}</span>
+                      <span key={i} className="learn-concept-tag" data-tooltip={concept.definition || ''}>
+                        {concept.term || concept}
+                      </span>
                     ))}
                   </div>
                 )}
