@@ -39,11 +39,15 @@ export const learnTopics = [
           <tr><td><code>end_turn</code></td><td>Claude is done; no more tool calls needed</td><td>Return the final response to the user</td></tr>
           <tr><td><code>tool_use</code></td><td>Claude wants to call one or more tools</td><td>Execute the tool(s), append tool_result, loop again</td></tr>
           <tr><td><code>max_tokens</code></td><td>Response hit the max_tokens limit</td><td>Decide whether to continue (send back for more) or truncate</td></tr>
-          <tr><td><code>pause_turn</code></td><td>Streaming pause point (long responses)</td><td>Continue streaming; the model will resume</td></tr>
+          <tr><td><code>pause_turn</code></td><td>Server-side loop hit its iteration limit for server-executed tools</td><td>Re-send the conversation including the paused response so Claude can continue</td></tr>
           <tr><td><code>stop_sequence</code></td><td>A custom stop sequence was matched</td><td>Handle based on which sequence triggered</td></tr>
           <tr><td><code>refusal</code></td><td>Claude declined to respond (safety)</td><td>Log and handle gracefully; do not retry</td></tr>
         </tbody>
       </table>
+
+      <h4>Server-Executed Tools</h4>
+      <p>Some tools are executed by Anthropic on its infrastructure rather than by your client code. These are: <code>web_search</code>, <code>web_fetch</code>, <code>code_execution</code>, and <code>tool_search</code>. When Claude uses these tools, the response contains <code>server_tool_use</code> blocks (with IDs prefixed by <code>srvtoolu_</code>) instead of regular <code>tool_use</code> blocks. Results appear in the same assistant turn.</p>
+      <p><strong>You NEVER construct a <code>tool_result</code> for server-executed tools.</strong> Anthropic handles execution and returns results automatically. The server runs its own internal loop and may trigger several searches or executions before responding. This server-side loop can hit its internal iteration limit, which is what generates a <code>pause_turn</code> stop reason.</p>
 
       <h4>Tool Result Matching</h4>
       <p>When Claude requests a tool call, the response contains a <code>tool_use</code> content block with a unique <code>id</code>. Your tool result must reference this exact ID in the <code>tool_use_id</code> field of the <code>tool_result</code> block. Mismatched IDs cause the loop to fail.</p>
@@ -87,6 +91,8 @@ while (true) {
           <li>Always cap max iterations to prevent runaway loops in production</li>
           <li>Tool results must match by <code>tool_use_id</code> — never skip or reorder them</li>
           <li>The agentic loop is infrastructure code — Claude decides when to use tools, your code executes them</li>
+          <li>The loop should also continue on <code>pause_turn</code> — re-send the conversation including the paused response</li>
+          <li>Server-executed tools return <code>server_tool_use</code> blocks — you never send <code>tool_result</code> for these</li>
         </ul>
       </div>
     `,
@@ -153,6 +159,20 @@ while (true) {
   "content": "Current weather: 67°F, partly cloudy"
 }</code></pre>
 
+      <h4>tool_result Formatting Rules</h4>
+      <p>The <code>tool_result</code> block supports four valid content types:</p>
+      <ul>
+        <li><strong>Plain string</strong>: <code>"content": "15 degrees"</code></li>
+        <li><strong>Text block</strong>: <code>{"type": "text", "text": "15 degrees"}</code></li>
+        <li><strong>Image block (base64)</strong>: <code>{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": "..."}}</code></li>
+        <li><strong>Document block</strong>: <code>{"type": "document", "source": {"type": "text", "media_type": "text/plain", "data": "..."}}</code></li>
+      </ul>
+      <p><strong>CRITICAL ordering rules:</strong></p>
+      <ul>
+        <li><strong>No intermediate messages</strong>: You cannot include any messages between the assistant's <code>tool_use</code> message and the user's <code>tool_result</code> message.</li>
+        <li><strong>tool_result blocks must come FIRST</strong>: In the user message containing tool results, all <code>tool_result</code> blocks must appear before any <code>text</code> content. Violating this causes a <strong>400 error</strong>.</li>
+      </ul>
+
       <div class="callout callout-tip">
         <div class="callout-title">Key Takeaways</div>
         <ul>
@@ -161,6 +181,8 @@ while (true) {
           <li>Choose the execution bucket (sync/async/HITL) based on latency and safety requirements</li>
           <li>The <code>tool_use_id</code> is the binding contract — mismatches break the loop</li>
           <li>Multiple tool_use blocks can appear in a single response (parallel tool calls)</li>
+          <li><code>tool_result</code> supports 4 content types: strings, text, images (base64), documents</li>
+          <li><code>tool_result</code> blocks must come FIRST in the content array — text after all results</li>
         </ul>
       </div>
     `,
@@ -263,7 +285,7 @@ const result = await coordinator.delegate("code_reviewer", {
       <h3>Agent SDK Hooks</h3>
       <p>Hooks are interception points in the agent execution lifecycle that let you validate, modify, or block tool calls before or after they execute. The two primary hook types are <strong>PreToolUse</strong> (fires before a tool runs) and <strong>PostToolUse</strong> (fires after a tool completes). Hooks provide programmatic control that goes beyond what prompt instructions can achieve.</p>
       <p>Each hook handler receives the tool call details and returns a <strong>permissionDecision</strong>: <code>allow</code>, <code>deny</code>, or <code>ask</code> (prompt the user). The priority order is strict: <strong>deny > ask > allow</strong>. If any hook in the chain returns deny, the tool call is blocked regardless of what other hooks say. This gives security-critical hooks veto power.</p>
-      <p>Hook handlers can be implemented as shell commands, HTTP webhooks, or LLM-evaluated prompts. Shell command handlers use exit codes: exit 0 means allow, exit 1 means deny, and exit code 2 means ask the user. HTTP handlers return a JSON response with the decision. Prompt handlers use an LLM to evaluate whether the action should proceed.</p>
+      <p>Hook handlers can be implemented as shell commands, HTTP webhooks, LLM-evaluated prompts, or subagent handlers. Shell command handlers use exit codes: <strong>exit 0 = allow</strong> (parses stdout as JSON), <strong>exit 2 = BLOCK</strong> (ignores stdout; stderr shown to Claude), and <strong>any other exit code (including 1) = non-blocking error</strong> (execution continues; stderr logged to transcript). Critically, exit code 1 does NOT block — only exit code 2 blocks.</p>
 
       <div class="diagram">
         <div class="diagram-title">Hook Execution Flow</div>
@@ -294,24 +316,50 @@ const result = await coordinator.delegate("code_reviewer", {
   modified_input?: object // Optional modified parameters (PreToolUse only)
 }</code></pre>
 
-      <h4>Permission Decision Priority</h4>
+      <h4>Shell Exit Codes</h4>
       <table>
-        <thead><tr><th>Priority</th><th>Decision</th><th>Effect</th><th>Shell Exit Code</th></tr></thead>
+        <thead><tr><th>Exit Code</th><th>Meaning</th><th>JSON Processing</th><th>Effect</th></tr></thead>
         <tbody>
-          <tr><td>1 (highest)</td><td><code>deny</code></td><td>Block the tool call entirely</td><td>Exit 1</td></tr>
-          <tr><td>2</td><td><code>ask</code></td><td>Prompt the user for approval</td><td>Exit 2</td></tr>
-          <tr><td>3 (lowest)</td><td><code>allow</code></td><td>Permit the tool call</td><td>Exit 0</td></tr>
+          <tr><td><code>0</code></td><td>Success</td><td>YES (parses stdout)</td><td>Allow action, proceed normally</td></tr>
+          <tr><td><code>2</code></td><td>Blocking error</td><td>NO (ignores stdout)</td><td><strong>Block action</strong>; stderr shown to Claude</td></tr>
+          <tr><td>Any other (1, 3+)</td><td>Non-blocking error</td><td>NO</td><td>Execution continues; stderr in transcript</td></tr>
         </tbody>
       </table>
+      <p><strong>CRITICAL</strong>: Exit code 1 does NOT block. Only exit code 2 blocks.</p>
+
+      <h4>Permission Decision Priority</h4>
+      <table>
+        <thead><tr><th>Priority</th><th>Decision</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>1 (highest)</td><td><code>deny</code></td><td>Block the tool call entirely</td></tr>
+          <tr><td>2</td><td><code>defer</code></td><td>Pause for calling process (SDK/headless)</td></tr>
+          <tr><td>3</td><td><code>ask</code></td><td>Prompt the user for approval</td></tr>
+          <tr><td>4 (lowest)</td><td><code>allow</code></td><td>Permit the tool call</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Hook Event Types</h4>
+      <p>There are <strong>26+ event types</strong> available for hooks, including: <code>PreToolUse</code>, <code>PostToolUse</code>, <code>SubagentStart</code>, <code>SubagentStop</code>, <code>SessionStart</code>, <code>SessionEnd</code>, <code>Stop</code>, <code>Notification</code>, <code>UserPromptSubmit</code>, <code>PermissionRequest</code>, <code>PermissionDenied</code>, <code>FileChanged</code>, <code>PreCompact</code>, <code>PostCompact</code>, and more. Hook event names are <strong>case-sensitive PascalCase</strong> (e.g., <code>PreToolUse</code>, not <code>pretooluse</code>).</p>
+
+      <h4>Important Hook Behaviors</h4>
+      <ul>
+        <li><strong>Matcher regex</strong>: The matcher regex is evaluated against the <strong>tool name only</strong>. To filter by file path or other input properties, check <code>tool_input</code> inside the hook callback.</li>
+        <li><strong>Parallel execution</strong>: All matching hooks run <strong>in parallel</strong> (not sequentially). Conflicting decisions are resolved by precedence: deny > defer > ask > allow.</li>
+        <li><strong>Observation-only hooks</strong>: Return an empty object <code>{}</code> for hooks that only observe/log without affecting the decision.</li>
+        <li><strong>asyncRewake</strong>: When <code>asyncRewake: true</code>, the hook runs in the background. If it exits with code 2, it <strong>wakes Claude</strong> and stderr (or stdout if stderr empty) is shown as a system reminder.</li>
+        <li><strong>Character cap</strong>: <code>additionalContext</code>, <code>systemMessage</code>, and <code>updatedMCPToolOutput</code> are capped at <strong>10,000 characters</strong>. When exceeded, content is saved to a file and replaced with a preview + file path.</li>
+      </ul>
 
       <div class="callout callout-critical">
         <div class="callout-title">Key Takeaways</div>
         <ul>
-          <li>PreToolUse hooks fire before execution and can allow, deny, or ask for permission</li>
+          <li>PreToolUse hooks fire before execution and can allow, deny, ask, or defer</li>
           <li>PostToolUse hooks fire after execution — useful for logging, normalization, and follow-up actions</li>
-          <li>Priority order is <strong>deny > ask > allow</strong> — any deny in the chain vetoes the call</li>
-          <li>Shell command hooks: exit 0 = allow, exit 1 = deny, exit 2 = ask the user</li>
-          <li>Hook handler output is capped at 10,000 characters</li>
+          <li>Priority order is <strong>deny > defer > ask > allow</strong> — any deny in the chain vetoes the call</li>
+          <li>Shell exit codes: <strong>0 = allow</strong> (parses stdout), <strong>2 = BLOCK</strong> (ignores stdout), <strong>any other = non-blocking error</strong>. Exit 1 does NOT block.</li>
+          <li>26+ event types available; names are case-sensitive PascalCase</li>
+          <li>Hooks execute in parallel; matcher regex matches tool name only</li>
+          <li>Hook output (additionalContext, systemMessage, updatedMCPToolOutput) capped at 10,000 characters</li>
         </ul>
       </div>
     `,
@@ -328,46 +376,62 @@ const result = await coordinator.delegate("code_reviewer", {
     content: `
       <h3>Configuring Subagents with AgentDefinition</h3>
       <p>Subagents in the Claude Agent SDK are configured using the <strong>AgentDefinition</strong> object, which specifies everything a subagent needs to operate: its name, instructions, tools, model, and behavioral constraints. The AgentDefinition was formerly called "Task" but has been renamed to "Agent" to better reflect that subagents are autonomous actors, not passive task runners.</p>
-      <p>Each AgentDefinition has seven key fields that control how the subagent behaves. The <code>allowedTools</code> field is particularly important — it restricts which tools the subagent can access, enabling the principle of least privilege. A code reviewer subagent might only have read access, while a code writer has both read and write access.</p>
-      <p>A critical constraint: subagents <strong>cannot nest</strong> — a subagent cannot spawn its own subagents. If your workflow requires multi-level delegation, you must restructure so the top-level coordinator handles all delegation directly. This keeps the execution graph flat and predictable.</p>
+      <p>The AgentDefinition has 15 fields (only <code>name</code> and <code>description</code> are required). The <code>tools</code> field controls which tools the subagent can access — if omitted, the subagent <strong>inherits ALL parent tools</strong>. Use <code>disallowedTools</code> to deny specific tools from the inherited set, enabling the principle of least privilege. The Task tool was renamed to <strong>Agent</strong> in version 2.1.63 (existing Task references still work as aliases).</p>
+      <p>A critical constraint: subagents <strong>cannot nest</strong> — a subagent cannot spawn its own subagents. The prompt string of the Agent tool is the <strong>ONLY communication channel</strong> from parent to subagent. The subagent does NOT receive the parent's conversation history, tool results, or system prompt — it works independently with only its own system prompt and basic environment details.</p>
 
-      <h4>AgentDefinition — 7 Key Fields</h4>
+      <h4>AgentDefinition — 15 Fields (2 required)</h4>
       <table>
-        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td><code>name</code></td><td>string</td><td>Unique identifier for the subagent (used as tool name by coordinator)</td></tr>
-          <tr><td><code>description</code></td><td>string</td><td>What this subagent does — shown to coordinator for delegation decisions</td></tr>
-          <tr><td><code>instructions</code></td><td>string</td><td>System prompt for the subagent — its specialized expertise and behavior</td></tr>
-          <tr><td><code>allowedTools</code></td><td>string[]</td><td>List of tools this subagent can access (principle of least privilege)</td></tr>
-          <tr><td><code>model</code></td><td>string</td><td>Which Claude model to use (can differ from coordinator)</td></tr>
-          <tr><td><code>maxTurns</code></td><td>number</td><td>Maximum agentic loop iterations before the subagent must return</td></tr>
-          <tr><td><code>temperature</code></td><td>number</td><td>Sampling temperature for the subagent's responses</td></tr>
+          <tr><td><code>name</code></td><td><strong>Yes</strong></td><td>Unique identifier, lowercase letters and hyphens</td></tr>
+          <tr><td><code>description</code></td><td><strong>Yes</strong></td><td>When Claude should delegate to this subagent</td></tr>
+          <tr><td><code>tools</code></td><td>No</td><td>Tools subagent can use; <strong>inherits all if omitted</strong></td></tr>
+          <tr><td><code>disallowedTools</code></td><td>No</td><td>Tools to deny from inherited/specified list</td></tr>
+          <tr><td><code>model</code></td><td>No</td><td>sonnet, opus, haiku, full ID, or <code>inherit</code> (default)</td></tr>
+          <tr><td><code>permissionMode</code></td><td>No</td><td>default, acceptEdits, auto, dontAsk, bypassPermissions, plan</td></tr>
+          <tr><td><code>maxTurns</code></td><td>No</td><td>Max agentic turns before stop</td></tr>
+          <tr><td><code>skills</code></td><td>No</td><td>Skills preloaded into subagent context</td></tr>
+          <tr><td><code>mcpServers</code></td><td>No</td><td>MCP servers (references or inline)</td></tr>
+          <tr><td><code>hooks</code></td><td>No</td><td>Lifecycle hooks scoped to subagent</td></tr>
+          <tr><td><code>memory</code></td><td>No</td><td>Persistent memory scope: user, project, local</td></tr>
+          <tr><td><code>background</code></td><td>No</td><td><code>true</code> for background task; default false</td></tr>
+          <tr><td><code>effort</code></td><td>No</td><td>low, medium, high, max</td></tr>
+          <tr><td><code>isolation</code></td><td>No</td><td><code>worktree</code> for isolated git worktree</td></tr>
+          <tr><td><code>color</code></td><td>No</td><td>Display color for the subagent</td></tr>
         </tbody>
       </table>
 
+      <h4>3 Creation Methods</h4>
+      <ul>
+        <li><strong>File-based</strong>: Place agent definitions in <code>.claude/agents/</code> (project) or <code>~/.claude/agents/</code> (user) or via managed settings</li>
+        <li><strong>CLI flag</strong> (<code>--agents</code>): Pass JSON when launching; session-only</li>
+        <li><strong>Interactive</strong> (<code>/agents</code> command): Guided setup within a session</li>
+      </ul>
+
+      <h4>Permission Inheritance</h4>
+      <p>Subagents inherit permission context from the main conversation but can override via the <code>permissionMode</code> field. Exception: <code>bypassPermissions</code> in the parent takes precedence and cannot be overridden. Background subagents have permissions pre-approved before launch.</p>
+
 <pre><code>// Example: Defining a security review subagent
 const securityReviewer = {
-  name: "security_reviewer",
+  name: "security-reviewer",
   description: "Analyzes code for security vulnerabilities, injection risks, and auth issues",
-  instructions: \`You are a security expert. Review code for:
-    - SQL injection, XSS, CSRF vulnerabilities
-    - Authentication and authorization gaps
-    - Sensitive data exposure
-    Report findings with severity (critical/high/medium/low).\`,
-  allowedTools: ["read_file", "grep", "glob"],  // Read-only access
-  model: "claude-sonnet-4-20250514",
+  tools: ["Read", "Grep", "Glob"],  // Read-only access
+  disallowedTools: ["Edit", "Write", "Bash"],
+  model: "sonnet",
   maxTurns: 15,
-  temperature: 0,
+  effort: "high",
 };</code></pre>
 
       <div class="callout callout-warning">
         <div class="callout-title">Key Takeaways</div>
         <ul>
-          <li>AgentDefinition (formerly Task) has 7 fields: name, description, instructions, allowedTools, model, maxTurns, temperature</li>
-          <li>Use <code>allowedTools</code> to enforce least-privilege access for each subagent</li>
+          <li>AgentDefinition has 15 fields; only <code>name</code> and <code>description</code> are required</li>
+          <li>Task tool was renamed to <strong>Agent</strong> in v2.1.63 (Task still works as alias)</li>
+          <li>When <code>tools</code> is omitted, subagent inherits <strong>all</strong> parent tools</li>
+          <li>The Agent tool prompt is the ONLY communication channel — subagent does NOT get parent context</li>
           <li>Subagents <strong>cannot nest</strong> — no subagent can spawn its own subagents</li>
-          <li>Different subagents can use different models (e.g., Haiku for simple tasks, Opus for complex)</li>
-          <li>Set <code>maxTurns</code> to prevent subagents from running indefinitely</li>
+          <li>3 creation methods: file-based (<code>.claude/agents/</code>), CLI flag (<code>--agents</code>), interactive (<code>/agents</code>)</li>
+          <li>Subagents inherit permissions but can override via <code>permissionMode</code></li>
         </ul>
       </div>
     `,
@@ -662,6 +726,15 @@ const summary = await client.messages.create({
   tool_choice: { type: "none" },  // ...Claude cannot use them
 });</code></pre>
 
+      <h4>Extended Thinking Restrictions</h4>
+      <p>When using extended thinking, only <code>tool_choice: auto</code> and <code>tool_choice: none</code> are supported. Using <code>tool_choice: any</code> or <code>tool_choice: tool</code> with extended thinking will return an error. This is an important constraint when building agents that combine chain-of-thought reasoning with tool use.</p>
+
+      <h4>Prefilling Behavior</h4>
+      <p>When <code>tool_choice</code> is set to <code>any</code> or <code>tool</code>, the API prefills the assistant message to force tool use. This means Claude will <strong>NOT</strong> emit natural language before <code>tool_use</code> blocks, even if explicitly asked to explain its reasoning first. If you need both natural language and a specific tool call, use <code>auto</code> with explicit instructions in the user message instead of forcing with <code>any</code> or <code>tool</code>.</p>
+
+      <h4>Caching Impact</h4>
+      <p>Changes to <code>tool_choice</code> invalidate cached message blocks. However, tool definitions and system prompts remain cached even when <code>tool_choice</code> changes. This means you can switch between modes across iterations without losing the cache benefit on your tool definitions — only the message-level cache is affected.</p>
+
       <div class="callout callout-warning">
         <div class="callout-title">Key Takeaways</div>
         <ul>
@@ -670,6 +743,8 @@ const summary = await client.messages.create({
           <li><code>tool</code> with name — forces a specific tool; ideal for pipeline steps</li>
           <li><code>none</code> — no tools allowed; useful for text-only responses</li>
           <li>Forcing a tool does NOT guarantee correct parameters — always validate inputs</li>
+          <li>With extended thinking, only <code>auto</code> and <code>none</code> work — <code>any</code>/<code>tool</code> return errors</li>
+          <li><code>tool_choice</code> <code>any</code>/<code>tool</code> prefills the response — no natural language before <code>tool_use</code></li>
         </ul>
       </div>
     `,
@@ -718,6 +793,15 @@ const summary = await client.messages.create({
   }
 }</code></pre>
 
+      <h4>Schema Caching</h4>
+      <p>Compiled grammars from strict schemas are cached for <strong>up to 24 hours</strong> since last use. Importantly, prompts and responses are <strong>NOT</strong> retained beyond the API response. Changing the JSON schema structure invalidates the cache, but changing only the tool <code>name</code> or <code>description</code> does <strong>NOT</strong> invalidate it — the cache key is based on the schema structure alone.</p>
+
+      <h4>PHI Restrictions</h4>
+      <p>Strict tool use is HIPAA-eligible, but <strong>PHI must NOT be included in tool schema definitions</strong>. Because schemas are cached (up to 24 hours), they do not receive the same PHI protections as prompts and responses. Specifically, do NOT include PHI in: <code>input_schema</code> property names, <code>enum</code> values, <code>const</code> values, or <code>pattern</code> regular expressions. PHI should only appear in message content (prompts and responses), never in the schema itself.</p>
+
+      <h4>Extended Thinking</h4>
+      <p><code>strict: true</code> works with extended thinking, but only when combined with <code>tool_choice: auto</code> or <code>tool_choice: none</code>. Using <code>tool_choice: any</code> or <code>tool_choice: tool</code> with extended thinking returns an error, regardless of whether strict mode is enabled.</p>
+
       <div class="callout callout-critical">
         <div class="callout-title">Key Takeaways</div>
         <ul>
@@ -726,6 +810,8 @@ const summary = await client.messages.create({
           <li><code>additionalProperties: false</code> must be set at every object level, including nested</li>
           <li>Use strict mode for: HIPAA, financial transactions, database writes, safety-critical systems</li>
           <li>Strict mode prevents hallucinated or malformed parameters but requires precise schemas</li>
+          <li>Compiled schemas cached up to 24h — prompts/responses NOT retained</li>
+          <li>PHI must NOT be in schema definitions (property names, enum/const values, patterns) due to caching</li>
         </ul>
       </div>
     `,
@@ -832,12 +918,24 @@ const summary = await client.messages.create({
         </tbody>
       </table>
 
+      <h4>Direct Resources vs Resource Templates</h4>
+      <p><strong>Direct Resources</strong> have fixed URIs and are discovered via <code>resources/list</code>. Each resource has a concrete <code>uri</code> (e.g., <code>file:///project/src/main.rs</code>) along with required fields <code>name</code> and optional fields like <code>description</code>, <code>mimeType</code>, and <code>size</code>.</p>
+      <p><strong>Resource Templates</strong> have parameterized URIs with placeholders (e.g., <code>weather://{city}/current</code>) and are discovered via <code>resources/templates/list</code>. Templates follow RFC 6570 URI Template syntax. The required field is <code>uriTemplate</code> instead of <code>uri</code>. Arguments may be auto-completed via the completion API.</p>
+      <table>
+        <thead><tr><th>Type</th><th>Discovery Method</th><th>URI Field</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Direct Resource</td><td><code>resources/list</code></td><td><code>uri</code> (fixed)</td><td><code>file:///project/src/main.rs</code></td></tr>
+          <tr><td>Resource Template</td><td><code>resources/templates/list</code></td><td><code>uriTemplate</code> (parameterized)</td><td><code>weather://{city}/current</code></td></tr>
+        </tbody>
+      </table>
+
       <h4>Transport Types</h4>
       <table>
-        <thead><tr><th>Transport</th><th>Description</th><th>Use Case</th></tr></thead>
+        <thead><tr><th>Transport</th><th>Description</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td><code>stdio</code></td><td>Local process communication via stdin/stdout</td><td>Local tools, CLI integrations</td></tr>
-          <tr><td><code>http</code> / <code>sse</code></td><td>Remote server via HTTP with Server-Sent Events</td><td>Cloud-hosted tools, shared servers</td></tr>
+          <tr><td><code>stdio</code></td><td>Local process communication via stdin/stdout</td><td>Standard for local tools</td></tr>
+          <tr><td><code>HTTP</code> / Streamable HTTP</td><td>HTTP POST/GET with session management via <code>Mcp-Session-Id</code></td><td><strong>Recommended</strong> for remote</td></tr>
+          <tr><td><code>SSE</code> (HTTP+SSE)</td><td>Server-Sent Events transport</td><td><strong>DEPRECATED</strong> — use HTTP instead</td></tr>
         </tbody>
       </table>
 
@@ -848,7 +946,8 @@ const summary = await client.messages.create({
           <li>MCP uses JSON-RPC 2.0 for client-server communication</li>
           <li>MCP uses camelCase <code>inputSchema</code>; Anthropic API uses snake_case <code>input_schema</code></li>
           <li>Lifecycle: initialize → discover capabilities → use capabilities → shutdown</li>
-          <li>Transport types: stdio (local) and http/sse (remote)</li>
+          <li>Direct Resources have fixed URIs (<code>resources/list</code>); Resource Templates have parameterized URIs (<code>resources/templates/list</code>, RFC 6570)</li>
+          <li>Transport: stdio (local), HTTP/Streamable HTTP (recommended for remote), SSE (DEPRECATED)</li>
         </ul>
       </div>
     `,
@@ -868,13 +967,16 @@ const summary = await client.messages.create({
       <p>Environment variable expansion is a key feature of MCP configuration. You can reference environment variables in config values using <code>\${VAR}</code> syntax, with default values supported via <code>\${VAR:-default}</code>. This is essential for secrets management — API tokens and credentials should never be hardcoded in configuration files.</p>
       <p>For remote MCP servers that require authentication, the <code>headersHelper</code> field allows you to specify a command that dynamically generates auth tokens. This is more secure than static tokens because the helper can refresh expired credentials automatically.</p>
 
-      <h4>Configuration Scopes</h4>
+      <h4>Scope Precedence</h4>
+      <p>MCP scopes have a strict precedence order: <strong>Local</strong> (highest) > <strong>Project</strong> > <strong>User</strong> > <strong>Plugin-provided</strong> > <strong>claude.ai connectors</strong> (lowest). When duplicate servers exist, named scopes match by <strong>name</strong>, while plugins and connectors match by <strong>endpoint</strong>.</p>
       <table>
-        <thead><tr><th>Scope</th><th>File</th><th>Applies To</th></tr></thead>
+        <thead><tr><th>Scope</th><th>File</th><th>Shared</th><th>Applies To</th></tr></thead>
         <tbody>
-          <tr><td>Project</td><td><code>.mcp.json</code> (project root)</td><td>All users working on this project</td></tr>
-          <tr><td>User</td><td><code>~/.claude.json</code></td><td>All projects for this user</td></tr>
-          <tr><td>Managed</td><td>Organization policy</td><td>All users in the organization (cannot override)</td></tr>
+          <tr><td>Local (default, highest)</td><td><code>~/.claude.json</code> (under project path)</td><td>No</td><td>Current project only</td></tr>
+          <tr><td>Project</td><td><code>.mcp.json</code> (project root)</td><td>Yes, via VCS</td><td>Current project only</td></tr>
+          <tr><td>User</td><td><code>~/.claude.json</code></td><td>No</td><td>All projects for this user</td></tr>
+          <tr><td>Plugin-provided</td><td>Plugin config</td><td>Varies</td><td>Plugin-defined scope</td></tr>
+          <tr><td>claude.ai connectors (lowest)</td><td>claude.ai settings</td><td>N/A</td><td>claude.ai web interface</td></tr>
         </tbody>
       </table>
 
@@ -903,6 +1005,7 @@ const summary = await client.messages.create({
 }</code></pre>
 
       <h4>Environment Variable Expansion</h4>
+      <p>Env vars can be expanded in <strong>5 locations</strong>: <code>command</code>, <code>args</code>, <code>env</code>, <code>url</code>, and <code>headers</code>. If a required variable is not set and has no default, Claude Code fails to parse the config.</p>
       <table>
         <thead><tr><th>Syntax</th><th>Meaning</th><th>Example</th></tr></thead>
         <tbody>
@@ -911,14 +1014,41 @@ const summary = await client.messages.create({
         </tbody>
       </table>
 
+      <h4>headersHelper</h4>
+      <p>The <code>headersHelper</code> runs a command that outputs JSON key-value pairs to stdout, used for dynamic authentication tokens. It has a <strong>10-second timeout</strong>, runs fresh on <strong>each connection</strong> (no caching), and dynamic headers override static headers with the same name.</p>
+
+      <h4>Environment Variables for MCP</h4>
+      <table>
+        <thead><tr><th>Variable</th><th>Purpose</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>MCP_TIMEOUT</code></td><td>Server startup timeout in milliseconds</td><td><code>MCP_TIMEOUT=10000 claude</code> (10s)</td></tr>
+          <tr><td><code>MAX_MCP_OUTPUT_TOKENS</code></td><td>Warning threshold for output size (default: 10,000 tokens)</td><td><code>MAX_MCP_OUTPUT_TOKENS=50000</code></td></tr>
+        </tbody>
+      </table>
+
+      <h4>MCP Tool Naming &amp; Transport Types</h4>
+      <p>MCP tools follow the naming pattern <code>mcp__&lt;server&gt;__&lt;action&gt;</code> (e.g., <code>mcp__playwright__browser_screenshot</code>). Four transport types are supported:</p>
+      <table>
+        <thead><tr><th>Transport</th><th>Config Key</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>stdio</td><td><code>command</code> + <code>args</code></td><td>Standard for local</td></tr>
+          <tr><td>http (streamable-http)</td><td><code>url</code></td><td><strong>Recommended</strong> for remote</td></tr>
+          <tr><td>sse</td><td><code>url</code></td><td><strong>Deprecated</strong> — use http</td></tr>
+          <tr><td>ws (WebSocket)</td><td>inline definition</td><td>For inline definitions</td></tr>
+        </tbody>
+      </table>
+
       <div class="callout callout-tip">
         <div class="callout-title">Key Takeaways</div>
         <ul>
-          <li>Three scopes: project (<code>.mcp.json</code>), user (<code>~/.claude.json</code>), managed (org policy)</li>
-          <li>Environment variables: <code>\${VAR}</code> for required, <code>\${VAR:-default}</code> for optional with fallback</li>
-          <li><code>headersHelper</code> dynamically generates auth tokens for remote MCP servers</li>
+          <li>Scope precedence: Local > Project > User > Plugin-provided > claude.ai connectors</li>
+          <li>Local scope in <code>~/.claude.json</code> (under project path), Project in <code>.mcp.json</code>, User in <code>~/.claude.json</code></li>
+          <li>Env vars expanded in 5 locations: <code>command</code>, <code>args</code>, <code>env</code>, <code>url</code>, <code>headers</code></li>
+          <li><code>headersHelper</code>: 10s timeout, runs fresh each connection, dynamic overrides static headers</li>
+          <li><code>MCP_TIMEOUT</code> sets startup timeout (ms); <code>MAX_MCP_OUTPUT_TOKENS</code> warns at 10k tokens</li>
+          <li>Tool naming: <code>mcp__&lt;server&gt;__&lt;action&gt;</code></li>
+          <li>4 transports: stdio, http (recommended), sse (deprecated), ws (inline)</li>
           <li>Never hardcode secrets — always use environment variable expansion</li>
-          <li>Transport: <code>command</code>/<code>args</code> for stdio (local), <code>url</code> for http (remote)</li>
         </ul>
       </div>
     `,
@@ -1034,17 +1164,45 @@ Edit("src/auth/middleware.ts", {
 - Shared types in /packages/common
 - API in /packages/api, UI in /packages/web</code></pre>
 
+      <h4>Managed Policy Paths</h4>
+      <p>Managed policies are organization-enforced CLAUDE.md files placed at system-level paths. These are always loaded and <strong>cannot be excluded</strong> via <code>claudeMdExcludes</code>.</p>
+      <table>
+        <thead><tr><th>Platform</th><th>Path</th></tr></thead>
+        <tbody>
+          <tr><td>Windows</td><td><code>C:\\Program Files\\ClaudeCode\\CLAUDE.md</code></td></tr>
+          <tr><td>Linux / WSL</td><td><code>/etc/claude-code/CLAUDE.md</code></td></tr>
+          <tr><td>macOS</td><td><code>/Library/Application Support/ClaudeCode/CLAUDE.md</code></td></tr>
+        </tbody>
+      </table>
+
+      <h4>MEMORY.md (Auto Memory)</h4>
+      <p>Auto Memory (<code>MEMORY.md</code>) is loaded at session start with limits: the first <strong>200 lines</strong> or first <strong>25 KB</strong>, whichever comes first. Content beyond that threshold is <strong>NOT automatically loaded</strong> into context.</p>
+
+      <h4>HTML Comment Handling</h4>
+      <p>Block-level HTML comments (<code>&lt;!-- ... --&gt;</code>) are <strong>stripped before injection</strong> into context, saving tokens. However, comments inside <strong>code blocks are preserved</strong>. When opening a CLAUDE.md file with the Read tool, comments remain visible in the raw file.</p>
+
+      <h4>Delivery Mechanism</h4>
+      <p>CLAUDE.md content is delivered as a <strong>user message after the system prompt</strong>, NOT as part of the system prompt itself. If you need instructions at the system prompt level, use <code>--append-system-prompt</code> instead.</p>
+
+      <h4>claudeMdExcludes</h4>
+      <p>Patterns in <code>claudeMdExcludes</code> are evaluated against <strong>absolute file paths</strong> using glob syntax. Arrays <strong>merge across settings layers</strong>. Managed policy CLAUDE.md files cannot be excluded regardless of pattern.</p>
+
       <h4>What Survives Compaction</h4>
       <p>When context is compacted, CLAUDE.md content survives because it is re-injected at the start of each compacted context. This makes CLAUDE.md the right place for critical instructions that must persist throughout long sessions. Put volatile or session-specific notes in a scratchpad file instead.</p>
+      <p>Specifically, the <strong>project-root CLAUDE.md survives</strong> compaction and is re-read from disk and re-injected. However, <strong>nested subdirectory CLAUDE.md files are NOT re-injected</strong> after compaction until Claude reads files in that subdirectory again.</p>
 
       <div class="callout callout-tip">
         <div class="callout-title">Key Takeaways</div>
         <ul>
           <li>4 levels: Managed (org) > Project root > User (~/.claude/) > Local (subdirectory/CLAUDE.local.md)</li>
           <li><code>@import</code> includes other files — max 5 hops for transitive imports</li>
-          <li>CLAUDE.md survives compaction — it is re-injected after context is summarized</li>
+          <li>CLAUDE.md delivered as a <strong>user message</strong> after the system prompt, not part of the system prompt</li>
+          <li>Managed policy paths are platform-specific and <strong>cannot be excluded</strong> via claudeMdExcludes</li>
+          <li>MEMORY.md auto-loads first 200 lines or 25 KB (whichever first); beyond that is not loaded</li>
+          <li>HTML comments stripped before injection (saves tokens); comments in code blocks preserved</li>
+          <li>Project-root CLAUDE.md survives compaction; nested subdirectory CLAUDE.md files do NOT</li>
+          <li><code>claudeMdExcludes</code> patterns evaluated against absolute paths using glob syntax; arrays merge across layers</li>
           <li><code>CLAUDE.local.md</code> is for personal preferences that should NOT be committed to version control</li>
-          <li><code>claudeMdExcludes</code> in settings can prevent specific CLAUDE.md files from loading</li>
         </ul>
       </div>
     `,
@@ -1126,20 +1284,39 @@ globs:
     content: `
       <h3>Custom Skills & Commands</h3>
       <p>Skills (formerly slash commands) are reusable, parameterized workflows defined in <code>.claude/skills/</code> or <code>.claude/commands/</code>. They let teams standardize common operations — code reviews, deployment procedures, migration patterns — as invokable templates that any team member can use consistently.</p>
-      <p>Each skill is a SKILL.md (or command.md) file with YAML frontmatter that can contain up to 15 configuration fields. The most important are <code>allowed-tools</code> (restricting which tools the skill can use), <code>context:fork</code> (running in isolated context), <code>disable-model-invocation</code> (template-only, no LLM), and <code>argument-hint</code> (help text for the <code>$ARGUMENTS</code> placeholder).</p>
+      <p>Each skill is a SKILL.md (or command.md) file with YAML frontmatter containing up to <strong>14 configuration fields</strong>. The most important are <code>allowed-tools</code> (restricting which tools the skill can use), <code>context:fork</code> (running in isolated context), <code>disable-model-invocation</code> (hidden from context until user invokes), and <code>argument-hint</code> (help text for the <code>$ARGUMENTS</code> placeholder). Only a SKILL.md file is required; all frontmatter fields are optional.</p>
       <p>The <code>$ARGUMENTS</code> placeholder in the skill body is replaced with whatever the user passes after the command name. For example, <code>/review auth-module</code> would replace <code>$ARGUMENTS</code> with "auth-module" in the skill's instructions. Skills can also inject shell command output into their body using <code>!\`command\`</code> syntax.</p>
 
-      <h4>SKILL.md Frontmatter Fields</h4>
+      <h4>14 Frontmatter Fields</h4>
+      <p>The <code>description</code> + <code>when_to_use</code> combined are truncated at <strong>1,536 characters</strong>. The <code>name</code> defaults to the directory name if not specified (max 64 chars).</p>
       <table>
-        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td><code>allowed-tools</code></td><td>string[]</td><td>Restrict which tools this skill can use</td></tr>
-          <tr><td><code>context</code></td><td>string</td><td><code>fork</code> to run in isolated context</td></tr>
-          <tr><td><code>disable-model-invocation</code></td><td>boolean</td><td>Template-only skill, no LLM calls</td></tr>
-          <tr><td><code>argument-hint</code></td><td>string</td><td>Help text describing expected arguments</td></tr>
-          <tr><td><code>description</code></td><td>string</td><td>Brief description shown in skill listing</td></tr>
+          <tr><td><code>name</code></td><td>Display name. Max <strong>64 chars</strong>, lowercase letters/numbers/hyphens</td></tr>
+          <tr><td><code>description</code></td><td>What the skill does. Combined with <code>when_to_use</code>, truncated at 1,536 chars</td></tr>
+          <tr><td><code>when_to_use</code></td><td>Additional trigger context. Appended to description, counts toward 1,536 cap</td></tr>
+          <tr><td><code>argument-hint</code></td><td>Hint shown during autocomplete (e.g., <code>[issue-number]</code>)</td></tr>
+          <tr><td><code>disable-model-invocation</code></td><td><code>true</code> = description <strong>completely removed</strong> from context; zero tokens until user invokes</td></tr>
+          <tr><td><code>user-invocable</code></td><td><code>false</code> hides from / menu but Claude can still invoke</td></tr>
+          <tr><td><code>allowed-tools</code></td><td>Tools without permission prompts. Space-separated or YAML list</td></tr>
+          <tr><td><code>model</code></td><td>Model to use when skill is active</td></tr>
+          <tr><td><code>effort</code></td><td>Effort level: low, medium, high, max</td></tr>
+          <tr><td><code>context</code></td><td>Set to <code>fork</code> to run in forked subagent</td></tr>
+          <tr><td><code>agent</code></td><td>Subagent type when context:fork (Explore, Plan, general-purpose, custom)</td></tr>
+          <tr><td><code>hooks</code></td><td>Hooks scoped to skill lifecycle</td></tr>
+          <tr><td><code>paths</code></td><td>Glob patterns limiting when skill activates</td></tr>
+          <tr><td><code>shell</code></td><td>Shell for <code>!\`command\`</code> blocks: bash (default) or powershell</td></tr>
         </tbody>
       </table>
+
+      <h4>$ARGUMENTS Parsing</h4>
+      <p><code>$ARGUMENTS</code> uses <strong>shell-style quoting</strong>: <code>"hello world"</code> is treated as a single argument. Indexed access via <code>$ARGUMENTS[N]</code> (0-based) or shorthand <code>$0</code>, <code>$1</code>, etc. Other substitutions include <code>\${CLAUDE_SESSION_ID}</code> and <code>\${CLAUDE_SKILL_DIR}</code>.</p>
+
+      <h4>Shell Preprocessing &amp; Security</h4>
+      <p>The <code>!\`command\`</code> syntax runs shell commands <strong>before</strong> content is sent to Claude (preprocessing). The setting <code>disableSkillShellExecution: true</code> prevents <code>!\`command\`</code> execution in project and personal skills. Bundled and managed skills are NOT affected by this setting.</p>
+
+      <h4>Compaction Behavior</h4>
+      <p>After compaction, each invoked skill retains up to <strong>5,000 tokens</strong>. The total combined budget across all skills is <strong>25,000 tokens</strong>. Slots are filled from the most recently invoked skill; older skills may be dropped if the budget is exceeded. Skill <em>descriptions</em> (non-invoked) do NOT survive compaction.</p>
 
 <pre><code># .claude/skills/review.md
 ---
@@ -1166,10 +1343,13 @@ Report findings organized by severity (critical/high/medium/low).</code></pre>
       <div class="callout callout-tip">
         <div class="callout-title">Key Takeaways</div>
         <ul>
-          <li>Skills are defined in <code>.claude/skills/</code> with YAML frontmatter (up to 15 fields)</li>
-          <li><code>$ARGUMENTS</code> is replaced with user-provided arguments at invocation</li>
+          <li>14 frontmatter fields, all optional. Only a SKILL.md file is required; <code>name</code> defaults to directory name</li>
+          <li><code>description</code> + <code>when_to_use</code> combined truncated at <strong>1,536 characters</strong></li>
+          <li><code>$ARGUMENTS</code> uses shell-style quoting; <code>$0</code>/<code>$1</code> for indexed access</li>
+          <li><code>disable-model-invocation: true</code> completely removes description from context (zero tokens)</li>
+          <li><code>disableSkillShellExecution: true</code> prevents <code>!\`command\`</code> execution in skills</li>
+          <li>Compaction: each invoked skill retains up to 5,000 tokens; 25,000 total budget across all skills</li>
           <li><code>context: fork</code> runs the skill in isolated context (prevents polluting main conversation)</li>
-          <li><code>!\`command\`</code> injects shell command output into the skill body</li>
           <li>Skills can be project-scoped (<code>.claude/skills/</code>) or user-scoped (<code>~/.claude/skills/</code>)</li>
         </ul>
       </div>
@@ -1251,8 +1431,8 @@ claude "First explain what changes are needed to add rate limiting
     content: `
       <h3>Claude Code CLI for Automation</h3>
       <p>Claude Code's CLI supports non-interactive usage for automation, scripting, and pipeline integration. The <code>-p</code> (or <code>--print</code>) flag is the cornerstone: it runs Claude with a single prompt in non-interactive mode, outputting the result to stdout. This makes Claude composable with other CLI tools via pipes and redirects.</p>
-      <p>Output format control is essential for automation. <code>--output-format text</code> (default) returns plain text, <code>--output-format json</code> returns structured JSON with metadata, and <code>--output-format stream-json</code> streams JSON objects for real-time processing. The <code>--json-schema</code> flag constrains output to match a specific schema, and <code>--bare</code> suppresses all formatting and status output for clean pipeline integration.</p>
-      <p>Resource limits protect against runaway agents: <code>--max-turns</code> caps the number of agentic loop iterations, and <code>--max-budget</code> sets a dollar ceiling. The <code>--permission-mode</code> flag controls what actions Claude can take without asking (plan = read-only, auto-edit = can modify files).</p>
+      <p>Output format control is essential for automation. <code>--output-format text</code> (default) returns plain text, <code>--output-format json</code> returns structured JSON with metadata, and <code>--output-format stream-json</code> streams JSON objects for real-time processing. The <code>--json-schema</code> flag constrains output to match a specific schema, and <code>--bare</code> omits hooks, skills, plugins, MCP, auto memory, and CLAUDE.md (also sets <code>CLAUDE_CODE_SIMPLE</code>).</p>
+      <p>Resource limits protect against runaway agents: <code>--max-turns</code> caps the number of agentic loop iterations (print mode only; <strong>exits with error</strong> when reached, not a graceful summary), and <code>--max-budget-usd</code> sets a dollar ceiling (print mode only). The <code>--permission-mode</code> flag controls what actions Claude can take without asking.</p>
 
       <h4>Key CLI Flags</h4>
       <table>
@@ -1285,14 +1465,43 @@ claude -p "Review this PR for security issues" \\
   --max-turns 15 \\
   --max-budget 0.50</code></pre>
 
+      <h4>Session Management Flags</h4>
+      <table>
+        <thead><tr><th>Flag</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><code>--resume &lt;id/name&gt;</code></td><td>Resume a session by ID or name</td></tr>
+          <tr><td><code>--fork-session</code></td><td>Used with <code>--resume</code> or <code>--continue</code>: creates a new session from an existing one (original unchanged)</td></tr>
+          <tr><td><code>-c</code> / <code>--continue</code></td><td>Load the most recent conversation</td></tr>
+        </tbody>
+      </table>
+
+      <h4>System Prompt Flags</h4>
+      <p><code>--system-prompt</code> <strong>replaces</strong> the entire default system prompt. <code>--append-system-prompt</code> <strong>appends</strong> to it. <code>--system-prompt</code> and <code>--system-prompt-file</code> are mutually exclusive with each other, but append flags (<code>--append-system-prompt</code>, <code>--append-system-prompt-file</code>) CAN be combined with either replacement flag.</p>
+      <p><code>--exclude-dynamic-system-prompt-sections</code> moves per-machine sections (working dir, env info, memory paths, git status) to the first user message, improving prompt-cache reuse across executions.</p>
+
+      <h4>6 Permission Modes</h4>
+      <table>
+        <thead><tr><th>Mode</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td><code>default</code></td><td>Standard permission checking with prompts</td></tr>
+          <tr><td><code>acceptEdits</code></td><td>Auto-accept file edits and common filesystem commands</td></tr>
+          <tr><td><code>plan</code></td><td>Plan mode — <strong>read-only</strong> exploration</td></tr>
+          <tr><td><code>auto</code></td><td>Background classifier reviews commands</td></tr>
+          <tr><td><code>dontAsk</code></td><td>Auto-deny permission prompts (explicitly allowed tools still work)</td></tr>
+          <tr><td><code>bypassPermissions</code></td><td>Skip permission prompts entirely</td></tr>
+        </tbody>
+      </table>
+
       <div class="callout callout-tip">
         <div class="callout-title">Key Takeaways</div>
         <ul>
           <li><code>-p</code> (--print) runs Claude non-interactively with a single prompt to stdout</li>
-          <li><code>--output-format</code>: text (default), json (structured), stream-json (real-time)</li>
-          <li><code>--json-schema</code> constrains output to a specific schema; <code>--bare</code> strips all formatting</li>
-          <li><code>--max-turns</code> and <code>--max-budget</code> prevent runaway agents in automation</li>
-          <li><code>--permission-mode plan</code> restricts to read-only for safe CI/CD analysis</li>
+          <li><code>--bare</code> omits hooks, skills, plugins, MCP, auto memory, CLAUDE.md; sets CLAUDE_CODE_SIMPLE</li>
+          <li><code>--max-turns</code> exits with <strong>error</strong> when limit reached (print mode only); <code>--max-budget-usd</code> also print mode only</li>
+          <li><code>--system-prompt</code> replaces; <code>--append-system-prompt</code> appends. Append flags can combine with replacement flags</li>
+          <li>6 permission modes: default, acceptEdits, plan (read-only), auto, dontAsk, bypassPermissions</li>
+          <li>Session flags: <code>--resume</code>, <code>--continue</code>, <code>--fork-session</code> for session management</li>
+          <li><code>--exclude-dynamic-system-prompt-sections</code> improves prompt-cache reuse</li>
         </ul>
       </div>
     `,
@@ -1374,7 +1583,7 @@ jobs:
     icon: "",
     content: `
       <h3>Context Window Management in Claude Code</h3>
-      <p>Claude Code manages its own context window, which includes everything from startup items to conversation history to tool outputs. Understanding what consumes context at startup — and how compaction works — helps you structure information for maximum effectiveness across long sessions.</p>
+      <p>Claude Code manages its own context window, which includes everything from startup items to conversation history to tool outputs. The context window is <strong>200K tokens</strong> with older models, or <strong>1M tokens</strong> with newer models like Opus 4.6 and Sonnet 4.6. Understanding what consumes context at startup — and how compaction works — helps you structure information for maximum effectiveness across long sessions.</p>
       <p>At startup, seven items are loaded into context: CLAUDE.md files (all levels), matched rules from <code>.claude/rules/</code>, MCP tool definitions, system prompt, conversation history (if resuming), recent git context, and environment metadata. These items consume context before any user interaction, so keeping CLAUDE.md lean is important.</p>
       <p>When context fills up (around 95% capacity), Claude Code triggers <strong>compaction</strong>. The conversation is summarized to approximately 12% of its original size. CLAUDE.md content survives compaction because it is re-injected after summarization. However, detailed intermediate reasoning, specific tool outputs, and nuanced discussion details are often lost. The <code>/compact</code> command lets you trigger compaction manually with an optional focus topic.</p>
 
@@ -1392,23 +1601,29 @@ jobs:
         </tbody>
       </table>
 
-      <h4>What Survives Compaction</h4>
+      <h4>What Survives Compaction (Persistent Items)</h4>
       <table>
-        <thead><tr><th>Survives</th><th>Lost or Degraded</th></tr></thead>
+        <thead><tr><th>Survives (Re-injected)</th><th>Lost or Degraded</th></tr></thead>
         <tbody>
-          <tr><td>CLAUDE.md content (re-injected)</td><td>Detailed intermediate reasoning</td></tr>
-          <tr><td>High-level conversation summary</td><td>Specific tool output details</td></tr>
-          <tr><td>Key decisions and conclusions</td><td>Nuanced discussion context</td></tr>
-          <tr><td>Scratchpad file contents (if used)</td><td>Exact code snippets from earlier in session</td></tr>
+          <tr><td>System prompt</td><td>Detailed intermediate reasoning</td></tr>
+          <tr><td>Auto memory (MEMORY.md)</td><td>Specific tool output details</td></tr>
+          <tr><td>Environment info</td><td>Nuanced discussion context</td></tr>
+          <tr><td>MCP tools (deferred definitions)</td><td>Exact code snippets from earlier in session</td></tr>
+          <tr><td><code>~/.claude/CLAUDE.md</code> (user-level)</td><td>Skill descriptions (non-invoked skills)</td></tr>
+          <tr><td>Project-root CLAUDE.md</td><td>Nested subdirectory CLAUDE.md files</td></tr>
+          <tr><td>Invoked skills (5,000 tokens each, 25,000 total)</td><td>Non-invoked skill descriptions removed</td></tr>
         </tbody>
       </table>
+      <p>Compaction produces a summary of approximately <strong>~12% of original size</strong>. Skill descriptions do NOT survive compaction — only invoked skills are preserved (up to 5,000 tokens each, 25,000 total budget, filled from most recently invoked).</p>
 
       <div class="callout callout-warning">
         <div class="callout-title">Key Takeaways</div>
         <ul>
+          <li>Context window: <strong>200K tokens</strong> (older models) or <strong>1M tokens</strong> (Opus 4.6, Sonnet 4.6)</li>
           <li>7 items load at startup: CLAUDE.md, rules, MCP tools, system prompt, history, git context, env</li>
           <li>Compaction summarizes to ~12% of original size when context fills (~95%)</li>
-          <li>CLAUDE.md survives compaction — put critical persistent instructions there</li>
+          <li>Persistent items: system prompt, auto memory, env info, MCP tools, ~/.claude/CLAUDE.md, project CLAUDE.md</li>
+          <li>Skill descriptions do NOT survive compaction; only invoked skills preserved (5,000 tokens each, 25,000 total)</li>
           <li>Use scratchpad files to persist structured notes across compaction boundaries</li>
           <li><code>/compact</code> triggers manual compaction with an optional focus topic</li>
         </ul>
@@ -1537,6 +1752,45 @@ The application processes sensitive medical data under HIPAA.
           <li>Positive instructions outperform negative ones — say what to do, not what to avoid</li>
           <li>Role prompting activates domain-specific knowledge — keep it authentic and specific</li>
           <li>Test-driven iteration: define expected outputs first, then refine prompts</li>
+        </ul>
+      </div>
+
+      <h4>Document Placement for Long Context</h4>
+      <p>When working with long-form documents (20k+ tokens), place the document content at the <strong>top</strong> of the prompt and put your query/instructions at the <strong>bottom</strong>. This ordering improves response quality by up to 30% in tests. Structure documents with XML tags for clarity:</p>
+<pre><code>&lt;documents&gt;
+  &lt;document index="1"&gt;
+    &lt;source&gt;annual_report_2025.pdf&lt;/source&gt;
+    &lt;document_content&gt;
+      {long document text here}
+    &lt;/document_content&gt;
+  &lt;/document&gt;
+&lt;/documents&gt;
+
+&lt;instructions&gt;
+Based on the document above, extract all revenue figures by quarter.
+&lt;/instructions&gt;</code></pre>
+      <p>To ground responses in the source material, ask Claude to quote relevant parts first using <code>&lt;quotes&gt;</code> tags before answering.</p>
+
+      <h4>Parallel Tool Calls</h4>
+      <p>To instruct Claude to execute multiple tool calls in parallel, wrap the tool usage instructions in <code>&lt;use_parallel_tool_calls&gt;</code> tags. With Claude 4.6, this achieves a near-100% success rate for parallel tool execution when explicitly prompted:</p>
+<pre><code>&lt;use_parallel_tool_calls&gt;
+When you need to fetch data from multiple independent sources,
+call all relevant tools simultaneously rather than sequentially.
+&lt;/use_parallel_tool_calls&gt;</code></pre>
+
+      <h4>Deprecation: Prefilled Responses</h4>
+      <p>Starting with Claude 4.6 models, <strong>prefilled responses on the last assistant turn are no longer supported</strong>. On Mythos Preview, attempting to prefill returns a 400 error. Migrate to Structured Outputs (<code>output_config.format</code>) or direct instructions instead of relying on assistant prefills to steer output format.</p>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Key Takeaways (Updated)</div>
+        <ul>
+          <li>Be explicit: specify format, length, style, and evaluation criteria</li>
+          <li>Use XML tags (<code>&lt;instructions&gt;</code>, <code>&lt;context&gt;</code>, <code>&lt;examples&gt;</code>) to structure complex prompts</li>
+          <li>Positive instructions outperform negative ones — say what to do, not what to avoid</li>
+          <li>Role prompting activates domain-specific knowledge — keep it authentic and specific</li>
+          <li>For long context (20k+ tokens): documents at the TOP, query at the BOTTOM — up to 30% quality improvement</li>
+          <li>Use <code>&lt;use_parallel_tool_calls&gt;</code> tags for near-100% parallel tool execution success on Claude 4.6</li>
+          <li>Prefilled responses on last assistant turn are deprecated starting with Claude 4.6 (400 error on Mythos Preview)</li>
         </ul>
       </div>
     `,
@@ -1668,14 +1922,55 @@ const response = await client.messages.create({
   // ...
 });</code></pre>
 
+      <h4>output_config.format (Direct JSON Output)</h4>
+      <p>The newer approach uses <code>output_config: {format: {type: "json_schema", schema: {...}}}</code> to get guaranteed-valid JSON output directly from Claude. The old <code>output_format</code> parameter was renamed to <code>output_config.format</code> (old parameter still works during the transition period). Response data is in <code>response.content[0].text</code>.</p>
+<pre><code>// Direct JSON output via output_config.format
+const response = await client.messages.create({
+  model: "claude-sonnet-4-20250514",
+  max_tokens: 4096,
+  output_config: {
+    format: {
+      type: "json_schema",
+      schema: {
+        type: "object",
+        properties: {
+          vendor_name: { type: "string" },
+          total: { type: "number" },
+          line_items: { type: "array", items: { type: "object" } }
+        },
+        required: ["vendor_name", "total"],
+        additionalProperties: false
+      }
+    }
+  },
+  messages: [{ role: "user", content: "Extract invoice data..." }]
+});</code></pre>
+
+      <h4>SDK Helpers</h4>
+      <p><strong>Python:</strong> Use Pydantic models with <code>client.messages.parse()</code>. Pass <code>output_format=MyModel</code> as a convenience parameter.</p>
+      <p><strong>TypeScript (Zod):</strong> Import <code>zodOutputFormat</code> from <code>@anthropic-ai/sdk/helpers/zod</code>. Use <code>output_config: { format: zodOutputFormat(ContactInfo) }</code>. The <code>parse()</code> method returns <code>parsed_output</code> with inferred types.</p>
+      <p><strong>TypeScript (JSON Schema without Zod):</strong> Import <code>jsonSchemaOutputFormat</code> from <code>@anthropic-ai/sdk/helpers/json-schema</code>. <strong>Important:</strong> <code>as const</code> is required for type inference — without it, the inferred type collapses to <code>unknown</code>. Only works with literal expressions.</p>
+
+      <h4>Difference from Strict Tool Use</h4>
+      <p><strong>output_config.format</strong> controls Claude's <em>response format</em> (what Claude says). <strong>strict: true</strong> validates <em>tool parameters</em> (how Claude calls functions). They solve different problems and can be used independently or together. Both share the same grammar-constrained sampling pipeline.</p>
+
+      <h4>Validation-Retry Pattern</h4>
+      <p>When extraction fails validation, send a follow-up message containing: the original document, the failed extraction, and the <strong>specific validation errors</strong>. Generic "please fix" messages are ineffective — include exact errors like "Line items sum to $147.50 but stated total is $157.50".</p>
+      <p><strong>Important:</strong> Retries are ineffective when the information is simply absent from the source document. Make fields nullable or optional (<code>"type": ["string", "null"]</code>) if the data may not exist in the source.</p>
+
       <div class="callout callout-tip">
-        <div class="callout-title">Key Takeaways</div>
+        <div class="callout-title">Key Takeaways (Updated)</div>
         <ul>
           <li>Two approaches: tool_use with forced tool_choice, or output_config.format with json_schema</li>
+          <li><code>output_config.format</code> (newer) gives guaranteed-valid JSON; old <code>output_format</code> param renamed but still works</li>
+          <li>Python SDK: <code>client.messages.parse()</code> with Pydantic; TypeScript: <code>zodOutputFormat()</code> or <code>jsonSchemaOutputFormat()</code></li>
+          <li>TypeScript: <code>as const</code> required on schema literals — without it, type collapses to <code>unknown</code></li>
+          <li><code>output_config.format</code> controls response format; <code>strict: true</code> validates tool params — different problems, can combine</li>
+          <li>Validation-retry: include original doc + failed extraction + <strong>exact</strong> errors (not generic "please fix")</li>
+          <li>Make fields nullable/optional if data may not exist — retries won't help when info is absent from source</li>
           <li>Use nullable fields (<code>["string", "null"]</code>) for data that might not exist in the source</li>
           <li>Include confidence fields for downstream quality filtering</li>
           <li>Use enum + other pattern: known values in enum, free-text in companion field for edge cases</li>
-          <li>Validation-retry: if output fails validation, feed error back and ask Claude to fix it</li>
         </ul>
       </div>
     `,
@@ -1746,14 +2041,43 @@ if (result.processing_status === "ended") {
   }
 }</code></pre>
 
+      <h4>custom_id Rules</h4>
+      <p>The <code>custom_id</code> field must match the regex <code>^[a-zA-Z0-9_-]{1,64}$</code>. Only alphanumeric characters, hyphens, and underscores are allowed (1-64 characters). Each <code>custom_id</code> must be <strong>unique within a batch</strong>.</p>
+
+      <h4>processing_status</h4>
+      <p>There are only <strong>2 operational status values</strong>: <code>in_progress</code> (batch is being processed, initial state) and <code>ended</code> (all requests finished, results ready). During cancellation, the status is <code>canceling</code> until finalized.</p>
+
+      <h4>Result Types and Billing</h4>
+      <table>
+        <thead><tr><th>Result Type</th><th>Description</th><th>Billed?</th></tr></thead>
+        <tbody>
+          <tr><td><code>succeeded</code></td><td>Request completed successfully</td><td><strong>Yes</strong></td></tr>
+          <tr><td><code>errored</code></td><td>Request failed (invalid input or server error)</td><td><strong>No</strong></td></tr>
+          <tr><td><code>canceled</code></td><td>Batch canceled before this request processed</td><td><strong>No</strong></td></tr>
+          <tr><td><code>expired</code></td><td>24h expiration reached before processing</td><td><strong>No</strong></td></tr>
+        </tbody>
+      </table>
+      <p>Only <code>succeeded</code> results are billed. Errored, canceled, and expired results incur no charges.</p>
+
+      <h4>Limits and Retention</h4>
+      <ul>
+        <li><strong>Max limits per batch:</strong> 100,000 requests OR 256 MB total size (whichever comes first)</li>
+        <li><strong>Result retention:</strong> Results are available for <strong>29 days</strong> after batch creation. After that, metadata is viewable but results are not downloadable.</li>
+        <li><strong>Async parameter validation:</strong> Parameter validation occurs <strong>during processing</strong>, not at batch creation time. Invalid parameters appear as <code>errored</code> results with <code>invalid_request_error</code>. Tip: verify request shape with the synchronous API first.</li>
+      </ul>
+
       <div class="callout callout-tip">
-        <div class="callout-title">Key Takeaways</div>
+        <div class="callout-title">Key Takeaways (Updated)</div>
         <ul>
           <li>50% cost reduction vs individual API calls — significant at scale</li>
           <li>Results within 24 hours — not suitable for interactive/real-time use</li>
-          <li>Each request has a <code>custom_id</code> for matching results to inputs</li>
+          <li><code>custom_id</code> must match <code>^[a-zA-Z0-9_-]{1,64}$</code> and be unique within a batch</li>
+          <li>Only 2 operational statuses: <code>in_progress</code> and <code>ended</code> (plus <code>canceling</code> during cancellation)</li>
+          <li>Only <code>succeeded</code> results are billed — errored, canceled, and expired are NOT billed</li>
+          <li>Max: 100,000 requests OR 256 MB per batch</li>
+          <li>Results available for 29 days after batch creation</li>
+          <li>Parameter validation is asynchronous — occurs during processing, not at batch creation</li>
           <li>4 result types: succeeded, errored, canceled, expired — handle all four</li>
-          <li>Ideal for: nightly reports, weekly audits, bulk extraction, large-scale classification</li>
         </ul>
       </div>
     `,
@@ -1849,7 +2173,9 @@ const response = await client.messages.create({
   model: "claude-sonnet-4-20250514",
   max_tokens: 16000,
   thinking: {
-    type: "adaptive",
+    type: "adaptive"
+  },
+  output_config: {
     effort: "high"  // low | medium | high | max
   },
   messages: [{ role: "user", content: complexAnalysisTask }],
@@ -1864,22 +2190,33 @@ for (const block of response.content) {
   }
 }
 
-// Older approach (still works but effort is preferred)
+// Older approach (deprecated on Claude 4.6, NOT supported on Opus 4.7+)
 const response2 = await client.messages.create({
   thinking: {
     type: "enabled",
-    budget_tokens: 10000  // Explicit token budget
+    budget_tokens: 10000  // Explicit token budget — legacy
   },
   // ...
 });</code></pre>
 
+      <h4>Important Compatibility Notes</h4>
+      <ul>
+        <li><strong>Effort in output_config:</strong> The <code>effort</code> parameter belongs in <code>output_config</code>, NOT inside the <code>thinking</code> object. Correct: <code>thinking: {type: "adaptive"}</code> + <code>output_config: {effort: "high"}</code>.</li>
+        <li><strong>'max' effort level:</strong> Supported on all models that support adaptive thinking (Opus 4.7, Opus 4.6, Sonnet 4.6) — not exclusive to any single model.</li>
+        <li><strong>Manual extended thinking (budget_tokens):</strong> Deprecated on Claude 4.6. NOT supported on Opus 4.7+ (returns 400 error). Must use adaptive thinking instead.</li>
+        <li><strong>Prefilled responses:</strong> Deprecated in Claude 4.6/Mythos — migrate to Structured Outputs (<code>output_config.format</code>) or direct instructions.</li>
+        <li><strong>Tool choice restrictions:</strong> With extended thinking enabled, only <code>tool_choice: auto</code> and <code>tool_choice: none</code> work. Using <code>any</code> or <code>tool</code> (specific tool name) returns errors.</li>
+      </ul>
+
       <div class="callout callout-tip">
-        <div class="callout-title">Key Takeaways</div>
+        <div class="callout-title">Key Takeaways (Updated)</div>
         <ul>
-          <li>Use <code>type: "adaptive"</code> with <code>effort</code> levels: low, medium, high, max</li>
+          <li>Use <code>thinking: {type: "adaptive"}</code> with <code>output_config: {effort: "high"}</code> — effort is in output_config, NOT in thinking</li>
+          <li>Effort levels: low, medium, high, max — all supported across all adaptive-thinking-capable models</li>
           <li>Higher effort = better quality on complex tasks, but more latency and cost</li>
-          <li>Adaptive thinking replaces the older <code>budget_tokens</code> approach (which still works)</li>
-          <li>Prefill-based thinking approaches are deprecated</li>
+          <li>Manual <code>budget_tokens</code> is deprecated on Claude 4.6 and unsupported on Opus 4.7+</li>
+          <li>Prefilled responses deprecated in Claude 4.6/Mythos — use Structured Outputs or direct instructions</li>
+          <li>With extended thinking: only <code>tool_choice: auto</code> and <code>none</code> work — <code>any</code> and <code>tool</code> return errors</li>
           <li>Thinking blocks contain internal reasoning — useful for debugging, not user output</li>
         </ul>
       </div>
@@ -1914,6 +2251,35 @@ const response2 = await client.messages.create({
         <div class="diagram-caption">Place critical information at the start or end of context — avoid the middle.</div>
       </div>
 
+      <h4>Context Window Sizes</h4>
+      <table>
+        <thead><tr><th>Context Size</th><th>Models</th><th>Max Images/PDFs</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1M tokens</strong></td><td>Claude Opus 4.7, Opus 4.6, Sonnet 4.6</td><td>Up to 600 images or PDF pages</td></tr>
+          <tr><td><strong>200K tokens</strong></td><td>Sonnet 4.5, Sonnet 4 (deprecated), older models</td><td>Up to 100 images or PDF pages</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Document Placement Strategy</h4>
+      <p>For long-context prompts (20k+ tokens), <strong>place longform data at the TOP</strong> of the prompt, with queries and instructions at the BOTTOM. This document-first ordering improves response quality by <strong>up to 30%</strong> in tests. Structure documents with XML tags for clarity:</p>
+<pre><code>&lt;documents&gt;
+  &lt;document index="1"&gt;
+    &lt;source&gt;quarterly_report_q3.pdf&lt;/source&gt;
+    &lt;document_content&gt;
+      ... full document text ...
+    &lt;/document_content&gt;
+  &lt;/document&gt;
+  &lt;document index="2"&gt;
+    &lt;source&gt;market_analysis.pdf&lt;/source&gt;
+    &lt;document_content&gt;
+      ... full document text ...
+    &lt;/document_content&gt;
+  &lt;/document&gt;
+&lt;/documents&gt;
+
+[Your query/instructions go here at the bottom]</code></pre>
+      <p><strong>Ground responses in quotes:</strong> Ask Claude to extract relevant quotes first (in <code>&lt;quotes&gt;</code> tags) before performing the task. This forces Claude to locate and verify the source material before reasoning, reducing hallucination and improving accuracy on long documents.</p>
+
       <h4>Context Management Strategies</h4>
       <table>
         <thead><tr><th>Strategy</th><th>How</th><th>Risk</th></tr></thead>
@@ -1923,17 +2289,22 @@ const response2 = await client.messages.create({
           <tr><td>Tool output trimming</td><td>Strip verbose tool outputs to essential fields</td><td>Might remove context Claude needs later</td></tr>
           <tr><td>Strategic placement</td><td>Put critical info at start/end, not middle</td><td>May not always be practical</td></tr>
           <tr><td>Token budgeting</td><td>Reserve tokens for output, instructions, key context</td><td>Requires upfront planning</td></tr>
+          <tr><td>Document-first ordering</td><td>Longform data at top, queries at bottom</td><td>Requires restructuring existing prompts</td></tr>
+          <tr><td>Quote grounding</td><td>Ask Claude to extract relevant quotes before answering</td><td>Uses additional output tokens</td></tr>
         </tbody>
       </table>
 
       <div class="callout callout-warning">
         <div class="callout-title">Key Takeaways</div>
         <ul>
+          <li>Context window sizes: 1M tokens (Opus 4.7, Opus 4.6, Sonnet 4.6) vs 200K tokens (older models)</li>
           <li>Lost-in-the-middle: information at start and end is recalled better than the middle</li>
+          <li>Document placement: put longform data at TOP, queries at BOTTOM — improves quality by up to 30%</li>
+          <li>Structure documents with XML tags: <code>&lt;documents&gt;</code> &gt; <code>&lt;document index="n"&gt;</code> &gt; <code>&lt;source&gt;</code> + <code>&lt;document_content&gt;</code></li>
+          <li>Ground responses in quotes: ask Claude to extract relevant quotes in <code>&lt;quotes&gt;</code> tags before answering</li>
           <li>Progressive summarization risks losing critical details — use case facts extraction for important data</li>
           <li>Trim verbose tool outputs to only the fields Claude needs for the next step</li>
           <li>Plan token budgets: reserve for output + instructions + most relevant context</li>
-          <li>For legal/medical/financial: extract structured case facts and keep at context start</li>
         </ul>
       </div>
     `,
@@ -2281,17 +2652,17 @@ function analyzeFiles(files) {
     content: `
       <h3>Configuring Hooks in settings.json</h3>
       <p>Hooks are configured in Claude Code's <code>settings.json</code> file, providing a declarative way to intercept agent actions. Each hook specifies a <strong>matcher</strong> (which tool calls to intercept), a <strong>handler type</strong> (how to evaluate the decision), and the <strong>hook point</strong> (PreToolUse or PostToolUse). This configuration lives outside the agent's context, making it tamper-resistant.</p>
-      <p>There are four handler types: <code>command</code> (shell command), <code>http</code> (webhook), <code>prompt</code> (LLM-evaluated), and <code>asyncRewake</code> (async background evaluation). Command handlers are the most common — they run a script that inspects the tool call and returns an exit code (0=allow, 1=deny, 2=ask). The handler's stdout output is captured but capped at 10,000 characters.</p>
-      <p>Matcher patterns determine which tool calls trigger the hook. You can match by tool name (exact or glob pattern), by input parameters, or by both. This allows precise targeting — for example, blocking only Bash commands that contain <code>rm -rf</code> while allowing all other Bash usage.</p>
+      <p>There are four handler types: <code>command</code> (shell command), <code>http</code> (webhook), <code>prompt</code> (LLM-evaluated), and <code>agent</code> (subagent for complex verification). Command handlers are the most common — they run a script that inspects the tool call and returns an exit code. The handler's stdout output is captured but capped at 10,000 characters. Hooks execute <strong>in parallel</strong> (not sequentially) and are deduplicated by command string (for command handlers) or URL (for HTTP handlers).</p>
+      <p>Matcher patterns determine which tool calls trigger the hook. The matching rules are: <code>"*"</code>, <code>""</code>, or omitted matches all tools. If the pattern contains only <code>[a-zA-Z0-9_|]</code> characters, it is treated as an exact string or pipe-separated list. Any other characters cause it to be interpreted as a JavaScript RegExp. This allows precise targeting — for example, blocking only Bash commands that contain <code>rm -rf</code> while allowing all other Bash usage.</p>
 
       <h4>Handler Types</h4>
       <table>
-        <thead><tr><th>Type</th><th>How It Works</th><th>Best For</th></tr></thead>
+        <thead><tr><th>Type</th><th>How It Works</th><th>Default Timeout</th><th>Best For</th></tr></thead>
         <tbody>
-          <tr><td><code>command</code></td><td>Runs a shell command; exit code determines decision</td><td>Local validation, file system checks, git checks</td></tr>
-          <tr><td><code>http</code></td><td>Sends POST to webhook; JSON response with decision</td><td>Remote policy servers, audit logging</td></tr>
-          <tr><td><code>prompt</code></td><td>LLM evaluates whether the action should proceed</td><td>Nuanced decisions requiring reasoning</td></tr>
-          <tr><td><code>asyncRewake</code></td><td>Background evaluation; agent continues and checks later</td><td>Long-running validations, external approvals</td></tr>
+          <tr><td><code>command</code></td><td>Runs a shell command; exit code determines decision</td><td>600s</td><td>Local validation, file system checks, git checks</td></tr>
+          <tr><td><code>http</code></td><td>Sends POST to webhook; JSON response with decision</td><td>30s</td><td>Remote policy servers, audit logging</td></tr>
+          <tr><td><code>prompt</code></td><td>LLM evaluates whether the action should proceed</td><td>30s</td><td>Nuanced decisions requiring reasoning</td></tr>
+          <tr><td><code>agent</code></td><td>Subagent performs complex verification</td><td>60s</td><td>Multi-step checks, complex policy evaluation</td></tr>
         </tbody>
       </table>
 
@@ -2316,7 +2687,7 @@ function analyzeFiles(files) {
         },
         "handler": {
           "type": "command",
-          "command": "echo 'Blocked: cannot write to .env files' && exit 1"
+          "command": "echo 'Blocked: cannot write to .env files' >&2 && exit 2"
         }
       }
     ],
@@ -2334,21 +2705,47 @@ function analyzeFiles(files) {
 
       <h4>Exit Codes for Command Handlers</h4>
       <table>
-        <thead><tr><th>Exit Code</th><th>Decision</th><th>Meaning</th></tr></thead>
+        <thead><tr><th>Exit Code</th><th>Decision</th><th>JSON Processing</th><th>Effect</th></tr></thead>
         <tbody>
-          <tr><td>0</td><td>allow</td><td>Tool call proceeds as normal</td></tr>
-          <tr><td>1</td><td>deny</td><td>Tool call is blocked</td></tr>
-          <tr><td>2</td><td>ask</td><td>Prompt the user for approval</td></tr>
+          <tr><td><strong>0</strong></td><td>Success / Allow</td><td>YES (parses stdout)</td><td>Action proceeds normally</td></tr>
+          <tr><td><strong>2</strong></td><td>BLOCK</td><td>NO (ignores stdout)</td><td>Action blocked; stderr shown to Claude</td></tr>
+          <tr><td><strong>Any other (1, 3+)</strong></td><td>Non-blocking error</td><td>NO</td><td>Execution continues; stderr logged to transcript</td></tr>
         </tbody>
       </table>
+      <div class="callout callout-critical">
+        <div class="callout-title">Critical: Exit Code 1 Does NOT Block</div>
+        <p>Only exit code <strong>2</strong> blocks an action. Exit code 1 (and any code other than 0 or 2) is treated as a non-blocking error — execution continues normally. This is a common source of bugs in hook scripts that use <code>exit 1</code> expecting it to deny the tool call.</p>
+      </div>
+
+      <h4>asyncRewake Behavior</h4>
+      <p>When a command handler has <code>asyncRewake: true</code>, it implies <code>async: true</code> (background execution). The hook runs in the background while Claude continues working. When the hook finishes with <strong>exit code 2</strong>, it <strong>wakes Claude</strong> — stderr (or stdout if stderr is empty) is shown to Claude as a system reminder. This is useful for long-running validations or external approval workflows.</p>
+
+      <h4>Output Caps</h4>
+      <p>The following output fields are capped at <strong>10,000 characters</strong>: <code>additionalContext</code>, <code>systemMessage</code>, and <code>updatedMCPToolOutput</code>. When the cap is exceeded, the content is saved to a file and replaced with a preview plus the file path. This prevents hook outputs from consuming excessive context.</p>
+
+      <h4>Hook Sources Priority</h4>
+      <p>When multiple hook sources define hooks for the same event, they are resolved in this priority order (highest to lowest):</p>
+      <ol>
+        <li><strong>Managed policy</strong> (organization-level)</li>
+        <li><strong>User settings</strong></li>
+        <li><strong>Project settings</strong></li>
+        <li><strong>Local settings</strong></li>
+        <li><strong>Plugin hooks</strong></li>
+        <li><strong>Skill/Agent frontmatter</strong></li>
+        <li><strong>Built-in</strong> hooks</li>
+      </ol>
 
       <div class="callout callout-warning">
         <div class="callout-title">Key Takeaways</div>
         <ul>
-          <li>4 handler types: command, http, prompt, asyncRewake</li>
-          <li>Command handlers: exit 0 = allow, exit 1 = deny, exit 2 = ask</li>
-          <li>Matcher patterns target specific tools and/or input content</li>
-          <li>Handler output is capped at 10,000 characters</li>
+          <li>4 handler types: command, http, prompt, agent (not asyncRewake — that is a property of command handlers)</li>
+          <li>Exit codes: 0 = allow (parses stdout JSON), 2 = BLOCK (stderr shown to Claude), any other = non-blocking error</li>
+          <li><strong>Exit 1 does NOT block</strong> — only exit 2 blocks. This is the most common hook bug.</li>
+          <li>asyncRewake: true implies async execution; exit code 2 wakes Claude with stderr as system reminder</li>
+          <li>Output caps: additionalContext, systemMessage, updatedMCPToolOutput capped at 10,000 chars</li>
+          <li>Matcher patterns: "*" or "" or omitted = match all; only [a-zA-Z0-9_|] = exact/pipe-separated; other chars = RegExp</li>
+          <li>Hooks execute in parallel (not sequentially), deduplicated by command string/URL</li>
+          <li>Priority: Managed policy > User settings > Project settings > Local settings > Plugin > Skill/Agent > Built-in</li>
           <li>Hooks live in settings.json — outside the agent's context, making them tamper-resistant</li>
         </ul>
       </div>
