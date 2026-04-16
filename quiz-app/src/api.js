@@ -1,6 +1,4 @@
-// In production (Railway), set VITE_API_URL to the backend's public URL
-// Locally with docker-compose, nginx proxies /api to the backend
-const API_BASE = import.meta.env.VITE_API_URL || '/api'
+const API_BASE = 'https://astonishing-transformation-production.up.railway.app/api'
 
 function getToken() {
   return localStorage.getItem('quiz_token')
