@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { learnTopics } from '../data/learnTopics'
 import { learnSummaries } from '../data/learnSummaries'
+import NotesPanel from './NotesPanel'
 
 const DOMAINS = [
   { id: 1, name: "Agentic Architecture & Orchestration", short: "D1", color: "#f97316" },
@@ -281,6 +282,9 @@ export default function LearnScreen() {
           </div>
         )}
       </main>
+
+      {/* Notes panel (right side) */}
+      <NotesPanel topicId={activeTopic} />
     </div>
   )
 }
