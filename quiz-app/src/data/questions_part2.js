@@ -18,7 +18,12 @@ export const questionsPart2 = [
       a: "The dependent subtasks (comparison, gaps) need the regional results as input. Running them in parallel with their dependencies produces incomplete or fabricated results because the data does not exist yet.",
       c: "Reducing prompts does not fundamentally change the inefficient architecture. Reducing 45s to 30s per subtask still yields 4 min sequential vs ~1.5 min parallel.",
       d: "A single subagent with 8 subtasks suffers from severe attention dilution. The quality of each regional analysis would degrade significantly as they compete for the model's attention."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "Spawning parallel subagents by emitting multiple Task tool calls in a single coordinator response rather than across separate turns"
+      }
   },
   {
     id: 34,
@@ -38,7 +43,12 @@ export const questionsPart2 = [
       b: "PreToolUse hooks are exactly the right place for enforcement of critical business rules. Moving validation to the prompt makes it probabilistic. The problem is that the implemented rule is incorrect, not the mechanism.",
       c: "Allowing the agent to override a programmatic guardrail defeats the purpose of the guardrail. If the LLM can decide to ignore the control, it is no longer a deterministic control.",
       d: "Processing an incorrect refund and auditing it afterward is worse than preventing it. Refunds are irreversible in many systems — validation must be pre-execution."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.5",
+        quote: "Implementing tool call interception hooks that block policy-violating actions (e.g., refunds exceeding $500) and redirect to alternative workflows (e.g., human escalation)"
+      }
   },
   {
     id: 35,
@@ -58,7 +68,12 @@ export const questionsPart2 = [
       a: "The coordinator should not pre-fetch data for subagents because it does not know what specific queries the analysis will need. This limits the subagent's autonomy and creates a bottleneck.",
       b: "Including credentials in prompts is a severe security anti-pattern. Credentials can appear in logs, be cached, or be exposed in error messages.",
       d: "Giving all subagents access to the financial database violates least privilege. Only the financial analysis subagent needs that access."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Create custom subagents",
+        quote: "Each subagent runs in its own context window with a custom system prompt, specific tool access, and independent permissions. When Claude encounters a task that matches a subagent's description, it delegates to that subagent, which works independently and returns results."
+      }
   },
   {
     id: 36,
@@ -78,7 +93,12 @@ export const questionsPart2 = [
       a: "The model generated correct fixes in early iterations, demonstrating sufficient capability. The problem is context degradation, not model capability.",
       c: "There is no evidence of flaky tests in the scenario. The failures are consistent and the regression pattern points to a context problem, not a test problem.",
       d: "An arbitrary cap of 5 iterations would prematurely terminate legitimate tasks. The correct solution is to manage the context (e.g., summarize previous iterations, use a scratchpad), not to limit arbitrarily."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4 + 5.1",
+        quote: "Context degradation in extended sessions: models start giving inconsistent answers and referencing \"typical patterns\" rather than specific classes discovered earlier… The \"lost in the middle\" effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections"
+      }
   },
   {
     id: 37,
@@ -98,7 +118,12 @@ export const questionsPart2 = [
       a: "Re-injecting the complete history consumes excessive tokens and may include irrelevant or redundant information. A structured manifest is more efficient and focused.",
       c: "Keeping connections open indefinitely is impractical and unsustainable. Models do not maintain state between calls — each request is independent.",
       d: "Asking the customer to repeat their problem is a terrible experience. The information was already collected and should be persisted for continuity."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4",
+        quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume… Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts"
+      }
   },
   {
     id: 38,
@@ -118,7 +143,12 @@ export const questionsPart2 = [
       a: "A minimum number of sources is a vanity metric. 10 sources saying the same thing contribute less than 3 diverse sources. Quality and coverage matter more than quantity.",
       c: "A fixed number of rounds ignores task variability. Some need one round, others need five. The decision should be based on results, not a predetermined number.",
       d: "The search subagent does not have visibility into the complete research objective. Only the coordinator can evaluate whether the results cover all aspects of the research goal."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2",
+        quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient"
+      }
   },
   {
     id: 39,
@@ -138,7 +168,12 @@ export const questionsPart2 = [
       a: "Instructions in CLAUDE.md are probabilistic enforcement. Claude might forget to run the linter on some edits. A hook guarantees deterministic execution.",
       c: "A slash command requires manual developer intervention for each edit. The hook completely automates the process without the need for human input.",
       d: "PreToolUse executes before the edit, when the new code does not yet exist in the file. You cannot lint code that has not been written yet."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks Reference",
+        quote: "This example runs a linting script only when Claude writes or edits a file:\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"/path/to/lint-check.sh\"\n          }\n        ]\n      }\n    ]\n  }\n}\n```"
+      }
   },
   {
     id: 40,
@@ -158,7 +193,12 @@ export const questionsPart2 = [
       a: "A single versatile agent with many tools suffers from attention dilution and poor tool selection. Deep investigation of each domain benefits from specialization.",
       b: "Giving all subagents access to all tools violates least privilege and degrades tool selection reliability. The scientific subagent does not need legal tools.",
       d: "Sequential passes are slower than parallel execution of specialized subagents, and each pass loses context from previous ones as the history grows."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Create custom subagents",
+        quote: "Subagents help you: Preserve context by keeping exploration and implementation out of your main conversation; Enforce constraints by limiting which tools a subagent can use; … Specialize behavior with focused system prompts for specific domains"
+      }
   },
   {
     id: 41,
@@ -178,7 +218,12 @@ export const questionsPart2 = [
       a: "Sending an empty message breaks the protocol expected by the model. After a stop_reason 'tool_use', the model expects to receive a tool_result, not an empty turn.",
       c: "Terminating the session for a missing tool is a disproportionate reaction. The model can adapt if it receives adequate feedback about the error.",
       d: "Executing a different tool without the model's consent can produce unexpected results. The model should decide what to do with the information that the tool does not exist."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Handle tool calls",
+        quote: "If Claude's attempted use of a tool is invalid (for example, missing required parameters), it usually means that there wasn't enough information for Claude to use the tool correctly… However, you can also continue the conversation forward with a `tool_result` that indicates the error, and Claude will try to use the tool again with the missing information filled in"
+      }
   },
   {
     id: 42,
@@ -198,7 +243,12 @@ export const questionsPart2 = [
       a: "Prompt instructions are probabilistic enforcement. The model might decide to make 'minor' edits if it believes they are necessary for the analysis.",
       c: "Two separate sessions lose the planning context when moving to implementation. Plan mode keeps everything in the same session with a seamless transition.",
       d: "Reconfiguring allowed-tools between phases is a more complex manual workaround than using plan mode, which is designed exactly for this workflow."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Common workflows",
+        quote: "You can switch into Plan Mode during a session using **Shift+Tab** to cycle through permission modes. If you are in Normal Mode, **Shift+Tab** first switches into Auto-Accept Mode, indicated by `⏵⏵ accept edits on` at the bottom of the terminal. A subsequent **Shift+Tab** will switch into Plan Mode"
+      }
   },
   {
     id: 43,
@@ -218,7 +268,12 @@ export const questionsPart2 = [
       a: "Proceeding without evaluating the criticality of the missing sources can result in a report with significant gaps. Some sources may be fundamental to the conclusions.",
       b: "Discarding valid partial results is wasteful. The results already obtained are useful — only the missing sources need a retry.",
       d: "Escalating routine operational decisions to the user disrupts the workflow. The coordinator should be able to evaluate gap criticality and act autonomously."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.3",
+        quote: "Structured error context (failure type, attempted query, partial results, alternative approaches) as enabling intelligent coordinator recovery decisions… Having subagents implement local recovery for transient failures and only propagate errors they cannot resolve, including what was attempted and partial results"
+      }
   },
   {
     id: 44,
@@ -238,7 +293,12 @@ export const questionsPart2 = [
       a: "Removing the tool eliminates a legitimate functionality that works correctly 98% of the time. It is a disproportionate reaction when the 2% of failures can be mitigated.",
       c: "Prompt instructions are probabilistic enforcement. The agent might use apply_credit anyway, especially if the customer specifically requests a credit.",
       d: "Reducing 'priority' in descriptions is not a reliable mechanism. There is no guarantee that the model will use it less, and when it does, the bug will still be present."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Hooks Reference",
+        quote: "`PostToolUse` hooks can provide feedback to Claude after tool execution."
+      }
   },
   {
     id: 45,
@@ -258,7 +318,12 @@ export const questionsPart2 = [
       a: "Reading 500+ files sequentially would consume a massive amount of tokens in the main session context, causing context degradation before the real work even begins.",
       b: "Depending on external documentation delays the work and the documentation may be outdated. Claude Code has built-in tools for autonomous exploration.",
       d: "Although Glob+Grep is useful for specific searches, it is not efficient for understanding complete architecture. The results from many searches accumulate tokens in the main context."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Create custom subagents",
+        quote: "A fast, read-only agent optimized for searching and analyzing codebases. … Claude delegates to Explore when it needs to search or understand a codebase without making changes. This keeps exploration results out of your main conversation context."
+      }
   },
   {
     id: 46,
@@ -278,7 +343,12 @@ export const questionsPart2 = [
       a: "Prompt instructions are probabilistic enforcement. For security flows like identity verification, deterministic enforcement is needed.",
       c: "Few-shot examples improve probability but do not guarantee it. In security flows, probability is not enough — you need guarantees.",
       d: "State tokens are a good idea but insufficient on their own. The model could fabricate or reuse a previous token. A programmatic state machine validates the complete state, not just a token."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.4",
+        quote: "Implementing programmatic prerequisites that block downstream tool calls until prerequisite steps have completed (e.g., blocking process_refund until get_customer has returned a verified customer ID)"
+      }
   },
   {
     id: 47,
@@ -298,7 +368,12 @@ export const questionsPart2 = [
       a: "A single sequential subagent introduces bias: the exploration of the second hypothesis is influenced by the findings of the first, contaminating the results.",
       c: "/compact loses details from the first hypothesis. When exploring the second, the agent lacks the complete context for a fair comparison.",
       d: "Asking a model to maintain 'separate tracks' does not work in practice. Reasoning about one hypothesis inevitably influences the analysis of the other."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "Fork-based session management for exploring divergent approaches from a shared analysis baseline… Using fork_session to create parallel exploration branches (e.g., comparing two testing strategies or refactoring approaches from a shared codebase analysis)"
+      }
   },
   {
     id: 48,
@@ -318,7 +393,12 @@ export const questionsPart2 = [
       a: "Implementing everything first and testing at the end is waterfall testing. Errors detected late are more costly to fix because you do not know which change caused them.",
       b: "Completing one service before starting the next is inefficient when the changes are interdependent. It may require rework in 'completed' services when you discover requirements in the third.",
       c: "Implementing all 3 in parallel without intermediate tests can result in 3 incorrect implementations that are only discovered in integration testing, multiplying the debugging effort."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Best practices for Claude Code",
+        quote: "Give Claude a way to verify its work… Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do."
+      }
   },
   {
     id: 49,
@@ -338,7 +418,12 @@ export const questionsPart2 = [
       a: "Audit logging is a compliance/security requirement, not optional. Removing it for latency optimization sacrifices a necessary functionality.",
       b: "Switching to PostToolUse does not reduce latency — the hook still blocks for 200ms, just at a different point. The session still accumulates 3 extra seconds.",
       d: "Reducing logging to only critical tools partially improves latency but loses audit trail for tools that could be relevant in incident investigations."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks Reference",
+        quote: "`async`       | no       | If `true`, runs in the background without blocking. See [Run hooks in the background](#run-hooks-in-the-background)"
+      }
   },
   {
     id: 50,
@@ -358,7 +443,12 @@ export const questionsPart2 = [
       a: "Recursive decomposition without centralized control creates execution trees that are difficult to monitor, debug, and recover from in case of failures. Centralized coordination is more maintainable.",
       c: "Limiting depth mitigates but does not solve the fundamental problem: loss of coordinator visibility over what is being executed and why.",
       d: "Technically the Task tool can be given to subagents, but it should not be for architectural design reasons, not because of technical limitations."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Create custom subagents",
+        quote: "This prevents infinite nesting (subagents cannot spawn other subagents) while still gathering necessary context."
+      }
   },
 
   // ===== DOMAIN 2: Tool Design & MCP Integration (18%) — Questions 51-62 =====
@@ -380,7 +470,12 @@ export const questionsPart2 = [
       a: "There is no fixed character limit, but the model does have attention issues with long content. Pagination is partially correct but does not address the root cause without relevance prioritization.",
       c: "Instructions to 'read carefully' do not mitigate the lost-in-the-middle effect. It is a phenomenon of the model's architecture, not a lack of diligence.",
       d: "A summary loses specific details that may be needed. The correct solution is to return relevant sections, not general summaries."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "The \"lost in the middle\" effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections… Placing key findings summaries at the beginning of aggregated inputs and organizing detailed results with explicit section headers to mitigate position effects"
+      }
   },
   {
     id: 52,
@@ -400,7 +495,12 @@ export const questionsPart2 = [
       a: "Although dependencies are necessary, the fundamental problem is that the server configuration does not exist on the colleague's machine. It is not a dependency issue but a scope issue.",
       c: "There is no central registry for MCP servers. Servers are configured locally via .mcp.json (project) or ~/.claude.json (user).",
       d: "There is no permission system for 'third-party MCP servers'. The problem is that the configuration is not present on the colleague's machine."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Connect Claude Code to tools via MCP",
+        quote: "| [Local](#local-scope)     | Current project only | No                       | `~/.claude.json`            |\n| [Project](#project-scope) | Current project only | Yes, via version control | `.mcp.json` in project root |\n| [User](#user-scope)       | All your projects    | No                       | `~/.claude.json`            |"
+      }
   },
   {
     id: 53,
@@ -420,7 +520,12 @@ export const questionsPart2 = [
       a: "Forced tool_choice eliminates the model's ability to reason. Not all flows begin with get_customer — some may be inquiries about policies or products.",
       b: "Better descriptions help but do not solve the fundamental problem of decision complexity with 12 options. Reducing the visible options is more effective.",
       d: "A super-tool with 12 action types is equally complex as 12 separate tools. Additionally, it loses the specific parameter structure of each tool."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.3",
+        quote: "The principle that giving an agent access to too many tools (e.g., 18 instead of 4-5) degrades tool selection reliability by increasing decision complexity"
+      }
   },
   {
     id: 54,
@@ -440,7 +545,12 @@ export const questionsPart2 = [
       a: "Documenting every error code in the prompt is token-inefficient and fragile. Possible errors change with the APIs. Structured metadata is self-descriptive.",
       c: "A human-readable message is better than the raw error but lacks structure. The model cannot programmatically distinguish between error categories based on free text.",
       d: "Returning cached data as if it were current is dishonest and can cause incorrect decisions. The agent must know that the data is not fresh."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.2",
+        quote: "Returning structured error metadata including errorCategory (transient/validation/permission), isRetryable boolean, and human-readable descriptions"
+      }
   },
   {
     id: 55,
@@ -460,7 +570,12 @@ export const questionsPart2 = [
       a: "Multiple configuration files add complexity and risk of desynchronization. Environment variables are the standard mechanism for per-environment configuration.",
       c: "Hardcoding tokens in committed files is a security risk. Additionally, manual override is error-prone and not reproducible.",
       d: "Although .env is a valid practice in many frameworks, .mcp.json has native support for environment variable expansion, which is more direct and does not require additional configuration."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Connect Claude Code to tools via MCP",
+        quote: "Claude Code supports environment variable expansion in `.mcp.json` files, allowing teams to share configurations while maintaining flexibility for machine-specific paths and sensitive values like API keys. … `${VAR}` - Expands to the value of environment variable `VAR`"
+      }
   },
   {
     id: 56,
@@ -480,7 +595,12 @@ export const questionsPart2 = [
       a: "Resources and tools have different semantics. Resources are static data included in the context; converting them to tools loses the advantage of having pre-loaded data.",
       c: "Transparent middleware hides the agent's behavior. If cached_articles does not have the current information, the agent would not know the search was intercepted and could act on stale data.",
       d: "Forced tool_choice cannot force reading resources — it only controls tool selection. Additionally, not all queries need to check the cache first."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Define tools",
+        quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: What the tool does; When it should be used (and when it shouldn't)"
+      }
   },
   {
     id: 57,
@@ -500,7 +620,12 @@ export const questionsPart2 = [
       a: "Instructions in CLAUDE.md are probabilistic enforcement. The model might execute a deploy if it believes it is necessary to complete a task.",
       b: "allowed-tools does not have granularity to filter Bash arguments. It allows or blocks the complete tool, not specific commands within Bash.",
       d: "Removing Bash eliminates too much functionality. The developer might need Bash for many legitimate tasks beyond tests (installing dependencies, linting, etc.)."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks Reference",
+        quote: "The script inspects the full command and finds `rm -rf`, so it prints a decision to stdout:\n```json\n{\n  \"hookSpecificOutput\": {\n    \"hookEventName\": \"PreToolUse\",\n    \"permissionDecision\": \"deny\",\n    \"permissionDecisionReason\": \"Destructive command blocked by hook\"\n  }\n}\n```"
+      }
   },
   {
     id: 58,
@@ -520,7 +645,12 @@ export const questionsPart2 = [
       b: "Few-shot examples improve probability but do not guarantee correct detection, especially in documents with multilingual content or similar languages.",
       c: "Adding a separate tool to detect language introduces an extra step that can fail and adds latency. If detection can be internal to the tool, it is simpler and more reliable.",
       d: "The enum limits options but does not prevent the model from selecting the wrong language from the enum. The selection is still probabilistic."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)"
+      }
   },
   {
     id: 59,
@@ -540,7 +670,12 @@ export const questionsPart2 = [
       a: "Returning raw XML to the model is token-inefficient and the model may misinterpret malformed XML. The wrapper should handle the conversion robustly.",
       b: "Marking as non-retryable is correct for the current error, but the 5% failure rate is high enough to justify fixing the parser instead of propagating errors.",
       d: "Returning an empty successful result is an explicitly listed anti-pattern. It hides the error and produces decisions based on incomplete data."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.2",
+        quote: "Why uniform error responses (generic \"Operation failed\") prevent the agent from making appropriate recovery decisions"
+      }
   },
   {
     id: 60,
@@ -560,7 +695,12 @@ export const questionsPart2 = [
       a: "Adding a personal server to .mcp.json would expose it to the entire team via version control. The Notion notes are private to the developer.",
       c: ".mcp.personal.json is not a mechanism that exists in Claude Code. The distinction is between .mcp.json (project) and ~/.claude.json (user).",
       d: "CLAUDE.md is for instructions and context, not for MCP server configuration. It has no mechanism for defining servers."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Connect Claude Code to tools via MCP",
+        quote: "Project-scoped servers enable team collaboration by storing configurations in a `.mcp.json` file at your project's root directory. This file is designed to be checked into version control, ensuring all team members have access to the same MCP tools and services. … User-scoped servers are stored in `~/.claude.json` and provide cross-project accessibility, making them available across all projects on your machine while remaining private to your user account."
+      }
   },
   {
     id: 61,
@@ -580,7 +720,12 @@ export const questionsPart2 = [
       a: "Glob + Read of 2000 files would consume an enormous amount of tokens and would be extremely slow. Grep does the search server-side without loading complete files.",
       b: "Although Bash with grep would work, built-in tools are preferable for efficiency and safety. Grep is optimized for content search in Claude Code.",
       d: "package.json lists external dependencies, not internal imports. Additionally, reading package.json does not indicate which files import the specific module."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.5",
+        quote: "Grep for content search (searching file contents for patterns like function names, error messages, or import statements)… Selecting Grep for searching code content across a codebase (e.g., finding all callers of a function, locating error messages)"
+      }
   },
   {
     id: 62,
@@ -600,7 +745,12 @@ export const questionsPart2 = [
       a: "'auto' allows the model to respond with text instead of calling a tool, which does not guarantee structured extraction on each request.",
       b: "'any' guarantees a tool call but not which tool. If there are multiple tools available, the model could choose a different one.",
       d: "{ type: 'required', tool: 'extract_invoice' } is not the correct syntax for the Anthropic API. The correct form is { type: 'tool', name: 'extract_invoice' }."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Define tools",
+        quote: "In some cases, you may want Claude to use a specific tool to answer the user's question, even if Claude would otherwise answer directly without calling a tool. You can do this by specifying the tool in the `tool_choice` field like so: `tool_choice = {\"type\": \"tool\", \"name\": \"get_weather\"}`"
+      }
   },
 
   // ===== DOMAIN 3: Claude Code Configuration & Workflows (20%) — Questions 63-76 =====
@@ -622,7 +772,12 @@ export const questionsPart2 = [
       a: "There is no formal precedence system in CLAUDE.md. All files are included in the context without explicit override.",
       b: "The user-level does not have formal precedence. Both files are injected into the context and the model tries to follow both.",
       d: "Claude Code loads ALL applicable CLAUDE.md files from the hierarchy, not just the first one. This allows composition of instructions in complex projects."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "All discovered files are concatenated into context rather than overriding each other. Within each directory, `CLAUDE.local.md` is appended after `CLAUDE.md`, so when instructions conflict, your personal notes are the last thing Claude reads at that level."
+      }
   },
   {
     id: 64,
@@ -642,7 +797,12 @@ export const questionsPart2 = [
       a: "The @imports are resolved and included, but that does not explain why instructions in the second half are ignored. The problem is the total volume, not the import mechanism.",
       c: "There is no evidence of a size limit that causes silent truncation. The problem is the model's attention with voluminous content.",
       d: "Claude Code does not have a 200-line limit. All content is included, but more content means more attention dilution."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "CLAUDE.md files are loaded into the context window at the start of every session, consuming tokens alongside your conversation. … **Size**: target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence."
+      }
   },
   {
     id: 65,
@@ -662,7 +822,12 @@ export const questionsPart2 = [
       a: "Post-processing is a fragile workaround. If the structure changes between executions, the filtering script can break. It is better to define the structure upfront.",
       c: "Prompt instructions produce JSON with variable structure. There is no guarantee that the model will include exactly the requested fields in the exact format.",
       d: "--output-format json-strict does not exist. The correct way to constrain the structure is with --json-schema."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "`--json-schema` | Get validated JSON output matching a JSON Schema after agent completes its workflow (print mode only, see [structured outputs](/en/agent-sdk/structured-outputs))"
+      }
   },
   {
     id: 66,
@@ -682,7 +847,12 @@ export const questionsPart2 = [
       a: "Closing the session loses all context accumulated over 2 hours of work. /compact preserves key points without needing to start from scratch.",
       c: "Although Claude Code has context management, the reported degradation indicates that the user should intervene with /compact to optimize context usage.",
       d: "Manually copying instructions is an unnecessary workaround when /compact is designed exactly for this use case."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Best practices for Claude Code",
+        quote: "Claude Code automatically compacts conversation history when you approach context limits, which preserves important code and decisions while freeing space. … For more control, run `/compact <instructions>`, like `/compact Focus on the API changes`"
+      }
   },
   {
     id: 67,
@@ -702,7 +872,12 @@ export const questionsPart2 = [
       a: "Sequential execution wastes time when all 3 analyses are independent. Running in parallel significantly reduces wall-clock time.",
       b: "A single prompt with 3 different tasks causes attention dilution. The quality of each analysis degrades when they compete for the model's attention.",
       d: "Automating only the security review misses the opportunity to automate style check and coverage, which are equally repetitive and benefit from CI."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Best practices for Claude Code",
+        quote: "For large migrations or analyses, you can distribute work across many parallel Claude invocations: … ```for file in $(cat files.txt); do\n      claude -p \"Migrate $file from React to Vue. Return OK or FAIL.\" \\\n        --allowedTools \"Edit,Bash(git commit *)\"\n    done```"
+      }
   },
   {
     id: 68,
@@ -722,7 +897,12 @@ export const questionsPart2 = [
       a: "The project CLAUDE.md is always loaded, wasting context when not working with tests. Rules with glob patterns activate conditionally.",
       c: "A CLAUDE.md in __tests__/ only applies to files in that directory. If tests are co-located with the source code (*.test.ts alongside *.ts), it would not apply to those files.",
       d: "Skills require manual invocation or activation. Rules with glob patterns are applied automatically without user intervention."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "Rules can be scoped to specific files using YAML frontmatter with the `paths` field. These conditional rules only apply when Claude is working with files matching the specified patterns. … Path-scoped rules trigger when Claude reads files matching the pattern, not on every tool use."
+      }
   },
   {
     id: 69,
@@ -742,7 +922,12 @@ export const questionsPart2 = [
       a: "Moving the @import does not reduce the total volume of content in the context. The 2000 lines still dilute attention regardless of their position.",
       c: "Splitting into 10 files does not reduce the total volume: 10 x 200 = 2000 lines. The problem is the volume, not the fragmentation.",
       d: "Repeating instructions is a fragile workaround that adds even more tokens to an already saturated context."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "**Size**: target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence. If your instructions are growing large, split them using [imports](#import-additional-files) or [`.claude/rules/`](#organize-rules-with-claude/rules/) files."
+      }
   },
   {
     id: 70,
@@ -762,7 +947,12 @@ export const questionsPart2 = [
       a: "A regex pre-processor is fragile and can fail with complex JSON that contains strings with special characters. Separating stderr from stdout is more robust.",
       b: "--output-format stream-json is not a documented option for Claude Code. The valid options are json and text (and json with --json-schema).",
       d: "Re-executing is costly and unnecessary. The problem is cleanly solved by separating stderr from stdout without re-invocation."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "`--output-format` | Specify output format for print mode (options: `text`, `json`, `stream-json`)"
+      }
   },
   {
     id: 71,
@@ -782,7 +972,12 @@ export const questionsPart2 = [
       a: "allowed-tools controls which tools Claude can use, not the availability of custom commands. Custom commands are a separate mechanism.",
       c: "/init generates an initial CLAUDE.md but has no relation to activating custom commands. Commands in .claude/commands/ are detected automatically.",
       d: "Custom commands are plain text files (Markdown) that have no operating system dependencies. There are no syntax errors that would only affect certain OSes."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Extend Claude with skills",
+        quote: "| Personal   | `~/.claude/skills/<skill-name>/SKILL.md`            | All your projects              |\n| Project    | `.claude/skills/<skill-name>/SKILL.md`              | This project only              |"
+      }
   },
   {
     id: 72,
@@ -802,7 +997,12 @@ export const questionsPart2 = [
       a: "~/.claude/CLAUDE.md is user-level and applies to ALL of the user's projects, including personal ones where strict TypeScript is not wanted.",
       c: ".claude/settings.json does not accept language configurations like typescript.strict. It is for Claude Code configuration, not code conventions.",
       d: "A rule file without a glob pattern also works but is less appropriate for a general project instruction. CLAUDE.md is the standard place for general project conventions."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "**Project instructions** | `./CLAUDE.md` or `./.claude/CLAUDE.md` | Team-shared instructions for the project | Project architecture, coding standards, common workflows | Team members via source control"
+      }
   },
   {
     id: 73,
@@ -822,7 +1022,12 @@ export const questionsPart2 = [
       b: "A custom command executes in the main context, without isolation. The extensive output from documentation generation would pollute the conversation.",
       c: "A bash script does not leverage Claude's capabilities for understanding and documenting code. It is a completely different approach that requires manual implementation.",
       d: "Instructions in CLAUDE.md are always loaded, even when documentation is not being generated. A skill is invoked only when needed."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Extend Claude with skills",
+        quote: "Add `context: fork` to your frontmatter when you want a skill to run in isolation. The skill content becomes the prompt that drives the subagent. It won't have access to your conversation history."
+      }
   },
   {
     id: 74,
@@ -842,7 +1047,12 @@ export const questionsPart2 = [
       a: "Parsing natural text is fragile. Claude can express 'critical issue' in many different ways. A structured boolean field is deterministic.",
       c: "Claude Code does not have a mechanism to configure custom exit codes based on the analysis content. Exit codes reflect Claude's execution status, not the analysis result.",
       d: "Running Claude twice doubles the cost. --json-schema allows obtaining the structured result in a single invocation."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.6",
+        quote: "Using --output-format json with --json-schema to produce machine-parseable structured findings for automated posting as inline PR comments"
+      }
   },
   {
     id: 75,
@@ -862,7 +1072,12 @@ export const questionsPart2 = [
       a: "A single CLAUDE.md with all conventions is voluminous and loads irrelevant conventions. When working in frontend, you do not need backend conventions.",
       c: "Without a CLAUDE.md at the root, shared conventions (naming, git workflow, CI) would have to be duplicated in each package.",
       d: "Importing all conventions via @import into the root CLAUDE.md loads all content always, eliminating the benefit of conditional loading per directory."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "Claude also discovers `CLAUDE.md` and `CLAUDE.local.md` files in subdirectories under your current working directory. Instead of loading them at launch, they are included when Claude reads files in those subdirectories."
+      }
   },
   {
     id: 76,
@@ -882,7 +1097,12 @@ export const questionsPart2 = [
       b: "Manually writing 500+ lines is excessive investment as a first step. /init generates a base that is iterated and refined with use, leveraging automatic codebase analysis.",
       c: "Rules are useful for specific file conventions, but without a base CLAUDE.md that establishes the general project context, Claude lacks the big-picture view.",
       d: "Skills are for specialized workflows. Creating skills before having the basic project context established is premature."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — How Claude remembers your project",
+        quote: "Run `/init` to generate a starting CLAUDE.md automatically. Claude analyzes your codebase and creates a file with build commands, test instructions, and project conventions it discovers."
+      }
   },
 
   // ===== DOMAIN 4: Prompt Engineering & Structured Output (20%) — Questions 77-90 =====
@@ -904,7 +1124,12 @@ export const questionsPart2 = [
       a: "The model has extraction capability — the inconsistency indicates an instruction problem, not a capability problem. With clear criteria, the model extracts correctly.",
       c: "Format variability is a factor but not the main cause of inconsistency. A prompt with explicit criteria handles variability much better than a vague one.",
       d: "Field omission is not due to lack of space but lack of specification. Contracts that fit in the context still produce incomplete extractions."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices",
+        quote: "Claude responds well to clear, explicit instructions. Being specific about your desired output can help enhance results. If you want \"above and beyond\" behavior, explicitly request it rather than relying on the model to infer this from vague prompts."
+      }
   },
   {
     id: 78,
@@ -924,7 +1149,12 @@ export const questionsPart2 = [
       a: "The Message Batches API does not guarantee return order. Results can complete in any order. Assuming sequential order would cause mismatches.",
       b: "Extracting identifiers from response text is fragile. The model might not repeat the number exactly, or might modify its format. custom_id is deterministic.",
       d: "Sending 200 batches of 1 request each loses the benefits of batching and adds overhead of 200 API calls for batch management."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing",
+        quote: "A unique `custom_id` for identifying the Messages request. Must be 1 to 64 characters and contain only alphanumeric characters, hyphens, and underscores (matching `^[a-zA-Z0-9_-]{1,64}$`)."
+      }
   },
   {
     id: 79,
@@ -944,7 +1174,12 @@ export const questionsPart2 = [
       a: "Studies show that LLMs are poorly calibrated for self-reported confidence. A model can report 9/10 confidence in an incorrect extraction.",
       c: "Calculation instructions do not improve the model's fundamental calibration. The problem is inherent to self-evaluation, not a lack of instructions.",
       d: "The concept of confidence is useful — but it must be based on observable external signals, not on the model's self-report."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.5",
+        quote: "Field-level confidence scores calibrated using labeled validation sets for routing review attention… Having models output field-level confidence scores, then calibrating review thresholds using labeled validation sets"
+      }
   },
   {
     id: 80,
@@ -964,7 +1199,12 @@ export const questionsPart2 = [
       a: "Prompt instructions should not be necessary if the schema is correct with strict: true. The schema is the deterministic mechanism — instructions are redundant.",
       c: "Post-processing is a workaround for a poorly defined schema. Correcting the schema at the source is more robust and eliminates the need for transformation.",
       d: "Accepting both formats moves the problem downstream. Every consumer of the output would need to handle both types, multiplying complexity."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Strict tool use",
+        quote: "Strict tool use guarantees type-safe parameters: Functions receive correctly-typed arguments every time… For example, suppose a booking system needs `passengers: int`. Without strict mode, Claude might provide `passengers: \"two\"` or `passengers: \"2\"`. With `strict: true`, the response will always contain `passengers: 2`."
+      }
   },
   {
     id: 81,
@@ -984,7 +1224,12 @@ export const questionsPart2 = [
       a: "More emphatic but equally vague instructions do not change the behavior. 'VERY friendly' is no more actionable than 'friendly'. The model needs concrete examples.",
       c: "Tone is not a model capability problem but a prompt specification issue. The current model can produce empathetic responses with the right examples.",
       d: "A post-processor adds latency and can introduce inconsistencies. The model should generate the correct tone directly with the right prompt."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices",
+        quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. A few well-crafted examples (known as few-shot or multishot prompting) can dramatically improve accuracy and consistency."
+      }
   },
   {
     id: 82,
@@ -1004,7 +1249,12 @@ export const questionsPart2 = [
       b: "Programmatic rules cannot handle the variety of possible errors (duplicates, omissions, transpositions). The model with source access can reason about complex corrections.",
       c: "Rejecting failed extractions wastes work and reduces throughput. Most errors are correctable if the model has the right information.",
       d: "This instruction assumes the total is always correct and the line items are wrong. In reality, the error could be in any field. The model needs the source to determine which."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4",
+        quote: "Implementing follow-up requests that include the original document, the failed extraction, and specific validation errors for model self-correction"
+      }
   },
   {
     id: 83,
@@ -1024,7 +1274,12 @@ export const questionsPart2 = [
       a: "There is no 100-request limit per batch, and results are not returned in strict order — they complete independently. custom_id is used for correlation.",
       b: "The limitations are significant: no multi-turn, up to 24h processing, 50% cost discount. Ignoring these limitations leads to incorrect designs.",
       d: "Requests within a batch can use different models and configurations. Each request is independent and fully configurable."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing",
+        quote: "The system processes each batch as fast as possible, with most batches completing within 1 hour. You can access batch results when all messages have completed or after 24 hours, whichever comes first. Batches expire if processing does not complete within 24 hours. … Since each request in the batch is processed independently"
+      }
   },
   {
     id: 84,
@@ -1044,7 +1299,12 @@ export const questionsPart2 = [
       a: "The model does NOT compare against sources — it compares against its own prior reasoning. If the original reasoning had an error, the self-review tends to confirm the same error.",
       c: "Self-review does not always produce the same result — it can detect some errors. But its effectiveness is limited by self-confirmation bias; it is neither completely useless nor completely reliable.",
       d: "Using a different model can help but is not strictly necessary. What is needed is verification against external sources, not simply a different model."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.6",
+        quote: "Self-review limitations: a model retains reasoning context from generation, making it less likely to question its own decisions in the same session… Independent review instances (without prior reasoning context) are more effective at catching subtle issues than self-review instructions or extended thinking"
+      }
   },
   {
     id: 85,
@@ -1064,7 +1324,12 @@ export const questionsPart2 = [
       a: "The instruction alone is insufficient when input formats are highly varied. 'The fifteenth day of January' requires an explicit example for the model to understand the conversion.",
       c: "Post-processing with date parsing is a valid fallback but should not be the primary strategy. The model can perform the conversion correctly with adequate examples.",
       d: "Accepting any string loses format validation. It is better to train the model to return the correct format from the start."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices",
+        quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. A few well-crafted examples (known as few-shot or multishot prompting) can dramatically improve accuracy and consistency."
+      }
   },
   {
     id: 86,
@@ -1084,7 +1349,12 @@ export const questionsPart2 = [
       a: "tool_choice 'auto' allows the model to choose between using the tool or responding with free text. Instructions do not guarantee it will always use the tool.",
       c: "'any' with a single available tool works but is less explicit than forcing the tool by name. If another tool is added in the future, 'any' could select the wrong one.",
       d: "'required' is not a valid option for tool schemas. Tools are marked as available, and tool_choice controls whether their use is forced."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Define tools",
+        quote: "`tool` forces Claude to always use a particular tool. … `tool_choice = {\"type\": \"tool\", \"name\": \"get_weather\"}`"
+      }
   },
   {
     id: 87,
@@ -1104,7 +1374,12 @@ export const questionsPart2 = [
       a: "A page number is insufficient for auditing: it does not allow rapid verification of the exact value. A textual quote allows direct comparison.",
       c: "A second search pass is costly and can fail if the extracted value was normalized (e.g., date converted to ISO). The quote in the same pass is more reliable.",
       d: "Citations in free text have no structure for programmatic processing. Structured companion fields allow automating the verification."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Requiring subagents to output structured claim-source mappings (source URLs, document names, relevant excerpts) that downstream agents preserve through synthesis"
+      }
   },
   {
     id: 88,
@@ -1124,7 +1399,12 @@ export const questionsPart2 = [
       a: "Parallel passes WITHOUT coordination maximize contradictions. Each pass operates without knowledge of the others, producing conflicting recommendations.",
       c: "Consolidating into a single pass loses the benefit of focused attention. The reason for multi-pass is that each pass concentrates deeply on a specific aspect.",
       d: "A reconciliation pass adds cost and complexity. It is better to prevent contradictions upstream than to resolve them downstream."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.6",
+        quote: "Multi-pass review: splitting large reviews into per-file local analysis passes plus cross-file integration passes to avoid attention dilution and contradictory findings"
+      }
   },
   {
     id: 89,
@@ -1144,7 +1424,12 @@ export const questionsPart2 = [
       a: "Returning raw text loses structure. Downstream consumers would need to parse the text to determine whether it is relative or absolute, duplicating logic.",
       c: "Estimating the signing date to calculate an absolute date is data fabrication. The model does not know when the contract was signed and would produce an invented date.",
       d: "Two separate fields without a type indicator require the consumer to infer which is populated. An object with is_relative is more explicit and self-documenting."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3",
+        quote: "Designing schema fields as optional (nullable) when source documents may not contain the information, preventing the model from fabricating values to satisfy required fields… Adding enum values like \"unclear\" for ambiguous cases and \"other\" + detail fields for extensible categorization"
+      }
   },
   {
     id: 90,
@@ -1164,7 +1449,12 @@ export const questionsPart2 = [
       a: "Hedge words in free text are inconsistent and difficult to process programmatically. A structured enum is more reliable and processable.",
       c: "Omitting claims with insufficient evidence loses valuable information. A 'contested' or 'speculative' finding can be relevant if presented with the appropriate context.",
       d: "Self-reported confidence percentages from LLMs are poorly calibrated. A categorical enum is more useful and less prone to false precision."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Structuring reports with explicit sections distinguishing well-established findings from contested ones, preserving original source characterizations and methodological context"
+      }
   },
 
   // ===== DOMAIN 5: Context Management & Reliability (15%) — Questions 91-100 =====
@@ -1186,7 +1476,12 @@ export const questionsPart2 = [
       a: "A larger context window does not prevent the lost-in-the-middle effect. Early details can still be lost in a long conversation, regardless of the window size.",
       c: "Asking the customer to repeat information is a terrible user experience and demonstrates agent incompetence.",
       d: "Progressive summarization is exactly what causes the loss of numeric and transactional details. Condensing 'duplicate charge of $47.50 from March 3' to 'customer reported duplicate charge' loses critical information."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Extracting transactional facts (amounts, dates, order numbers, statuses) into a persistent \"case facts\" block included in each prompt, outside summarized history"
+      }
   },
   {
     id: 92,
@@ -1206,7 +1501,12 @@ export const questionsPart2 = [
       a: "It is not a bug but a known phenomenon of transformer architecture. It is predictable and mitigable with proper context design.",
       c: "If content were truncated, page 47 (the end) would also be lost. The fact that pages 5 and 47 are captured correctly indicates the window is sufficient.",
       d: "If it were linear fatigue, page 47 would be the most affected, not page 23. The U-shaped pattern (good attention at beginning and end, poor in the middle) is the signature of the lost-in-the-middle effect."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "The \"lost in the middle\" effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections"
+      }
   },
   {
     id: 93,
@@ -1226,7 +1526,12 @@ export const questionsPart2 = [
       a: "The complete session history is voluminous and contains a lot of noise (exploration, dead ends). A summarized scratchpad is much more efficient.",
       c: "Git log shows WHAT changed but not WHY or WHAT IS LEFT. The architectural decisions and pending work plan are not in git.",
       d: "A draft PR is useful for review but not for continuing work. It does not capture the internal refactor decisions or the next steps that Claude needs to know."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4",
+        quote: "The role of scratchpad files for persisting key findings across context boundaries… Having agents maintain scratchpad files recording key findings, referencing them for subsequent questions to counteract context degradation"
+      }
   },
   {
     id: 94,
@@ -1246,7 +1551,12 @@ export const questionsPart2 = [
       a: "Even with fine-tuning, sentiment analysis will still fail with subtle forms of communication. The fundamental problem is depending on an unreliable proxy, not improving the proxy.",
       c: "Adjusting the threshold does not solve the sarcasm problem. At 0.5, other genuinely positive texts would be escalated unnecessarily while sarcasm would still go undetected.",
       d: "Adding sarcasm detection is additional complexity that does not address the fundamental problem: sentiment is not the right criterion for escalation."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.2",
+        quote: "Why sentiment-based escalation and self-reported confidence scores are unreliable proxies for actual case complexity"
+      }
   },
   {
     id: 95,
@@ -1266,29 +1576,14 @@ export const questionsPart2 = [
       b: "Re-executing the entire pipeline is extremely costly and slow. Only data with expired TTLs needs a refresh, not the entire research.",
       c: "A disclaimer informs the reader but does not prevent the use of stale data. The system should proactively detect and flag stale data, not just warn that it might exist.",
       d: "Regulations change frequently enough to cause significant errors. Permanent caching is the opposite of what is needed for regulatory data."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Temporal data: requiring publication/collection dates in structured outputs to prevent temporal differences from being misinterpreted as contradictions… Requiring subagents to include publication or data collection dates in structured outputs to enable correct temporal interpretation"
+      }
   },
-  {
-    id: 96,
-    domain: "Context Management & Reliability",
-    domainId: 5,
-    scenario: "Structured Data Extraction",
-    question: "Your extraction system needs to handle documents where the same entity appears with different names ('IBM', 'International Business Machines', 'Big Blue'). Without entity resolution, the extracted data creates duplicate records. What is the most robust approach?",
-    options: [
-      { id: "a", text: "Add instructions to the prompt asking the model to normalize entity names to a canonical form.", correct: false },
-      { id: "b", text: "Implement entity resolution post-extraction with a lookup table of known aliases plus fuzzy matching for unlisted variations.", correct: true },
-      { id: "c", text: "Give the model a list of all known entities and their aliases in the prompt so it normalizes during extraction.", correct: false },
-      { id: "d", text: "Accept the duplicates and resolve them manually in a later review.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "Entity resolution post-extraction with lookup tables and fuzzy matching is deterministic and maintainable. It captures known aliases and unexpected variations without depending on the model for probabilistic normalization.",
-    whyOthersWrong: {
-      a: "Probabilistic normalization by the model is inconsistent. 'Big Blue' might not resolve to 'IBM' without explicit context, and the model might normalize inconsistently across documents.",
-      c: "An entity list in the prompt consumes significant tokens and does not scale. With thousands of entities and aliases, the prompt becomes unmanageable.",
-      d: "Manual resolution does not scale and is prone to human error. Post-extraction automation handles the volume more reliably."
-    }
-  },
-  {
+    {
     id: 97,
     domain: "Context Management & Reliability",
     domainId: 5,
@@ -1306,7 +1601,12 @@ export const questionsPart2 = [
       a: "Continuing without acknowledging the interruption can confuse the customer if they notice a change in tone or style. Transparency builds trust.",
       c: "Asking them to repeat everything is a poor experience when we already have the data in the manifest. We only need to confirm, not re-collect.",
       d: "Reloading the entire history consumes excessive tokens and may contain obsolete information. The state manifest is a more efficient and up-to-date summary."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4 + 1.7",
+        quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume… Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts"
+      }
   },
   {
     id: 98,
@@ -1326,7 +1626,12 @@ export const questionsPart2 = [
       a: "Incremental conclusions are subject to the same problem: early draft versions get lost in the history as the research progresses.",
       c: "/compact compresses the history but compression loses specific details. Numeric findings and textual citations are the first to be lost in compression.",
       d: "Re-injecting all findings in a second pass is costly in tokens and duplicates the work. A scratchpad maintained during research is more efficient."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4",
+        quote: "The role of scratchpad files for persisting key findings across context boundaries… Summarizing key findings from one exploration phase before spawning sub-agents for the next phase, injecting summaries into initial context"
+      }
   },
   {
     id: 99,
@@ -1346,7 +1651,12 @@ export const questionsPart2 = [
       a: "Asking the model to calculate and compare does not solve the problem: if the model extracts tax_amount incorrectly, it will also incorrectly calculate expected_tax using the same wrong data.",
       c: "Calculating tax_amount programmatically assumes it is always subtotal x rate, but in reality taxes can include exceptions, discounts, and variable per-item rates.",
       d: "Increasing the tolerance threshold accepts real errors. A 5% difference on a $100,000 subtotal means $5,000 of error — unacceptable for financial data."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4",
+        quote: "Retry-with-error-feedback: appending specific validation errors to the prompt on retry to guide the model toward correction… Implementing follow-up requests that include the original document, the failed extraction, and specific validation errors for model self-correction"
+      }
   },
   {
     id: 100,
@@ -1366,6 +1676,11 @@ export const questionsPart2 = [
       a: "Loading 2000+ lines into the current session displaces general project context the agent already accumulated. The verbose analysis would pollute the main session.",
       c: "/compact compresses the history but sacrifices details. It is better to preserve the current context intact and delegate the verbose analysis to a subagent.",
       d: "Analyzing sections separately still consumes tokens from the main session and the agent loses the holistic view of the complete component."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Extend Claude with skills",
+        quote: "Add `context: fork` to your frontmatter when you want a skill to run in isolation. The skill content becomes the prompt that drives the subagent. It won't have access to your conversation history."
+      }
   }
 ];

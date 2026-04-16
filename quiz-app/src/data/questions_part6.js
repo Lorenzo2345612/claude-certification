@@ -20,7 +20,12 @@ export const questionsPart6 = [
       b: "max_tokens controls response length, not processing speed. Parallel execution is the correct optimization for independent tasks.",
       c: "Pre-computing queries doesn't address the sequential execution problem. The subagents still wait for each other.",
       d: "In the hub-and-spoke architecture, all communication flows through the coordinator. Direct subagent communication is not supported."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Optimize parallel tool calling)",
+        quote: "Claude's latest models excel at parallel tool execution. These models will: Run multiple speculative searches during research, Read several files at once to build context faster, Execute bash commands in parallel (which can even bottleneck system performance). This behavior is easily steerable. While the model has a high success rate in parallel tool calling without prompting, you can boost this to ~100% or adjust the aggression level."
+      }
   },
   {
     id: 306,
@@ -40,7 +45,12 @@ export const questionsPart6 = [
       a: "The synthesis agent should synthesize from provided findings, not fabricate new information. This would introduce hallucination.",
       c: "Restarting the entire pipeline wastes the work already done. Targeted re-delegation to fill specific gaps is more efficient.",
       d: "Flagging gaps is useful for transparency but does not actively address the coverage problem. Iterative refinement resolves gaps."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Self-correction pattern)",
+        quote: "The most common chaining pattern is self-correction: generate a draft → have Claude review it against criteria → have Claude refine based on the review. Each step is a separate API call so you can log, evaluate, or branch at any point."
+      }
   },
   {
     id: 307,
@@ -60,7 +70,12 @@ export const questionsPart6 = [
       a: "Ignoring the replacement request would leave the customer's full concern unaddressed. Both items should be investigated.",
       b: "Frustration alone is not an escalation trigger. Both issues (refund + replacement) are standard support operations the agent can handle.",
       d: "Assuming both are impossible without checking is premature. Many policies allow both for damaged items. Investigate first."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2 (Task decomposition)",
+        quote: "Decompose multi-part customer requests into distinct, investigable items; investigate each with shared context; synthesize a unified resolution addressing every concern before responding."
+      }
   },
   {
     id: 308,
@@ -80,7 +95,12 @@ export const questionsPart6 = [
       a: "Prompt instructions are probabilistic. For a financial compliance rule with potential legal/business consequences, deterministic enforcement is required.",
       b: "Few-shot examples improve probability but do not guarantee compliance. A business rule with a specific dollar threshold needs deterministic enforcement.",
       d: "The tool should not be called at all for amounts over $500. The hook intercepts BEFORE execution, which is safer than executing the tool and having it fail."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks (PreToolUse decision control)",
+        quote: "PreToolUse hooks can control whether a tool call proceeds. Unlike other hooks that use a top-level decision field, PreToolUse returns its decision inside a hookSpecificOutput object. This gives it richer control: four outcomes (allow, deny, ask, or defer) plus the ability to modify tool input before execution."
+      }
   },
   {
     id: 309,
@@ -100,7 +120,12 @@ export const questionsPart6 = [
       a: "Caching helps for repeated queries but doesn't address the fundamental problem of over-processing simple queries through the full pipeline.",
       c: "Reducing output quality is not the correct optimization. The issue is invoking unnecessary subagents, not the speed of each one.",
       d: "Arbitrary timeouts may terminate useful research prematurely. The correct approach is to not start unnecessary subagent work in the first place."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Subagents (Choose between subagents and main conversation)",
+        quote: "Use subagents when: The task produces verbose output you don't need in your main context; You want to enforce specific tool restrictions or permissions; The work is self-contained and can return a summary. Use the main conversation when: You're making a quick, targeted change; Latency matters. Subagents start fresh and may need time to gather context."
+      }
   },
   {
     id: 310,
@@ -120,7 +145,12 @@ export const questionsPart6 = [
       a: "Re-analyzing from scratch wastes the work already done in the baseline analysis. fork_session avoids this duplication.",
       c: "Using one session for both approaches creates confusion as both sets of changes mix in context. fork_session provides clean isolation.",
       d: "While saving analysis helps, fork_session is the built-in mechanism designed exactly for this scenario with full context preservation."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Agent SDK Sessions (Fork to explore alternatives)",
+        quote: "Forking creates a new session that starts with a copy of the original's history but diverges from that point. The fork gets its own session ID; the original's ID and history stay unchanged. You end up with two independent sessions you can resume separately."
+      }
   },
   {
     id: 311,
@@ -140,7 +170,12 @@ export const questionsPart6 = [
       a: "The agent does not automatically detect external file changes. Its context contains the old analysis which may now be stale.",
       b: "Starting fresh loses all prior analysis context. When the changes are targeted, resumption with change information is more efficient.",
       d: "/compact reduces context size but doesn't update the stale analysis. Informing the agent about specific changes is the correct approach."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Agent SDK Sessions (Resume by ID)",
+        quote: "Pass a session ID to resume to return to that specific session. The agent picks up with full context from wherever the session left off. Common reasons to resume: Follow up on a completed task. The agent already analyzed something; now you want it to act on that analysis without re-reading files."
+      }
   },
   {
     id: 312,
@@ -160,7 +195,12 @@ export const questionsPart6 = [
       a: "Alphabetical order has no correlation with importance or impact. A prioritized, adaptive approach is more effective.",
       c: "A single prompt cannot handle the complexity of a full codebase. This task requires incremental exploration and adaptive planning.",
       d: "A fixed test-type ordering ignores the actual structure. High-impact areas should be prioritized regardless of test type."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2 (Open-ended task decomposition)",
+        quote: "Open-ended engineering tasks (e.g., adding tests to a legacy codebase) require dynamic decomposition: first map the codebase structure, identify high-impact areas, then create a prioritized, adaptive plan that evolves as dependencies and complexities are discovered."
+      }
   },
   {
     id: 313,
@@ -180,7 +220,12 @@ export const questionsPart6 = [
       a: "Raw text lacks structured metadata. The synthesis agent needs explicit source URLs, document names, and page numbers to maintain attribution.",
       c: "Over-summarization loses the metadata needed for attribution. Structured formats preserve both content and provenance efficiently.",
       d: "Passing only one result limits the synthesis agent's ability to produce comprehensive, multi-source reports."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Long context prompting)",
+        quote: "Structure document content and metadata with XML tags: When using multiple documents, wrap each document in <document> tags with <document_content> and <source> (and other metadata) subtags for clarity."
+      }
   },
   {
     id: 314,
@@ -200,7 +245,12 @@ export const questionsPart6 = [
       a: "More detailed procedures make the approach even more rigid. The problem is procedural rigidity, not insufficient detail.",
       c: "Removing the prompt entirely provides no guidance. The coordinator needs goals and quality criteria, not no guidance at all.",
       d: "Conditional logic in prompts is fragile and anticipates specific scenarios. Goal-oriented prompts handle novel scenarios naturally."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Subagent orchestration)",
+        quote: "Use subagents when tasks can run in parallel, require isolated context, or involve independent workstreams that don't need to share state. For simple tasks, sequential operations, single-file edits, or tasks where you need to maintain context across steps, work directly rather than delegating."
+      }
   },
   {
     id: 315,
@@ -220,7 +270,12 @@ export const questionsPart6 = [
       a: "Applying an unrelated policy is incorrect. Own-site adjustments and competitor price matching are different business decisions.",
       b: "The agent doesn't actually know if competitor price matching is unavailable — the policy simply doesn't address it. A human should decide.",
       d: "The agent should not make unauthorized financial decisions outside documented policy. Discretionary discounts require human authority."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3 (Escalation triggers)",
+        quote: "Escalate to a human agent when the governing policy is ambiguous, silent on the customer's specific request, or requires judgment beyond the agent's documented authority. Do not apply tangentially related policies or make unauthorized discretionary decisions."
+      }
   },
   {
     id: 316,
@@ -240,7 +295,12 @@ export const questionsPart6 = [
       a: "Relying on Claude to interpret raw status codes is probabilistic. A hook provides guaranteed deterministic normalization.",
       c: "Both the status code and timestamp should be normalized. Leaving ambiguous numeric codes creates potential misinterpretation.",
       d: "Adding text explanations is less reliable than normalizing the data itself. The hook should transform the data, not just annotate it."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks (PostToolUse)",
+        quote: "PostToolUse runs immediately after a tool completes successfully. It receives both the input sent to the tool and the result it returned. PostToolUse hooks can provide feedback to Claude after tool execution."
+      }
   },
   {
     id: 317,
@@ -260,7 +320,12 @@ export const questionsPart6 = [
       a: "Sentiment alone is not a reliable escalation trigger. The customer said 'just fix it' — they want resolution, not escalation.",
       c: "Sentiment analysis is an unreliable proxy for actual case complexity. The customer's words are clear: they want the issue fixed.",
       d: "Proactively suggesting human escalation when the customer said 'just fix it' ignores their expressed preference and adds unnecessary friction."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3 (Escalation triggers)",
+        quote: "Customer sentiment alone is not a reliable escalation trigger. When a customer expresses frustration but gives explicit consent to proceed ('just fix it'), acknowledge the frustration while offering resolution; escalate only when the customer explicitly requests a human or the issue exceeds the agent's documented capability."
+      }
   },
   {
     id: 318,
@@ -280,7 +345,12 @@ export const questionsPart6 = [
       a: "Simply combining analyses misses cross-file issues. A dedicated integration pass looks for patterns across files.",
       c: "Re-analyzing every file with full context is the attention dilution problem you're trying to avoid. The integration pass is focused specifically on cross-file concerns.",
       d: "Manual integration defeats the purpose of automation. The agent should perform both the local and integration passes."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Subagents (Chain subagents)",
+        quote: "For multi-step workflows, ask Claude to use subagents in sequence. Each subagent completes its task and returns results to Claude, which then passes relevant context to the next subagent."
+      }
   },
 
   // ===== DOMAIN 4: Prompt Engineering — 13 new questions (IDs 319-331) =====
@@ -302,7 +372,12 @@ export const questionsPart6 = [
       a: "You cannot anticipate every document type. The 'other' + detail pattern handles the unknown gracefully.",
       c: "Free-text strings lose the benefits of structured categorization. The enum + 'other' pattern preserves structure while allowing flexibility.",
       d: "An empty enum value is not valid. The 'other' value with a detail field is the documented pattern for handling this case."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Structured Outputs (enum limitations)",
+        quote: "enum (strings, numbers, bools, or nulls only - no complex types). Enum values are limited to primitive types only—complex objects cannot be enum values."
+      }
   },
   {
     id: 320,
@@ -322,7 +397,12 @@ export const questionsPart6 = [
       a: "The model can likely fix the error with proper feedback. The problem is the retry prompt lacks specific error information, not model capability.",
       c: "Retries with specific error feedback are effective for format and structural errors. Programmatic post-processing complements but doesn't replace retry.",
       d: "Assuming the document has conflicting data without investigating is premature. The specific error feedback would help the model locate and correct the issue."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Code review harnesses / iteration)",
+        quote: "We recommend iterating on prompts against a subset of your evals or test cases to validate recall or F1 score gains."
+      }
   },
   {
     id: 321,
@@ -342,7 +422,12 @@ export const questionsPart6 = [
       a: "Stronger instructions cannot overcome absent data. If the information is in a separate document not provided, no amount of prompting will extract it.",
       c: "Context window size is irrelevant when the information is in a different document entirely. The source material is the issue.",
       d: "Few-shot examples help with format variety, not with missing data. The methodology data simply isn't in the provided document."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.2 (Validation retry limits)",
+        quote: "Retries are ineffective when the required information is absent from the provided source. The model cannot extract what does not exist; the remedy is to supply the missing source material or redesign the schema to make the field optional/nullable."
+      }
   },
   {
     id: 322,
@@ -362,7 +447,12 @@ export const questionsPart6 = [
       a: "General instructions like 'only flag high-confidence' fail to improve precision. The model needs specific categorical criteria, not confidence-based filtering.",
       c: "Removing comment checking entirely loses value. The correct approach is to improve the criteria for that category.",
       d: "Confidence thresholds are unreliable — the model may be highly confident about a false positive. Explicit criteria address the root cause."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Code review harnesses)",
+        quote: "If you do want the model to self-filter in a single pass, be concrete about where the bar is rather than using qualitative terms like 'important' — for example, 'report any bugs that could cause incorrect behavior, a test failure, or a misleading result; only omit nits like pure style or naming preferences.'"
+      }
   },
   {
     id: 323,
@@ -382,7 +472,12 @@ export const questionsPart6 = [
       a: "Asking for consistency without defining what consistent means is ineffective. The model needs concrete examples of what each severity looks like.",
       c: "Removing severity loses valuable triage information. Developers need to know which findings to address first.",
       d: "Keyword matching is brittle and cannot capture the nuanced judgment needed for severity classification."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Use examples effectively)",
+        quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. A few well-crafted examples (known as few-shot or multishot prompting) can dramatically improve accuracy and consistency."
+      }
   },
   {
     id: 324,
@@ -402,7 +497,12 @@ export const questionsPart6 = [
       a: "tool_choice: 'auto' allows Claude to respond with text instead of calling a tool. There's no guarantee of structured output.",
       c: "tool_choice: 'none' prevents all tool use. Prompt instructions cannot guarantee valid JSON — they're probabilistic.",
       d: "strict: false doesn't guarantee schema compliance. '99% correct' is not 100% — you need strict: true for guarantees."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Define tools (Forcing tool use)",
+        quote: "Guaranteed tool calls with strict tools: Combine tool_choice: {\"type\": \"any\"} with strict tool use to guarantee both that one of your tools will be called AND that the tool inputs strictly follow your schema. Set strict: true on your tool definitions to enable schema validation."
+      }
   },
   {
     id: 325,
@@ -422,7 +522,12 @@ export const questionsPart6 = [
       a: "Prompt instructions can't override a required field constraint. The schema forces the model to produce a value regardless of instructions.",
       c: "Post-validation catches the problem but doesn't prevent it. Better schema design (nullable fields) prevents fabrication at the source.",
       d: "Model capability is not the issue. Any model will fabricate values if the schema forces a required field that has no source data."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Structured Outputs (required vs optional fields)",
+        quote: "required and additionalProperties (must be set to false for objects). All properties not in the required array become optional fields that count toward the 24-parameter complexity limit."
+      }
   },
   {
     id: 326,
@@ -442,7 +547,12 @@ export const questionsPart6 = [
       a: "Clearing all comments loses the history. Developers need to see which issues persisted and which are new.",
       c: "Text similarity matching is brittle. Claude can understand semantic equivalence better than text matching when given prior findings in context.",
       d: "Only reviewing changed files misses issues in unchanged files that may be affected by the changes (cross-file impacts)."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3 (CI review deduplication)",
+        quote: "When re-running automated code review, include prior review findings in the prompt context and instruct Claude to report only new or still-unaddressed issues. This allows the model to distinguish resolved, persisting, and new issues semantically rather than via text matching."
+      }
   },
   {
     id: 327,
@@ -462,7 +572,12 @@ export const questionsPart6 = [
       a: "Vague instructions like 'high-value' don't define what that means for your project. CLAUDE.md with specific criteria gives Claude the context needed.",
       c: "Limiting count doesn't improve quality — Claude might still generate low-value tests, just fewer of them.",
       d: "Test length is a poor proxy for value. A 3-line test of a critical edge case is more valuable than a 20-line boilerplate test."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (CLAUDE.md files)",
+        quote: "CLAUDE.md files are markdown files that give Claude persistent instructions for a project, your personal workflow, or your entire organization. You write these files in plain text; Claude reads them at the start of every session. Create this file and add instructions that apply to anyone working on the project: build and test commands, coding standards, architectural decisions, naming conventions, and common workflows."
+      }
   },
   {
     id: 328,
@@ -482,7 +597,12 @@ export const questionsPart6 = [
       a: "Preprocessing cannot reliably handle all the varied natural language formats. The LLM is better at interpreting 'approx. 15 lbs' than a preprocessor.",
       c: "Separate schemas for each format is impractical given the variety. One schema with normalization rules covers all formats.",
       d: "Programmatic normalization is harder for informal formats like 'approx. 15 lbs'. The LLM handles natural language interpretation better."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompting best practices (Be clear and direct)",
+        quote: "Claude responds well to clear, explicit instructions. Being specific about your desired output can help enhance results. If you want 'above and beyond' behavior, explicitly request it rather than relying on the model to infer this from vague prompts."
+      }
   },
   {
     id: 329,
@@ -502,7 +622,12 @@ export const questionsPart6 = [
       a: "Blanket removal may miss genuine unused imports that should be cleaned up. Analysis of patterns allows targeted improvement.",
       c: "Lowering severity doesn't address the false positive rate. The findings are still noise that developers must evaluate.",
       d: "Requiring reasons adds friction. The detected_pattern data already provides the information needed for analysis."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3 (Iterative prompt refinement from feedback)",
+        quote: "Structured findings with pattern-level metadata enable systematic analysis of false positives. By identifying which specific detected patterns correlate with dismissals, prompts can be refined to distinguish genuine issues from acceptable patterns rather than applying blanket suppression."
+      }
   },
   {
     id: 330,
@@ -522,7 +647,12 @@ export const questionsPart6 = [
       a: "Context window size is not the primary issue. The problem is the reasoning bias from the generation context.",
       c: "Subtle bugs can be caught by independent reviewers. The limitation is the self-review bias, not Claude's capability.",
       d: "Even with specific instructions, self-review within the same session is inherently limited by reasoning context retention."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4 (Self-review limitations)",
+        quote: "Self-review within the same session suffers from reasoning bias: the model retains its original generation context and is less likely to question its own decisions. Independent review instances without the prior reasoning context are more effective at catching subtle issues."
+      }
   },
   {
     id: 331,
@@ -542,6 +672,11 @@ export const questionsPart6 = [
       a: "Submitting untested prompts risks high failure rates. A prompt issue affecting 80% of documents would require resubmitting 400 documents.",
       c: "Splitting into smaller batches doesn't improve quality — the same prompt issues affect all batches. Sample testing before batch is the key step.",
       d: "Synchronous processing of 500 documents is twice the cost (no batch discount) and unnecessary when overnight latency is acceptable."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Message Batches API)",
+        quote: "The Message Batches API is a powerful, cost-effective way to asynchronously process large volumes of Messages requests. This approach is well-suited to tasks that do not require immediate responses, with most batches finishing in less than 1 hour while reducing costs by 50% and increasing throughput."
+      }
   },
 ]

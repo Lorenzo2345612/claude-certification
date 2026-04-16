@@ -249,6 +249,28 @@ export default function ResultsScreen({ questions, answers, domains, onRestart }
                   </div>
                 )}
 
+                {currentItem.docReference && (
+                  <div className="doc-reference">
+                    <div className="doc-reference-header">
+                      <div className="doc-reference-header-left">
+                        <span className="doc-reference-label">Documentation reference</span>
+                        {currentItem.docStatus && (
+                          <span className={`doc-status-badge status-${currentItem.docStatus.toLowerCase()}`}>
+                            {currentItem.docStatus === 'STRONG' ? 'Documented' :
+                             currentItem.docStatus === 'PARTIAL' ? 'Partial doc' :
+                             currentItem.docStatus === 'EXAM_GUIDE' ? 'Exam guide' :
+                             currentItem.docStatus}
+                          </span>
+                        )}
+                      </div>
+                      <span className="doc-reference-source">{currentItem.docReference.source}</span>
+                    </div>
+                    <blockquote className="doc-reference-quote">
+                      {currentItem.docReference.quote}
+                    </blockquote>
+                  </div>
+                )}
+
                 {currentItem.docUrl && (
                   <a
                     className="slide-doc-link"

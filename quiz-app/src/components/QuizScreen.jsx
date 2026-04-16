@@ -115,6 +115,28 @@ export default function QuizScreen({
               </div>
             )}
 
+            {question.docReference && (
+              <div className="doc-reference">
+                <div className="doc-reference-header">
+                  <div className="doc-reference-header-left">
+                    <span className="doc-reference-label">Documentation reference</span>
+                    {question.docStatus && (
+                      <span className={`doc-status-badge status-${question.docStatus.toLowerCase()}`}>
+                        {question.docStatus === 'STRONG' ? 'Documented' :
+                         question.docStatus === 'PARTIAL' ? 'Partial doc' :
+                         question.docStatus === 'EXAM_GUIDE' ? 'Exam guide' :
+                         question.docStatus}
+                      </span>
+                    )}
+                  </div>
+                  <span className="doc-reference-source">{question.docReference.source}</span>
+                </div>
+                <blockquote className="doc-reference-quote">
+                  {question.docReference.quote}
+                </blockquote>
+              </div>
+            )}
+
             {question.docUrl && (
               <a
                 className="doc-link"

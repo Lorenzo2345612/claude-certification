@@ -18,7 +18,12 @@ export const questionsPart5 = [
       b: "C:\\ProgramData is not the correct path. The documentation explicitly specifies C:\\Program Files\\ClaudeCode\\CLAUDE.md for Windows.",
       c: "/etc/claude-code/CLAUDE.md is the managed policy path for Linux and WSL, not for native Windows.",
       d: "/Library/Application Support/ClaudeCode/CLAUDE.md is the managed policy path for macOS, not for Windows."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (How Claude remembers your project)",
+        quote: "Create the file at the managed policy location: macOS: /Library/Application Support/ClaudeCode/CLAUDE.md • Linux and WSL: /etc/claude-code/CLAUDE.md • Windows: C:\\Program Files\\ClaudeCode\\CLAUDE.md"
+      }
   },
   {
     id: 256,
@@ -38,7 +43,12 @@ export const questionsPart5 = [
       a: "3 hops would be too restrictive. The actual documented limit is 5 hops.",
       c: "10 hops is incorrect. The documented limit is exactly 5 hops of maximum depth.",
       d: "There is no unlimited resolution. Without a depth limit there would be risk of circular imports or excessively long chains. The limit is 5 hops."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (How Claude remembers your project)",
+        quote: "Both relative and absolute paths are allowed. Relative paths resolve relative to the file containing the import, not the working directory. Imported files can recursively import other files, with a maximum depth of five hops."
+      }
   },
   {
     id: 257,
@@ -58,7 +68,12 @@ export const questionsPart5 = [
       a: "Loading the entire file would consume too many context tokens. The system enforces strict limits: 200 lines or 25KB.",
       b: "The values of 100 lines and 10KB are incorrect. The actual limits are 200 lines and 25KB respectively.",
       d: "There is no 50KB limit. The limit is 25KB or 200 lines, whichever comes first, not by size alone."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (Auto memory section)",
+        quote: "The first 200 lines of MEMORY.md, or the first 25KB, whichever comes first, are loaded at the start of every conversation. Content beyond that threshold is not loaded at session start. Claude keeps MEMORY.md concise by moving detailed notes into separate topic files."
+      }
   },
   {
     id: 258,
@@ -78,7 +93,12 @@ export const questionsPart5 = [
       a: "Although .claude/settings.local.json is a valid and recommended location, the claim that managed policy files can be excluded is false. These are immune to exclusion.",
       c: "claudeMdExcludes can be configured in any settings layer, not just the user layer. Furthermore, patterns use absolute paths, not relative ones.",
       d: "claudeMdExcludes arrays are merged across layers, not replaced. This is important: exclusions from each layer accumulate."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (Exclude specific CLAUDE.md files)",
+        quote: "Patterns are matched against absolute file paths using glob syntax. You can configure claudeMdExcludes at any settings layer: user, project, local, or managed policy. Arrays merge across layers. Managed policy CLAUDE.md files cannot be excluded. This ensures organization-wide instructions always apply regardless of individual settings."
+      }
   },
   {
     id: 259,
@@ -98,7 +118,12 @@ export const questionsPart5 = [
       a: "Only the root CLAUDE.md survives compaction automatically. Nested CLAUDE.md files are lost until the corresponding subdirectory is accessed.",
       b: "The project root CLAUDE.md does survive automatically — it does not require manual reload. Only nested ones need re-triggering.",
       d: "There is no 'last 5 turns' mechanism to determine which CLAUDE.md files survive. The rule is simple: root yes, nested no."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (Instructions seem lost after /compact)",
+        quote: "Project-root CLAUDE.md survives compaction: after /compact, Claude re-reads it from disk and re-injects it into the session. Nested CLAUDE.md files in subdirectories are not re-injected automatically; they reload the next time Claude reads a file in that subdirectory."
+      }
   },
   {
     id: 260,
@@ -118,7 +143,12 @@ export const questionsPart5 = [
       a: "Block-level HTML comments are actively removed before injection — they are not preserved. The purpose is to save tokens.",
       c: "The removal is not total. Comments inside code blocks are preserved because they are part of the code, not document metadata.",
       d: "HTML comments are not converted into anything special. They are simply removed from the content before Claude sees it, saving tokens."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (How CLAUDE.md files load)",
+        quote: "Block-level HTML comments (<!-- maintainer notes -->) in CLAUDE.md files are stripped before the content is injected into Claude's context. Use them to leave notes for human maintainers without spending context tokens on them. Comments inside code blocks are preserved. When you open a CLAUDE.md file directly with the Read tool, comments remain visible."
+      }
   },
   {
     id: 261,
@@ -138,7 +168,12 @@ export const questionsPart5 = [
       b: "~/.claude/CLAUDE.md is for global personal preferences that apply to ALL projects. The question asks for preferences specific to a single project.",
       c: ".claude/settings.local.json is for settings configuration (hooks, permissions, etc.), not for natural language instructions to the model. CLAUDE.local.md is the correct file for personal instructions.",
       d: "There is no automatic filtering mechanism based on HTML comments. HTML comments are removed for ALL users, not selectively."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (Import additional files)",
+        quote: "For private per-project preferences that shouldn't be checked into version control, create a CLAUDE.local.md at the project root. It loads alongside CLAUDE.md and is treated the same way. Add CLAUDE.local.md to your .gitignore so it isn't committed; running /init and choosing the personal option does this for you."
+      }
   },
   {
     id: 262,
@@ -158,7 +193,12 @@ export const questionsPart5 = [
       a: "CLAUDE.md is NOT part of the system prompt. It is delivered as a separate user message after the system prompt. The system prompt contains base system instructions.",
       c: "Prefilled assistant messages are not used for CLAUDE.md. Furthermore, prefilled responses are deprecated in Claude 4.6/Mythos.",
       d: "No such hidden metadata mechanism exists. CLAUDE.md is delivered as visible content within the conversation as a user message."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory (Troubleshoot memory issues)",
+        quote: "CLAUDE.md content is delivered as a user message after the system prompt, not as part of the system prompt itself. Claude reads it and tries to follow it, but there's no guarantee of strict compliance, especially for vague or conflicting instructions."
+      }
   },
 
   // ===== Skills System (8 questions, IDs 263-270) =====
@@ -180,7 +220,12 @@ export const questionsPart5 = [
       a: "512 characters is too restrictive. The actual limit is 1,536 characters per skill entry.",
       c: "2,048 characters is incorrect. The documented limit is exactly 1,536 characters.",
       d: "There is an explicit character limit (1,536). The dynamic budget of 1% of context is the global budget for ALL descriptions, not the per-skill limit."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Frontmatter reference)",
+        quote: "What the skill does and when to use it. Claude uses this to decide when to apply the skill. If omitted, uses the first paragraph of markdown content. Front-load the key use case: the combined description and when_to_use text is truncated at 1,536 characters in the skill listing to reduce context usage."
+      }
   },
   {
     id: 264,
@@ -200,7 +245,12 @@ export const questionsPart5 = [
       a: "Quotes group 'hello world' as a single argument. It is not split into individual words when enclosed in quotes.",
       c: "The skill name (/my-skill) is not included in the arguments. $0 is the first argument passed TO the skill, not the skill name itself.",
       d: "Arguments are not concatenated. They are kept separate according to shell quoting: 'hello world' is one argument and 'second' is another."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Available string substitutions)",
+        quote: "Indexed arguments use shell-style quoting, so wrap multi-word values in quotes to pass them as a single argument. For example, /my-skill \"hello world\" second makes $0 expand to hello world and $1 to second. The $ARGUMENTS placeholder always expands to the full argument string as typed."
+      }
   },
   {
     id: 265,
@@ -220,7 +270,12 @@ export const questionsPart5 = [
       a: "Claude does NOT execute these commands. They are executed before Claude sees the skill content. Claude only sees the resulting output.",
       c: "While the timing coincides with the skill invocation, the key distinction is that it is automatic preprocessing, not a decision by Claude about whether to use the output.",
       d: "It is not post-processing. The command is executed BEFORE Claude sees the skill, not after it responds."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Inject dynamic context)",
+        quote: "When this skill runs: 1. Each !`<command>` executes immediately (before Claude sees anything) 2. The output replaces the placeholder in the skill content 3. Claude receives the fully-rendered prompt with actual PR data. This is preprocessing, not something Claude executes. Claude only sees the final result."
+      }
   },
   {
     id: 266,
@@ -240,7 +295,12 @@ export const questionsPart5 = [
       a: "The 5,000-token limit is for after compaction, not for the initial loading of the skill. Furthermore, if the skill loaded correctly but without task instructions, the problem would be the same.",
       c: "Subagents do load their own copy of CLAUDE.md (except Explore and Plan which omit it). The problem is the lack of task instructions in the skill, not the lack of CLAUDE.md.",
       d: "The 'agent' field is optional — there is a default agent type. The absence of this field does not cause the subagent to ignore instructions."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Run skills in a subagent)",
+        quote: "Add context: fork to your frontmatter when you want a skill to run in isolation. The skill content becomes the prompt that drives the subagent. It won't have access to your conversation history. context: fork only makes sense for skills with explicit instructions. If your skill contains guidelines like \"use these API conventions\" without a task, the subagent receives the guidelines but no actionable prompt, and returns without meaningful output."
+      }
   },
   {
     id: 267,
@@ -260,7 +320,12 @@ export const questionsPart5 = [
       a: "The values of 2,500 and 10,000 are incorrect. The actual limits are 5,000 tokens per skill and 25,000 total.",
       c: "8,000 and 40,000 are made-up values. The documented limits are 5,000 per skill and 25,000 total.",
       d: "There is a per-skill limit (5,000 tokens). Furthermore, the distribution is not even but prioritized by most recent invocation."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Skill content lifecycle)",
+        quote: "Auto-compaction carries invoked skills forward within a token budget. When the conversation is summarized to free context, Claude Code re-attaches the most recent invocation of each skill after the summary, keeping the first 5,000 tokens of each. Re-attached skills share a combined budget of 25,000 tokens. Claude Code fills this budget starting from the most recently invoked skill, so older skills can be dropped entirely after compaction if you have invoked many in one session."
+      }
   },
   {
     id: 268,
@@ -280,7 +345,12 @@ export const questionsPart5 = [
       a: "The description does NOT remain visible. That is the key difference: with disable-model-invocation: true the description is removed from context entirely, not just the invocation blocked.",
       c: "There is no confirmation mechanism. The skill simply does not exist for Claude until the user invokes it manually.",
       d: "The skill is not completely deactivated — the user CAN invoke it with /name. It is only removed from Claude's perspective."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Control who invokes a skill)",
+        quote: "disable-model-invocation: true: Only you can invoke the skill. Use this for workflows with side effects or that you want to control timing, like /commit, /deploy, or /send-slack-message. [...] Description not in context, full skill loads when you invoke."
+      }
   },
   {
     id: 269,
@@ -300,7 +370,12 @@ export const questionsPart5 = [
       a: "disableAllHooks disables hooks, not shell command execution in skills. The !`command` syntax in skills is a separate mechanism from the hooks system.",
       c: "allowedTools controls what tools Claude can use during skill execution, not the preprocessing !`command` commands. These are executed before Claude sees the skill.",
       d: "disallowedTools controls Claude's tools, not shell execution in skill preprocessing. They are completely different mechanisms."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills (Inject dynamic context)",
+        quote: "To disable this behavior for skills and custom commands from user, project, plugin, or additional-directory sources, set \"disableSkillShellExecution\": true in settings. Each command is replaced with [shell command execution disabled by policy] instead of being run. Bundled and managed skills are not affected. This setting is most useful in managed settings, where users cannot override it."
+      }
   },
   {
     id: 270,
@@ -320,7 +395,12 @@ export const questionsPart5 = [
       a: "There are 15 fields, not 8. Furthermore, 'name' is not required — it uses the directory name as default if not specified.",
       c: "There are 15 fields, not 12. No individual field is required — neither name nor description is mandatory (though description is 'recommended').",
       d: "There are 15 fields, not 20. None of the mentioned fields are required — all have defaults or are optional."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Skills (Frontmatter reference)",
+        quote: "All fields are optional. Only description is recommended so Claude knows when to use the skill. [...] name — No — Display name for the skill. If omitted, uses the directory name. Lowercase letters, numbers, and hyphens only (max 64 characters)."
+      }
   },
 
   // ===== CLI Flags (7 questions, IDs 271-277) =====
@@ -342,7 +422,12 @@ export const questionsPart5 = [
       a: "--bare omits ALL of these components, not just a subset. Its purpose is the most minimal mode possible with tools.",
       c: "--bare does not remove base tools. Claude retains Bash, file read, and file edit. It is not reduced to only generating text.",
       d: "--bare omits EVERYTHING: hooks, skills, plugins, MCP, auto memory, AND CLAUDE.md. It does not retain any of these components."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "Minimal mode: skip auto-discovery of hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md so scripted calls start faster. Claude has access to Bash, file read, and file edit tools. Sets CLAUDE_CODE_SIMPLE."
+      }
   },
   {
     id: 272,
@@ -362,7 +447,12 @@ export const questionsPart5 = [
       a: "No partial summary is generated. Claude simply exits with an error upon reaching the limit.",
       b: "It is not silent — it exits with an explicit ERROR, not a clean termination.",
       d: "In print mode (-p), there is no user interaction. --max-turns is for non-interactive use where confirmation cannot be requested."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "Limit the number of agentic turns (print mode only). Exits with an error when the limit is reached. No limit by default."
+      }
   },
   {
     id: 273,
@@ -382,7 +472,12 @@ export const questionsPart5 = [
       a: "--max-budget-usd only works in print mode, not in interactive mode. It is a flag specific to non-interactive use and automation.",
       c: "There is no --cost-limit flag in Claude Code. The correct flag is --max-budget-usd.",
       d: "--max-tokens is not a Claude Code CLI flag for limiting sessions. max_tokens is a Claude API parameter for limiting individual responses, not total spend."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "Maximum dollar amount to spend on API calls before stopping (print mode only)."
+      }
   },
   {
     id: 274,
@@ -402,7 +497,12 @@ export const questionsPart5 = [
       a: "--continue loads the most recent conversation, but --fork-session works with --resume which specifies a specific session by ID or name, not with --continue.",
       c: "There is no --fork flag as a standalone command. You need --resume to specify the base session and --fork-session to create the fork.",
       d: "There is no --new-session flag. The correct combination is --resume with --fork-session."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)."
+      }
   },
   {
     id: 275,
@@ -422,7 +522,12 @@ export const questionsPart5 = [
       a: "They are not synonyms. --system-prompt completely replaces while --append-system-prompt appends to the default. They have opposite functions.",
       c: "Both do not add content. --system-prompt REPLACES the entire prompt, it does not add to the beginning.",
       d: "They CAN be used together. The append flags can be combined with the replacement flags. Mutual exclusivity only applies between --system-prompt and --system-prompt-file."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference (System prompt flags)",
+        quote: "--system-prompt and --system-prompt-file are mutually exclusive. The append flags can be combined with either replacement flag. For most use cases, use an append flag. Appending preserves Claude Code's built-in capabilities while adding your requirements. Use a replacement flag only when you need complete control over the system prompt."
+      }
   },
   {
     id: 276,
@@ -442,7 +547,12 @@ export const questionsPart5 = [
       a: "It does not exclude all sections — it only moves dynamic/per-machine sections to a user message. The base system prompt is maintained.",
       c: "CLAUDE.md and auto memory are not part of the system prompt — they are already delivered as user messages. This flag addresses dynamic sections of the system prompt itself.",
       d: "It is not specific to MCP tools. It addresses dynamic sections of the system prompt that vary between machines, optimizing cache."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference",
+        quote: "Move per-machine sections from the system prompt (working directory, environment info, memory paths, git status) into the first user message. Improves prompt-cache reuse across different users and machines running the same task. Only applies with the default system prompt; ignored when --system-prompt or --system-prompt-file is set. Use with -p for scripted, multi-user workloads."
+      }
   },
   {
     id: 277,
@@ -462,7 +572,12 @@ export const questionsPart5 = [
       b: "The mode names are incorrect. 'readOnly', 'silent', and 'admin' do not exist. The correct modes are default, acceptEdits, plan, auto, dontAsk, bypassPermissions.",
       c: "The modes are correct but the description of 'plan' is wrong. Plan restricts to read-only and planning, it does not allow all actions with confirmation (that would be closer to 'default').",
       d: "The mode names are incorrect. 'restricted' and 'admin' do not exist. Furthermore, plan does not disable all tools except Read — it allows reading and planning."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — CLI reference (--permission-mode)",
+        quote: "Begin in a specified permission mode. Accepts default, acceptEdits, plan, auto, dontAsk, or bypassPermissions. Overrides defaultMode from settings files."
+      }
   },
 
   // ===== Prompt Engineering (7 questions, IDs 278-284) =====
@@ -484,7 +599,12 @@ export const questionsPart5 = [
       b: "The recommended tags are <example> and <examples>, not <shot> and <few-shots>. Using the correct tags is important for consistency.",
       c: "Individual <example> tags are needed for each example within the <examples> container. Without individual separation, Claude may confuse the boundaries between examples.",
       d: "A container <examples> tag is needed to group all examples and clearly distinguish them from the prompt instructions."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Use examples effectively)",
+        quote: "Structured: Wrap examples in <example> tags (multiple examples in <examples> tags) so Claude can distinguish them from instructions. Include 3–5 examples for best results. You can also ask Claude to evaluate your examples for relevance and diversity, or to generate additional ones based on your initial set."
+      }
   },
   {
     id: 279,
@@ -504,7 +624,12 @@ export const questionsPart5 = [
       a: "Placing the query first and documents after is the incorrect order. The 30% improvement comes from data on top and queries at the bottom, not the reverse.",
       c: "Interleaving is not the recommendation. The optimal structure is clear: long data on top, queries and instructions at the bottom.",
       d: "Although Claude handles long contexts, order DOES matter. Tests demonstrate up to a 30% improvement with the correct order."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Long context prompting)",
+        quote: "Put longform data at the top: Place your long documents and inputs near the top of your prompt, above your query, instructions, and examples. This can significantly improve performance across all models. Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs."
+      }
   },
   {
     id: 280,
@@ -524,7 +649,12 @@ export const questionsPart5 = [
       a: "thinking: {type: \"enabled\", budget_tokens: N} is the extended thinking syntax (deprecated). Adaptive thinking uses type: \"adaptive\" without budget_tokens.",
       c: "There is no type: \"auto\" nor the effort_level parameter. The correct values are type: \"adaptive\" and output_config: {effort: \"high\"}.",
       d: "There is no extended_thinking as a boolean parameter nor thinking_budget as a string. The correct syntax uses the thinking object with type: \"adaptive\"."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Leverage thinking)",
+        quote: "Claude Opus 4.6 and Claude Sonnet 4.6 use adaptive thinking (thinking: {type: \"adaptive\"}), where Claude dynamically decides when and how much to think. Claude calibrates its thinking based on two factors: the effort parameter and query complexity. Higher effort elicits more thinking, and more complex queries do the same."
+      }
   },
   {
     id: 281,
@@ -544,7 +674,12 @@ export const questionsPart5 = [
       a: "There is no 'ultra' level. The levels are low, medium, high, and max.",
       c: "There is no 'extreme' level. The levels are low, medium, high, and max.",
       d: "'high' is NOT the maximum level nor is it exclusive to Opus 4.6. 'high' is available on all models. The level exclusive to Opus 4.6 is 'max'."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Skills (Frontmatter reference, effort field)",
+        quote: "Effort level when this skill is active. Overrides the session effort level. Default: inherits from session. Options: low, medium, high, xhigh, max; available levels depend on the model."
+      }
   },
   {
     id: 282,
@@ -564,7 +699,12 @@ export const questionsPart5 = [
       a: "Prefilled responses do NOT continue working in Claude 4.6. It is a breaking change that requires migration.",
       c: "It is not a matter of degraded quality — prefilled responses are actively deprecated, not just less effective.",
       d: "There is no legacy_mode parameter. Migration requires switching to Structured Outputs or direct instructions."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Migrating away from prefilled responses)",
+        quote: "Starting with Claude 4.6 models and Claude Mythos Preview, prefilled responses on the last assistant turn are no longer supported. On Mythos Preview, requests with prefilled assistant messages return a 400 error. Model intelligence and instruction following has advanced such that most use cases of prefill no longer require it. Existing models will continue to support prefills, and adding assistant messages elsewhere in the conversation is not affected."
+      }
   },
   {
     id: 283,
@@ -584,7 +724,12 @@ export const questionsPart5 = [
       a: "There is no parallel_execution parameter in the API. The optimization is done at the prompt level, not via API parameters.",
       c: "There is no parallel: true field in tool definitions. Parallelism is promoted through instructions in the prompt.",
       d: "Although Claude 4.6 is good at parallelism, it achieves near-100% success with the explicit prompt using <use_parallel_tool_calls>. It is not completely automatic without indication."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Optimize parallel tool calling)",
+        quote: "This behavior is easily steerable. While the model has a high success rate in parallel tool calling without prompting, you can boost this to ~100% or adjust the aggression level: <use_parallel_tool_calls> If you intend to call multiple tools and there are no dependencies between the tool calls, make all of the independent tool calls in parallel. [...] </use_parallel_tool_calls>"
+      }
   },
   {
     id: 284,
@@ -604,7 +749,12 @@ export const questionsPart5 = [
       a: "Claude CAN read its own previous output in the same session. The problem is not about access but about confirmation bias.",
       c: "Token cost is not the main limitation. The fundamental problem is the reasoning bias, not the economic cost.",
       d: "Claude does not necessarily lose context. The problem is that it RETAINS too much context (its own reasoning), which biases the review."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt engineering best practices (Chain complex prompts)",
+        quote: "The most common chaining pattern is self-correction: generate a draft → have Claude review it against criteria → have Claude refine based on the review. Each step is a separate API call so you can log, evaluate, or branch at any point."
+      }
   },
 
   // ===== Batch Processing (7 questions, IDs 285-291) =====
@@ -626,7 +776,12 @@ export const questionsPart5 = [
       a: "Dots (.) are not allowed in custom_id. Only letters, digits, underscores, and hyphens are accepted.",
       c: "Slashes (/) are not allowed. The regex only admits [a-zA-Z0-9_-].",
       d: "Not any ASCII character is valid. Only alphanumerics, underscores, and hyphens. Brackets and other special characters are not allowed."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Prepare and create your batch)",
+        quote: "A unique custom_id for identifying the Messages request. Must be 1 to 64 characters and contain only alphanumeric characters, hyphens, and underscores (matching ^[a-zA-Z0-9_-]{1,64}$)."
+      }
   },
   {
     id: 286,
@@ -646,7 +801,12 @@ export const questionsPart5 = [
       a: "Neither 'queued' nor 'completed' exist as processing_status values. The only values are 'in_progress' and 'ended'.",
       c: "There are not 3 states. Only exactly 2 exist: 'in_progress' and 'ended'. Neither 'pending' nor 'completed' exist.",
       d: "'succeeded' and 'failed' are concepts for individual request results, not batch-level states. The batch only has 'in_progress' and 'ended'."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Tracking your batch)",
+        quote: "The Message Batch's processing_status field indicates the stage of processing the batch is in. It starts as in_progress, then updates to ended once all the requests in the batch have finished processing, and results are ready."
+      }
   },
   {
     id: 287,
@@ -666,7 +826,12 @@ export const questionsPart5 = [
       a: "errored is NOT billed. Only 'succeeded' is billed. Requests with errors do not incur charges.",
       c: "The correct names are succeeded/errored/canceled/expired, not completed/failed/timeout. Furthermore, errored is not billed.",
       d: "The correct names are errored and expired, not errored and timeout/skipped. Furthermore, errored is NOT billed."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (4 result types table)",
+        quote: "succeeded: Request was successful. Includes the message result. | errored: Request encountered an error and a message was not created. Possible errors include invalid requests and internal server errors. You will not be billed for these requests. | canceled: User canceled the batch before this request could be sent to the model. You will not be billed for these requests. | expired: Batch reached its 24 hour expiration before this request could be sent to the model. You will not be billed for these requests."
+      }
   },
   {
     id: 288,
@@ -686,7 +851,12 @@ export const questionsPart5 = [
       a: "The limits of 50,000 requests and 128MB are incorrect. The actual values are 100,000 requests and 256MB.",
       c: "1,000,000 requests and 1GB are excessively high. The actual limits are 100,000 requests and 256MB.",
       d: "There IS a request limit (100,000) and the size limit is 256MB, not 512MB."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Batch limitations)",
+        quote: "A Message Batch is limited to either 100,000 Message requests or 256 MB in size, whichever is reached first."
+      }
   },
   {
     id: 289,
@@ -706,7 +876,12 @@ export const questionsPart5 = [
       a: "Results are NOT available indefinitely. They have a retention period of 29 days after creation.",
       c: "7 days is incorrect. The results retention period is 29 days.",
       d: "24 hours is the expiration time for batch PROCESSING, not results retention. Results persist for 29 days."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Batch limitations)",
+        quote: "Batch results are available for 29 days after creation. After that, you may still view the Batch, but its results will no longer be available for download."
+      }
   },
   {
     id: 290,
@@ -726,7 +901,12 @@ export const questionsPart5 = [
       a: "The discount is not 25%. It is 50% — exactly half the standard price.",
       c: "The 50% discount applies to BOTH input AND output tokens, not just input.",
       d: "There IS a significant 50% discount on tokens. This is the main incentive for using batch processing."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Pricing)",
+        quote: "The Batches API offers significant cost savings. All usage is charged at 50% of the standard API prices."
+      }
   },
   {
     id: 291,
@@ -746,7 +926,12 @@ export const questionsPart5 = [
       a: "Validation is NOT synchronous at creation time. Params are validated during asynchronous batch processing.",
       c: "There is no two-phase validation. All validation occurs asynchronously during processing.",
       d: "Params ARE validated — requests with invalid params result in 'errored'. They are not sent to the model without validation."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Batch processing (Test your batch requests tip)",
+        quote: "Validation of the params object for each message request is performed asynchronously, and validation errors are returned when processing of the entire batch has ended. You can ensure that you are building your input correctly by verifying your request shape with the Messages API first."
+      }
   },
 
   // ===== Structured Outputs (5 questions, IDs 292-296) =====
@@ -768,7 +953,12 @@ export const questionsPart5 = [
       a: "response_format: {type: \"json_object\"} is the OpenAI syntax, not the Claude API. Claude uses output_config.format.",
       c: "output_format as a top-level parameter is the old syntax (deprecated). Furthermore, json_schema does not go as a separate parameter but inside output_config.format.",
       d: "content_type in headers does not control Claude's response format. The control is at the request body level with output_config.format."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured outputs",
+        quote: "output_config: { format: { type: \"json_schema\", schema: { type: \"object\", properties: {...}, required: [...], additionalProperties: false } } }"
+      }
   },
   {
     id: 293,
@@ -788,7 +978,12 @@ export const questionsPart5 = [
       a: "They are not equivalent. strict: true operates on tool use inputs; output_config.format operates on Claude's direct response. They cover different aspects.",
       c: "Both are available in all SDKs. They are not language-specific.",
       d: "strict: true validates both the tool name and the inputs against the schema, not just the name."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured outputs",
+        quote: "JSON outputs (output_config.format): Get Claude's response in a specific JSON format — Controls what Claude says (final response). Strict tool use (strict: true): Guarantee schema validation on tool names and inputs — Controls how Claude calls your functions (tool parameters). When combined, Claude can call tools with guaranteed-valid parameters AND return structured JSON responses."
+      }
   },
   {
     id: 294,
@@ -808,7 +1003,12 @@ export const questionsPart5 = [
       a: "dataclasses and TypeBox are not the official helpers. Python uses Pydantic and TypeScript uses Zod in the Anthropic SDKs.",
       c: "marshmallow and io-ts are not the official helpers in the Anthropic SDKs. Pydantic and Zod are the integrated libraries.",
       d: "Although direct JSON Schema IS supported as an alternative, the official SDKs provide helpers (Pydantic and Zod) which are the recommended and more ergonomic approach."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured outputs",
+        quote: "Python with Pydantic: client.messages.parse(model=..., output_format=ContactInfo). The parse() method automatically transforms your Pydantic model, validates the response, and returns a parsed_output attribute. TypeScript with Zod: import { zodOutputFormat } from \"@anthropic-ai/sdk/helpers/zod\"; output_config: { format: zodOutputFormat(ContactInfoSchema) }. The parse() method accepts a Zod schema, validates the response, and returns a parsed_output attribute with inferred TypeScript type matching the schema."
+      }
   },
   {
     id: 295,
@@ -828,7 +1028,12 @@ export const questionsPart5 = [
       a: "The code DOES compile without as const — it is not a compilation error. The problem is that you lose type inference.",
       c: "It is not functionally the same. Without as const, the parsed result's type is 'unknown', meaning you need unsafe manual type assertions.",
       d: "TypeScript does NOT infer correctly without as const. The type collapses to 'unknown', which is significantly worse than having the exact types."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured outputs",
+        quote: "The as const assertion is required for compile-time type inference with jsonSchemaOutputFormat(). [...] Without as const, TypeScript cannot narrow the property types, and the inferred type collapses to unknown. The as const assertion enables TypeScript to infer the exact structure of your literal object expression."
+      }
   },
   {
     id: 296,
@@ -848,7 +1053,12 @@ export const questionsPart5 = [
       a: "Structured Outputs do not guarantee faster speed or lower token consumption. Their benefit is guaranteed format correctness.",
       c: "Structured Outputs guarantee much more than parseable JSON — they guarantee full schema compliance including types and required fields.",
       d: "Prompt instructions CANNOT guarantee the same thing. They are probabilistic — they can fail. Structured Outputs are deterministic via constrained decoding."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured outputs",
+        quote: "Structured outputs guarantee three key properties: Always Valid JSON — No more JSON.parse() errors. Type Safe — Guaranteed field types and required fields: Required fields are always present; Field types match your schema definition; No missing or unexpected field types. No Retries Needed — Reliable: No retries needed for schema violations."
+      }
   },
 
   // ===== Context Window (4 questions, IDs 297-300) =====
@@ -870,7 +1080,12 @@ export const questionsPart5 = [
       a: "There are 7 items, not 4. And the total consumption is ~7,850 tokens, not 3,500.",
       c: "There are 7 items, not 10. And the consumption is ~7,850 tokens, not 12,000.",
       d: "There are 7 items loaded at startup, not just 3. In addition to the system prompt, CLAUDE.md, and auto memory, environment info, MCP tools, skill descriptions, and ~/.claude/CLAUDE.md are also loaded."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Context window (Explore the context window)",
+        quote: "System prompt (4,200 tokens); Auto memory MEMORY.md (680 tokens); Environment info (280 tokens); MCP tools deferred (120 tokens); Skill descriptions (450 tokens); ~/.claude/CLAUDE.md (320 tokens); Project CLAUDE.md (1,800 tokens). Before you type anything: CLAUDE.md, auto memory, MCP tool names, and skill descriptions all load into context."
+      }
   },
   {
     id: 298,
@@ -890,7 +1105,12 @@ export const questionsPart5 = [
       a: "5% would be too aggressive and would lose too much context. The actual ratio is ~12%.",
       c: "25% is too high. Compaction is more aggressive than that, producing ~12% of the original.",
       d: "50% is not significant compaction. The actual ratio is ~12%, which allows recovering a substantial portion of the context window."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Context window (compaction summary)",
+        quote: "All conversation events condensed into one structured summary. The summary keeps: your requests and intent, key technical concepts, files examined or modified with important code snippets, errors and how they were fixed, pending tasks, and current work. It replaces the verbatim conversation: full tool outputs and intermediate reasoning are gone."
+      }
   },
   {
     id: 299,
@@ -910,7 +1130,12 @@ export const questionsPart5 = [
       a: "Skill descriptions (the general listing) do NOT survive. Only invoked skills are preserved with token limits.",
       c: "There is no 50% compression of descriptions. The complete listing is lost; only invoked skills are preserved.",
       d: "Survival does not depend on the disable-model-invocation value. It depends on whether the skill was invoked during the session or not."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Context window (What survives compaction)",
+        quote: "One-line descriptions of available skills so Claude knows what it can invoke. Full skill content loads only when Claude actually uses one. Skills with disable-model-invocation: true are not in this list. They stay completely out of context until you invoke them with /name. Unlike the rest of the startup content, this listing is not re-injected after /compact. Only skills you actually invoked get preserved."
+      }
   },
   {
     id: 300,
@@ -930,7 +1155,12 @@ export const questionsPart5 = [
       a: "The context is 200K tokens, not 128K. Furthermore, more items than just the system prompt and project CLAUDE.md are re-injected.",
       c: "Skill descriptions are NOT automatically re-injected after compaction. Subdirectory CLAUDE.md files are not either — they are reloaded on demand.",
       d: "The context is 200K, not 256K. Furthermore, persistent items are missing such as environment info, MCP tools, and ~/.claude/CLAUDE.md."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Context window (What survives compaction table)",
+        quote: "System prompt and output style — Unchanged; not part of message history. Project-root CLAUDE.md and unscoped rules — Re-injected from disk. Auto memory — Re-injected from disk. Rules with paths: frontmatter — Lost until a matching file is read again. Nested CLAUDE.md in subdirectories — Lost until a file in that subdirectory is read again. Invoked skill bodies — Re-injected, capped at 5,000 tokens per skill and 25,000 tokens total; oldest dropped first."
+      }
   },
 
   // ===== Hooks in settings.json (4 questions, IDs 301-304) =====
@@ -952,7 +1182,12 @@ export const questionsPart5 = [
       a: "The types 'script' and 'webhook' do not exist. The correct types are command, http, prompt, and agent.",
       c: "The types 'shell', 'api', 'llm', and 'subprocess' do not exist. The correct names are command, http, prompt, and agent.",
       d: "The types 'websocket' and 'plugin' do not exist. The correct types are command, http, prompt, and agent."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks",
+        quote: "Command Hooks (type: \"command\"): Run shell commands that receive JSON input on stdin and communicate results through exit codes and stdout. HTTP Hooks (type: \"http\"): Send the event's JSON input as an HTTP POST request to a URL. Prompt Hooks (type: \"prompt\"): Send a prompt to a Claude model for single-turn evaluation. The model returns a yes/no decision as JSON. Agent Hooks (type: \"agent\"): Spawn a subagent that can use tools like Read, Grep, and Glob to verify conditions before returning a decision."
+      }
   },
   {
     id: 302,
@@ -972,7 +1207,12 @@ export const questionsPart5 = [
       a: "Exit code 2 is not a warning — it is a TOTAL BLOCK. The tool call is not executed under any circumstances.",
       c: "Exit code 2 does not terminate the session. It only blocks the specific tool call. The session continues normally.",
       d: "There is no automatic retry mechanism. JSON in stdout is IGNORED when the exit code is 2. No output data from the hook is used."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks (Exit Code 2 Blocking)",
+        quote: "When a PreToolUse hook exits with code 2: The tool call is blocked before execution. The stderr message is fed back to Claude. Claude sees the reason and can adjust its approach. JSON output is only processed on exit 0. If you exit 2, any JSON is ignored and stderr becomes the feedback mechanism."
+      }
   },
   {
     id: 303,
@@ -992,7 +1232,12 @@ export const questionsPart5 = [
       a: "It is not silently truncated. The full content is saved to a file and a reference to the file is provided.",
       c: "It is not rejected with an error. The mechanism is save to file + preview, not failure.",
       d: "There IS a 10,000-character limit for these fields. Content exceeding the limit is handled with the file + preview mechanism."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks (additionalContext cap)",
+        quote: "Hook output injected into context (additionalContext, systemMessage, or plain stdout) is capped at 10,000 characters. Output that exceeds this limit is saved to a file and replaced with a preview and file path, the same way large tool results are handled."
+      }
   },
   {
     id: 304,
@@ -1012,6 +1257,11 @@ export const questionsPart5 = [
       a: "asyncRewake is NOT synchronous. It implies async: true, so it runs in the background. It has nothing to do with extended timeouts.",
       c: "asyncRewake wakes CLAUDE, it does not just notify the user. The stderr is shown to Claude as a system reminder so it can act on the information.",
       d: "asyncRewake does not create a subagent. It is a background hook that can wake Claude. Subagents are a completely different concept."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks (asyncRewake field documentation)",
+        quote: "asyncRewake: If true, runs in the background and wakes Claude on exit code 2. Implies async. The hook's stderr, or stdout if stderr is empty, is shown to Claude as a system reminder so it can react to a long-running background failure."
+      }
   }
 ];

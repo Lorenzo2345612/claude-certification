@@ -18,7 +18,12 @@ export const questionsPart3 = [
       a: "Adding a separate validation subagent increases complexity without leveraging the domain expertise of the original subagents who produced the findings. The agents who did the research are best positioned to reconcile their own contradictions.",
       c: "Deferring contradiction resolution to synthesis or human review is reactive, not proactive. The synthesis agent lacks the research context to resolve factual contradictions, and human review defeats the purpose of automation.",
       d: "Sequential execution eliminates parallelism (a key benefit of multi-agent systems) and introduces ordering bias. Earlier agents' conclusions unduly influence later ones rather than allowing independent analysis."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2",
+        quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
+      }
   },
   {
     id: 102,
@@ -38,7 +43,12 @@ export const questionsPart3 = [
       a: "Truncating to the last 5 turns loses critical early context like customer verification, initial problem description, and early troubleshooting steps that were already attempted.",
       c: "Formatting the full conversation still requires the human agent to read through it. The problem is volume, not presentation. A structured summary eliminates irrelevant content entirely.",
       d: "Asking the customer to re-explain their issue is a poor experience. The customer already explained the issue and expects the handoff to preserve that context. This also loses the agent's diagnostic work."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.4",
+        quote: "Compiling structured handoff summaries (customer ID, root cause, refund amount, recommended action) when escalating to human agents who lack access to the conversation transcript."
+      }
   },
   {
     id: 103,
@@ -58,7 +68,12 @@ export const questionsPart3 = [
       a: "Sequential sessions lose the shared starting context and require manual orchestration. fork_session provides automatic parallelism and a natural comparison point from the same baseline.",
       c: "A single agent trying three approaches sequentially suffers from context contamination — the first approach's reasoning influences the second and third, preventing truly independent analysis.",
       d: "tool_choice forces specific tool selection but doesn't address the need for independent analytical approaches. Each approach requires different reasoning, not just different tools."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.7",
+        quote: "fork_session for creating independent branches from a shared analysis baseline to explore divergent approaches... Using fork_session to create parallel exploration branches (e.g., comparing two testing strategies or refactoring approaches from a shared codebase analysis)."
+      }
   },
   {
     id: 104,
@@ -78,7 +93,12 @@ export const questionsPart3 = [
       a: "Starting a new session discards all the context, decisions, and progress from the original session. Resuming with updated information preserves that valuable context.",
       c: "Claude Code does not automatically detect file changes between sessions. It will work with its cached understanding of the files, potentially generating patches against stale content that fail to apply.",
       d: "Running git pull updates local files but does not update the agent's in-context understanding. Without explicitly telling the agent what changed, it will still reason based on its stale mental model of the codebase."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.7",
+        quote: "The importance of informing the agent about changes to previously analyzed files when resuming sessions after code modifications... Informing a resumed session about specific file changes for targeted re-analysis rather than requiring full re-exploration."
+      }
   },
   {
     id: 105,
@@ -98,7 +118,12 @@ export const questionsPart3 = [
       a: "A fully peer-to-peer architecture removes centralized oversight entirely, making it harder to track progress, handle failures, and ensure task completion. The coordinator provides valuable orchestration that shouldn't be discarded.",
       c: "Merging agents eliminates separation of concerns. The search and analysis agents have different tool sets and specializations. Combining them creates a bloated agent with too many tools, degrading selection accuracy.",
       d: "An asynchronous message queue adds infrastructure complexity and doesn't solve the fundamental problem — the coordinator is still in the communication path. The issue is the routing topology, not the communication mechanism."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2 / 2.3",
+        quote: "Providing scoped cross-role tools for high-frequency needs (e.g., a verify_fact tool for the synthesis agent) while routing complex cases through the coordinator."
+      }
   },
   {
     id: 106,
@@ -118,7 +143,12 @@ export const questionsPart3 = [
       a: "Waiting for current subtasks to finish before addressing the new account introduces unnecessary delay. Adaptive decomposition should act on new information immediately.",
       b: "Restarting already-completed subtasks wastes compute and time. The existing results are still valid; only additional work is needed for the newly discovered account.",
       d: "Deferring to a human operator defeats the purpose of adaptive decomposition. The system should handle routine plan modifications autonomously; human escalation should be reserved for ambiguous situations."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.6",
+        quote: "The value of adaptive investigation plans that generate subtasks based on what is discovered at each step... Decomposing open-ended tasks... by first mapping structure, identifying high-impact areas, then creating a prioritized plan that adapts as dependencies are discovered."
+      }
   },
   {
     id: 107,
@@ -138,7 +168,12 @@ export const questionsPart3 = [
       b: "Continuing in the same session mixes two unrelated tasks. The refactoring context (60% done modifications, pending changes) creates noise for the bug fix and increases the chance of errors in both tasks.",
       c: "The 45-minute refactoring session contains valuable context: decisions made, files already modified, the plan for remaining work. Discarding it forces re-derivation of all that context. Session resume preserves it.",
       d: "Claude Code supports native session resume — there's no need to manually export and import state. This adds unnecessary complexity and risks losing context that session resume handles automatically."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.6 / 1.7",
+        quote: "Session context isolation: why the same Claude session that generated code is less effective at reviewing its own changes compared to an independent review instance."
+      }
   },
   {
     id: 108,
@@ -158,7 +193,12 @@ export const questionsPart3 = [
       a: "Re-invoking all 4 wastes the successful work of 3 subagents. Since each subagent operates on an independent subtask, there is no consistency dependency requiring simultaneous execution.",
       c: "Proceeding with incomplete results when recovery is straightforward (transient error with retry) produces a knowingly incomplete output. The missing subtask was part of the plan for a reason.",
       d: "Expanding the replacement subagent's scope beyond the failed task adds unnecessary complexity. The 3 successful results don't need verification — they completed normally. Keep the retry scoped to exactly what failed."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.2",
+        quote: "Implementing local error recovery within subagents for transient failures, propagating to the coordinator only errors that cannot be resolved locally along with partial results and what was attempted."
+      }
   },
   {
     id: 109,
@@ -178,7 +218,12 @@ export const questionsPart3 = [
       a: "A complexity classifier adds a separate classification step and creates two distinct code paths to maintain. Adaptive decomposition achieves the same result within a single agent architecture by letting the LLM reason about what's needed.",
       c: "Pre-computed responses are brittle and only work for exact matches. Customer queries vary in phrasing and context. This also doesn't help with the 40% of tickets that are not simple balance checks.",
       d: "Parallelizing all 4 steps means executing unnecessary steps (2 and 4 for simple queries), wasting compute. It also introduces complexity for steps with data dependencies where step N needs step N-1's output."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.6",
+        quote: "When to use fixed sequential pipelines (prompt chaining) versus dynamic adaptive decomposition based on intermediate findings... The value of adaptive investigation plans that generate subtasks based on what is discovered at each step."
+      }
   },
   {
     id: 110,
@@ -198,7 +243,12 @@ export const questionsPart3 = [
       a: "Shortening the objective risks losing critical context that subagents need to do their work correctly. The problem isn't the length of the objective — it's the repetition across delegation calls.",
       c: "Subagents are typically invoked as separate API calls or tool uses, each requiring their own context. Combining into a single tool call changes the architecture and may not be supported by the orchestration framework.",
       d: "Having subagents fetch the objective via MCP adds an extra tool call per subagent and doesn't actually save tokens — the objective still enters each subagent's context. It just adds latency from the fetch."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "That subagent context must be explicitly provided in the prompt—subagents do not automatically inherit parent context or share memory between invocations... The AgentDefinition configuration including descriptions, system prompts, and tool restrictions for each subagent type."
+      }
   },
   {
     id: 111,
@@ -218,7 +268,12 @@ export const questionsPart3 = [
       a: "A coordinator-subagent pattern is over-engineered for this use case. A single Claude Code session with access to test and edit tools handles the iterative cycle naturally within one agentic loop.",
       c: "A pipeline pattern implies a linear chain where each stage hands off to the next. Test-driven iteration is cyclical (test -> fix -> test -> fix) and doesn't fit a linear pipeline model.",
       d: "Running multiple fix attempts in parallel is wasteful because each test failure typically has a specific cause that needs targeted fixing. Parallel guessing is less reliable than Claude's sequential reasoning about what went wrong."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Tool Use (How Tool Use Works)",
+        quote: "The canonical shape is a while loop keyed on stop_reason... while stop_reason == 'tool_use', execute the tools and continue the conversation. The loop exits on any other stop reason ('end_turn', 'max_tokens', 'stop_sequence', or 'refusal')."
+      }
   },
   {
     id: 112,
@@ -238,7 +293,12 @@ export const questionsPart3 = [
       a: "Better prompting for the synthesis agent may help, but without the coordinator checking output quality, there's no guarantee the agent follows those instructions. The architectural gap is the missing feedback loop, not just the prompt.",
       c: "Theme tagging by subagents shifts the integration burden to the wrong place. Subagents research independently and cannot predict which themes will cut across all findings. Integration is inherently the synthesis agent's job.",
       d: "Access to the research objective is necessary but not sufficient. The problem isn't missing information — it's missing quality control. Even with the objective, the synthesis agent might still concatenate without the coordinator enforcing quality standards."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2",
+        quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
+      }
   },
   {
     id: 113,
@@ -258,7 +318,12 @@ export const questionsPart3 = [
       a: "Few-shot examples for Product C may help incrementally but don't address the fundamental issue that a single agent is managing three different policy sets. As policies evolve, the problem will recur.",
       c: "More context window doesn't improve reasoning accuracy. The issue isn't that policies are truncated — it's that the agent must reason across three different policy frameworks simultaneously, which increases decision complexity.",
       d: "A programmatic decision tree works for simple, deterministic rules but cannot handle the nuanced exception-based logic in Product C's complex policy. LLM reasoning is needed for judgment calls in exceptions."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.3",
+        quote: "The principle that giving an agent access to too many tools (e.g., 18 instead of 4-5) degrades tool selection reliability by increasing decision complexity... Scoped tool access: giving agents only the tools needed for their role."
+      }
   },
   {
     id: 114,
@@ -278,7 +343,12 @@ export const questionsPart3 = [
       a: "Regex parsing of free-form LLM text is fragile and error-prone. The LLM output format varies between calls. The fix should be at the source (structured output) not at the consumer (parsing).",
       c: "Making the synthesis agent handle unstructured input works around the problem rather than solving it. The synthesis agent's job is integration and analysis, not data normalization.",
       d: "Using the coordinator as an intermediate structuring step adds latency and token cost. The coordinator makes an extra LLM call per subagent just for formatting. Structure should be enforced at the source."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured Outputs",
+        quote: "Tool use (tool_use) with JSON schemas as the most reliable approach for guaranteed schema-compliant structured output, eliminating JSON syntax errors."
+      }
   },
   {
     id: 115,
@@ -298,7 +368,12 @@ export const questionsPart3 = [
       b: "Parallel subagents can't work here because the frontend depends on API contracts defined during backend implementation. The frontend subagent would need to wait for or guess the contracts, defeating parallelism.",
       c: "Frontend-first with mocks risks misalignment — the mocks may not match what the backend naturally produces, creating rework. Backend-first ensures the frontend is built against real contracts.",
       d: "fork_session creates independent branches from the same starting point. The frontend fork doesn't benefit from backend fork's decisions about API contracts. There's no mechanism for one fork to consume the other's output."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.7",
+        quote: "Choosing between session resumption (when prior context is mostly valid) and starting fresh with injected summaries (when prior tool results are stale)."
+      }
   },
   {
     id: 116,
@@ -318,7 +393,12 @@ export const questionsPart3 = [
       a: "Increasing max_tokens may help in some cases but doesn't guarantee completeness. The subagent might still hit limits with very large tasks, and there's no signal when it does. The architectural fix is to make incompleteness visible, not to hope limits aren't hit.",
       c: "Token count is a poor proxy for completeness. A subagent might produce a short but complete response for a simple subtask, or a long but still incomplete response for a complex one. Content-aware signals are more reliable than length-based heuristics.",
       d: "A watchdog timer addresses subagent hangs, not partial completion. The subagent completed and returned results — it just didn't indicate they were incomplete. Timing doesn't help detect content gaps."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.3",
+        quote: "Structuring synthesis output with coverage annotations indicating which findings are well-supported versus which topic areas have gaps due to unavailable sources."
+      }
   },
   {
     id: 117,
@@ -338,7 +418,12 @@ export const questionsPart3 = [
       a: "Exponential backoff is a good practice for retries but doesn't address the core problem of retrying already-successful steps. Even with backoff, retrying the order system call is wasteful and potentially harmful.",
       c: "Parallel execution of sequential dependencies is not possible — the payment call requires the order approval result as input. The dependency is inherent to the business process.",
       d: "A single timeout is a transient error that typically resolves on retry. Escalating on first failure would dramatically increase human agent workload for issues that self-resolve in seconds."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.2",
+        quote: "Implementing local error recovery within subagents for transient failures, propagating to the coordinator only errors that cannot be resolved locally along with partial results and what was attempted."
+      }
   },
   {
     id: 118,
@@ -358,7 +443,12 @@ export const questionsPart3 = [
       a: "Peer-to-peer eliminates the architectural benefits of centralized orchestration (progress tracking, task allocation, quality review). It solves the single point of failure but introduces coordination chaos.",
       c: "Leader election in LLM-based agents is impractical. LLM agents don't have the infrastructure for consensus protocols, and subagents lack the coordinator's broad context of the overall research plan.",
       d: "Reducing functionality to prevent failure is a workaround, not a solution. The review loop exists for quality control. Removing it to save tokens degrades output quality and doesn't truly eliminate the failure mode."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.4",
+        quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume... Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts."
+      }
   },
   {
     id: 119,
@@ -378,7 +468,12 @@ export const questionsPart3 = [
       a: "Prompt instructions alone are probabilistic. In CI automation where unattended execution is the norm, you need deterministic constraints. The agent may still 'helpfully' refactor despite the instruction.",
       c: "Post-hoc rejection catches the problem but doesn't prevent it. The CI pipeline still wastes time running Claude, running tests, and detecting failures. Prevention is better than detection in automated pipelines.",
       d: "Temperature affects sampling randomness, not the tendency to add unrequested changes. Even at temperature 0, Claude may still decide that refactoring is helpful based on its reasoning, not randomness."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — CLI / allowedTools",
+        quote: "--allowedTools — tools that execute without permission prompts. --disallowedTools — tools removed from context entirely."
+      }
   },
   {
     id: 120,
@@ -398,7 +493,12 @@ export const questionsPart3 = [
       a: "Fixed categories like 'solar, wind, hydro' are Western-centric and miss region-specific technologies. They also impose a technology-centric structure when a country-by-country or maturity-based structure might be more appropriate for the region.",
       c: "A gaps phase adds an extra round of execution after all initial subtasks complete. Adaptive decomposition identifies the right subtasks upfront, avoiding the latency of discovering gaps after the fact.",
       d: "A hybrid approach adds complexity without clear benefit over pure adaptive. If adaptive decomposition is capable of identifying the right subtasks (it is), adding fixed categories alongside risks redundancy and coordination overhead."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.6",
+        quote: "When to use fixed sequential pipelines (prompt chaining) versus dynamic adaptive decomposition based on intermediate findings... The value of adaptive investigation plans that generate subtasks based on what is discovered at each step."
+      }
   },
   {
     id: 121,
@@ -418,7 +518,12 @@ export const questionsPart3 = [
       a: "A lower safety cap terminates the loop faster but still doesn't resolve the customer's issue. The customer still gets no meaningful response — just a faster non-resolution. The fix should redirect to productive action, not just stop sooner.",
       c: "Removing get_order_status is too aggressive — it's needed for the 85% of cases where a single status check is sufficient. The problem is the loop behavior on 'processing' status, not the tool itself.",
       d: "Prompt instructions are probabilistic. For a pattern that occurs in 15% of tickets and has a measurable negative impact, programmatic enforcement is needed. The agent may not reliably count its own tool calls."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.4",
+        quote: "The difference between programmatic enforcement (hooks, prerequisite gates) and prompt-based guidance for workflow ordering... When deterministic compliance is required (e.g., identity verification before financial operations), prompt instructions alone have a non-zero failure rate."
+      }
   },
   {
     id: 122,
@@ -438,7 +543,12 @@ export const questionsPart3 = [
       a: "Vague feedback like 'provide more depth' is the most common anti-pattern in iterative refinement. The subagent may produce similarly shallow content on different subtopics, or pad with verbose text without adding substance.",
       c: "Switching to a different subagent discards the original subagent's research context and sources. Refinement of existing work is more efficient than restart, and the original subagent already has domain context.",
       d: "The coordinator acting as a researcher violates separation of concerns. The coordinator's role is orchestration and quality control, not content generation. It may also lack the research tools that the subagent has."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.2",
+        quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
+      }
   },
   {
     id: 123,
@@ -458,7 +568,12 @@ export const questionsPart3 = [
       b: "Real-time coaching via shared memory adds significant architectural complexity. The review criteria are static and known in advance — they should be provided upfront, not discovered through runtime communication.",
       c: "Iterative rejection-and-fix cycles work but are expensive and slow. If the criteria are known upfront, giving them to Agent A at the start eliminates most rejections, making the iteration loop a fallback rather than the primary mechanism.",
       d: "Implicit learning from examples is unreliable for LLMs (they don't 'learn' across sessions). Explicit criteria are more reliable and maintainable than hoping the model infers standards from examples."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering Best Practices",
+        quote: "Set role in system prompt to focus behavior and tone... Add context: explain WHY a behavior is important (Claude generalizes from explanation)."
+      }
   },
   {
     id: 124,
@@ -478,7 +593,12 @@ export const questionsPart3 = [
       a: "Linting rules and Claude Code reviews are different systems. Claude's review comments come from LLM reasoning, not linting rules. Adding linting exceptions doesn't affect Claude's analysis.",
       c: "Post-hoc filtering is fragile — you'd need to maintain a growing list of patterns to filter, and the filter might incorrectly suppress legitimate issues that resemble known false positives.",
       d: "Fine-tuning is extreme overkill for team conventions that can be documented in a few lines. It's also inflexible — conventions change regularly and would require re-tuning."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory / CLAUDE.md",
+        quote: "CLAUDE.md as the mechanism for providing project context (testing standards, fixture conventions, review criteria) to CI-invoked Claude Code."
+      }
   },
   {
     id: 125,
@@ -498,7 +618,12 @@ export const questionsPart3 = [
       a: "Sequential API calls within the tool handler miss the opportunity for parallel execution. The coordinator should express parallelism declaratively (via multiple tool calls) and let the orchestrator handle concurrent execution.",
       c: "A batch tool hides the parallelism from Claude's reasoning. With individual tool calls, Claude can provide specific parameters and context for each subagent independently, which produces better delegation.",
       d: "A meta-coordinator adds an unnecessary layer. One coordinator managing multiple parallel subagents is the standard pattern — adding a meta-coordinator level increases latency and complexity without benefit."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "Spawning parallel subagents by emitting multiple Task tool calls in a single coordinator response rather than across separate turns."
+      }
   },
   {
     id: 126,
@@ -518,7 +643,12 @@ export const questionsPart3 = [
       a: "Forcing a specific tool on the next turn is too rigid. The agent might need to ask the customer a clarifying question before resolving. tool_choice doesn't account for the natural flow of conversation within a workflow step.",
       c: "Prompt instructions are probabilistic. When a customer directly asks a question, the LLM's conversational tendencies may override the workflow instruction, which is exactly what's happening here.",
       d: "Queuing the question hides it from the agent entirely, which may confuse the customer ('Why won't you answer my question?'). The agent should acknowledge the question and explain it will be addressed after the current workflow completes."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.4",
+        quote: "Implementing programmatic prerequisites that block downstream tool calls until prerequisite steps have completed (e.g., blocking process_refund until get_customer has returned a verified customer ID)."
+      }
   },
   {
     id: 127,
@@ -538,7 +668,12 @@ export const questionsPart3 = [
       b: "Making the synthesis agent handle multiple formats adds complexity to the wrong component. The synthesis agent should focus on integration and analysis, not format negotiation. Format normalization is a separate concern.",
       c: "Re-running subagents is wasteful — their research results are valid, only the format is wrong. Also, re-running doesn't guarantee compliance; the same subagents might produce free-form text again.",
       d: "Switching to free-form-only discards the structured data that 3 subagents already provide. Structured data is more reliable for programmatic processing. Moving backward in structure quality is the wrong direction."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.5",
+        quote: "Implementing PostToolUse hooks to normalize heterogeneous data formats (Unix timestamps, ISO 8601, numeric status codes) from different MCP tools before the agent processes them."
+      }
   },
   {
     id: 128,
@@ -558,7 +693,12 @@ export const questionsPart3 = [
       a: "CLAUDE.md content is incorporated into the system prompt context. It has appropriate priority for workflow instructions. The issue is specificity, not placement.",
       c: "Claude Code fully supports interactive patterns including clarifying questions. The interview pattern is a documented and recommended workflow for complex feature requests.",
       d: "settings.json configures permissions, MCP servers, and environment settings. Behavioral workflow patterns like the interview pattern belong in CLAUDE.md as project-level instructions."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.5",
+        quote: "The interview pattern: having Claude ask questions to surface considerations the developer may not have anticipated before implementing... Using the interview pattern to surface design considerations (e.g., cache invalidation strategies, failure modes) before implementing solutions in unfamiliar domains."
+      }
   },
 
   // ===== DOMAIN 2: Tool Design & MCP Integration (18%) — Questions 129-147 =====
@@ -580,7 +720,12 @@ export const questionsPart3 = [
       a: "More documentation on a tool with 15+ parameters across 4 document types adds to the model's cognitive load. The model must still reason about which parameters apply, which is the source of the 23% error rate.",
       c: "A pre-processing step that auto-fills parameters works around the model's confusion rather than solving it. It also creates a fragile dependency on document type detection accuracy.",
       d: "A discriminated union via document_type parameter still requires the model to correctly match types to parameters. It's marginally better than the current approach but doesn't eliminate the parameter confusion that specific tools solve."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
+      }
   },
   {
     id: 130,
@@ -600,7 +745,12 @@ export const questionsPart3 = [
       a: "A negative instruction alone is incomplete. It tells the model what NOT to do but doesn't guide it toward the correct alternative. The model needs positive guidance about when to use each tool.",
       b: "Renaming helps slightly but doesn't address the root cause — the ambiguous description. The model selects tools primarily based on descriptions, not names. The description 'related transactions' is the actual problem.",
       d: "Merging tools hides the distinction instead of clarifying it. The tools likely have different parameters, return schemas, and backend logic. A single tool with a type parameter is less self-documenting than two well-described specific tools."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Tool Use (Define Tools)",
+        quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations."
+      }
   },
   {
     id: 131,
@@ -620,7 +770,12 @@ export const questionsPart3 = [
       a: "A tool call is an action invocation. While list_reports would work functionally, it uses the wrong semantic primitive. Resources are cheaper, don't count as tool use turns, and are the intended MCP mechanism for content access.",
       c: "Embedding a full catalog in the server description wastes tokens on every interaction, even when the agent doesn't need the catalog. It also has size limitations and mixes metadata with content.",
       d: "MCP prompt templates are for structuring agent interactions, not for data access. They define conversation patterns, not content catalogs. Using them for catalog data conflates two different concerns."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.4",
+        quote: "MCP resources as a mechanism for exposing content catalogs (e.g., issue summaries, documentation hierarchies, database schemas) to reduce exploratory tool calls... Exposing content catalogs as MCP resources to give agents visibility into available data without requiring exploratory tool calls."
+      }
   },
   {
     id: 132,
@@ -640,7 +795,12 @@ export const questionsPart3 = [
       a: "Reducing to one server at a time eliminates the ability to perform cross-system tasks (e.g., linking a GitHub PR to a Jira ticket). Multi-server access is a feature, not a problem — the fix is better descriptions, not fewer servers.",
       c: "A routing prompt helps but is secondary to well-described tools. The model's primary selection mechanism is tool descriptions. Prompt instructions add a backup signal but don't fix the root cause of ambiguous descriptions.",
       d: "Consolidating independent services into a single server creates a maintenance nightmare. Each server has its own auth, versioning, and lifecycle. The solution is better tool descriptions, not architectural merging."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — MCP / Tool Naming",
+        quote: "MCP Tool Naming Pattern: mcp__<server>__<action>. Example: mcp__playwright__browser_screenshot."
+      }
   },
   {
     id: 133,
@@ -660,7 +820,12 @@ export const questionsPart3 = [
       a: "Building 100% custom reimplements standard JSON Schema validation that the community server already handles well. This is unnecessary duplication of effort for the 80% overlap.",
       c: "Forking creates a maintenance burden — you must track upstream updates and merge them with your changes. Using two separate servers avoids this coupling while providing the same functionality.",
       d: "Encoding business rules as prompt instructions makes validation probabilistic rather than deterministic. Business rule validation requires consistent, repeatable logic that tool execution provides but prompt instructions cannot guarantee."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.4",
+        quote: "Choosing existing community MCP servers over custom implementations for standard integrations (e.g., Jira), reserving custom servers for team-specific workflows."
+      }
   },
   {
     id: 134,
@@ -680,7 +845,12 @@ export const questionsPart3 = [
       a: "Input validation catches the error after the model has already made the wrong decision. It's better to prevent the error by making the tool interface unambiguous. Validation is a backup, not a primary fix.",
       c: "Description improvements help the model make better choices but don't prevent mistakes. The model might still pass a phone number despite the instruction. Constrained tools make the wrong input structurally impossible.",
       d: "Adding a phone_number parameter increases tool complexity and may not match backend capabilities. If the backend can look up by phone, it should be a separate constrained tool, not a parameter added to an already ambiguous tool."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.3",
+        quote: "Replacing generic tools with constrained alternatives (e.g., replacing fetch_url with load_document that validates document URLs)."
+      }
   },
   {
     id: 135,
@@ -700,7 +870,12 @@ export const questionsPart3 = [
       a: "Rate limiting controls volume, not scope. A rate-limited tool that can still do web searches will still be misused, just less frequently.",
       c: "Manual review is reactive and doesn't prevent misuse in real-time. For a tool used in automated research pipelines, the constraint must be enforced at the tool level, not through after-the-fact auditing.",
       d: "Renaming provides a hint but the model selects tools based on descriptions and capabilities, not just names. If the tool can still do web searches, renaming won't prevent the agent from using that capability."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.3",
+        quote: "Providing scoped cross-role tools for high-frequency needs (e.g., a verify_fact tool for the synthesis agent) while routing complex cases through the coordinator."
+      }
   },
   {
     id: 136,
@@ -720,7 +895,12 @@ export const questionsPart3 = [
       a: "The full schema belongs in a resource or a separate schema tool, not in the description. Embedding large schemas in descriptions bloats every API call and is impractical for large databases.",
       c: "LLMs cannot follow links to external documentation during inference. Tool descriptions must be self-contained since they are the only information the model has when deciding to use a tool.",
       d: "SQL dialect is one small piece of the needed information. It helps with query syntax but doesn't address the more impactful gaps: when to use the tool, what's allowed, output format, and boundaries with other tools."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Tool Use (Define Tools)",
+        quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations. Aim for at least 3-4 sentences per tool description, more if the tool is complex."
+      }
   },
   {
     id: 137,
@@ -740,7 +920,12 @@ export const questionsPart3 = [
       a: "Higher temperature increases randomness in sampling, not the quality of tool selection reasoning. It would likely decrease selection accuracy, not improve it.",
       c: "A tool recommender adds infrastructure complexity and introduces another potential point of failure. The simpler solution is to stay within the effective tool count by consolidating redundant tools.",
       d: "System prompt guides help marginally but don't overcome the fundamental degradation that occurs with too many tools. The model's reasoning becomes less reliable as option count increases regardless of prompt instructions."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.3",
+        quote: "The principle that giving an agent access to too many tools (e.g., 18 instead of 4-5) degrades tool selection reliability by increasing decision complexity."
+      }
   },
   {
     id: 138,
@@ -760,7 +945,12 @@ export const questionsPart3 = [
       a: "Renaming alone doesn't provide enough context for the model to understand the operational difference. The model needs to understand the accounting impact (reversal vs credit) to choose correctly, which requires descriptive text.",
       c: "Merging tools with fundamentally different accounting impacts into one tool increases error risk. A wrong type parameter value causes the same accounting discrepancy. Separate tools with clear descriptions are safer.",
       d: "Adding a confirmation step increases latency for every transaction and requires another LLM evaluation. The fix should prevent the wrong selection, not add a post-selection review that may also err."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Writing tool descriptions that clearly differentiate each tool's purpose, expected inputs, outputs, and when to use it versus similar alternatives."
+      }
   },
   {
     id: 139,
@@ -780,7 +970,12 @@ export const questionsPart3 = [
       b: "A parameter to restrict types addresses what the tool searches within its domain, not whether it should be selected at all. The model needs to know the tool's scope before calling it, which is the description's job.",
       c: "Keyword-based rejection is brittle and creates poor user experience. An agent asking about 'news coverage of a research paper' would be incorrectly blocked. The fix should guide selection, not reject valid queries post-selection.",
       d: "Renaming provides a weak signal. The model relies on descriptions for tool selection. 'search_scholarly_only' is better than 'search_academic_papers' but still doesn't convey what types of non-scholarly content to avoid."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.4",
+        quote: "Enhancing MCP tool descriptions to explain capabilities and outputs in detail, preventing the agent from preferring built-in tools (like Grep) over more capable MCP tools."
+      }
   },
   {
     id: 140,
@@ -800,7 +995,12 @@ export const questionsPart3 = [
       a: "Storing tokens directly in .mcp.json is a security risk if the file is version-controlled (which it typically is for team sharing). Secrets should never be in files that might be committed.",
       c: "A separate credentials.json is a custom solution that MCP doesn't natively support. Environment variable expansion is the built-in mechanism that .mcp.json already supports.",
       d: "Base64 encoding is not security — it's trivially reversible and provides no actual protection. It creates a false sense of security while the tokens remain easily extractable."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — MCP / Claude Code",
+        quote: "Claude Code supports environment variable expansion in .mcp.json files, allowing teams to share configurations while maintaining flexibility for machine-specific paths and sensitive values like API keys. Supported syntax: ${VAR} - Expands to the value of environment variable VAR."
+      }
   },
   {
     id: 141,
@@ -820,7 +1020,12 @@ export const questionsPart3 = [
       a: "Enum validation ensures the mode value is one of the 6 options but doesn't help the model choose the RIGHT mode. The model might correctly pick from the enum but still choose the wrong operation for the task.",
       c: "Requiring the agent to explain its mode choice adds token overhead without preventing errors. The model can rationalize any choice convincingly even when wrong. Structural clarity is more reliable than self-explanation.",
       d: "Grouping by input/output is arbitrary and doesn't match how the model reasons about operations. The model thinks in terms of 'I need to clean this data' not 'I need an input-phase operation.' Individual tools map directly to intent."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
+      }
   },
   {
     id: 142,
@@ -840,7 +1045,12 @@ export const questionsPart3 = [
       b: "A boolean parameter adds complexity to an existing tool and forces the model to reason about parameter combinations. A separate, well-described tool is cleaner and more discoverable.",
       c: "Removing basic preferences from get_customer_profile breaks backward compatibility and forces an extra tool call when agents only need basic preferences. The overlap of basic preferences in both tools is acceptable.",
       d: "Relying solely on prompt instructions to guide tool selection is weaker than having a properly described tool. The prompt instruction may be ignored, while a well-described tool is always visible in the tool schema."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Writing tool descriptions that clearly differentiate each tool's purpose, expected inputs, outputs, and when to use it versus similar alternatives."
+      }
   },
   {
     id: 143,
@@ -860,7 +1070,12 @@ export const questionsPart3 = [
       a: "MCP supports multiple simultaneous server connections without a hard limit of 2. If there were a connection error, it would manifest as an error message, not silent omission.",
       c: "Tool definitions are relatively small in the context window. Four MCP servers' worth of tool definitions won't exhaust a modern context window. This would only be a factor with hundreds of tools.",
       d: "While position bias exists in some LLM tasks, tool selection is primarily driven by description relevance, not tool ordering. A highly relevant tool described well will be selected regardless of its position in the tool list."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Tool descriptions as the primary mechanism LLMs use for tool selection; minimal descriptions lead to unreliable selection among similar tools."
+      }
   },
   {
     id: 144,
@@ -880,7 +1095,12 @@ export const questionsPart3 = [
       a: "Alphabetical ordering doesn't convey semantic relationships. 'balance' and 'credit_limit' would be separated alphabetically despite being financially related.",
       c: "A metadata field describing relationships adds complexity without restructuring the data. The model must first read the metadata, then map it to the flat fields. Nested structure makes relationships implicit in the data shape.",
       d: "Reducing fields loses potentially important data. The issue isn't the number of fields but their flat organization. Grouping preserves all data while improving comprehensibility."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "Using structured data formats to separate content from metadata (source URLs, document names, page numbers) when passing context between agents to preserve attribution."
+      }
   },
   {
     id: 145,
@@ -900,7 +1120,12 @@ export const questionsPart3 = [
       a: "Building a fully custom server reimplements standard Slack operations that the community server already handles well. This is unnecessary work and you lose the benefit of community maintenance and updates.",
       b: "Forking creates a maintenance burden — you must track upstream updates and resolve merge conflicts. The community server updates monthly, so your fork will quickly diverge.",
       d: "Having the agent orchestrate raw Slack API calls for a complex workflow (create channel, set topic, invite members, post initial message) is error-prone. A dedicated tool encapsulates this logic deterministically."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.4",
+        quote: "Choosing existing community MCP servers over custom implementations for standard integrations (e.g., Jira), reserving custom servers for team-specific workflows."
+      }
   },
   {
     id: 146,
@@ -920,7 +1145,12 @@ export const questionsPart3 = [
       a: "Error handling in the tool is good practice but reactive. The agent still wastes a tool call on an invalid action. Better descriptions prevent the invalid call in the first place.",
       c: "An auto_check parameter is a backend implementation detail. The tool should have clear preconditions in its description so the model doesn't call it unnecessarily. Auto-check hides the need for the model to reason about state.",
       d: "A separate validation tool adds another tool to the tool set (increasing total count) and creates a mandatory two-call pattern. The simpler solution is clear preconditions that tell the model to check status using an existing tool."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Tool Use (Define Tools)",
+        quote: "Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations."
+      }
   },
   {
     id: 147,
@@ -940,7 +1170,12 @@ export const questionsPart3 = [
       a: "A monolithic tool handling all layouts becomes increasingly complex and brittle as new layouts are encountered. Separation of concerns through composition is more maintainable.",
       c: "Trying all layouts is computationally wasteful and may produce ambiguous results when multiple patterns partially match. Classification first narrows the search to one appropriate extraction path.",
       d: "Converting non-standard invoices to a standard format is itself a complex extraction task. It doesn't eliminate the problem — it moves it to a different tool. Direct extraction from the actual layout is more reliable."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
+      }
   },
 
   // ===== DOMAIN 3: Claude Code Configuration & Workflows (20%) — Questions 148-168 =====
@@ -962,7 +1197,12 @@ export const questionsPart3 = [
       a: "Putting all standards in root CLAUDE.md and relying on Claude to apply them conditionally is error-prone. The model must always reason about which standards apply, which is unnecessary cognitive load when subdirectory CLAUDE.md provides automatic scoping.",
       b: "@import includes content into the root CLAUDE.md, making all standards always visible. This doesn't provide selective application based on which package you're editing — both frontend and backend standards would always be in context.",
       d: ".claude/settings.json handles permissions, environment variables, and MCP server configuration — not coding standards. Coding conventions belong in CLAUDE.md files."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory / CLAUDE.md Hierarchy",
+        quote: "The CLAUDE.md configuration hierarchy: user-level (~/.claude/CLAUDE.md), project-level (.claude/CLAUDE.md or root CLAUDE.md), and directory-level (subdirectory CLAUDE.md files)."
+      }
   },
   {
     id: 149,
@@ -982,7 +1222,12 @@ export const questionsPart3 = [
       a: "Putting personal preferences in the shared CLAUDE.md imposes your debugging patterns on all teammates. Even with a comment, it clutters the shared configuration with individual preferences.",
       c: "~/.claude/CLAUDE.md is for global personal preferences that apply to ALL projects. The question asks about preferences for a specific project, so CLAUDE.local.md within the project is the correct choice.",
       d: "The /memory command stores information in Claude's memory for the current session or future sessions, but it's less reliable and structured than CLAUDE.local.md for persistent, project-scoped personal preferences."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory",
+        quote: "Local | ./CLAUDE.local.md | Just you (current project)... CLAUDE.local.md lives at project root: ./CLAUDE.local.md. Should be added to .gitignore. Appended after CLAUDE.md at same directory level. Personal project-specific preferences."
+      }
   },
   {
     id: 150,
@@ -1002,7 +1247,12 @@ export const questionsPart3 = [
       a: "Style guidelines in CLAUDE.md help with conventions but don't tell Claude about existing test utilities it should reuse. Without seeing actual test files, Claude can't know about custom matchers, fixtures, or helper functions.",
       c: "Post-processing can fix formatting but can't make tests reuse existing utilities or match semantic testing patterns. If Claude duplicated a test helper, a formatter can't replace it with a reference to the existing one.",
       d: "In CI contexts, Claude Code typically runs in headless mode with constrained permissions. Searching the repository adds latency and tool calls to every CI run. Providing the needed files upfront in the context is more efficient and deterministic."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.6",
+        quote: "Providing existing test files in context so test generation avoids suggesting duplicate scenarios already covered by the test suite."
+      }
   },
   {
     id: 151,
@@ -1022,7 +1272,12 @@ export const questionsPart3 = [
       a: "Renaming files is error-prone and doesn't work with version control — CLAUDE.md changes would show up as diffs, and team members might accidentally commit the wrong version.",
       b: "Putting all role-specific instructions in one file wastes context tokens on irrelevant information. A frontend dev doesn't need DevOps deployment procedures cluttering their Claude Code context.",
       d: ".claude/rules/ files are loaded based on file glob patterns, not environment variables or user roles. They're designed for file-type-specific rules, not role-based conditional loading."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory / CLAUDE.local.md",
+        quote: "CLAUDE.local.md lives at project root: ./CLAUDE.local.md. Should be added to .gitignore. Appended after CLAUDE.md at same directory level. Personal project-specific preferences."
+      }
   },
   {
     id: 152,
@@ -1042,7 +1297,12 @@ export const questionsPart3 = [
       a: "CLAUDE.md instructions are probabilistic — Claude may forget to run the linter, especially in complex multi-step operations. Hooks provide deterministic execution that doesn't depend on model compliance.",
       c: "A manual slash command requires someone to remember to invoke it. The requirement is automatic linting after every edit, which only a hook can guarantee.",
       d: "An external file watcher runs outside Claude Code's context. Its output wouldn't automatically feed back into Claude's conversation, so Claude wouldn't see lint errors and couldn't fix them as part of its workflow."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Hooks",
+        quote: "PostToolUse hooks are useful for validation, logging, format checking, and providing Claude with contextual information about what occurred during tool execution."
+      }
   },
   {
     id: 153,
@@ -1062,7 +1322,12 @@ export const questionsPart3 = [
       b: "CLAUDE.md is for project-level instructions and conventions, not debugging logs. While known issues can go there, /memory is specifically designed for capturing session-level discoveries for future recall. Both have valid use cases, but for quick debugging notes, /memory is more appropriate.",
       c: "Saving the entire conversation is too verbose. /memory should capture a concise summary of the discovery, not a transcript. Token-efficient summaries are more useful for future recall than complete conversations.",
       d: "Git commit messages document what changed, not the investigation process that led to the fix. The debugging context (how the race condition was identified, what symptoms it caused) is valuable for future sessions and isn't captured in commits."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.1",
+        quote: "Using the /memory command to verify which memory files are loaded and diagnose inconsistent behavior across sessions."
+      }
   },
   {
     id: 154,
@@ -1082,7 +1347,12 @@ export const questionsPart3 = [
       a: "Subdirectory CLAUDE.md supplements the root configuration, it doesn't replace it. Claude Code walks up the directory hierarchy and includes all CLAUDE.md files from the current directory to the project root.",
       b: ".claude/rules/ files don't override CLAUDE.md files — they complement them. Both systems serve different purposes and coexist. Rules files provide file-type-specific instructions while CLAUDE.md provides project/directory-level context.",
       d: ".claude/rules/ files are included in the same context as CLAUDE.md, not applied as a separate post-processing step. All configuration sources are merged into the active context for Claude's reasoning."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Memory",
+        quote: "Loading: walks up directory tree from cwd, loading CLAUDE.md and CLAUDE.local.md at each level. Within each directory, CLAUDE.local.md appended after CLAUDE.md. Subdirectory CLAUDE.md files load on demand."
+      }
   },
   {
     id: 155,
@@ -1102,7 +1372,12 @@ export const questionsPart3 = [
       a: "Cache clearing is incomplete — session memory and conversation history may persist in other locations. Explicit session isolation flags are the designed mechanism for this use case.",
       c: "CLAUDE.md content should be the same for all reviews (project conventions). Different CLAUDE.md per PR conflates project configuration with session isolation, and doesn't prevent memory leakage.",
       d: "Docker containers provide filesystem isolation but are overkill for session isolation. Claude Code has built-in mechanisms for session isolation that are more efficient and simpler to configure than container orchestration."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.6",
+        quote: "Session context isolation: why the same Claude session that generated code is less effective at reviewing its own changes compared to an independent review instance."
+      }
   },
   {
     id: 156,
@@ -1122,7 +1397,12 @@ export const questionsPart3 = [
       a: "There is no formal precedence hierarchy where rules files override CLAUDE.md. Both are included in context and the model sees both instructions.",
       b: "CLAUDE.md is not prioritized over .claude/rules/ files. Both contribute to the context equally. The model doesn't have a formal mechanism to know which source should take precedence.",
       d: "Claude Code does not detect or surface contradictions between configuration sources. It silently merges them all and leaves resolution to the model's inference."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Memory",
+        quote: "Loading: walks up directory tree from cwd, loading CLAUDE.md and CLAUDE.local.md at each level. Within each directory, CLAUDE.local.md appended after CLAUDE.md."
+      }
   },
   {
     id: 157,
@@ -1142,7 +1422,12 @@ export const questionsPart3 = [
       a: "CLAUDE.md instructions apply to all interactions, not just feature implementation. The interview pattern would trigger even for simple tasks where it's unnecessary, slowing down quick edits.",
       c: "Multiple separate Claude Code invocations lose conversation context between stages. The clarifying questions in step 1 wouldn't be available in step 3. A single session with a slash command maintains full context.",
       d: "A PreToolUse hook on Edit is a fragile trigger point. Not all implementations start with Edit, and the hook would fire on every edit in every context, not just feature implementation workflows."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Skills / Commands",
+        quote: "Custom commands have been merged into skills. A file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both create /deploy and work the same way. Your existing .claude/commands/ files keep working."
+      }
   },
   {
     id: 158,
@@ -1162,7 +1447,12 @@ export const questionsPart3 = [
       a: "Prompt-only instructions are probabilistic. Claude may still modify tests if it judges that's the easier fix. Without programmatic enforcement, there's no guarantee of compliance, especially in complex scenarios.",
       c: "Post-hoc rejection catches the problem but wastes the entire CI pipeline execution. Prevention is more efficient than detection in automated workflows.",
       d: "Re-running original tests validates the fix but doesn't prevent the weakening behavior. If Claude weakened the assertions, the re-run would use the weakened versions and pass. You'd need to compare test file checksums, which is complex."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.4 / 3.6",
+        quote: "The difference between programmatic enforcement (hooks, prerequisite gates) and prompt-based guidance for workflow ordering... When deterministic compliance is required (e.g., identity verification before financial operations), prompt instructions alone have a non-zero failure rate."
+      }
   },
   {
     id: 159,
@@ -1182,7 +1472,12 @@ export const questionsPart3 = [
       a: "CLAUDE.md doesn't support conditional application based on file types. All content is always in context. Glob-based rules in .claude/rules/ provide the file-type scoping that CLAUDE.md lacks.",
       c: "PostToolUse hooks that run linters automatically are useful for automated linting but are separate from giving Claude instructions about which standards to follow. The rules tell Claude what to write; hooks verify it after the fact. Both can complement each other, but the rules are the primary answer.",
       d: "Subdirectory CLAUDE.md files scope by directory, not file type. If Python and TypeScript files coexist in the same directory, subdirectory CLAUDE.md can't differentiate between them."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.3",
+        quote: ".claude/rules/ files with YAML frontmatter paths fields containing glob patterns for conditional rule activation... Creating .claude/rules/ files with YAML frontmatter path scoping (e.g., paths: [\"terraform/**/*\"]) so rules load only when editing matching files."
+      }
   },
   {
     id: 160,
@@ -1202,7 +1497,12 @@ export const questionsPart3 = [
       a: "Editor settings affect manual editing but not Claude Code's output. Claude Code follows its own configuration (CLAUDE.md, rules), not editor settings. This doesn't solve the problem.",
       c: "While CLAUDE.local.md supports personal preferences, using it for formatting that contradicts CI-enforced standards means every PR will fail linting. Personal preferences should not conflict with project-enforced standards.",
       d: "~/.claude/settings.json configures permissions and MCP servers, not formatting preferences. Even if it could, per-project CI-enforced standards should take precedence over global personal preferences."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.1",
+        quote: "Diagnosing configuration hierarchy issues (e.g., a new team member not receiving instructions because they're in user-level rather than project-level configuration)."
+      }
   },
   {
     id: 161,
@@ -1222,7 +1522,12 @@ export const questionsPart3 = [
       b: "Memory is session-scoped or personal. It doesn't propagate across team members' sessions. Only shared configuration files like CLAUDE.md reach the entire team.",
       c: "Removing the deprecated API from the codebase may not be immediately possible — existing code still uses it and needs to be migrated. Also, Claude might still suggest the old API from its training data even if removed from the codebase.",
       d: "A hook that blocks tool calls containing deprecated API names is overly aggressive. It would block Claude from reading or discussing the deprecated code during migration work. The fix should guide Claude to suggest the new API, not block interaction with the old one."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory",
+        quote: "Project | ./CLAUDE.md or ./.claude/CLAUDE.md | Team via VCS."
+      }
   },
   {
     id: 162,
@@ -1242,7 +1547,12 @@ export const questionsPart3 = [
       a: "A bare 'make the tests pass' instruction lacks context about which tests, what feature they test, and what architectural patterns to follow. Claude may find the tests but produce an implementation that doesn't fit the codebase architecture.",
       c: "Three separate prompts fragment the workflow unnecessarily. Claude Code's agentic loop naturally handles analysis, planning, and implementation within a single prompt. Breaking it up loses momentum and may cause context fragmentation.",
       d: "Copy-pasting test code into the prompt is unnecessary since Claude Code can read files directly. It wastes prompt tokens and may lose important context like import statements and neighboring test files that Claude would discover by reading the file system."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.5",
+        quote: "Test-driven iteration: writing test suites first, then iterating by sharing test failures to guide progressive improvement... Writing test suites covering expected behavior, edge cases, and performance requirements before implementation, then iterating by sharing test failures."
+      }
   },
   {
     id: 163,
@@ -1262,7 +1572,12 @@ export const questionsPart3 = [
       a: "A faster model may be less capable at code analysis. The bottleneck is context size (processing the full repository), not model speed. Reducing context is more effective than switching models.",
       c: "Session caching between CI runs risks context contamination (one PR's context leaking into another's review). Each PR review should start fresh for accuracy.",
       d: "Parallel execution on different files can help but adds orchestration complexity and may miss cross-file issues. Scoping the input context is simpler and addresses the root cause of slow processing."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Context Windows",
+        quote: "As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available."
+      }
   },
   {
     id: 164,
@@ -1282,7 +1597,12 @@ export const questionsPart3 = [
       a: "Adding exceptions to every rule file is unmaintainable. As rules grow, each needs a legacy exception. A single legacy/CLAUDE.md is a cleaner, centralized place for legacy-specific guidance.",
       c: "Moving legacy code to a separate repo is a major architectural decision that shouldn't be driven by Claude Code configuration. The legacy code likely shares dependencies and deployment with the main codebase.",
       d: "Excluding legacy files from all rules means Claude has no guidance at all when editing legacy code. The legacy code still needs conventions — just different ones from the main codebase."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Memory / Compaction Survival",
+        quote: "Project-root CLAUDE.md survives: re-read from disk and re-injected after /compact. Nested subdirectory CLAUDE.md NOT re-injected until Claude reads files in that subdirectory."
+      }
   },
   {
     id: 165,
@@ -1302,7 +1622,12 @@ export const questionsPart3 = [
       a: "@import is not a directory-watch mechanism. It imports specific files by path. There is no automatic discovery of new files in directories that contain imported files.",
       c: "Claude Code doesn't validate that all files in a directory are imported. Unimported files are simply not included — no error is generated.",
       d: "Even if Claude reads the standards/ directory during file exploration, that's different from the file being part of the persistent CLAUDE.md context. @import content is loaded at session start as part of the project configuration."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Memory / @import",
+        quote: "The @import syntax for referencing external files to keep CLAUDE.md modular (e.g., importing specific standards files relevant to each package)... Maximum depth of 5 hops. Both relative and absolute paths allowed."
+      }
   },
   {
     id: 166,
@@ -1322,7 +1647,12 @@ export const questionsPart3 = [
       a: "CLAUDE.md applies to all file edits. The parameterized query rule is only relevant for database files. Putting it in CLAUDE.md wastes tokens and adds irrelevant instructions when editing non-database files.",
       c: "A PostToolUse hook can detect violations after they happen but doesn't guide Claude to write correct code in the first place. Prevention through rules is better than detection through hooks.",
       d: "db/CLAUDE.md would work if database files are only in the db/ directory, but the glob pattern **/db/**/*.ts suggests database directories may exist at multiple levels (e.g., src/services/db/, tests/db/). Rules with glob patterns cover all matching locations."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.3",
+        quote: "The advantage of glob-pattern rules over directory-level CLAUDE.md files for conventions that span multiple directories (e.g., test files spread throughout a codebase)... Choosing path-specific rules over subdirectory CLAUDE.md files when conventions must apply to files spread across the codebase."
+      }
   },
   {
     id: 167,
@@ -1342,7 +1672,12 @@ export const questionsPart3 = [
       a: "Sequential invocations improve focus but triple the wall-clock time (3 * current time). Parallel execution achieves the same focus benefit while keeping total time close to one invocation.",
       c: "A single prompt handling 3 different concerns still divides the model's attention. The model may prioritize security as instructed but at the cost of quality or coverage analysis. Separation of concerns applies to LLM tasks too.",
       d: "Temperature 0 affects token sampling, not analytical thoroughness. The root cause of missed security issues is divided attention across 3 concerns, not randomness in token selection."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.6",
+        quote: "Multi-pass review: splitting large reviews into per-file local analysis passes plus cross-file integration passes to avoid attention dilution and contradictory findings."
+      }
   },
   {
     id: 168,
@@ -1362,7 +1697,12 @@ export const questionsPart3 = [
       a: "Listing file paths and instructing Claude to read them requires multiple file-read tool calls at every session start, adding latency. @import loads the content directly into context without tool calls.",
       c: "A slash command must be manually invoked — team members might forget. Automatic inclusion via @import in CLAUDE.md requires no action from the developer.",
       d: "Session startup hooks aren't a standard Claude Code feature for loading context. @import in CLAUDE.md is the designed mechanism for automatically including reference material in every session."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 3.1",
+        quote: "Using @import to selectively include relevant standards files in each package's CLAUDE.md based on maintainer domain knowledge."
+      }
   },
 
   // ===== DOMAIN 4: Prompt Engineering & Structured Output (20%) — Questions 169-189 =====
@@ -1384,7 +1724,12 @@ export const questionsPart3 = [
       a: "LLMs don't use regex internally. A regex pattern doesn't reflect how the model actually extracted the value and wouldn't help identify transcription errors.",
       c: "Confidence scores are useful but don't help diagnose WHY an extraction was wrong. The source text comparison directly reveals the error type (B vs M), while a confidence score only says 'something might be off.'",
       d: "Location information helps find the source but doesn't enable automated comparison. You'd still need to read the document at that location to discover the discrepancy. The source snippet provides the comparison directly."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4",
+        quote: "Feedback loop design: tracking which code constructs trigger findings (detected_pattern field) to enable systematic analysis of dismissal patterns... Adding detected_pattern fields to structured findings to enable analysis of false positive patterns when developers dismiss findings."
+      }
   },
   {
     id: 170,
@@ -1404,7 +1749,12 @@ export const questionsPart3 = [
       a: "Blindly trusting the stated total ignores a potential error in the document. The discrepancy might indicate a missing line item or a typo in the total. Suppressing the calculated total hides valuable information.",
       b: "The calculated total may be wrong if a line item was missed in extraction. Without reporting the stated total, there's no way to know the extraction might be incomplete.",
       d: "Averaging financial figures is nonsensical. The discrepancy indicates an error somewhere — averaging doesn't resolve it and produces a number that exists in neither the document nor reality."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4",
+        quote: "Designing self-correction validation flows: extracting 'calculated_total' alongside 'stated_total' to flag discrepancies, adding 'conflict_detected' booleans for inconsistent source data."
+      }
   },
   {
     id: 171,
@@ -1424,7 +1774,12 @@ export const questionsPart3 = [
       a: "Higher temperature adds randomness but doesn't change the extraction strategy. The model still looks for the primary intent — it just might express it differently.",
       b: "Retrying when the info IS present in the source but the prompt doesn't ask for it is ineffective. The same prompt will consistently extract the same primary intent. This is a prompt design issue, not a sampling issue.",
       d: "Hard-coding specific intents makes the system brittle. It would catch 'duplicate_charge' but miss the next unexpected secondary intent. The fix should be structural (multi-intent extraction) not case-specific."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering Best Practices",
+        quote: "Be clear and direct — think of Claude as a brilliant but new employee. Provide sequential steps using numbered lists when order matters. Add context: explain WHY a behavior is important."
+      }
   },
   {
     id: 172,
@@ -1444,7 +1799,12 @@ export const questionsPart3 = [
       a: "A cheaper model may reduce accuracy, creating more errors that require expensive manual correction. Cost optimization should start with eliminating waste (deduplication) and refining prompts, not degrading capability.",
       c: "API batching doesn't work by putting 10,000 items in one call. The Anthropic Batch API processes requests concurrently but each is still a separate request. Also, batching doesn't address the 30% redundancy.",
       d: "Prompt length is a minor cost factor compared to the 30% redundancy in requests. Eliminating 30,000 unnecessary requests per hour at 100K scale saves far more than trimming a few tokens per request."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.5",
+        quote: "Using prompt refinement on a sample set before batch-processing large volumes to maximize first-pass success rates and reduce iterative resubmission costs."
+      }
   },
   {
     id: 173,
@@ -1464,7 +1824,12 @@ export const questionsPart3 = [
       b: "Adding enum values addresses the output format but not the semantic bias. Even with 'resigned' as an option, the 'termination_reason' field name still primes the model toward involuntary associations. The field name itself is the problem.",
       c: "The document clearly states the reason ('resigned to pursue educational opportunities'). The model has sufficient context. The issue is that the prompt's framing biases interpretation, not that information is missing.",
       d: "This is a systematic bias from the field name, not a random sampling error. Retrying with the same prompt will likely produce the same biased result."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 2.1",
+        quote: "The impact of system prompt wording on tool selection: keyword-sensitive instructions can create unintended tool associations... Reviewing system prompts for keyword-sensitive instructions that might override well-written tool descriptions."
+      }
   },
   {
     id: 174,
@@ -1484,7 +1849,12 @@ export const questionsPart3 = [
       a: "Raising the threshold reduces auto-resolution volume but doesn't address the root cause — confidently wrong classifications. An issue misclassified at 0.85 confidence might also appear at 0.96 confidence.",
       c: "You can't 'retrain' Claude's confidence model. Prompt engineering and system design are the available levers. Even with a fine-tuned model, high-confidence misclassification is a fundamental LLM limitation that requires system-level mitigation.",
       d: "Removing auto-resolve throws away the 75% that work correctly, dramatically increasing human workload. The fix should preserve auto-resolve for genuinely simple cases while catching misclassified complex ones."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.2",
+        quote: "Why sentiment-based escalation and self-reported confidence scores are unreliable proxies for actual case complexity."
+      }
   },
   {
     id: 175,
@@ -1504,7 +1874,12 @@ export const questionsPart3 = [
       a: "First-match ordering is arbitrary and not a sound severity assessment principle. An incident with both 'unauthorized access' and 'data breach' is clearly more severe than just 'unauthorized access.'",
       c: "Severity is a single classification, not an array. Reporting multiple levels doesn't help downstream systems that need to route or prioritize based on a single severity. The correct approach is to select the highest applicable level.",
       d: "Composite scoring adds unnecessary complexity. Security severity levels are ordinal (Critical > High > Medium > Low), and the standard practice is to assign the highest matching level, not compute scores."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.1",
+        quote: "Defining explicit severity criteria with concrete code examples for each severity level to achieve consistent classification."
+      }
   },
   {
     id: 176,
@@ -1524,7 +1899,12 @@ export const questionsPart3 = [
       b: "LLMs don't process code 'faster' than natural language. Both are tokenized and processed through the same architecture. The benefit is in clarity of communication, not processing speed.",
       c: "There isn't a separate 'code reasoning pathway' in LLMs. The model processes code and text through the same transformer layers. The improvement comes from reduced ambiguity, not different processing.",
       d: "Code examples don't affect temperature. Temperature is a sampling parameter set by the API caller. Examples improve output quality through clearer specification, not through parameter changes."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering Best Practices",
+        quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure... Include 3-5 examples for best results."
+      }
   },
   {
     id: 177,
@@ -1544,7 +1924,12 @@ export const questionsPart3 = [
       a: "'Think carefully' is a vague instruction that doesn't change the model's calculation behavior. Without specific formulas or constraints, the model may still produce a plausible-sounding but ungrounded recommendation.",
       c: "A lookup table removes the model's ability to reason about edge cases and specific customer contexts. It also requires maintaining the table as optimal thresholds change.",
       d: "A calculator tool is unnecessary for simple division. The prompt should guide the model's reasoning with explicit formulas. The issue is not mathematical capability but lack of structured reasoning requirements."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering (Chain of Thought)",
+        quote: "Prefer general instructions over prescriptive steps. Use <thinking> and <answer> tags when thinking disabled. Self-check: 'Before finishing, verify your answer against [criteria]'."
+      }
   },
   {
     id: 178,
@@ -1564,7 +1949,12 @@ export const questionsPart3 = [
       a: "'Only extract confirmed diagnoses' would miss suspected conditions that are clinically important. The goal should be to capture ALL diagnoses with appropriate certainty markers, not to filter out uncertain ones.",
       c: "A free-form disclaimer field is unstructured and hard to process programmatically. Defined certainty levels (confirmed/suspected/ruled_out) are actionable by downstream systems.",
       d: "Requiring the exact word 'diagnosed' is too restrictive. Medical records use varied language ('presented with,' 'findings consistent with,' 'treated for'). A flexible certainty schema captures the range of medical language."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3",
+        quote: "Adding enum values like 'unclear' for ambiguous cases and 'other' + detail fields for extensible categorization... Designing schema fields as optional (nullable) when source documents may not contain the information, preventing the model from fabricating values to satisfy required fields."
+      }
   },
   {
     id: 179,
@@ -1584,7 +1974,12 @@ export const questionsPart3 = [
       a: "More examples might help edge cases but don't change the fundamental limitation of single-label classification for mixed-sentiment messages. The architecture (single label) is the constraint, not the training data.",
       c: "Weighting negative words more heavily creates a bias that would misclassify genuinely positive messages containing casual negative language. The fix should capture multiple dimensions, not skew one dimension.",
       d: "An any-negative-word rule would flag 'No problem, happy to help!' as negative because of 'No' and 'problem.' Keyword rules are too crude for nuanced sentiment analysis."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3",
+        quote: "Schema design considerations: required vs optional fields, enum fields with 'other' + detail string patterns for extensible categories."
+      }
   },
   {
     id: 180,
@@ -1604,7 +1999,12 @@ export const questionsPart3 = [
       a: "A simple list format doesn't guide the model toward specificity. Without structured fields, the model defaults to generic summarization rather than detailed extraction.",
       c: "Summarizing first then extracting from the summary is a lossy two-step process. Specific details (names, dates, exact commitments) are often lost in summarization. Direct extraction from the transcript preserves details.",
       d: "Few-shot examples help format but don't address the specificity problem. The model might produce well-formatted but still generic items if the schema doesn't demand specific fields."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Structured Outputs",
+        quote: "Tool use (tool_use) with JSON schemas as the most reliable approach for guaranteed schema-compliant structured output, eliminating JSON syntax errors."
+      }
   },
   {
     id: 181,
@@ -1624,7 +2024,12 @@ export const questionsPart3 = [
       a: "Length doesn't equal quality. A vague summary doesn't become specific by being longer — it just becomes a longer vague summary. Structure, not length, drives quality.",
       c: "Requesting rewrites is reactive and adds latency. The fix should ensure quality at the source through schema requirements, not through post-hoc correction cycles.",
       d: "Quality-weighted synthesis is sophisticated but doesn't fix the root problem — inconsistent input quality. The synthesis agent shouldn't need to compensate for subagent quality variance. Fix the source."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Requiring subagents to include metadata (dates, source locations, methodological context) in structured outputs to support accurate downstream synthesis... Modifying upstream agents to return structured data (key facts, citations, relevance scores) instead of verbose content and reasoning chains when downstream agents have limited context budgets."
+      }
   },
   {
     id: 182,
@@ -1644,7 +2049,12 @@ export const questionsPart3 = [
       a: "Generic 'be careful' instructions don't provide actionable disambiguation criteria. The model needs specific label mappings ('Operating' -> operating_temp_range) to differentiate consistently.",
       b: "Two extraction passes double the API cost and don't help with disambiguation. If the model confuses the labels in one pass, it will likely confuse them in two passes without better guidance.",
       d: "Pre-processing datasheets to highlight sections adds a complex preprocessing step. The simpler fix is better extraction hints in the prompt that teach the model which labels to look for."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3",
+        quote: "Including format normalization rules in prompts alongside strict output schemas to handle inconsistent source formatting."
+      }
   },
   {
     id: 183,
@@ -1664,7 +2074,12 @@ export const questionsPart3 = [
       b: "Removing agent closure capability eliminates the problem but also eliminates the ability to close truly unresolvable tickets (discontinued products, etc.), increasing human agent workload unnecessarily.",
       c: "A minimum tool call count is arbitrary. Some issues genuinely can't be resolved in 3 calls (complex bugs), while others might be unresolvable after 1 call (wrong company). The criteria should be semantic, not numeric.",
       d: "Stronger language ('impossible') doesn't clarify the criteria. The model still needs to know what steps to take before concluding impossibility. Specificity beats intensity in prompt engineering."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.1",
+        quote: "The importance of explicit criteria over vague instructions (e.g., 'flag comments only when claimed behavior contradicts actual code behavior' vs 'check that comments are accurate')."
+      }
   },
   {
     id: 184,
@@ -1684,7 +2099,12 @@ export const questionsPart3 = [
       a: "Shortening the prompt risks reducing extraction accuracy. The primary optimization should be accuracy, not prompt length. A longer, more accurate prompt is more cost-effective than a shorter, error-prone one when considering error correction costs.",
       c: "Iterating on batch results is expensive and slow. Each batch iteration processes 50K invoices. Refining on a sample first is orders of magnitude cheaper and faster for prompt development.",
       d: "Five invoices is far too small a sample. It won't reveal edge cases, format variations, or statistical error patterns. A 500-1000 sample provides statistical significance for accuracy measurement."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.5",
+        quote: "Using prompt refinement on a sample set before batch-processing large volumes to maximize first-pass success rates and reduce iterative resubmission costs."
+      }
   },
   {
     id: 185,
@@ -1704,7 +2124,12 @@ export const questionsPart3 = [
       a: "'Provide deep insights' is no more actionable than 'provide insights.' Without defining what constitutes depth (drivers, counter-trends, implications), the model has no guidance on how to be deeper.",
       c: "Step-by-step thinking helps with logical reasoning tasks but doesn't define what analytical depth means for this domain. The model might think step-by-step and still produce surface observations if the target analysis structure isn't specified.",
       d: "More tokens give room for longer output but don't improve analytical depth. The model might produce more surface-level observations rather than fewer, deeper insights. Quality is a prompt issue, not a length issue."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.1",
+        quote: "Writing specific review criteria that define which issues to report (bugs, security) versus skip (minor style, local patterns) rather than relying on confidence-based filtering."
+      }
   },
   {
     id: 186,
@@ -1724,7 +2149,12 @@ export const questionsPart3 = [
       a: "'Include all exceptions' is vague. The model might add a free-text note or might interpret 'all exceptions' differently each time. A structured exceptions array in the schema makes the requirement explicit and parseable.",
       c: "Extracting raw clause text doesn't provide structured data. Downstream systems need programmatic access to the notice period and its exceptions, not a text blob they'd need to parse themselves.",
       d: "Two extraction passes double the cost and still require schema design for exceptions. A single pass with a comprehensive schema is more efficient and produces more consistent results."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.3",
+        quote: "Schema design considerations: required vs optional fields, enum fields with 'other' + detail string patterns for extensible categories."
+      }
   },
   {
     id: 187,
@@ -1744,7 +2174,12 @@ export const questionsPart3 = [
       a: "Removing empathy creates a poor customer experience. The goal is to maintain empathy while enforcing policy. The agent should acknowledge frustration — it just shouldn't let frustration override policy decisions.",
       c: "Post-decision validation is a useful safety net but doesn't fix the prompt behavior. The agent still makes wrong decisions that get caught and rejected, creating inconsistency in the customer interaction.",
       d: "Temperature affects sampling randomness, not the model's tendency to empathize. The override behavior comes from the model's reasoning about customer satisfaction, not from random token sampling."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.2",
+        quote: "Acknowledging frustration while offering resolution when the issue is within the agent's capability, escalating only if the customer reiterates their preference."
+      }
   },
   {
     id: 188,
@@ -1764,7 +2199,12 @@ export const questionsPart3 = [
       a: "A generic prompt can't optimize for both precise numeric extraction and thematic analysis. These require fundamentally different extraction strategies that a single generic prompt cannot specify.",
       b: "Completely separate prompts create maintenance burden and inconsistency in shared aspects (error handling, output format, metadata fields). A shared base with type-specific activation is more maintainable.",
       d: "Pre-processing tables into narrative format loses their structured nature, and converting narratives to tables loses nuance. Each format should be processed with its native structure preserved."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering Best Practices",
+        quote: "Use XML tags to structure complex prompts: <instructions>, <context>, <input>. Consistent, descriptive tag names. Nest tags for hierarchy: <documents> containing <document index=\"n\">."
+      }
   },
   {
     id: 189,
@@ -1784,7 +2224,12 @@ export const questionsPart3 = [
       a: "Higher temperature generates different token sequences but cannot create information that isn't in the source document. If a field value doesn't exist in the document, temperature variation just produces different hallucinations.",
       c: "Discarding documents loses potentially valuable data. The failure diagnosis should determine the action: missing source info -> manual review, prompt issue -> fix prompt, format issue -> pre-process. Blanket discard is too aggressive.",
       d: "Different prompts can help if the original prompt was poorly designed, but they can't extract information that doesn't exist in the source. The diagnostic should first determine whether the information is present before changing the prompt."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 4.4",
+        quote: "The limits of retry: retries are ineffective when the required information is simply absent from the source document (vs format or structural errors)... Identifying when retries will be ineffective (e.g., information exists only in an external document not provided) versus when they will succeed (format mismatches, structural output errors)."
+      }
   },
 
   // ===== DOMAIN 5: Context Management & Reliability (15%) — Questions 190-204 =====
@@ -1806,7 +2251,12 @@ export const questionsPart3 = [
       a: "Asking the synthesis agent to normalize adds complexity to the wrong component. Normalization is an LLM task with probabilistic outcomes — it may normalize differently each time, which is the current problem.",
       c: "A normalization agent adds latency and another point of failure. If the source agents return consistent data, the normalization layer is unnecessary. Fix the source, not the pipeline.",
       d: "Format-specific parsing instructions increase the synthesis agent's prompt complexity and still rely on the LLM to correctly identify and apply the right parsing logic each time."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Modifying upstream agents to return structured data (key facts, citations, relevance scores) instead of verbose content and reasoning chains when downstream agents have limited context budgets."
+      }
   },
   {
     id: 191,
@@ -1826,7 +2276,12 @@ export const questionsPart3 = [
       a: "Tables are optimal for financial data but poor for narrative explanations. A one-size-fits-all format reduces readability for content types that don't suit tables.",
       c: "Leaving format choice to model judgment produces inconsistency. Different sessions may format the same content type differently. Explicit format-to-content-type mapping ensures consistency.",
       d: "JSON is a data interchange format, not a customer-facing presentation format. Customers expect human-readable output, not raw data structures."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Rendering different content types appropriately in synthesis outputs—financial data as tables, news as prose, technical findings as structured lists—rather than converting everything to a uniform format."
+      }
   },
   {
     id: 192,
@@ -1846,7 +2301,12 @@ export const questionsPart3 = [
       a: "Full conversation history wastes subagent context window on irrelevant exchanges (greetings, clarification loops, tangents). Subagents need refined context, not raw conversation.",
       c: "The final question alone is what's currently failing. The question 'Analyze renewable energy trends' doesn't convey that the user specifically cares about cost competitiveness with fossil fuels, which emerged through conversation.",
       d: "An arbitrary message count doesn't guarantee relevant context. The key constraint might have been mentioned 15 messages ago. A distilled package captures important context regardless of when it was stated."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 1.3",
+        quote: "Including complete findings from prior agents directly in the subagent's prompt (e.g., passing web search results and document analysis outputs to the synthesis subagent)... Designing coordinator prompts that specify research goals and quality criteria rather than step-by-step procedural instructions, to enable subagent adaptability."
+      }
   },
   {
     id: 193,
@@ -1866,7 +2326,12 @@ export const questionsPart3 = [
       a: "A generic disclaimer doesn't help consumers assess specific statistics. Knowing that '$4.2B' is from 2019 is much more useful than a blanket 'data may be outdated' warning.",
       c: "Filtering old documents loses valuable historical data. A 2019 baseline can be useful for trend analysis — the issue is not the age but the lack of date context in the presentation.",
       d: "Pushing date checking to consumers creates inconsistent behavior and extra work. The extraction system has the date information and should include it at extraction time for all consumers."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Temporal data: requiring publication/collection dates in structured outputs to prevent temporal differences from being misinterpreted as contradictions... Requiring subagents to include publication or data collection dates in structured outputs to enable correct temporal interpretation."
+      }
   },
   {
     id: 194,
@@ -1886,7 +2351,12 @@ export const questionsPart3 = [
       a: "Confidence scores don't determine factual accuracy. A subagent can be highly confident but wrong. Automatically preferring higher confidence creates a hidden bias and suppresses potentially correct minority conclusions.",
       c: "Re-running subagents to reconcile is expensive and may not resolve genuine analytical disagreements. Sometimes experts legitimately disagree. The synthesis should surface the disagreement, not force artificial consensus.",
       d: "Averaging contradictions produces a meaningless middle ground. If one subagent says 'the market is growing' and another says 'the market is shrinking,' the middle ground 'the market is stable' is likely wrong. Presenting both with evidence is more honest and useful."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "How to handle conflicting statistics from credible sources: annotating conflicts with source attribution rather than arbitrarily selecting one value... Completing document analysis with conflicting values included and explicitly annotated, letting the coordinator decide how to reconcile before passing to synthesis."
+      }
   },
   {
     id: 195,
@@ -1906,7 +2376,12 @@ export const questionsPart3 = [
       a: "Starting fresh loses the established customer context (identity, account, preferences) that required multiple tool calls to build. Re-establishing this context wastes time and creates a poor customer experience.",
       c: "Continuing without context management risks the model conflating details from both issues. At 60% context utilization, old issue details may influence reasoning about the new issue.",
       d: "Asking the customer to create a new ticket is a poor experience when they're already in conversation with an agent. From the customer's perspective, they should be able to ask about anything in one interaction."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Extracting and persisting structured issue data (order IDs, amounts, statuses) into a separate context layer for multi-issue sessions."
+      }
   },
   {
     id: 196,
@@ -1926,7 +2401,12 @@ export const questionsPart3 = [
       a: "An agent ID enables tracing but provides no information about reliability. Knowing that 'Agent 3' produced a finding doesn't help assess whether that finding is well-supported.",
       c: "Confidence alone is insufficient. Two agents with 'medium' confidence may have very different levels of research depth. Confidence without methodology and source information is hard to interpret.",
       d: "The full tool call history is too verbose and shifts analysis burden to the synthesis agent. Structured metadata distills the relevant quality indicators without requiring the synthesis agent to parse raw execution logs."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Requiring subagents to include metadata (dates, source locations, methodological context) in structured outputs to support accurate downstream synthesis."
+      }
   },
   {
     id: 197,
@@ -1946,7 +2426,12 @@ export const questionsPart3 = [
       a: "Truncating loses data from later sections entirely. Important information (signatures, totals, appendices) is often at the end of documents. This trades accuracy for incompleteness.",
       c: "Larger context windows still exhibit attention degradation over long inputs. Even with a 200K token window, attention to details in later sections may be lower. Chunking addresses the fundamental attention distribution issue.",
       d: "Summarization before extraction is lossy. Specific details (exact values, dates, clause numbers) that extraction targets are often omitted in summaries. Direct extraction from source text is more accurate."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "The 'lost in the middle' effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections."
+      }
   },
   {
     id: 198,
@@ -1966,7 +2451,12 @@ export const questionsPart3 = [
       a: "Section count doesn't verify content coverage. A report could have 5 sections but still omit market sizing data if one section covers a different topic. The mapping between inputs and outputs is what matters.",
       c: "'Must include' tags address priority but not systematic coverage. Even with tags, the synthesis agent might still omit tagged content. Coverage annotations verify what was actually included, not what was tagged.",
       d: "Word count is a poor proxy for coverage. A topic might receive 50 words of accurate coverage or 500 words that miss the key finding. Semantic mapping (which findings appear where) is more reliable than word-count proportionality."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.3",
+        quote: "Structuring synthesis output with coverage annotations indicating which findings are well-supported versus which topic areas have gaps due to unavailable sources."
+      }
   },
   {
     id: 199,
@@ -1986,7 +2476,12 @@ export const questionsPart3 = [
       a: "Context window size isn't the issue — the model has room for all 3 system checks. The problem is attention and task tracking, which a checklist addresses. A larger window doesn't improve attention to specific items.",
       c: "Parallel checking is a performance optimization but doesn't address the tracking issue. If the agent forgets to initiate the 3rd check, parallelism doesn't help. The checklist ensures all checks are planned and tracked.",
       d: "Output token limits affect response length, not the agent's ability to track which systems to check. The agent stops checking the 3rd system because it loses track, not because it runs out of output space."
-    }
+    },
+      docStatus: "PARTIAL",
+      docReference: {
+        source: "Anthropic Docs — Prompt Engineering Best Practices",
+        quote: "Provide sequential steps using numbered lists when order matters. Add context: explain WHY a behavior is important (Claude generalizes from explanation)."
+      }
   },
   {
     id: 200,
@@ -2006,7 +2501,12 @@ export const questionsPart3 = [
       a: "Pre-processing relative references requires NLP to resolve them, which is itself error-prone and adds pipeline complexity. Instructing the model with the publication date leverages its natural language understanding more effectively.",
       c: "Excluding articles with relative references would remove a large proportion of news articles. Relative temporal language is extremely common in journalism and shouldn't be a disqualifier.",
       d: "Interpreting relative to the current date is exactly the error being described. An article from 2024 saying 'last year' means 2023, not whatever the current year is when the model processes it."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Temporal data: requiring publication/collection dates in structured outputs to prevent temporal differences from being misinterpreted as contradictions."
+      }
   },
   {
     id: 201,
@@ -2026,7 +2526,12 @@ export const questionsPart3 = [
       a: "While section complexity could contribute, the linear degradation pattern (97% -> 89% -> 72%) correlates with position, not content complexity. This is a known LLM limitation with long contexts, not a content difficulty issue.",
       c: "Reversing order would shift the degradation to the currently-accurate sections, not eliminate it. The degradation is position-dependent, so the same sections processed later would still suffer.",
       d: "A larger context window doesn't fix attention distribution. Even with unlimited context, models tend to attend less to middle and later content. The solution is to ensure each section appears in a position where it receives adequate attention."
-    }
+    },
+      docStatus: "STRONG",
+      docReference: {
+        source: "Anthropic Docs — Context Windows",
+        quote: "As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available."
+      }
   },
   {
     id: 202,
@@ -2046,7 +2551,12 @@ export const questionsPart3 = [
       a: "Prompt instructions are probabilistic. The model may still introduce unsourced information despite the instruction. Without a validation mechanism, there's no way to detect non-compliance.",
       c: "Temperature 0 reduces sampling randomness but doesn't eliminate hallucination. LLMs can produce hallucinated content even at temperature 0 if the model's reasoning leads there.",
       d: "Human review doesn't scale. For a system producing multiple reports, human review of every claim is expensive and slow. Automated citation validation catches the most detectable hallucinations instantly."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Requiring subagents to output structured claim-source mappings (source URLs, document names, relevant excerpts) that downstream agents preserve through synthesis... The importance of structured claim-source mappings that the synthesis agent must preserve and merge when combining findings."
+      }
   },
   {
     id: 203,
@@ -2066,7 +2576,12 @@ export const questionsPart3 = [
       a: "Limiting to one topic per conversation is a poor customer experience. Customers naturally raise multiple concerns in one interaction. The system should handle this gracefully.",
       c: "Periodic summarization may lose specific details that matter when the customer returns to a topic. A topic-organized state preserves key facts with full fidelity, not summarized versions.",
       d: "A larger context window helps with total capacity but doesn't solve the attention problem. The model may still pay less attention to turns 1-4 when processing turn 9, especially if turns 5-8 dominate the recent context."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.1",
+        quote: "Extracting transactional facts (amounts, dates, order numbers, statuses) into a persistent 'case facts' block included in each prompt, outside summarized history... Extracting and persisting structured issue data (order IDs, amounts, statuses) into a separate context layer for multi-issue sessions."
+      }
   },
   {
     id: 204,
@@ -2086,6 +2601,11 @@ export const questionsPart3 = [
       a: "Excluding non-peer-reviewed sources loses valuable industry perspectives. Blog posts, white papers, and industry reports provide practical insights that academic papers may miss. The fix is weighting, not exclusion.",
       c: "Presenting conflicting sources equally without noting their quality difference misleads readers. The 2024 peer-reviewed study and 2020 blog post are not equally authoritative — the report should acknowledge this difference.",
       d: "Recency alone doesn't determine reliability. A well-conducted 2020 study may be more reliable than a 2024 blog post. Both recency and source quality should factor into weighting."
-    }
+    },
+      docStatus: "EXAM_GUIDE",
+      docReference: {
+        source: "Exam Guide — Task Statement 5.6",
+        quote: "Structuring reports with explicit sections distinguishing well-established findings from contested ones, preserving original source characterizations and methodological context... How to handle conflicting statistics from credible sources: annotating conflicts with source attribution rather than arbitrarily selecting one value."
+      }
   }
 ];

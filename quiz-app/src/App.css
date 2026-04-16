@@ -901,6 +901,105 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+.doc-reference {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(217, 119, 6, 0.04);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  border-left: 3px solid rgba(217, 119, 6, 0.6);
+  border-radius: var(--radius-md);
+}
+
+.doc-reference-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.doc-reference-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.doc-reference-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(217, 119, 6, 0.9);
+}
+
+.doc-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: 1px solid;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.doc-status-badge.status-strong {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.doc-status-badge.status-partial {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.doc-status-badge.status-exam_guide {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.doc-reference-source {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.doc-reference-quote {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-style: italic;
+  position: relative;
+}
+
+.doc-reference-quote::before {
+  content: '"';
+  color: rgba(217, 119, 6, 0.4);
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-right: 2px;
+  font-style: normal;
+}
+
+.doc-reference-quote::after {
+  content: '"';
+  color: rgba(217, 119, 6, 0.4);
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-left: 2px;
+  font-style: normal;
+}
+
 .doc-link {
   display: inline-flex;
   align-items: center;
