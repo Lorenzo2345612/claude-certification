@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { learnTopics } from '../data/learnTopics'
+import { learnSummaries } from '../data/learnSummaries'
 
 const DOMAINS = [
   { id: 1, name: "Agentic Architecture & Orchestration", short: "D1", color: "#f97316" },
@@ -217,6 +218,27 @@ export default function LearnScreen() {
                 {currentTopic.title}
               </h1>
             </div>
+
+            {/* Summary Box */}
+            {learnSummaries[currentTopic.id] && (
+              <div className="learn-summary-box">
+                <div className="learn-summary-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Quick Summary
+                </div>
+                <div className="learn-summary-text">
+                  {learnSummaries[currentTopic.id].summary}
+                </div>
+                {learnSummaries[currentTopic.id].keyConcepts && (
+                  <div className="learn-summary-concepts">
+                    <div className="learn-summary-concepts-label">Key Concepts</div>
+                    {learnSummaries[currentTopic.id].keyConcepts.map((concept, i) => (
+                      <span key={i} className="learn-concept-tag">{concept}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
 
             <div
               className="learn-content-body"

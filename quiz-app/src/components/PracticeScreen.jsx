@@ -4,6 +4,7 @@ import { questionsPart2 as q2 } from '../data/questions_part2'
 import { questionsPart3 as q3 } from '../data/questions_part3'
 import { questionsPart4 as q4 } from '../data/questions_part4'
 import { questionsPart5 as q5 } from '../data/questions_part5'
+import { questionsPart6 as q6 } from '../data/questions_part6'
 import StartScreen from './StartScreen'
 import QuizScreen from './QuizScreen'
 import ResultsScreen from './ResultsScreen'
@@ -61,7 +62,7 @@ function getDocUrl(q) {
   return DOMAIN_FALLBACK[q.domainId] || "https://platform.claude.com/docs"
 }
 
-const rawQuestions = [...q1, ...q2, ...q3, ...q4, ...q5]
+const rawQuestions = [...q1, ...q2, ...q3, ...q4, ...q5, ...q6]
 const questions = rawQuestions.map(q => ({ ...q, docUrl: getDocUrl(q) }))
 
 function shuffleArray(arr) {

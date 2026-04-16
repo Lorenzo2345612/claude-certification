@@ -1419,6 +1419,69 @@ jobs:
     relatedTopics: ["d3-claude-md", "d5-context-windows", "d5-large-codebase"],
   },
 
+  {
+    id: "d3-iterative-refinement",
+    domainId: 3,
+    domain: "Claude Code Configuration & Workflows",
+    title: "Iterative Refinement Techniques",
+    icon: "",
+    content: `
+      <h3>Iterative Refinement Techniques</h3>
+      <p>When prose descriptions produce inconsistent results, concrete <strong>input/output examples</strong> are the most effective way to communicate expected transformations. Instead of describing what you want in words, show 2-3 concrete examples of input and the exact output you expect. This is the single most powerful technique for aligning Claude's output with your expectations.</p>
+
+      <h4>Test-Driven Iteration</h4>
+      <p>Write test suites <strong>before</strong> implementation, covering expected behavior, edge cases, and performance requirements. Then iterate by sharing test failures with Claude to guide progressive improvement. Each failure message tells Claude exactly what went wrong and what to fix, creating a feedback loop that converges on the correct solution.</p>
+
+      <h4>The Interview Pattern</h4>
+      <p>For unfamiliar domains, have Claude <strong>ask questions first</strong> before implementing. This surfaces design considerations the developer may not have anticipated — cache invalidation strategies, failure modes, concurrency issues. The interview pattern is particularly valuable when building in domains where you lack expertise.</p>
+
+      <h4>When to Batch vs Sequence Issues</h4>
+      <p>Provide all issues in a <strong>single message</strong> when fixes interact with each other (e.g., changing an API interface affects both the handler and the client). Fix issues <strong>sequentially</strong> when problems are independent — this prevents Claude from getting overwhelmed and allows focused fixes.</p>
+
+      <table>
+        <thead><tr><th>Technique</th><th>When to Use</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td>Input/Output Examples</td><td>When prose descriptions are interpreted inconsistently</td><td>Data transformations, formatting, extraction</td></tr>
+          <tr><td>Test-Driven Iteration</td><td>When you can define expected behavior programmatically</td><td>Functions, APIs, algorithms</td></tr>
+          <tr><td>Interview Pattern</td><td>When building in unfamiliar domains</td><td>Architecture decisions, complex features</td></tr>
+          <tr><td>Batch Issues</td><td>When fixes interact with each other</td><td>Refactoring, API changes</td></tr>
+          <tr><td>Sequential Issues</td><td>When problems are independent</td><td>Bug fixes, unrelated improvements</td></tr>
+        </tbody>
+      </table>
+
+<pre><code>// Example: Test-driven iteration workflow
+// Step 1: Write the test first
+test("parseDate handles ISO, US, and EU formats", () => {
+  expect(parseDate("2024-03-15")).toBe("2024-03-15");
+  expect(parseDate("03/15/2024")).toBe("2024-03-15");
+  expect(parseDate("15.03.2024")).toBe("2024-03-15");
+  expect(parseDate("March 15, 2024")).toBe("2024-03-15");
+  expect(parseDate("invalid")).toBeNull();
+});
+
+// Step 2: Share failure output with Claude
+// "Test failed: parseDate('15.03.2024') returned '2024-15-03'
+//  Expected: '2024-03-15'"
+
+// Step 3: Claude fixes the EU date parsing logic
+// Step 4: Re-run tests, share any remaining failures</code></pre>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Key Takeaways</div>
+        <ul>
+          <li>2-3 concrete input/output examples beat lengthy prose descriptions every time</li>
+          <li>Test-driven iteration creates a precise feedback loop for progressive improvement</li>
+          <li>The interview pattern surfaces considerations you haven't thought of</li>
+          <li>Batch interacting issues in one message; sequence independent issues</li>
+          <li>Include specific test cases with example input and expected output for edge cases</li>
+        </ul>
+      </div>
+    `,
+    docUrl: "https://code.claude.com/docs/en/best-practices",
+    docLabel: "Best Practices Docs",
+    relatedTopics: ["d3-plan-mode", "d4-few-shot", "d4-prompting-best-practices"],
+  },
+
   // ===== DOMAIN 4: Prompt Engineering & Structured Output (20%) — 6 topics =====
   {
     id: "d4-prompting-best-practices",
