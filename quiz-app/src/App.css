@@ -1874,6 +1874,9 @@
   border-collapse: collapse;
   margin: 1rem 0;
   font-size: 0.85rem;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .learn-content-body th {
@@ -2269,6 +2272,15 @@
 }
 
 /* Responsive - tablet & mobile */
+/* Responsive — 1024px (tablet landscape) */
+@media (max-width: 1024px) {
+  .notes-panel {
+    width: 260px;
+    min-width: 260px;
+  }
+}
+
+/* Responsive — 768px (tablet portrait & small screens) */
 @media (max-width: 768px) {
   .learn-sidebar-toggle {
     display: flex;
@@ -2295,8 +2307,53 @@
   .learn-content {
     padding: 1.5rem;
   }
+
+  /* Hide notes panel on mobile — show as collapsible overlay later */
+  .notes-panel {
+    display: none;
+  }
+
+  /* Auth modal full width */
+  .auth-modal {
+    max-width: calc(100vw - 2rem);
+    margin: 1rem;
+  }
+
+  /* Header auth compact */
+  .header-username {
+    display: none;
+  }
+
+  /* Summary box adjustments */
+  .learn-summary-box {
+    padding: 1rem;
+  }
+
+  .learn-summary-concepts {
+    gap: 0.4rem;
+  }
+
+  /* Tooltip on mobile: position below instead of above */
+  .learn-concept-tag[data-tooltip]:hover::after {
+    bottom: auto;
+    top: calc(100% + 8px);
+    max-width: 260px;
+  }
+
+  .learn-concept-tag[data-tooltip]:hover::before {
+    bottom: auto;
+    top: calc(100% + 2px);
+    border-top-color: transparent;
+    border-bottom-color: rgba(15, 15, 35, 0.96);
+  }
+
+  .learn-content-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
+/* Responsive — 480px (mobile) */
 @media (max-width: 480px) {
   .learn-content {
     padding: 1rem;
@@ -2304,5 +2361,62 @@
 
   .learn-content-title {
     font-size: 1.4rem;
+  }
+
+  .learn-summary-text {
+    font-size: 0.84rem;
+  }
+
+  .learn-concept-tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .learn-concept-tag[data-tooltip]:hover::after {
+    left: 0;
+    transform: none;
+    max-width: calc(100vw - 4rem);
+  }
+
+  .learn-concept-tag[data-tooltip]:hover::before {
+    left: 16px;
+    transform: none;
+  }
+
+  .learn-content-doc-link {
+    font-size: 0.76rem;
+    padding: 5px 10px;
+  }
+
+  .learn-content-body h3 {
+    font-size: 1.1rem;
+  }
+
+  .learn-content-body h4 {
+    font-size: 0.95rem;
+  }
+
+  .learn-content-body table {
+    font-size: 0.78rem;
+  }
+
+  .learn-content-body pre {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  /* Auth modal tighter on mobile */
+  .auth-modal {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .auth-modal-title {
+    font-size: 1.1rem;
+  }
+
+  .header-auth-btn {
+    font-size: 0.74rem;
+    padding: 5px 12px;
   }
 }
