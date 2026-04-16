@@ -5,6 +5,7 @@ from sqlalchemy import text
 
 from .config import get_settings
 from .database import engine, Base
+from .models import User, Note  # noqa: F401 — register models with Base.metadata
 from .routers import auth_router, notes_router
 
 settings = get_settings()
