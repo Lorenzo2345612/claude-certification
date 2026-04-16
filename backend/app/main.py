@@ -4,7 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from .config import get_settings
-from .database import engine, Base
+from .database import engine, Base, SessionLocal
+from .models import User
+from .auth import hash_password
 from .routers import auth_router, notes_router
 
 settings = get_settings()
@@ -22,6 +24,16 @@ async def lifespan(app: FastAPI):
         except Exception:
             time.sleep(2)
     Base.metadata.create_all(bind=engine)
+
+    # Seed default user
+    db = SessionLocal()
+    try:
+        if not db.query(User).filter(User.username == "admin").first():
+            db.add(User(username="admin", hashed_password=hash_password("admin123")))
+            db.commit()
+    finally:
+        db.close()
+
     yield
 
 
