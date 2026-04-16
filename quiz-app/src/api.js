@@ -1,4 +1,6 @@
-const API_BASE = '/api'
+// In production (Railway), set VITE_API_URL to the backend's public URL
+// Locally with docker-compose, nginx proxies /api to the backend
+const API_BASE = import.meta.env.VITE_API_URL || '/api'
 
 function getToken() {
   return localStorage.getItem('quiz_token')

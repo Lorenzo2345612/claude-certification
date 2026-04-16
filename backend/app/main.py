@@ -43,6 +43,11 @@ app.include_router(auth_router.router)
 app.include_router(notes_router.router)
 
 
+@app.get("/")
+def root():
+    return {"status": "ok", "service": "claude-architect-api"}
+
+
 @app.get("/api/health")
 def health():
     return {"status": "ok"}
