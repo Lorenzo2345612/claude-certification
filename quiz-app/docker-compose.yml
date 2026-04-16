@@ -1,4 +1,38 @@
 services:
+  db:
+    image: mysql:8.4
+    container_name: quiz-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: quizdb
+      MYSQL_USER: quizuser
+      MYSQL_PASSWORD: quizpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quiz-backend
+    environment:
+      DATABASE_URL: "mysql+pymysql://quizuser:quizpass@db:3306/quizdb"
+      SECRET_KEY: "${SECRET_KEY:-a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6}"
+      CORS_ORIGINS: "http://localhost:8080,http://localhost:5173"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
   quiz-app:
     build:
       context: .
@@ -6,4 +40,9 @@ services:
     container_name: quiz-app
     ports:
       - "8080:80"
+    depends_on:
+      - backend
     restart: unless-stopped
+
+volumes:
+  mysql_data:

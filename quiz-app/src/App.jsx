@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import './App.css'
 import LearnScreen from './components/LearnScreen'
 import PracticeScreen from './components/PracticeScreen'
+import AuthModal from './components/AuthModal'
+import { useAuth } from './AuthContext'
 
 const DOMAINS = [
   { id: 1, name: "Agentic Architecture & Orchestration", short: "D1", weight: "27%" },
@@ -12,6 +15,9 @@ const DOMAINS = [
 ]
 
 function App() {
+  const { user, logout } = useAuth()
+  const [showAuth, setShowAuth] = useState(false)
+
   return (
     <div className="app">
       <header className="app-header">
@@ -26,8 +32,19 @@ function App() {
             Practice
           </NavLink>
         </nav>
-        <div className="header-right" id="header-right-slot" />
+        <div className="header-right" id="header-right-slot">
+          {user ? (
+            <div className="header-user">
+              <span className="header-username">{user.username}</span>
+              <button className="header-auth-btn header-auth-btn--logout" onClick={logout}>Logout</button>
+            </div>
+          ) : (
+            <button className="header-auth-btn" onClick={() => setShowAuth(true)}>Sign In</button>
+          )}
+        </div>
       </header>
+
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
 
       <Routes>
         <Route path="/learn" element={<LearnScreen domains={DOMAINS} />} />
