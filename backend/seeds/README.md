@@ -15,7 +15,7 @@ cd backend
 python seed.py
 ```
 
-The seeder uses PostgreSQL `ON CONFLICT DO UPDATE`, so:
+The seeder uses MySQL `ON DUPLICATE KEY UPDATE`, so:
 - New records are inserted
 - Existing records (by `id`) are updated with the latest data
 - Records in the DB but NOT in the JSON are **not deleted** (see "Removing" below)

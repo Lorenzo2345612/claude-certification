@@ -1,6 +1,6 @@
 import json
 import os
-from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.dialects.mysql import insert
 from app.database import SessionLocal, engine
 from app.models import Base, Question, LearnTopic
 
@@ -19,10 +19,8 @@ def seed():
         print(f"Seeding {len(questions)} questions...")
         for q in questions:
             stmt = insert(Question).values(**q)
-            stmt = stmt.on_conflict_do_update(
-                index_elements=["id"],
-                set_={k: stmt.excluded[k] for k in q if k != "id"}
-            )
+            update_cols = {k: stmt.inserted[k] for k in q if k != "id"}
+            stmt = stmt.on_duplicate_key_update(**update_cols)
             db.execute(stmt)
 
         # Seed topics
@@ -32,10 +30,8 @@ def seed():
         print(f"Seeding {len(topics)} topics...")
         for t in topics:
             stmt = insert(LearnTopic).values(**t)
-            stmt = stmt.on_conflict_do_update(
-                index_elements=["id"],
-                set_={k: stmt.excluded[k] for k in t if k != "id"}
-            )
+            update_cols = {k: stmt.inserted[k] for k in t if k != "id"}
+            stmt = stmt.on_duplicate_key_update(**update_cols)
             db.execute(stmt)
 
         db.commit()
