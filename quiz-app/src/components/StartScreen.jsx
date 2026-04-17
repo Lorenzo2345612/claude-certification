@@ -1,5 +1,3 @@
-import StatsPanel from './StatsPanel'
-
 export default function StartScreen({
   domains,
   selectedDomains,
@@ -77,7 +75,6 @@ export default function StartScreen({
         </button>
       </div>
 
-      <StatsPanel />
     </div>
   )
 }
