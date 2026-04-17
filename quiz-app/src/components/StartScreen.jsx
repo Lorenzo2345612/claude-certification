@@ -1,3 +1,5 @@
+import StatsPanel from './StatsPanel'
+
 export default function StartScreen({
   domains,
   selectedDomains,
@@ -74,6 +76,8 @@ export default function StartScreen({
           Start Exam ({effectiveCount} questions)
         </button>
       </div>
+
+      <StatsPanel />
     </div>
   )
 }

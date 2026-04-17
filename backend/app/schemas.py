@@ -77,3 +77,71 @@ class LearnTopicResponse(BaseModel):
     key_concepts: list = []
 
     model_config = {"from_attributes": True}
+
+
+class ExamAnswerSubmit(BaseModel):
+    question_id: int
+    domain_id: int
+    selected_answer: str
+    correct_answer: str
+    is_correct: bool
+
+
+class ExamSubmit(BaseModel):
+    total_questions: int
+    correct_count: int
+    score: int
+    passed: bool
+    domains_selected: list[int]
+    answers: list[ExamAnswerSubmit]
+
+
+class ExamAnswerResponse(BaseModel):
+    question_id: int
+    domain_id: int
+    selected_answer: str
+    correct_answer: str
+    is_correct: bool
+
+    model_config = {"from_attributes": True}
+
+
+class ExamAttemptResponse(BaseModel):
+    id: int
+    total_questions: int
+    correct_count: int
+    score: int
+    passed: bool
+    domains_selected: list
+    completed_at: datetime
+    answers: list[ExamAnswerResponse] = []
+
+    model_config = {"from_attributes": True}
+
+
+class ExamAttemptSummary(BaseModel):
+    id: int
+    total_questions: int
+    correct_count: int
+    score: int
+    passed: bool
+    domains_selected: list
+    completed_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class DomainStat(BaseModel):
+    domain_id: int
+    total: int
+    correct: int
+    percentage: float
+
+
+class ExamStatsResponse(BaseModel):
+    total_exams: int
+    avg_score: float
+    best_score: int
+    pass_rate: float
+    domain_stats: list[DomainStat]
+    recent_scores: list[int]

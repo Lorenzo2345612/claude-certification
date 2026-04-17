@@ -2873,3 +2873,201 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ============================================================
+   STATS PANEL
+   ============================================================ */
+.stats-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.stats-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.stats-card-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent-amber);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stats-card-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* Score trend */
+.stats-trend {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 0;
+}
+
+.stats-trend-label,
+.stats-domains-label,
+.stats-history-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.stats-trend-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 80px;
+  padding: 0 0.25rem;
+}
+
+.stats-trend-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.stats-trend-bar {
+  width: 100%;
+  min-height: 4px;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.3s ease;
+}
+
+.stats-trend-bar-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stats-trend-pass-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed rgba(251, 191, 36, 0.3);
+  pointer-events: none;
+}
+
+.stats-trend-pass-line span {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  font-size: 0.6rem;
+  color: var(--accent-amber);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Domain performance */
+.stats-domains {
+  margin-bottom: 1.5rem;
+}
+
+.stats-domain-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.stats-domain-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 24px;
+}
+
+.stats-domain-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stats-domain-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.stats-domain-pct {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 36px;
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* History list */
+.stats-history-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+}
+
+.stats-history-score {
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 40px;
+}
+
+.stats-history-score.pass {
+  color: var(--accent-green);
+}
+
+.stats-history-score.fail {
+  color: var(--accent-red);
+}
+
+.stats-history-detail {
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.stats-history-date {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+@media (max-width: 480px) {
+  .stats-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

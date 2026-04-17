@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, UniqueConstraint, JSON
+from sqlalchemy import Boolean, Column, Integer, String, Text, DateTime, ForeignKey, UniqueConstraint, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from .database import Base
@@ -14,6 +14,7 @@ class User(Base):
 
     notes = relationship("Note", back_populates="user", cascade="all, delete-orphan")
     progress = relationship("Progress", back_populates="user", cascade="all, delete-orphan")
+    exam_attempts = relationship("ExamAttempt", back_populates="user", cascade="all, delete-orphan")
 
 
 class Note(Base):
@@ -82,3 +83,34 @@ class LearnTopic(Base):
     summary = Column(Text, nullable=True)
     key_concepts = Column(JSON, default=list)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+
+class ExamAttempt(Base):
+    __tablename__ = "exam_attempts"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    total_questions = Column(Integer, nullable=False)
+    correct_count = Column(Integer, nullable=False)
+    score = Column(Integer, nullable=False)
+    passed = Column(Boolean, nullable=False)
+    domains_selected = Column(JSON, nullable=False)
+    started_at = Column(DateTime(timezone=True), server_default=func.now())
+    completed_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User", back_populates="exam_attempts")
+    answers = relationship("ExamAnswer", back_populates="attempt", cascade="all, delete-orphan")
+
+
+class ExamAnswer(Base):
+    __tablename__ = "exam_answers"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    attempt_id = Column(Integer, ForeignKey("exam_attempts.id", ondelete="CASCADE"), nullable=False)
+    question_id = Column(Integer, nullable=False)
+    domain_id = Column(Integer, nullable=False)
+    selected_answer = Column(String(10), nullable=False)
+    correct_answer = Column(String(10), nullable=False)
+    is_correct = Column(Boolean, nullable=False)
+
+    attempt = relationship("ExamAttempt", back_populates="answers")

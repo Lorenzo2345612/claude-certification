@@ -101,4 +101,23 @@ export const api = {
       return r.json()
     })
   },
+
+  submitExam(data) {
+    return request('/exams/', {
+      method: 'POST',
+      body: data,
+    })
+  },
+
+  getExamHistory() {
+    return request('/exams/')
+  },
+
+  getExamStats() {
+    return request('/exams/stats')
+  },
+
+  getExamDetail(attemptId) {
+    return request(`/exams/${attemptId}`)
+  },
 }

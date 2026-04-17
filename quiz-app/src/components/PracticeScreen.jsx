@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import { api } from '../api'
+import { useAuth } from '../AuthContext'
 import StartScreen from './StartScreen'
 import QuizScreen from './QuizScreen'
 import ResultsScreen from './ResultsScreen'
@@ -79,6 +80,7 @@ function shuffleArray(arr) {
 }
 
 export default function PracticeScreen({ domains, onProgressChange }) {
+  const { user } = useAuth()
   const [phase, setPhase] = useState('start')
   const [selectedDomains, setSelectedDomains] = useState([1, 2, 3, 4, 5])
   const [questionCount, setQuestionCount] = useState(60)
@@ -148,14 +150,45 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     setShowExplanation(true)
   }, [])
 
+  const submitExamResults = useCallback(async () => {
+    if (!user) return
+    const answersList = quizQuestions.map(q => {
+      const ans = answers[q.id]
+      return {
+        question_id: q.id,
+        domain_id: q.domainId,
+        selected_answer: ans?.selected || '',
+        correct_answer: q.correctAnswer,
+        is_correct: ans?.selected === q.correctAnswer,
+      }
+    })
+    const correct = answersList.filter(a => a.is_correct).length
+    const pct = Math.round((correct / quizQuestions.length) * 100)
+    const score = Math.round(100 + (pct / 100) * 900)
+
+    try {
+      await api.submitExam({
+        total_questions: quizQuestions.length,
+        correct_count: correct,
+        score,
+        passed: score >= 720,
+        domains_selected: selectedDomains,
+        answers: answersList,
+      })
+    } catch (err) {
+      console.error('Failed to save exam results:', err)
+    }
+  }, [user, quizQuestions, answers, selectedDomains])
+
   const nextQuestion = useCallback(() => {
     if (currentIndex < quizQuestions.length - 1) {
       setCurrentIndex(prev => prev + 1)
       setShowExplanation(false)
     } else {
+      submitExamResults()
       setPhase('results')
     }
-  }, [currentIndex, quizQuestions.length])
+  }, [currentIndex, quizQuestions.length, submitExamResults])
 
   const restart = useCallback(() => {
     setPhase('start')
