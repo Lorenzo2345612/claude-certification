@@ -45,9 +45,27 @@ export default function NotesPanel({ topicId, isOpen, onToggle }) {
     }
   }, [topicId])
 
-  const handleChange = (e) => {
-    setContent(e.target.value)
+  const scheduleAutosave = useCallback((text) => {
     setSaved(false)
+    if (saveTimer.current) clearTimeout(saveTimer.current)
+    saveTimer.current = setTimeout(async () => {
+      if (!topicId) return
+      setSaving(true)
+      try {
+        await api.upsertNote(topicId, text)
+        setSaved(true)
+        setEditing(false)
+      } catch {
+      } finally {
+        setSaving(false)
+      }
+    }, 1500)
+  }, [topicId])
+
+  const handleChange = (e) => {
+    const val = e.target.value
+    setContent(val)
+    scheduleAutosave(val)
   }
 
   const startEditing = () => {
