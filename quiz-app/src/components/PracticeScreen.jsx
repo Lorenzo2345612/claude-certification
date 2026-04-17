@@ -132,7 +132,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     setAnswers({})
     setShowExplanation(false)
     setPhase('quiz')
-  }, [selectedDomains, questionCount])
+  }, [selectedDomains, questionCount, questions])
 
   const selectAnswer = useCallback((questionId, optionId) => {
     if (answers[questionId]?.confirmed) return
