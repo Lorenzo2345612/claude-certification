@@ -1,4 +1,4 @@
-const API_BASE = 'https://astonishing-transformation-production.up.railway.app/api'
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
 function getToken() {
   return localStorage.getItem('quiz_token')
