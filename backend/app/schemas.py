@@ -43,3 +43,37 @@ class ProgressResponse(BaseModel):
     completed_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class QuestionResponse(BaseModel):
+    id: int
+    domain_id: int
+    domain: str
+    scenario: str
+    question: str
+    options: list
+    correct_answer: str
+    explanation: str
+    why_others_wrong: dict | None = None
+    doc_reference: dict | None = None
+    doc_status: str | None = None
+    skilljar_ref: dict | None = None
+
+    model_config = {"from_attributes": True}
+
+
+class LearnTopicResponse(BaseModel):
+    id: str
+    domain_id: int
+    domain: str
+    title: str
+    content: str
+    doc_url: str | None = None
+    doc_label: str | None = None
+    related_topics: list = []
+    skilljar_refs: list | None = None
+    anthropic_docs_ref: str | None = None
+    summary: str | None = None
+    key_concepts: list = []
+
+    model_config = {"from_attributes": True}

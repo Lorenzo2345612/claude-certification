@@ -8,9 +8,21 @@ import bash from 'highlight.js/lib/languages/bash'
 import xml from 'highlight.js/lib/languages/xml'
 import typescript from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/github-dark.css'
-import { learnTopics } from '../data/learnTopics'
-import { learnSummaries } from '../data/learnSummaries'
+import { api } from '../api'
 import NotesPanel from './NotesPanel'
+
+function mapTopicKeys(t) {
+  return {
+    ...t,
+    domainId: t.domain_id ?? t.domainId,
+    docUrl: t.doc_url ?? t.docUrl,
+    docLabel: t.doc_label ?? t.docLabel,
+    relatedTopics: t.related_topics ?? t.relatedTopics,
+    skilljarRefs: t.skilljar_refs ?? t.skilljarRefs,
+    anthropicDocsRef: t.anthropic_docs_ref ?? t.anthropicDocsRef,
+    keyConcepts: t.key_concepts ?? t.keyConcepts,
+  }
+}
 
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('js', javascript)
@@ -33,18 +45,33 @@ const DOMAINS = [
 ]
 
 const DOMAIN_MAP = Object.fromEntries(DOMAINS.map(d => [d.id, d]))
-const TOPIC_MAP = Object.fromEntries(learnTopics.map(t => [t.id, t]))
 
 export default function LearnScreen() {
   const { topicId } = useParams()
   const navigate = useNavigate()
-  const defaultTopic = learnTopics.length > 0 ? learnTopics[0].id : null
-  const [activeTopic, setActiveTopic] = useState(topicId || defaultTopic)
+  const [learnTopics, setLearnTopics] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [activeTopic, setActiveTopic] = useState(topicId || null)
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedDomains, setExpandedDomains] = useState(() => new Set(DOMAINS.map(d => d.id)))
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [notesOpen, setNotesOpen] = useState(false)
   const contentRef = useRef(null)
+
+  useEffect(() => {
+    api.getTopics()
+      .then(data => {
+        const mapped = data.map(mapTopicKeys)
+        setLearnTopics(mapped)
+        if (!topicId && mapped.length > 0) {
+          setActiveTopic(mapped[0].id)
+        }
+      })
+      .catch(err => console.error('Failed to load topics:', err))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const TOPIC_MAP = useMemo(() => Object.fromEntries(learnTopics.map(t => [t.id, t])), [learnTopics])
 
   const filteredTopics = useMemo(() => {
     if (!searchQuery.trim()) return learnTopics
@@ -54,7 +81,7 @@ export default function LearnScreen() {
       (t.domain && t.domain.toLowerCase().includes(q)) ||
       (t.content && t.content.toLowerCase().includes(q))
     )
-  }, [searchQuery])
+  }, [searchQuery, learnTopics])
 
   const topicsByDomain = useMemo(() => {
     const grouped = {}
@@ -113,6 +140,15 @@ export default function LearnScreen() {
       setActiveTopic(filteredTopics[0].id)
     }
   }, [filteredTopics, activeTopic])
+
+  if (loading) {
+    return (
+      <div className="learn-layout" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
+        <div className="loading-spinner" />
+        <span style={{ marginLeft: 12, color: '#94a3b8' }}>Loading topics...</span>
+      </div>
+    )
+  }
 
   return (
     <div className="learn-layout">
@@ -247,19 +283,19 @@ export default function LearnScreen() {
             </div>
 
             {/* Summary Box */}
-            {learnSummaries[currentTopic.id] && (
+            {currentTopic.summary && (
               <div className="learn-summary-box">
                 <div className="learn-summary-title">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                   Quick Summary
                 </div>
                 <div className="learn-summary-text">
-                  {learnSummaries[currentTopic.id].summary}
+                  {currentTopic.summary}
                 </div>
-                {learnSummaries[currentTopic.id].keyConcepts && (
+                {currentTopic.keyConcepts && (
                   <div className="learn-summary-concepts">
                     <div className="learn-summary-concepts-label">Key Concepts</div>
-                    {learnSummaries[currentTopic.id].keyConcepts.map((concept, i) => (
+                    {currentTopic.keyConcepts.map((concept, i) => (
                       <span key={i} className="learn-concept-tag" data-tooltip={concept.definition || ''}>
                         {concept.term || concept}
                       </span>

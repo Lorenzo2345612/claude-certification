@@ -13,7 +13,20 @@ import dagre from 'dagre'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { api } from '../api'
-import { learnTopics } from '../data/learnTopics'
+
+// Topic mapper for snake_case → camelCase conversion
+function mapTopicKeys(t) {
+  return {
+    ...t,
+    domainId: t.domain_id ?? t.domainId,
+    docUrl: t.doc_url ?? t.docUrl,
+    docLabel: t.doc_label ?? t.docLabel,
+    relatedTopics: t.related_topics ?? t.relatedTopics,
+    skilljarRefs: t.skilljar_refs ?? t.skilljarRefs,
+    anthropicDocsRef: t.anthropic_docs_ref ?? t.anthropicDocsRef,
+    keyConcepts: t.key_concepts ?? t.keyConcepts,
+  }
+}
 
 const DOMAIN_COLORS = {
   1: '#f97316',
@@ -93,7 +106,7 @@ const PREREQUISITE_EDGES = [
   ['d2-builtin-tools', 'd5-large-codebase'],
 ]
 
-function buildGraph(completed) {
+function buildGraph(completed, learnTopics) {
   const topicIds = new Set(learnTopics.map((t) => t.id))
 
   const g = new dagre.graphlib.Graph()
@@ -294,7 +307,7 @@ const TopicNode = memo(function TopicNode({ data }) {
 
 const nodeTypes = { topicNode: TopicNode }
 
-function Legend({ completed }) {
+function Legend({ completed, learnTopics }) {
   const total = learnTopics.length
   const done = completed.length
   const pct = total > 0 ? Math.round((done / total) * 100) : 0
@@ -403,6 +416,15 @@ function Legend({ completed }) {
 export default function RoadmapScreen() {
   const { user } = useAuth()
   const [completed, setCompleted] = useState([])
+  const [learnTopics, setLearnTopics] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    api.getTopics()
+      .then(data => setLearnTopics(data.map(mapTopicKeys)))
+      .catch(err => console.error('Failed to load topics:', err))
+      .finally(() => setLoading(false))
+  }, [])
 
   useEffect(() => {
     if (!user) {
@@ -426,11 +448,20 @@ export default function RoadmapScreen() {
     return () => window.removeEventListener('roadmap-toggle', handleToggle)
   }, [user])
 
-  const { nodes, edges } = useMemo(() => buildGraph(completed), [completed])
+  const { nodes, edges } = useMemo(() => buildGraph(completed, learnTopics), [completed, learnTopics])
 
   const minimapNodeColor = useCallback((node) => {
     return DOMAIN_COLORS[node.data?.domainId] || '#334155'
   }, [])
+
+  if (loading) {
+    return (
+      <div style={{ width: '100%', height: 'calc(100vh - 56px)', background: '#06060f', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="loading-spinner" />
+        <span style={{ marginLeft: 12, color: '#94a3b8' }}>Loading roadmap...</span>
+      </div>
+    )
+  }
 
   return (
     <div
@@ -474,7 +505,7 @@ export default function RoadmapScreen() {
         />
       </ReactFlow>
 
-      <Legend completed={completed} />
+      <Legend completed={completed} learnTopics={learnTopics} />
     </div>
   )
 }

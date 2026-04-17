@@ -1,13 +1,20 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import { questions as q1 } from '../data/questions'
-import { questionsPart2 as q2 } from '../data/questions_part2'
-import { questionsPart3 as q3 } from '../data/questions_part3'
-import { questionsPart4 as q4 } from '../data/questions_part4'
-import { questionsPart5 as q5 } from '../data/questions_part5'
-import { questionsPart6 as q6 } from '../data/questions_part6'
+import { api } from '../api'
 import StartScreen from './StartScreen'
 import QuizScreen from './QuizScreen'
 import ResultsScreen from './ResultsScreen'
+
+function mapQuestionKeys(q) {
+  return {
+    ...q,
+    domainId: q.domain_id ?? q.domainId,
+    correctAnswer: q.correct_answer ?? q.correctAnswer,
+    whyOthersWrong: q.why_others_wrong ?? q.whyOthersWrong,
+    docReference: q.doc_reference ?? q.docReference,
+    docStatus: q.doc_status ?? q.docStatus,
+    skilljarRef: q.skilljar_ref ?? q.skilljarRef,
+  }
+}
 
 const DOC_KEYWORD_MAP = [
   { kw: /stop_reason|agentic loop|end_turn|pause_turn|tool_use.*block|loop.*terminat/i, url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works#the-agentic-loop" },
@@ -62,9 +69,6 @@ function getDocUrl(q) {
   return DOMAIN_FALLBACK[q.domainId] || "https://platform.claude.com/docs"
 }
 
-const rawQuestions = [...q1, ...q2, ...q3, ...q4, ...q5, ...q6]
-const questions = rawQuestions.map(q => ({ ...q, docUrl: getDocUrl(q) }))
-
 function shuffleArray(arr) {
   const shuffled = [...arr]
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -82,10 +86,25 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState({})
   const [showExplanation, setShowExplanation] = useState(false)
+  const [questions, setQuestions] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    api.getQuestions()
+      .then(data => {
+        const mapped = data.map(q => {
+          const mq = mapQuestionKeys(q)
+          return { ...mq, docUrl: getDocUrl(mq) }
+        })
+        setQuestions(mapped)
+      })
+      .catch(err => console.error('Failed to load questions:', err))
+      .finally(() => setLoading(false))
+  }, [])
 
   const availableCount = useMemo(() => {
     return questions.filter(q => selectedDomains.includes(q.domainId)).length
-  }, [selectedDomains])
+  }, [selectedDomains, questions])
 
   const startQuiz = useCallback(() => {
     const filtered = questions.filter(q => selectedDomains.includes(q.domainId))
@@ -155,6 +174,15 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     }
     return () => onProgressChange?.(null)
   }, [phase, answeredCount, quizQuestions.length, onProgressChange])
+
+  if (loading) {
+    return (
+      <div className="main-content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 200 }}>
+        <div className="loading-spinner" />
+        <span style={{ marginLeft: 12, color: '#94a3b8' }}>Loading questions...</span>
+      </div>
+    )
+  }
 
   return (
     <div className="main-content">

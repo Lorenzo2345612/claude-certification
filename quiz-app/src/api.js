@@ -87,4 +87,18 @@ export const api = {
       body: { topic_id: topicId },
     })
   },
+
+  getQuestions() {
+    return fetch(`${API_BASE}/questions/`).then(r => {
+      if (!r.ok) throw new Error('Failed to fetch questions')
+      return r.json()
+    })
+  },
+
+  getTopics() {
+    return fetch(`${API_BASE}/topics/`).then(r => {
+      if (!r.ok) throw new Error('Failed to fetch topics')
+      return r.json()
+    })
+  },
 }
