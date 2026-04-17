@@ -3071,3 +3071,350 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== PERFORMANCE DASHBOARD ===== */
+
+.perf-screen {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  width: 100%;
+}
+
+.perf-header { margin-bottom: 2rem; }
+
+.perf-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 0.25rem;
+}
+
+.perf-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.perf-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 50vh;
+  color: #64748b;
+}
+
+@keyframes perf-spin { to { transform: rotate(360deg); } }
+
+.perf-spinner { animation: perf-spin 0.8s linear infinite; }
+
+.perf-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 50vh;
+  gap: 0.75rem;
+}
+
+.perf-empty-icon { margin-bottom: 0.5rem; opacity: 0.7; }
+
+.perf-empty-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.perf-empty-text {
+  color: #64748b;
+  font-size: 0.9rem;
+  max-width: 360px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.perf-empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.perf-empty-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.perf-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.perf-stat-card {
+  background: #12122a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.perf-stat-card:hover {
+  border-color: #334155;
+  transform: translateY(-2px);
+}
+
+.perf-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perf-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.perf-stat-label {
+  font-size: 0.78rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.perf-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+}
+
+.perf-chart-container {
+  background: #12122a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.perf-chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.perf-domains-container {
+  background: #12122a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.perf-domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.perf-domain-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.perf-domain-indicator {
+  width: 4px;
+  border-radius: 2px;
+  min-height: 48px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.perf-domain-info { flex: 1; min-width: 0; }
+
+.perf-domain-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  gap: 0.75rem;
+}
+
+.perf-domain-name {
+  font-size: 0.88rem;
+  color: #f1f5f9;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.perf-domain-short {
+  font-weight: 700;
+  margin-right: 0.5rem;
+  font-size: 0.78rem;
+}
+
+.perf-domain-score-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.perf-domain-score {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.perf-domain-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.perf-domain-badge--pass { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.perf-domain-badge--fail { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+.perf-domain-bar-bg {
+  position: relative;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 3px;
+  overflow: visible;
+}
+
+.perf-domain-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.perf-domain-bar-marker {
+  position: absolute;
+  left: 70%;
+  top: -3px;
+  width: 1px;
+  height: 12px;
+  background: #475569;
+}
+
+.perf-domain-detail {
+  font-size: 0.75rem;
+  color: #475569;
+  margin-top: 0.3rem;
+}
+
+.perf-history-container {
+  background: #12122a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.perf-history-scroll { overflow-x: auto; }
+
+.perf-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.perf-history-table th {
+  text-align: left;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0.75rem 0.75rem;
+  border-bottom: 1px solid #1e293b;
+  white-space: nowrap;
+}
+
+.perf-history-row td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+  vertical-align: middle;
+}
+
+.perf-history-row:last-child td { border-bottom: none; }
+.perf-history-row:hover td { background: rgba(255, 255, 255, 0.02); }
+
+.perf-history-date { white-space: nowrap; color: #f1f5f9; }
+
+.perf-history-time {
+  font-size: 0.72rem;
+  color: #475569;
+  margin-top: 0.15rem;
+}
+
+.perf-history-score { font-weight: 700; font-size: 1rem; }
+.perf-history-score--pass { color: #10b981; }
+.perf-history-score--fail { color: #ef4444; }
+.perf-history-questions { color: #94a3b8; }
+
+.perf-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.perf-badge--pass { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.perf-badge--fail { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+.perf-history-domains { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+
+.perf-history-domain-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .perf-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .perf-screen { padding: 1.5rem 1rem 3rem; }
+  .perf-domain-header { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+}
+
+@media (max-width: 480px) {
+  .perf-stats-row { grid-template-columns: 1fr; }
+  .perf-stat-card { flex-direction: row; justify-content: flex-start; gap: 1rem; padding: 1rem; }
+  .perf-stat-value { font-size: 1.5rem; }
+  .perf-title { font-size: 1.35rem; }
+}
