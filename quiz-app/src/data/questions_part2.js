@@ -20,6 +20,7 @@ export const questionsPart2 = [
       d: "A single subagent with 8 subtasks suffers from severe attention dilution. The quality of each regional analysis would degrade significantly as they compete for the model's attention."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Parallelization workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3",
         quote: "Spawning parallel subagents by emitting multiple Task tool calls in a single coordinator response rather than across separate turns"
@@ -45,6 +46,7 @@ export const questionsPart2 = [
       d: "Processing an incorrect refund and auditing it afterward is worse than preventing it. Refunds are irreversible in many systems — validation must be pre-execution."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
       docReference: {
         source: "Exam Guide — Task Statement 1.5",
         quote: "Implementing tool call interception hooks that block policy-violating actions (e.g., refunds exceeding $500) and redirect to alternative workflows (e.g., human escalation)"
@@ -70,6 +72,7 @@ export const questionsPart2 = [
       d: "Giving all subagents access to the financial database violates least privilege. Only the financial analysis subagent needs that access."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
       docReference: {
         source: "Anthropic Docs — Create custom subagents",
         quote: "Each subagent runs in its own context window with a custom system prompt, specific tool access, and independent permissions. When Claude encounters a task that matches a subagent's description, it delegates to that subagent, which works independently and returns results."
@@ -95,6 +98,7 @@ export const questionsPart2 = [
       d: "An arbitrary cap of 5 iterations would prematurely terminate legitimate tasks. The correct solution is to manage the context (e.g., summarize previous iterations, use a scratchpad), not to limit arbitrarily."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Controlling context", url: "https://anthropic.skilljar.com/claude-code-in-action/303237" },
       docReference: {
         source: "Exam Guide — Task Statement 5.4 + 5.1",
         quote: "Context degradation in extended sessions: models start giving inconsistent answers and referencing \"typical patterns\" rather than specific classes discovered earlier… The \"lost in the middle\" effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections"
@@ -120,6 +124,7 @@ export const questionsPart2 = [
       d: "Asking the customer to repeat their problem is a terrible experience. The information was already collected and should be persisted for continuity."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.4",
         quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume… Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts"
@@ -145,6 +150,7 @@ export const questionsPart2 = [
       d: "The search subagent does not have visibility into the complete research objective. Only the coordinator can evaluate whether the results cover all aspects of the research goal."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2",
         quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient"
@@ -170,6 +176,7 @@ export const questionsPart2 = [
       d: "PreToolUse executes before the edit, when the new code does not yet exist in the file. You cannot lint code that has not been written yet."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Useful hooks!", url: "https://anthropic.skilljar.com/claude-code-in-action/312004" },
       docReference: {
         source: "Anthropic Docs — Hooks Reference",
         quote: "This example runs a linting script only when Claude writes or edits a file:\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"/path/to/lint-check.sh\"\n          }\n        ]\n      }\n    ]\n  }\n}\n```"
@@ -195,6 +202,7 @@ export const questionsPart2 = [
       d: "Sequential passes are slower than parallel execution of specialized subagents, and each pass loses context from previous ones as the history grows."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
       docReference: {
         source: "Anthropic Docs — Create custom subagents",
         quote: "Subagents help you: Preserve context by keeping exploration and implementation out of your main conversation; Enforce constraints by limiting which tools a subagent can use; … Specialize behavior with focused system prompts for specific domains"
@@ -220,6 +228,7 @@ export const questionsPart2 = [
       d: "Executing a different tool without the model's consent can produce unexpected results. The model should decide what to do with the information that the tool does not exist."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "If Claude's attempted use of a tool is invalid (for example, missing required parameters), it usually means that there wasn't enough information for Claude to use the tool correctly… However, you can also continue the conversation forward with a `tool_result` that indicates the error, and Claude will try to use the tool again with the missing information filled in"
@@ -245,6 +254,7 @@ export const questionsPart2 = [
       d: "Reconfiguring allowed-tools between phases is a more complex manual workaround than using plan mode, which is designed exactly for this workflow."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Common workflows", url: "https://code.claude.com/docs/en/common-workflows" },
       docReference: {
         source: "Anthropic Docs — Common workflows",
         quote: "You can switch into Plan Mode during a session using **Shift+Tab** to cycle through permission modes. If you are in Normal Mode, **Shift+Tab** first switches into Auto-Accept Mode, indicated by `⏵⏵ accept edits on` at the bottom of the terminal. A subsequent **Shift+Tab** will switch into Plan Mode"
@@ -270,6 +280,7 @@ export const questionsPart2 = [
       d: "Escalating routine operational decisions to the user disrupts the workflow. The coordinator should be able to evaluate gap criticality and act autonomously."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.3",
         quote: "Structured error context (failure type, attempted query, partial results, alternative approaches) as enabling intelligent coordinator recovery decisions… Having subagents implement local recovery for transient failures and only propagate errors they cannot resolve, including what was attempted and partial results"
@@ -295,6 +306,7 @@ export const questionsPart2 = [
       d: "Reducing 'priority' in descriptions is not a reliable mechanism. There is no guarantee that the model will use it less, and when it does, the bug will still be present."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
       docReference: {
         source: "Anthropic Docs — Hooks Reference",
         quote: "`PostToolUse` hooks can provide feedback to Claude after tool execution."
@@ -320,6 +332,7 @@ export const questionsPart2 = [
       d: "Although Glob+Grep is useful for specific searches, it is not efficient for understanding complete architecture. The results from many searches accumulate tokens in the main context."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
       docReference: {
         source: "Anthropic Docs — Create custom subagents",
         quote: "A fast, read-only agent optimized for searching and analyzing codebases. … Claude delegates to Explore when it needs to search or understand a codebase without making changes. This keeps exploration results out of your main conversation context."
@@ -345,6 +358,7 @@ export const questionsPart2 = [
       d: "State tokens are a good idea but insufficient on their own. The model could fabricate or reuse a previous token. A programmatic state machine validates the complete state, not just a token."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.4",
         quote: "Implementing programmatic prerequisites that block downstream tool calls until prerequisite steps have completed (e.g., blocking process_refund until get_customer has returned a verified customer ID)"
@@ -370,6 +384,7 @@ export const questionsPart2 = [
       d: "Asking a model to maintain 'separate tracks' does not work in practice. Reasoning about one hypothesis inevitably influences the analysis of the other."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3",
         quote: "Fork-based session management for exploring divergent approaches from a shared analysis baseline… Using fork_session to create parallel exploration branches (e.g., comparing two testing strategies or refactoring approaches from a shared codebase analysis)"
@@ -395,6 +410,7 @@ export const questionsPart2 = [
       c: "Implementing all 3 in parallel without intermediate tests can result in 3 incorrect implementations that are only discovered in integration testing, multiplying the debugging effort."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Best practices for Claude Code",
         quote: "Give Claude a way to verify its work… Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do."
@@ -420,6 +436,7 @@ export const questionsPart2 = [
       d: "Reducing logging to only critical tools partially improves latency but loses audit trail for tools that could be relevant in incident investigations."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Anthropic Docs — Hooks Reference",
         quote: "`async`       | no       | If `true`, runs in the background without blocking. See [Run hooks in the background](#run-hooks-in-the-background)"
@@ -445,6 +462,7 @@ export const questionsPart2 = [
       d: "Technically the Task tool can be given to subagents, but it should not be for architectural design reasons, not because of technical limitations."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
       docReference: {
         source: "Anthropic Docs — Create custom subagents",
         quote: "This prevents infinite nesting (subagents cannot spawn other subagents) while still gathering necessary context."
@@ -472,6 +490,7 @@ export const questionsPart2 = [
       d: "A summary loses specific details that may be needed. The correct solution is to return relevant sections, not general summaries."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.1",
         quote: "The \"lost in the middle\" effect: models reliably process information at the beginning and end of long inputs but may omit findings from middle sections… Placing key findings summaries at the beginning of aggregated inputs and organizing detailed results with explicit section headers to mitigate position effects"
@@ -497,6 +516,7 @@ export const questionsPart2 = [
       d: "There is no permission system for 'third-party MCP servers'. The problem is that the configuration is not present on the colleague's machine."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "MCP servers with Claude Code", url: "https://anthropic.skilljar.com/claude-code-in-action/303239" },
       docReference: {
         source: "Anthropic Docs — Connect Claude Code to tools via MCP",
         quote: "| [Local](#local-scope)     | Current project only | No                       | `~/.claude.json`            |\n| [Project](#project-scope) | Current project only | Yes, via version control | `.mcp.json` in project root |\n| [User](#user-scope)       | All your projects    | No                       | `~/.claude.json`            |"

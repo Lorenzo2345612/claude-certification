@@ -98,6 +98,11 @@ while (true) {
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works#the-agentic-loop",
     docLabel: "Agentic Loop Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Introducing tool use", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747" },
+      { course: "Building with the Claude API", lesson: "Multi-turn conversations with tools", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287750" },
+      { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" }
+    ],
     relatedTopics: ["d1-tool-use-contract", "d1-multi-agent", "d1-programmatic-enforcement"],
   },
   {
@@ -188,6 +193,10 @@ while (true) {
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
     docLabel: "Tool Use Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
+      { course: "Building with the Claude API", lesson: "Handling message blocks", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287757" }
+    ],
     relatedTopics: ["d1-agentic-loop", "d2-tool-interfaces", "d2-error-responses"],
   },
   {
@@ -273,6 +282,10 @@ const result = await coordinator.delegate("code_reviewer", {
     `,
     docUrl: "https://code.claude.com/docs/en/agent-sdk/subagents",
     docLabel: "Subagents Docs",
+    skilljarRefs: [
+      { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
+      { course: "Introduction to subagents", lesson: "Using subagents effectively", url: "https://anthropic.skilljar.com/introduction-to-subagents/450701" }
+    ],
     relatedTopics: ["d1-subagent-config", "d1-task-decomposition", "d5-error-propagation"],
   },
   {
@@ -365,6 +378,11 @@ const result = await coordinator.delegate("code_reviewer", {
     `,
     docUrl: "https://code.claude.com/docs/en/agent-sdk/hooks",
     docLabel: "Hooks Docs",
+    skilljarRefs: [
+      { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
+      { course: "Claude Code in Action", lesson: "Defining hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312002" },
+      { course: "Claude Code in Action", lesson: "Useful hooks!", url: "https://anthropic.skilljar.com/claude-code-in-action/312004" }
+    ],
     relatedTopics: ["d1-programmatic-enforcement", "d5-hooks-settings", "d1-subagent-config"],
   },
   {
@@ -437,6 +455,10 @@ const securityReviewer = {
     `,
     docUrl: "https://code.claude.com/docs/en/agent-sdk/subagents",
     docLabel: "Subagents Docs",
+    skilljarRefs: [
+      { course: "Introduction to subagents", lesson: "Creating a subagent", url: "https://anthropic.skilljar.com/introduction-to-subagents/450699" },
+      { course: "Introduction to subagents", lesson: "Designing effective subagents", url: "https://anthropic.skilljar.com/introduction-to-subagents/450700" }
+    ],
     relatedTopics: ["d1-multi-agent", "d1-hooks", "d1-sessions"],
   },
   {
@@ -504,6 +526,7 @@ const forked = await session.fork_session();
     `,
     docUrl: "https://code.claude.com/docs/en/agent-sdk/sessions",
     docLabel: "Sessions Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/agent-sdk/sessions",
     relatedTopics: ["d1-agentic-loop", "d3-cicd", "d5-context-claude-code"],
   },
   {
@@ -566,6 +589,11 @@ const forked = await session.fork_session();
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
     docLabel: "Prompt Chaining Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Parallelization workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804" },
+      { course: "Building with the Claude API", lesson: "Chaining workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800" },
+      { course: "Building with the Claude API", lesson: "Routing workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287801" }
+    ],
     relatedTopics: ["d1-multi-agent", "d4-multi-instance-review", "d1-programmatic-enforcement"],
   },
   {
@@ -631,6 +659,9 @@ const preToolUseHook = async (toolCall) => {
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
     docLabel: "Tool Use Docs",
+    skilljarRefs: [
+      { course: "Claude Code in Action", lesson: "Defining hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312002" }
+    ],
     relatedTopics: ["d1-hooks", "d1-agentic-loop", "d5-hooks-settings"],
   },
 
@@ -685,6 +716,9 @@ const preToolUseHook = async (toolCall) => {
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools#best-practices-for-tool-definitions",
     docLabel: "Define Tools Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" }
+    ],
     relatedTopics: ["d2-tool-choice", "d2-strict-tool-use", "d1-tool-use-contract"],
   },
   {
@@ -750,6 +784,7 @@ const summary = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools#controlling-claudes-output",
     docLabel: "Tool Choice Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools#controlling-claudes-output",
     relatedTopics: ["d2-tool-interfaces", "d2-strict-tool-use", "d4-structured-output"],
   },
   {
@@ -817,6 +852,7 @@ const summary = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use",
     docLabel: "Strict Tool Use Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use",
     relatedTopics: ["d2-tool-choice", "d2-tool-interfaces", "d4-structured-output"],
   },
   {
@@ -879,6 +915,9 @@ const summary = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls#handling-errors-with-is_error",
     docLabel: "Handle Tool Calls Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" }
+    ],
     relatedTopics: ["d1-tool-use-contract", "d5-error-propagation", "d1-agentic-loop"],
   },
   {
@@ -953,6 +992,11 @@ const summary = await client.messages.create({
     `,
     docUrl: "https://modelcontextprotocol.io/docs/learn/architecture",
     docLabel: "MCP Architecture Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Introducing MCP", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287780" },
+      { course: "Building with the Claude API", lesson: "Defining resources", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287782" },
+      { course: "Building with the Claude API", lesson: "Defining prompts", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287784" }
+    ],
     relatedTopics: ["d2-mcp-config", "d2-tool-interfaces", "d2-builtin-tools"],
   },
   {
@@ -1054,6 +1098,7 @@ const summary = await client.messages.create({
     `,
     docUrl: "https://code.claude.com/docs/en/mcp",
     docLabel: "MCP Config Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/mcp",
     relatedTopics: ["d2-mcp-architecture", "d3-claude-md", "d2-builtin-tools"],
   },
   {
@@ -1122,6 +1167,7 @@ Edit("src/auth/middleware.ts", {
     `,
     docUrl: "https://code.claude.com/docs/en/agent-sdk/overview#built-in-tools",
     docLabel: "Built-in Tools Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/agent-sdk/overview#built-in-tools",
     relatedTopics: ["d2-tool-interfaces", "d5-large-codebase", "d3-claude-md"],
   },
 
@@ -1208,6 +1254,9 @@ Edit("src/auth/middleware.ts", {
     `,
     docUrl: "https://code.claude.com/docs/en/memory",
     docLabel: "Memory Docs",
+    skilljarRefs: [
+      { course: "Introduction to agent skills", lesson: "Skills vs. other Claude Code features", url: "https://anthropic.skilljar.com/introduction-to-agent-skills/434528" }
+    ],
     relatedTopics: ["d3-rules", "d3-skills", "d5-context-claude-code"],
   },
   {
@@ -1273,6 +1322,7 @@ globs:
     `,
     docUrl: "https://code.claude.com/docs/en/memory",
     docLabel: "Memory Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/memory#rules",
     relatedTopics: ["d3-claude-md", "d3-skills", "d1-programmatic-enforcement"],
   },
   {
@@ -1356,6 +1406,11 @@ Report findings organized by severity (critical/high/medium/low).</code></pre>
     `,
     docUrl: "https://code.claude.com/docs/en/skills",
     docLabel: "Skills Docs",
+    skilljarRefs: [
+      { course: "Introduction to agent skills", lesson: "What are skills?", url: "https://anthropic.skilljar.com/introduction-to-agent-skills/434525" },
+      { course: "Introduction to agent skills", lesson: "Configuration and multi-file skills", url: "https://anthropic.skilljar.com/introduction-to-agent-skills/434526" },
+      { course: "Introduction to agent skills", lesson: "Creating your first skill", url: "https://anthropic.skilljar.com/introduction-to-agent-skills/434527" }
+    ],
     relatedTopics: ["d3-claude-md", "d3-cli", "d3-plan-mode"],
   },
   {
@@ -1420,6 +1475,7 @@ claude "First explain what changes are needed to add rate limiting
     `,
     docUrl: "https://code.claude.com/docs/en/best-practices",
     docLabel: "Best Practices Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/best-practices#plan-before-you-build",
     relatedTopics: ["d3-cli", "d3-skills", "d1-task-decomposition"],
   },
   {
@@ -1507,6 +1563,7 @@ claude -p "Review this PR for security issues" \\
     `,
     docUrl: "https://code.claude.com/docs/en/cli-reference",
     docLabel: "CLI Reference Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/cli",
     relatedTopics: ["d3-cicd", "d3-plan-mode", "d3-skills"],
   },
   {
@@ -1573,6 +1630,7 @@ jobs:
     `,
     docUrl: "https://code.claude.com/docs/en/github-actions",
     docLabel: "GitHub Actions Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/github-actions",
     relatedTopics: ["d3-cli", "d1-sessions", "d4-multi-instance-review"],
   },
   {
@@ -1631,6 +1689,7 @@ jobs:
     `,
     docUrl: "https://code.claude.com/docs/en/context-window",
     docLabel: "Context Window Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/context-window",
     relatedTopics: ["d3-claude-md", "d5-context-windows", "d5-large-codebase"],
   },
 
@@ -1694,6 +1753,7 @@ test("parseDate handles ISO, US, and EU formats", () => {
     `,
     docUrl: "https://code.claude.com/docs/en/best-practices",
     docLabel: "Best Practices Docs",
+    anthropicDocsRef: "https://code.claude.com/docs/en/best-practices",
     relatedTopics: ["d3-plan-mode", "d4-few-shot", "d4-prompting-best-practices"],
   },
 
@@ -1796,6 +1856,11 @@ call all relevant tools simultaneously rather than sequentially.
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
     docLabel: "Prompting Best Practices",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Being clear and direct", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287744" },
+      { course: "Building with the Claude API", lesson: "Being specific", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287740" },
+      { course: "Building with the Claude API", lesson: "Structure with XML tags", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287741" }
+    ],
     relatedTopics: ["d4-few-shot", "d4-structured-output", "d4-adaptive-thinking"],
   },
   {
@@ -1857,6 +1922,9 @@ Input: "{actual_customer_message}"</code></pre>
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
     docLabel: "Prompting Best Practices",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Providing examples", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287746" }
+    ],
     relatedTopics: ["d4-prompting-best-practices", "d4-structured-output", "d4-batch-processing"],
   },
   {
@@ -1976,6 +2044,9 @@ const response = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
     docLabel: "Structured Outputs Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Structured data", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287732" }
+    ],
     relatedTopics: ["d2-tool-choice", "d2-strict-tool-use", "d4-batch-processing"],
   },
   {
@@ -2083,6 +2154,7 @@ if (result.processing_status === "ended") {
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
     docLabel: "Batch Processing Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/api/batch-processing",
     relatedTopics: ["d4-structured-output", "d4-few-shot", "d3-cli"],
   },
   {
@@ -2143,6 +2215,7 @@ if (result.processing_status === "ended") {
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
     docLabel: "Prompt Chaining Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
     relatedTopics: ["d1-task-decomposition", "d3-cicd", "d1-multi-agent"],
   },
   {
@@ -2223,6 +2296,9 @@ const response2 = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking",
     docLabel: "Adaptive Thinking Docs",
+    skilljarRefs: [
+      { course: "Building with the Claude API", lesson: "Extended thinking", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773" }
+    ],
     relatedTopics: ["d4-prompting-best-practices", "d4-structured-output", "d5-context-windows"],
   },
 
@@ -2310,6 +2386,7 @@ const response2 = await client.messages.create({
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/context-windows",
     docLabel: "Context Windows Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/model/context-windows",
     relatedTopics: ["d3-context-window", "d5-large-codebase", "d5-provenance"],
   },
   {
@@ -2378,6 +2455,7 @@ function escalateToHuman(context, reason) {
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#agentic-systems",
     docLabel: "Agentic Prompting Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/build-with-claude/agentic-prompting",
     relatedTopics: ["d5-error-propagation", "d5-human-review", "d1-programmatic-enforcement"],
   },
   {
@@ -2444,6 +2522,7 @@ function analyzeFiles(files) {
     `,
     docUrl: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
     docLabel: "Handle Tool Calls Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
     relatedTopics: ["d2-error-responses", "d1-multi-agent", "d5-escalation"],
   },
   {
@@ -2515,6 +2594,10 @@ function analyzeFiles(files) {
     `,
     docUrl: "https://code.claude.com/docs/en/context-window",
     docLabel: "Context Window Docs",
+    skilljarRefs: [
+      { course: "Introduction to subagents", lesson: "What are subagents?", url: "https://anthropic.skilljar.com/introduction-to-subagents/450698" },
+      { course: "Claude Code in Action", lesson: "Controlling context", url: "https://anthropic.skilljar.com/claude-code-in-action/303237" }
+    ],
     relatedTopics: ["d2-builtin-tools", "d5-context-windows", "d3-context-window"],
   },
   {
@@ -2573,6 +2656,7 @@ function analyzeFiles(files) {
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
     docLabel: "Prompting Best Practices",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
     relatedTopics: ["d5-escalation", "d4-structured-output", "d4-multi-instance-review"],
   },
   {
@@ -2641,6 +2725,7 @@ function analyzeFiles(files) {
     `,
     docUrl: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting",
     docLabel: "Long Context Prompting Docs",
+    anthropicDocsRef: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/long-context-prompting",
     relatedTopics: ["d5-context-windows", "d5-human-review", "d5-escalation"],
   },
   {
@@ -2752,6 +2837,10 @@ function analyzeFiles(files) {
     `,
     docUrl: "https://code.claude.com/docs/en/hooks",
     docLabel: "Hooks Docs",
+    skilljarRefs: [
+      { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
+      { course: "Claude Code in Action", lesson: "Defining hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312002" }
+    ],
     relatedTopics: ["d1-hooks", "d1-programmatic-enforcement", "d3-claude-md"],
   },
 ];

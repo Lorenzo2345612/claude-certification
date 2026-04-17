@@ -20,6 +20,7 @@ export const questions = [
       d: "A routing classifier addresses tool availability, not tool ordering, which is the real problem. The agent has the correct tools but uses them in the wrong order."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 1.4",
       quote: "Implementing programmatic prerequisites that block downstream tool calls until prerequisite steps have completed (e.g., blocking process_refund until get_customer has returned a verified customer ID). When deterministic compliance is required (e.g., identity verification before financial operations), prompt instructions alone have a non-zero failure rate."
@@ -45,6 +46,7 @@ export const questions = [
       d: "There is no evidence of filtering in the analysis agent. The downstream subagents work correctly within their assigned scope."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 1.2",
       quote: "Risks of overly narrow task decomposition by the coordinator, leading to incomplete coverage of broad research topics. The coordinator is responsible for task decomposition, delegation, result aggregation, and deciding which subagents to invoke based on query complexity."
@@ -70,6 +72,7 @@ export const questions = [
       d: "Checking assistant text content as a completeness indicator is another explicitly listed anti-pattern. The model may generate intermediate text before making more tool calls."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Multi-turn conversations with tools", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287750" },
     docReference: {
       source: "Anthropic Docs — How Tool Use Works",
       quote: "While stop_reason == 'tool_use', execute the tools and continue the conversation. The loop exits on any other stop reason ('end_turn', 'max_tokens', 'stop_sequence', or 'refusal'), which means Claude has either produced a final answer or stopped for another reason that your application should handle."
@@ -95,6 +98,7 @@ export const questions = [
       d: "Speculative caching cannot reliably predict what the synthesis agent will need to verify. It is a waste of resources and does not solve the problem."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 2.3",
       quote: "Scoped tool access: giving agents only the tools needed for their role, with limited cross-role tools for specific high-frequency needs. Providing scoped cross-role tools for high-frequency needs (e.g., a verify_fact tool for the synthesis agent) while routing complex cases through the coordinator."
@@ -120,6 +124,7 @@ export const questions = [
       d: "Tool descriptions are still necessary for the model to understand what each tool does. The hook normalizes output, it does not replace documentation."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
     docReference: {
       source: "Claude Code Docs — Hooks",
       quote: "PostToolUse hooks are useful for validation, logging, format checking, and providing Claude with contextual information about what occurred during tool execution. Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens."
@@ -147,6 +152,7 @@ export const questions = [
       d: "Consolidating tools is a valid architectural decision but requires more effort than a 'first step' justifies when the immediate problem is inadequate descriptions."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" },
     docReference: {
       source: "Anthropic Docs — Tool Use / Define Tools",
       quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: what the tool does, when it should be used (and when it shouldn't), what each parameter means, and any important caveats or limitations. Aim for at least 3-4 sentences per tool description."
@@ -172,6 +178,7 @@ export const questions = [
       d: "Committing tokens to the repository is a serious security vulnerability. Environment variables in .mcp.json solve this with ${VARIABLE_NAME}."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "MCP servers with Claude Code", url: "https://anthropic.skilljar.com/claude-code-in-action/303239" },
     docReference: {
       source: "Claude Code Docs — MCP",
       quote: "Claude Code supports environment variable expansion in .mcp.json files, allowing teams to share configurations while maintaining flexibility for machine-specific paths and sensitive values like API keys. Supported syntax: ${VAR} and ${VAR:-default}."
@@ -197,6 +204,7 @@ export const questions = [
       d: "Forced tool_choice for each turn eliminates the model's ability to reason about which tool to use, which is fundamental for agentic behavior."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Agents and tools", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287803" },
     docReference: {
       source: "Anthropic Docs — Tool Use / Define Tools",
       quote: "Consolidate related operations into fewer tools. Rather than creating a separate tool for every action, group them into a single tool with an action parameter. Fewer, more capable tools reduce selection ambiguity and make your tool surface easier for Claude to navigate."
@@ -222,6 +230,7 @@ export const questions = [
       c: "Silently suppressing errors (returning empty as success) is an explicitly listed anti-pattern. It prevents any recovery and risks incomplete results without notice."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
     docReference: {
       source: "Anthropic Docs — Handle Tool Calls",
       quote: "If the tool itself throws an error during execution (for example, a network error when fetching weather data), you can return the error message in the content along with 'is_error': true. Write instructive error messages. Instead of generic errors like 'failed', include what went wrong and what Claude should try next."
@@ -249,6 +258,7 @@ export const questions = [
       d: ".claude/config.json with a commands array is a mechanism that does NOT exist in Claude Code."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "Custom commands", url: "https://anthropic.skilljar.com/claude-code-in-action/303234" },
     docReference: {
       source: "Claude Code Docs — Skills",
       quote: "Custom commands have been merged into skills. A file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both create /deploy and work the same way. Your existing .claude/commands/ files keep working."
@@ -274,6 +284,7 @@ export const questions = [
       d: "Ignores that the complexity is already declared in the requirements, not something that might emerge later. Restructuring a monolith is inherently complex."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Agents and workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287796" },
     docReference: {
       source: "Claude Code Docs — Common Workflows",
       quote: "Plan Mode instructs Claude to create a plan by analyzing the codebase with read-only operations, perfect for exploring codebases, planning complex changes, or reviewing code safely. When to use Plan Mode: multi-step implementation, code exploration, interactive development."
@@ -299,6 +310,7 @@ export const questions = [
       d: "Directory CLAUDE.md files do not handle files scattered across many directories well. You would need to create a CLAUDE.md in every directory that has tests."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
     docReference: {
       source: "Claude Code Docs — Memory",
       quote: "Rules can be scoped to specific files using YAML frontmatter with the paths field. These conditional rules only apply when Claude is working with files matching the specified patterns."
@@ -324,6 +336,7 @@ export const questions = [
       d: "The --batch flag does not exist in Claude Code. It is an invented feature."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "The Claude Code SDK", url: "https://anthropic.skilljar.com/claude-code-in-action/312001" },
     docReference: {
       source: "Claude Code Docs — CLI Reference",
       quote: "--print, -p: Print response without interactive mode. Used for programmatic usage. Example: 'claude -p \"explain this function\"' queries via SDK then exits."
@@ -349,6 +362,7 @@ export const questions = [
       d: "Although very large CLAUDE.md files can reduce adherence, the described problem (one member does not see instructions that others do) clearly points to a scope issue, not a size issue."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "Controlling context", url: "https://anthropic.skilljar.com/claude-code-in-action/303237" },
     docReference: {
       source: "Claude Code Docs — Memory",
       quote: "User instructions (~/.claude/CLAUDE.md): Personal preferences for all projects. Shared with: Just you (all projects). Project instructions (./CLAUDE.md): Team-shared instructions for the project. Shared with: Team members via source control."
@@ -376,6 +390,7 @@ export const questions = [
       d: "Prompt instructions improve probabilistically but do not guarantee arithmetic consistency. Programmatic validation is the correct approach."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Structured data", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287732" },
     docReference: {
       source: "Anthropic Docs — Structured Outputs",
       quote: "The SDKs automatically: Remove unsupported constraints, Update descriptions with constraint info, Add additionalProperties: false to all objects, Validate responses against your original schema (with all constraints). This means Claude receives a simplified schema, but your code still enforces all constraints through validation."
@@ -401,6 +416,7 @@ export const questions = [
       d: "Permanently eliminating useful categories is an overreaction. The correct approach is to temporarily disable while improving the specific prompts for that category."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 4.1",
       quote: "Temporarily disabling high false-positive categories to restore developer trust while improving prompts for those categories. The impact of false positive rates on developer trust: high false positive categories undermine confidence in accurate categories."
@@ -426,6 +442,7 @@ export const questions = [
       d: "Adds unnecessary complexity when the simplest solution is to match each API with its appropriate use case."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Anthropic Docs", lesson: "Batch processing", url: "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing" },
     docReference: {
       source: "Anthropic Docs — Batch Processing",
       quote: "The Message Batches API is a powerful, cost-effective way to asynchronously process large volumes of Messages requests. This approach is well-suited to tasks that do not require immediate responses, with most batches finishing in less than 1 hour while reducing costs by 50%."
@@ -451,6 +468,7 @@ export const questions = [
       d: "Detecting fabrication after the fact is harder and less reliable than preventing fabrication with correct schema design."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 4.3",
       quote: "Designing schema fields as optional (nullable) when source documents may not contain the information, preventing the model from fabricating values to satisfy required fields. Schema design considerations: required vs optional fields, enum fields with 'other' + detail string patterns for extensible categories."
@@ -478,6 +496,7 @@ export const questions = [
       d: "'Memorize' instructions are probabilistic enforcement. The correct approach is context design: extracting critical data to a structured layer separate from history."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "Controlling context", url: "https://anthropic.skilljar.com/claude-code-in-action/303237" },
     docReference: {
       source: "Anthropic Docs — Context Windows + Define Tools",
       quote: "As token count grows, accuracy and recall degrade, a phenomenon known as context rot. Design tool responses to return only high-signal information. Bloated responses waste context and make it harder for Claude to extract what matters."
@@ -503,6 +522,7 @@ export const questions = [
       d: "Solves a different problem. Customer sentiment does not correlate with case complexity, which is the real issue. A customer can be frustrated about a simple issue."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Providing examples", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287746" },
     docReference: {
       source: "Anthropic Docs — Prompting Best Practices",
       quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. A few well-crafted examples can dramatically improve accuracy and consistency. Include 3-5 examples for best results."
@@ -528,6 +548,7 @@ export const questions = [
       d: "Terminating the entire workflow unnecessarily when recovery strategies could succeed. A timeout from one subagent should not eliminate the entire research."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
     docReference: {
       source: "Anthropic Docs — Handle Tool Calls",
       quote: "Write instructive error messages. Instead of generic errors like 'failed', include what went wrong and what Claude should try next, e.g., 'Rate limit exceeded. Retry after 60 seconds.' This gives Claude the context it needs to recover or adapt without guessing."
@@ -553,6 +574,7 @@ export const questions = [
       d: "Verifying 100% with a second model is costly and unnecessary. The correct approach is stratified sampling to find where the problems are and improve the pipeline in those areas."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 5.5",
       quote: "The risk that aggregate accuracy metrics (e.g., 97% overall) may mask poor performance on specific document types or fields. Stratified random sampling for measuring error rates in high-confidence extractions and detecting novel error patterns."
@@ -578,6 +600,7 @@ export const questions = [
       d: "The system prompt is maintained throughout the session. The problem is that exploration findings (not instructions) are lost when the context compacts."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Claude Code in Action", lesson: "Controlling context", url: "https://anthropic.skilljar.com/claude-code-in-action/303237" },
     docReference: {
       source: "Anthropic Docs — Context Windows",
       quote: "As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available."
@@ -605,6 +628,7 @@ export const questions = [
       d: "Consensus voting (2/3) would suppress detection of real bugs that are only detected intermittently. A real bug found in only 1 of 3 runs would be discarded."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Chaining workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800" },
     docReference: {
       source: "Exam Guide — Task Statement 1.6",
       quote: "Splitting large code reviews into per-file local analysis passes plus a separate cross-file integration pass to avoid attention dilution. Prompt chaining patterns that break reviews into sequential steps."
@@ -630,6 +654,7 @@ export const questions = [
       d: "Asking the customer to reformat their request is a terrible user experience. The agent should be able to handle messages with multiple concerns."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Parallelization workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804" },
     docReference: {
       source: "Exam Guide — Task Statement 1.4",
       quote: "Decomposing multi-concern customer requests into distinct items, then investigating each in parallel using shared context before synthesizing a unified resolution."
@@ -655,6 +680,7 @@ export const questions = [
       d: "Depending on external tools when built-in tools are sufficient is unnecessary. Grep can trace function usages effectively."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 2.5",
       quote: "Building codebase understanding incrementally: starting with Grep to find entry points, then using Read to follow imports and trace flows, rather than reading all files upfront. Tracing function usage across wrapper modules by first identifying all exported names, then searching for each name across the codebase."
@@ -680,6 +706,7 @@ export const questions = [
       d: "Creating separate schemas is impractical when formats are diverse and unpredictable. The model needs to learn to extract the same schema from varied formats."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Providing examples", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287746" },
     docReference: {
       source: "Anthropic Docs — Prompting Best Practices",
       quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. Make them relevant, diverse (cover edge cases), and structured (wrap in <example> tags). Include 3-5 examples for best results."
@@ -705,6 +732,7 @@ export const questions = [
       d: "Omitting conflicting data from the report is dishonest and loses valuable information for the reader. The conflicts themselves can be informative."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 5.6",
       quote: "How to handle conflicting statistics from credible sources: annotating conflicts with source attribution rather than arbitrarily selecting one value. Structuring reports with explicit sections distinguishing well-established findings from contested ones, preserving original source characterizations and methodological context."
@@ -730,6 +758,7 @@ export const questions = [
       d: "Splitting into multiple skills does not solve the context pollution problem; each skill would still add output to the main conversation."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Introduction to agent skills", lesson: "Skills vs. other Claude Code features", url: "https://anthropic.skilljar.com/introduction-to-agent-skills/434528" },
     docReference: {
       source: "Claude Code Docs — Skills",
       quote: "Add context: fork to your frontmatter when you want a skill to run in isolation. The skill content becomes the prompt that drives the subagent. It won't have access to your conversation history."
@@ -755,6 +784,7 @@ export const questions = [
       d: "Sentiment analysis is an unreliable proxy. The customer already communicated their preference explicitly and clearly — no analysis is needed."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 5.2",
       quote: "Honoring explicit customer requests for human agents immediately without first attempting investigation. Appropriate escalation triggers: customer requests for a human, policy exceptions/gaps (not just complex cases), and inability to make meaningful progress."
@@ -780,6 +810,7 @@ export const questions = [
       d: "Running all three schemas in parallel triples the cost and may produce conflicting results that need additional reconciliation."
     },
     docStatus: "STRONG",
+    skilljarRef: { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" },
     docReference: {
       source: "Anthropic Docs — Define Tools",
       quote: "'any' tells Claude that it must use one of the provided tools, but doesn't force a particular tool. Note that when you have tool_choice as 'any' or 'tool', the API prefills the assistant message to force a tool to be used."
@@ -805,6 +836,7 @@ export const questions = [
       d: "You cannot save the 'complete model state' since there is no persistent internal state. You can only persist structured data that informs the next actions."
     },
     docStatus: "EXAM_GUIDE",
+    skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
     docReference: {
       source: "Exam Guide — Task Statement 5.4",
       quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume. Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts."

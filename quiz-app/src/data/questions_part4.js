@@ -20,6 +20,7 @@ export const questionsPart4 = [
       d: "pause_turn has no relation to API load or rate limiting. It is a mechanism specific to the server-side loop for tools executed by Anthropic."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — How tool use works",
         quote: "This internal loop has an iteration limit. If the model is still iterating when it hits the cap, the response comes back with stop_reason: \"pause_turn\" instead of \"end_turn\". A paused turn means the work isn't finished; re-send the conversation (including the paused response) to let the model continue where it left off."
@@ -45,6 +46,7 @@ export const questionsPart4 = [
       d: "These names are from the OpenAI API, not Claude. Claude's values use different snake_case: end_turn (not 'complete'), tool_use (not 'tool_call'), etc."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Multi-turn conversations with tools", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287750" },
       docReference: {
         source: "Anthropic Docs — How tool use works",
         quote: "In practice this reads as: while stop_reason == \"tool_use\", execute the tools and continue the conversation. The loop exits on any other stop reason (\"end_turn\", \"max_tokens\", \"stop_sequence\", or \"refusal\"), which means Claude has either produced a final answer or stopped for another reason that your application should handle."
@@ -70,6 +72,7 @@ export const questionsPart4 = [
       d: "There is no 'is_refused' field in the Claude API. refusal remains a valid stop_reason value in all current models including Opus."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — How tool use works",
         quote: "The loop exits on any other stop reason (\"end_turn\", \"max_tokens\", \"stop_sequence\", or \"refusal\"), which means Claude has either produced a final answer or stopped for another reason that your application should handle."
@@ -95,6 +98,7 @@ export const questionsPart4 = [
       d: "There is no status endpoint for pause_turn. The correct action is to re-send the complete conversation including the paused response, not to poll."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — How tool use works",
         quote: "A paused turn means the work isn't finished; re-send the conversation (including the paused response) to let the model continue where it left off. In practice this reads as: while stop_reason == \"tool_use\", execute the tools and continue the conversation."
@@ -120,6 +124,7 @@ export const questionsPart4 = [
       d: "You must explicitly enable server-executed tools in your request. They are not activated automatically."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — How tool use works",
         quote: "For web_search, web_fetch, code_execution, and tool_search, Anthropic runs the code. You enable the tool in your request and the server handles everything else. You never construct a tool_result block for these tools because the server-side loop executes the operation and feeds the output back to the model before the response reaches you. The response you receive contains server_tool_use blocks showing what ran and what came back, but by the time you see them, execution is already complete."
@@ -147,6 +152,7 @@ export const questionsPart4 = [
       d: "A tool_result can omit the content field (empty result). This is valid when the tool does not need to return data, such as a side-effect tool."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "Tool result blocks must immediately follow their corresponding tool use blocks in the message history. You cannot include any messages between the assistant's tool use message and the user's tool result message. In the user message containing tool results, the tool_result blocks must come FIRST in the content array. Any text must come AFTER all tool results."
@@ -172,6 +178,7 @@ export const questionsPart4 = [
       d: "There is no automatic escalation mechanism to diagnostic subagents. Claude handles tool errors directly with retries and corrections."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "If a tool request is invalid or missing parameters, Claude will retry 2-3 times with corrections before apologizing to the user."
@@ -197,6 +204,7 @@ export const questionsPart4 = [
       d: "tool_result does not require structured JSON. It can be a simple string or an array of mixed content blocks (text, image, document)."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "content: The result of the tool, as a string (for example, \"content\": \"15 degrees\"), a list of nested content blocks (for example, \"content\": [{\"type\": \"text\", \"text\": \"15 degrees\"}]), or a list of document blocks (for example, \"content\": [{\"type\": \"document\", \"source\": {\"type\": \"text\", \"media_type\": \"text/plain\", \"data\": \"15 degrees\"}}]). These content blocks can use the text, image, or document types."
@@ -222,6 +230,7 @@ export const questionsPart4 = [
       d: "The API does NOT automatically reorder messages. The order is strict and violating it causes errors."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "Tool result blocks must immediately follow their corresponding tool use blocks in the message history. You cannot include any messages between the assistant's tool use message and the user's tool result message."
@@ -247,6 +256,7 @@ export const questionsPart4 = [
       d: "A complete stack trace contains unnecessary implementation details and consumes tokens without adding value. Claude needs high-level, actionable information, not code details."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Sending tool results", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752" },
       docReference: {
         source: "Anthropic Docs — Handle tool calls",
         quote: "Write instructive error messages. Instead of generic errors like \"failed\", include what went wrong and what Claude should try next, e.g., \"Rate limit exceeded. Retry after 60 seconds.\" This gives Claude the context it needs to recover or adapt without guessing."
@@ -274,6 +284,7 @@ export const questionsPart4 = [
       d: "strict mode does not inject instructions into the prompt. It operates at the level of the model's sampling process, restricting possible tokens at each position."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Strict tool use",
         quote: "Setting strict: true on a tool definition uses grammar-constrained sampling to guarantee Claude's tool inputs match your JSON Schema."
@@ -299,6 +310,7 @@ export const questionsPart4 = [
       d: "strict mode can handle optional fields correctly. You do not need default values; the recommendation is additionalProperties: false to prevent extra properties."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Strict tool use (example schemas)",
         quote: "input_schema: type: object properties: location: type: string description: The city and state, e.g. San Francisco, CA unit: type: string enum: [celsius, fahrenheit] required: [location] additionalProperties: false"
@@ -324,6 +336,7 @@ export const questionsPart4 = [
       d: "There is caching of up to 24 hours for compiled schemas. This improves performance by avoiding recompiling the same grammar on each request."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Strict tool use",
         quote: "Strict tool use compiles tool input_schema definitions into grammars using the same pipeline as structured outputs. Tool schemas are temporarily cached for up to 24 hours since last use. Prompts and responses are not retained beyond the API response."
@@ -349,6 +362,7 @@ export const questionsPart4 = [
       d: "The restriction is about tool_choice (only auto/none with extended thinking), not about the model. It is not specific to Opus."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "When using extended thinking with tool use, tool_choice: {\"type\": \"any\"} and tool_choice: {\"type\": \"tool\", \"name\": \"...\"} are not supported and will result in an error. Only tool_choice: {\"type\": \"auto\"} (the default) and tool_choice: {\"type\": \"none\"} are compatible with extended thinking."
@@ -374,6 +388,7 @@ export const questionsPart4 = [
       d: "The restriction is about PHI in tool schemas with strict: true due to caching. You do not need to deactivate strict; just keep PHI out of the schema definitions."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Strict tool use",
         quote: "Strict tool use is HIPAA eligible, but PHI must not be included in tool schema definitions. The API caches compiled schemas separately from message content, and these cached schemas do not receive the same PHI protections as prompts and responses. Do not include PHI in input_schema property names, enum values, const values, or pattern regular expressions."
@@ -401,6 +416,7 @@ export const questionsPart4 = [
       d: "'sequential' does not exist as a tool_choice. The execution order of tools is controlled by your agentic loop code, not tool_choice."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "When working with the tool_choice parameter, there are four possible options: auto allows Claude to decide whether to call any provided tools or not. This is the default value when tools are provided. any tells Claude that it must use one of the provided tools, but doesn't force a particular tool. tool forces Claude to always use a particular tool. none prevents Claude from using any tools. This is the default value when no tools are provided."
@@ -426,6 +442,7 @@ export const questionsPart4 = [
       d: "Extended thinking is not automatically disabled. The API rejects the request with an error instead of silently degrading."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "When using extended thinking with tool use, tool_choice: {\"type\": \"any\"} and tool_choice: {\"type\": \"tool\", \"name\": \"...\"} are not supported and will result in an error. Only tool_choice: {\"type\": \"auto\"} (the default) and tool_choice: {\"type\": \"none\"} are compatible with extended thinking."
@@ -451,6 +468,7 @@ export const questionsPart4 = [
       d: "The prefilling behavior applies on every turn where tool_choice any/tool is active, not just the first one."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "Note that when you have tool_choice as any or tool, the API prefills the assistant message to force a tool to be used. This means that the models will not emit a natural language response or explanation before tool_use content blocks, even if explicitly asked to do so."
@@ -476,6 +494,7 @@ export const questionsPart4 = [
       d: "The invalidation is not selective by message type (assistant vs user). It is the message blocks in general that are invalidated when tool_choice changes."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "When using prompt caching, changes to the tool_choice parameter will invalidate cached message blocks. Tool definitions and system prompts remain cached, but message content must be reprocessed."
@@ -501,6 +520,7 @@ export const questionsPart4 = [
       d: "strict: false does not guarantee that inputs comply with the schema. 99% is not 100%. For guarantees, you need strict: true with grammar-constrained sampling."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools",
         quote: "Guaranteed tool calls with strict tools — Combine tool_choice: {\"type\": \"any\"} with strict tool use to guarantee both that one of your tools will be called AND that the tool inputs strictly follow your schema. Set strict: true on your tool definitions to enable schema validation."
@@ -508,31 +528,6 @@ export const questionsPart4 = [
   },
 
   // ===== Hooks (10 questions) =====
-    {
-    id: 226,
-    domain: "Claude Code Configuration & Workflows",
-    domainId: 3,
-    scenario: "Code Generation with Claude Code",
-    question: "How many arguments does a hook callback receive and what are they?",
-    options: [
-      { id: "a", text: "2 arguments: the complete event (with all data) and an options object to configure the hook behavior.", correct: false },
-      { id: "b", text: "3 arguments: input_data (object with event details), tool_use_id (str/string or null/undefined to correlate PreToolUse with PostToolUse), and context (AbortSignal in TS, reserved in Python).", correct: true },
-      { id: "c", text: "1 argument: a unified object containing event data, tool ID, session info, and cancellation token.", correct: false },
-      { id: "d", text: "4 arguments: event_name, event_data, session_context, and a response callback to return the asynchronous result.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "Every hook callback receives 3 arguments: (1) input_data with event details (session_id, cwd, hook_event_name, and specific fields like tool_name), (2) tool_use_id to correlate Pre and PostToolUse of the same tool call, and (3) context (AbortSignal in TypeScript, reserved for future use in Python).",
-    whyOthersWrong: {
-      a: "There are 3 arguments, not 2. The tool_use_id is a separate argument specifically for correlating Pre and PostToolUse events of the same call.",
-      c: "There are 3 separate arguments, not 1 unified object. Each has a specific purpose: event data, tool call correlation, and cancellation control.",
-      d: "There are 3 arguments, not 4. There is no 'response callback'; hooks return their result directly as the function's return value."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Hooks",
-        quote: "All hook events receive common fields: session_id, transcript_path, cwd, permission_mode, hook_event_name. Event-specific fields follow, such as tool_name, tool_input, and tool_use_id for tool events."
-      }
-  },
   {
     id: 227,
     domain: "Claude Code Configuration & Workflows",
@@ -553,6 +548,7 @@ export const questionsPart4 = [
       d: "There is no manual conflict resolution mechanism. The deny > ask > allow rule automatically resolves any conflict."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "When multiple PreToolUse hooks return different decisions, precedence is: deny > defer > ask > allow. The strongest decision wins. A single hook returning \"deny\" overrides others returning \"allow\"."
@@ -578,6 +574,7 @@ export const questionsPart4 = [
       d: "You must return a NEW object, not mutate the original. The documentation specifies that a new object should always be returned in updatedInput."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "When modifying tool input via updatedInput: Must replace the entire input object – include unchanged fields alongside modified ones. Works in: PreToolUse (with \"allow\" or \"ask\"), PermissionRequest (with \"allow\")."
@@ -603,6 +600,7 @@ export const questionsPart4 = [
       d: "There is no combination of tool name + arguments. The matcher is exclusively against the tool name. Arguments are inspected programmatically in the callback."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "Matchers filter when hooks fire based on different fields per event. Tool Events (PreToolUse, PostToolUse, etc.) — Matchers filter on tool name."
@@ -628,6 +626,7 @@ export const questionsPart4 = [
       d: "The names do not use ALL_CAPS with underscores. The convention is PascalCase: Bash, Read, Write, Edit, Glob, Grep, WebFetch, Agent."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "Tool Events (PreToolUse, PostToolUse, etc.) Matchers filter on tool name. Built-in tools are PascalCase: Bash – shell commands, Read – file reading, Write – file creation, Edit – file editing, Glob – file pattern matching, Grep – text search, WebFetch – web content retrieval, WebSearch – web search, Agent – spawn subagents, AskUserQuestion – user prompts, ExitPlanMode – exit plan mode."
@@ -653,6 +652,7 @@ export const questionsPart4 = [
       d: "MCP tools do not use dot notation. The correct format is mcp__<server>__<action> with double underscores."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "MCP tools follow the pattern: mcp__<server>__<tool>. mcp__memory__create_entities, mcp__filesystem__read_file, mcp__github__search_repositories. To match all tools from a server: mcp__memory__.* (the .* is required). To match write operations from any server: mcp__.*__write.*"
@@ -678,88 +678,14 @@ export const questionsPart4 = [
       d: "Hooks are configured by event name as a string, not by numeric IDs. But the name must be exact PascalCase."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Hooks", url: "https://code.claude.com/docs/en/hooks" },
       docReference: {
         source: "Claude Code Docs — Hooks",
         quote: "Hooks fire at specific lifecycle points in Claude Code sessions. Events fall into three cadences: Once per session: SessionStart, SessionEnd. Once per turn: UserPromptSubmit, Stop, StopFailure. On every tool call: PreToolUse, PostToolUse, PostToolUseFailure, PermissionRequest, PermissionDenied."
       }
   },
-  {
-    id: 233,
-    domain: "Claude Code Configuration & Workflows",
-    domainId: 3,
-    scenario: "Code Generation with Claude Code",
-    question: "You configure multiple PreToolUse hooks in an array: [rate_limiter, authorization_check, input_sanitizer, audit_logger]. In what order are they executed?",
-    options: [
-      { id: "a", text: "In reverse order (audit_logger first) since hooks are executed as a LIFO stack.", correct: false },
-      { id: "b", text: "In parallel with no guaranteed order. The result is consolidated when all complete.", correct: false },
-      { id: "c", text: "In the order they appear in the array: rate_limiter first, then authorization_check, then input_sanitizer, and audit_logger last.", correct: true },
-      { id: "d", text: "In priority order based on hook type: authorization first, rate limiting second, sanitization third.", correct: false }
-    ],
-    correctAnswer: "c",
-    explanation: "Hooks are executed in the order they appear in the array. This allows intentional pipeline design: first check rate limits, then authorize, then sanitize inputs, and finally audit.",
-    whyOthersWrong: {
-      a: "They are not executed in reverse order or as a stack. The order is exactly that of the array: the first in the array executes first.",
-      b: "They are not executed in parallel. They are sequential in array order, which allows an earlier hook (like rate_limiter) to block before later hooks execute.",
-      d: "There is no automatic prioritization by type. The order is controlled by you through the order in the array."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Hooks",
-        quote: "Hook Execution Order: 1. Matcher checks – filters by tool name, agent type, notification type, etc. 2. if condition evaluation – permission rule syntax like \"Bash(rm *)\" (optional, tool events only) 3. Hook handler spawns – command, HTTP, prompt, or agent executes 4. Deduplication – identical handlers run once (by command string for commands, by URL for HTTP)"
-      }
-  },
-  {
-    id: 234,
-    domain: "Claude Code Configuration & Workflows",
-    domainId: 3,
-    scenario: "Code Generation with Claude Code",
-    question: "Your PreToolUse hook does not need to block or modify anything, only observe. What should it return?",
-    options: [
-      { id: "a", text: "null or undefined to indicate there is no decision.", correct: false },
-      { id: "b", text: "An empty object {} to allow the operation without changes.", correct: true },
-      { id: "c", text: "The string 'allow' as a shorthand for permissionDecision: 'allow'.", correct: false },
-      { id: "d", text: "The object { permissionDecision: 'passthrough' } to indicate this hook does not participate in the decision.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "Returning an empty object {} is the correct way to allow the operation without modifications. This indicates the hook has no objections and no changes to make.",
-    whyOthersWrong: {
-      a: "Returning null or undefined is not the documented convention. The correct value is an empty object {}.",
-      c: "There is no string shorthand. The return of a hook must always be an object (even if empty).",
-      d: "'passthrough' does not exist as a permissionDecision. The valid values are 'allow', 'deny', and 'ask'. An empty object {} achieves the effect of not interfering."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Hooks (exit code semantics)",
-        quote: "Exit 0: Success. JSON output processed if present. Stdout added to debug log (except UserPromptSubmit/SessionStart where it becomes context)."
-      }
-  },
 
   // ===== Agent SDK Subagents (10 questions) =====
-  {
-    id: 235,
-    domain: "Agentic Architecture & Orchestration",
-    domainId: 1,
-    scenario: "Multi-Agent Research System",
-    question: "How many fields does AgentDefinition have and which are the only two required fields?",
-    options: [
-      { id: "a", text: "5 fields total. Required: name and prompt. Optional: tools, model, skills.", correct: false },
-      { id: "b", text: "7 fields total. Required: description and prompt. Optional: tools, model, skills, memory, mcpServers.", correct: true },
-      { id: "c", text: "4 fields total. Required: description, prompt, tools, and model.", correct: false },
-      { id: "d", text: "8 fields total. Required: name, description, and prompt. Optional: tools, model, skills, memory, mcpServers.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "AgentDefinition has 7 fields: description (required), prompt (required), tools (optional, inherits from the parent if omitted), model (optional, inherits from the parent), skills (optional), memory (optional, Python only), and mcpServers (optional).",
-    whyOthersWrong: {
-      a: "There are 7 fields not 5, and the required field is not 'name' but 'description'. The agent's name is defined as a key when registering it, not as a field of AgentDefinition.",
-      c: "tools and model are not required; they are optional. If omitted, the agent inherits the parent's tools and uses the same model.",
-      d: "There are 7 fields not 8, and 'name' is not a field of AgentDefinition. Only description and prompt are required."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Subagents",
-        quote: "The following fields can be used in the YAML frontmatter. Only name and description are required."
-      }
-  },
   {
     id: 236,
     domain: "Agentic Architecture & Orchestration",
@@ -780,6 +706,7 @@ export const questionsPart4 = [
       d: "There was a renaming. It was originally called 'Task' and was renamed to 'Agent' in version v2.1.63."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "In version 2.1.63, the Task tool was renamed to Agent. Existing Task(...) references in settings and agent definitions still work as aliases."
@@ -805,6 +732,7 @@ export const questionsPart4 = [
       d: "There is no authorization for nested delegation. The restriction is at the SDK architecture level: subagents do not create subagents."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "Subagents cannot spawn other subagents. If your workflow requires nested delegation, use Skills or chain subagents from the main conversation."
@@ -830,6 +758,7 @@ export const questionsPart4 = [
       d: "There is no shared memory between parent and subagent. The subagent is isolated; the only way to pass information is through the Agent tool prompt."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "Your full message still goes to Claude, which writes the subagent's task prompt based on what you asked. The @-mention controls which subagent Claude invokes, not what prompt it receives."
@@ -855,34 +784,10 @@ export const questionsPart4 = [
       d: "Permission inheritance does not depend on the model. Subagents simply do not inherit the parent's permissions under any circumstances."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "The permissionMode field controls how the subagent handles permission prompts. Subagents inherit the permission context from the main conversation and can override the mode, except when the parent mode takes precedence as described below."
-      }
-  },
-  {
-    id: 241,
-    domain: "Agentic Architecture & Orchestration",
-    domainId: 1,
-    scenario: "Multi-Agent Research System",
-    question: "What are the 3 ways to create subagents in Claude Code and which has the highest precedence?",
-    options: [
-      { id: "a", text: "CLI commands, CLAUDE.md definitions, and API parameters. CLI commands have the highest precedence.", correct: false },
-      { id: "b", text: "Programmatically (agents parameter in query()), filesystem-based (files in .claude/agents/), and built-in general-purpose. Programmatic agents take precedence over filesystem-based with the same name.", correct: true },
-      { id: "c", text: "JSON config files, Python decorators, and prompt-based. JSON config files have the highest precedence.", correct: false },
-      { id: "d", text: "MCP servers, plugins, and SDK definitions. MCP servers have the highest precedence.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "The 3 ways are: programmatically (via the agents parameter in query options), filesystem-based (markdown files in .claude/agents/), and built-in general-purpose (Claude can invoke it without a definition). Programmatic agents take precedence over filesystem-based with the same name.",
-    whyOthersWrong: {
-      a: "They are not created via CLI commands or CLAUDE.md. The ways are programmatic, filesystem (.claude/agents/), and built-in general-purpose.",
-      c: "They are not created via JSON config files or Python decorators. They are: programmatic, filesystem-based, and built-in general-purpose.",
-      d: "MCP servers and plugins are not subagent creation mechanisms. Subagents are defined programmatically, via filesystem, or the built-in general-purpose is used."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Subagents",
-        quote: "You can also create subagents manually as Markdown files, define them via CLI flags, or distribute them through plugins."
       }
   },
   {
@@ -905,34 +810,10 @@ export const questionsPart4 = [
       d: "It does not inherit only built-in tools. It inherits ALL of the parent's tools, including user-defined, MCP tools, and any other available tool."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "Subagents can use any of Claude Code's internal tools. By default, subagents inherit all tools from the main conversation, including MCP tools."
-      }
-  },
-  {
-    id: 243,
-    domain: "Agentic Architecture & Orchestration",
-    domainId: 1,
-    scenario: "Code Generation with Claude Code",
-    question: "How do you programmatically detect that Claude is invoking a subagent when inspecting the API response?",
-    options: [
-      { id: "a", text: "You look for a special 'subagent_invocation' field in the response at the message level.", correct: false },
-      { id: "b", text: "You look for tool_use blocks where name is 'Agent' (or 'Task' in SDK versions prior to v2.1.63).", correct: true },
-      { id: "c", text: "You look for stop_reason: 'subagent' which indicates the model wants to delegate.", correct: false },
-      { id: "d", text: "You look for a content block of type 'delegation' that contains the subagent's prompt and configuration.", correct: false }
-    ],
-    correctAnswer: "b",
-    explanation: "To detect subagent invocation, you look for tool_use blocks where name is 'Agent'. In SDK versions prior to v2.1.63, the name was 'Task'. Current releases emit 'Agent' in tool_use but may still use 'Task' in some internal contexts.",
-    whyOthersWrong: {
-      a: "There is no 'subagent_invocation' field. Subagent invocation is done via the standard tool_use mechanism with name: 'Agent'.",
-      c: "There is no stop_reason: 'subagent'. Subagents are invoked via tool_use, which generates stop_reason: 'tool_use' like any other tool.",
-      d: "There is no content block of type 'delegation'. The invocation is a normal tool_use block with name: 'Agent'."
-    },
-      docStatus: "PARTIAL",
-      docReference: {
-        source: "Claude Code Docs — Subagents",
-        quote: "In version 2.1.63, the Task tool was renamed to Agent. Existing Task(...) references in settings and agent definitions still work as aliases."
       }
   },
   {
@@ -955,6 +836,7 @@ export const questionsPart4 = [
       d: "There is no 'context' field in AgentDefinition. The 7 fields are: description, prompt, tools, model, skills, memory, mcpServers."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Subagents", url: "https://code.claude.com/docs/en/agent-sdk/subagents" },
       docReference: {
         source: "Claude Code Docs — Subagents",
         quote: "Subagents receive only this system prompt (plus basic environment details like working directory), not the full Claude Code system prompt."
@@ -982,6 +864,7 @@ export const questionsPart4 = [
       d: "The controllers are inverted. Tools are model-controlled (not user), Resources are application-controlled (not model), and Prompts are user-controlled (not application)."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP Tools", url: "https://modelcontextprotocol.io/docs/concepts/tools" },
       docReference: {
         source: "MCP Docs — Tools / Resources",
         quote: "Tools in MCP are designed to be model-controlled, meaning that the language model can discover and invoke tools automatically based on its contextual understanding and the user's prompts. Resources in MCP are designed to be application-driven, with host applications determining how to incorporate context based on their needs."
@@ -1007,6 +890,7 @@ export const questionsPart4 = [
       d: "There is a casing difference: MCP uses inputSchema (camelCase) and the Claude API uses input_schema (snake_case). This change can cause the schema to not be recognized."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP Tools", url: "https://modelcontextprotocol.io/docs/concepts/tools" },
       docReference: {
         source: "MCP Docs — Tools",
         quote: "A tool definition includes: name: Unique identifier for the tool. title: Optional human-readable name of the tool for display purposes. description: Human-readable description of functionality. inputSchema: JSON Schema defining expected parameters. outputSchema: Optional JSON Schema defining expected output structure."
@@ -1032,6 +916,7 @@ export const questionsPart4 = [
       d: "The order is completely inverted. Connectors have the LOWEST precedence, not the highest."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "When the same server is defined in more than one place, Claude Code connects to it once, using the definition from the highest-precedence source: 1. Local scope 2. Project scope 3. User scope 4. Plugin-provided servers 5. claude.ai connectors. The three scopes match duplicates by name. Plugins and connectors match by endpoint, so one that points at the same URL or command as a server above is treated as a duplicate."
@@ -1057,6 +942,7 @@ export const questionsPart4 = [
       d: "%VAR% Windows syntax is not used. .mcp.json uses Unix-style ${VAR} syntax regardless of the operating system."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "Supported syntax: ${VAR} - Expands to the value of environment variable VAR. ${VAR:-default} - Expands to VAR if set, otherwise uses default."
@@ -1082,6 +968,7 @@ export const questionsPart4 = [
       d: "oauth.clientId and oauth.callbackPort do not support variable expansion. The 5 correct locations are command, args, env, url, and headers."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "Expansion locations: Environment variables can be expanded in: command - The server executable path. args - Command-line arguments. env - Environment variables passed to the server. url - For HTTP server types. headers - For HTTP server authentication."
@@ -1107,6 +994,7 @@ export const questionsPart4 = [
       d: "It must return a complete JSON object (not just a string), the timeout is 10 seconds (not 5), and it runs on each connection (not based on expiration)."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "Requirements: The command must write a JSON object of string key-value pairs to stdout. The command runs in a shell with a 10-second timeout. Dynamic headers override any static headers with the same name. The helper runs fresh on each connection (at session start and on reconnect). There is no caching, so your script is responsible for any token reuse."
@@ -1132,6 +1020,7 @@ export const questionsPart4 = [
       d: "It is not called 'REST' but HTTP. And SSE IS deprecated; migration to HTTP is recommended."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "HTTP servers are the recommended option for connecting to remote MCP servers. This is the most widely supported transport for cloud-based services. [...] The SSE (Server-Sent Events) transport is deprecated. Use HTTP servers instead, where available."
@@ -1157,6 +1046,7 @@ export const questionsPart4 = [
       d: "They are MCP-specific variables in Claude Code, not aliases for general API settings."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "Configure MCP server startup timeout using the MCP_TIMEOUT environment variable (for example, MCP_TIMEOUT=10000 claude sets a 10-second timeout). Claude Code will display a warning when MCP tool output exceeds 10,000 tokens. To increase this limit, set the MAX_MCP_OUTPUT_TOKENS environment variable (for example, MAX_MCP_OUTPUT_TOKENS=50000)."
@@ -1182,6 +1072,7 @@ export const questionsPart4 = [
       d: "SQLite is not used. The configuration is stored as JSON in ~/.claude.json."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "Claude Code Docs — MCP",
         quote: "Local scope is the default. A local-scoped server loads only in the project where you added it and stays private to you. Claude Code stores it in ~/.claude.json under that project's path, so the same server won't appear in your other projects. [...] The term \"local scope\" for MCP servers differs from general local settings. MCP local-scoped servers are stored in ~/.claude.json (your home directory), while general local settings use .claude/settings.local.json (in the project directory)."
@@ -1207,6 +1098,7 @@ export const questionsPart4 = [
       d: "They are not categorized by access level (Public/Private). The distinction is by URI type: fixed (Direct) vs parameterized (Template)."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "MCP in Claude Code", url: "https://code.claude.com/docs/en/mcp" },
       docReference: {
         source: "MCP Docs — Resources",
         quote: "To discover available resources, clients send a resources/list request. [...] Resource templates allow servers to expose parameterized resources using URI templates. Arguments may be auto-completed through the completion API. [...] resourceTemplates: uriTemplate: \"file:///{path}\", name: \"Project Files\", title: \"📁 Project Files\", description: \"Access files in the project directory\", mimeType: \"application/octet-stream\""

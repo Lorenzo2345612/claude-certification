@@ -20,6 +20,7 @@ export const questionsPart3 = [
       d: "Sequential execution eliminates parallelism (a key benefit of multi-agent systems) and introduces ordering bias. Earlier agents' conclusions unduly influence later ones rather than allowing independent analysis."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2",
         quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
@@ -45,6 +46,7 @@ export const questionsPart3 = [
       d: "Asking the customer to re-explain their issue is a poor experience. The customer already explained the issue and expects the handoff to preserve that context. This also loses the agent's diagnostic work."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.4",
         quote: "Compiling structured handoff summaries (customer ID, root cause, refund amount, recommended action) when escalating to human agents who lack access to the conversation transcript."
@@ -70,6 +72,7 @@ export const questionsPart3 = [
       d: "tool_choice forces specific tool selection but doesn't address the need for independent analytical approaches. Each approach requires different reasoning, not just different tools."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.7",
         quote: "fork_session for creating independent branches from a shared analysis baseline to explore divergent approaches... Using fork_session to create parallel exploration branches (e.g., comparing two testing strategies or refactoring approaches from a shared codebase analysis)."
@@ -95,6 +98,7 @@ export const questionsPart3 = [
       d: "Running git pull updates local files but does not update the agent's in-context understanding. Without explicitly telling the agent what changed, it will still reason based on its stale mental model of the codebase."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.7",
         quote: "The importance of informing the agent about changes to previously analyzed files when resuming sessions after code modifications... Informing a resumed session about specific file changes for targeted re-analysis rather than requiring full re-exploration."
@@ -120,6 +124,7 @@ export const questionsPart3 = [
       d: "An asynchronous message queue adds infrastructure complexity and doesn't solve the fundamental problem — the coordinator is still in the communication path. The issue is the routing topology, not the communication mechanism."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2 / 2.3",
         quote: "Providing scoped cross-role tools for high-frequency needs (e.g., a verify_fact tool for the synthesis agent) while routing complex cases through the coordinator."
@@ -145,6 +150,7 @@ export const questionsPart3 = [
       d: "Deferring to a human operator defeats the purpose of adaptive decomposition. The system should handle routine plan modifications autonomously; human escalation should be reserved for ambiguous situations."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.6",
         quote: "The value of adaptive investigation plans that generate subtasks based on what is discovered at each step... Decomposing open-ended tasks... by first mapping structure, identifying high-impact areas, then creating a prioritized plan that adapts as dependencies are discovered."
@@ -170,6 +176,7 @@ export const questionsPart3 = [
       d: "Claude Code supports native session resume — there's no need to manually export and import state. This adds unnecessary complexity and risks losing context that session resume handles automatically."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.6 / 1.7",
         quote: "Session context isolation: why the same Claude session that generated code is less effective at reviewing its own changes compared to an independent review instance."
@@ -195,6 +202,7 @@ export const questionsPart3 = [
       d: "Expanding the replacement subagent's scope beyond the failed task adds unnecessary complexity. The 3 successful results don't need verification — they completed normally. Keep the retry scoped to exactly what failed."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.2",
         quote: "Implementing local error recovery within subagents for transient failures, propagating to the coordinator only errors that cannot be resolved locally along with partial results and what was attempted."
@@ -220,6 +228,7 @@ export const questionsPart3 = [
       d: "Parallelizing all 4 steps means executing unnecessary steps (2 and 4 for simple queries), wasting compute. It also introduces complexity for steps with data dependencies where step N needs step N-1's output."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.6",
         quote: "When to use fixed sequential pipelines (prompt chaining) versus dynamic adaptive decomposition based on intermediate findings... The value of adaptive investigation plans that generate subtasks based on what is discovered at each step."
@@ -245,6 +254,7 @@ export const questionsPart3 = [
       d: "Having subagents fetch the objective via MCP adds an extra tool call per subagent and doesn't actually save tokens — the objective still enters each subagent's context. It just adds latency from the fetch."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3",
         quote: "That subagent context must be explicitly provided in the prompt—subagents do not automatically inherit parent context or share memory between invocations... The AgentDefinition configuration including descriptions, system prompts, and tool restrictions for each subagent type."
@@ -270,6 +280,7 @@ export const questionsPart3 = [
       d: "Running multiple fix attempts in parallel is wasteful because each test failure typically has a specific cause that needs targeted fixing. Parallel guessing is less reliable than Claude's sequential reasoning about what went wrong."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Multi-turn conversations with tools", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287750" },
       docReference: {
         source: "Anthropic Docs — Tool Use (How Tool Use Works)",
         quote: "The canonical shape is a while loop keyed on stop_reason... while stop_reason == 'tool_use', execute the tools and continue the conversation. The loop exits on any other stop reason ('end_turn', 'max_tokens', 'stop_sequence', or 'refusal')."
@@ -295,6 +306,7 @@ export const questionsPart3 = [
       d: "Access to the research objective is necessary but not sufficient. The problem isn't missing information — it's missing quality control. Even with the objective, the synthesis agent might still concatenate without the coordinator enforcing quality standards."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2",
         quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
@@ -320,6 +332,7 @@ export const questionsPart3 = [
       d: "A programmatic decision tree works for simple, deterministic rules but cannot handle the nuanced exception-based logic in Product C's complex policy. LLM reasoning is needed for judgment calls in exceptions."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.3",
         quote: "The principle that giving an agent access to too many tools (e.g., 18 instead of 4-5) degrades tool selection reliability by increasing decision complexity... Scoped tool access: giving agents only the tools needed for their role."
@@ -345,6 +358,7 @@ export const questionsPart3 = [
       d: "Using the coordinator as an intermediate structuring step adds latency and token cost. The coordinator makes an extra LLM call per subagent just for formatting. Structure should be enforced at the source."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Structured Outputs",
         quote: "Tool use (tool_use) with JSON schemas as the most reliable approach for guaranteed schema-compliant structured output, eliminating JSON syntax errors."
@@ -370,6 +384,7 @@ export const questionsPart3 = [
       d: "fork_session creates independent branches from the same starting point. The frontend fork doesn't benefit from backend fork's decisions about API contracts. There's no mechanism for one fork to consume the other's output."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.7",
         quote: "Choosing between session resumption (when prior context is mostly valid) and starting fresh with injected summaries (when prior tool results are stale)."
@@ -395,6 +410,7 @@ export const questionsPart3 = [
       d: "A watchdog timer addresses subagent hangs, not partial completion. The subagent completed and returned results — it just didn't indicate they were incomplete. Timing doesn't help detect content gaps."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.3",
         quote: "Structuring synthesis output with coverage annotations indicating which findings are well-supported versus which topic areas have gaps due to unavailable sources."
@@ -420,6 +436,7 @@ export const questionsPart3 = [
       d: "A single timeout is a transient error that typically resolves on retry. Escalating on first failure would dramatically increase human agent workload for issues that self-resolve in seconds."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.2",
         quote: "Implementing local error recovery within subagents for transient failures, propagating to the coordinator only errors that cannot be resolved locally along with partial results and what was attempted."
@@ -445,6 +462,7 @@ export const questionsPart3 = [
       d: "Reducing functionality to prevent failure is a workaround, not a solution. The review loop exists for quality control. Removing it to save tokens degrades output quality and doesn't truly eliminate the failure mode."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.4",
         quote: "Structured state persistence for crash recovery: each agent exports state to a known location, and the coordinator loads a manifest on resume... Designing crash recovery using structured agent state exports (manifests) that the coordinator loads on resume and injects into agent prompts."
@@ -470,6 +488,7 @@ export const questionsPart3 = [
       d: "Temperature affects sampling randomness, not the tendency to add unrequested changes. Even at temperature 0, Claude may still decide that refactoring is helpful based on its reasoning, not randomness."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "CLI reference", url: "https://code.claude.com/docs/en/cli-reference" },
       docReference: {
         source: "Anthropic Docs — CLI / allowedTools",
         quote: "--allowedTools — tools that execute without permission prompts. --disallowedTools — tools removed from context entirely."
@@ -495,6 +514,7 @@ export const questionsPart3 = [
       d: "A hybrid approach adds complexity without clear benefit over pure adaptive. If adaptive decomposition is capable of identifying the right subtasks (it is), adding fixed categories alongside risks redundancy and coordination overhead."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.6",
         quote: "When to use fixed sequential pipelines (prompt chaining) versus dynamic adaptive decomposition based on intermediate findings... The value of adaptive investigation plans that generate subtasks based on what is discovered at each step."
@@ -520,6 +540,7 @@ export const questionsPart3 = [
       d: "Prompt instructions are probabilistic. For a pattern that occurs in 15% of tickets and has a measurable negative impact, programmatic enforcement is needed. The agent may not reliably count its own tool calls."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.4",
         quote: "The difference between programmatic enforcement (hooks, prerequisite gates) and prompt-based guidance for workflow ordering... When deterministic compliance is required (e.g., identity verification before financial operations), prompt instructions alone have a non-zero failure rate."
@@ -545,6 +566,7 @@ export const questionsPart3 = [
       d: "The coordinator acting as a researcher violates separation of concerns. The coordinator's role is orchestration and quality control, not content generation. It may also lack the research tools that the subagent has."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2",
         quote: "Implementing iterative refinement loops where the coordinator evaluates synthesis output for gaps, re-delegates to search and analysis subagents with targeted queries, and re-invokes synthesis until coverage is sufficient."
@@ -570,6 +592,7 @@ export const questionsPart3 = [
       d: "Implicit learning from examples is unreliable for LLMs (they don't 'learn' across sessions). Explicit criteria are more reliable and maintainable than hoping the model infers standards from examples."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Being specific", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287740" },
       docReference: {
         source: "Anthropic Docs — Prompt Engineering Best Practices",
         quote: "Set role in system prompt to focus behavior and tone... Add context: explain WHY a behavior is important (Claude generalizes from explanation)."
@@ -595,6 +618,7 @@ export const questionsPart3 = [
       d: "Fine-tuning is extreme overkill for team conventions that can be documented in a few lines. It's also inflexible — conventions change regularly and would require re-tuning."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory / CLAUDE.md",
         quote: "CLAUDE.md as the mechanism for providing project context (testing standards, fixture conventions, review criteria) to CI-invoked Claude Code."
@@ -620,6 +644,7 @@ export const questionsPart3 = [
       d: "A meta-coordinator adds an unnecessary layer. One coordinator managing multiple parallel subagents is the standard pattern — adding a meta-coordinator level increases latency and complexity without benefit."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3",
         quote: "Spawning parallel subagents by emitting multiple Task tool calls in a single coordinator response rather than across separate turns."
@@ -645,6 +670,7 @@ export const questionsPart3 = [
       d: "Queuing the question hides it from the agent entirely, which may confuse the customer ('Why won't you answer my question?'). The agent should acknowledge the question and explain it will be addressed after the current workflow completes."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.4",
         quote: "Implementing programmatic prerequisites that block downstream tool calls until prerequisite steps have completed (e.g., blocking process_refund until get_customer has returned a verified customer ID)."
@@ -670,6 +696,7 @@ export const questionsPart3 = [
       d: "Switching to free-form-only discards the structured data that 3 subagents already provide. Structured data is more reliable for programmatic processing. Moving backward in structure quality is the wrong direction."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.5",
         quote: "Implementing PostToolUse hooks to normalize heterogeneous data formats (Unix timestamps, ISO 8601, numeric status codes) from different MCP tools before the agent processes them."
@@ -695,6 +722,7 @@ export const questionsPart3 = [
       d: "settings.json configures permissions, MCP servers, and environment settings. Behavioral workflow patterns like the interview pattern belong in CLAUDE.md as project-level instructions."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.5",
         quote: "The interview pattern: having Claude ask questions to surface considerations the developer may not have anticipated before implementing... Using the interview pattern to surface design considerations (e.g., cache invalidation strategies, failure modes) before implementing solutions in unfamiliar domains."
@@ -722,6 +750,7 @@ export const questionsPart3 = [
       d: "A discriminated union via document_type parameter still requires the model to correctly match types to parameters. It's marginally better than the current approach but doesn't eliminate the parameter confusion that specific tools solve."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
@@ -747,6 +776,7 @@ export const questionsPart3 = [
       d: "Merging tools hides the distinction instead of clarifying it. The tools likely have different parameters, return schemas, and backend logic. A single tool with a type parameter is less self-documenting than two well-described specific tools."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" },
       docReference: {
         source: "Anthropic Docs — Tool Use (Define Tools)",
         quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations."
@@ -772,6 +802,7 @@ export const questionsPart3 = [
       d: "MCP prompt templates are for structuring agent interactions, not for data access. They define conversation patterns, not content catalogs. Using them for catalog data conflates two different concerns."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Defining resources", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287782" },
       docReference: {
         source: "Exam Guide — Task Statement 2.4",
         quote: "MCP resources as a mechanism for exposing content catalogs (e.g., issue summaries, documentation hierarchies, database schemas) to reduce exploratory tool calls... Exposing content catalogs as MCP resources to give agents visibility into available data without requiring exploratory tool calls."
@@ -797,6 +828,7 @@ export const questionsPart3 = [
       d: "Consolidating independent services into a single server creates a maintenance nightmare. Each server has its own auth, versioning, and lifecycle. The solution is better tool descriptions, not architectural merging."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Claude Code in Action", lesson: "MCP servers with Claude Code", url: "https://anthropic.skilljar.com/claude-code-in-action/303239" },
       docReference: {
         source: "Anthropic Docs — MCP / Tool Naming",
         quote: "MCP Tool Naming Pattern: mcp__<server>__<action>. Example: mcp__playwright__browser_screenshot."
@@ -822,6 +854,7 @@ export const questionsPart3 = [
       d: "Encoding business rules as prompt instructions makes validation probabilistic rather than deterministic. Business rule validation requires consistent, repeatable logic that tool execution provides but prompt instructions cannot guarantee."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.4",
         quote: "Choosing existing community MCP servers over custom implementations for standard integrations (e.g., Jira), reserving custom servers for team-specific workflows."
@@ -847,6 +880,7 @@ export const questionsPart3 = [
       d: "Adding a phone_number parameter increases tool complexity and may not match backend capabilities. If the backend can look up by phone, it should be a separate constrained tool, not a parameter added to an already ambiguous tool."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.3",
         quote: "Replacing generic tools with constrained alternatives (e.g., replacing fetch_url with load_document that validates document URLs)."
@@ -872,6 +906,7 @@ export const questionsPart3 = [
       d: "Renaming provides a hint but the model selects tools based on descriptions and capabilities, not just names. If the tool can still do web searches, renaming won't prevent the agent from using that capability."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.3",
         quote: "Providing scoped cross-role tools for high-frequency needs (e.g., a verify_fact tool for the synthesis agent) while routing complex cases through the coordinator."
@@ -897,6 +932,7 @@ export const questionsPart3 = [
       d: "SQL dialect is one small piece of the needed information. It helps with query syntax but doesn't address the more impactful gaps: when to use the tool, what's allowed, output format, and boundaries with other tools."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" },
       docReference: {
         source: "Anthropic Docs — Tool Use (Define Tools)",
         quote: "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations. Aim for at least 3-4 sentences per tool description, more if the tool is complex."
@@ -922,6 +958,7 @@ export const questionsPart3 = [
       d: "System prompt guides help marginally but don't overcome the fundamental degradation that occurs with too many tools. The model's reasoning becomes less reliable as option count increases regardless of prompt instructions."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.3",
         quote: "The principle that giving an agent access to too many tools (e.g., 18 instead of 4-5) degrades tool selection reliability by increasing decision complexity."
@@ -947,6 +984,7 @@ export const questionsPart3 = [
       d: "Adding a confirmation step increases latency for every transaction and requires another LLM evaluation. The fix should prevent the wrong selection, not add a post-selection review that may also err."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Writing tool descriptions that clearly differentiate each tool's purpose, expected inputs, outputs, and when to use it versus similar alternatives."
@@ -972,6 +1010,7 @@ export const questionsPart3 = [
       d: "Renaming provides a weak signal. The model relies on descriptions for tool selection. 'search_scholarly_only' is better than 'search_academic_papers' but still doesn't convey what types of non-scholarly content to avoid."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.4",
         quote: "Enhancing MCP tool descriptions to explain capabilities and outputs in detail, preventing the agent from preferring built-in tools (like Grep) over more capable MCP tools."
@@ -997,6 +1036,7 @@ export const questionsPart3 = [
       d: "Base64 encoding is not security — it's trivially reversible and provides no actual protection. It creates a false sense of security while the tokens remain easily extractable."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "MCP servers with Claude Code", url: "https://anthropic.skilljar.com/claude-code-in-action/303239" },
       docReference: {
         source: "Anthropic Docs — MCP / Claude Code",
         quote: "Claude Code supports environment variable expansion in .mcp.json files, allowing teams to share configurations while maintaining flexibility for machine-specific paths and sensitive values like API keys. Supported syntax: ${VAR} - Expands to the value of environment variable VAR."
@@ -1022,6 +1062,7 @@ export const questionsPart3 = [
       d: "Grouping by input/output is arbitrary and doesn't match how the model reasons about operations. The model thinks in terms of 'I need to clean this data' not 'I need an input-phase operation.' Individual tools map directly to intent."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
@@ -1047,6 +1088,7 @@ export const questionsPart3 = [
       d: "Relying solely on prompt instructions to guide tool selection is weaker than having a properly described tool. The prompt instruction may be ignored, while a well-described tool is always visible in the tool schema."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Writing tool descriptions that clearly differentiate each tool's purpose, expected inputs, outputs, and when to use it versus similar alternatives."
@@ -1072,6 +1114,7 @@ export const questionsPart3 = [
       d: "While position bias exists in some LLM tasks, tool selection is primarily driven by description relevance, not tool ordering. A highly relevant tool described well will be selected regardless of its position in the tool list."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Tool descriptions as the primary mechanism LLMs use for tool selection; minimal descriptions lead to unreliable selection among similar tools."
@@ -1097,6 +1140,7 @@ export const questionsPart3 = [
       d: "Reducing fields loses potentially important data. The issue isn't the number of fields but their flat organization. Grouping preserves all data while improving comprehensibility."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3",
         quote: "Using structured data formats to separate content from metadata (source URLs, document names, page numbers) when passing context between agents to preserve attribution."
@@ -1122,6 +1166,7 @@ export const questionsPart3 = [
       d: "Having the agent orchestrate raw Slack API calls for a complex workflow (create channel, set topic, invite members, post initial message) is error-prone. A dedicated tool encapsulates this logic deterministically."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.4",
         quote: "Choosing existing community MCP servers over custom implementations for standard integrations (e.g., Jira), reserving custom servers for team-specific workflows."
@@ -1147,6 +1192,7 @@ export const questionsPart3 = [
       d: "A separate validation tool adds another tool to the tool set (increasing total count) and creates a mandatory two-call pattern. The simpler solution is clear preconditions that tell the model to check status using an existing tool."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Tool schemas", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753" },
       docReference: {
         source: "Anthropic Docs — Tool Use (Define Tools)",
         quote: "Your descriptions should explain every detail about the tool, including: What the tool does, When it should be used (and when it shouldn't), What each parameter means and how it affects the tool's behavior, Any important caveats or limitations."
@@ -1172,6 +1218,7 @@ export const questionsPart3 = [
       d: "Converting non-standard invoices to a standard format is itself a complex extraction task. It doesn't eliminate the problem — it moves it to a different tool. Direct extraction from the actual layout is more reliable."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "Splitting generic tools into purpose-specific tools with defined input/output contracts (e.g., splitting a generic analyze_document into extract_data_points, summarize_content, and verify_claim_against_source)."
@@ -1199,6 +1246,7 @@ export const questionsPart3 = [
       d: ".claude/settings.json handles permissions, environment variables, and MCP server configuration — not coding standards. Coding conventions belong in CLAUDE.md files."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory / CLAUDE.md Hierarchy",
         quote: "The CLAUDE.md configuration hierarchy: user-level (~/.claude/CLAUDE.md), project-level (.claude/CLAUDE.md or root CLAUDE.md), and directory-level (subdirectory CLAUDE.md files)."
@@ -1224,6 +1272,7 @@ export const questionsPart3 = [
       d: "The /memory command stores information in Claude's memory for the current session or future sessions, but it's less reliable and structured than CLAUDE.local.md for persistent, project-scoped personal preferences."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory",
         quote: "Local | ./CLAUDE.local.md | Just you (current project)... CLAUDE.local.md lives at project root: ./CLAUDE.local.md. Should be added to .gitignore. Appended after CLAUDE.md at same directory level. Personal project-specific preferences."
@@ -1249,6 +1298,7 @@ export const questionsPart3 = [
       d: "In CI contexts, Claude Code typically runs in headless mode with constrained permissions. Searching the repository adds latency and tool calls to every CI run. Providing the needed files upfront in the context is more efficient and deterministic."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.6",
         quote: "Providing existing test files in context so test generation avoids suggesting duplicate scenarios already covered by the test suite."
@@ -1274,6 +1324,7 @@ export const questionsPart3 = [
       d: ".claude/rules/ files are loaded based on file glob patterns, not environment variables or user roles. They're designed for file-type-specific rules, not role-based conditional loading."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory / CLAUDE.local.md",
         quote: "CLAUDE.local.md lives at project root: ./CLAUDE.local.md. Should be added to .gitignore. Appended after CLAUDE.md at same directory level. Personal project-specific preferences."
@@ -1299,6 +1350,7 @@ export const questionsPart3 = [
       d: "An external file watcher runs outside Claude Code's context. Its output wouldn't automatically feed back into Claude's conversation, so Claude wouldn't see lint errors and couldn't fix them as part of its workflow."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
       docReference: {
         source: "Anthropic Docs — Hooks",
         quote: "PostToolUse hooks are useful for validation, logging, format checking, and providing Claude with contextual information about what occurred during tool execution."
@@ -1324,6 +1376,7 @@ export const questionsPart3 = [
       d: "Git commit messages document what changed, not the investigation process that led to the fix. The debugging context (how the race condition was identified, what symptoms it caused) is valuable for future sessions and isn't captured in commits."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.1",
         quote: "Using the /memory command to verify which memory files are loaded and diagnose inconsistent behavior across sessions."
@@ -1349,6 +1402,7 @@ export const questionsPart3 = [
       d: ".claude/rules/ files are included in the same context as CLAUDE.md, not applied as a separate post-processing step. All configuration sources are merged into the active context for Claude's reasoning."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory",
         quote: "Loading: walks up directory tree from cwd, loading CLAUDE.md and CLAUDE.local.md at each level. Within each directory, CLAUDE.local.md appended after CLAUDE.md. Subdirectory CLAUDE.md files load on demand."
@@ -1374,6 +1428,7 @@ export const questionsPart3 = [
       d: "Docker containers provide filesystem isolation but are overkill for session isolation. Claude Code has built-in mechanisms for session isolation that are more efficient and simpler to configure than container orchestration."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.6",
         quote: "Session context isolation: why the same Claude session that generated code is less effective at reviewing its own changes compared to an independent review instance."
@@ -1399,6 +1454,7 @@ export const questionsPart3 = [
       d: "Claude Code does not detect or surface contradictions between configuration sources. It silently merges them all and leaves resolution to the model's inference."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory",
         quote: "Loading: walks up directory tree from cwd, loading CLAUDE.md and CLAUDE.local.md at each level. Within each directory, CLAUDE.local.md appended after CLAUDE.md."
@@ -1424,6 +1480,7 @@ export const questionsPart3 = [
       d: "A PreToolUse hook on Edit is a fragile trigger point. Not all implementations start with Edit, and the hook would fire on every edit in every context, not just feature implementation workflows."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Custom commands", url: "https://anthropic.skilljar.com/claude-code-in-action/303234" },
       docReference: {
         source: "Anthropic Docs — Skills / Commands",
         quote: "Custom commands have been merged into skills. A file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both create /deploy and work the same way. Your existing .claude/commands/ files keep working."
@@ -1449,6 +1506,7 @@ export const questionsPart3 = [
       d: "Re-running original tests validates the fix but doesn't prevent the weakening behavior. If Claude weakened the assertions, the re-run would use the weakened versions and pass. You'd need to compare test file checksums, which is complex."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.4 / 3.6",
         quote: "The difference between programmatic enforcement (hooks, prerequisite gates) and prompt-based guidance for workflow ordering... When deterministic compliance is required (e.g., identity verification before financial operations), prompt instructions alone have a non-zero failure rate."
@@ -1474,6 +1532,7 @@ export const questionsPart3 = [
       d: "Subdirectory CLAUDE.md files scope by directory, not file type. If Python and TypeScript files coexist in the same directory, subdirectory CLAUDE.md can't differentiate between them."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Exam Guide — Task Statement 3.3",
         quote: ".claude/rules/ files with YAML frontmatter paths fields containing glob patterns for conditional rule activation... Creating .claude/rules/ files with YAML frontmatter path scoping (e.g., paths: [\"terraform/**/*\"]) so rules load only when editing matching files."
@@ -1499,6 +1558,7 @@ export const questionsPart3 = [
       d: "~/.claude/settings.json configures permissions and MCP servers, not formatting preferences. Even if it could, per-project CI-enforced standards should take precedence over global personal preferences."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Exam Guide — Task Statement 3.1",
         quote: "Diagnosing configuration hierarchy issues (e.g., a new team member not receiving instructions because they're in user-level rather than project-level configuration)."
@@ -1524,6 +1584,7 @@ export const questionsPart3 = [
       d: "A hook that blocks tool calls containing deprecated API names is overly aggressive. It would block Claude from reading or discussing the deprecated code during migration work. The fix should guide Claude to suggest the new API, not block interaction with the old one."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory",
         quote: "Project | ./CLAUDE.md or ./.claude/CLAUDE.md | Team via VCS."
@@ -1549,6 +1610,7 @@ export const questionsPart3 = [
       d: "Copy-pasting test code into the prompt is unnecessary since Claude Code can read files directly. It wastes prompt tokens and may lose important context like import statements and neighboring test files that Claude would discover by reading the file system."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 3.5",
         quote: "Test-driven iteration: writing test suites first, then iterating by sharing test failures to guide progressive improvement... Writing test suites covering expected behavior, edge cases, and performance requirements before implementation, then iterating by sharing test failures."
@@ -1574,6 +1636,7 @@ export const questionsPart3 = [
       d: "Parallel execution on different files can help but adds orchestration complexity and may miss cross-file issues. Scoping the input context is simpler and addresses the root cause of slow processing."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Context Windows",
         quote: "As token count grows, accuracy and recall degrade, a phenomenon known as context rot. This makes curating what's in context just as important as how much space is available."
@@ -1599,6 +1662,7 @@ export const questionsPart3 = [
       d: "Excluding legacy files from all rules means Claude has no guidance at all when editing legacy code. The legacy code still needs conventions — just different ones from the main codebase."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory / Compaction Survival",
         quote: "Project-root CLAUDE.md survives: re-read from disk and re-injected after /compact. Nested subdirectory CLAUDE.md NOT re-injected until Claude reads files in that subdirectory."
@@ -1624,6 +1688,7 @@ export const questionsPart3 = [
       d: "Even if Claude reads the standards/ directory during file exploration, that's different from the file being part of the persistent CLAUDE.md context. @import content is loaded at session start as part of the project configuration."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory / @import",
         quote: "The @import syntax for referencing external files to keep CLAUDE.md modular (e.g., importing specific standards files relevant to each package)... Maximum depth of 5 hops. Both relative and absolute paths allowed."
@@ -1649,6 +1714,7 @@ export const questionsPart3 = [
       d: "db/CLAUDE.md would work if database files are only in the db/ directory, but the glob pattern **/db/**/*.ts suggests database directories may exist at multiple levels (e.g., src/services/db/, tests/db/). Rules with glob patterns cover all matching locations."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Exam Guide — Task Statement 3.3",
         quote: "The advantage of glob-pattern rules over directory-level CLAUDE.md files for conventions that span multiple directories (e.g., test files spread throughout a codebase)... Choosing path-specific rules over subdirectory CLAUDE.md files when conventions must apply to files spread across the codebase."
@@ -1674,6 +1740,7 @@ export const questionsPart3 = [
       d: "Temperature 0 affects token sampling, not analytical thoroughness. The root cause of missed security issues is divided attention across 3 concerns, not randomness in token selection."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.6",
         quote: "Multi-pass review: splitting large reviews into per-file local analysis passes plus cross-file integration passes to avoid attention dilution and contradictory findings."
@@ -1699,6 +1766,7 @@ export const questionsPart3 = [
       d: "Session startup hooks aren't a standard Claude Code feature for loading context. @import in CLAUDE.md is the designed mechanism for automatically including reference material in every session."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Exam Guide — Task Statement 3.1",
         quote: "Using @import to selectively include relevant standards files in each package's CLAUDE.md based on maintainer domain knowledge."
@@ -1726,6 +1794,7 @@ export const questionsPart3 = [
       d: "Location information helps find the source but doesn't enable automated comparison. You'd still need to read the document at that location to discover the discrepancy. The source snippet provides the comparison directly."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.4",
         quote: "Feedback loop design: tracking which code constructs trigger findings (detected_pattern field) to enable systematic analysis of dismissal patterns... Adding detected_pattern fields to structured findings to enable analysis of false positive patterns when developers dismiss findings."
@@ -1751,6 +1820,7 @@ export const questionsPart3 = [
       d: "Averaging financial figures is nonsensical. The discrepancy indicates an error somewhere — averaging doesn't resolve it and produces a number that exists in neither the document nor reality."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.4",
         quote: "Designing self-correction validation flows: extracting 'calculated_total' alongside 'stated_total' to flag discrepancies, adding 'conflict_detected' booleans for inconsistent source data."
@@ -1776,6 +1846,7 @@ export const questionsPart3 = [
       d: "Hard-coding specific intents makes the system brittle. It would catch 'duplicate_charge' but miss the next unexpected secondary intent. The fix should be structural (multi-intent extraction) not case-specific."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Being clear and direct", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287744" },
       docReference: {
         source: "Anthropic Docs — Prompt Engineering Best Practices",
         quote: "Be clear and direct — think of Claude as a brilliant but new employee. Provide sequential steps using numbered lists when order matters. Add context: explain WHY a behavior is important."
@@ -1801,6 +1872,7 @@ export const questionsPart3 = [
       d: "Prompt length is a minor cost factor compared to the 30% redundancy in requests. Eliminating 30,000 unnecessary requests per hour at 100K scale saves far more than trimming a few tokens per request."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.5",
         quote: "Using prompt refinement on a sample set before batch-processing large volumes to maximize first-pass success rates and reduce iterative resubmission costs."
@@ -1826,6 +1898,7 @@ export const questionsPart3 = [
       d: "This is a systematic bias from the field name, not a random sampling error. Retrying with the same prompt will likely produce the same biased result."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 2.1",
         quote: "The impact of system prompt wording on tool selection: keyword-sensitive instructions can create unintended tool associations... Reviewing system prompts for keyword-sensitive instructions that might override well-written tool descriptions."
@@ -1851,6 +1924,7 @@ export const questionsPart3 = [
       d: "Removing auto-resolve throws away the 75% that work correctly, dramatically increasing human workload. The fix should preserve auto-resolve for genuinely simple cases while catching misclassified complex ones."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 5.2",
         quote: "Why sentiment-based escalation and self-reported confidence scores are unreliable proxies for actual case complexity."
@@ -1876,6 +1950,7 @@ export const questionsPart3 = [
       d: "Composite scoring adds unnecessary complexity. Security severity levels are ordinal (Critical > High > Medium > Low), and the standard practice is to assign the highest matching level, not compute scores."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.1",
         quote: "Defining explicit severity criteria with concrete code examples for each severity level to achieve consistent classification."
@@ -1901,6 +1976,7 @@ export const questionsPart3 = [
       d: "Code examples don't affect temperature. Temperature is a sampling parameter set by the API caller. Examples improve output quality through clearer specification, not through parameter changes."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Providing examples", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287746" },
       docReference: {
         source: "Anthropic Docs — Prompt Engineering Best Practices",
         quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure... Include 3-5 examples for best results."
@@ -1926,6 +2002,7 @@ export const questionsPart3 = [
       d: "A calculator tool is unnecessary for simple division. The prompt should guide the model's reasoning with explicit formulas. The issue is not mathematical capability but lack of structured reasoning requirements."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Prompt Engineering (Chain of Thought)",
         quote: "Prefer general instructions over prescriptive steps. Use <thinking> and <answer> tags when thinking disabled. Self-check: 'Before finishing, verify your answer against [criteria]'."
@@ -1951,6 +2028,7 @@ export const questionsPart3 = [
       d: "Requiring the exact word 'diagnosed' is too restrictive. Medical records use varied language ('presented with,' 'findings consistent with,' 'treated for'). A flexible certainty schema captures the range of medical language."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.3",
         quote: "Adding enum values like 'unclear' for ambiguous cases and 'other' + detail fields for extensible categorization... Designing schema fields as optional (nullable) when source documents may not contain the information, preventing the model from fabricating values to satisfy required fields."
@@ -1976,6 +2054,7 @@ export const questionsPart3 = [
       d: "An any-negative-word rule would flag 'No problem, happy to help!' as negative because of 'No' and 'problem.' Keyword rules are too crude for nuanced sentiment analysis."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.3",
         quote: "Schema design considerations: required vs optional fields, enum fields with 'other' + detail string patterns for extensible categories."
@@ -2001,6 +2080,7 @@ export const questionsPart3 = [
       d: "Few-shot examples help format but don't address the specificity problem. The model might produce well-formatted but still generic items if the schema doesn't demand specific fields."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Structured Outputs",
         quote: "Tool use (tool_use) with JSON schemas as the most reliable approach for guaranteed schema-compliant structured output, eliminating JSON syntax errors."

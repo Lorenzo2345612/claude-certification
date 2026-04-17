@@ -22,6 +22,7 @@ export const questionsPart6 = [
       d: "In the hub-and-spoke architecture, all communication flows through the coordinator. Direct subagent communication is not supported."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Parallelization workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Optimize parallel tool calling)",
         quote: "Claude's latest models excel at parallel tool execution. These models will: Run multiple speculative searches during research, Read several files at once to build context faster, Execute bash commands in parallel (which can even bottleneck system performance). This behavior is easily steerable. While the model has a high success rate in parallel tool calling without prompting, you can boost this to ~100% or adjust the aggression level."
@@ -47,6 +48,7 @@ export const questionsPart6 = [
       d: "Flagging gaps is useful for transparency but does not actively address the coverage problem. Iterative refinement resolves gaps."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Chaining workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Self-correction pattern)",
         quote: "The most common chaining pattern is self-correction: generate a draft → have Claude review it against criteria → have Claude refine based on the review. Each step is a separate API call so you can log, evaluate, or branch at any point."
@@ -72,6 +74,7 @@ export const questionsPart6 = [
       d: "Assuming both are impossible without checking is premature. Many policies allow both for damaged items. Investigate first."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2 (Task decomposition)",
         quote: "Decompose multi-part customer requests into distinct, investigable items; investigate each with shared context; synthesize a unified resolution addressing every concern before responding."
@@ -97,6 +100,7 @@ export const questionsPart6 = [
       d: "The tool should not be called at all for amounts over $500. The hook intercepts BEFORE execution, which is safer than executing the tool and having it fail."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
       docReference: {
         source: "Anthropic Docs — Hooks (PreToolUse decision control)",
         quote: "PreToolUse hooks can control whether a tool call proceeds. Unlike other hooks that use a top-level decision field, PreToolUse returns its decision inside a hookSpecificOutput object. This gives it richer control: four outcomes (allow, deny, ask, or defer) plus the ability to modify tool input before execution."
@@ -122,6 +126,7 @@ export const questionsPart6 = [
       d: "Arbitrary timeouts may terminate useful research prematurely. The correct approach is to not start unnecessary subagent work in the first place."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Agents and workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287796" },
       docReference: {
         source: "Anthropic Docs — Subagents (Choose between subagents and main conversation)",
         quote: "Use subagents when: The task produces verbose output you don't need in your main context; You want to enforce specific tool restrictions or permissions; The work is self-contained and can return a summary. Use the main conversation when: You're making a quick, targeted change; Latency matters. Subagents start fresh and may need time to gather context."
@@ -147,6 +152,7 @@ export const questionsPart6 = [
       d: "While saving analysis helps, fork_session is the built-in mechanism designed exactly for this scenario with full context preservation."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Sessions", url: "https://code.claude.com/docs/en/agent-sdk/sessions" },
       docReference: {
         source: "Anthropic Docs — Agent SDK Sessions (Fork to explore alternatives)",
         quote: "Forking creates a new session that starts with a copy of the original's history but diverges from that point. The fork gets its own session ID; the original's ID and history stay unchanged. You end up with two independent sessions you can resume separately."
@@ -172,6 +178,7 @@ export const questionsPart6 = [
       d: "/compact reduces context size but doesn't update the stale analysis. Informing the agent about specific changes is the correct approach."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Sessions", url: "https://code.claude.com/docs/en/agent-sdk/sessions" },
       docReference: {
         source: "Anthropic Docs — Agent SDK Sessions (Resume by ID)",
         quote: "Pass a session ID to resume to return to that specific session. The agent picks up with full context from wherever the session left off. Common reasons to resume: Follow up on a completed task. The agent already analyzed something; now you want it to act on that analysis without re-reading files."
@@ -197,6 +204,7 @@ export const questionsPart6 = [
       d: "A fixed test-type ordering ignores the actual structure. High-impact areas should be prioritized regardless of test type."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.2 (Open-ended task decomposition)",
         quote: "Open-ended engineering tasks (e.g., adding tests to a legacy codebase) require dynamic decomposition: first map the codebase structure, identify high-impact areas, then create a prioritized, adaptive plan that evolves as dependencies and complexities are discovered."
@@ -222,6 +230,7 @@ export const questionsPart6 = [
       d: "Passing only one result limits the synthesis agent's ability to produce comprehensive, multi-source reports."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Structure with XML tags", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287741" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Long context prompting)",
         quote: "Structure document content and metadata with XML tags: When using multiple documents, wrap each document in <document> tags with <document_content> and <source> (and other metadata) subtags for clarity."
@@ -247,6 +256,7 @@ export const questionsPart6 = [
       d: "Conditional logic in prompts is fragile and anticipates specific scenarios. Goal-oriented prompts handle novel scenarios naturally."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Subagent orchestration)",
         quote: "Use subagents when tasks can run in parallel, require isolated context, or involve independent workstreams that don't need to share state. For simple tasks, sequential operations, single-file edits, or tasks where you need to maintain context across steps, work directly rather than delegating."
@@ -272,6 +282,7 @@ export const questionsPart6 = [
       d: "The agent should not make unauthorized financial decisions outside documented policy. Discretionary discounts require human authority."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3 (Escalation triggers)",
         quote: "Escalate to a human agent when the governing policy is ambiguous, silent on the customer's specific request, or requires judgment beyond the agent's documented authority. Do not apply tangentially related policies or make unauthorized discretionary decisions."
@@ -297,6 +308,7 @@ export const questionsPart6 = [
       d: "Adding text explanations is less reliable than normalizing the data itself. The hook should transform the data, not just annotate it."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Claude Code in Action", lesson: "Introducing hooks", url: "https://anthropic.skilljar.com/claude-code-in-action/312000" },
       docReference: {
         source: "Anthropic Docs — Hooks (PostToolUse)",
         quote: "PostToolUse runs immediately after a tool completes successfully. It receives both the input sent to the tool and the result it returned. PostToolUse hooks can provide feedback to Claude after tool execution."
@@ -322,6 +334,7 @@ export const questionsPart6 = [
       d: "Proactively suggesting human escalation when the customer said 'just fix it' ignores their expressed preference and adds unnecessary friction."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 1.3 (Escalation triggers)",
         quote: "Customer sentiment alone is not a reliable escalation trigger. When a customer expresses frustration but gives explicit consent to proceed ('just fix it'), acknowledge the frustration while offering resolution; escalate only when the customer explicitly requests a human or the issue exceeds the agent's documented capability."
@@ -347,6 +360,7 @@ export const questionsPart6 = [
       d: "Manual integration defeats the purpose of automation. The agent should perform both the local and integration passes."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Chaining workflows", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800" },
       docReference: {
         source: "Anthropic Docs — Subagents (Chain subagents)",
         quote: "For multi-step workflows, ask Claude to use subagents in sequence. Each subagent completes its task and returns results to Claude, which then passes relevant context to the next subagent."
@@ -374,6 +388,7 @@ export const questionsPart6 = [
       d: "An empty enum value is not valid. The 'other' value with a detail field is the documented pattern for handling this case."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Structured Outputs (enum limitations)",
         quote: "enum (strings, numbers, bools, or nulls only - no complex types). Enum values are limited to primitive types only—complex objects cannot be enum values."
@@ -399,6 +414,7 @@ export const questionsPart6 = [
       d: "Assuming the document has conflicting data without investigating is premature. The specific error feedback would help the model locate and correct the issue."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Code review harnesses / iteration)",
         quote: "We recommend iterating on prompts against a subset of your evals or test cases to validate recall or F1 score gains."
@@ -424,6 +440,7 @@ export const questionsPart6 = [
       d: "Few-shot examples help with format variety, not with missing data. The methodology data simply isn't in the provided document."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.2 (Validation retry limits)",
         quote: "Retries are ineffective when the required information is absent from the provided source. The model cannot extract what does not exist; the remedy is to supply the missing source material or redesign the schema to make the field optional/nullable."
@@ -449,6 +466,7 @@ export const questionsPart6 = [
       d: "Confidence thresholds are unreliable — the model may be highly confident about a false positive. Explicit criteria address the root cause."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Prompt engineering", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Code review harnesses)",
         quote: "If you do want the model to self-filter in a single pass, be concrete about where the bar is rather than using qualitative terms like 'important' — for example, 'report any bugs that could cause incorrect behavior, a test failure, or a misleading result; only omit nits like pure style or naming preferences.'"
@@ -474,6 +492,7 @@ export const questionsPart6 = [
       d: "Keyword matching is brittle and cannot capture the nuanced judgment needed for severity classification."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Building with the Claude API", lesson: "Providing examples", url: "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287746" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Use examples effectively)",
         quote: "Examples are one of the most reliable ways to steer Claude's output format, tone, and structure. A few well-crafted examples (known as few-shot or multishot prompting) can dramatically improve accuracy and consistency."
@@ -499,6 +518,7 @@ export const questionsPart6 = [
       d: "strict: false doesn't guarantee schema compliance. '99% correct' is not 100% — you need strict: true for guarantees."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Tool use", url: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" },
       docReference: {
         source: "Anthropic Docs — Define tools (Forcing tool use)",
         quote: "Guaranteed tool calls with strict tools: Combine tool_choice: {\"type\": \"any\"} with strict tool use to guarantee both that one of your tools will be called AND that the tool inputs strictly follow your schema. Set strict: true on your tool definitions to enable schema validation."
@@ -524,6 +544,7 @@ export const questionsPart6 = [
       d: "Model capability is not the issue. Any model will fabricate values if the schema forces a required field that has no source data."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Structured outputs", url: "https://docs.anthropic.com/en/docs/build-with-claude/structured-outputs" },
       docReference: {
         source: "Anthropic Docs — Structured Outputs (required vs optional fields)",
         quote: "required and additionalProperties (must be set to false for objects). All properties not in the required array become optional fields that count toward the 24-parameter complexity limit."
@@ -549,6 +570,7 @@ export const questionsPart6 = [
       d: "Only reviewing changed files misses issues in unchanged files that may be affected by the changes (cross-file impacts)."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.3 (CI review deduplication)",
         quote: "When re-running automated code review, include prior review findings in the prompt context and instruct Claude to report only new or still-unaddressed issues. This allows the model to distinguish resolved, persisting, and new issues semantically rather than via text matching."
@@ -574,6 +596,7 @@ export const questionsPart6 = [
       d: "Test length is a poor proxy for value. A 3-line test of a critical edge case is more valuable than a 20-line boilerplate test."
     },
       docStatus: "STRONG",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Memory / CLAUDE.md", url: "https://code.claude.com/docs/en/memory" },
       docReference: {
         source: "Anthropic Docs — Memory (CLAUDE.md files)",
         quote: "CLAUDE.md files are markdown files that give Claude persistent instructions for a project, your personal workflow, or your entire organization. You write these files in plain text; Claude reads them at the start of every session. Create this file and add instructions that apply to anyone working on the project: build and test commands, coding standards, architectural decisions, naming conventions, and common workflows."
@@ -599,6 +622,7 @@ export const questionsPart6 = [
       d: "Programmatic normalization is harder for informal formats like 'approx. 15 lbs'. The LLM handles natural language interpretation better."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Prompt engineering", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering" },
       docReference: {
         source: "Anthropic Docs — Prompting best practices (Be clear and direct)",
         quote: "Claude responds well to clear, explicit instructions. Being specific about your desired output can help enhance results. If you want 'above and beyond' behavior, explicitly request it rather than relying on the model to infer this from vague prompts."
@@ -624,6 +648,7 @@ export const questionsPart6 = [
       d: "Requiring reasons adds friction. The detected_pattern data already provides the information needed for analysis."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.3 (Iterative prompt refinement from feedback)",
         quote: "Structured findings with pattern-level metadata enable systematic analysis of false positives. By identifying which specific detected patterns correlate with dismissals, prompts can be refined to distinguish genuine issues from acceptable patterns rather than applying blanket suppression."
@@ -649,6 +674,7 @@ export const questionsPart6 = [
       d: "Even with specific instructions, self-review within the same session is inherently limited by reasoning context retention."
     },
       docStatus: "EXAM_GUIDE",
+      skilljarRef: { course: "Exam Guide", lesson: "Certification Exam Guide", url: "https://anthropic.skilljar.com/certification-exam-guide" },
       docReference: {
         source: "Exam Guide — Task Statement 4.4 (Self-review limitations)",
         quote: "Self-review within the same session suffers from reasoning bias: the model retains its original generation context and is less likely to question its own decisions. Independent review instances without the prior reasoning context are more effective at catching subtle issues."
@@ -674,6 +700,7 @@ export const questionsPart6 = [
       d: "Synchronous processing of 500 documents is twice the cost (no batch discount) and unnecessary when overnight latency is acceptable."
     },
       docStatus: "PARTIAL",
+      skilljarRef: { course: "Anthropic Docs", lesson: "Batch processing", url: "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing" },
       docReference: {
         source: "Anthropic Docs — Batch processing (Message Batches API)",
         quote: "The Message Batches API is a powerful, cost-effective way to asynchronously process large volumes of Messages requests. This approach is well-suited to tasks that do not require immediate responses, with most batches finishing in less than 1 hour while reducing costs by 50% and increasing throughput."
