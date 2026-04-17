@@ -32,3 +32,14 @@ class NoteResponse(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class ProgressToggle(BaseModel):
+    topic_id: str = Field(..., max_length=100)
+
+
+class ProgressResponse(BaseModel):
+    topic_id: str
+    completed_at: datetime
+
+    model_config = {"from_attributes": True}

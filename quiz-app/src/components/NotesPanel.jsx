@@ -10,17 +10,14 @@ export default function NotesPanel({ topicId, isOpen, onToggle }) {
   const [saved, setSaved] = useState(true)
   const [saving, setSaving] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [editing, setEditing] = useState(false)
   const saveTimer = useRef(null)
   const prevTopicId = useRef(topicId)
-  const textareaRef = useRef(null)
 
   useEffect(() => {
     if (!user || !topicId) return
     prevTopicId.current = topicId
     setLoading(true)
     setSaved(true)
-    setEditing(false)
     api.getNote(topicId)
       .then(note => {
         if (prevTopicId.current === topicId) setContent(note.content)
@@ -53,22 +50,6 @@ export default function NotesPanel({ topicId, isOpen, onToggle }) {
     const val = e.target.value
     setContent(val)
     scheduleAutosave(val)
-  }
-
-  const startEditing = () => {
-    setEditing(true)
-    requestAnimationFrame(() => {
-      if (textareaRef.current) {
-        textareaRef.current.focus()
-        const len = textareaRef.current.value.length
-        textareaRef.current.selectionStart = len
-        textareaRef.current.selectionEnd = len
-      }
-    })
-  }
-
-  const stopEditing = () => {
-    setEditing(false)
   }
 
   useEffect(() => {
@@ -120,15 +101,6 @@ export default function NotesPanel({ topicId, isOpen, onToggle }) {
             <span className={`notes-panel-status ${saved ? 'notes-panel-status--saved' : ''}`}>
               {saving ? 'Saving...' : saved ? 'Saved' : 'Unsaved'}
             </span>
-            {editing ? (
-              <button className="notes-mode-btn" onClick={stopEditing} title="Preview">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
-            ) : (
-              <button className="notes-mode-btn" onClick={startEditing} title="Edit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              </button>
-            )}
             <button className="notes-panel-close" onClick={onToggle} aria-label="Close notes">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
@@ -137,33 +109,37 @@ export default function NotesPanel({ topicId, isOpen, onToggle }) {
 
         {loading ? (
           <div className="notes-panel-loading">Loading...</div>
-        ) : editing ? (
-          <textarea
-            ref={textareaRef}
-            className="notes-panel-editor"
-            value={content}
-            onChange={handleChange}
-            placeholder="Write your notes in Markdown... (auto-saves)"
-            spellCheck={false}
-          />
         ) : (
-          <div className="notes-preview" onClick={startEditing}>
-            {content ? (
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  img: ({ node, ...props }) => <img {...props} loading="lazy" />,
-                  a: ({ node, ...props }) => {
-                    const handleLinkClick = (e) => e.stopPropagation()
-                    return <a {...props} target="_blank" rel="noopener noreferrer" onClick={handleLinkClick} />
-                  },
-                }}
-              >
-                {content}
-              </ReactMarkdown>
-            ) : (
-              <p className="notes-preview-placeholder">Click to start writing notes...</p>
-            )}
+          <div className="notes-live">
+            <textarea
+              className="notes-panel-editor"
+              value={content}
+              onChange={handleChange}
+              placeholder="Write in Markdown... (auto-saves)"
+              spellCheck={false}
+            />
+            <div className="notes-live-divider">
+              <span className="notes-live-divider-label">Preview</span>
+            </div>
+            <div className="notes-preview">
+              {content ? (
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    img: ({ node, ...props }) => <img {...props} loading="lazy" />,
+                    a: ({ node, ...props }) => (
+                      <a {...props} target="_blank" rel="noopener noreferrer" />
+                    ),
+                  }}
+                >
+                  {content}
+                </ReactMarkdown>
+              ) : (
+                <p className="notes-preview-placeholder">
+                  The rendered preview will appear here as you type...
+                </p>
+              )}
+            </div>
           </div>
         )}
       </div>

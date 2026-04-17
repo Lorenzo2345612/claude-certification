@@ -31,23 +31,8 @@ const DOMAIN_LABELS = {
   5: 'Context Management',
 }
 
-const STORAGE_KEY = 'roadmap_completed'
-const API_TOPIC_ID = '__roadmap_progress__'
 const NODE_WIDTH = 220
 const NODE_HEIGHT = 68
-
-function loadCompleted() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? JSON.parse(raw) : []
-  } catch {
-    return []
-  }
-}
-
-function saveCompleted(ids) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(ids))
-}
 
 // Directed prerequisite edges: source is the prerequisite, target depends on it.
 // We define explicit learning-order edges rather than using the bidirectional relatedTopics.
@@ -417,31 +402,29 @@ function Legend({ completed }) {
 
 export default function RoadmapScreen() {
   const { user } = useAuth()
-  const [completed, setCompleted] = useState(loadCompleted)
+  const [completed, setCompleted] = useState([])
 
-  const persistToApi = useCallback(
-    (ids) => {
-      if (!user) return
-      api.upsertNote(API_TOPIC_ID, JSON.stringify(ids)).catch(() => {})
-    },
-    [user]
-  )
+  useEffect(() => {
+    if (!user) {
+      setCompleted([])
+      return
+    }
+    api.getProgress()
+      .then(items => setCompleted(items.map(p => p.topic_id)))
+      .catch(() => {})
+  }, [user])
 
   useEffect(() => {
     function handleToggle(e) {
       const topicId = e.detail
-      setCompleted((prev) => {
-        const next = prev.includes(topicId)
-          ? prev.filter((id) => id !== topicId)
-          : [...prev, topicId]
-        saveCompleted(next)
-        persistToApi(next)
-        return next
-      })
+      if (!user) return
+      api.toggleProgress(topicId)
+        .then(items => setCompleted(items.map(p => p.topic_id)))
+        .catch(() => {})
     }
     window.addEventListener('roadmap-toggle', handleToggle)
     return () => window.removeEventListener('roadmap-toggle', handleToggle)
-  }, [persistToApi])
+  }, [user])
 
   const { nodes, edges } = useMemo(() => buildGraph(completed), [completed])
 

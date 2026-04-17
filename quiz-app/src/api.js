@@ -76,4 +76,15 @@ export const api = {
   deleteNote(topicId) {
     return request(`/notes/${topicId}`, { method: 'DELETE' })
   },
+
+  getProgress() {
+    return request('/progress/')
+  },
+
+  toggleProgress(topicId) {
+    return request('/progress/toggle', {
+      method: 'POST',
+      body: { topic_id: topicId },
+    })
+  },
 }
