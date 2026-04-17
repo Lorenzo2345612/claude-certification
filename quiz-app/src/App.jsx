@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import './App.css'
 import LearnScreen from './components/LearnScreen'
+import RoadmapScreen from './components/RoadmapScreen'
 import PracticeScreen from './components/PracticeScreen'
 import AuthModal from './components/AuthModal'
 import { useAuth } from './AuthContext'
@@ -17,6 +18,7 @@ const DOMAINS = [
 function App() {
   const { user, logout } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
+  const [quizProgress, setQuizProgress] = useState(null)
 
   return (
     <div className="app">
@@ -28,11 +30,17 @@ function App() {
           <NavLink to="/learn" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
             Learn
           </NavLink>
+          <NavLink to="/roadmap" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
+            Roadmap
+          </NavLink>
           <NavLink to="/practice" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
             Practice
           </NavLink>
         </nav>
-        <div className="header-right" id="header-right-slot">
+        <div className="header-right">
+          {quizProgress && (
+            <span className="header-quiz-progress">{quizProgress}</span>
+          )}
           {user ? (
             <div className="header-user">
               <span className="header-username">{user.username}</span>
@@ -49,7 +57,8 @@ function App() {
       <Routes>
         <Route path="/learn" element={<LearnScreen domains={DOMAINS} />} />
         <Route path="/learn/:topicId" element={<LearnScreen domains={DOMAINS} />} />
-        <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} />} />
+        <Route path="/roadmap" element={<RoadmapScreen />} />
+        <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} onProgressChange={setQuizProgress} />} />
         <Route path="*" element={<Navigate to="/learn" replace />} />
       </Routes>
     </div>

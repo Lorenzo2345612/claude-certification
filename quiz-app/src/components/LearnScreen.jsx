@@ -1,8 +1,28 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
+import python from 'highlight.js/lib/languages/python'
+import json from 'highlight.js/lib/languages/json'
+import bash from 'highlight.js/lib/languages/bash'
+import xml from 'highlight.js/lib/languages/xml'
+import typescript from 'highlight.js/lib/languages/typescript'
+import 'highlight.js/styles/github-dark.css'
 import { learnTopics } from '../data/learnTopics'
 import { learnSummaries } from '../data/learnSummaries'
 import NotesPanel from './NotesPanel'
+
+hljs.registerLanguage('javascript', javascript)
+hljs.registerLanguage('js', javascript)
+hljs.registerLanguage('python', python)
+hljs.registerLanguage('py', python)
+hljs.registerLanguage('json', json)
+hljs.registerLanguage('bash', bash)
+hljs.registerLanguage('sh', bash)
+hljs.registerLanguage('xml', xml)
+hljs.registerLanguage('html', xml)
+hljs.registerLanguage('typescript', typescript)
+hljs.registerLanguage('ts', typescript)
 
 const DOMAINS = [
   { id: 1, name: "Agentic Architecture & Orchestration", short: "D1", color: "#f97316" },
@@ -23,6 +43,7 @@ export default function LearnScreen() {
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedDomains, setExpandedDomains] = useState(() => new Set(DOMAINS.map(d => d.id)))
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [notesOpen, setNotesOpen] = useState(false)
   const contentRef = useRef(null)
 
   const filteredTopics = useMemo(() => {
@@ -62,10 +83,15 @@ export default function LearnScreen() {
     navigate(`/learn/${id}`, { replace: true })
   }, [navigate])
 
-  // Scroll content to top when topic changes
+  // Scroll content to top and highlight code when topic changes
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.scrollTo(0, 0)
+      contentRef.current.querySelectorAll('pre code').forEach((block) => {
+        if (!block.dataset.highlighted) {
+          hljs.highlightElement(block)
+        }
+      })
     }
   }, [activeTopic])
 
@@ -284,7 +310,7 @@ export default function LearnScreen() {
       </main>
 
       {/* Notes panel (right side) */}
-      <NotesPanel topicId={activeTopic} />
+      <NotesPanel topicId={activeTopic} isOpen={notesOpen} onToggle={() => setNotesOpen(o => !o)} />
     </div>
   )
 }

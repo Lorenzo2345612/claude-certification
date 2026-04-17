@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import { questions as q1 } from '../data/questions'
 import { questionsPart2 as q2 } from '../data/questions_part2'
 import { questionsPart3 as q3 } from '../data/questions_part3'
@@ -74,7 +74,7 @@ function shuffleArray(arr) {
   return shuffled
 }
 
-export default function PracticeScreen({ domains }) {
+export default function PracticeScreen({ domains, onProgressChange }) {
   const [phase, setPhase] = useState('start')
   const [selectedDomains, setSelectedDomains] = useState([1, 2, 3, 4, 5])
   const [questionCount, setQuestionCount] = useState(60)
@@ -147,14 +147,14 @@ export default function PracticeScreen({ domains }) {
 
   const answeredCount = Object.values(answers).filter(a => a.confirmed).length
 
-  // Inject answered count into header right slot
-  if (phase === 'quiz') {
-    const slot = document.getElementById('header-right-slot')
-    if (slot) slot.textContent = `${answeredCount} / ${quizQuestions.length} answered`
-  } else {
-    const slot = document.getElementById('header-right-slot')
-    if (slot) slot.textContent = ''
-  }
+  useEffect(() => {
+    if (phase === 'quiz') {
+      onProgressChange?.(`${answeredCount} / ${quizQuestions.length} answered`)
+    } else {
+      onProgressChange?.(null)
+    }
+    return () => onProgressChange?.(null)
+  }, [phase, answeredCount, quizQuestions.length, onProgressChange])
 
   return (
     <div className="main-content">
