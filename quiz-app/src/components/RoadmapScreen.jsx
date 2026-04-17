@@ -9,12 +9,12 @@ import {
   MarkerType,
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
+import dagre from 'dagre'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { api } from '../api'
 import { learnTopics } from '../data/learnTopics'
 
-// ── Domain colors ───────────────────────────────────────────
 const DOMAIN_COLORS = {
   1: '#f97316',
   2: '#06b6d4',
@@ -33,8 +33,9 @@ const DOMAIN_LABELS = {
 
 const STORAGE_KEY = 'roadmap_completed'
 const API_TOPIC_ID = '__roadmap_progress__'
+const NODE_WIDTH = 220
+const NODE_HEIGHT = 68
 
-// ── Load / save helpers ─────────────────────────────────────
 function loadCompleted() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -48,96 +49,137 @@ function saveCompleted(ids) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(ids))
 }
 
-// ── Layout constants ────────────────────────────────────────
-const COL_WIDTH = 300
-const ROW_HEIGHT = 100
-const NODE_WIDTH = 230
-const NODE_HEIGHT = 72
-const LEFT_PAD = 60
-const TOP_PAD = 40
+// Directed prerequisite edges: source is the prerequisite, target depends on it.
+// We define explicit learning-order edges rather than using the bidirectional relatedTopics.
+const PREREQUISITE_EDGES = [
+  // D1 internal flow
+  ['d1-agentic-loop', 'd1-tool-use-contract'],
+  ['d1-agentic-loop', 'd1-programmatic-enforcement'],
+  ['d1-tool-use-contract', 'd1-multi-agent'],
+  ['d1-multi-agent', 'd1-subagent-config'],
+  ['d1-multi-agent', 'd1-task-decomposition'],
+  ['d1-subagent-config', 'd1-sessions'],
+  ['d1-programmatic-enforcement', 'd1-hooks'],
+  ['d1-hooks', 'd1-subagent-config'],
 
-// ── Build layout positions ──────────────────────────────────
-function buildPositions() {
-  const byDomain = {}
-  learnTopics.forEach((t) => {
-    if (!byDomain[t.domainId]) byDomain[t.domainId] = []
-    byDomain[t.domainId].push(t)
-  })
+  // D2 internal flow
+  ['d2-tool-interfaces', 'd2-tool-choice'],
+  ['d2-tool-interfaces', 'd2-strict-tool-use'],
+  ['d2-tool-interfaces', 'd2-error-responses'],
+  ['d2-tool-interfaces', 'd2-mcp-architecture'],
+  ['d2-mcp-architecture', 'd2-mcp-config'],
+  ['d2-mcp-config', 'd2-builtin-tools'],
 
-  const positions = {}
-  const domainIds = [1, 2, 3, 4, 5]
+  // D3 internal flow
+  ['d3-claude-md', 'd3-rules'],
+  ['d3-claude-md', 'd3-skills'],
+  ['d3-skills', 'd3-plan-mode'],
+  ['d3-plan-mode', 'd3-cli'],
+  ['d3-cli', 'd3-cicd'],
+  ['d3-claude-md', 'd3-context-window'],
+  ['d3-plan-mode', 'd3-iterative-refinement'],
 
-  domainIds.forEach((dId, colIdx) => {
-    const topics = byDomain[dId] || []
-    topics.forEach((t, rowIdx) => {
-      positions[t.id] = {
-        x: LEFT_PAD + colIdx * COL_WIDTH,
-        y: TOP_PAD + rowIdx * ROW_HEIGHT,
-      }
-    })
-  })
+  // D4 internal flow
+  ['d4-prompting-best-practices', 'd4-few-shot'],
+  ['d4-prompting-best-practices', 'd4-structured-output'],
+  ['d4-few-shot', 'd4-batch-processing'],
+  ['d4-structured-output', 'd4-batch-processing'],
+  ['d4-prompting-best-practices', 'd4-adaptive-thinking'],
+  ['d4-batch-processing', 'd4-multi-instance-review'],
 
-  return positions
-}
+  // D5 internal flow
+  ['d5-context-windows', 'd5-large-codebase'],
+  ['d5-context-windows', 'd5-provenance'],
+  ['d5-escalation', 'd5-human-review'],
+  ['d5-error-propagation', 'd5-escalation'],
+  ['d5-hooks-settings', 'd5-escalation'],
 
-// ── Build nodes & edges ─────────────────────────────────────
+  // Cross-domain prerequisites
+  ['d1-agentic-loop', 'd2-tool-interfaces'],
+  ['d1-tool-use-contract', 'd2-error-responses'],
+  ['d2-tool-choice', 'd4-structured-output'],
+  ['d2-mcp-config', 'd3-claude-md'],
+  ['d1-hooks', 'd5-hooks-settings'],
+  ['d1-multi-agent', 'd5-error-propagation'],
+  ['d3-context-window', 'd5-context-windows'],
+  ['d1-task-decomposition', 'd4-multi-instance-review'],
+  ['d4-adaptive-thinking', 'd5-context-windows'],
+  ['d3-iterative-refinement', 'd4-prompting-best-practices'],
+  ['d2-builtin-tools', 'd5-large-codebase'],
+]
+
 function buildGraph(completed) {
-  const positions = buildPositions()
   const topicIds = new Set(learnTopics.map((t) => t.id))
 
-  const nodes = learnTopics.map((t) => ({
-    id: t.id,
-    type: 'topicNode',
-    position: positions[t.id],
-    data: {
-      label: t.title,
-      domainId: t.domainId,
-      domain: t.domain,
-      topicId: t.id,
-      completed: completed.includes(t.id),
-    },
-  }))
-
-  const edgeSet = new Set()
-  const edges = []
+  const g = new dagre.graphlib.Graph()
+  g.setGraph({
+    rankdir: 'TB',
+    nodesep: 60,
+    ranksep: 90,
+    marginx: 40,
+    marginy: 40,
+  })
+  g.setDefaultEdgeLabel(() => ({}))
 
   learnTopics.forEach((t) => {
-    ;(t.relatedTopics || []).forEach((relId) => {
-      if (!topicIds.has(relId)) return
-      const key = [t.id, relId].sort().join('|')
-      if (edgeSet.has(key)) return
-      edgeSet.add(key)
+    g.setNode(t.id, { width: NODE_WIDTH, height: NODE_HEIGHT })
+  })
 
-      const srcDomain = t.domainId
-      const tgtTopic = learnTopics.find((x) => x.id === relId)
-      const tgtDomain = tgtTopic?.domainId || srcDomain
-      const crossDomain = srcDomain !== tgtDomain
+  const edges = []
+  const edgeSet = new Set()
 
-      const color = crossDomain
-        ? 'rgba(100,116,139,0.25)'
-        : DOMAIN_COLORS[srcDomain] + '55'
+  PREREQUISITE_EDGES.forEach(([src, tgt]) => {
+    if (!topicIds.has(src) || !topicIds.has(tgt)) return
+    const key = `${src}->${tgt}`
+    if (edgeSet.has(key)) return
+    edgeSet.add(key)
 
-      edges.push({
-        id: `e-${t.id}-${relId}`,
-        source: t.id,
-        target: relId,
-        type: 'default',
-        animated: !crossDomain,
-        style: { stroke: color, strokeWidth: crossDomain ? 1 : 1.5 },
-        markerEnd: {
-          type: MarkerType.ArrowClosed,
-          color,
-          width: 14,
-          height: 14,
-        },
-      })
+    g.setEdge(src, tgt)
+
+    const srcTopic = learnTopics.find((t) => t.id === src)
+    const tgtTopic = learnTopics.find((t) => t.id === tgt)
+    const crossDomain = srcTopic.domainId !== tgtTopic.domainId
+
+    const color = crossDomain
+      ? 'rgba(100,116,139,0.2)'
+      : DOMAIN_COLORS[srcTopic.domainId] + '44'
+
+    edges.push({
+      id: `e-${src}-${tgt}`,
+      source: src,
+      target: tgt,
+      type: 'default',
+      animated: !crossDomain,
+      style: { stroke: color, strokeWidth: crossDomain ? 1 : 1.5 },
+      markerEnd: {
+        type: MarkerType.ArrowClosed,
+        color,
+        width: 12,
+        height: 12,
+      },
     })
+  })
+
+  dagre.layout(g)
+
+  const nodes = learnTopics.map((t) => {
+    const pos = g.node(t.id)
+    return {
+      id: t.id,
+      type: 'topicNode',
+      position: { x: pos.x - NODE_WIDTH / 2, y: pos.y - NODE_HEIGHT / 2 },
+      data: {
+        label: t.title,
+        domainId: t.domainId,
+        topicId: t.id,
+        completed: completed.includes(t.id),
+      },
+    }
   })
 
   return { nodes, edges }
 }
 
-// ── Custom node component ───────────────────────────────────
 const TopicNode = memo(function TopicNode({ data }) {
   const navigate = useNavigate()
   const { user } = useAuth()
@@ -151,7 +193,6 @@ const TopicNode = memo(function TopicNode({ data }) {
   const handleCheck = useCallback(
     (e) => {
       e.stopPropagation()
-      // Dispatched via custom event so parent can update state
       window.dispatchEvent(
         new CustomEvent('roadmap-toggle', { detail: data.topicId })
       )
@@ -167,18 +208,18 @@ const TopicNode = memo(function TopicNode({ data }) {
         minHeight: NODE_HEIGHT,
         background: completed ? '#0f1128' : '#12122a',
         borderRadius: 10,
-        border: '1px solid #1e293b',
+        border: `1px solid ${completed ? '#22c55e44' : '#1e293b'}`,
         borderLeft: `4px solid ${color}`,
         cursor: 'pointer',
         padding: '10px 12px',
         position: 'relative',
-        opacity: completed ? 0.75 : 1,
+        opacity: completed ? 0.7 : 1,
         transition: 'box-shadow 0.25s, opacity 0.25s, transform 0.2s',
         boxShadow: 'none',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 16px ${color}44, 0 0 4px ${color}33`
-        e.currentTarget.style.transform = 'scale(1.03)'
+        e.currentTarget.style.boxShadow = `0 0 18px ${color}44, 0 0 4px ${color}33`
+        e.currentTarget.style.transform = 'scale(1.04)'
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.boxShadow = 'none'
@@ -187,10 +228,7 @@ const TopicNode = memo(function TopicNode({ data }) {
     >
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
-      <Handle type="target" position={Position.Left} style={{ opacity: 0 }} />
-      <Handle type="source" position={Position.Right} style={{ opacity: 0 }} />
 
-      {/* Domain badge */}
       <div
         style={{
           display: 'inline-block',
@@ -209,7 +247,6 @@ const TopicNode = memo(function TopicNode({ data }) {
         D{data.domainId}
       </div>
 
-      {/* Title */}
       <div
         style={{
           color: '#f1f5f9',
@@ -222,7 +259,6 @@ const TopicNode = memo(function TopicNode({ data }) {
         {data.label}
       </div>
 
-      {/* Checkbox for logged-in users */}
       {user && (
         <div
           onClick={handleCheck}
@@ -256,15 +292,11 @@ const TopicNode = memo(function TopicNode({ data }) {
         </div>
       )}
 
-      {/* Completed overlay */}
       {completed && (
         <div
           style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0,
             borderRadius: 10,
             background: 'rgba(34,197,94,0.06)',
             pointerEvents: 'none',
@@ -277,7 +309,6 @@ const TopicNode = memo(function TopicNode({ data }) {
 
 const nodeTypes = { topicNode: TopicNode }
 
-// ── Legend component ────────────────────────────────────────
 function Legend({ completed }) {
   const total = learnTopics.length
   const done = completed.length
@@ -361,7 +392,6 @@ function Legend({ completed }) {
           <span style={{ fontSize: 10, color: '#64748b' }}>({pct}%)</span>
         </span>
       </div>
-      {/* Progress bar */}
       <div
         style={{
           marginTop: 6,
@@ -385,23 +415,18 @@ function Legend({ completed }) {
   )
 }
 
-// ── Main component ──────────────────────────────────────────
 export default function RoadmapScreen() {
   const { user } = useAuth()
   const [completed, setCompleted] = useState(loadCompleted)
 
-  // Persist to API when user is logged in
   const persistToApi = useCallback(
     (ids) => {
       if (!user) return
-      api.upsertNote(API_TOPIC_ID, JSON.stringify(ids)).catch(() => {
-        // silently ignore API errors
-      })
+      api.upsertNote(API_TOPIC_ID, JSON.stringify(ids)).catch(() => {})
     },
     [user]
   )
 
-  // Listen for toggle events from nodes
   useEffect(() => {
     function handleToggle(e) {
       const topicId = e.detail
@@ -438,18 +463,13 @@ export default function RoadmapScreen() {
         edges={edges}
         nodeTypes={nodeTypes}
         fitView
-        fitViewOptions={{ padding: 0.15 }}
-        minZoom={0.3}
-        maxZoom={1.8}
+        fitViewOptions={{ padding: 0.2 }}
+        minZoom={0.2}
+        maxZoom={2}
         proOptions={{ hideAttribution: true }}
         style={{ background: '#06060f' }}
       >
-        <Background
-          variant="dots"
-          gap={24}
-          size={1}
-          color="#1e293b44"
-        />
+        <Background variant="dots" gap={24} size={1} color="#1e293b44" />
         <Controls
           showInteractive={false}
           style={{
