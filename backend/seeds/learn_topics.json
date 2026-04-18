@@ -64,7 +64,7 @@
         "definition": "Stop reason returned when pause_after_compaction is true and a compaction summary was generated. Allows adding content before continuing. Useful for enforcing token budgets by counting compaction events."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-tool-use-contract",
@@ -114,7 +114,7 @@
         "definition": "When true, limits Claude to at most one tool call per response (with auto) or exactly one (with any/tool)."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-tool-categories",
@@ -164,7 +164,7 @@
         "definition": "Example input objects that help Claude use tools correctly. Only available on user-defined and Anthropic-schema tools, NOT server tools."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-workflow-patterns",
@@ -218,7 +218,7 @@
         "definition": "Error-proofing principle applied to tool design. Example: requiring absolute filepaths eliminated relative path errors in SWE-bench."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-multi-agent",
@@ -273,7 +273,7 @@
         "definition": "Subagents typically return 1,000-2,000 token summaries to the parent. All intermediate work stays in the subagent's context."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-subagent-config",
@@ -332,7 +332,7 @@
         "definition": "isolation: worktree creates a temporary git worktree copy for the subagent. Auto-cleaned if no changes made."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-hooks",
@@ -396,7 +396,7 @@
         "definition": "Output injected into context is capped at 10,000 characters. Exceeding saves to file with preview and path."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-programmatic-enforcement",
@@ -451,7 +451,7 @@
         "definition": "Organization-wide managed hooks cannot be disabled by user or project settings. This ensures uniform policy enforcement across an organization."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d1-managed-agents",
@@ -503,7 +503,7 @@
         "definition": "Command-line tool for Managed Agents. Available via Homebrew, GitHub releases, or Go install."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-tool-interfaces",
@@ -549,7 +549,7 @@
         "definition": "4-5 tools per agent is the recommended range, balancing capability coverage against selection ambiguity."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-tool-choice",
@@ -595,7 +595,7 @@
         "definition": "Tool use adds a system prompt costing 346 tokens (auto/none) or 313 tokens (any/tool) for Claude 4.x models. Zero overhead when no tools provided."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-strict-tool-use",
@@ -641,7 +641,7 @@
         "definition": "Combining these guarantees both that Claude will call a tool AND that inputs will exactly match the schema  --  ideal for reliable agentic workflows."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-error-responses",
@@ -687,7 +687,7 @@
         "definition": "Tools should attempt connection retries, fallback sources, and graceful degradation before escalating errors to the model via is_error:true."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-mcp-architecture",
@@ -743,7 +743,7 @@
         "definition": "Metadata on content types: audience (user/assistant array), priority (0.0-1.0), lastModified (ISO 8601). Guide content routing and importance."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-mcp-transports",
@@ -798,7 +798,7 @@
         "definition": "Claude Code reconnects HTTP/SSE servers with 1s\u21922s\u21924s\u21928s\u219216s delays, up to 5 attempts. stdio servers are NOT auto-reconnected."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-mcp-config",
@@ -844,7 +844,7 @@
         "definition": "Warning at 10K tokens, default max 25K tokens (MAX_MCP_OUTPUT_TOKENS). Per-tool override via _meta[\"anthropic/maxResultSizeChars\"] up to 500K chars."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d2-builtin-tools",
@@ -890,7 +890,7 @@
         "definition": "Deferred tool discovery that loads MCP tool schemas on demand, keeping initial context usage low. Only tool names load at session start."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-claude-md",
@@ -946,7 +946,7 @@
         "definition": "Project-root CLAUDE.md is re-read from disk and re-injected after compaction. Subdirectory CLAUDE.md files are NOT re-injected automatically."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-rules",
@@ -987,7 +987,7 @@
         "definition": "All .md files within .claude/rules/ are discovered recursively, including subdirectories. Symlinks supported."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-skills",
@@ -1051,7 +1051,7 @@
         "definition": "The !`command` syntax runs shell commands before skill content reaches Claude. Output replaces the placeholder."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-plan-mode",
@@ -1106,7 +1106,7 @@
         "definition": "Format: Tool or Tool(specifier). Wildcards with *, word boundary enforcement with space before *, :* suffix for trailing wildcard."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-cli",
@@ -1161,7 +1161,7 @@
         "definition": "text (default plain text), json (structured after completion), stream-json (newline-delimited streaming events)."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-cicd",
@@ -1211,7 +1211,7 @@
         "definition": "AWS Bedrock (OIDC auth, model: us.anthropic.claude-sonnet-4-6) and Google Vertex AI (WIF, model: claude-sonnet-4-5@20250929)."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-agent-sdk",
@@ -1261,7 +1261,7 @@
         "definition": "auto mode TS-only, env merges (Python) vs replaces (TS), 10 vs 18 hook events, snake_case vs camelCase, different session management patterns."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d3-settings",
@@ -1311,7 +1311,7 @@
         "definition": "Stores OAuth tokens, MCP server configs (local scope), editor preferences, per-project state. Separate from settings.json."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-prompting-best-practices",
@@ -1361,7 +1361,7 @@
         "definition": "For long document tasks, ask Claude to extract relevant quotes first (in tags), then perform analysis based on those quotes. Reduces hallucination by grounding in source material."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-few-shot",
@@ -1411,7 +1411,7 @@
         "definition": "Techniques to reduce hallucination: ground in quotes from source documents, require reading files before answering, use <investigate_before_answering> wrappers, include 'I don't know' examples."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-structured-output",
@@ -1461,7 +1461,7 @@
         "definition": "Two cases where output may not match schema: refusals (stop_reason: refusal, safety overrides schema) and max_tokens truncation (incomplete output, retry with higher limit)."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-adaptive-thinking",
@@ -1511,7 +1511,7 @@
         "definition": "Extended thinking only supports tool_choice auto (default) or none. Using any or tool causes an error because forcing tool use is incompatible with extended reasoning."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-batch-processing",
@@ -1560,7 +1560,7 @@
         "definition": "Cache discounts stack with batch discounts. Best-effort cache hits due to async processing, with 30-98% hit rates. Use 1-hour cache duration for best results."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-multi-instance-review",
@@ -1605,7 +1605,7 @@
         "definition": "Two dimensions that each finding should include for downstream filtering. Confidence = certainty it is a real issue. Severity = potential impact. Enables informed triage."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d4-messages-api",
@@ -1659,7 +1659,7 @@
         "definition": "auto (default, routes to higher capacity when available) or standard_only (consistent latency). Controls request routing, not model selection."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-context-windows",
@@ -1709,7 +1709,7 @@
         "definition": "The Transformer attention mechanism creates pairwise relationships between all tokens, making attention budget finite and context curation essential."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-context-strategies",
@@ -1771,7 +1771,7 @@
         "definition": "Start fresh when state is well-persisted in files and filesystem; use compaction when mid-task continuity or conversational context is critical."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-state-persistence",
@@ -1821,7 +1821,7 @@
         "definition": "pwd -> read git logs/progress files -> review features -> start server -> verify tests before new work."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-escalation",
@@ -1871,7 +1871,7 @@
         "definition": "Classifies inputs by type and directs to specialized handlers with task-specific prompts, tools, and escalation thresholds."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-error-propagation",
@@ -1921,7 +1921,7 @@
         "definition": "Official prompt pattern: reflect on tool result quality before proceeding, and verify final answer against test criteria before completing."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-provenance",
@@ -1971,7 +1971,7 @@
         "definition": "Explicitly noting confidence levels in progress files to improve calibration: high (directly stated), medium (inferred), low (speculative/conflicting)."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   },
   {
     "id": "d5-subagent-context",
@@ -2026,6 +2026,6 @@
         "definition": "Independent auto-compaction at ~95% capacity. Transcripts stored separately from main conversation and survive both main compaction and Claude Code restarts."
       }
     ],
-    "updated_at": "2026-04-17T12:00:00Z"
+    "updated_at": "2026-04-17 12:00:00"
   }
 ]
