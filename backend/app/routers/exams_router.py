@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import Integer
+from sqlalchemy import Integer, case
 from sqlalchemy.orm import Session
 from sqlalchemy import func as sqlfunc
 
 from ..database import get_db
-from ..models import User, ExamAttempt, ExamAnswer
-from ..schemas import ExamSubmit, ExamAttemptResponse, ExamAttemptSummary, ExamStatsResponse, DomainStat
+from ..models import User, ExamAttempt, ExamAnswer, Question
+from ..schemas import ExamSubmit, ExamAttemptResponse, ExamAttemptSummary, ExamStatsResponse, DomainStat, WeakQuestionResponse
 from ..auth import get_current_user
 
 router = APIRouter(prefix="/api/exams", tags=["exams"])
@@ -91,6 +91,48 @@ def get_stats(user: User = Depends(get_current_user), db: Session = Depends(get_
         domain_stats=sorted(domain_stats, key=lambda d: d.domain_id),
         recent_scores=[a.score for a in recent],
     )
+
+
+@router.get("/weak-questions", response_model=list[WeakQuestionResponse])
+def get_weak_questions(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    incorrect_expr = sqlfunc.sum(case((ExamAnswer.is_correct == False, 1), else_=0))
+    rows = db.query(
+        ExamAnswer.question_id,
+        sqlfunc.count(ExamAnswer.id).label('total_attempts'),
+        incorrect_expr.label('incorrect_count'),
+    ).join(ExamAttempt).filter(
+        ExamAttempt.user_id == user.id
+    ).group_by(ExamAnswer.question_id).having(
+        incorrect_expr > 0
+    ).all()
+
+    if not rows:
+        return []
+
+    question_ids = [r.question_id for r in rows]
+    questions_map = {
+        q.id: q for q in db.query(Question).filter(Question.id.in_(question_ids)).all()
+    }
+
+    results = []
+    for r in rows:
+        q = questions_map.get(r.question_id)
+        if not q:
+            continue
+        total = r.total_attempts
+        incorrect = int(r.incorrect_count or 0)
+        results.append(WeakQuestionResponse(
+            question_id=r.question_id,
+            question_text=q.question,
+            scenario=q.scenario or '',
+            domain=q.domain,
+            total_attempts=total,
+            incorrect_count=incorrect,
+            error_rate=round((incorrect / total) * 100, 1) if total > 0 else 0,
+        ))
+
+    results.sort(key=lambda x: x.error_rate, reverse=True)
+    return results[:20]
 
 
 @router.get("/{attempt_id}", response_model=ExamAttemptResponse)

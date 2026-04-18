@@ -264,12 +264,62 @@ function ExamHistoryTable({ history }) {
   )
 }
 
+// ── Weakest Questions Table ───────────────────────────────────────────────────
+
+function WeakestQuestionsTable({ weakQuestions }) {
+  if (!weakQuestions || weakQuestions.length === 0) return null
+
+  return (
+    <div className="weak-questions-section">
+      <h3 className="perf-section-title">Weakest Questions</h3>
+      <p className="weak-questions-subtitle">
+        Questions you get wrong most often — focus your review here.
+      </p>
+      <div className="perf-history-scroll">
+        <table className="weak-questions-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Scenario</th>
+              <th>Domain</th>
+              <th>Wrong / Total</th>
+              <th>Error Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            {weakQuestions.slice(0, 10).map(wq => (
+              <tr key={wq.question_id} className="weak-questions-row">
+                <td className="weak-questions-text" title={wq.question_text}>
+                  {wq.question_text.length > 80 ? wq.question_text.slice(0, 80) + '...' : wq.question_text}
+                </td>
+                <td className="weak-questions-scenario" title={wq.scenario}>
+                  {wq.scenario.length > 50 ? wq.scenario.slice(0, 50) + '...' : wq.scenario}
+                </td>
+                <td className="weak-questions-domain">{wq.domain}</td>
+                <td className="weak-questions-count">
+                  {wq.incorrect_count} / {wq.total_attempts}
+                </td>
+                <td>
+                  <span className={`weak-questions-rate ${wq.error_rate >= 75 ? 'rate-high' : wq.error_rate >= 50 ? 'rate-medium' : 'rate-low'}`}>
+                    {wq.error_rate}%
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
 // ── Main Component ─────────────────────────────────────────────────────────────
 
 export default function PerformanceScreen() {
   const { user } = useAuth()
   const [stats, setStats] = useState(null)
   const [history, setHistory] = useState(null)
+  const [weakQuestions, setWeakQuestions] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -283,13 +333,15 @@ export default function PerformanceScreen() {
 
     async function fetchData() {
       try {
-        const [statsData, historyData] = await Promise.all([
+        const [statsData, historyData, weakData] = await Promise.all([
           api.getExamStats(),
           api.getExamHistory(),
+          api.getWeakQuestions(),
         ])
         if (!cancelled) {
           setStats(statsData)
           setHistory(historyData)
+          setWeakQuestions(weakData)
         }
       } catch (err) {
         if (!cancelled) setError(err.message)
@@ -400,6 +452,11 @@ export default function PerformanceScreen() {
       {/* Domain Strength Bars */}
       {stats.domain_stats && stats.domain_stats.length > 0 && (
         <DomainStrengthBars domainStats={stats.domain_stats} />
+      )}
+
+      {/* Weakest Questions */}
+      {weakQuestions && weakQuestions.length > 0 && (
+        <WeakestQuestionsTable weakQuestions={weakQuestions} />
       )}
 
       {/* Exam History Table */}

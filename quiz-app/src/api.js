@@ -120,4 +120,8 @@ export const api = {
   getExamDetail(attemptId) {
     return request(`/exams/${attemptId}`)
   },
+
+  getWeakQuestions() {
+    return request('/exams/weak-questions')
+  },
 }

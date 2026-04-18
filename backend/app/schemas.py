@@ -151,3 +151,13 @@ class ExamStatsResponse(BaseModel):
     pass_rate: float
     domain_stats: list[DomainStat]
     recent_scores: list[int]
+
+
+class WeakQuestionResponse(BaseModel):
+    question_id: int
+    question_text: str
+    scenario: str
+    domain: str
+    total_attempts: int
+    incorrect_count: int
+    error_rate: float
