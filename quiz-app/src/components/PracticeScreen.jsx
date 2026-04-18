@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import { useBlocker, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
 import StartScreen from './StartScreen'
@@ -89,7 +89,7 @@ const CCA_SCENARIOS = [
   { id: 'data-extraction', name: 'Structured Data Extraction' },
 ]
 
-export default function PracticeScreen({ domains, onProgressChange }) {
+export default function PracticeScreen({ domains, onProgressChange, onQuizActiveChange, onLeaveCallbackRef }) {
   const { user } = useAuth()
   const location = useLocation()
   const [phase, setPhase] = useState('start')
@@ -112,13 +112,16 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   const timerRef = useRef(null)
   const pendingNavRef = useRef(null)
 
-  const blocker = useBlocker(phase === 'quiz')
-
   useEffect(() => {
-    if (blocker.state === 'blocked') {
-      setShowLeaveDialog(true)
+    onQuizActiveChange?.(phase === 'quiz')
+    if (onLeaveCallbackRef) {
+      onLeaveCallbackRef.current = phase === 'quiz' ? () => setExamStatus('abandoned') : null
     }
-  }, [blocker.state])
+    return () => {
+      onQuizActiveChange?.(false)
+      if (onLeaveCallbackRef) onLeaveCallbackRef.current = null
+    }
+  }, [phase, onQuizActiveChange, onLeaveCallbackRef])
 
   useEffect(() => {
     api.getQuestions()
@@ -368,14 +371,10 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   const handleLeaveConfirm = useCallback(() => {
     setShowLeaveDialog(false)
     setExamStatus('abandoned')
-    if (blocker.state === 'blocked') {
-      setTimeout(() => blocker.proceed?.(), 100)
-    }
-  }, [blocker])
+  }, [])
 
   const handleLeaveCancel = useCallback(() => {
     setShowLeaveDialog(false)
-    blocker.reset?.()
   }, [])
 
   const restart = useCallback(() => {
