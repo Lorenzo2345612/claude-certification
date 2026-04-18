@@ -3454,13 +3454,15 @@
 /* ===== TIME LIMIT SELECTOR ===== */
 .time-limit-section {
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.time-limit-options {
+.time-limit-config {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .time-limit-chip {

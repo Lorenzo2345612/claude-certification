@@ -1,10 +1,3 @@
-const TIME_LIMIT_OPTIONS = [
-  { value: 0, label: 'No limit' },
-  { value: 60, label: '60 min' },
-  { value: 90, label: '90 min' },
-  { value: 120, label: '120 min' },
-]
-
 export default function StartScreen({
   domains,
   selectedDomains,
@@ -26,7 +19,7 @@ export default function StartScreen({
     })
   }
 
-  const maxQuestions = Math.min(availableCount, 304)
+  const maxQuestions = availableCount
   const effectiveCount = Math.min(questionCount, availableCount)
 
   return (
@@ -77,17 +70,33 @@ export default function StartScreen({
 
         <div className="time-limit-section">
           <div className="config-label">Time Limit</div>
-          <div className="time-limit-options">
-            {TIME_LIMIT_OPTIONS.map(opt => (
-              <button
-                key={opt.value}
-                className={`time-limit-chip ${timeLimit === opt.value ? 'active' : ''}`}
-                onClick={() => setTimeLimit(opt.value)}
-              >
-                {opt.label}
-              </button>
-            ))}
+          <div className="time-limit-config">
+            <button
+              className={`time-limit-chip ${timeLimit === 0 ? 'active' : ''}`}
+              onClick={() => setTimeLimit(0)}
+            >
+              No limit
+            </button>
+            <button
+              className={`time-limit-chip ${timeLimit > 0 ? 'active' : ''}`}
+              onClick={() => setTimeLimit(prev => prev === 0 ? 120 : prev)}
+            >
+              Timed
+            </button>
           </div>
+          {timeLimit > 0 && (
+            <div className="question-count-config">
+              <input
+                type="range"
+                className="count-slider"
+                min={1}
+                max={120}
+                value={timeLimit}
+                onChange={e => setTimeLimit(Number(e.target.value))}
+              />
+              <div className="count-value">{timeLimit} min</div>
+            </div>
+          )}
         </div>
 
         <button
