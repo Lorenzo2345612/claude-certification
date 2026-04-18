@@ -1,9 +1,11 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { api } from '../api'
+import { useAuth } from '../AuthContext'
 
 const STORAGE_KEY = 'flashcard_states'
 const INITIAL_KNOWN_INTERVAL = 5 * 60 * 1000   // 5 minutes
 const REVIEW_INTERVAL = 60 * 1000               // 1 minute
+const SYNC_DEBOUNCE_MS = 2000
 
 function loadCardStates() {
   try {
@@ -81,21 +83,45 @@ function getDomainName(domainId) {
 }
 
 export default function FlashcardsScreen() {
+  const { user } = useAuth()
   const [topics, setTopics] = useState([])
   const [loading, setLoading] = useState(true)
   const [cardStates, setCardStates] = useState(loadCardStates)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [domainFilter, setDomainFilter] = useState(null)
+  const syncTimerRef = useRef(null)
+  const pendingSyncRef = useRef(null)
 
   useEffect(() => {
-    api.getTopics()
-      .then(data => {
+    const loadData = async () => {
+      try {
+        const data = await api.getTopics()
         setTopics(data.map(mapTopicKeys))
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
+
+        if (user) {
+          try {
+            const serverStates = await api.getFlashcardStates()
+            const merged = { ...loadCardStates() }
+            for (const s of serverStates) {
+              const local = merged[s.card_key]
+              if (!local || s.last_seen > (local.lastSeen || 0)) {
+                merged[s.card_key] = {
+                  status: s.status,
+                  lastSeen: s.last_seen,
+                  interval: s.interval_ms,
+                }
+              }
+            }
+            setCardStates(merged)
+            saveCardStates(merged)
+          } catch {}
+        }
+      } catch {}
+      setLoading(false)
+    }
+    loadData()
+  }, [user])
 
   // Extract all flashcards from topics
   const allCards = useMemo(() => {
@@ -144,7 +170,24 @@ export default function FlashcardsScreen() {
   const persistStates = useCallback((newStates) => {
     setCardStates(newStates)
     saveCardStates(newStates)
-  }, [])
+
+    if (user) {
+      pendingSyncRef.current = newStates
+      clearTimeout(syncTimerRef.current)
+      syncTimerRef.current = setTimeout(() => {
+        const toSync = pendingSyncRef.current
+        if (!toSync) return
+        const items = Object.entries(toSync).map(([key, s]) => ({
+          card_key: key,
+          status: s.status || 'new',
+          last_seen: s.lastSeen || 0,
+          interval_ms: s.interval || 0,
+        }))
+        api.syncFlashcardStates(items).catch(() => {})
+        pendingSyncRef.current = null
+      }, SYNC_DEBOUNCE_MS)
+    }
+  }, [user])
 
   const markKnown = useCallback(() => {
     if (!sortedCards.length) return

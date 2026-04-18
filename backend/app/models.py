@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Integer, String, Text, DateTime, ForeignKey, UniqueConstraint, JSON
+from sqlalchemy import BigInteger, Boolean, Column, Integer, String, Text, DateTime, ForeignKey, UniqueConstraint, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from .database import Base
@@ -15,6 +15,7 @@ class User(Base):
     notes = relationship("Note", back_populates="user", cascade="all, delete-orphan")
     progress = relationship("Progress", back_populates="user", cascade="all, delete-orphan")
     exam_attempts = relationship("ExamAttempt", back_populates="user", cascade="all, delete-orphan")
+    flashcard_states = relationship("FlashcardState", back_populates="user", cascade="all, delete-orphan")
 
 
 class Note(Base):
@@ -116,3 +117,21 @@ class ExamAnswer(Base):
     is_correct = Column(Boolean, nullable=False)
 
     attempt = relationship("ExamAttempt", back_populates="answers")
+
+
+class FlashcardState(Base):
+    __tablename__ = "flashcard_states"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    card_key = Column(String(255), nullable=False)
+    status = Column(String(20), nullable=False, default="new")
+    last_seen = Column(BigInteger, nullable=False, default=0)
+    interval_ms = Column(BigInteger, nullable=False, default=0)
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    user = relationship("User", back_populates="flashcard_states")
+
+    __table_args__ = (
+        UniqueConstraint("user_id", "card_key", name="uq_user_card"),
+    )

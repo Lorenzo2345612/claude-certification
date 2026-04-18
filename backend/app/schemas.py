@@ -161,3 +161,23 @@ class WeakQuestionResponse(BaseModel):
     total_attempts: int
     incorrect_count: int
     error_rate: float
+
+
+class FlashcardStateItem(BaseModel):
+    card_key: str
+    status: str = "new"
+    last_seen: int = 0
+    interval_ms: int = 0
+
+
+class FlashcardStateBulk(BaseModel):
+    states: list[FlashcardStateItem]
+
+
+class FlashcardStateResponse(BaseModel):
+    card_key: str
+    status: str
+    last_seen: int
+    interval_ms: int
+
+    model_config = {"from_attributes": True}
