@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { api } from '../api'
 
@@ -127,9 +128,9 @@ function ScoreTrendChart({ scores }) {
 
         {/* Pass threshold */}
         <line x1={PAD.left} y1={passY} x2={PAD.left + chartW} y2={passY}
-          stroke="#10b981" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.7"/>
+          className="threshold-line" opacity="0.7"/>
         <text x={PAD.left + chartW + 4} y={passY + 4}
-          fill="#10b981" fontSize="10" fontFamily="inherit">PASS</text>
+          className="threshold-label" fontFamily="inherit">720 Pass</text>
 
         {/* Area fill */}
         <path d={areaPath} fill="url(#areaGrad)" />
@@ -201,6 +202,60 @@ function DomainStrengthBars({ domainStats }) {
             </div>
           )
         })}
+      </div>
+    </div>
+  )
+}
+
+// ── Domain Heatmap ────────────────────────────────────────────────────────────
+
+function DomainHeatmap({ domainStats }) {
+  if (!domainStats || domainStats.length === 0) return null
+
+  return (
+    <div className="perf-domains-container">
+      <h3 className="perf-section-title">Domain Heatmap</h3>
+      <div className="domain-heatmap">
+        {domainStats.map(ds => {
+          const domain = DOMAINS[ds.domain_id]
+          if (!domain) return null
+          const pct = Math.round(ds.percentage)
+          const heatClass = pct < 50 ? 'heat-red' : pct < 70 ? 'heat-yellow' : 'heat-green'
+          return (
+            <div className={`heatmap-cell ${heatClass}`} key={ds.domain_id}>
+              <div className="heatmap-pct">{pct}%</div>
+              <div className="heatmap-name">{domain.short} — {domain.name}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── Recommendation Card ───────────────────────────────────────────────────────
+
+function RecommendationCard({ domainStats }) {
+  if (!domainStats || domainStats.length === 0) return null
+
+  let weakest = null
+  for (const ds of domainStats) {
+    const domain = DOMAINS[ds.domain_id]
+    if (!domain) continue
+    if (!weakest || ds.percentage < weakest.percentage) {
+      weakest = { ...ds, domain }
+    }
+  }
+
+  if (!weakest) return null
+
+  const pct = Math.round(weakest.percentage)
+
+  return (
+    <div className="recommendation-card">
+      <div className="recommendation-label">Recommendation</div>
+      <div className="recommendation-text">
+        Focus on {weakest.domain.short} {weakest.domain.name} — your weakest domain at {pct}%
       </div>
     </div>
   )
@@ -317,6 +372,7 @@ function WeakestQuestionsTable({ weakQuestions }) {
 
 export default function PerformanceScreen() {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [stats, setStats] = useState(null)
   const [history, setHistory] = useState(null)
   const [weakQuestions, setWeakQuestions] = useState(null)
@@ -400,17 +456,19 @@ export default function PerformanceScreen() {
   if (!stats || stats.total_exams === 0) {
     return (
       <div className="perf-screen">
-        <div className="perf-empty">
+        <div className="performance-empty">
           <div className="perf-empty-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 20V10"/>
               <path d="M18 20V4"/>
               <path d="M6 20v-4"/>
             </svg>
           </div>
-          <h2 className="perf-empty-title">No exam data yet</h2>
-          <p className="perf-empty-text">Take your first practice exam to see your stats here!</p>
-          <a href="/practice" className="perf-empty-cta">Start Practice Exam</a>
+          <h2>Your performance journey starts here</h2>
+          <p>Complete a practice exam to unlock detailed analytics, domain breakdowns, score trends, and personalized recommendations.</p>
+          <button className="btn-go-practice" onClick={() => navigate('/practice')}>
+            Take Your First Exam
+          </button>
         </div>
       </div>
     )
@@ -452,6 +510,16 @@ export default function PerformanceScreen() {
       {/* Domain Strength Bars */}
       {stats.domain_stats && stats.domain_stats.length > 0 && (
         <DomainStrengthBars domainStats={stats.domain_stats} />
+      )}
+
+      {/* Domain Heatmap */}
+      {stats.domain_stats && stats.domain_stats.length > 0 && (
+        <DomainHeatmap domainStats={stats.domain_stats} />
+      )}
+
+      {/* Recommendation */}
+      {stats.domain_stats && stats.domain_stats.length > 0 && (
+        <RecommendationCard domainStats={stats.domain_stats} />
       )}
 
       {/* Weakest Questions */}
