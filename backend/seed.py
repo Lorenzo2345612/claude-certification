@@ -12,6 +12,12 @@ def seed():
     db = SessionLocal()
 
     try:
+        # Clear old data first
+        print("Clearing old data...")
+        db.query(Question).delete()
+        db.query(LearnTopic).delete()
+        db.commit()
+
         # Seed questions
         with open(os.path.join(SEEDS_DIR, "questions.json"), encoding="utf-8") as f:
             questions = json.load(f)
