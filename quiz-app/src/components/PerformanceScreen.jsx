@@ -590,7 +590,7 @@ export default function PerformanceScreen() {
 
       {/* Exam History Table */}
       {history && history.length > 0 && (
-        <ExamHistoryTable history={history} />
+        <ExamHistoryTable history={history} onRetake={handleRetake} />
       )}
     </div>
   )

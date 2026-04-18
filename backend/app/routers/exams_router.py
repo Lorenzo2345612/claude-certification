@@ -48,6 +48,14 @@ def list_exams(user: User = Depends(get_current_user), db: Session = Depends(get
     ).order_by(ExamAttempt.completed_at.desc()).all()
 
 
+@router.get("/answered-question-ids")
+def get_answered_ids(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    rows = db.query(ExamAnswer.question_id).join(ExamAttempt).filter(
+        ExamAttempt.user_id == user.id
+    ).distinct().all()
+    return [r.question_id for r in rows]
+
+
 @router.get("/stats", response_model=ExamStatsResponse)
 def get_stats(user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     attempts = db.query(ExamAttempt).filter(ExamAttempt.user_id == user.id).all()

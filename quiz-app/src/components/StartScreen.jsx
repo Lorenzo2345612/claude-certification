@@ -13,6 +13,9 @@ export default function StartScreen({
   setTimeLimit,
   availableCount,
   onStart,
+  onlyUnanswered,
+  setOnlyUnanswered,
+  unansweredCount,
 }) {
   const toggleDomain = (id) => {
     setSelectedDomains(prev => {
@@ -106,6 +109,25 @@ export default function StartScreen({
               ))}
             </div>
           </>
+        )}
+
+        {setOnlyUnanswered && (
+          <div className="unanswered-toggle">
+            <label className="unanswered-toggle-label">
+              <input
+                type="checkbox"
+                checked={onlyUnanswered}
+                onChange={e => setOnlyUnanswered(e.target.checked)}
+              />
+              <span className="unanswered-toggle-switch" />
+              <span className="unanswered-toggle-text">
+                Only unanswered questions
+                {unansweredCount !== undefined && (
+                  <span className="unanswered-toggle-count">({unansweredCount} unanswered)</span>
+                )}
+              </span>
+            </label>
+          </div>
         )}
 
         <div className="question-count-section">

@@ -109,6 +109,10 @@ export const api = {
     })
   },
 
+  getAnsweredQuestionIds() {
+    return request('/exams/answered-question-ids')
+  },
+
   getExamHistory() {
     return request('/exams/')
   },
