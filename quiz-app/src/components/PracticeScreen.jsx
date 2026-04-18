@@ -122,12 +122,9 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   }, [])
 
   // Timer countdown
+  const timerActive = phase === 'quiz' && remainingSeconds !== null && remainingSeconds > 0
   useEffect(() => {
-    if (phase !== 'quiz' || remainingSeconds === null) return
-    if (remainingSeconds <= 0) {
-      setExamStatus('timed_out')
-      return
-    }
+    if (!timerActive) return
     timerRef.current = setInterval(() => {
       setRemainingSeconds(prev => {
         if (prev <= 1) {
@@ -138,7 +135,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
       })
     }, 1000)
     return () => clearInterval(timerRef.current)
-  }, [phase, remainingSeconds === null])
+  }, [timerActive])
 
   // Auto-submit when timer reaches 0
   useEffect(() => {

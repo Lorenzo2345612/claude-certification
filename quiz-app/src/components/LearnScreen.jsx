@@ -58,6 +58,57 @@ export default function LearnScreen() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [notesOpen, setNotesOpen] = useState(false)
   const contentRef = useRef(null)
+  const { user } = useAuth()
+
+  const exportNotes = useCallback(async () => {
+    try {
+      const [notes, topics] = await Promise.all([
+        api.getNotes(),
+        api.getTopics()
+      ])
+
+      if (!notes.length) {
+        alert('No notes to export.')
+        return
+      }
+
+      const topicMap = Object.fromEntries(topics.map(t => [t.id, t]))
+
+      let markdown = '# Claude Certified Architect — Study Notes\n\n'
+      markdown += `Exported: ${new Date().toLocaleDateString()}\n\n---\n\n`
+
+      // Group notes by domain
+      const byDomain = {}
+      notes.forEach(n => {
+        const topic = topicMap[n.topic_id]
+        if (!topic) return
+        const domainKey = topic.domain_id
+        if (!byDomain[domainKey]) byDomain[domainKey] = { name: topic.domain, notes: [] }
+        byDomain[domainKey].notes.push({ ...n, topicTitle: topic.title })
+      })
+
+      Object.entries(byDomain)
+        .sort(([a], [b]) => Number(a) - Number(b))
+        .forEach(([domainId, { name, notes: domainNotes }]) => {
+          markdown += `## D${domainId}: ${name}\n\n`
+          domainNotes.forEach(n => {
+            markdown += `### ${n.topicTitle}\n\n`
+            markdown += `${n.content}\n\n`
+          })
+        })
+
+      // Trigger download
+      const blob = new Blob([markdown], { type: 'text/markdown' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'claude-architect-notes.md'
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error('Failed to export notes:', err)
+    }
+  }, [])
 
   useEffect(() => {
     api.getTopics()
