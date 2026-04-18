@@ -57,6 +57,7 @@ const PREREQUISITE_EDGES = [
   ['d1-tool-categories', 'd1-workflow-patterns'],
   ['d1-workflow-patterns', 'd1-subagent-config'],
   ['d1-subagent-config', 'd1-multi-agent'],
+  ['d1-multi-agent', 'd1-managed-agents'],
   ['d1-hooks', 'd1-programmatic-enforcement'],
   ['d1-tool-categories', 'd1-programmatic-enforcement'],
 
