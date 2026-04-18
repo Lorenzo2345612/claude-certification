@@ -15455,7 +15455,11 @@
       "quote": "If some tool calls depend on previous calls to inform dependent values like the parameters, do NOT call these tools in parallel and instead call them sequentially. Never use placeholders or guess missing parameters in tool calls."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Agents and tools",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287803"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15498,7 +15502,11 @@
       "quote": "While stop_reason == 'tool_use', execute the tools and continue the conversation. The loop exits on any other stop reason ('end_turn', 'max_tokens', 'stop_sequence', or 'refusal')."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Tool schemas",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15541,7 +15549,11 @@
       "quote": "Consider the reversibility and potential impact of your actions. You are encouraged to take local, reversible actions like editing files or running tests, but for actions that are hard to reverse, affect shared systems, or could be destructive, ask the user before proceeding."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Environment inspection",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287798"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15584,7 +15596,11 @@
       "quote": "Use subagents when tasks can run in parallel, require isolated context, or involve independent workstreams that don't need to share state. For simple tasks, sequential operations, single-file edits, or tasks where you need to maintain context across steps, work directly rather than delegating."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents/450698"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15627,7 +15643,11 @@
       "quote": "Claude Opus is much more likely to recognize that a parameter is missing and ask for it. Claude Sonnet may ask, especially when prompted to think before outputting a tool request. But it may also do its best to infer a reasonable value."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Tool functions",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287756"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15670,7 +15690,11 @@
       "quote": "Add strict: true to your tool definitions to ensure Claude's tool calls always match your schema exactly."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Tool schemas",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15713,7 +15737,11 @@
       "quote": "Claude Opus 4.7: auto, none = 346 tokens; any, tool = 313 tokens"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Using multiple tools",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15756,7 +15784,11 @@
       "quote": "Automated behaviors ('from now on when X', 'each time X', 'whenever X', 'before/after X') require hooks configured in settings.json -- the harness executes these, not Claude."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Introducing hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15799,7 +15831,11 @@
       "quote": "CLAUDE.md provides codebase documentation and guidelines that are injected into Claude's context. Automated behaviors require hooks configured in settings.json."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15842,7 +15878,11 @@
       "quote": "Put longform data at the top: Place your long documents and inputs near the top of your prompt, above your query, instructions, and examples. Queries at the end can improve response quality by up to 30%."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt caching",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287772"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15885,7 +15925,11 @@
       "quote": "Starting with Claude 4.6 models, prefilled responses on the last assistant turn are no longer supported. The Structured Outputs feature is designed specifically to constrain Claude's responses to follow a given schema. For classification tasks, use either tools with an enum field containing your valid labels or structured outputs."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Routing workflows",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287801"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15928,7 +15972,11 @@
       "quote": "Tell Claude what to do instead of what not to do. Instead of: 'Do not use markdown in your response' Try: 'Your response should be composed of smoothly flowing prose paragraphs.'"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Chaining workflows",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -15971,7 +16019,11 @@
       "quote": "For long-running conversations and agentic workflows, server-side compaction is the primary strategy for context management. Compaction provides server-side summarization that automatically condenses earlier parts of a conversation."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Multi-Turn conversations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16014,7 +16066,11 @@
       "quote": "Extended thinking blocks are generated during each turn's output phase, but are not carried forward as input tokens for subsequent turns. The API automatically excludes thinking blocks from previous turns when you pass them back."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16057,7 +16113,11 @@
       "quote": "Placing cache_control on content that changes every request (timestamp + user message) creates a different hash each time, preventing cache hits. Instead, move the breakpoint to the last stable block before the changing content."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Rules of Prompt Caching",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287770"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16100,7 +16160,11 @@
       "quote": "Your context window will be automatically compacted as it approaches its limit, allowing you to continue working indefinitely from where you left off. Therefore, do not stop tasks early due to token budget concerns."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Controlling context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303237"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16143,7 +16207,11 @@
       "quote": "Use structured formats for state data. Use unstructured text for progress notes. Use git for state tracking: Git provides a log of what's been done and checkpoints that can be restored."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16186,7 +16254,11 @@
       "quote": "These schemas are trained-in. Claude has been optimized on thousands of successful trajectories that use these exact tool signatures, so it calls them more reliably and recovers from errors more gracefully than it would with a custom tool that does the same thing."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "The text edit tool",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287760"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16229,7 +16301,11 @@
       "quote": "The tell that you should be using tools: if you're writing a regex to extract a decision from model output, that decision should have been a tool call. Parsing free-form text to recover structured intent is a sign the structure belongs in the schema."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16272,7 +16348,11 @@
       "quote": "If you say 'can you suggest some changes,' Claude will sometimes provide suggestions rather than implementing them. For Claude to take action, be more explicit: 'Change this function to improve its performance.'"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16315,7 +16395,11 @@
       "quote": "If you create any temporary new files, scripts, or helper files for iteration, clean up these files by removing them at the end of the task."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Useful hooks!",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16358,7 +16442,11 @@
       "quote": "Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Don't add features, refactor code, or make 'improvements' beyond what was asked. The right amount of complexity is the minimum needed for the current task."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16401,7 +16489,11 @@
       "quote": "Providing well-specified, clear, and accurate task descriptions upfront can help maximize autonomy and intelligence while minimizing extra token usage after user turns. Ambiguous or underspecified prompts conveyed progressively over multiple user turns tend to relatively reduce token efficiency."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Response streaming",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16444,7 +16536,11 @@
       "quote": "When a review prompt says things like 'only report high-severity issues,' 'be conservative,' or 'don't nitpick,' Claude Opus 4.7 may follow that instruction more faithfully than earlier models did -- it may investigate the code just as thoroughly, identify the bugs, and then not report findings it judges to be below your stated bar."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt evaluation",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16487,7 +16583,11 @@
       "quote": "Never speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering. Make sure to investigate and read relevant files BEFORE answering questions about the codebase."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Environment inspection",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287798"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16530,7 +16630,11 @@
       "quote": "Implement a solution that works correctly for all valid inputs, not just the test cases. Do not hard-code values or create solutions that only work for specific test inputs. Tests are there to verify correctness, not to define the solution."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Being specific",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16573,7 +16677,11 @@
       "quote": "After each tool call, Claude receives an update on remaining capacity: <system_warning>Token usage: 35000/1000000; 965000 remaining</system_warning>. This awareness helps Claude determine how much capacity remains."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Implementing multiple turns",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16616,7 +16724,11 @@
       "quote": "Verify caching: Check response usage fields; if both cache_creation_input_tokens and cache_read_input_tokens are 0, prompt wasn't cached."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt Caching in Action",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16659,7 +16771,11 @@
       "quote": "When posting tool results, the entire unmodified thinking block that accompanies that specific tool request (including signature portions) must be included. The system uses cryptographic signatures to verify thinking block authenticity. If you modify thinking blocks, the API returns an error."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16702,7 +16818,11 @@
       "quote": "If you are running Claude Opus 4.7 at max or xhigh effort, set a large max output token budget so the model has room to think and act across its subagents and tool calls. We recommend starting at 64k tokens and tuning from there."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16745,7 +16865,11 @@
       "quote": "A paused turn means the work isn't finished; re-send the conversation (including the paused response) to let the model continue where it left off."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Implementing multiple turns",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16788,7 +16912,11 @@
       "quote": "In practice this reads as: while stop_reason == 'tool_use', execute the tools and continue the conversation. The loop exits on any other stop reason."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Agents and workflows",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287796"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16831,7 +16959,11 @@
       "quote": "Each subagent runs in its own context window with a custom system prompt, specific tool access, and independent permissions."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Creating a subagent",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents/450699"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16874,7 +17006,11 @@
       "quote": "Use one when a side task would flood your main conversation with search results, logs, or file contents you won't reference again: the subagent does that work in its own context and returns only the summary."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Parallelization workflows",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16917,7 +17053,11 @@
       "quote": "Pass thinking blocks back to the API when providing tool results... Include both [thinking_block, tool_use_block] in the assistant content."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -16960,7 +17100,11 @@
       "quote": "MCP follows a client-server architecture where an MCP host establishes connections to one or more MCP servers. The MCP host accomplishes this by creating one MCP client for each MCP server."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining Tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287797"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17003,7 +17147,11 @@
       "quote": "Provide extremely detailed descriptions. This is by far the most important factor in tool performance. Aim for at least 3-4 sentences per tool description, more if the tool is complex."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining Tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287797"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17046,7 +17194,11 @@
       "quote": "Stdio transport: Uses standard input/output streams for direct process communication between local processes on the same machine. Streamable HTTP transport: Uses HTTP POST for client-to-server messages with optional Server-Sent Events for streaming."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "MCP clients",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287775"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17089,7 +17241,11 @@
       "quote": "Hooks let you run shell commands before or after Claude Code actions, like auto-formatting after every file edit or running lint before a commit."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Useful hooks!",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17132,7 +17288,11 @@
       "quote": "CLAUDE.local.md: Personal project-specific preferences; add to .gitignore. Just you (current project)."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17175,7 +17335,11 @@
       "quote": "The tell that you should be using tools: if you're writing a regex to extract a decision from model output, that decision should have been a tool call."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17218,7 +17382,11 @@
       "quote": "Omitted: Returns empty thinking field with encrypted signature. Faster time-to-first-text-token when streaming (skips thinking token transmission)."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17261,7 +17429,11 @@
       "quote": "Project-root CLAUDE.md survives compaction: after /compact, Claude re-reads it from disk. Nested CLAUDE.md files in subdirectories are not re-injected automatically; they reload the next time Claude reads a file in that subdirectory."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents/450698"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17304,7 +17476,11 @@
       "quote": "Cache invalidates when thinking parameters change (budget/enabled-disabled). System prompts remain cached despite thinking parameter changes."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt Caching in Action",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17347,7 +17523,11 @@
       "quote": "When a server's available tools change, the server can proactively notify connected clients. Clients don't need to poll for changes; they're notified when updates occur."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "MCP clients",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287775"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17390,7 +17570,11 @@
       "quote": "The loop exits on any other stop reason ('end_turn', 'max_tokens', 'stop_sequence', or 'refusal'), which means Claude has either produced a final answer or stopped for another reason."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Implementing multiple turns",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17433,7 +17617,11 @@
       "quote": "For web_search, web_fetch, code_execution, and tool_search, Anthropic runs the code. You enable the tool in your request and the server handles everything else."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Introducing tool use",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17476,7 +17664,11 @@
       "quote": "Consolidate related operations into fewer tools. Rather than creating a separate tool for every action (create_pr, review_pr, merge_pr), group them into a single tool with an action parameter."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Agents and tools",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287803"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17519,7 +17711,11 @@
       "quote": "Design tool responses to return only high-signal information. Return semantic, stable identifiers rather than opaque internal references, and include only the fields Claude needs."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Sending tool results",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17562,7 +17758,11 @@
       "quote": "Add strict: true to your tool definitions to ensure Claude's tool calls always match your schema exactly."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Tool schemas",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17605,7 +17805,11 @@
       "quote": "Plan: A research agent used during plan mode to gather context before presenting a plan. Tools: Read-only tools (denied access to Write and Edit tools)."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17648,7 +17852,11 @@
       "quote": "PreToolUse: Before tool execution (blockable). permissionDecision: allow|deny|ask|defer. Exit code 2: Blocking error, prevent action."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Introducing hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17691,7 +17899,11 @@
       "quote": "Rules can be scoped to specific files using YAML frontmatter with the paths field. These conditional rules only apply when Claude is working with files matching the specified patterns."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "What are skills?",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills/434525"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17734,7 +17946,11 @@
       "quote": "The Model Context Protocol (MCP) is an open standard for connecting AI tools to external data sources. With MCP, Claude Code can read your design docs in Google Drive, update tickets in Jira, pull data from Slack."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "MCP servers with Claude Code",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303239"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17777,7 +17993,11 @@
       "quote": "When you have tool_choice as any or tool, the API prefills the assistant message to force a tool to be used. This means that the models will not emit a natural language response or explanation before tool_use content blocks."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Introducing tool use",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17820,7 +18040,11 @@
       "quote": "Without interleaved thinking: Claude thinks once at turn start; subsequent responses after tool results contain no new thinking blocks. With interleaved thinking: Claude can think after each tool result before making next tool call."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Extended thinking",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17863,7 +18087,11 @@
       "quote": "Claude Opus is much more likely to recognize that a parameter is missing and ask for it. Claude Sonnet may ask, especially when prompted to think before outputting a tool request. But it may also do its best to infer a reasonable value."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Tool functions",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287756"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17906,7 +18134,11 @@
       "quote": "The first 200 lines of MEMORY.md, or the first 25KB, whichever comes first, are loaded at the start of every conversation. Content beyond that threshold is not loaded at session start."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17949,7 +18181,11 @@
       "quote": "For instructions you want at the system prompt level, use --append-system-prompt. This must be passed every invocation, so it's better suited to scripts and automation than interactive use."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -17992,7 +18228,11 @@
       "quote": "In large monorepos, ancestor CLAUDE.md files may contain instructions that aren't relevant to your work. The claudeMdExcludes setting lets you skip specific files by path or glob pattern."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18035,7 +18275,11 @@
       "quote": "--print, -p: Print response without interactive mode. --output-format: Specify output format for print mode (options: text, json, stream-json)"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18078,7 +18322,11 @@
       "quote": "--max-budget-usd: Maximum dollar amount to spend on API calls before stopping (print mode only)"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18121,7 +18369,11 @@
       "quote": "--max-turns: Limit the number of agentic turns (print mode only). Exits with an error when the limit is reached. No limit by default"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18164,7 +18416,11 @@
       "quote": "--strict-mcp-config: Only use MCP servers from --mcp-config, ignoring all other MCP configurations"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "MCP servers with Claude Code",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303239"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18207,7 +18463,11 @@
       "quote": "PreToolUse hook returns permissionDecision: 'defer'. Process exits with stop_reason: 'tool_deferred'. Resume with claude -p --resume <session-id>."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18250,7 +18510,11 @@
       "quote": "--allowedTools: Tools that execute without prompting for permission. See permission rule syntax for pattern matching."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18293,7 +18557,11 @@
       "quote": "--setting-sources: Comma-separated list of setting sources to load (user, project, local)"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18336,7 +18604,11 @@
       "quote": "PostToolUse: Can Block? No. Shows stderr to Claude (tool already ran)."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18379,7 +18651,11 @@
       "quote": "--bare: Minimal mode: skip auto-discovery of hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md so scripted calls start faster. Claude has access to Bash, file read, and file edit tools."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18422,7 +18698,11 @@
       "quote": "--exclude-dynamic-system-prompt-sections: Move per-machine sections from the system prompt into the first user message. Improves prompt-cache reuse across different users and machines running the same task."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Rules of Prompt Caching",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287770"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18465,7 +18745,11 @@
       "quote": "--json-schema: Get validated JSON output matching a JSON Schema after agent completes its workflow (print mode only)"
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18508,7 +18792,11 @@
       "quote": "For most use cases, use an append flag. Appending preserves Claude Code's built-in capabilities while adding your requirements. Use a replacement flag only when you need complete control over the system prompt."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "System prompts",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18551,7 +18839,11 @@
       "quote": "--dangerously-skip-permissions: Skip permission prompts. Equivalent to --permission-mode bypassPermissions."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Gotchas around hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18594,7 +18886,11 @@
       "quote": "--resume does not restore permission mode from prior session. Must pass same --permission-mode on resume. Claude Code logs warning if modes differ."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Another useful hook",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312427"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18637,7 +18933,11 @@
       "quote": "Exit code 1 is treated as non-blocking error for most events. Use exit code 2 to enforce policy."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18766,7 +19066,11 @@
       "quote": "The token-efficient-tools-2025-02-19 beta header enables a more token-efficient representation of tool definitions."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt caching",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287772"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18809,7 +19113,11 @@
       "quote": "For plain text documents: Citations include the character index range (0-indexed). Citation type: char_location with start_char_index and end_char_index."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Citations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18852,7 +19160,11 @@
       "quote": "Citations and Structured Outputs are incompatible. If you enable citations on any user-provided document and also include the output_config.format parameter, the API will return a 400 error."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Citations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18895,7 +19207,11 @@
       "quote": "Refusals (stop_reason: 'refusal'): 200 status code (not error). Billed for tokens. Output may not match schema. Safety takes precedence over schema."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18938,7 +19254,11 @@
       "quote": "SDKs automatically: Remove unsupported constraints, Update descriptions with constraint info, Validate responses against original schema (with all constraints)."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -18981,7 +19301,11 @@
       "quote": "Complexity Limits: Optional parameters (total): 24. Parameters with union types: 16. Strict tools per request: 20."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -19024,7 +19348,11 @@
       "quote": "Custom content documents give you control over citation granularity. No additional chunking is done and chunks are provided to the model according to the content blocks provided."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Citations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -19067,7 +19395,11 @@
       "quote": "additionalProperties: Must be set to false for objects. Unsupported: additionalProperties set to anything other than false."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Structured data",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -19110,7 +19442,11 @@
       "quote": "The cited_text field is provided for convenience and does not count towards output tokens. When passed back in subsequent conversation turns, cited_text is also not counted towards input tokens."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Citations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -19196,7 +19532,11 @@
       "quote": "The citation blocks generated in responses cannot be cached directly, but the source documents they reference can be cached. To optimize performance, apply cache_control to your top-level document content blocks."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Prompt Caching in Action",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
+    },
     "updated_at": "2026-04-18 12:00:00"
   },
   {
@@ -19282,7 +19622,11 @@
       "quote": "Custom content documents give you control over citation granularity. No additional chunking is done and chunks are provided to the model according to the content blocks provided."
     },
     "doc_status": "STRONG",
-    "skilljar_ref": null,
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Citations",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
+    },
     "updated_at": "2026-04-18 12:00:00"
   }
 ]
