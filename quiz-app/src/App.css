@@ -1898,6 +1898,26 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
+.btn-export-notes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0.75rem 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: calc(100% - 1.5rem);
+}
+.btn-export-notes:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+}
+
 /* Sidebar nav */
 .learn-sidebar-nav {
   display: flex;
@@ -4218,4 +4238,130 @@
   font-size: 0.75rem;
   color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== QUIZ KEYBOARD HINT ===== */
+.quiz-keyboard-hint {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  opacity: 0.7;
+}
+
+.quiz-keyboard-hint span {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.68rem;
+}
+
+/* ============================================================
+   RESPONSIVE — Additional responsive improvements
+   ============================================================ */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Header: wrap on small screens */
+  .app-header {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 50px;
+  }
+
+  /* Options full width */
+  .option-btn {
+    width: 100%;
+  }
+
+  /* Domain breakdown table: horizontal scroll */
+  .domain-breakdown {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .domain-breakdown-table {
+    min-width: 500px;
+  }
+
+  /* Domain heatmap: 2 columns (already handled at line 3946) */
+
+  /* Flashcard reduced min-height */
+  .flashcard {
+    min-height: 200px;
+  }
+
+  /* Quiz keyboard hint hide on touch devices */
+  .quiz-keyboard-hint {
+    display: none;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Stack domain chips — already vertical, ensure single column */
+  .start-config .domain-filter {
+    flex-direction: column;
+  }
+
+  /* Question card reduced padding */
+  .question-card {
+    padding: 1rem;
+  }
+
+  /* Option buttons: larger touch target */
+  .option-btn {
+    width: 100%;
+    padding: 14px 12px;
+    min-height: 48px;
+  }
+
+  /* Score circle smaller */
+  .score-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .score-value {
+    font-size: 2.2rem;
+  }
+
+  .score-status {
+    font-size: 1.1rem;
+  }
+
+  /* Domain heatmap: single column */
+  .domain-heatmap {
+    grid-template-columns: 1fr;
+  }
+
+  /* Flashcard: reduced min-height */
+  .flashcard {
+    min-height: 180px;
+  }
+
+  /* Flashcards screen reduced padding */
+  .flashcards-screen {
+    padding: 1rem;
+  }
+
+  /* App logo smaller */
+  .app-logo {
+    font-size: 0.75rem;
+  }
+
+  /* Reduce overall spacing */
+  .results-screen {
+    padding: 1rem 0 2rem;
+  }
+
+  .domain-breakdown {
+    padding: 1rem;
+  }
+
+  .results-title {
+    font-size: 1.3rem;
+  }
 }
