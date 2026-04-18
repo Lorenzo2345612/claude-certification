@@ -1759,16 +1759,31 @@
    ============================================================ */
 @media (max-width: 480px) {
   .main-content { padding: 0.75rem; }
-  .app-header { padding: 0 0.5rem; height: 50px; }
+  .app-header { padding: 0 0.5rem; height: auto; min-height: 50px; flex-wrap: wrap; }
 
-  .app-logo { font-size: 0.82rem; }
+  .header-left { display: none; }
+
+  .header-nav {
+    order: 2;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    gap: 0;
+    padding-bottom: 2px;
+  }
+  .header-nav::-webkit-scrollbar { display: none; }
 
   .nav-tab {
     font-size: 0.72rem;
-    padding: 0.5rem 0.4rem;
-    height: 50px;
+    padding: 0.5rem 0.6rem;
+    height: 40px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
+  .header-right { order: 1; margin-left: auto; }
   .header-quiz-progress { display: none; }
 
   .question-card { padding: 1.25rem; }
@@ -1781,6 +1796,11 @@
   .domain-row { flex-wrap: wrap; gap: 0.5rem; }
   .domain-detail-header { flex-direction: column; align-items: flex-start; gap: 4px; }
 
+  /* Notes panel full-screen on mobile */
+  .notes-panel {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
 }
 
 /* ===== LEARN SECTION - SIDEBAR LAYOUT ===== */
@@ -4245,7 +4265,8 @@
   text-align: center;
   font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   opacity: 0.7;
 }
 
