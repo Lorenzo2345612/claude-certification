@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
+import { useBlocker } from 'react-router-dom'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
 import StartScreen from './StartScreen'
@@ -107,6 +108,14 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   const [examStatus, setExamStatus] = useState('completed')
   const timerRef = useRef(null)
   const pendingNavRef = useRef(null)
+
+  const blocker = useBlocker(phase === 'quiz')
+
+  useEffect(() => {
+    if (blocker.state === 'blocked') {
+      setShowLeaveDialog(true)
+    }
+  }, [blocker.state])
 
   useEffect(() => {
     api.getQuestions()
@@ -289,10 +298,14 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   const handleLeaveConfirm = useCallback(() => {
     setShowLeaveDialog(false)
     setExamStatus('abandoned')
-  }, [])
+    if (blocker.state === 'blocked') {
+      setTimeout(() => blocker.proceed?.(), 100)
+    }
+  }, [blocker])
 
   const handleLeaveCancel = useCallback(() => {
     setShowLeaveDialog(false)
+    blocker.reset?.()
   }, [])
 
   const restart = useCallback(() => {
