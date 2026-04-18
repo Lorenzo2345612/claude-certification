@@ -5,6 +5,7 @@ import LearnScreen from './components/LearnScreen'
 import RoadmapScreen from './components/RoadmapScreen'
 import PracticeScreen from './components/PracticeScreen'
 import PerformanceScreen from './components/PerformanceScreen'
+import FlashcardsScreen from './components/FlashcardsScreen'
 import AuthModal from './components/AuthModal'
 import { useAuth } from './AuthContext'
 
@@ -37,6 +38,9 @@ function App() {
           <NavLink to="/practice" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
             Practice
           </NavLink>
+          <NavLink to="/flashcards" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
+            Flashcards
+          </NavLink>
           <NavLink to="/performance" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
             Performance
           </NavLink>
@@ -63,6 +67,7 @@ function App() {
         <Route path="/learn/:topicId" element={<LearnScreen domains={DOMAINS} />} />
         <Route path="/roadmap" element={<RoadmapScreen />} />
         <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} onProgressChange={setQuizProgress} />} />
+        <Route path="/flashcards" element={<FlashcardsScreen />} />
         <Route path="/performance" element={<PerformanceScreen />} />
         <Route path="*" element={<Navigate to="/learn" replace />} />
       </Routes>
