@@ -1,6 +1,6 @@
 import json
 import os
-from sqlalchemy.dialects.mysql import insert
+from sqlalchemy import text
 from app.database import SessionLocal, engine
 from app.models import Base, Question, LearnTopic
 
@@ -12,7 +12,7 @@ def seed():
     db = SessionLocal()
 
     try:
-        # Clear old data first
+        # Clear old data
         print("Clearing old data...")
         db.query(Question).delete()
         db.query(LearnTopic).delete()
@@ -24,10 +24,9 @@ def seed():
 
         print(f"Seeding {len(questions)} questions...")
         for q in questions:
-            stmt = insert(Question).values(**q)
-            update_cols = {k: stmt.inserted[k] for k in q if k != "id"}
-            stmt = stmt.on_duplicate_key_update(**update_cols)
-            db.execute(stmt)
+            db.add(Question(**q))
+
+        db.flush()
 
         # Seed topics
         with open(os.path.join(SEEDS_DIR, "learn_topics.json"), encoding="utf-8") as f:
@@ -35,10 +34,7 @@ def seed():
 
         print(f"Seeding {len(topics)} topics...")
         for t in topics:
-            stmt = insert(LearnTopic).values(**t)
-            update_cols = {k: stmt.inserted[k] for k in t if k != "id"}
-            stmt = stmt.on_duplicate_key_update(**update_cols)
-            db.execute(stmt)
+            db.add(LearnTopic(**t))
 
         db.commit()
         print("Seeding complete!")
