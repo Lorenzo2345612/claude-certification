@@ -21,7 +21,17 @@ async def lifespan(app: FastAPI):
             break
         except Exception:
             time.sleep(2)
-    Base.metadata.create_all(bind=engine)
+    from alembic.config import Config
+    from alembic import command
+    from sqlalchemy import inspect
+    import os
+    alembic_cfg = Config(os.path.join(os.path.dirname(os.path.dirname(__file__)), "alembic.ini"))
+    alembic_cfg.set_main_option("sqlalchemy.url", str(engine.url))
+    inspector = inspect(engine)
+    tables = inspector.get_table_names()
+    if "alembic_version" not in tables and "users" in tables:
+        command.stamp(alembic_cfg, "0001")
+    command.upgrade(alembic_cfg, "head")
     yield
 
 
