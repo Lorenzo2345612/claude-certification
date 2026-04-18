@@ -8,6 +8,8 @@ export default function QuizScreen({
   onConfirm,
   onNext,
   isLast,
+  remainingSeconds,
+  formatTime,
 }) {
   const isConfirmed = answer?.confirmed
   const selectedId = answer?.selected
@@ -39,6 +41,11 @@ export default function QuizScreen({
           <span className="progress-question">
             Question {currentIndex + 1} of {total}
           </span>
+          {remainingSeconds !== null && formatTime && (
+            <span className={`exam-timer ${remainingSeconds <= 300 ? 'timer-red' : remainingSeconds <= 600 ? 'timer-yellow' : ''}`}>
+              {formatTime(remainingSeconds)}
+            </span>
+          )}
           <span className={`progress-domain d${question.domainId}`}>
             D{question.domainId}: {question.domain}
           </span>

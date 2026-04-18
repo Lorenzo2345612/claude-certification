@@ -93,6 +93,8 @@ class ExamSubmit(BaseModel):
     score: int
     passed: bool
     domains_selected: list[int]
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     answers: list[ExamAnswerSubmit]
 
 
@@ -113,6 +115,8 @@ class ExamAttemptResponse(BaseModel):
     score: int
     passed: bool
     domains_selected: list
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     completed_at: datetime
     answers: list[ExamAnswerResponse] = []
 
@@ -126,6 +130,8 @@ class ExamAttemptSummary(BaseModel):
     score: int
     passed: bool
     domains_selected: list
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     completed_at: datetime
 
     model_config = {"from_attributes": True}

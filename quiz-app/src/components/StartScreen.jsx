@@ -1,9 +1,18 @@
+const TIME_LIMIT_OPTIONS = [
+  { value: 0, label: 'No limit' },
+  { value: 60, label: '60 min' },
+  { value: 90, label: '90 min' },
+  { value: 120, label: '120 min' },
+]
+
 export default function StartScreen({
   domains,
   selectedDomains,
   setSelectedDomains,
   questionCount,
   setQuestionCount,
+  timeLimit,
+  setTimeLimit,
   availableCount,
   onStart,
 }) {
@@ -66,12 +75,27 @@ export default function StartScreen({
           </div>
         </div>
 
+        <div className="time-limit-section">
+          <div className="config-label">Time Limit</div>
+          <div className="time-limit-options">
+            {TIME_LIMIT_OPTIONS.map(opt => (
+              <button
+                key={opt.value}
+                className={`time-limit-chip ${timeLimit === opt.value ? 'active' : ''}`}
+                onClick={() => setTimeLimit(opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <button
           className="btn-start"
           onClick={onStart}
           disabled={selectedDomains.length === 0}
         >
-          Start Exam ({effectiveCount} questions)
+          Start Exam ({effectiveCount} questions{timeLimit > 0 ? ` \u00b7 ${timeLimit} min` : ''})
         </button>
       </div>
 

@@ -20,6 +20,8 @@ def submit_exam(payload: ExamSubmit, user: User = Depends(get_current_user), db:
         score=payload.score,
         passed=payload.passed,
         domains_selected=payload.domains_selected,
+        time_limit_minutes=payload.time_limit_minutes,
+        status=payload.status,
     )
     db.add(attempt)
     db.flush()

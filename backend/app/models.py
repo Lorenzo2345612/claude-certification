@@ -95,6 +95,8 @@ class ExamAttempt(Base):
     score = Column(Integer, nullable=False)
     passed = Column(Boolean, nullable=False)
     domains_selected = Column(JSON, nullable=False)
+    time_limit_minutes = Column(Integer, nullable=True)
+    status = Column(String(20), nullable=False, default="completed")
     started_at = Column(DateTime(timezone=True), server_default=func.now())
     completed_at = Column(DateTime(timezone=True), server_default=func.now())
 
