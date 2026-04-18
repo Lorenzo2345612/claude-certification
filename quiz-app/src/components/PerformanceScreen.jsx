@@ -13,6 +13,43 @@ const DOMAINS = {
 
 const PASS_THRESHOLD = 720
 
+function usePagination(items, pageSize = 10) {
+  const [page, setPage] = useState(0)
+  const totalPages = Math.ceil(items.length / pageSize)
+  const paged = items.slice(page * pageSize, (page + 1) * pageSize)
+
+  useEffect(() => {
+    if (page >= totalPages && totalPages > 0) setPage(totalPages - 1)
+  }, [items.length])
+
+  return { page, setPage, totalPages, paged, total: items.length }
+}
+
+function PaginationControls({ page, setPage, totalPages, total, label = 'items' }) {
+  if (totalPages <= 1) return null
+  return (
+    <div className="pagination-controls">
+      <button
+        className="pagination-btn"
+        disabled={page === 0}
+        onClick={() => setPage(page - 1)}
+      >
+        Previous
+      </button>
+      <span className="pagination-info">
+        Page {page + 1} of {totalPages} ({total} {label})
+      </span>
+      <button
+        className="pagination-btn"
+        disabled={page >= totalPages - 1}
+        onClick={() => setPage(page + 1)}
+      >
+        Next
+      </button>
+    </div>
+  )
+}
+
 function formatDate(dateStr) {
   const d = new Date(dateStr)
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -263,7 +300,9 @@ function RecommendationCard({ domainStats }) {
 
 // ── Exam History Table ─────────────────────────────────────────────────────────
 
-function ExamHistoryTable({ history }) {
+function ExamHistoryTable({ history, onRetake }) {
+  const { page, setPage, totalPages, paged, total } = usePagination(history || [], 10)
+
   if (!history || history.length === 0) return null
 
   return (
@@ -278,10 +317,11 @@ function ExamHistoryTable({ history }) {
               <th>Questions</th>
               <th>Result</th>
               <th>Domains</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            {history.map(exam => (
+            {paged.map(exam => (
               <tr key={exam.id} className="perf-history-row">
                 <td className="perf-history-date">
                   <div>{formatDate(exam.completed_at)}</div>
@@ -310,11 +350,17 @@ function ExamHistoryTable({ history }) {
                     ) : null
                   })}
                 </td>
+                <td>
+                  <button className="btn-retake" onClick={() => onRetake(exam.id)}>
+                    Retake
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <PaginationControls page={page} setPage={setPage} totalPages={totalPages} total={total} label="exams" />
     </div>
   )
 }
@@ -322,6 +368,8 @@ function ExamHistoryTable({ history }) {
 // ── Weakest Questions Table ───────────────────────────────────────────────────
 
 function WeakestQuestionsTable({ weakQuestions }) {
+  const { page, setPage, totalPages, paged, total } = usePagination(weakQuestions || [], 10)
+
   if (!weakQuestions || weakQuestions.length === 0) return null
 
   return (
@@ -342,7 +390,7 @@ function WeakestQuestionsTable({ weakQuestions }) {
             </tr>
           </thead>
           <tbody>
-            {weakQuestions.slice(0, 10).map(wq => (
+            {paged.map(wq => (
               <tr key={wq.question_id} className="weak-questions-row">
                 <td className="weak-questions-text" title={wq.question_text}>
                   {wq.question_text.length > 80 ? wq.question_text.slice(0, 80) + '...' : wq.question_text}
@@ -364,6 +412,7 @@ function WeakestQuestionsTable({ weakQuestions }) {
           </tbody>
         </table>
       </div>
+      <PaginationControls page={page} setPage={setPage} totalPages={totalPages} total={total} label="questions" />
     </div>
   )
 }
@@ -409,6 +458,18 @@ export default function PerformanceScreen() {
     fetchData()
     return () => { cancelled = true }
   }, [user])
+
+  const handleRetake = async (attemptId) => {
+    try {
+      const detail = await api.getExamDetail(attemptId)
+      const questionIds = (detail.answers || []).map(a => a.question_id)
+      if (questionIds.length > 0) {
+        navigate('/practice', { state: { retakeQuestionIds: questionIds } })
+      }
+    } catch (err) {
+      console.error('Failed to load exam detail for retake:', err)
+    }
+  }
 
   // ── Not logged in ──
   if (!user) {
