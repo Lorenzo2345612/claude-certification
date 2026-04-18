@@ -1,0 +1,2916 @@
+[
+  {
+    "id": 147,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A DevOps engineer is deploying Claude Code across an organization and needs to ensure all developers follow specific coding standards. They place a CLAUDE.md file in the managed policy location and want to make sure no individual developer can exclude it.",
+    "question": "How many distinct scope levels exist in the CLAUDE.md file hierarchy, and can the managed policy CLAUDE.md be excluded via the claudeMdExcludes setting?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Three levels (project, user, local); managed policy can be excluded by admin users only",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Four levels (managed policy, project, user, local); managed policy CANNOT be excluded by any setting",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Four levels (managed policy, project, user, local); managed policy can be excluded via claudeMdExcludes at the managed layer",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Three levels (project, user, local); there is no managed policy level for CLAUDE.md",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Claude Code loads CLAUDE.md from four distinct scopes: managed policy (org-wide, at system paths), project (./CLAUDE.md), user (~/.claude/CLAUDE.md), and local (./CLAUDE.local.md). The managed policy CLAUDE.md cannot be excluded by claudeMdExcludes or any other user/project setting — this is a deliberate security constraint for enterprise environments.",
+    "why_others_wrong": {
+      "a": "There are four levels, not three. The managed policy level exists and cannot be excluded by anyone, not just non-admin users.",
+      "c": "Managed policy CLAUDE.md cannot be excluded by ANY setting at ANY layer, including the managed layer itself via claudeMdExcludes.",
+      "d": "The managed policy level absolutely exists — it's at system paths like /Library/Application Support/ClaudeCode/CLAUDE.md on macOS."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.2, 1.5",
+      "quote": "Managed policy CLAUDE.md cannot be excluded by individual settings"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 148,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has CLAUDE.md files at both the project root and in a parent directory. They want to understand how Claude Code resolves these multiple files.",
+    "question": "When Claude Code discovers multiple CLAUDE.md files by walking up the directory tree, how are they combined?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Files at higher directories override files at lower directories",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Only the CLAUDE.md closest to the current working directory is used",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "All discovered files are concatenated additively, not overriding each other",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Files are merged using a key-based merge strategy where conflicting keys use the closest file's value",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "All discovered CLAUDE.md files are concatenated, not overriding each other. Every scope's instructions are additive. Claude Code walks up the directory tree from the current working directory and combines all found files. Within each directory, CLAUDE.local.md is appended after CLAUDE.md.",
+    "why_others_wrong": {
+      "a": "CLAUDE.md files do not override each other — they are concatenated additively. All instructions from all levels apply.",
+      "b": "Claude Code uses ALL CLAUDE.md files it discovers, not just the closest one. It walks up the entire directory tree.",
+      "d": "There is no key-based merge strategy. CLAUDE.md files are plain markdown that gets concatenated, not structured data that gets merged."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.2",
+      "quote": "All discovered files are concatenated, not overriding each other"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 149,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is writing a CLAUDE.md file and wants to reference their project's README and a separate coding standards document.",
+    "question": "What is the correct syntax to import additional files into a CLAUDE.md file?",
+    "options": [
+      {
+        "id": "a",
+        "text": "@import README.md and @import docs/coding-standards.md",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "@README.md and @docs/coding-standards.md",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "#include README.md and #include docs/coding-standards.md",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "{{README.md}} and {{docs/coding-standards.md}}",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The import syntax is @path/to/file — just the @ prefix followed by the path. It is NOT @import. Relative paths resolve relative to the file containing the import, not the working directory. Imported files can recursively import others up to a maximum depth of 5 hops.",
+    "why_others_wrong": {
+      "a": "The syntax is @path, not @import path. There is no 'import' keyword — just the @ prefix directly before the path.",
+      "c": "#include is not a valid CLAUDE.md syntax. The correct prefix is @ not #include.",
+      "d": "Double curly brace syntax is not used in CLAUDE.md imports. The correct syntax is @path/to/file."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.3",
+      "quote": "Syntax: @path/to/file (NOT @import -- just the @ prefix)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 150,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has a CLAUDE.md file at ./docs/CLAUDE.md that contains @../shared/standards.md. They want to understand how the relative path resolves.",
+    "question": "How are relative paths in @import references resolved in CLAUDE.md files?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Relative to the project root directory",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Relative to the current working directory where Claude Code was launched",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Relative to the file containing the import",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Relative to the .claude/ directory",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Relative paths in @imports resolve relative to the file containing the import, NOT the working directory. So if ./docs/CLAUDE.md contains @../shared/standards.md, it resolves to ./shared/standards.md relative to the docs directory.",
+    "why_others_wrong": {
+      "a": "Paths resolve relative to the containing file, not the project root.",
+      "b": "Paths resolve relative to the containing file, not the current working directory where Claude Code was launched.",
+      "d": "Paths resolve relative to the containing file, not the .claude/ directory."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.3",
+      "quote": "Relative paths resolve relative to the file containing the import, NOT the working directory"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 151,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A team lead is setting up CLAUDE.local.md for their personal preferences on a project. They want to understand how it relates to CLAUDE.md and version control.",
+    "question": "What is the purpose of CLAUDE.local.md and how does it load relative to CLAUDE.md within the same directory?",
+    "options": [
+      {
+        "id": "a",
+        "text": "CLAUDE.local.md overrides CLAUDE.md and should be committed to version control",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "CLAUDE.local.md is appended AFTER CLAUDE.md within the same directory and should be added to .gitignore",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "CLAUDE.local.md loads BEFORE CLAUDE.md and is automatically gitignored by Claude Code",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "CLAUDE.local.md replaces CLAUDE.md when both exist in the same directory",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "CLAUDE.local.md provides personal project-specific preferences. Within each directory, CLAUDE.local.md is appended AFTER CLAUDE.md. It should be added to .gitignore because it contains personal preferences not meant to be shared with the team.",
+    "why_others_wrong": {
+      "a": "CLAUDE.local.md does not override CLAUDE.md — all files are concatenated. It should NOT be committed; it should be gitignored.",
+      "c": "CLAUDE.local.md loads AFTER, not before, CLAUDE.md. Claude Code does not automatically add it to .gitignore — you must do this yourself.",
+      "d": "CLAUDE.local.md does not replace CLAUDE.md. Both are loaded and concatenated together."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.2",
+      "quote": "Within each directory, CLAUDE.local.md is appended AFTER CLAUDE.md"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 152,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer notices their CLAUDE.md instructions disappear after auto-compaction during a long session. They want to understand which CLAUDE.md files survive compaction.",
+    "question": "What happens to CLAUDE.md files during auto-compaction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All CLAUDE.md files from all directories are re-read from disk and re-injected",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Project-root CLAUDE.md survives compaction (re-read and re-injected); nested subdirectory CLAUDE.md files are NOT automatically re-injected",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "No CLAUDE.md files survive compaction; they must all be manually re-loaded",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Only the managed policy CLAUDE.md survives compaction; all others are lost",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Project-root CLAUDE.md survives compaction — it is re-read from disk and re-injected into context. However, nested subdirectory CLAUDE.md files are NOT re-injected automatically; they reload when Claude reads files in that subdirectory again.",
+    "why_others_wrong": {
+      "a": "Only project-root CLAUDE.md is automatically re-injected. Nested subdirectory files must be re-triggered by file access.",
+      "c": "Project-root CLAUDE.md does survive compaction. It's specifically designed to persist across compaction events.",
+      "d": "The project-root CLAUDE.md (not just managed policy) survives compaction."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.7",
+      "quote": "Project-root CLAUDE.md survives compaction: re-read from disk and re-injected"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 153,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is configuring auto memory and wants to understand how much of MEMORY.md is loaded at session start.",
+    "question": "How much of the auto memory MEMORY.md file is loaded into the context at the start of each session?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The entire file, regardless of size",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "First 100 lines or 10KB, whichever comes first",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "First 200 lines or 25KB, whichever comes first",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "A summary of the file generated by Claude before loading",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Auto memory loads the first 200 lines or 25KB of MEMORY.md at session start, whichever limit is reached first. Topic files stored alongside MEMORY.md are NOT loaded at startup — they are read on demand.",
+    "why_others_wrong": {
+      "a": "Loading the entire file would risk using too much context. There are specific limits in place.",
+      "b": "The limits are 200 lines or 25KB, not 100 lines or 10KB.",
+      "d": "MEMORY.md content is loaded directly, not summarized. The raw content up to the limit is injected."
+    },
+    "doc_reference": {
+      "source": "S3 Section 3.2",
+      "quote": "First 200 lines or 25KB of MEMORY.md loaded at session start (whichever comes first)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 154,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to use CLAUDE.md files from additional directories added with --add-dir, but the files aren't loading.",
+    "question": "By default, are CLAUDE.md files from directories added via --add-dir loaded into context?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, they are loaded automatically just like the main project CLAUDE.md",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No, they are not loaded by default; you must set CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only if the directory contains a .claude/ subdirectory",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "No, CLAUDE.md from additional directories can never be loaded",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "CLAUDE.md files from --add-dir directories are NOT loaded by default. To enable loading them, you must set the environment variable CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1. This is a deliberate opt-in behavior.",
+    "why_others_wrong": {
+      "a": "Additional directory CLAUDE.md files require explicit opt-in via the environment variable.",
+      "c": "The .claude/ subdirectory presence is not relevant. The environment variable is what controls this behavior.",
+      "d": "They can be loaded — you just need to set the environment variable."
+    },
+    "doc_reference": {
+      "source": "S3 Section 1.6",
+      "quote": "CLAUDE.md from these dirs are NOT loaded by default. CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 155,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer creates a rule file at .claude/rules/frontend/react-patterns.md with a paths frontmatter field set to 'src/components/**/*.tsx'.",
+    "question": "When will this path-triggered rule be loaded into Claude's context?",
+    "options": [
+      {
+        "id": "a",
+        "text": "At session launch, regardless of which files Claude reads",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "When Claude reads files matching the src/components/**/*.tsx glob pattern",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Only when the user explicitly invokes the rule with /rules react-patterns",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "When any TypeScript file anywhere in the project is opened",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Rules with a paths field in their YAML frontmatter are loaded on demand only when Claude reads files matching the specified glob pattern. In this case, the rule loads when Claude accesses .tsx files under src/components/.",
+    "why_others_wrong": {
+      "a": "Rules WITH paths frontmatter do NOT load at launch. Only rules WITHOUT paths load unconditionally at startup.",
+      "c": "There is no /rules command to invoke specific rules. They load automatically based on file access patterns.",
+      "d": "The glob pattern is specific to src/components/**/*.tsx, not all TypeScript files. Only matching file access triggers the rule."
+    },
+    "doc_reference": {
+      "source": "S3 Section 2.2",
+      "quote": "Rules WITH paths field: loaded when Claude reads files matching the pattern"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 156,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer creates a rule file at .claude/rules/code-style.md with no YAML frontmatter at all.",
+    "question": "When is a rule file without any YAML frontmatter loaded into context?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Never — frontmatter is required for rules to be discovered",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Only when a file in the .claude/rules/ directory is explicitly referenced",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "At launch, unconditionally, with the same priority as .claude/CLAUDE.md",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "At launch, but with lower priority than all other context sources",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Rules without a paths field (or without any frontmatter) load unconditionally at launch with the same priority as .claude/CLAUDE.md. They effectively act as modular extensions of your project instructions.",
+    "why_others_wrong": {
+      "a": "Frontmatter is NOT required. Rules without frontmatter simply load unconditionally at startup.",
+      "b": "Rules in .claude/rules/ are automatically discovered recursively. No explicit reference is needed.",
+      "d": "Unconditional rules have the same priority as .claude/CLAUDE.md, not lower priority than all other sources."
+    },
+    "doc_reference": {
+      "source": "S3 Section 2.1, 2.2",
+      "quote": "Rules without paths frontmatter load at launch (same priority as .claude/CLAUDE.md)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 157,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has personal coding style preferences they want applied across all projects. They need to decide where to put their personal rules.",
+    "question": "Where should user-level rules be placed, and what is their priority relative to project rules?",
+    "options": [
+      {
+        "id": "a",
+        "text": "~/.claude/rules/ — they have higher priority than project rules",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "~/.claude/rules/ — they load before project rules and have lower priority",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": ".claude/rules/user/ — they must be placed in a 'user' subdirectory within the project",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "~/.claude/CLAUDE.md — user rules must be embedded in the user-level CLAUDE.md file",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "User-level rules go in ~/.claude/rules/ and apply to every project. They are loaded before project rules, meaning project rules have higher priority and can override user-level guidance when both apply to the same concern.",
+    "why_others_wrong": {
+      "a": "User-level rules have LOWER priority than project rules, not higher.",
+      "c": "User rules go in the home directory (~/.claude/rules/), not in a subdirectory within the project.",
+      "d": "Rules and CLAUDE.md are separate mechanisms. User rules are standalone .md files in ~/.claude/rules/."
+    },
+    "doc_reference": {
+      "source": "S3 Section 2.3",
+      "quote": "User-level rules at ~/.claude/rules/ apply to every project. Loaded before project rules (project rules have higher priority)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 158,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer organizes their rules into subdirectories like .claude/rules/frontend/ and .claude/rules/backend/ for better organization.",
+    "question": "Does Claude Code discover rule files placed in subdirectories within .claude/rules/?",
+    "options": [
+      {
+        "id": "a",
+        "text": "No — only files directly in .claude/rules/ are discovered",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Yes — all .md files are discovered recursively, including in subdirectories, and symlinks are supported",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only one level of subdirectory nesting is supported",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Yes, but subdirectory rules have lower priority than root-level rules",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "All .md files within .claude/rules/ are discovered recursively, so you can organize them into any depth of subdirectories. Symlinks are also supported, with circular symlinks detected gracefully.",
+    "why_others_wrong": {
+      "a": "Discovery is recursive — subdirectories are fully supported.",
+      "c": "There is no limit on subdirectory nesting depth for rule discovery.",
+      "d": "Subdirectory organization does not affect rule priority. Priority is determined by whether rules have paths frontmatter and whether they are user-level vs project-level."
+    },
+    "doc_reference": {
+      "source": "S3 Section 2.1",
+      "quote": "All .md files are discovered recursively (can use subdirectories). Supports symlinks"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 159,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A team creates a .claude/rules/security.md file with 'paths: [\"src/api/**/*.ts\"]' frontmatter and a .claude/rules/code-style.md with no frontmatter.",
+    "question": "If a developer starts a Claude Code session but only works with files in src/frontend/, which of these two rules will be loaded during the session?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both rules are loaded — all rules load at session start regardless of paths",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Neither rule is loaded — rules only load when explicitly invoked",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Only code-style.md — it loads unconditionally at launch; security.md requires matching file access",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Only security.md — path-triggered rules have higher priority than unconditional rules",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "code-style.md has no paths frontmatter, so it loads unconditionally at launch. security.md has paths: [\"src/api/**/*.ts\"], so it only loads when Claude reads files matching that pattern. Since the developer is working in src/frontend/, the security rule never triggers.",
+    "why_others_wrong": {
+      "a": "Path-triggered rules do NOT load at session start. They wait for matching file access.",
+      "b": "Unconditional rules (no paths) do load at session start automatically. They don't need to be invoked.",
+      "d": "security.md would not load because no files matching src/api/**/*.ts are accessed. Priority is irrelevant when the trigger condition isn't met."
+    },
+    "doc_reference": {
+      "source": "S3 Section 2.2",
+      "quote": "Rules WITHOUT paths field: loaded unconditionally at launch. Rules WITH paths field: loaded when Claude reads files matching the pattern"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Adding context",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 160,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer creates a skill with the following frontmatter: allowed-tools: Read Grep Bash(git *). They believe this restricts Claude to only use these tools when the skill is active.",
+    "question": "What does the allowed-tools field in SKILL.md frontmatter actually do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It restricts Claude to only the listed tools when the skill is active",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "It pre-approves the listed tools to run without permission prompts; it does NOT restrict which tools are available",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "It adds the listed tools to the session's deny list for security",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "It specifies which tools the skill's supporting scripts can call",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The allowed-tools field grants permission for listed tools to execute WITHOUT per-use approval. It does NOT restrict which tools are available — every tool remains callable, and permission settings still govern unlisted tools. To block specific tools, you need deny rules in permission settings.",
+    "why_others_wrong": {
+      "a": "allowed-tools does NOT restrict tools. It only pre-approves them to skip permission prompts. All tools remain available.",
+      "c": "allowed-tools is an allow mechanism, not a deny mechanism. It approves tools, not blocks them.",
+      "d": "allowed-tools controls Claude's tool permissions during skill execution, not script capabilities."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.4, S11 Module 3",
+      "quote": "Tools without permission prompt. Does NOT restrict tools -- only pre-approves listed ones"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Configuration and multi-file skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 161,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer sets disable-model-invocation: true in a skill's frontmatter, expecting it to hide the skill from the / menu.",
+    "question": "What is the difference between disable-model-invocation: true and user-invocable: false in SKILL.md frontmatter?",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are equivalent — both hide the skill from the / menu and prevent auto-invocation",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "disable-model-invocation hides from menu; user-invocable prevents Claude from invoking",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "disable-model-invocation prevents Claude from auto-invoking AND removes the description from context; user-invocable: false hides from the / menu but Claude can still invoke it",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "disable-model-invocation removes the skill entirely; user-invocable: false only affects the description display",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "disable-model-invocation: true prevents Claude from automatically invoking the skill AND removes its description from context entirely. user-invocable: false hides the skill from the / menu (so users can't manually invoke it) but Claude CAN still auto-invoke it because the description remains in context.",
+    "why_others_wrong": {
+      "a": "They have opposite effects on who can invoke the skill. They are not equivalent.",
+      "b": "This is backwards. disable-model-invocation prevents CLAUDE from invoking; user-invocable: false hides from the USER menu.",
+      "d": "disable-model-invocation doesn't remove the skill entirely — users can still invoke it via /name."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.6, S11 Invocation Matrix",
+      "quote": "disable-model-invocation: true — Description NOT in context. user-invocable: false — hidden from / menu"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Configuration and multi-file skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 162,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has both .claude/commands/deploy.md and .claude/skills/deploy/SKILL.md in their project. Both would create the /deploy command.",
+    "question": "What happens when a skill and a command share the same name?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both are loaded and the user is prompted to choose which to use",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The command takes precedence since .claude/commands/ is the original system",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The skill takes precedence over the command",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "An error is thrown due to the naming conflict",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "When a skill and command share the same name, the skill takes precedence. The commands-to-skills merger means both .claude/commands/ and .claude/skills/ create slash commands, but skills are the preferred mechanism and win in conflicts.",
+    "why_others_wrong": {
+      "a": "There is no user prompt — precedence is automatic with skills winning.",
+      "b": "Skills take precedence over commands, not the other way around, despite commands being the original system.",
+      "d": "No error is thrown. The system handles the conflict by giving precedence to the skill."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.1, S11 Module 2",
+      "quote": "If a skill and command share the same name, the skill takes precedence"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Creating your first skill",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 163,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants their skill to run shell commands before Claude sees the content, injecting dynamic data like the current git diff.",
+    "question": "What syntax runs shell commands before skill content is sent to Claude, and what happens to the output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "$(command) — output is appended at the end of the skill content",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "!`command` — output replaces the placeholder in the skill content",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "{{command}} — output is injected as a system message alongside the skill",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "exec(command) — output is passed as a separate context block",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The !`command` syntax runs shell commands before skill content is sent to Claude. The command output replaces the placeholder inline. For multi-line commands, use a fenced code block opened with ```!. This feature can be disabled with disableSkillShellExecution: true in settings.",
+    "why_others_wrong": {
+      "a": "$(command) is shell substitution syntax, not the SKILL.md dynamic injection syntax. The correct syntax is !`command`.",
+      "c": "{{command}} is not a valid SKILL.md syntax. The correct syntax is !`command`.",
+      "d": "exec(command) is not a valid SKILL.md syntax. The correct syntax is !`command`."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.7, S11 Module 3",
+      "quote": "!`<command>` syntax runs shell commands before skill content is sent to Claude. Output replaces the placeholder"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Configuration and multi-file skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 164,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer uses context: fork in their skill and wants to understand what the subagent has access to.",
+    "question": "When a skill runs with context: fork, what does the subagent have access to?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The full conversation history plus the SKILL.md content",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Only the SKILL.md content as its prompt, plus CLAUDE.md files, but NO conversation history",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "A summary of the conversation history generated before forking",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Nothing — the subagent starts completely fresh with no context",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "With context: fork, the skill content becomes the subagent's prompt. The subagent has NO access to conversation history but does load CLAUDE.md files. The system prompt comes from the agent type specified in the agent field (Explore, Plan, general-purpose, or custom).",
+    "why_others_wrong": {
+      "a": "The subagent explicitly does NOT have access to conversation history. That's the key characteristic of context: fork.",
+      "c": "No summary is generated. The subagent simply starts fresh with the skill content as its prompt.",
+      "d": "The subagent does have context — it gets SKILL.md content and CLAUDE.md files. It's not completely empty."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.10, S11 Module 3",
+      "quote": "Skill with context: fork — System prompt from agent type, Task is SKILL.md content, Also loads CLAUDE.md"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Configuration and multi-file skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 165,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has enterprise-managed, personal, and project-level skills all with the name 'review'. They want to know which one will be used.",
+    "question": "When skills with the same name exist at multiple levels, which takes precedence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Project takes precedence over personal, which takes precedence over enterprise",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Enterprise (managed) takes precedence over personal, which takes precedence over project",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "All three are merged and their instructions are concatenated",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The most recently modified skill takes precedence",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Skill priority follows: enterprise (managed) > personal (~/.claude/skills/) > project (.claude/skills/). Plugin skills use a plugin-name:skill-name namespace, so they cannot conflict with other levels.",
+    "why_others_wrong": {
+      "a": "The precedence is reversed. Enterprise (managed) has the highest priority, not the lowest.",
+      "c": "Skills are not merged — they override by name. The highest-priority version wins.",
+      "d": "Modification time is not a factor. Precedence is determined by the scope level."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.3",
+      "quote": "Priority: enterprise > personal > project. Plugin skills use namespace plugin-name:skill-name"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Sharing skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 166,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer activates plan mode and expects Claude to make some preliminary file edits as part of the planning process.",
+    "question": "What tools are available in plan mode, and can Claude make file edits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All tools are available, but Claude is instructed to prioritize planning over editing",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Read-only tools only; Write and Edit tools are DENIED",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "All tools are available but require explicit user approval for each action",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Only the Bash tool is available for running read-only git commands",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Plan mode uses a read-only subagent where Write and Edit tools are denied. The subagent inherits the main conversation's model but can only gather context, research the codebase, and present a plan — it cannot make any modifications.",
+    "why_others_wrong": {
+      "a": "Plan mode enforces read-only at the tool level. Write and Edit are actively denied, not just deprioritized.",
+      "c": "Write and Edit are denied entirely in plan mode, not just gated behind approval.",
+      "d": "Plan mode has access to all read-only tools (Read, Glob, Grep, etc.), not just Bash."
+    },
+    "doc_reference": {
+      "source": "S3 Section 7.2",
+      "quote": "Tools: Read-only (Write and Edit tools denied)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 167,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to enter plan mode during an active Claude Code session without restarting.",
+    "question": "What are the three ways to activate plan mode?",
+    "options": [
+      {
+        "id": "a",
+        "text": "CLI --plan flag, /plan command in-session, and setting planMode: true in settings.json",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "CLI --permission-mode plan, /plan command in-session, and Shift+Tab cycling through permission modes",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "/plan command only — plan mode cannot be set at startup or cycled to",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "CLI --read-only flag, pressing Ctrl+P in-session, and /mode plan command",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Plan mode can be activated three ways: via CLI with --permission-mode plan, in-session with the /plan [description] command, and by pressing Shift+Tab to cycle through permission modes (default -> acceptEdits -> plan -> auto).",
+    "why_others_wrong": {
+      "a": "There is no --plan flag. The correct flag is --permission-mode plan. There is no planMode setting.",
+      "c": "Plan mode can be set at startup via --permission-mode plan and cycled to via Shift+Tab.",
+      "d": "There is no --read-only flag, Ctrl+P shortcut, or /mode command for this purpose."
+    },
+    "doc_reference": {
+      "source": "S3 Section 7.1",
+      "quote": "CLI: --permission-mode plan. In-session: /plan [description]. Shift+Tab cycling through permission modes"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 168,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is in plan mode and has generated a plan. They want to edit the plan directly before approving it.",
+    "question": "How can a developer directly edit a plan generated in plan mode?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Type corrections directly in the Claude Code terminal",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Press Ctrl+G to open the plan in your text editor for direct editing",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Use the /edit-plan command to modify specific sections",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Plans cannot be directly edited; you must describe changes to Claude",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Pressing Ctrl+G opens the plan in your configured text editor for direct editing. After reviewing/editing the plan, you can approve it with auto mode, accept edits mode, manual review, continue planning, or refine with Ultraplan.",
+    "why_others_wrong": {
+      "a": "While you can describe changes, Ctrl+G is the specific feature for directly editing the plan in an external editor.",
+      "c": "There is no /edit-plan command. The mechanism is Ctrl+G.",
+      "d": "Plans CAN be directly edited via Ctrl+G opening them in your text editor."
+    },
+    "doc_reference": {
+      "source": "S3 Section 7.1, S8 Section 4",
+      "quote": "Ctrl+G opens plan in text editor for direct editing"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 169,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is using auto mode and Claude has been blocked 3 times in a row by the classifier. They want to know what happens next.",
+    "question": "What happens when the auto mode classifier blocks actions repeatedly?",
+    "options": [
+      {
+        "id": "a",
+        "text": "After 5 consecutive blocks, Claude automatically switches to bypassPermissions mode",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "After 3 consecutive blocks or 20 total blocks in a session, auto mode falls back; in non-interactive mode, repeated blocks abort the session",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The classifier permanently disables auto mode for the rest of the project",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Claude retries each blocked action indefinitely with slightly modified approaches",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Auto mode falls back after 3 consecutive blocks or 20 total blocks in a session. In non-interactive mode (print mode / SDK), repeated blocks abort the session entirely to prevent runaway behavior.",
+    "why_others_wrong": {
+      "a": "Auto mode falls back (not switches to bypassPermissions) after 3 consecutive blocks, not 5.",
+      "c": "The fallback is per-session, not permanent. Auto mode can be used again in a new session.",
+      "d": "There is a definite limit (3 consecutive or 20 total), not indefinite retries."
+    },
+    "doc_reference": {
+      "source": "S3 Section 7, S8 Section 4",
+      "quote": "Falls back after 3 consecutive blocks or 20 total blocks in session"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 170,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer presses Shift+Tab repeatedly to cycle through permission modes.",
+    "question": "What is the default Shift+Tab permission mode cycling order?",
+    "options": [
+      {
+        "id": "a",
+        "text": "default -> plan -> auto -> bypassPermissions",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "default -> acceptEdits -> plan -> auto",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "default -> acceptEdits -> auto -> plan",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "default -> plan -> acceptEdits -> dontAsk",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Shift+Tab cycles through: default -> acceptEdits -> plan -> auto. The bypassPermissions mode is NOT in the default cycle — it can only be added by using the --allow-dangerously-skip-permissions flag.",
+    "why_others_wrong": {
+      "a": "bypassPermissions is not in the default cycle. acceptEdits comes between default and plan.",
+      "c": "The order is default -> acceptEdits -> plan -> auto, not default -> acceptEdits -> auto -> plan.",
+      "d": "dontAsk is not in the Shift+Tab cycle. The cycle includes auto, not dontAsk."
+    },
+    "doc_reference": {
+      "source": "S3 Section 14, S8 Section 4",
+      "quote": "Shift+Tab cycling: default -> acceptEdits -> plan -> auto. --allow-dangerously-skip-permissions adds bypassPermissions"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 171,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to understand which actions the acceptEdits permission mode auto-approves beyond basic reads.",
+    "question": "What does acceptEdits mode auto-approve in addition to read operations?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only file edits via the Edit tool — no other write operations",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "File edits and common filesystem commands: mkdir, touch, mv, cp, rm, rmdir, sed",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "All Bash commands, file edits, and MCP tool calls",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "File edits, git commits, and npm commands",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "acceptEdits mode auto-approves reads, file edits (Edit, Write tools), and common filesystem commands: mkdir, touch, mv, cp, rm, rmdir, and sed. MCP tools and arbitrary Bash commands still require separate permission.",
+    "why_others_wrong": {
+      "a": "acceptEdits covers more than just Edit — it also auto-approves Write and specific filesystem commands.",
+      "c": "acceptEdits does NOT auto-approve all Bash commands or MCP tools. Only specific filesystem commands are covered.",
+      "d": "acceptEdits does not specifically auto-approve git or npm commands. It covers file edits and filesystem operations."
+    },
+    "doc_reference": {
+      "source": "S3 Section 14, S8 Section 4",
+      "quote": "Auto-approves: Reads, file edits, common filesystem cmds (mkdir, touch, mv, cp, rm, rmdir, sed)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 172,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to use plan mode in the Agent SDK but isn't sure what happens to tools.",
+    "question": "In the Agent SDK, what does permission mode 'plan' do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Claude produces a plan and then automatically executes it with full tool access",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No tool execution occurs; Claude produces a plan for review only",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Claude can use read tools but all writes require canUseTool callback approval",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Plan mode is not available in the Agent SDK, only in the CLI",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "In the Agent SDK, plan permission mode means no tool execution occurs. Claude produces a plan for review only. This matches the CLI behavior where Write and Edit tools are denied in plan mode.",
+    "why_others_wrong": {
+      "a": "Plan mode does NOT execute the plan automatically. It only produces a plan without tool execution.",
+      "c": "Plan mode denies all tool execution, not just writes. There is no partial read access in SDK plan mode.",
+      "d": "Plan mode IS available in the Agent SDK for both Python and TypeScript."
+    },
+    "doc_reference": {
+      "source": "S6 Section 3",
+      "quote": "plan: No tool execution; Claude produces plan for review"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 173,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is writing a CI script and wants to limit Claude Code to 3 agentic turns maximum.",
+    "question": "Which flag limits the number of agentic turns, and in what mode does it work?",
+    "options": [
+      {
+        "id": "a",
+        "text": "--max-turns works in both interactive and print mode",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "--max-turns works only in print mode (-p); it exits with an error at the limit",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "--turn-limit works in print mode and silently stops at the limit",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "--max-turns works in interactive mode but not in print mode",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "--max-turns is a print-mode-only flag. It limits the number of agentic turns and exits with an error when the limit is reached. It does NOT work in interactive mode.",
+    "why_others_wrong": {
+      "a": "--max-turns does NOT work in interactive mode. It is exclusively a print-mode flag.",
+      "c": "The flag is --max-turns, not --turn-limit. It exits with an error, not silently.",
+      "d": "This is backwards. --max-turns works in print mode (-p) only, not interactive mode."
+    },
+    "doc_reference": {
+      "source": "S3 Section 5.2, 11.1",
+      "quote": "--max-turns: Limit agentic turns (print mode only). Exits with error at limit"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 174,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to add custom instructions to Claude Code's default system prompt without losing its built-in behavior.",
+    "question": "What is the difference between --system-prompt and --append-system-prompt?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both append to the default prompt; --system-prompt adds it at the beginning, --append-system-prompt at the end",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "--system-prompt REPLACES the entire default prompt; --append-system-prompt APPENDS to the default prompt",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "--system-prompt sets a temporary prompt; --append-system-prompt sets a persistent prompt saved to settings",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "--append-system-prompt replaces the prompt; --system-prompt appends to it",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "--system-prompt REPLACES the entire default system prompt. --append-system-prompt APPENDS additional instructions to the default prompt, preserving Claude Code's built-in behavior. The two replacement flags (--system-prompt and --system-prompt-file) are mutually exclusive, but append flags can be combined with either.",
+    "why_others_wrong": {
+      "a": "--system-prompt does not append — it completely replaces the default prompt.",
+      "c": "Neither flag saves to settings. Both are session-level flags. --system-prompt replaces; --append-system-prompt appends.",
+      "d": "This is backwards. --system-prompt replaces; --append-system-prompt appends."
+    },
+    "doc_reference": {
+      "source": "S3 Section 5.3",
+      "quote": "--system-prompt: Replaces entire default prompt. --append-system-prompt: Appends to default prompt"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 175,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to run Claude Code with minimal startup time for a CI script, skipping all optional features.",
+    "question": "What does the --bare flag do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Runs Claude Code without any tools at all",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Skips hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md; only Bash, Read, and Edit tools available",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Removes the terminal UI and runs in text-only mode",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Disables the safety classifier and permission prompts",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "--bare provides minimal startup by skipping: hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md loading. Only Bash, file read, and file edit tools are available. Auth must come from ANTHROPIC_API_KEY or apiKeyHelper. It's designed for CI/scripts where startup speed matters.",
+    "why_others_wrong": {
+      "a": "--bare still provides Bash, Read, and Edit tools. It strips optional features, not core tools.",
+      "c": "--bare affects feature loading, not the terminal UI. It runs the same interface without optional features.",
+      "d": "--bare does not disable safety or permissions. It skips feature discovery like skills, plugins, and MCP."
+    },
+    "doc_reference": {
+      "source": "S3 Section 5.2, S8 Section 2",
+      "quote": "Minimal mode: skip hooks, skills, plugins, MCP, auto memory, CLAUDE.md"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 176,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to continue their most recent conversation and also wants to resume a specific session by its ID.",
+    "question": "What is the difference between -c (--continue) and -r (--resume)?",
+    "options": [
+      {
+        "id": "a",
+        "text": "-c loads the most recent conversation in the current directory; -r resumes a specific session by ID or name",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "-c creates a new branch of the conversation; -r loads the original",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "-c and -r are aliases for the same functionality",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "-c resumes by ID; -r loads the most recent conversation",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "-c (--continue) loads the most recent conversation in the current directory without needing to know the session ID. -r (--resume) resumes a specific session by its ID or name, useful for returning to a particular conversation that may not be the most recent.",
+    "why_others_wrong": {
+      "b": "-c loads the most recent conversation directly; it doesn't create a branch. --fork-session is the branching mechanism.",
+      "c": "They are different flags with different behaviors. -c finds the most recent; -r targets a specific session.",
+      "d": "This is backwards. -c loads most recent; -r resumes by ID or name."
+    },
+    "doc_reference": {
+      "source": "S3 Section 5.1, 5.2",
+      "quote": "claude -c: Continue most recent conversation. claude -r '<session>' 'query': Resume by ID or name"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 177,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to get structured JSON output from Claude Code in a CI pipeline.",
+    "question": "Which combination of flags produces validated structured JSON output from Claude Code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "--output-format json is sufficient for structured output",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "-p --json-schema '{...}' produces validated JSON matching the provided schema (print mode only)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "--structured-output flag with a schema file path",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "--output-format json --validate-schema '{...}' in any mode",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "--json-schema provides validated structured output matching the provided JSON Schema, but it is a print-mode-only flag requiring -p. The --output-format json flag gives you JSON with metadata but doesn't enforce a specific schema on the result.",
+    "why_others_wrong": {
+      "a": "--output-format json gives JSON output with metadata but does not validate against a schema.",
+      "c": "There is no --structured-output flag. The correct flag is --json-schema.",
+      "d": "There is no --validate-schema flag. Also, schema validation only works in print mode."
+    },
+    "doc_reference": {
+      "source": "S3 Section 11.3",
+      "quote": "--json-schema flag: validated JSON matching schema after agent workflow completes (print mode only)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 178,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A team sets up GitHub Actions to let developers trigger Claude Code from PR comments. A developer types '/claude fix this bug' in a PR comment, but nothing happens.",
+    "question": "Why doesn't the trigger work, and what is the correct trigger syntax?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The trigger should be #claude, not /claude",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The trigger is @claude (at-sign prefix), not /claude (slash prefix)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The trigger should be !claude for GitHub Actions",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "PR comment triggers require the claude: prefix",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "GitHub Actions integration uses @claude (at-sign) as the trigger, NOT /claude (slash). The @claude trigger works in issue comments, PR comments, and PR review comments. The trigger can be customized via the trigger_phrase parameter.",
+    "why_others_wrong": {
+      "a": "#claude is not the correct trigger. The trigger is @claude.",
+      "c": "!claude is not a valid trigger. The trigger is @claude.",
+      "d": "There is no claude: prefix requirement. The trigger is @claude."
+    },
+    "doc_reference": {
+      "source": "S3 Section 12.4",
+      "quote": "@claude trigger... This is not /claude — it uses the @ prefix"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 179,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A DevOps engineer is configuring the GitHub Action workflow and wants to pass CLI arguments to customize Claude's behavior.",
+    "question": "How do you pass CLI flags like --max-turns and --model to Claude Code within a GitHub Action?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use separate action parameters for each flag (max_turns: 5, model: claude-sonnet-4-6)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Use the claude_args parameter to pass any CLI flags as a string",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Set them as environment variables (CLAUDE_MAX_TURNS=5, CLAUDE_MODEL=...)",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Create a .claude-actions.json config file in the repository root",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The claude_args parameter accepts a string of CLI flags that are passed through to Claude Code. Example: claude_args: '--max-turns 5 --model claude-sonnet-4-6 --append-system-prompt \"Follow standards\"'",
+    "why_others_wrong": {
+      "a": "In v1, individual parameters like max_turns were removed. All CLI flags go through claude_args.",
+      "c": "While some env vars exist, the standard way to pass CLI flags in GitHub Actions is through claude_args.",
+      "d": "There is no .claude-actions.json config file. CLI args go through the claude_args parameter."
+    },
+    "doc_reference": {
+      "source": "S3 Section 12.5",
+      "quote": "claude_args: '--max-turns 5 --model claude-sonnet-4-6 --append-system-prompt ...'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 180,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A team wants to set up Claude Code in GitHub Actions. They need to know what is required for the workflow.",
+    "question": "What is the minimum required configuration for the claude-code-action@v1 GitHub Action?",
+    "options": [
+      {
+        "id": "a",
+        "text": "anthropic_api_key, github_token, and prompt are all required",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Only anthropic_api_key is required (for direct API); the action auto-detects whether to respond to comments or use a prompt",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Only github_token is required; the API key is pulled from the repository environment",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "prompt and anthropic_api_key are both required",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "For direct Anthropic API usage, only anthropic_api_key is required. The action auto-detects whether it's responding to @claude mentions in comments or running a direct prompt. github_token and prompt are optional parameters.",
+    "why_others_wrong": {
+      "a": "github_token and prompt are optional, not required.",
+      "c": "anthropic_api_key must be provided (for direct API usage). It's not auto-pulled from the environment.",
+      "d": "prompt is optional — the action can work by responding to @claude comment triggers without a prompt parameter."
+    },
+    "doc_reference": {
+      "source": "S3 Section 12.3",
+      "quote": "anthropic_api_key: Claude API key - Required (direct API). prompt, github_token, trigger_phrase: No (optional)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 181,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "An organization uses AWS Bedrock and wants to configure the GitHub Action to use it. They need to know the authentication method.",
+    "question": "What authentication method does Claude Code's GitHub Action use for AWS Bedrock?",
+    "options": [
+      {
+        "id": "a",
+        "text": "AWS access key and secret key stored as GitHub secrets",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "OIDC authentication with role assumption",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "AWS SSO with temporary credentials",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "IAM user credentials embedded in the workflow file",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "AWS Bedrock integration uses OIDC authentication for GitHub Actions, which is the recommended secure approach that avoids storing long-lived credentials. Model IDs use the format us.anthropic.claude-sonnet-4-6.",
+    "why_others_wrong": {
+      "a": "OIDC is the recommended method, not static access/secret keys, for better security.",
+      "c": "The documentation specifies OIDC, not SSO, for GitHub Actions Bedrock integration.",
+      "d": "Embedding credentials in workflow files is a security anti-pattern. OIDC avoids this."
+    },
+    "doc_reference": {
+      "source": "S3 Section 12.6",
+      "quote": "AWS Bedrock: OIDC auth, model format us.anthropic.claude-sonnet-4-6"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 182,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A team wants to run Claude Code on a schedule to do nightly issue triage, even when developers' machines are off.",
+    "question": "What Claude Code feature enables running tasks on a schedule via Anthropic's cloud infrastructure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "GitHub Actions cron triggers with claude-code-action@v1",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Routines — saved configurations running on Anthropic-managed infrastructure, managed via /schedule or claude.ai/code/routines",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The /loop command which persists across sessions",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Claude Code background tasks that continue after the terminal is closed",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Routines are saved Claude Code configurations that run on Anthropic-managed cloud infrastructure. They support three trigger types: scheduled (hourly, daily, weekly, custom cron), API (HTTP POST), and GitHub events. They can be managed at claude.ai/code/routines or via the /schedule CLI command.",
+    "why_others_wrong": {
+      "a": "While GitHub Actions cron works, Routines are the Anthropic-native cloud solution that doesn't require GitHub Actions setup.",
+      "c": "/loop runs in the current CLI session and stops when the session ends. It doesn't persist across sessions.",
+      "d": "Background tasks are session-scoped and don't persist after the terminal is closed."
+    },
+    "doc_reference": {
+      "source": "S3 Section 12, S8 Section 8",
+      "quote": "Routines: saved Claude Code configurations running on Anthropic-managed infrastructure"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 183,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is building an application using the Claude Agent SDK and wants to understand the core entry point.",
+    "question": "What is the main entry point function in the Claude Agent SDK, and what does it return?",
+    "options": [
+      {
+        "id": "a",
+        "text": "run() — returns a Promise that resolves with the final result",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "query() — returns an async iterator yielding messages as Claude thinks, calls tools, and produces results",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "execute() — returns a synchronous result after the agent completes",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "chat() — returns a stream of text tokens",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "query() is the main entry point that creates the agentic loop and returns an async iterator. Each iteration yields a message: SystemMessage, AssistantMessage, UserMessage, StreamEvent, or ResultMessage. The loop continues until Claude finishes or hits an error.",
+    "why_others_wrong": {
+      "a": "The function is called query(), not run(). It returns an async iterator, not a single Promise.",
+      "c": "The function is query(), not execute(). It's asynchronous with an iterator, not synchronous.",
+      "d": "The function is query(), not chat(). It yields structured messages, not raw text tokens."
+    },
+    "doc_reference": {
+      "source": "S6 Section 2, 3",
+      "quote": "query(): Main entry point creating the agentic loop; returns async iterator"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 184,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to use the 'auto' permission mode in the Python Agent SDK for an autonomous agent.",
+    "question": "Is the 'auto' permission mode available in the Python Agent SDK?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes — it works identically in both Python and TypeScript",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No — 'auto' permission mode is TypeScript-only; Python supports default, acceptEdits, plan, dontAsk, and bypassPermissions",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Yes, but it requires an additional Python package to be installed",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "No — auto mode is only available in the CLI, not in either SDK",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The 'auto' permission mode (where a model classifier approves/denies each tool call) is only available in the TypeScript SDK. Python supports default, acceptEdits, plan, dontAsk, and bypassPermissions but NOT auto.",
+    "why_others_wrong": {
+      "a": "Auto mode is a TypeScript-exclusive feature in the SDK. The two SDKs are not identical.",
+      "c": "Auto mode is fundamentally not available in Python — it's not a missing package issue.",
+      "d": "Auto mode IS available in the TypeScript SDK, not just the CLI."
+    },
+    "doc_reference": {
+      "source": "S6 Section 3, 20, 21",
+      "quote": "auto (TS only): Model classifier approves/denies each tool call"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 185,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer using the TypeScript SDK passes environment variables via the env option and expects them to merge with process.env.",
+    "question": "How does the env option in the TypeScript SDK handle environment variables compared to the Python SDK?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both SDKs merge env on top of the inherited environment",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Python's env merges on top of inherited; TypeScript's env REPLACES inherited (must spread process.env manually)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Both SDKs replace the inherited environment completely",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "TypeScript's env merges on top of inherited; Python's env replaces inherited",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "In Python, the env option merges on top of the inherited environment. In TypeScript, the env option REPLACES the inherited environment entirely — you must include ...process.env explicitly if you want to preserve existing environment variables.",
+    "why_others_wrong": {
+      "a": "Only Python merges. TypeScript replaces the environment.",
+      "c": "Only TypeScript replaces. Python merges on top of the inherited environment.",
+      "d": "This is backwards. Python merges; TypeScript replaces."
+    },
+    "doc_reference": {
+      "source": "S6 Section 20, 21",
+      "quote": "Python: env Merged on top of inherited. TypeScript: env Replaces inherited (must spread process.env)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 186,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer defines custom tools using the Agent SDK and wants to know how they integrate with the Claude Code tool system.",
+    "question": "How are custom tools implemented in the Agent SDK?",
+    "options": [
+      {
+        "id": "a",
+        "text": "As external REST API endpoints that Claude calls via HTTP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "As in-process MCP servers using the @tool decorator and create_sdk_mcp_server()",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "As Python/TypeScript functions registered directly in the agent loop",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "As shell scripts placed in a tools/ directory",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Custom tools in the Agent SDK use in-process MCP servers (not separate processes). You define tools with the @tool decorator (Python) or tool() function (TypeScript), then register them via create_sdk_mcp_server(). Tool names follow the mcp__<server_name>__<tool_name> convention.",
+    "why_others_wrong": {
+      "a": "Custom tools run in-process as MCP servers, not as external REST APIs.",
+      "c": "While you write functions, they must be wrapped in MCP server infrastructure, not registered directly.",
+      "d": "Custom tools are code, not shell scripts. The @tool decorator pattern is used."
+    },
+    "doc_reference": {
+      "source": "S6 Section 4",
+      "quote": "Custom tools use the SDK's in-process MCP server (not a separate process)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 187,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer defines hooks both in settings.json and programmatically in their SDK query() call. They want to understand the scope difference.",
+    "question": "What is the difference in scope between filesystem hooks and programmatic hooks in the Agent SDK?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both have the same scope — they fire in the main agent and all subagents",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Filesystem hooks fire in main agent AND subagents; programmatic hooks fire in the main session only",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Programmatic hooks fire in all agents; filesystem hooks are limited to the main session",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Both are limited to the main session; subagents never trigger hooks",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Filesystem hooks (defined in settings.json with command, http, prompt, or agent types) fire in the main agent AND subagents. Programmatic hooks (defined as callbacks in query() options) are scoped to the main session only and do not fire in subagents.",
+    "why_others_wrong": {
+      "a": "They have different scopes. Programmatic hooks are more limited than filesystem hooks.",
+      "c": "This is backwards. Filesystem hooks have broader scope (main + subagents); programmatic are main-only.",
+      "d": "Filesystem hooks DO fire in subagents. Only programmatic hooks are limited to the main session."
+    },
+    "doc_reference": {
+      "source": "S6 Section 12",
+      "quote": "Filesystem hooks fire in main agent AND subagents. Programmatic hooks scoped to main session only"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 188,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer uses settingSources in the Agent SDK to control what gets loaded. They pass an empty array.",
+    "question": "What happens when settingSources is set to an empty array in the Agent SDK? Does this also prevent managed policies from loading?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All settings are disabled including managed policies",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "All filesystem settings are disabled, but managed policy settings ALWAYS load regardless of settingSources",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Only project settings are disabled; user and local settings still load",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "An error is thrown because at least one source must be specified",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Passing settingSources: [] disables all filesystem settings (CLAUDE.md, rules, skills, hooks from user/project/local). However, managed policy settings ALWAYS load regardless of settingSources — they cannot be bypassed. ~/.claude.json global config also always loads.",
+    "why_others_wrong": {
+      "a": "Managed policies always load. settingSources only controls user, project, and local filesystem settings.",
+      "c": "An empty array disables ALL three filesystem sources (user, project, local), not just project.",
+      "d": "An empty array is valid and explicitly supported for disabling filesystem settings."
+    },
+    "doc_reference": {
+      "source": "S6 Section 12",
+      "quote": "Pass settingSources: [] to disable all filesystem settings. Always Loaded: Managed policy settings"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 189,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer compares the Python and TypeScript Agent SDKs and notices the hook event count differs.",
+    "question": "How many hook events are available in the Python SDK compared to the TypeScript SDK?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both have 18 hook events",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Python has 10 events; TypeScript has 18 events (TypeScript adds SessionStart/End, Setup, TeammateIdle, TaskCompleted, ConfigChange, WorktreeCreate/Remove)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Python has 18 events; TypeScript has 10 events",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Both have 10 hook events with identical capabilities",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The Python SDK supports 10 hook events (PreToolUse, PostToolUse, PostToolUseFailure, UserPromptSubmit, Stop, SubagentStart, SubagentStop, PreCompact, Notification, PermissionRequest). TypeScript supports 18 events, adding SessionStart, SessionEnd, Setup, TeammateIdle, TaskCompleted, ConfigChange, WorktreeCreate, and WorktreeRemove.",
+    "why_others_wrong": {
+      "a": "Python only has 10, not 18. There is a significant difference.",
+      "c": "This is backwards. TypeScript has more hook events than Python.",
+      "d": "The counts differ (10 vs 18) and TypeScript has additional hook event types not available in Python."
+    },
+    "doc_reference": {
+      "source": "S6 Section 5, 20, 21",
+      "quote": "Python: 10 events. TypeScript: 18 events (includes SessionStart/End, Setup, etc.)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 190,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "An enterprise IT administrator needs to deploy settings that NO user can override. They're evaluating the settings precedence system.",
+    "question": "In the Claude Code settings precedence hierarchy, which layer has the highest priority and cannot be overridden?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Project settings (.claude/settings.json) — they are shared via version control and take precedence",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Managed settings — delivered via server, MDM/OS-level, or file-based; cannot be overridden by any lower layer",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "CLI arguments — they always override everything including managed settings",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "User settings (~/.claude/settings.json) — personal preferences always win",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The settings precedence is: Managed (highest, cannot be overridden) > CLI arguments > Local > Project > User (lowest). Managed settings can be delivered via server-managed (admin console), MDM/OS-level (macOS plist, Windows registry), or file-based (managed-settings.json).",
+    "why_others_wrong": {
+      "a": "Project settings are priority 4 out of 5. They are among the lowest priority levels.",
+      "c": "CLI arguments are priority 2, below managed settings. Managed settings ALWAYS win.",
+      "d": "User settings have the LOWEST priority in the hierarchy."
+    },
+    "doc_reference": {
+      "source": "S3, S8 Section 14",
+      "quote": "Managed (server-managed > MDM/OS-level > file-based; cannot be overridden)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Project setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 191,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has permission allow rules defined at both the user level and project level. They want to understand how these combine.",
+    "question": "How do array settings (like permissions.allow) behave across different settings scopes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The highest-priority scope's array completely overrides lower scopes",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Arrays concatenate and deduplicate across all scopes — a user-level allow rule is never overridden by a project setting",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Arrays are intersected — only rules present in ALL scopes apply",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Arrays from the project scope take precedence and replace user-scope arrays",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Array settings (permissions.allow, sandbox.filesystem.allowWrite, etc.) concatenate and deduplicate across all scopes. This means permission allow rules from all layers combine additively — a user-level allow rule is never overridden by a project setting. Scalar settings (strings, numbers, booleans) use the most-specific value from the highest priority scope.",
+    "why_others_wrong": {
+      "a": "Array settings merge, they do not override. Only scalar settings use highest-priority override.",
+      "c": "Arrays are concatenated (union), not intersected. Rules from any scope are included.",
+      "d": "Project settings do not replace user arrays. They combine additively."
+    },
+    "doc_reference": {
+      "source": "S8 Section 14",
+      "quote": "Array settings concatenate and deduplicate across scopes. Scalar settings use most-specific value"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Project setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 192,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A Windows enterprise administrator needs to deliver managed settings to all Claude Code installations via the Windows registry.",
+    "question": "What is the correct Windows registry path for machine-level managed settings?",
+    "options": [
+      {
+        "id": "a",
+        "text": "HKLM\\SOFTWARE\\Anthropic\\ClaudeCode",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "HKLM\\SOFTWARE\\Policies\\ClaudeCode",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "HKLM\\SOFTWARE\\Claude\\Settings",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "HKCU\\SOFTWARE\\ClaudeCode\\ManagedSettings",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Machine-level managed settings on Windows use the HKLM\\SOFTWARE\\Policies\\ClaudeCode registry path with REG_SZ or REG_EXPAND_SZ JSON values. There is also HKCU\\SOFTWARE\\Policies\\ClaudeCode for user-level policy (lowest policy priority).",
+    "why_others_wrong": {
+      "a": "The path uses Policies\\ClaudeCode, not Anthropic\\ClaudeCode.",
+      "c": "The path uses Policies\\ClaudeCode, not Claude\\Settings.",
+      "d": "HKCU is the user-level policy path with lowest priority. The machine-level path uses HKLM."
+    },
+    "doc_reference": {
+      "source": "S8 Section 14",
+      "quote": "Windows: HKLM\\SOFTWARE\\Policies\\ClaudeCode registry (REG_SZ/REG_EXPAND_SZ JSON)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Project setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 193,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to configure file-based managed settings on Linux with multiple configuration files for different teams.",
+    "question": "Where are file-based managed settings stored on Linux, and how can multiple files be used?",
+    "options": [
+      {
+        "id": "a",
+        "text": "/etc/claude-code/managed-settings.json with a managed-settings.d/ drop-in directory for additional files (alphabetical merge)",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "/opt/claude-code/settings.json as a single file only",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "~/.claude/managed-settings.json in the user's home directory",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "/usr/lib/claude-code/config/ directory with numbered config files",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "On Linux/WSL, file-based managed settings go in /etc/claude-code/managed-settings.json. A managed-settings.d/ directory alongside the file supports drop-in configuration files that are merged alphabetically, enabling different teams to contribute separate config files.",
+    "why_others_wrong": {
+      "b": "The path is /etc/claude-code/, not /opt/claude-code/. Multiple files are supported via the drop-in directory.",
+      "c": "Managed settings are system-level, not user-level. They go in /etc/claude-code/, not ~/.",
+      "d": "The path is /etc/claude-code/, not /usr/lib/. The drop-in directory uses managed-settings.d/, not numbered files."
+    },
+    "doc_reference": {
+      "source": "S8 Section 14",
+      "quote": "Linux/WSL: /etc/claude-code/managed-settings.json. Drop-in directory: managed-settings.d/ alongside managed-settings.json (alphabetical merge)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Project setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 194,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer has .claude/settings.json (project, committed) and .claude/settings.local.json (personal). They want to understand the precedence between them.",
+    "question": "What is the precedence between .claude/settings.json and .claude/settings.local.json?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Project (.claude/settings.json) has higher priority than Local (.claude/settings.local.json)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Local (.claude/settings.local.json) has higher priority than Project (.claude/settings.json)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "They have equal priority and are merged without precedence",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Only one can exist at a time; having both causes an error",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Local settings (.claude/settings.local.json) have higher priority than Project settings (.claude/settings.json). The full precedence order is: Managed > CLI > Local > Project > User. Local is gitignored for personal overrides, while Project is committed and shared with the team.",
+    "why_others_wrong": {
+      "a": "Local has higher priority than Project, not lower. This allows personal overrides of team settings.",
+      "c": "They have different priorities. Local wins over Project for scalar values.",
+      "d": "Both can coexist without errors. They layer according to precedence."
+    },
+    "doc_reference": {
+      "source": "S8 Section 14",
+      "quote": "Precedence: Managed > CLI > Local (.claude/settings.local.json) > Project (.claude/settings.json) > User"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Project setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 195,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is looking at the permission evaluation order and has both allow and deny rules for the same tool.",
+    "question": "In permission evaluation, what is the precedence between deny rules and allow rules?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Allow rules take precedence over deny rules (most permissive wins)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Deny always takes precedence over allow (deny > ask > allow). A deny rule wins even if there is a more specific allow rule",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The more specific rule takes precedence regardless of allow/deny",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The last-defined rule takes precedence",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Permission evaluation follows a strict deny > ask > allow precedence. Deny rules always take precedence, even over more specific allow rules. This ensures security constraints cannot be accidentally bypassed by permissive rules.",
+    "why_others_wrong": {
+      "a": "Deny takes precedence, not allow. The system is security-first.",
+      "c": "Specificity does not override deny/allow precedence. Deny always wins.",
+      "d": "Order of definition does not matter. Deny always wins over allow regardless of where they are defined."
+    },
+    "doc_reference": {
+      "source": "S3 Section 14, S8 Section 5",
+      "quote": "Rule evaluation order: deny -> ask -> allow (first match wins; deny always takes precedence)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 196,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to understand the description budget system for skills. They have many skills and notice some descriptions being shortened.",
+    "question": "How is the skill description budget calculated, and what is the fallback?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fixed at 10,000 characters with no way to change it",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Scales at 1% of the context window with a fallback of 8,000 characters; overridable via SLASH_COMMAND_TOOL_CHAR_BUDGET env var",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Each skill gets exactly 500 characters; the total is unlimited",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Scales at 5% of the context window with no fallback",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The skill description budget scales dynamically at 1% of the context window, with a fallback of 8,000 characters when the context window size cannot be determined. You can override this with the SLASH_COMMAND_TOOL_CHAR_BUDGET environment variable. Each entry's combined description + when_to_use is individually capped at 1,536 characters.",
+    "why_others_wrong": {
+      "a": "The budget is dynamic (1% of context), not fixed. It is also configurable via environment variable.",
+      "c": "The per-skill cap is 1,536 characters for description, and the total budget is limited (1% of context).",
+      "d": "The scaling is 1%, not 5%, and there IS a fallback of 8,000 characters."
+    },
+    "doc_reference": {
+      "source": "S3 Section 4.9, S11 Module 6",
+      "quote": "Budget scales at 1% of context window, fallback 8,000 characters. Override with SLASH_COMMAND_TOOL_CHAR_BUDGET"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Troubleshooting skills",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 197,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer is writing a hook script that should block a tool call. They use exit code 1 to indicate failure.",
+    "question": "In Claude Code hooks, what is the effect of exit code 1 versus exit code 2?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exit code 1 blocks the action; exit code 2 is a non-blocking warning",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Exit code 2 blocks the action; exit code 1 is a non-blocking error that logs and continues",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Both exit code 1 and 2 block the action with different severity levels",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Exit code 1 blocks in PreToolUse; exit code 2 blocks in PostToolUse",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Exit code 2 is the ONLY blocking exit code — it blocks the action (in PreToolUse) or signals a blocking error. Exit code 1 (and any other non-zero, non-2 exit code) is a non-blocking error: it is logged but execution continues. Exit code 0 means success.",
+    "why_others_wrong": {
+      "a": "This is backwards. Exit code 2 blocks; exit code 1 is non-blocking.",
+      "c": "Only exit code 2 blocks. Exit code 1 does NOT block — it logs an error and continues.",
+      "d": "Exit code behavior is consistent across hook types. Only exit code 2 ever blocks."
+    },
+    "doc_reference": {
+      "source": "S3 Section 9.5, S12 Lesson 14",
+      "quote": "Exit code 2: Blocking error. Exit code 1 or other: Non-blocking error, log error, continue"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 198,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to know how PreToolUse hooks can make permission decisions for tool calls.",
+    "question": "What permission decisions can a PreToolUse hook make, and what is their precedence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "allow, deny, skip — in order of: allow > deny > skip",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "allow, deny, ask, defer — in order of: deny > defer > ask > allow",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "approve, block, prompt — in order of: approve > block > prompt",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "continue, stop, retry — with no defined precedence",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "PreToolUse hooks can return permission decisions: allow (skip permission prompt), deny (block tool call), ask (prompt user), or defer (exit for external handler, requires -p flag). The precedence is deny > defer > ask > allow — if any hook returns deny, the operation is blocked regardless of other hooks.",
+    "why_others_wrong": {
+      "a": "The correct decisions are allow, deny, ask, defer. Precedence puts deny highest, not allow.",
+      "c": "The correct terms are allow, deny, ask, defer — not approve, block, prompt.",
+      "d": "The correct terms are allow, deny, ask, defer, and there IS a defined precedence."
+    },
+    "doc_reference": {
+      "source": "S3 Section 9.7",
+      "quote": "Permission decisions (precedence: deny > defer > ask > allow)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 199,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to know the four types of hook handlers available in Claude Code.",
+    "question": "What are the four hook handler types in Claude Code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "shell, api, ai, script — with shell being the default",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "command (shell script), http (POST to URL), prompt (single-turn LLM evaluation), agent (spawns subagent)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "bash, curl, openai, subprocess — all with 30-second timeouts",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "inline, external, webhook, cron — configured in hooks.json",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The four hook handler types are: command (shell script, receives JSON on stdin, 600s default timeout), http (POST to URL with JSON body, 30s timeout), prompt (single-turn LLM evaluation, 30s timeout), and agent (spawns subagent with Read/Grep/Glob tools, 60s timeout).",
+    "why_others_wrong": {
+      "a": "The correct types are command, http, prompt, agent — not shell, api, ai, script.",
+      "c": "The correct types are command, http, prompt, agent. Timeouts vary by type (600s, 30s, 30s, 60s).",
+      "d": "The correct types are command, http, prompt, agent. They are configured in settings.json or frontmatter."
+    },
+    "doc_reference": {
+      "source": "S3 Section 9.4",
+      "quote": "Hook handler types: command (600s), http (30s), prompt (30s), agent (60s)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Introducing hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 200,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to understand how the Explore subagent differs from the Plan subagent.",
+    "question": "What model does the Explore subagent use compared to the Plan subagent, and are their tool capabilities different?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both use Haiku and have identical read-only tools",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Explore uses Haiku (fast, low-latency) with read-only tools; Plan inherits the main conversation's model with read-only tools",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Explore inherits the main model; Plan uses Haiku",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Explore has full tools; Plan has read-only tools. Both inherit the main model",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The Explore subagent uses Haiku for fast, low-latency file discovery and code search with read-only tools. The Plan subagent inherits the main conversation's model (for more thorough analysis) but also has read-only tools. Both deny Write and Edit.",
+    "why_others_wrong": {
+      "a": "Explore uses Haiku but Plan inherits the main model. Their models differ.",
+      "c": "This is backwards. Explore uses Haiku; Plan inherits the main model.",
+      "d": "Both Explore and Plan have read-only tools. Explore does not have full tool access."
+    },
+    "doc_reference": {
+      "source": "S3 Section 8.1",
+      "quote": "Explore: Haiku (fast, low-latency), Read-only. Plan: Inherits from main, Read-only"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 201,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer's subagent attempts to spawn its own subagent for a deeply nested task.",
+    "question": "Can subagents spawn their own subagents in Claude Code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes — subagents can nest up to 3 levels deep",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No — subagents cannot spawn other subagents (prevents infinite nesting)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Yes, but only if the parent explicitly allows it with allowNesting: true",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "No, but they can delegate to agent teams instead",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Subagents cannot spawn other subagents. This is a hard constraint that prevents infinite nesting. If you need nested task delegation, the main agent should orchestrate multiple subagents directly rather than having subagents delegate to each other.",
+    "why_others_wrong": {
+      "a": "There is no nesting at all. Subagents are strictly single-level.",
+      "c": "There is no allowNesting option. The constraint is absolute.",
+      "d": "Agent teams are a separate feature (experimental) and not a workaround for subagent nesting."
+    },
+    "doc_reference": {
+      "source": "S3 Section 8.8, S6 Section 9",
+      "quote": "Subagents cannot spawn other subagents"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 202,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer configures hook matchers and wants to match all Bash and Edit tool calls using a single matcher string.",
+    "question": "How do you write a hook matcher that matches both Bash and Edit tool calls?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a comma-separated list: \"Bash,Edit\"",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Use a pipe-separated list: \"Bash|Edit\"",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Use a space-separated list: \"Bash Edit\"",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Use separate hook entries — a single matcher can only match one tool",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Hook matchers use pipe-separated (|) lists for matching multiple tools: \"Bash|Edit\". Matchers that contain only letters, digits, underscore, and pipe are treated as exact string or pipe-separated list matches. Matchers containing other characters are treated as JavaScript regex.",
+    "why_others_wrong": {
+      "a": "Comma-separated is not the correct syntax. Use pipe (|) separator.",
+      "c": "Space-separated is not the correct syntax. Use pipe (|) separator.",
+      "d": "A single matcher CAN match multiple tools using the pipe syntax."
+    },
+    "doc_reference": {
+      "source": "S3 Section 9.3",
+      "quote": "Letters/digits/_/| only: Exact string or |-separated list (Bash, Edit|Write)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Defining hooks",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 203,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer uses the --add-dir flag and expects skills from that directory to be loaded.",
+    "question": "Are skills from directories added via --add-dir loaded automatically?",
+    "options": [
+      {
+        "id": "a",
+        "text": "No — --add-dir only grants file access; no configuration is loaded from added directories",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Yes — skills from --add-dir directories are loaded automatically as a special exception to the general rule",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Yes — all configuration (skills, CLAUDE.md, hooks, settings) is loaded from added directories",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "No — skills require the CLAUDE_CODE_ADDITIONAL_DIRECTORIES_SKILLS=1 environment variable",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Skills from --add-dir directories are loaded automatically as a special exception. This contrasts with CLAUDE.md files from --add-dir directories, which require CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1 to be loaded. Other configurations like hooks and subagents from --add-dir are NOT loaded.",
+    "why_others_wrong": {
+      "a": "Skills ARE an exception to the general rule. They are loaded automatically from --add-dir directories.",
+      "c": "Not all configuration is loaded. Skills are a special exception. CLAUDE.md, hooks, and subagents from --add-dir are NOT automatically loaded.",
+      "d": "No such environment variable exists. Skills load automatically from --add-dir without any extra configuration."
+    },
+    "doc_reference": {
+      "source": "S11 Module 2, S8 Section 5",
+      "quote": "Skills from --add-dir directories are loaded automatically (exception to general --add-dir behavior)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Agent Skills",
+      "lesson": "Creating your first skill",
+      "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 204,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to use the allowed_tools option in the Agent SDK to restrict which tools an agent with bypassPermissions can use.",
+    "question": "If you set allowed_tools=['Read'] alongside permissionMode='bypassPermissions' in the Agent SDK, what happens?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only Read is available; all other tools are blocked",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "allowed_tools does NOT constrain bypassPermissions — ALL tools are still approved. Use disallowed_tools to block specific tools",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "An error is thrown because allowed_tools conflicts with bypassPermissions",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "bypassPermissions is automatically downgraded to acceptEdits when allowed_tools is specified",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "allowed_tools does NOT constrain bypassPermissions. Setting allowed_tools=['Read'] with bypassPermissions still approves EVERY tool. To block specific tools when using bypassPermissions, you must use disallowed_tools instead.",
+    "why_others_wrong": {
+      "a": "bypassPermissions overrides allowed_tools. All tools are still approved.",
+      "c": "No error is thrown. The allowed_tools is simply ignored by bypassPermissions.",
+      "d": "bypassPermissions is not downgraded. It continues to approve all tools."
+    },
+    "doc_reference": {
+      "source": "S6 Section 7",
+      "quote": "allowed_tools does NOT constrain bypassPermissions. Use disallowed_tools to block specific tools in bypassPermissions"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 205,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to understand what content the Plan subagent inherits compared to normal conversation.",
+    "question": "What model does the Plan subagent use, and what is it prevented from doing?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Uses Haiku for fast exploration; prevented from reading files",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Inherits the main conversation's model; prevented from writing or editing files (Write and Edit tools denied)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Uses a special planning model; prevented from running any tools at all",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Uses Sonnet by default; prevented from spawning subagents",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The Plan subagent inherits the main conversation's model (unlike Explore which uses Haiku). It is specifically prevented from writing or editing files — the Write and Edit tools are denied. It can still read files, search, and explore the codebase.",
+    "why_others_wrong": {
+      "a": "Plan inherits the main model, not Haiku. It CAN read files — only writes are blocked.",
+      "c": "There is no special planning model. Read-only tools still work in plan mode.",
+      "d": "Plan inherits the main model, not Sonnet specifically. While subagents can't spawn subagents, the key restriction for Plan is write denial."
+    },
+    "doc_reference": {
+      "source": "S3 Section 7.2",
+      "quote": "Plan subagent: Model inherits from main conversation. Tools: Read-only (Write and Edit tools denied)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Making changes",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 206,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to pipe a file into Claude Code for analysis and get a plain text response.",
+    "question": "What is the correct syntax to pipe a file into Claude Code for non-interactive analysis?",
+    "options": [
+      {
+        "id": "a",
+        "text": "claude analyze < file.txt",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "cat file.txt | claude -p \"analyze this\"",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "claude --input file.txt --analyze",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "claude -p file.txt \"analyze this\"",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The standard pattern is cat file | claude -p \"query\". The -p flag puts Claude Code in print mode (non-interactive), and piped content is processed along with the prompt. This is the idiomatic way to process file content in CI/scripts.",
+    "why_others_wrong": {
+      "a": "There is no 'analyze' subcommand. The -p flag with piped input is the correct approach.",
+      "c": "There is no --input flag. Content is piped via stdin.",
+      "d": "File content must be piped via stdin, not passed as a positional argument."
+    },
+    "doc_reference": {
+      "source": "S3 Section 5.1, 11.1",
+      "quote": "cat file | claude -p 'query': Process piped content"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Claude Code setup",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 207,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer sets up a Routine with a GitHub trigger for pull_request events and expects the same session to handle multiple events on the same PR.",
+    "question": "When a Routine has a GitHub trigger and multiple events fire for the same PR, are they handled in the same session?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes — all events for the same PR use a single persistent session",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "No — each matching event starts a new session; there is no session reuse between events",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Events are queued and processed sequentially in the same session",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Only the first event creates a session; subsequent events are ignored",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Each matching GitHub event starts a new session. There is no session reuse between events. Routines clone repos on every run from the default branch, so each event is handled independently.",
+    "why_others_wrong": {
+      "a": "Sessions are NOT reused between events. Each event triggers a fresh session.",
+      "c": "Events are not queued into a single session. Each creates a new independent session.",
+      "d": "All matching events create sessions, not just the first one."
+    },
+    "doc_reference": {
+      "source": "S8 Section 8",
+      "quote": "Each matching event starts a new session (no session reuse)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "Github integration",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 208,
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "scenario": "A developer wants to use MCP servers in their Agent SDK application. They configure an MCP server but the tools require user approval each time.",
+    "question": "In the Agent SDK, how do you make MCP tools run without permission prompts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set permissionMode to 'acceptEdits' — this auto-approves all MCP tools",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Add the MCP tools to allowedTools using the mcp__<server>__<tool> or mcp__<server>__* pattern",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "MCP tools always run without permission prompts in the SDK",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Set autoApproveMcp: true in the MCP server configuration",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "MCP tools require explicit permission via allowedTools. Use the pattern mcp__<server_name>__<tool_name> for specific tools or mcp__<server_name>__* for all tools from a server. permissionMode: 'acceptEdits' does NOT auto-approve MCP tools.",
+    "why_others_wrong": {
+      "a": "acceptEdits does NOT auto-approve MCP tools. It only covers file edits and filesystem commands.",
+      "c": "MCP tools do NOT run without permission by default. They require explicit allowedTools entries.",
+      "d": "There is no autoApproveMcp setting. Permission is controlled via allowedTools."
+    },
+    "doc_reference": {
+      "source": "S6 Section 6",
+      "quote": "MCP tools REQUIRE explicit permission via allowedTools. permissionMode: 'acceptEdits' does NOT auto-approve MCP tools"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code in Action",
+      "lesson": "The Claude Code SDK",
+      "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "id": 314,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Enterprise Automation Platform",
+    "question": "Your team is evaluating whether to build a custom agent loop with the Messages API or use Claude Managed Agents for an internal automation platform that runs long-running data processing tasks. The tasks typically take 15-30 minutes with dozens of tool calls, and your team wants to minimize infrastructure overhead. Which approach is most appropriate and why?",
+    "options": [
+      {"id": "a", "text": "Use the Messages API because Managed Agents do not support tool execution lasting more than 5 minutes", "correct": false},
+      {"id": "b", "text": "Use the Messages API with streaming because Managed Agents do not support real-time event streaming", "correct": false},
+      {"id": "c", "text": "Use Claude Managed Agents but only for tasks under 10 minutes, since the container is automatically terminated after that", "correct": false},
+      {"id": "d", "text": "Use Claude Managed Agents because they provide a fully managed environment for long-running tasks with built-in prompt caching, compaction, and tool execution -- eliminating the need to build your own agent loop, sandbox, or tool execution layer", "correct": true}
+    ],
+    "correct_answer": "d",
+    "explanation": "Claude Managed Agents are specifically designed for long-running tasks and asynchronous work. They provide a pre-built, configurable agent harness running in managed infrastructure with built-in prompt caching, compaction, and performance optimizations. Instead of building your own agent loop, tool execution, and runtime, you get a fully managed environment -- making them ideal for the described scenario of 15-30 minute tasks with minimal infrastructure overhead.",
+    "why_others_wrong": {
+      "a": "Managed Agents are explicitly designed for long-running execution lasting minutes or hours with multiple tool calls. There is no 5-minute limit.",
+      "b": "Managed Agents do support real-time event streaming via SSE (Server-Sent Events). Events are streamed back in real-time as the agent works.",
+      "c": "There is no 10-minute container termination limit. Managed Agents are designed for long-running execution that can take minutes or hours."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Overview",
+      "quote": "Instead of building your own agent loop, tool execution, and runtime, you get a fully managed environment... Best for long-running tasks and asynchronous work."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Managed Agents Overview",
+      "url": "https://platform.claude.com/docs/en/managed-agents/overview"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 315,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Managed Agent Session Lifecycle",
+    "question": "A developer creates a new Managed Agent session by providing an agent ID and environment ID. They expect the agent to immediately start processing their task. However, nothing happens. What did they miss?",
+    "options": [
+      {"id": "a", "text": "They forgot to include the beta header managed-agents-2026-04-01 in the request", "correct": false},
+      {"id": "b", "text": "They need to upgrade to a paid API tier before sessions can be created", "correct": false},
+      {"id": "c", "text": "Creating a session only provisions the environment -- they must send a user.message event to start work", "correct": true},
+      {"id": "d", "text": "They need to call a separate /v1/sessions/:id/start endpoint to begin execution", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "In Managed Agents, creating a session provisions the environment but does NOT start work. The session starts in an 'idle' status and acts as a state machine where events drive execution. The developer must send a user.message event to initiate the agent's task. This is a deliberate design choice that separates session creation from task execution.",
+    "why_others_wrong": {
+      "a": "While the beta header is required for all Managed Agent requests, the SDK sets it automatically. If the header were missing, the session creation itself would have failed -- it would not silently succeed and then do nothing.",
+      "b": "Managed Agents are enabled by default for all API accounts. There is no special paid tier requirement for basic session creation.",
+      "d": "There is no separate /start endpoint. The session begins work when it receives a user.message event through the events endpoint."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Sessions",
+      "quote": "Creating a session provisions environment but does NOT start work. Must send a user.message event to start a task. Session acts as a state machine; events drive execution."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Managed Agents Sessions",
+      "url": "https://platform.claude.com/docs/en/managed-agents/sessions"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 316,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Multi-Agent Code Review Pipeline",
+    "question": "You are designing a multi-agent system using Managed Agents where a coordinator agent delegates to a code reviewer agent and a test writer agent. The test writer agent needs to further delegate to a linting agent for style checks. Is this architecture supported?",
+    "options": [
+      {"id": "a", "text": "Yes, agents can delegate to any depth as long as each agent is declared in the callable_agents field", "correct": false},
+      {"id": "b", "text": "Yes, but only if all agents share the same model and system prompt configuration", "correct": false},
+      {"id": "c", "text": "Yes, as long as the total number of agents does not exceed the limit of 10 per session", "correct": false},
+      {"id": "d", "text": "No, only one level of delegation is supported -- the coordinator can call agents, but those agents cannot call agents of their own", "correct": true}
+    ],
+    "correct_answer": "d",
+    "explanation": "Managed Agents multi-agent sessions support only one level of delegation. The coordinator agent can call other agents listed in its callable_agents field, but those delegated agents cannot call agents of their own. This means the test writer agent cannot further delegate to a linting agent. To achieve the desired workflow, the coordinator would need to delegate to the linting agent directly.",
+    "why_others_wrong": {
+      "a": "Arbitrary delegation depth is not supported. The architecture is limited to exactly one level -- coordinator to callable agents only.",
+      "b": "Each agent in a multi-agent session uses its own configuration including model, system prompt, tools, MCP servers, and skills. They do not need to share configurations.",
+      "c": "There is no documented limit of 10 agents per session. The constraint is about delegation depth (one level only), not the count of agents."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Multi-Agent Sessions",
+      "quote": "Only one level of delegation: coordinator can call agents, but those agents CANNOT call agents of their own."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Multi-Agent Sessions",
+      "url": "https://platform.claude.com/docs/en/managed-agents/multi-agent"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 317,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Managed Agent Toolset Configuration",
+    "question": "You want to create a Managed Agent that can only use the bash and read tools from the built-in agent toolset, with all other tools disabled. How should you configure the tools array?",
+    "options": [
+      {"id": "a", "text": "List only bash and read as individual custom tool definitions with their schemas", "correct": false},
+      {"id": "b", "text": "Use agent_toolset_20260401 with a configs array that sets enabled: false for each tool you want to disable", "correct": false},
+      {"id": "c", "text": "Use agent_toolset_20260401 with default_config.enabled set to false, then add configs entries for bash and read with enabled: true", "correct": true},
+      {"id": "d", "text": "Create two separate agent_toolset_20260401 entries, one for bash and one for read", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "To enable only specific tools from the built-in agent toolset, you set default_config.enabled to false (which disables all tools by default), then explicitly enable the ones you want via the configs array. This is more maintainable than individually disabling each unwanted tool, especially as the toolset has 8 built-in tools.",
+    "why_others_wrong": {
+      "a": "The bash and read tools are built-in agent tools provided by the agent_toolset_20260401 type. You cannot replicate their functionality by defining custom tool schemas -- custom tools require your code to execute them, while built-in tools execute inside the managed container.",
+      "b": "While you could individually disable 6 tools via configs, this approach is fragile and verbose. The documented pattern for enabling only specific tools is to set default_config.enabled to false and then enable the desired tools.",
+      "d": "You cannot split the agent toolset into multiple entries. It is a single toolset configuration with internal configs for individual tools."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Tools",
+      "quote": "Enable ONLY specific tools: set default_config.enabled to false, then enable individual tools."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Managed Agents Tools",
+      "url": "https://platform.claude.com/docs/en/managed-agents/tools"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 318,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Managed Agent Update Behavior",
+    "question": "A developer updates a Managed Agent's tools array to add a new custom tool while keeping all existing tools. After the update, they notice that only the new custom tool is available -- all previous tools are gone. What happened?",
+    "options": [
+      {"id": "a", "text": "Array fields like tools are fully replaced on update, not merged -- the developer needed to include all existing tools plus the new one", "correct": true},
+      {"id": "b", "text": "The agent was archived and a new version was created without the old tools", "correct": false},
+      {"id": "c", "text": "Custom tools and built-in tools cannot coexist in the same agent configuration", "correct": false},
+      {"id": "d", "text": "The agent's version number exceeded the maximum allowed, causing a reset to default configuration", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "Managed Agent update semantics differ by field type. Scalar fields (model, system, name) are replaced. Array fields (tools, mcp_servers, skills, callable_agents) are fully replaced -- not merged. Metadata is merged at the key level. This means when updating the tools array, you must include ALL desired tools in the update payload, not just the new additions. Omitted fields are preserved, but included array fields completely replace the previous value.",
+    "why_others_wrong": {
+      "b": "Archiving makes an agent read-only and prevents new sessions from referencing it. A standard update creates a new version but does not archive anything.",
+      "c": "Custom tools and built-in agent tools can coexist in the same agent configuration. The tools array can contain both the agent_toolset and custom tool definitions.",
+      "d": "There is no maximum version number for agents. Versions increment with each update without limit."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Agent Setup",
+      "quote": "Array fields (tools, mcp_servers, skills, callable_agents) are fully replaced. Omitted fields are preserved (only include fields you want to change)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Managed Agent Setup",
+      "url": "https://platform.claude.com/docs/en/managed-agents/agent-setup"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 319,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Multi-Agent Thread Isolation",
+    "question": "In a Managed Agents multi-agent session, a coordinator delegates tasks to two specialist agents. A developer assumes that since the agents share the same container, they also share conversation context and tool configurations. What aspect of this assumption is correct and what is wrong?",
+    "options": [
+      {"id": "a", "text": "Both parts are wrong -- agents in multi-agent sessions run in completely separate containers with no shared resources", "correct": false},
+      {"id": "b", "text": "Sharing the container is correct, but agents cannot access the filesystem at all to prevent data leakage between threads", "correct": false},
+      {"id": "c", "text": "Both parts are correct -- agents share container, filesystem, conversation context, and tool configurations for maximum collaboration", "correct": false},
+      {"id": "d", "text": "Sharing the container and filesystem is correct, but tools and context are NOT shared -- each agent runs in its own context-isolated thread with its own conversation history", "correct": true}
+    ],
+    "correct_answer": "d",
+    "explanation": "In multi-agent sessions, all agents share the same container and filesystem. However, each agent runs in its own session thread, which is a context-isolated event stream with its own conversation history. Each agent uses its own configuration (model, system prompt, tools, MCP servers, skills). Tools and context are NOT shared between agents. This design enables file-based collaboration while maintaining clean separation of agent responsibilities.",
+    "why_others_wrong": {
+      "a": "Agents do share the same container and filesystem. The isolation is at the context and tool configuration level, not at the container level.",
+      "b": "Agents can and do access the shared filesystem. File-based collaboration is one of the key use cases for multi-agent sessions.",
+      "c": "While container and filesystem are shared, conversation context and tool configurations are explicitly NOT shared. Each agent has its own thread with independent context."
+    },
+    "doc_reference": {
+      "source": "Managed Agents -- Multi-Agent Sessions",
+      "quote": "All agents share the same container and filesystem. Each agent runs in its own session thread (context-isolated event stream with own conversation history). Tools and context are NOT shared between agents."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Multi-Agent Sessions",
+      "url": "https://platform.claude.com/docs/en/managed-agents/multi-agent"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 320,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Context Window Overflow in Production",
+    "question": "Your production agent loop receives a response with stop_reason 'model_context_window_exceeded'. Your application is using Claude Sonnet 4.6. What does this stop reason indicate and what should your application do?",
+    "options": [
+      {"id": "a", "text": "The model hit its context window limit -- implement context management such as compaction or context editing to reduce the conversation size before retrying", "correct": true},
+      {"id": "b", "text": "The request payload was malformed -- check the API request body for syntax errors and retry", "correct": false},
+      {"id": "c", "text": "The model ran out of output tokens -- increase the max_tokens parameter and retry the same request", "correct": false},
+      {"id": "d", "text": "This stop reason is only available on Opus models -- Sonnet 4.6 would return max_tokens instead", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "The stop_reason 'model_context_window_exceeded' indicates that the conversation has reached the model's context window limit. This is distinct from max_tokens (which caps output per request). The correct response is to implement context management strategies such as server-side compaction or context editing to reduce the conversation size. This stop reason is available by default on Sonnet 4.5 and later models.",
+    "why_others_wrong": {
+      "b": "This stop reason is not related to malformed requests. It specifically indicates that the accumulated conversation context has exceeded the model's context window capacity.",
+      "c": "model_context_window_exceeded is about the total context (input + conversation history), not about output tokens. max_tokens controls per-request output and is a separate concern.",
+      "d": "model_context_window_exceeded is available by default on Sonnet 4.5 and later models, which includes Sonnet 4.6. Earlier models need a beta header, but Sonnet 4.6 does not."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Handling Stop Reasons",
+      "quote": "model_context_window_exceeded: Reached model's context window limit. Available by default on Sonnet 4.5+; earlier models need beta header model-context-window-exceeded-2025-08-26."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Handling Stop Reasons",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 321,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Compaction Stop Reason Handling",
+    "question": "Your agentic loop uses server-side compaction with pause_after_compaction set to true. After a long conversation, you receive a response with stop_reason 'compaction'. What does this mean and how should your loop handle it?",
+    "options": [
+      {"id": "a", "text": "An error occurred during compaction -- discard the response and retry the last user message", "correct": false},
+      {"id": "b", "text": "The conversation was too large to compact -- you must clear the conversation and start a new session", "correct": false},
+      {"id": "c", "text": "The model is requesting permission to compact -- send an approval event before the compaction proceeds", "correct": false},
+      {"id": "d", "text": "The compaction summary has been generated and the API paused -- you can add additional content blocks before continuing the conversation", "correct": true}
+    ],
+    "correct_answer": "d",
+    "explanation": "When pause_after_compaction is set to true in the compaction configuration, the API returns with stop_reason 'compaction' after generating the compaction summary. This pause allows the application to add additional content blocks before continuing -- for example, to enforce a total token budget across long agentic loops by counting the number of compactions that have occurred. The response includes the compaction block that should be appended to messages for the next turn.",
+    "why_others_wrong": {
+      "a": "The compaction stop reason is not an error. It indicates successful generation of the compaction summary with an intentional pause for the application to intervene before continuing.",
+      "b": "The compaction was successful -- that is exactly what this stop reason signals. The summary replaces older context, and the conversation can continue with reduced token usage.",
+      "c": "Compaction does not require explicit permission or approval events. When configured, it triggers automatically based on the token threshold. The pause is for adding content, not for granting approval."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Server-Side Compaction",
+      "quote": "When pause_after_compaction: true, API returns with stop_reason: 'compaction' after generating the summary. Allows adding additional content blocks before continuing."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Server-Side Compaction",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/compaction"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 322,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Compaction Configuration",
+    "question": "A developer configures server-side compaction and sets the trigger threshold to 30,000 tokens to compact early and aggressively. When they make the API call, they receive a 400 error. What is the most likely cause?",
+    "options": [
+      {"id": "a", "text": "They forgot to include the compact-2026-01-12 beta header", "correct": false},
+      {"id": "b", "text": "Server-side compaction is not available on their model -- it requires Claude Opus 4.7 exclusively", "correct": false},
+      {"id": "c", "text": "The compaction type string should be compact-2026-01-12, not compact_20260112", "correct": false},
+      {"id": "d", "text": "The trigger threshold must be at least 50,000 tokens -- 30,000 is below the minimum", "correct": true}
+    ],
+    "correct_answer": "d",
+    "explanation": "The compaction trigger threshold has a minimum of 50,000 tokens. The default is 150,000 tokens, and any value below 50,000 will result in a validation error. The developer's threshold of 30,000 tokens is below this minimum, causing the 400 error. They need to increase the threshold to at least 50,000 tokens.",
+    "why_others_wrong": {
+      "a": "While the beta header is required, a missing beta header would typically cause a different error indicating the feature is not available, not a 400 validation error about the trigger value.",
+      "b": "Server-side compaction supports multiple models including Claude Opus 4.7, Opus 4.6, Sonnet 4.6, and Claude Mythos Preview. It is not exclusive to Opus 4.7.",
+      "c": "The strategy type in the configuration body is compact_20260112 (with underscores), while the beta header is compact-2026-01-12 (with hyphens). Both are correct for their respective purposes -- this is not the cause of the error."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Server-Side Compaction",
+      "quote": "trigger: When to trigger. Must be at least 50,000 tokens. Default: 150,000 tokens."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Server-Side Compaction",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/compaction"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 323,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "scenario": "Context Editing for Tool-Heavy Agent",
+    "question": "You are building an agent that makes hundreds of tool calls during a session. You want to configure server-side context editing to automatically clear old tool results while always preserving the 5 most recent tool use/result pairs. Which configuration achieves this?",
+    "options": [
+      {"id": "a", "text": "Use clear_tool_uses_20250919 with keep set to 5, which preserves the 5 most recent tool use/result pairs and replaces older ones with placeholders", "correct": true},
+      {"id": "b", "text": "Use clear_thinking_20251015 with keep set to 5, which preserves the 5 most recent tool interactions", "correct": false},
+      {"id": "c", "text": "Use compact_20260112 with a custom instruction to preserve the last 5 tool results in the summary", "correct": false},
+      {"id": "d", "text": "Use clear_tool_uses_20250919 with exclude_tools set to the names of your 5 most important tools", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "The clear_tool_uses_20250919 context editing strategy is specifically designed for this use case. Its 'keep' parameter controls how many recent tool use/result pairs to preserve (default is 3). Setting keep to 5 ensures the 5 most recent pairs are retained while older tool results are replaced with placeholder text. The clearing activates when the configured trigger threshold is reached (default 100,000 input tokens).",
+    "why_others_wrong": {
+      "b": "clear_thinking_20251015 is for managing extended thinking blocks, not tool results. It controls how many thinking turns to preserve and has no effect on tool use/result pairs.",
+      "c": "While compaction generates a summary of the conversation, it does not offer granular control over preserving specific recent tool results. Context editing with clear_tool_uses is the appropriate strategy for selectively clearing tool results.",
+      "d": "exclude_tools prevents specific named tools from EVER being cleared, regardless of age. This is different from keeping the N most recent -- it would permanently preserve all results from those tools, not just the most recent ones."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Context Editing",
+      "quote": "keep: How many recent tool use/result pairs to keep. Default: 3 tool uses."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Context Editing",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 324,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "scenario": "Combining Context Editing Strategies",
+    "question": "You want to use both thinking block clearing and tool result clearing together in your context editing configuration. You add both to the edits array. During testing, you notice the configuration is rejected. What ordering rule did you violate?",
+    "options": [
+      {"id": "a", "text": "Tool result clearing (clear_tool_uses_20250919) must be listed first in the edits array", "correct": false},
+      {"id": "b", "text": "Thinking block clearing (clear_thinking_20251015) must be listed FIRST in the edits array", "correct": true},
+      {"id": "c", "text": "You cannot combine these two strategies -- they are mutually exclusive and only one can be active at a time", "correct": false},
+      {"id": "d", "text": "You need to add compact_20260112 as a third entry to mediate between the two clearing strategies", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "When combining thinking block clearing and tool result clearing in the context_management.edits array, clear_thinking_20251015 must be listed FIRST. This ordering requirement ensures that thinking blocks are processed before tool results. Violating this order causes the configuration to be rejected.",
+    "why_others_wrong": {
+      "a": "The order is the opposite -- clear_thinking_20251015 must come first, not clear_tool_uses_20250919.",
+      "c": "These two strategies can be combined and used together. The documentation explicitly states they can be used in combination, provided the ordering rule is followed.",
+      "d": "Compaction is a separate context management strategy and is not required as a mediator. The two clearing strategies work together directly when properly ordered."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Context Editing",
+      "quote": "Can use both thinking block clearing and tool result clearing together. clear_thinking_20251015 must be listed FIRST in the edits array."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Context Editing",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 325,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "scenario": "Context Editing Cache Optimization",
+    "question": "Your application uses extended thinking with context editing. You want to maximize prompt cache hit rates. How should you configure thinking block clearing to best preserve caching?",
+    "options": [
+      {"id": "a", "text": "Set keep to {type: 'thinking_turns', value: 1} to minimize the number of thinking blocks in context", "correct": false},
+      {"id": "b", "text": "Set keep to 'all' to preserve all thinking blocks, which maximizes cache hits", "correct": true},
+      {"id": "c", "text": "Do not configure thinking block clearing at all -- the default behavior already optimizes for caching", "correct": false},
+      {"id": "d", "text": "Use clear_tool_inputs: true to reduce thinking block size without clearing them entirely", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Setting the thinking block clearing keep parameter to 'all' preserves all thinking blocks across the conversation. According to the documentation, keeping thinking blocks preserves the prompt cache, while clearing them invalidates the cache at the clearing point. Therefore, keeping all blocks maximizes cache hits at the cost of using more context window space.",
+    "why_others_wrong": {
+      "a": "While keeping only 1 thinking turn reduces context usage, it actively invalidates cached prompt prefixes at the clearing point, which is the opposite of maximizing cache hits.",
+      "c": "The default behavior (without configuration) keeps only thinking blocks from the last assistant turn, equivalent to keep: {type: 'thinking_turns', value: 1}. This clears older thinking blocks and invalidates the cache at those points.",
+      "d": "clear_tool_inputs is a parameter for tool result clearing (clear_tool_uses_20250919), not for thinking block management. It controls whether tool call parameters are cleared alongside tool results."
+    },
+    "doc_reference": {
+      "source": "Platform Features -- Context Editing",
+      "quote": "Thinking block clearing: Keeping blocks preserves cache; clearing invalidates cache at clearing point. keep accepts 'all' to keep all thinking blocks (maximizes cache hits)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Context Editing",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 326,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Claude Code Agent Teams Architecture",
+    "question": "A team lead is deciding between using Claude Code subagents and Agent Teams for a complex refactoring task that requires multiple agents to discuss design tradeoffs before implementing changes. Which is the better choice and why?",
+    "options": [
+      {"id": "a", "text": "Agent Teams, because teammates can message each other directly for discussion, unlike subagents which can only report results back to the main agent", "correct": true},
+      {"id": "b", "text": "Subagents, because they can communicate with each other directly through the shared task list and produce lower token costs", "correct": false},
+      {"id": "c", "text": "Subagents, because Agent Teams do not allow teammates to have independent context windows", "correct": false},
+      {"id": "d", "text": "Agent Teams, because they use fewer tokens than subagents by sharing a single context window across all teammates", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "Agent Teams support direct peer-to-peer messaging between teammates using the message (to one teammate) and broadcast (to all teammates) communication primitives. This enables the kind of collaborative discussion needed for design tradeoffs. Subagents, by contrast, can only report results back to the calling agent -- they cannot communicate with each other. Agent Teams are specifically designed for complex work requiring discussion and coordination.",
+    "why_others_wrong": {
+      "b": "Subagents cannot communicate with each other directly. They only report results back to the main agent. Additionally, subagents have lower token costs because they return summarized results, but they lack the inter-agent communication needed here.",
+      "c": "Agent Teams teammates DO have independent context windows. Each teammate is a separate Claude Code instance with its own context window, which is one of the key architectural differences from just having a single session.",
+      "d": "Agent Teams use significantly MORE tokens than subagents, not fewer. Token usage scales linearly with active teammates because each has its own separate context window and instance."
+    },
+    "doc_reference": {
+      "source": "Claude Code Advanced -- Agent Teams",
+      "quote": "Teammates message each other directly (unlike subagents which only report back). Communication: message (send to one specific teammate by name), broadcast (send to all teammates simultaneously)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code Advanced",
+      "lesson": "Agent Teams",
+      "url": "https://code.claude.com/docs/en/agent-teams"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 327,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Agent Teams Configuration",
+    "question": "A developer enables Claude Code Agent Teams and tries to have a teammate spawn its own sub-team to parallelize work further. The teammate creation fails. What constraint did they encounter?",
+    "options": [
+      {"id": "a", "text": "Only one team per session is allowed, and teammates cannot spawn their own teams -- no nested teams", "correct": true},
+      {"id": "b", "text": "Agent Teams require a minimum of 3 teammates to form a team, and a sub-team of 1 is not valid", "correct": false},
+      {"id": "c", "text": "The teammate was using the wrong model -- only Opus 4.7 supports team creation", "correct": false},
+      {"id": "d", "text": "Agent Teams are disabled by default and require a separate environment variable for nested team creation", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "Claude Code Agent Teams have two key constraints: only one team per session is allowed, and teammates cannot spawn their own teams (no nested teams). The team lead is fixed for the lifetime of the team and is the only entity that can create and coordinate the team. This flat structure prevents runaway resource consumption and keeps coordination manageable.",
+    "why_others_wrong": {
+      "b": "There is no minimum teammate count of 3. The recommended range is 3-5 teammates, but this is a best practice guideline, not a hard requirement.",
+      "c": "Team creation is not restricted to a specific model. The feature is controlled by the CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS environment variable and requires Claude Code v2.1.32 or later.",
+      "d": "While Agent Teams are indeed disabled by default (requiring CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1), the limitation here is architectural -- no nested teams are supported regardless of configuration."
+    },
+    "doc_reference": {
+      "source": "Claude Code Advanced -- Agent Teams",
+      "quote": "One team per session; no nested teams (teammates cannot spawn their own teams)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code Advanced",
+      "lesson": "Agent Teams",
+      "url": "https://code.claude.com/docs/en/agent-teams"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 328,
+    "domain_id": 1,
+    "domain": "Agentic Architecture & Orchestration",
+    "scenario": "Claude Code Headless Mode Optimization",
+    "question": "You are integrating Claude Code into a CI pipeline and need to minimize startup time. Your script runs a simple code review task and does not need hooks, skills, plugins, MCP servers, or CLAUDE.md loading. Which CLI flag should you use?",
+    "options": [
+      {"id": "a", "text": "Use --permission-mode dontAsk to skip all permission prompts and reduce startup overhead", "correct": false},
+      {"id": "b", "text": "Use --bare to skip auto-discovery of hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md, reducing startup time", "correct": true},
+      {"id": "c", "text": "Use --system-prompt to replace the default prompt with a minimal one, which skips auto-discovery", "correct": false},
+      {"id": "d", "text": "Use --output-format json to bypass the interactive UI initialization which is the main source of startup delay", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The --bare flag skips auto-discovery of hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md files, significantly reducing startup time. This is ideal for CI/script scenarios where these features are not needed. In bare mode, only the core tools (Bash, file read, file edit) are available. If additional context is needed, it can be loaded explicitly via flags like --append-system-prompt or --mcp-config.",
+    "why_others_wrong": {
+      "a": "--permission-mode dontAsk controls how permissions are handled during execution (denying anything not pre-approved), but it does not skip the auto-discovery phase that loads hooks, skills, plugins, and MCP servers at startup.",
+      "c": "--system-prompt replaces the default system prompt content but does not skip the auto-discovery of hooks, skills, plugins, and MCP servers. These are loaded independently of the system prompt.",
+      "d": "--output-format json changes the output format but does not affect startup time. When using -p (non-interactive mode), there is no interactive UI initialization regardless of output format."
+    },
+    "doc_reference": {
+      "source": "Claude Code Advanced -- Headless Mode",
+      "quote": "Bare mode: Skips auto-discovery of hooks, skills, plugins, MCP servers, auto memory, CLAUDE.md. Reduces startup time; useful for CI/scripts."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Claude Code Advanced",
+      "lesson": "Headless Mode / Agent SDK",
+      "url": "https://code.claude.com/docs/en/headless"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]

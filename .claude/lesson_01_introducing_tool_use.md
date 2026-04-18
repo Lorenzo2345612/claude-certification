@@ -1,0 +1,671 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - text:   
+      - link "Go home" [ref=e5] [cursor=pointer]:
+        - /url: https://anthropic.com
+        - img "Go home" [ref=e6]
+    - generic [ref=e7]:
+      - generic "Header Navigation" [ref=e8]:
+        - link "Anthropic Academy" [ref=e9] [cursor=pointer]:
+          - /url: https://www.anthropic.com/learn
+        - link "Courses" [ref=e10] [cursor=pointer]:
+          - /url: /
+      - generic:  
+      - button "User settings menu" [ref=e12] [cursor=pointer]:
+        - img "Lorenzo Rojas's Avatar" [ref=e13]
+    - list [ref=e14]:
+      - listitem [ref=e15] [cursor=pointer]:
+        - link "My Profile" [ref=e16]:
+          - /url: /accounts/profile/?next=/claude-with-the-anthropic-api/287725
+      - listitem [ref=e17] [cursor=pointer]:
+        - link "Sign Out" [ref=e18]:
+          - /url: /auth/logout?next=https%3A%2F%2Fanthropic.skilljar.com%2Fclaude-with-the-anthropic-api
+  - navigation [ref=e19]:
+    - heading "Building with the Claude API" [level=1] [ref=e20]: Building with the Claude API ()
+    - link "Course Overview" [ref=e21] [cursor=pointer]:
+      - /url: /claude-with-the-anthropic-api
+      - text:  Course Overview
+    - generic [ref=e23]:
+      - heading "Introduction" [level=3] [ref=e24]
+      - link "This lesson has not been completed. Welcome to the course" [ref=e25] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287818
+        - generic "Welcome to the course" [ref=e26]:
+          - generic "This lesson has not been completed." [ref=e28]: 
+          - text: 
+          - generic [ref=e29]: Welcome to the course ()
+      - heading "Anthropic overview" [level=3] [ref=e30]
+      - link "This lesson has been completed. Overview of Claude models" [ref=e31] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287722
+        - generic "Overview of Claude models" [ref=e32]:
+          - generic "This lesson has been completed." [ref=e34]: 
+          - text: 
+          - generic [ref=e35]: Overview of Claude models ()
+      - heading "Accessing Claude with the API" [level=3] [ref=e36]
+      - link "This lesson has not been completed. Accessing the API" [ref=e37] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287726
+        - generic "Accessing the API" [ref=e38]:
+          - generic "This lesson has not been completed." [ref=e40]: 
+          - text: 
+          - generic [ref=e41]: Accessing the API ()
+      - link "This lesson has not been completed. Getting an API key" [ref=e42] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/296766
+        - generic "Getting an API key" [ref=e43]:
+          - generic "This lesson has not been completed." [ref=e45]: 
+          - text: 
+          - generic [ref=e46]: Getting an API key ()
+      - link "This lesson has been completed. Making a request" [ref=e47] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287725
+        - generic "Making a request" [ref=e48]:
+          - generic "This lesson has been completed." [ref=e50]: 
+          - text: 
+          - generic [ref=e51]: Making a request ()
+      - link "This lesson has been completed. Multi-Turn conversations" [ref=e52] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287735
+        - generic "Multi-Turn conversations" [ref=e53]:
+          - generic "This lesson has been completed." [ref=e55]: 
+          - text: 
+          - generic [ref=e56]: Multi-Turn conversations ()
+      - link "This lesson has not been completed. Chat exercise" [ref=e57] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287727
+        - generic "Chat exercise" [ref=e58]:
+          - generic "This lesson has not been completed." [ref=e60]: 
+          - text: 
+          - generic [ref=e61]: Chat exercise ()
+      - link "This lesson has been completed. System prompts" [ref=e62] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287733
+        - generic "System prompts" [ref=e63]:
+          - generic "This lesson has been completed." [ref=e65]: 
+          - text: 
+          - generic [ref=e66]: System prompts ()
+      - link "This lesson has not been completed. System prompts exercise" [ref=e67] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287724
+        - generic "System prompts exercise" [ref=e68]:
+          - generic "This lesson has not been completed." [ref=e70]: 
+          - text: 
+          - generic [ref=e71]: System prompts exercise ()
+      - link "This lesson has been completed. Temperature" [ref=e72] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287728
+        - generic "Temperature" [ref=e73]:
+          - generic "This lesson has been completed." [ref=e75]: 
+          - text: 
+          - generic [ref=e76]: Temperature ()
+      - link "This lesson has not been completed. Course satisfaction survey" [ref=e77] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/297284
+        - generic "Course satisfaction survey" [ref=e78]:
+          - generic "This lesson has not been completed." [ref=e80]: 
+          - text: 
+          - generic [ref=e81]: Course satisfaction survey ()
+      - link "This lesson has been completed. Response streaming" [ref=e82] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287734
+        - generic "Response streaming" [ref=e83]:
+          - generic "This lesson has been completed." [ref=e85]: 
+          - text: 
+          - generic [ref=e86]: Response streaming ()
+      - link "This lesson has been completed. Structured data" [ref=e87] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287732
+        - generic "Structured data" [ref=e88]:
+          - generic "This lesson has been completed." [ref=e90]: 
+          - text: 
+          - generic [ref=e91]: Structured data ()
+      - link "This lesson has not been completed. Structured data exercise" [ref=e92] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287729
+        - generic "Structured data exercise" [ref=e93]:
+          - generic "This lesson has not been completed." [ref=e95]: 
+          - text: 
+          - generic [ref=e96]: Structured data exercise ()
+      - link "This lesson has not been completed. Quiz on accessing Claude with the API" [ref=e97] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289117
+        - generic "Quiz on accessing Claude with the API" [ref=e98]:
+          - generic "This lesson has not been completed." [ref=e100]: 
+          - text: 
+          - generic [ref=e101]: Quiz on accessing Claude with the API ()
+      - heading "Prompt evaluation" [level=3] [ref=e102]
+      - link "This lesson has been completed. Prompt evaluation" [ref=e103] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287731
+        - generic "Prompt evaluation" [ref=e104]:
+          - generic "This lesson has been completed." [ref=e106]: 
+          - text: 
+          - generic [ref=e107]: Prompt evaluation ()
+      - link "This lesson has not been completed. A typical eval workflow" [ref=e108] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287736
+        - generic "A typical eval workflow" [ref=e109]:
+          - generic "This lesson has not been completed." [ref=e111]: 
+          - text: 
+          - generic [ref=e112]: A typical eval workflow ()
+      - link "This lesson has not been completed. Generating test datasets" [ref=e113] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287739
+        - generic "Generating test datasets" [ref=e114]:
+          - generic "This lesson has not been completed." [ref=e116]: 
+          - text: 
+          - generic [ref=e117]: Generating test datasets ()
+      - link "This lesson has not been completed. Running the eval" [ref=e118] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287743
+        - generic "Running the eval" [ref=e119]:
+          - generic "This lesson has not been completed." [ref=e121]: 
+          - text: 
+          - generic [ref=e122]: Running the eval ()
+      - link "This lesson has not been completed. Model based grading" [ref=e123] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287742
+        - generic "Model based grading" [ref=e124]:
+          - generic "This lesson has not been completed." [ref=e126]: 
+          - text: 
+          - generic [ref=e127]: Model based grading ()
+      - link "This lesson has not been completed. Code based grading" [ref=e128] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287737
+        - generic "Code based grading" [ref=e129]:
+          - generic "This lesson has not been completed." [ref=e131]: 
+          - text: 
+          - generic [ref=e132]: Code based grading ()
+      - link "This lesson has not been completed. Exercise on prompt evals" [ref=e133] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287738
+        - generic "Exercise on prompt evals" [ref=e134]:
+          - generic "This lesson has not been completed." [ref=e136]: 
+          - text: 
+          - generic [ref=e137]: Exercise on prompt evals ()
+      - link "This lesson has not been completed. Quiz on prompt evaluation" [ref=e138] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289118
+        - generic "Quiz on prompt evaluation" [ref=e139]:
+          - generic "This lesson has not been completed." [ref=e141]: 
+          - text: 
+          - generic [ref=e142]: Quiz on prompt evaluation ()
+      - heading "Prompt engineering techniques" [level=3] [ref=e143]
+      - link "This lesson has not been completed. Prompt engineering" [ref=e144] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287745
+        - generic "Prompt engineering" [ref=e145]:
+          - generic "This lesson has not been completed." [ref=e147]: 
+          - text: 
+          - generic [ref=e148]: Prompt engineering ()
+      - link "This lesson has been completed. Being clear and direct" [ref=e149] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287744
+        - generic "Being clear and direct" [ref=e150]:
+          - generic "This lesson has been completed." [ref=e152]: 
+          - text: 
+          - generic [ref=e153]: Being clear and direct ()
+      - link "This lesson has been completed. Being specific" [ref=e154] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287740
+        - generic "Being specific" [ref=e155]:
+          - generic "This lesson has been completed." [ref=e157]: 
+          - text: 
+          - generic [ref=e158]: Being specific ()
+      - link "This lesson has been completed. Structure with XML tags" [ref=e159] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287741
+        - generic "Structure with XML tags" [ref=e160]:
+          - generic "This lesson has been completed." [ref=e162]: 
+          - text: 
+          - generic [ref=e163]: Structure with XML tags ()
+      - link "This lesson has been completed. Providing examples" [ref=e164] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287746
+        - generic "Providing examples" [ref=e165]:
+          - generic "This lesson has been completed." [ref=e167]: 
+          - text: 
+          - generic [ref=e168]: Providing examples ()
+      - link "This lesson has not been completed. Exercise on prompting" [ref=e169] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287748
+        - generic "Exercise on prompting" [ref=e170]:
+          - generic "This lesson has not been completed." [ref=e172]: 
+          - text: 
+          - generic [ref=e173]: Exercise on prompting ()
+      - link "This lesson has not been completed. Quiz on prompt engineering techniques" [ref=e174] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289121
+        - generic "Quiz on prompt engineering techniques" [ref=e175]:
+          - generic "This lesson has not been completed." [ref=e177]: 
+          - text: 
+          - generic [ref=e178]: Quiz on prompt engineering techniques ()
+      - heading "Tool use with Claude" [level=3] [ref=e179]
+      - link "This lesson has been completed. Introducing tool use" [ref=e180] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287747
+        - generic "Introducing tool use" [ref=e181]:
+          - generic "This lesson has been completed." [ref=e183]: 
+          - text: 
+          - generic [ref=e184]: Introducing tool use ()
+      - link "This lesson has not been completed. Project overview" [ref=e185] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287751
+        - generic "Project overview" [ref=e186]:
+          - generic "This lesson has not been completed." [ref=e188]: 
+          - text: 
+          - generic [ref=e189]: Project overview ()
+      - link "This lesson has not been completed. Tool functions" [ref=e190] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287756
+        - generic "Tool functions" [ref=e191]:
+          - generic "This lesson has not been completed." [ref=e193]: 
+          - text: 
+          - generic [ref=e194]: Tool functions ()
+      - link "This lesson has been completed. Tool schemas" [ref=e195] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287753
+        - generic "Tool schemas" [ref=e196]:
+          - generic "This lesson has been completed." [ref=e198]: 
+          - text: 
+          - generic [ref=e199]: Tool schemas ()
+      - link "This lesson has been completed. Handling message blocks" [ref=e200] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287757
+        - generic "Handling message blocks" [ref=e201]:
+          - generic "This lesson has been completed." [ref=e203]: 
+          - text: 
+          - generic [ref=e204]: Handling message blocks ()
+      - link "This lesson has been completed. Sending tool results" [ref=e205] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287752
+        - generic "Sending tool results" [ref=e206]:
+          - generic "This lesson has been completed." [ref=e208]: 
+          - text: 
+          - generic [ref=e209]: Sending tool results ()
+      - link "This lesson has been completed. Multi-turn conversations with tools" [ref=e210] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287750
+        - generic "Multi-turn conversations with tools" [ref=e211]:
+          - generic "This lesson has been completed." [ref=e213]: 
+          - text: 
+          - generic [ref=e214]: Multi-turn conversations with tools ()
+      - link "This lesson has not been completed. Implementing multiple turns" [ref=e215] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287758
+        - generic "Implementing multiple turns" [ref=e216]:
+          - generic "This lesson has not been completed." [ref=e218]: 
+          - text: 
+          - generic [ref=e219]: Implementing multiple turns ()
+      - link "This lesson has not been completed. Using multiple tools" [ref=e220] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287749
+        - generic "Using multiple tools" [ref=e221]:
+          - generic "This lesson has not been completed." [ref=e223]: 
+          - text: 
+          - generic [ref=e224]: Using multiple tools ()
+      - link "This lesson has been completed. Fine grained tool calling" [ref=e225] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/313160
+        - generic "Fine grained tool calling" [ref=e226]:
+          - generic "This lesson has been completed." [ref=e228]: 
+          - text: 
+          - generic [ref=e229]: Fine grained tool calling ()
+      - link "This lesson has not been completed. The text edit tool" [ref=e230] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287760
+        - generic "The text edit tool" [ref=e231]:
+          - generic "This lesson has not been completed." [ref=e233]: 
+          - text: 
+          - generic [ref=e234]: The text edit tool ()
+      - link "This lesson has not been completed. The web search tool" [ref=e235] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287755
+        - generic "The web search tool" [ref=e236]:
+          - generic "This lesson has not been completed." [ref=e238]: 
+          - text: 
+          - generic [ref=e239]: The web search tool ()
+      - link "This lesson has not been completed. Quiz on tool use with Claude" [ref=e240] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289122
+        - generic "Quiz on tool use with Claude" [ref=e241]:
+          - generic "This lesson has not been completed." [ref=e243]: 
+          - text: 
+          - generic [ref=e244]: Quiz on tool use with Claude ()
+      - heading "RAG and Agentic Search" [level=3] [ref=e245]
+      - link "This lesson has not been completed. Introducing Retrieval Augmented Generation" [ref=e246] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287763
+        - generic "Introducing Retrieval Augmented Generation" [ref=e247]:
+          - generic "This lesson has not been completed." [ref=e249]: 
+          - text: 
+          - generic [ref=e250]: Introducing Retrieval Augmented Generation ()
+      - link "This lesson has not been completed. Text chunking strategies" [ref=e251] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287776
+        - generic "Text chunking strategies" [ref=e252]:
+          - generic "This lesson has not been completed." [ref=e254]: 
+          - text: 
+          - generic [ref=e255]: Text chunking strategies ()
+      - link "This lesson has not been completed. Text embeddings" [ref=e256] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287759
+        - generic "Text embeddings" [ref=e257]:
+          - generic "This lesson has not been completed." [ref=e259]: 
+          - text: 
+          - generic [ref=e260]: Text embeddings ()
+      - link "This lesson has not been completed. The full RAG flow" [ref=e261] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287764
+        - generic "The full RAG flow" [ref=e262]:
+          - generic "This lesson has not been completed." [ref=e264]: 
+          - text: 
+          - generic [ref=e265]: The full RAG flow ()
+      - link "This lesson has not been completed. Implementing the RAG flow" [ref=e266] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287761
+        - generic "Implementing the RAG flow" [ref=e267]:
+          - generic "This lesson has not been completed." [ref=e269]: 
+          - text: 
+          - generic [ref=e270]: Implementing the RAG flow ()
+      - link "This lesson has not been completed. BM25 lexical search" [ref=e271] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287767
+        - generic "BM25 lexical search" [ref=e272]:
+          - generic "This lesson has not been completed." [ref=e274]: 
+          - text: 
+          - generic [ref=e275]: BM25 lexical search ()
+      - link "This lesson has not been completed. A Multi-Index RAG pipeline" [ref=e276] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287766
+        - generic "A Multi-Index RAG pipeline" [ref=e277]:
+          - generic "This lesson has not been completed." [ref=e279]: 
+          - text: 
+          - generic [ref=e280]: A Multi-Index RAG pipeline ()
+      - heading "Features of Claude" [level=3] [ref=e281]
+      - link "This lesson has been completed. Extended thinking" [ref=e282] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287773
+        - generic "Extended thinking" [ref=e283]:
+          - generic "This lesson has been completed." [ref=e285]: 
+          - text: 
+          - generic [ref=e286]: Extended thinking ()
+      - link "This lesson has not been completed. Image support" [ref=e287] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287778
+        - generic "Image support" [ref=e288]:
+          - generic "This lesson has not been completed." [ref=e290]: 
+          - text: 
+          - generic [ref=e291]: Image support ()
+      - link "This lesson has not been completed. PDF support" [ref=e292] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287768
+        - generic "PDF support" [ref=e293]:
+          - generic "This lesson has not been completed." [ref=e295]: 
+          - text: 
+          - generic [ref=e296]: PDF support ()
+      - link "This lesson has been completed. Citations" [ref=e297] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287771
+        - generic "Citations" [ref=e298]:
+          - generic "This lesson has been completed." [ref=e300]: 
+          - text: 
+          - generic [ref=e301]: Citations ()
+      - link "This lesson has been completed. Prompt caching" [ref=e302] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287772
+        - generic "Prompt caching" [ref=e303]:
+          - generic "This lesson has been completed." [ref=e305]: 
+          - text: 
+          - generic [ref=e306]: Prompt caching ()
+      - link "This lesson has been completed. Rules of prompt caching" [ref=e307] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287770
+        - generic "Rules of prompt caching" [ref=e308]:
+          - generic "This lesson has been completed." [ref=e310]: 
+          - text: 
+          - generic [ref=e311]: Rules of prompt caching ()
+      - link "This lesson has not been completed. Prompt caching in action" [ref=e312] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287774
+        - generic "Prompt caching in action" [ref=e313]:
+          - generic "This lesson has not been completed." [ref=e315]: 
+          - text: 
+          - generic [ref=e316]: Prompt caching in action ()
+      - link "This lesson has not been completed. Code execution and the Files API" [ref=e317] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287777
+        - generic "Code execution and the Files API" [ref=e318]:
+          - generic "This lesson has not been completed." [ref=e320]: 
+          - text: 
+          - generic [ref=e321]: Code execution and the Files API ()
+      - link "This lesson has not been completed. Quiz on features of Claude" [ref=e322] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289124
+        - generic "Quiz on features of Claude" [ref=e323]:
+          - generic "This lesson has not been completed." [ref=e325]: 
+          - text: 
+          - generic [ref=e326]: Quiz on features of Claude ()
+      - heading "Model Context Protocol" [level=3] [ref=e327]
+      - link "This lesson has been completed. Introducing MCP" [ref=e328] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287780
+        - generic "Introducing MCP" [ref=e329]:
+          - generic "This lesson has been completed." [ref=e331]: 
+          - text: 
+          - generic [ref=e332]: Introducing MCP ()
+      - link "This lesson has been completed. MCP clients" [ref=e333] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287775
+        - generic "MCP clients" [ref=e334]:
+          - generic "This lesson has been completed." [ref=e336]: 
+          - text: 
+          - generic [ref=e337]: MCP clients ()
+      - link "This lesson has not been completed. Project setup" [ref=e338] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287785
+        - generic "Project setup" [ref=e339]:
+          - generic "This lesson has not been completed." [ref=e341]: 
+          - text: 
+          - generic [ref=e342]: Project setup ()
+      - link "This lesson has been completed. Defining tools with MCP" [ref=e343] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287797
+        - generic "Defining tools with MCP" [ref=e344]:
+          - generic "This lesson has been completed." [ref=e346]: 
+          - text: 
+          - generic [ref=e347]: Defining tools with MCP ()
+      - link "This lesson has not been completed. The server inspector" [ref=e348] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287781
+        - generic "The server inspector" [ref=e349]:
+          - generic "This lesson has not been completed." [ref=e351]: 
+          - text: 
+          - generic [ref=e352]: The server inspector ()
+      - link "This lesson has not been completed. Implementing a client" [ref=e353] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287793
+        - generic "Implementing a client" [ref=e354]:
+          - generic "This lesson has not been completed." [ref=e356]: 
+          - text: 
+          - generic [ref=e357]: Implementing a client ()
+      - link "This lesson has been completed. Defining resources" [ref=e358] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287782
+        - generic "Defining resources" [ref=e359]:
+          - generic "This lesson has been completed." [ref=e361]: 
+          - text: 
+          - generic [ref=e362]: Defining resources ()
+      - link "This lesson has not been completed. Accessing resources" [ref=e363] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287783
+        - generic "Accessing resources" [ref=e364]:
+          - generic "This lesson has not been completed." [ref=e366]: 
+          - text: 
+          - generic [ref=e367]: Accessing resources ()
+      - link "This lesson has been completed. Defining prompts" [ref=e368] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287784
+        - generic "Defining prompts" [ref=e369]:
+          - generic "This lesson has been completed." [ref=e371]: 
+          - text: 
+          - generic [ref=e372]: Defining prompts ()
+      - link "This lesson has not been completed. Prompts in the client" [ref=e373] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287786
+        - generic "Prompts in the client" [ref=e374]:
+          - generic "This lesson has not been completed." [ref=e376]: 
+          - text: 
+          - generic [ref=e377]: Prompts in the client ()
+      - link "This lesson has been completed. MCP review" [ref=e378] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287790
+        - generic "MCP review" [ref=e379]:
+          - generic "This lesson has been completed." [ref=e381]: 
+          - text: 
+          - generic [ref=e382]: MCP review ()
+      - link "This lesson has not been completed. Quiz on Model Context Protocol" [ref=e383] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289126
+        - generic "Quiz on Model Context Protocol" [ref=e384]:
+          - generic "This lesson has not been completed." [ref=e386]: 
+          - text: 
+          - generic [ref=e387]: Quiz on Model Context Protocol ()
+      - heading "Anthropic apps - Claude Code and computer use" [level=3] [ref=e388]
+      - link "This lesson has not been completed. Anthropic apps" [ref=e389] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287787
+        - generic "Anthropic apps" [ref=e390]:
+          - generic "This lesson has not been completed." [ref=e392]: 
+          - text: 
+          - generic [ref=e393]: Anthropic apps ()
+      - link "This lesson has not been completed. Claude Code setup" [ref=e394] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287788
+        - generic "Claude Code setup" [ref=e395]:
+          - generic "This lesson has not been completed." [ref=e397]: 
+          - text: 
+          - generic [ref=e398]: Claude Code setup ()
+      - link "This lesson has not been completed. Claude Code in action" [ref=e399] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287805
+        - generic "Claude Code in action" [ref=e400]:
+          - generic "This lesson has not been completed." [ref=e402]: 
+          - text: 
+          - generic [ref=e403]: Claude Code in action ()
+      - link "This lesson has not been completed. Enhancements with MCP servers" [ref=e404] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287792
+        - generic "Enhancements with MCP servers" [ref=e405]:
+          - generic "This lesson has not been completed." [ref=e407]: 
+          - text: 
+          - generic [ref=e408]: Enhancements with MCP servers ()
+      - heading "Agents and workflows" [level=3] [ref=e409]
+      - link "This lesson has been completed. Agents and workflows" [ref=e410] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287796
+        - generic "Agents and workflows" [ref=e411]:
+          - generic "This lesson has been completed." [ref=e413]: 
+          - text: 
+          - generic [ref=e414]: Agents and workflows ()
+      - link "This lesson has been completed. Parallelization workflows" [ref=e415] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287804
+        - generic "Parallelization workflows" [ref=e416]:
+          - generic "This lesson has been completed." [ref=e418]: 
+          - text: 
+          - generic [ref=e419]: Parallelization workflows ()
+      - link "This lesson has been completed. Chaining workflows" [ref=e420] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287800
+        - generic "Chaining workflows" [ref=e421]:
+          - generic "This lesson has been completed." [ref=e423]: 
+          - text: 
+          - generic [ref=e424]: Chaining workflows ()
+      - link "This lesson has been completed. Routing workflows" [ref=e425] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287801
+        - generic "Routing workflows" [ref=e426]:
+          - generic "This lesson has been completed." [ref=e428]: 
+          - text: 
+          - generic [ref=e429]: Routing workflows ()
+      - link "This lesson has been completed. Agents and tools" [ref=e430] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287803
+        - generic "Agents and tools" [ref=e431]:
+          - generic "This lesson has been completed." [ref=e433]: 
+          - text: 
+          - generic [ref=e434]: Agents and tools ()
+      - link "This lesson has not been completed. Environment inspection" [ref=e435] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287798
+        - generic "Environment inspection" [ref=e436]:
+          - generic "This lesson has not been completed." [ref=e438]: 
+          - text: 
+          - generic [ref=e439]: Environment inspection ()
+      - link "This lesson has been completed. Workflows vs agents" [ref=e440] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287794
+        - generic "Workflows vs agents" [ref=e441]:
+          - generic "This lesson has been completed." [ref=e443]: 
+          - text: 
+          - generic [ref=e444]: Workflows vs agents ()
+      - link "This lesson has not been completed. Quiz on Agents and Workflows" [ref=e445] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/289130
+        - generic "Quiz on Agents and Workflows" [ref=e446]:
+          - generic "This lesson has not been completed." [ref=e448]: 
+          - text: 
+          - generic [ref=e449]: Quiz on Agents and Workflows ()
+      - heading "Final assessment" [level=3] [ref=e450]
+      - link "This lesson has not been completed. Final Assessment" [ref=e451] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/290899
+        - generic "Final Assessment" [ref=e452]:
+          - generic "This lesson has not been completed." [ref=e454]: 
+          - text: 
+          - generic [ref=e455]: Final Assessment ()
+      - heading "Wrapping up!" [level=3] [ref=e456]
+      - link "This lesson has not been completed. Course Wrap Up" [ref=e457] [cursor=pointer]:
+        - /url: /claude-with-the-anthropic-api/287802
+        - generic "Course Wrap Up" [ref=e458]:
+          - generic "This lesson has not been completed." [ref=e460]: 
+          - text: 
+          - generic [ref=e461]: Course Wrap Up ()
+  - generic [ref=e464]:
+    - generic [ref=e466]:
+      - generic [ref=e467]:
+        - heading "Making a request" [level=2] [ref=e468]
+        - generic [ref=e469]:
+          - button "Anthropic Open in Claude" [ref=e470] [cursor=pointer]:
+            - generic [ref=e471]:
+              - img "Anthropic" [ref=e472]
+              - generic [ref=e474]: Open in Claude
+          - button [ref=e475] [cursor=pointer]:
+            - img [ref=e476]
+      - generic [ref=e480]:
+        - application "Video Player - 03 - 003 - Making a Request.mp4" [ref=e482]:
+          - generic [ref=e484]:
+            - generic [ref=e488]: 0 seconds of 6 minutes, 2 secondsVolume 90%
+            - generic:
+              - button "Play" [ref=e489] [cursor=pointer]:
+                - img
+              - generic [ref=e490]:
+                - slider "Seek" [ref=e491] [cursor=pointer]
+                - generic [ref=e498]:
+                  - button "Play" [ref=e499] [cursor=pointer]:
+                    - img
+                  - button "Rewind 10 Seconds" [ref=e500] [cursor=pointer]:
+                    - img
+                  - group "Mute button" [ref=e501] [cursor=pointer]:
+                    - slider "Volume"
+                    - img
+                  - status
+                  - timer [ref=e502]: 00:00
+                  - timer [ref=e503]: / 06:02
+                  - button "Closed Captions" [ref=e504] [cursor=pointer]:
+                    - img
+                  - button "Settings" [ref=e505] [cursor=pointer]:
+                    - img
+                  - button "Picture in Picture (PiP)" [ref=e506] [cursor=pointer]:
+                    - img
+                  - button "Fullscreen" [ref=e507] [cursor=pointer]:
+                    - img
+        - text: 
+    - generic [ref=e514]:
+      - paragraph [ref=e515]: Making your first request to the Anthropic API is straightforward once you understand the basic setup and structure. This guide walks through the essential steps to get Claude responding to your prompts using Python.
+      - heading "Setting Up Your Environment" [level=2] [ref=e516]
+      - paragraph [ref=e517]: Before making any API calls, you need to install the required packages and configure your API key securely.
+      - paragraph [ref=e518]: "First, install the necessary dependencies in your Jupyter notebook:"
+      - code [ref=e520]: "%pip install anthropic python-dotenv"
+      - paragraph [ref=e521]:
+        - text: Next, create a
+        - code [ref=e522]: .env
+        - text: "file in the same directory as your notebook to store your API key securely:"
+      - code [ref=e524]: ANTHROPIC_API_KEY="your-api-key-here"
+      - paragraph [ref=e525]:
+        - text: This approach keeps your API key out of your code and prevents accidentally committing it to version control. Always add
+        - code [ref=e526]: .env
+        - text: to your
+        - code [ref=e527]: .gitignore
+        - text: file.
+      - paragraph [ref=e528]: "Load the environment variables and create your API client:"
+      - code [ref=e530]: from dotenv import load_dotenv load_dotenv() from anthropic import Anthropic client = Anthropic() model = "claude-sonnet-4-0"
+      - heading "The Create Function" [level=2] [ref=e531]
+      - paragraph [ref=e532]:
+        - text: The core of making API requests is the
+        - code [ref=e533]: client.messages.create()
+        - text: "function. This function requires three key parameters:"
+      - paragraph [ref=e534]:
+        - img [ref=e535]
+      - list [ref=e536]:
+        - listitem [ref=e537]:
+          - strong [ref=e538]: model
+          - text: "- The name of the Claude model you want to use"
+        - listitem [ref=e539]:
+          - strong [ref=e540]: max_tokens
+          - text: "- A safety limit on response length (not a target)"
+        - listitem [ref=e541]:
+          - strong [ref=e542]: messages
+          - text: "- The conversation history you're sending to Claude"
+      - paragraph [ref=e543]:
+        - text: The
+        - code [ref=e544]: max_tokens
+        - text: parameter acts as a safety mechanism. If you set it to 1000, Claude will stop generating after 1000 tokens even if it has more to say. Claude doesn't try to reach this limit - it just writes what it thinks is appropriate and stops if it hits the maximum.
+      - heading "Understanding Messages" [level=2] [ref=e545]
+      - paragraph [ref=e546]: "Messages represent the conversation between you and Claude, similar to a chat application. There are two types of messages:"
+      - paragraph [ref=e547]:
+        - img [ref=e548]
+      - list [ref=e549]:
+        - listitem [ref=e550]:
+          - strong [ref=e551]: User messages
+          - text: "- Content you want to send to Claude (written by humans)"
+        - listitem [ref=e552]:
+          - strong [ref=e553]: Assistant messages
+          - text: "- Responses that Claude has generated"
+      - paragraph [ref=e554]:
+        - text: Each message is a dictionary with a
+        - code [ref=e555]: role
+        - text: (either "user" or "assistant") and
+        - code [ref=e556]: content
+        - text: (the actual text).
+      - heading "Making Your First Request" [level=2] [ref=e557]
+      - paragraph [ref=e558]: "Here's a complete example of making a request to Claude:"
+      - code [ref=e560]: "message = client.messages.create( model=model, max_tokens=1000, messages=[ { \"role\": \"user\", \"content\": \"What is quantum computing? Answer in one sentence\" } ] )"
+      - paragraph [ref=e561]: When you run this code, Claude will process your request and return a response object containing the generated text along with metadata about the request.
+      - heading "Extracting the Response" [level=2] [ref=e562]
+      - paragraph [ref=e563]: "The response object contains a lot of information, but you usually just want the generated text. Access it using:"
+      - code [ref=e565]: message.content[0].text
+      - paragraph [ref=e566]: "This gives you clean, readable output like: \"Quantum computing is a type of computation that leverages quantum mechanics principles like superposition and entanglement to process information using quantum bits (qubits), potentially solving certain complex problems exponentially faster than classical computers.\""
+      - paragraph [ref=e567]: With these basics in place, you can start experimenting with different prompts and building more complex interactions with Claude.
+  - contentinfo [ref=e568]:
+    - link "Previous - Getting an API key" [ref=e570] [cursor=pointer]:
+      - /url: /claude-with-the-anthropic-api/296766
+      - generic [ref=e571]:
+        - generic [ref=e572]: 
+        - generic [ref=e573]: Previous
+        - generic [ref=e574]: "- Getting an API key"
+    - generic [ref=e576]:
+      - generic [ref=e578]:
+        - generic [ref=e579]: Multi-Turn conversations
+        - button "Next" [ref=e580] [cursor=pointer]
+      - button "Toggle fullscreen" [ref=e581] [cursor=pointer]:
+        - generic [ref=e583]: 

@@ -1,0 +1,392 @@
+[
+  {
+    "id": "d3-claude-md",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "CLAUDE.md Hierarchy and Memory System",
+    "content": "\n      <h3>CLAUDE.md: The Persistent Context Layer</h3>\n      <p>CLAUDE.md files are the primary mechanism for providing persistent, project-level instructions to Claude Code. Unlike conversation history which is ephemeral, CLAUDE.md content is loaded into <strong>every session</strong> and survives compaction. Understanding the four-scope hierarchy, import system, and auto-memory behavior is essential for effective Claude Code configuration.</p>\n\n      <h4>The Four Scopes (Resolution Order)</h4>\n      <p>Claude Code loads CLAUDE.md files from four distinct scopes. All discovered files are <strong>concatenated</strong>, not overriding each other &mdash; every scope's instructions are additive.</p>\n      <table>\n        <thead><tr><th>Scope</th><th>Location</th><th>Purpose</th><th>Shared With</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Managed Policy</strong></td><td>macOS: <code>/Library/Application Support/ClaudeCode/CLAUDE.md</code><br>Linux/WSL: <code>/etc/claude-code/CLAUDE.md</code><br>Windows: <code>C:\\Program Files\\ClaudeCode\\CLAUDE.md</code></td><td>Organization-wide instructions managed by IT/DevOps</td><td>All users in org</td></tr>\n          <tr><td><strong>Project</strong></td><td><code>./CLAUDE.md</code> or <code>./.claude/CLAUDE.md</code></td><td>Team-shared instructions</td><td>Team via source control</td></tr>\n          <tr><td><strong>User</strong></td><td><code>~/.claude/CLAUDE.md</code></td><td>Personal preferences for all projects</td><td>Just you (all projects)</td></tr>\n          <tr><td><strong>Local</strong></td><td><code>./CLAUDE.local.md</code></td><td>Personal project-specific preferences</td><td>Just you (current project; add to <code>.gitignore</code>)</td></tr>\n        </tbody>\n      </table>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: Managed Policy Cannot Be Excluded</div>\n        <p>The managed policy CLAUDE.md <strong>cannot be excluded</strong> by <code>claudeMdExcludes</code> or any user/project setting. This is a deliberate security constraint for enterprise environments.</p>\n      </div>\n\n      <h4>Directory Walk-Up Behavior</h4>\n      <p>Claude Code walks <strong>up</strong> the directory tree from the current working directory. Running in <code>foo/bar/</code> loads <code>foo/bar/CLAUDE.md</code>, then <code>foo/CLAUDE.md</code>, then the root. Within each directory, <code>CLAUDE.local.md</code> is appended <strong>after</strong> <code>CLAUDE.md</code>. Subdirectory CLAUDE.md files load <strong>on demand</strong> when Claude reads files in those subdirectories.</p>\n\n      <h4>@import Syntax</h4>\n      <p>Import additional files into CLAUDE.md context using the <code>@path/to/file</code> syntax. This is <strong>not</strong> <code>@import</code> &mdash; just the <code>@</code> prefix followed by the path.</p>\n\n<pre><code class=\"language-markdown\"># Project Instructions\nSee @README.md for project overview.\nGit workflow: @docs/git-instructions.md\nPersonal prefs: @~/.claude/my-project-instructions.md</code></pre>\n\n      <table>\n        <thead><tr><th>Feature</th><th>Detail</th></tr></thead>\n        <tbody>\n          <tr><td>Path types</td><td>Both <strong>relative</strong> and <strong>absolute</strong> paths supported</td></tr>\n          <tr><td>Relative resolution</td><td>Relative to <strong>the file containing the import</strong>, NOT the working directory</td></tr>\n          <tr><td>Recursive depth</td><td>Imported files can import others, max <strong>5 hops</strong></td></tr>\n          <tr><td>Approval</td><td>First encounter of external imports shows approval dialog; declining permanently disables those imports</td></tr>\n        </tbody>\n      </table>\n\n      <h4>claudeMdExcludes Setting</h4>\n      <p>Skip specific CLAUDE.md files by path or glob pattern. Patterns are matched against <strong>absolute file paths</strong>. Arrays merge across settings layers.</p>\n\n<pre><code class=\"language-json\">{\n  \"claudeMdExcludes\": [\n    \"**/monorepo/CLAUDE.md\",\n    \"/home/user/monorepo/other-team/.claude/rules/**\"\n  ]\n}</code></pre>\n\n      <h4>AGENTS.md Compatibility</h4>\n      <p>Claude Code reads <code>CLAUDE.md</code>, <strong>not</strong> <code>AGENTS.md</code>. To share instructions across tools that use the open-standard AGENTS.md, import it:</p>\n\n<pre><code class=\"language-markdown\"># CLAUDE.md\n@AGENTS.md\n\n## Claude Code-Specific\nUse plan mode for changes under src/billing/.</code></pre>\n\n      <h4>Auto Memory (MEMORY.md)</h4>\n      <p>Claude automatically saves learnings (build commands, debugging insights, architecture notes) to a separate memory system at <code>~/.claude/projects/&lt;project&gt;/memory/</code>.</p>\n      <table>\n        <thead><tr><th>Aspect</th><th>CLAUDE.md</th><th>Auto Memory</th></tr></thead>\n        <tbody>\n          <tr><td>Who writes it</td><td>You (the developer)</td><td>Claude</td></tr>\n          <tr><td>Loaded at startup</td><td>Full content</td><td>First <strong>200 lines</strong> or <strong>25KB</strong> (whichever first)</td></tr>\n          <tr><td>Topic files</td><td>N/A</td><td>Loaded on demand (not at startup)</td></tr>\n          <tr><td>Toggle</td><td>Always on</td><td><code>/memory</code> command or <code>autoMemoryEnabled: false</code></td></tr>\n          <tr><td>Env disable</td><td>N/A</td><td><code>CLAUDE_CODE_DISABLE_AUTO_MEMORY=1</code></td></tr>\n        </tbody>\n      </table>\n\n      <h4>Compaction Behavior</h4>\n      <p>Project-root CLAUDE.md <strong>survives compaction</strong> &mdash; it is re-read from disk and re-injected. Nested subdirectory CLAUDE.md files are <strong>not</strong> automatically re-injected; they reload when Claude reads files in that subdirectory again. Use a &quot;Compact Instructions&quot; section in CLAUDE.md for content that must survive summarization.</p>\n\n      <h4>The /init Command</h4>\n      <p><code>/init</code> generates a starting CLAUDE.md automatically. If one exists, it suggests improvements without overwriting. Enable the interactive multi-phase flow (CLAUDE.md, skills, hooks) with <code>CLAUDE_CODE_NEW_INIT=1</code>.</p>\n\n      <h4>Writing Effective Instructions</h4>\n      <ul>\n        <li>Target <strong>under 200 lines</strong> per CLAUDE.md file</li>\n        <li>Use markdown headers and bullets for scannability</li>\n        <li>Be specific and verifiable &mdash; avoid vague guidance</li>\n        <li>Include: build commands Claude can't guess, non-default code style, test instructions, architecture decisions</li>\n        <li>Exclude: anything Claude can infer from code, standard conventions, frequently changing info</li>\n        <li>Use emphasis (<code>IMPORTANT</code>, <code>YOU MUST</code>) for critical rules</li>\n      </ul>\n\n      <div class=\"callout callout-tip\">\n        <div class=\"callout-title\">Anti-Pattern: Over-Specified CLAUDE.md</div>\n        <p>If CLAUDE.md exceeds ~200 lines, rules get lost in context. Move procedures and reference material into <strong>skills</strong> (loaded on-demand) and keep CLAUDE.md for facts and conventions only.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/memory",
+    "doc_label": "CLAUDE.md & Memory Docs",
+    "related_topics": ["d3-rules", "d3-skills", "d3-settings", "d5-context-strategies"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Adding context",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+      },
+      {
+        "course": "Introduction to Claude Cowork",
+        "lesson": "Giving Cowork Context",
+        "url": "https://anthropic.skilljar.com/introduction-to-claude-cowork"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "CLAUDE.md files provide persistent project instructions loaded every session across four scopes: managed policy (cannot be excluded), project, user, and local (CLAUDE.local.md, gitignored). Files walk up the directory tree and are concatenated. The @path/to/file import syntax supports relative paths resolved from the containing file, with a maximum depth of 5 hops. Auto memory (MEMORY.md) loads the first 200 lines or 25KB at session start. Project-root CLAUDE.md survives compaction; subdirectory files do not.",
+    "key_concepts": [
+      {
+        "term": "Four CLAUDE.md Scopes",
+        "definition": "Managed policy (org-wide, cannot be excluded), project (./CLAUDE.md), user (~/.claude/CLAUDE.md), and local (./CLAUDE.local.md, gitignored). All are concatenated additively."
+      },
+      {
+        "term": "@import Syntax",
+        "definition": "Use @path/to/file (not @import) to include additional files. Relative paths resolve from the containing file. Max 5 recursive hops."
+      },
+      {
+        "term": "CLAUDE.local.md",
+        "definition": "Personal project-specific instructions that should be added to .gitignore. Appended after CLAUDE.md within the same directory."
+      },
+      {
+        "term": "claudeMdExcludes",
+        "definition": "Settings array that skips specific CLAUDE.md files by glob pattern. Managed policy CLAUDE.md cannot be excluded."
+      },
+      {
+        "term": "Auto Memory (MEMORY.md)",
+        "definition": "Claude's self-managed memory at ~/.claude/projects/<project>/memory/. First 200 lines or 25KB loaded at startup. Topic files load on demand."
+      },
+      {
+        "term": "Compaction Survival",
+        "definition": "Project-root CLAUDE.md is re-read from disk and re-injected after compaction. Subdirectory CLAUDE.md files are NOT re-injected automatically."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-rules",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "Rules Directory and Path-Scoped Instructions",
+    "content": "\n      <h3>Organizing Instructions with .claude/rules/</h3>\n      <p>The <code>.claude/rules/</code> directory provides a structured way to organize project instructions into modular, topic-specific files. Unlike a monolithic CLAUDE.md, rules can be <strong>path-scoped</strong> &mdash; they load only when Claude works with files matching specific glob patterns, keeping context lean.</p>\n\n      <h4>Directory Structure</h4>\n      <p>All <code>.md</code> files within <code>.claude/rules/</code> are discovered <strong>recursively</strong>, so you can organize them in subdirectories.</p>\n\n<pre><code class=\"language-text\">your-project/\n  .claude/\n    CLAUDE.md\n    rules/\n      code-style.md          # Unconditional (no paths)\n      testing.md              # Unconditional\n      security.md             # Unconditional\n      frontend/\n        react-patterns.md     # Path-triggered\n        css-guidelines.md     # Path-triggered</code></pre>\n\n      <h4>Unconditional vs Path-Triggered Rules</h4>\n      <table>\n        <thead><tr><th>Type</th><th>Frontmatter</th><th>Loaded When</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Unconditional</strong></td><td>No <code>paths</code> field (or absent frontmatter)</td><td>At launch &mdash; same priority as <code>.claude/CLAUDE.md</code></td></tr>\n          <tr><td><strong>Path-triggered</strong></td><td>Has <code>paths</code> YAML frontmatter</td><td>When Claude <strong>reads files matching the glob pattern</strong></td></tr>\n        </tbody>\n      </table>\n\n      <h4>Path-Triggered Rules with YAML Frontmatter</h4>\n\n<pre><code class=\"language-markdown\">---\npaths:\n  - \"src/api/**/*.ts\"\n---\n\n# API Development Rules\n- All API endpoints must include input validation\n- Use Zod schemas for request/response types\n- Include error handling middleware</code></pre>\n\n      <p>Glob patterns follow standard conventions:</p>\n      <table>\n        <thead><tr><th>Pattern</th><th>Matches</th></tr></thead>\n        <tbody>\n          <tr><td><code>**/*.ts</code></td><td>All TypeScript files in any directory</td></tr>\n          <tr><td><code>src/**/*</code></td><td>All files under <code>src/</code></td></tr>\n          <tr><td><code>*.md</code></td><td>Markdown files in project root only</td></tr>\n          <tr><td><code>src/components/*.tsx</code></td><td>React components in specific directory</td></tr>\n          <tr><td><code>src/**/*.{ts,tsx}</code></td><td>Brace expansion for multiple extensions</td></tr>\n        </tbody>\n      </table>\n\n      <h4>User-Level Rules</h4>\n      <p>Personal rules at <code>~/.claude/rules/</code> apply to <strong>every project</strong>. They are loaded <strong>before</strong> project rules, meaning project rules have <strong>higher priority</strong> and can override user-level guidance when both apply to the same concern.</p>\n\n<pre><code class=\"language-text\">~/.claude/\n  rules/\n    my-code-style.md     # Your personal style preferences\n    git-workflow.md      # Your personal git habits</code></pre>\n\n      <h4>Priority and Loading Behavior</h4>\n      <ul>\n        <li>User rules (<code>~/.claude/rules/</code>) load first</li>\n        <li>Project rules (<code>.claude/rules/</code>) load with higher priority</li>\n        <li>Rules without <code>paths</code> load at the same priority as <code>.claude/CLAUDE.md</code></li>\n        <li>Path-triggered rules load on demand when matching files enter context</li>\n        <li>Symlinks are supported; circular symlinks are detected gracefully</li>\n      </ul>\n\n      <div class=\"callout callout-tip\">\n        <div class=\"callout-title\">When to Use Rules vs CLAUDE.md</div>\n        <p><strong>CLAUDE.md</strong> is best for project-wide facts that always apply: build commands, architecture overview, team conventions. <strong>Rules</strong> are best for domain-specific guidance scoped to file types or directories: API patterns for <code>src/api/</code>, React patterns for <code>*.tsx</code>, database conventions for <code>migrations/</code>. This keeps context lean &mdash; path-triggered rules only load when relevant.</p>\n      </div>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: Loading Distinction</div>\n        <p>Rules <strong>without</strong> <code>paths</code> frontmatter load unconditionally at launch. Rules <strong>with</strong> <code>paths</code> frontmatter load only when Claude reads files matching the pattern. This distinction is a common exam question.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/memory",
+    "doc_label": "Rules Directory Docs",
+    "related_topics": ["d3-claude-md", "d3-skills"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Adding context",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "The .claude/rules/ directory organizes modular project instructions as markdown files. Rules without a paths frontmatter field load unconditionally at launch. Rules with paths frontmatter load only when Claude reads files matching the glob patterns. User-level rules at ~/.claude/rules/ apply to all projects but have lower priority than project rules. Files are discovered recursively, supporting subdirectories and symlinks.",
+    "key_concepts": [
+      {
+        "term": "Unconditional Rules",
+        "definition": "Rules without a paths field in YAML frontmatter. Loaded at launch alongside .claude/CLAUDE.md."
+      },
+      {
+        "term": "Path-Triggered Rules",
+        "definition": "Rules with a paths field containing glob patterns. Loaded on demand only when Claude reads files matching those patterns."
+      },
+      {
+        "term": "User-Level Rules",
+        "definition": "Rules at ~/.claude/rules/ that apply to every project. Loaded before project rules (lower priority)."
+      },
+      {
+        "term": "Recursive Discovery",
+        "definition": "All .md files within .claude/rules/ are discovered recursively, including subdirectories. Symlinks supported."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-skills",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "Skills System",
+    "content": "\n      <h3>Skills: On-Demand Instructions and Workflows</h3>\n      <p>Skills are the primary mechanism for packaging reusable instructions, scripts, and resources that Claude loads <strong>only when relevant</strong>. Unlike CLAUDE.md (loaded every session), skills use <strong>progressive disclosure</strong> to minimize context cost until actually needed. Skills follow the Agent Skills open standard and extend it with Claude Code-specific features.</p>\n\n      <h4>Progressive Disclosure (Three-Tier Loading)</h4>\n      <table>\n        <thead><tr><th>Tier</th><th>What Loads</th><th>Context Cost</th><th>When</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Metadata</strong></td><td>Name + description only</td><td>~100 tokens</td><td>At startup, for all skills</td></tr>\n          <tr><td><strong>Instructions</strong></td><td>Full SKILL.md body</td><td>&lt;5,000 tokens recommended</td><td>When skill is invoked</td></tr>\n          <tr><td><strong>Resources</strong></td><td>Files in scripts/, references/, assets/</td><td>As needed</td><td>During execution</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Directory Structure</h4>\n<pre><code class=\"language-text\">my-skill/\n  SKILL.md           # Main instructions (required)\n  template.md        # Optional template\n  examples/\n    sample.md        # Optional example output\n  scripts/\n    validate.sh      # Optional script</code></pre>\n\n      <h4>Commands-to-Skills Merger</h4>\n      <p>The legacy <code>.claude/commands/</code> system has been merged into skills. Both <code>.claude/commands/deploy.md</code> and <code>.claude/skills/deploy/SKILL.md</code> create the <code>/deploy</code> command. Existing command files keep working, but <strong>if a skill and command share the same name, the skill takes precedence</strong>. New work should use skills for the additional capabilities: directory for supporting files, frontmatter for invocation control, and auto-invocation by Claude.</p>\n\n      <h4>Skill Locations (Priority Order)</h4>\n      <table>\n        <thead><tr><th>Location</th><th>Path</th><th>Priority</th></tr></thead>\n        <tbody>\n          <tr><td>Enterprise (managed)</td><td>Managed settings</td><td>Highest</td></tr>\n          <tr><td>Personal</td><td><code>~/.claude/skills/&lt;name&gt;/SKILL.md</code></td><td>Medium</td></tr>\n          <tr><td>Project</td><td><code>.claude/skills/&lt;name&gt;/SKILL.md</code></td><td>Lower</td></tr>\n          <tr><td>Plugin</td><td><code>&lt;plugin&gt;/skills/&lt;name&gt;/SKILL.md</code></td><td>Namespaced (<code>plugin:skill</code>)</td></tr>\n        </tbody>\n      </table>\n\n      <h4>All SKILL.md Frontmatter Fields</h4>\n<pre><code class=\"language-yaml\">---\nname: my-skill                    # Display name (lowercase, hyphens, max 64 chars)\ndescription: What this skill does  # Recommended; truncated at 1,536 chars with when_to_use\nwhen_to_use: Additional triggers   # Appended to description in listing\nargument-hint: \"[issue-number]\"    # Shown during autocomplete\ndisable-model-invocation: true     # Only user can invoke (removes from context)\nuser-invocable: true               # false = hidden from / menu\nallowed-tools: Read Grep           # Pre-approved tools (space-separated or YAML list)\nmodel: sonnet                      # Model override when active\neffort: high                       # low|medium|high|xhigh|max\ncontext: fork                      # Run in forked subagent\nagent: Explore                     # Subagent type for context:fork\nhooks:                             # Hooks scoped to skill lifecycle\n  PreToolUse:\n    - matcher: \"Bash\"\n      hooks:\n        - type: command\n          command: \"./scripts/check.sh\"\n          once: true\npaths: \"src/**/*.ts\"               # Glob patterns limiting auto-activation\nshell: bash                        # bash (default) or powershell\n---</code></pre>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">14+ Frontmatter Fields</div>\n        <p>Additional open standard fields include <code>license</code>, <code>compatibility</code> (max 500 chars), and <code>metadata</code> (arbitrary key-value mapping). Claude Code extensions beyond the standard: <code>when_to_use</code>, <code>argument-hint</code>, <code>disable-model-invocation</code>, <code>user-invocable</code>, <code>model</code>, <code>effort</code>, <code>context</code>, <code>agent</code>, <code>hooks</code>, <code>paths</code>, <code>shell</code>.</p>\n      </div>\n\n      <h4>String Substitutions</h4>\n      <table>\n        <thead><tr><th>Variable</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>$ARGUMENTS</code></td><td>All arguments passed when invoking</td></tr>\n          <tr><td><code>$ARGUMENTS[N]</code> / <code>$N</code></td><td>Specific argument by 0-based index (shell-style quoting)</td></tr>\n          <tr><td><code>${CLAUDE_SESSION_ID}</code></td><td>Current session ID</td></tr>\n          <tr><td><code>${CLAUDE_SKILL_DIR}</code></td><td>Directory containing SKILL.md</td></tr>\n        </tbody>\n      </table>\n      <p>If <code>$ARGUMENTS</code> is not present in skill content, arguments are appended as <code>ARGUMENTS: &lt;value&gt;</code>.</p>\n\n      <h4>Dynamic Context Injection</h4>\n      <p>The <code>!`command`</code> syntax runs shell commands <strong>before</strong> skill content is sent to Claude. Output replaces the placeholder:</p>\n\n<pre><code class=\"language-yaml\">## Pull request context\n- PR diff: !`gh pr diff`\n- Changed files: !`gh pr diff --name-only`</code></pre>\n\n      <p>Disable with <code>\"disableSkillShellExecution\": true</code> in settings.</p>\n\n      <h4>Invocation Control Matrix</h4>\n      <table>\n        <thead><tr><th>Frontmatter</th><th>User Invokes</th><th>Claude Invokes</th><th>Description in Context</th></tr></thead>\n        <tbody>\n          <tr><td>(default)</td><td>Yes</td><td>Yes</td><td>Always</td></tr>\n          <tr><td><code>disable-model-invocation: true</code></td><td>Yes</td><td><strong>No</strong></td><td><strong>NOT in context</strong></td></tr>\n          <tr><td><code>user-invocable: false</code></td><td><strong>No (hidden from menu)</strong></td><td>Yes</td><td>Always</td></tr>\n        </tbody>\n      </table>\n\n      <h4>context:fork and the agent Field</h4>\n      <p>Setting <code>context: fork</code> runs the skill in an isolated subagent. The skill content becomes the subagent's prompt; it has <strong>no access to conversation history</strong>. The <code>agent</code> field specifies the subagent type: <code>Explore</code>, <code>Plan</code>, <code>general-purpose</code>, or a custom agent name.</p>\n\n      <h4>Compaction Budget</h4>\n      <p>After compaction, skills are re-attached: first <strong>5,000 tokens</strong> of each skill, combined budget of <strong>25,000 tokens</strong> across all re-attached skills. Budget fills from most recently invoked skill; older skills may be dropped entirely.</p>\n\n      <h4>Description Budget</h4>\n      <p>Skill descriptions stay in context so Claude knows what's available. Budget scales at <strong>1% of context window</strong> with a fallback of <strong>8,000 characters</strong>. Each entry's combined <code>description</code> + <code>when_to_use</code> is capped at <strong>1,536 characters</strong>. Override with <code>SLASH_COMMAND_TOOL_CHAR_BUDGET</code> env var.</p>\n\n      <h4>Extended Thinking</h4>\n      <p>Include the word <strong>\"ultrathink\"</strong> anywhere in skill content to enable extended thinking for that skill's execution.</p>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/skills",
+    "doc_label": "Skills System Docs",
+    "related_topics": ["d3-claude-md", "d1-subagent-config", "d3-agent-sdk"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Agent Skills",
+        "lesson": "What are skills?",
+        "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+      },
+      {
+        "course": "Introduction to Agent Skills",
+        "lesson": "Configuration and multi-file skills",
+        "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
+      },
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Custom commands",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/303234"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Skills package reusable instructions with progressive disclosure: metadata (~100 tokens) at startup, full SKILL.md on invocation, resources as needed. Skills have 14+ frontmatter fields including invocation control (disable-model-invocation, user-invocable), context:fork for subagent isolation, and dynamic shell injection with !`command`. The commands-to-skills merger means both .claude/commands/ and .claude/skills/ create slash commands, with skills taking precedence. Description budget is 1% of context window (8K fallback), per-entry cap of 1,536 chars. Compaction re-attaches 5K tokens per skill, 25K total.",
+    "key_concepts": [
+      {
+        "term": "Progressive Disclosure",
+        "definition": "Three-tier loading: metadata (~100 tokens) at startup, instructions (<5K tokens) on invocation, resources as needed. Minimizes context cost."
+      },
+      {
+        "term": "disable-model-invocation",
+        "definition": "When true, only users can invoke the skill (via /name). Removes description from context entirely, preventing Claude from auto-invoking."
+      },
+      {
+        "term": "context: fork",
+        "definition": "Runs skill in an isolated subagent with no conversation history access. Skill content becomes the subagent's prompt."
+      },
+      {
+        "term": "Commands-to-Skills Merger",
+        "definition": ".claude/commands/ and .claude/skills/ both create slash commands. If both exist with the same name, the skill takes precedence."
+      },
+      {
+        "term": "Description Cap (1,536 chars)",
+        "definition": "Combined description + when_to_use text is truncated at 1,536 characters per skill in the listing context."
+      },
+      {
+        "term": "Compaction Budget",
+        "definition": "After compaction: 5,000 tokens per skill, 25,000 tokens combined. Filled from most recently invoked skill."
+      },
+      {
+        "term": "Dynamic Context Injection",
+        "definition": "The !`command` syntax runs shell commands before skill content reaches Claude. Output replaces the placeholder."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-plan-mode",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "Plan Mode and Permission Modes",
+    "content": "\n      <h3>Permission Modes: Controlling Claude's Autonomy</h3>\n      <p>Claude Code provides six permission modes that govern what actions Claude can take without explicit approval. Understanding these modes, their evaluation order, and how to configure them is critical for both security and productivity.</p>\n\n      <h4>The Six Permission Modes</h4>\n      <table>\n        <thead><tr><th>Mode</th><th>Auto-Approves</th><th>Best For</th></tr></thead>\n        <tbody>\n          <tr><td><code>default</code></td><td>Reads only</td><td>Getting started, sensitive work</td></tr>\n          <tr><td><code>acceptEdits</code></td><td>Reads, file edits, common filesystem commands (mkdir, touch, mv, cp, rm, rmdir, sed)</td><td>Iterating on code</td></tr>\n          <tr><td><code>plan</code></td><td>Reads only (<strong>no edits at all</strong>)</td><td>Exploring before changing</td></tr>\n          <tr><td><code>auto</code></td><td>Everything, with background safety classifier</td><td>Long tasks, reducing prompt fatigue</td></tr>\n          <tr><td><code>dontAsk</code></td><td>Only pre-approved tools via allow rules</td><td>Locked-down CI/scripts</td></tr>\n          <tr><td><code>bypassPermissions</code></td><td>Everything except protected paths</td><td>Isolated containers/VMs only</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Plan Mode Deep Dive</h4>\n      <p>Plan mode uses a <strong>read-only subagent</strong> that inherits the main conversation's model. Write and Edit tools are <strong>denied</strong>. The subagent gathers context, researches the codebase, and presents a plan.</p>\n      <ul>\n        <li>Activate via CLI: <code>--permission-mode plan</code></li>\n        <li>In-session: <code>/plan [description]</code></li>\n        <li>Shift+Tab cycling through modes</li>\n        <li><strong>Ctrl+G</strong> opens the plan in your text editor for direct editing</li>\n        <li>After plan review: approve with auto mode, accept edits, manual review, keep planning, or refine with Ultraplan</li>\n      </ul>\n\n      <h4>Auto Mode Classifier</h4>\n      <p>Auto mode uses a <strong>separate server-configured model</strong> as a safety classifier. It evaluates each action Claude proposes against block rules.</p>\n      <table>\n        <thead><tr><th>Classifier Blocks</th><th>Classifier Allows</th></tr></thead>\n        <tbody>\n          <tr><td>curl | bash, sending creds externally, production deploys, mass deletion, IAM modifications, force push to main</td><td>Local file ops in working dir, dependency installs, reading .env and sending to matching API, read-only HTTP, pushing to current/new branch</td></tr>\n        </tbody>\n      </table>\n      <p>After <strong>3 consecutive blocks</strong> or <strong>20 total blocks</strong> in a session, auto mode falls back. In non-interactive mode, repeated blocks abort the session.</p>\n\n      <h4>Permission Rule Syntax</h4>\n      <p>Rules use the format <code>Tool</code> or <code>Tool(specifier)</code>:</p>\n\n<pre><code class=\"language-json\">{\n  \"permissions\": {\n    \"allow\": [\n      \"Read\",\n      \"Bash(git log *)\",\n      \"Bash(npm test *)\",\n      \"mcp__github__*\"\n    ],\n    \"deny\": [\n      \"Bash(rm -rf *)\",\n      \"Agent(Explore)\"\n    ]\n  }\n}</code></pre>\n\n      <table>\n        <thead><tr><th>Syntax</th><th>Meaning</th></tr></thead>\n        <tbody>\n          <tr><td><code>Bash(*)</code></td><td>Equivalent to <code>Bash</code> (matches all)</td></tr>\n          <tr><td><code>Bash(ls *)</code></td><td>Space before <code>*</code> enforces word boundary: matches <code>ls -la</code> but NOT <code>lsof</code></td></tr>\n          <tr><td><code>Bash(ls:*)</code></td><td><code>:*</code> suffix equivalent to trailing wildcard</td></tr>\n          <tr><td><code>mcp__servername__*</code></td><td>All tools from an MCP server</td></tr>\n          <tr><td><code>Agent(AgentName)</code></td><td>Control subagent usage</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Permission Evaluation Order</h4>\n      <p>The evaluation follows a strict precedence: <strong>deny &gt; ask &gt; allow</strong>. First match wins, and deny always takes precedence regardless of order.</p>\n      <ol>\n        <li><strong>Hooks</strong> &mdash; can allow, deny, or continue</li>\n        <li><strong>Deny rules</strong> &mdash; if match, BLOCKED (even in bypassPermissions)</li>\n        <li><strong>Permission mode</strong> &mdash; bypassPermissions approves, acceptEdits approves file ops, others fall through</li>\n        <li><strong>Allow rules</strong> &mdash; if match, APPROVED</li>\n        <li><strong>canUseTool callback</strong> (SDK) or user prompt</li>\n      </ol>\n\n      <h4>Protected Paths (All Modes)</h4>\n      <p>Certain paths are protected across all permission modes:</p>\n      <ul>\n        <li>Directories: <code>.git</code>, <code>.vscode</code>, <code>.idea</code>, <code>.husky</code>, <code>.claude</code> (except <code>.claude/commands</code>, <code>.claude/agents</code>, <code>.claude/skills</code>, <code>.claude/worktrees</code>)</li>\n        <li>Files: <code>.gitconfig</code>, <code>.bashrc</code>, <code>.zshrc</code>, <code>.mcp.json</code>, <code>.claude.json</code>, and other shell/git configs</li>\n      </ul>\n\n      <h4>Shift+Tab Mode Cycling</h4>\n      <p>Press <strong>Shift+Tab</strong> to cycle: <code>default</code> &rarr; <code>acceptEdits</code> &rarr; <code>plan</code> &rarr; <code>auto</code>. The <code>--allow-dangerously-skip-permissions</code> flag adds <code>bypassPermissions</code> to the cycle.</p>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: Evaluation Order</div>\n        <p>Permission precedence is <strong>deny &gt; ask &gt; allow</strong>. A deny rule always wins over an allow rule, even if the allow rule is more specific. Hooks evaluate first and can override the entire chain.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/permissions",
+    "doc_label": "Permission Modes Docs",
+    "related_topics": ["d3-settings", "d1-programmatic-enforcement", "d3-cli"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Claude Cowork",
+        "lesson": "Permissions, Usage, and Choosing Your Model",
+        "url": "https://anthropic.skilljar.com/introduction-to-claude-cowork"
+      },
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Making changes",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Claude Code provides six permission modes: default (reads only), acceptEdits (reads + file edits + filesystem commands), plan (read-only, no edits), auto (classifier-based approval), dontAsk (only pre-approved tools), and bypassPermissions (everything except protected paths). Plan mode uses a read-only subagent with Ctrl+G for editing plans. Permission evaluation order is deny > ask > allow, with hooks evaluating first. Auto mode uses a background classifier that blocks dangerous operations and falls back after 3 consecutive or 20 total blocks.",
+    "key_concepts": [
+      {
+        "term": "Six Permission Modes",
+        "definition": "default, acceptEdits, plan, auto, dontAsk, bypassPermissions — each with different auto-approval behavior for tools and actions."
+      },
+      {
+        "term": "Plan Mode",
+        "definition": "Read-only exploration mode using a subagent. Write/Edit tools denied. Ctrl+G opens plan in text editor."
+      },
+      {
+        "term": "Auto Mode Classifier",
+        "definition": "Separate server-configured model evaluating each action. Falls back after 3 consecutive or 20 total blocks."
+      },
+      {
+        "term": "Permission Evaluation Order",
+        "definition": "deny > ask > allow. Hooks evaluate first, then deny rules, then permission mode, then allow rules, then callback/prompt."
+      },
+      {
+        "term": "Protected Paths",
+        "definition": "Paths like .git, .vscode, .claude (except commands/agents/skills/worktrees) are protected across all permission modes."
+      },
+      {
+        "term": "Permission Rule Syntax",
+        "definition": "Format: Tool or Tool(specifier). Wildcards with *, word boundary enforcement with space before *, :* suffix for trailing wildcard."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-cli",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "CLI Flags and Session Management",
+    "content": "\n      <h3>Claude Code CLI: Commands, Flags, and Session Control</h3>\n      <p>The Claude Code CLI is the primary interface for both interactive development and headless automation. Understanding the flag categories, print-mode-only restrictions, system prompt flags, and session management is essential for effective use in both development and CI/CD contexts.</p>\n\n      <h4>Core Commands</h4>\n      <table>\n        <thead><tr><th>Command</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>claude</code></td><td>Start interactive session</td></tr>\n          <tr><td><code>claude \"query\"</code></td><td>Start with initial prompt</td></tr>\n          <tr><td><code>claude -p \"query\"</code></td><td>Print mode (non-interactive), then exit</td></tr>\n          <tr><td><code>cat file | claude -p \"query\"</code></td><td>Process piped content</td></tr>\n          <tr><td><code>claude -c</code></td><td>Continue most recent conversation</td></tr>\n          <tr><td><code>claude -r \"session\" \"query\"</code></td><td>Resume by ID or name</td></tr>\n          <tr><td><code>claude update</code></td><td>Update to latest version</td></tr>\n          <tr><td><code>claude auth login</code></td><td>Sign in (<code>--email</code>, <code>--sso</code>, <code>--console</code>)</td></tr>\n          <tr><td><code>claude agents</code></td><td>List all configured subagents</td></tr>\n          <tr><td><code>claude mcp</code></td><td>Configure MCP servers</td></tr>\n          <tr><td><code>claude auto-mode defaults</code></td><td>Print built-in auto mode classifier rules as JSON</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Print Mode Flags (Non-Interactive Only)</h4>\n      <p>These flags only work with <code>-p</code> (print mode):</p>\n      <table>\n        <thead><tr><th>Flag</th><th>Description</th><th>Example</th></tr></thead>\n        <tbody>\n          <tr><td><code>--output-format</code></td><td>Output format: <code>text</code>, <code>json</code>, <code>stream-json</code></td><td><code>--output-format json</code></td></tr>\n          <tr><td><code>--max-turns</code></td><td>Limit agentic turns (exits with error at limit)</td><td><code>--max-turns 3</code></td></tr>\n          <tr><td><code>--max-budget-usd</code></td><td>Dollar limit for API calls</td><td><code>--max-budget-usd 5.00</code></td></tr>\n          <tr><td><code>--json-schema</code></td><td>Validated JSON output matching schema</td><td><code>--json-schema '{...}'</code></td></tr>\n          <tr><td><code>--no-session-persistence</code></td><td>Don't save sessions to disk</td><td>&mdash;</td></tr>\n          <tr><td><code>--fallback-model</code></td><td>Fallback when primary overloaded</td><td>&mdash;</td></tr>\n        </tbody>\n      </table>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: Print-Mode-Only Flags</div>\n        <p><code>--max-turns</code>, <code>--max-budget-usd</code>, <code>--json-schema</code>, <code>--no-session-persistence</code>, and <code>--fallback-model</code> are <strong>only valid in print mode</strong> (<code>-p</code>). Using them in interactive mode will not work as expected.</p>\n      </div>\n\n      <h4>Session Management Flags</h4>\n      <table>\n        <thead><tr><th>Flag</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>--continue</code> / <code>-c</code></td><td>Load most recent conversation in current directory</td></tr>\n          <tr><td><code>--resume</code> / <code>-r</code></td><td>Resume session by ID or name</td></tr>\n          <tr><td><code>--fork-session</code></td><td>Create new session ID when resuming (preserves history, original unchanged)</td></tr>\n          <tr><td><code>--name</code> / <code>-n</code></td><td>Display name for session</td></tr>\n          <tr><td><code>--from-pr</code></td><td>Resume sessions linked to GitHub PR</td></tr>\n        </tbody>\n      </table>\n\n      <h4>System Prompt Flags</h4>\n      <table>\n        <thead><tr><th>Flag</th><th>Behavior</th></tr></thead>\n        <tbody>\n          <tr><td><code>--system-prompt</code></td><td><strong>Replaces</strong> entire default prompt</td></tr>\n          <tr><td><code>--system-prompt-file</code></td><td><strong>Replaces</strong> with file contents</td></tr>\n          <tr><td><code>--append-system-prompt</code></td><td><strong>Appends</strong> to default prompt</td></tr>\n          <tr><td><code>--append-system-prompt-file</code></td><td><strong>Appends</strong> file contents to default prompt</td></tr>\n        </tbody>\n      </table>\n      <p><code>--system-prompt</code> and <code>--system-prompt-file</code> are <strong>mutually exclusive</strong>. Append flags can be combined with either replacement flag.</p>\n\n      <h4>Tool Restriction</h4>\n<pre><code class=\"language-bash\"># Restrict to specific tools only\nclaude -p --tools \"Read,Grep,Glob\" \"analyze the codebase\"\n\n# Allow tools without permission prompt\nclaude --allowedTools \"Bash(git log *)\" \"Read\"\n\n# Remove tools from context entirely\nclaude --disallowedTools \"WebSearch\" \"WebFetch\"</code></pre>\n\n      <h4>--bare Mode</h4>\n      <p><code>--bare</code> provides minimal startup by skipping: hooks, skills, plugins, MCP servers, auto memory, and CLAUDE.md. Only Bash, Read, and Edit tools are available. Auth must come from <code>ANTHROPIC_API_KEY</code> or <code>apiKeyHelper</code>. Useful for CI/scripts where startup speed matters.</p>\n\n      <h4>Other Important Flags</h4>\n      <table>\n        <thead><tr><th>Flag</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>--worktree</code> / <code>-w</code></td><td>Start in isolated git worktree at <code>.claude/worktrees/&lt;name&gt;</code></td></tr>\n          <tr><td><code>--agent</code></td><td>Specify agent for session (main thread runs as named agent)</td></tr>\n          <tr><td><code>--mcp-config</code></td><td>Load MCP servers from JSON file (combinable with <code>--strict-mcp-config</code>)</td></tr>\n          <tr><td><code>--add-dir</code></td><td>Additional working directories</td></tr>\n          <tr><td><code>--permission-mode</code></td><td>Set mode: default, acceptEdits, plan, auto, dontAsk, bypassPermissions</td></tr>\n          <tr><td><code>--effort</code></td><td>Effort level: low, medium, high, xhigh, max</td></tr>\n          <tr><td><code>--model</code></td><td>Set model by alias (sonnet, opus) or full name</td></tr>\n        </tbody>\n      </table>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/cli-reference",
+    "doc_label": "CLI Reference Docs",
+    "related_topics": ["d3-plan-mode", "d3-cicd", "d3-agent-sdk"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Claude Code setup",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
+      },
+      {
+        "course": "Introduction to Claude Cowork",
+        "lesson": "Running Your First Task",
+        "url": "https://anthropic.skilljar.com/introduction-to-claude-cowork"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "The Claude Code CLI supports core commands (claude, claude -p, claude -c, claude -r), print-mode-only flags (--max-turns, --max-budget-usd, --json-schema, --output-format), session management (--continue, --resume, --fork-session, --name), and system prompt customization (--system-prompt replaces, --append-system-prompt appends; mutually exclusive replacement flags). --bare mode skips hooks, skills, plugins, MCP, auto memory, and CLAUDE.md for faster startup. --worktree creates isolated git worktrees.",
+    "key_concepts": [
+      {
+        "term": "Print Mode (-p)",
+        "definition": "Non-interactive mode for scripting and CI. Required for --max-turns, --max-budget-usd, --json-schema, --output-format, --fallback-model."
+      },
+      {
+        "term": "--system-prompt vs --append-system-prompt",
+        "definition": "--system-prompt REPLACES the entire default prompt. --append-system-prompt APPENDS to it. Replace flags are mutually exclusive."
+      },
+      {
+        "term": "--bare Mode",
+        "definition": "Minimal startup: skips hooks, skills, plugins, MCP, auto memory, CLAUDE.md. Only Bash/Read/Edit available. Good for CI."
+      },
+      {
+        "term": "Session Flags",
+        "definition": "--continue (most recent), --resume (by ID/name), --fork-session (new ID preserving history), --name (display name)."
+      },
+      {
+        "term": "--worktree",
+        "definition": "Creates isolated git worktree at .claude/worktrees/<name> with branch worktree-<name> based on origin/HEAD."
+      },
+      {
+        "term": "Output Formats",
+        "definition": "text (default plain text), json (structured after completion), stream-json (newline-delimited streaming events)."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-cicd",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "CI/CD and GitHub Actions Integration",
+    "content": "\n      <h3>Automating Claude Code in CI/CD Pipelines</h3>\n      <p>Claude Code integrates with GitHub Actions via <code>anthropics/claude-code-action@v1</code> for automated code review, PR management, and scheduled cloud tasks. This topic covers the action configuration, trigger mechanisms, CLI args passthrough, cloud providers, and routines.</p>\n\n      <h4>claude-code-action@v1 Setup</h4>\n      <p>Two setup paths:</p>\n      <ul>\n        <li><strong>Quick</strong>: Run <code>/install-github-app</code> in Claude Code terminal</li>\n        <li><strong>Manual</strong>: Install Claude GitHub App &rarr; add <code>ANTHROPIC_API_KEY</code> to repository secrets &rarr; copy workflow file</li>\n      </ul>\n\n<pre><code class=\"language-yaml\">name: Claude Code\non:\n  issue_comment:\n    types: [created]\n  pull_request_review_comment:\n    types: [created]\njobs:\n  claude:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: anthropics/claude-code-action@v1\n        with:\n          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}</code></pre>\n\n      <h4>The @claude Trigger</h4>\n      <p>Claude responds to <code>@claude</code> mentions in issue comments, PR comments, and PR review comments. This is <strong>not</strong> <code>/claude</code> &mdash; it uses the <code>@</code> prefix.</p>\n\n<pre><code class=\"language-text\">@claude implement this feature based on the issue description\n@claude fix the TypeError in the user dashboard component</code></pre>\n\n      <p>Custom triggers: use the <code>trigger_phrase</code> parameter to change from the default <code>@claude</code>.</p>\n\n      <h4>Action Parameters (v1)</h4>\n      <table>\n        <thead><tr><th>Parameter</th><th>Description</th><th>Required</th></tr></thead>\n        <tbody>\n          <tr><td><code>prompt</code></td><td>Instructions for Claude (text or skill name)</td><td>No</td></tr>\n          <tr><td><code>claude_args</code></td><td>CLI arguments passed through to Claude Code</td><td>No</td></tr>\n          <tr><td><code>anthropic_api_key</code></td><td>Claude API key</td><td>Yes (direct API)</td></tr>\n          <tr><td><code>github_token</code></td><td>GitHub token for API access</td><td>No</td></tr>\n          <tr><td><code>trigger_phrase</code></td><td>Custom trigger (default: <code>@claude</code>)</td><td>No</td></tr>\n          <tr><td><code>use_bedrock</code></td><td>Use AWS Bedrock</td><td>No</td></tr>\n          <tr><td><code>use_vertex</code></td><td>Use Google Vertex AI</td><td>No</td></tr>\n        </tbody>\n      </table>\n\n      <h4>CLI Args Passthrough</h4>\n      <p>Pass any Claude Code CLI flags through the <code>claude_args</code> parameter:</p>\n\n<pre><code class=\"language-yaml\">claude_args: \"--max-turns 5 --model claude-sonnet-4-6 --append-system-prompt 'Follow our standards'\"</code></pre>\n\n      <p>Common flags for CI: <code>--max-turns</code> (limit turns, default 10 in action), <code>--model</code>, <code>--mcp-config</code>, <code>--allowedTools</code>, <code>--append-system-prompt</code>.</p>\n\n      <h4>Cloud Provider Support</h4>\n      <table>\n        <thead><tr><th>Provider</th><th>Auth Method</th><th>Model Format</th></tr></thead>\n        <tbody>\n          <tr><td><strong>AWS Bedrock</strong></td><td>OIDC authentication</td><td><code>us.anthropic.claude-sonnet-4-6</code></td></tr>\n          <tr><td><strong>Google Vertex AI</strong></td><td>Workload Identity Federation</td><td><code>claude-sonnet-4-5@20250929</code></td></tr>\n        </tbody>\n      </table>\n      <p>Both providers recommend a custom GitHub App for best security practices.</p>\n\n      <h4>Routines (Scheduled Cloud Tasks)</h4>\n      <p>Routines are saved Claude Code configurations that run on Anthropic-managed cloud infrastructure. Manage at <code>claude.ai/code/routines</code> or via <code>/schedule</code> in the CLI.</p>\n\n      <table>\n        <thead><tr><th>Trigger Type</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Scheduled</strong></td><td>Hourly, daily, weekdays, weekly; custom cron via <code>/schedule update</code> (min 1 hour)</td></tr>\n          <tr><td><strong>API</strong></td><td>HTTP POST to per-routine endpoint with bearer token; returns session ID and URL</td></tr>\n          <tr><td><strong>GitHub</strong></td><td>React to <code>pull_request</code> and <code>release</code> events with filters (author, title, labels, etc.)</td></tr>\n        </tbody>\n      </table>\n\n      <p>Routines clone repos on every run from the default branch. Claude creates <code>claude/</code>-prefixed branches by default. Each GitHub event match starts a new session (no session reuse).</p>\n\n      <div class=\"callout callout-tip\">\n        <div class=\"callout-title\">Routine Use Cases</div>\n        <ul>\n          <li><strong>Backlog maintenance</strong>: nightly issue triage, labeling, and Slack summary</li>\n          <li><strong>Alert triage</strong>: monitoring calls API endpoint on error threshold; Claude correlates with recent commits</li>\n          <li><strong>Bespoke code review</strong>: GitHub trigger on PR opened; applies team review checklist</li>\n          <li><strong>Deploy verification</strong>: CD pipeline calls endpoint after deploy; Claude runs smoke checks</li>\n          <li><strong>Docs drift</strong>: weekly scan of merged PRs, flags outdated docs, opens update PRs</li>\n        </ul>\n      </div>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: @claude Trigger</div>\n        <p>GitHub Actions integration uses <code>@claude</code> (at-sign), <strong>not</strong> <code>/claude</code> (slash). The trigger works in issue comments, PR comments, and PR review comments.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/github-actions",
+    "doc_label": "GitHub Actions Docs",
+    "related_topics": ["d3-cli", "d3-agent-sdk"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Github integration",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
+      },
+      {
+        "course": "Introduction to Claude Cowork",
+        "lesson": "Scheduled Tasks",
+        "url": "https://anthropic.skilljar.com/introduction-to-claude-cowork"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Claude Code integrates with GitHub Actions via anthropics/claude-code-action@v1. The @claude trigger (not /claude) works in issue and PR comments. Key action parameters: prompt, claude_args (CLI passthrough), anthropic_api_key, trigger_phrase. Cloud providers: AWS Bedrock (OIDC) and Google Vertex AI (WIF). Routines provide scheduled cloud tasks with three trigger types: scheduled (cron), API (HTTP POST), and GitHub events (PR, releases with filters).",
+    "key_concepts": [
+      {
+        "term": "claude-code-action@v1",
+        "definition": "Official GitHub Action for integrating Claude Code into CI/CD workflows. Parameters include prompt, claude_args, and cloud provider flags."
+      },
+      {
+        "term": "@claude Trigger",
+        "definition": "Mention @claude in issue/PR comments to trigger Claude. Uses @ prefix (not /). Customizable via trigger_phrase parameter."
+      },
+      {
+        "term": "CLI Args Passthrough",
+        "definition": "The claude_args parameter passes any CLI flags to Claude Code, enabling --max-turns, --model, --append-system-prompt in CI."
+      },
+      {
+        "term": "Routines",
+        "definition": "Saved Claude Code configurations running on Anthropic cloud. Three triggers: scheduled (cron, min 1hr), API (HTTP POST with bearer token), GitHub events."
+      },
+      {
+        "term": "Cloud Providers",
+        "definition": "AWS Bedrock (OIDC auth, model: us.anthropic.claude-sonnet-4-6) and Google Vertex AI (WIF, model: claude-sonnet-4-5@20250929)."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-agent-sdk",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "Claude Agent SDK",
+    "content": "\n      <h3>Claude Agent SDK: Programmatic Claude Code</h3>\n      <p>The Claude Agent SDK (formerly Claude Code SDK) gives you the same tools, agent loop, and context management that power Claude Code, programmable in Python and TypeScript. It is the programmatic interface for building custom agents that read files, run commands, search the web, and edit code autonomously.</p>\n\n      <h4>SDK vs Client SDK vs CLI</h4>\n      <table>\n        <thead><tr><th>Interface</th><th>Behavior</th><th>Use Case</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Client SDK</strong></td><td>You implement the tool loop manually</td><td>Full control over every API call</td></tr>\n          <tr><td><strong>Agent SDK</strong></td><td>Claude handles tools autonomously (built-in tool execution)</td><td>CI/CD, custom apps, production automation</td></tr>\n          <tr><td><strong>CLI</strong></td><td>Interactive terminal interface</td><td>Development, one-off tasks</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Installation</h4>\n<pre><code class=\"language-bash\"># TypeScript\nnpm install @anthropic-ai/claude-agent-sdk\n\n# Python\npip install claude-agent-sdk</code></pre>\n\n      <h4>The query() Entry Point</h4>\n      <p><code>query()</code> is the main entry point that creates the agentic loop and returns an async iterator:</p>\n\n<pre><code class=\"language-python\"># Python\nfrom claude_agent_sdk import query, ClaudeAgentOptions\n\nasync for message in query(\n    prompt=\"Find and fix the bug in auth.py\",\n    options=ClaudeAgentOptions(\n        allowed_tools=[\"Read\", \"Edit\", \"Bash\"],\n        permission_mode=\"acceptEdits\",\n        max_turns=10,\n    ),\n):\n    print(message)</code></pre>\n\n<pre><code class=\"language-typescript\">// TypeScript\nimport { query } from \"@anthropic-ai/claude-agent-sdk\";\n\nfor await (const message of query({\n  prompt: \"Find and fix the bug in auth.ts\",\n  options: {\n    allowedTools: [\"Read\", \"Edit\", \"Bash\"],\n    permissionMode: \"acceptEdits\",\n    maxTurns: 10,\n  }\n})) {\n  console.log(message);\n}</code></pre>\n\n      <h4>Message Types (5 Core)</h4>\n      <table>\n        <thead><tr><th>Type</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>SystemMessage</code></td><td>Session lifecycle: <code>init</code> (first message) and <code>compact_boundary</code> (after compaction)</td></tr>\n          <tr><td><code>AssistantMessage</code></td><td>Claude's response with text and/or tool call blocks</td></tr>\n          <tr><td><code>UserMessage</code></td><td>After tool execution with results, or user inputs</td></tr>\n          <tr><td><code>StreamEvent</code></td><td>Raw API streaming events (only with partial messages enabled)</td></tr>\n          <tr><td><code>ResultMessage</code></td><td>End of agent loop with result, cost, usage, session_id</td></tr>\n        </tbody>\n      </table>\n\n      <h4>ResultMessage Subtypes</h4>\n      <table>\n        <thead><tr><th>Subtype</th><th>Meaning</th><th>Has result?</th></tr></thead>\n        <tbody>\n          <tr><td><code>success</code></td><td>Finished normally</td><td>Yes</td></tr>\n          <tr><td><code>error_max_turns</code></td><td>Hit maxTurns limit</td><td>No</td></tr>\n          <tr><td><code>error_max_budget_usd</code></td><td>Hit maxBudgetUsd limit</td><td>No</td></tr>\n          <tr><td><code>error_during_execution</code></td><td>Error interrupted loop</td><td>No</td></tr>\n          <tr><td><code>error_max_structured_output_retries</code></td><td>Schema validation failed after retries</td><td>No</td></tr>\n        </tbody>\n      </table>\n      <p>All subtypes carry <code>total_cost_usd</code>, <code>usage</code>, <code>num_turns</code>, <code>session_id</code>.</p>\n\n      <h4>Custom Tools</h4>\n      <p>Custom tools use the SDK's <strong>in-process MCP server</strong> &mdash; not a separate process:</p>\n\n<pre><code class=\"language-python\"># Python\nfrom claude_agent_sdk import tool, create_sdk_mcp_server\n\n@tool(\"get_weather\", \"Get weather for a city\", {\"city\": str})\nasync def get_weather(args: dict) -> dict:\n    return {\"content\": [{\"type\": \"text\", \"text\": f\"72F in {args['city']}\"}]}\n\nserver = create_sdk_mcp_server(\n    name=\"weather\", version=\"1.0.0\", tools=[get_weather]\n)</code></pre>\n\n      <h4>Tool Naming Convention</h4>\n      <p>MCP tools follow the pattern: <code>mcp__&lt;server_name&gt;__&lt;tool_name&gt;</code>. Wildcard: <code>mcp__weather__*</code> covers all tools from the server.</p>\n\n      <h4>Permission Modes in SDK</h4>\n      <table>\n        <thead><tr><th>Mode</th><th>Behavior</th><th>Available</th></tr></thead>\n        <tbody>\n          <tr><td><code>default</code></td><td>Requires canUseTool callback; no callback = deny</td><td>Both</td></tr>\n          <tr><td><code>acceptEdits</code></td><td>Auto-approves file edits + filesystem commands</td><td>Both</td></tr>\n          <tr><td><code>plan</code></td><td>No tool execution; plan only</td><td>Both</td></tr>\n          <tr><td><code>dontAsk</code></td><td>Pre-approved only; everything else denied</td><td>Both</td></tr>\n          <tr><td><code>auto</code></td><td>Model classifier approves/denies</td><td><strong>TypeScript only</strong></td></tr>\n          <tr><td><code>bypassPermissions</code></td><td>All tools without prompts</td><td>Both</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Programmatic vs Filesystem Hooks</h4>\n      <table>\n        <thead><tr><th>Type</th><th>Defined In</th><th>Scope</th></tr></thead>\n        <tbody>\n          <tr><td><strong>Filesystem hooks</strong></td><td>settings.json (command, http, prompt, agent)</td><td>Main agent AND subagents</td></tr>\n          <tr><td><strong>Programmatic hooks</strong></td><td>query() options callbacks</td><td>Main session only</td></tr>\n        </tbody>\n      </table>\n\n      <h4>settingSources</h4>\n      <p>Controls which filesystem-based settings the SDK loads. Default: <code>[\"user\", \"project\", \"local\"]</code>. Pass <code>[]</code> to disable all filesystem settings.</p>\n\n      <h4>Session Management</h4>\n      <ul>\n        <li><strong>Python</strong>: <code>ClaudeSDKClient</code> class manages sessions; <code>client.query()</code> automatically continues</li>\n        <li><strong>TypeScript</strong>: <code>continue: true</code> on subsequent <code>query()</code> calls</li>\n        <li><strong>Resume</strong>: Capture <code>session_id</code> from ResultMessage, pass to <code>resume</code> option</li>\n        <li><strong>Fork</strong>: <code>fork_session=True</code> creates new session with copy of history</li>\n      </ul>\n\n      <h4>Python vs TypeScript Key Differences</h4>\n      <table>\n        <thead><tr><th>Feature</th><th>Python</th><th>TypeScript</th></tr></thead>\n        <tbody>\n          <tr><td>Package</td><td><code>claude-agent-sdk</code></td><td><code>@anthropic-ai/claude-agent-sdk</code></td></tr>\n          <tr><td>Field naming</td><td>snake_case</td><td>camelCase</td></tr>\n          <tr><td><code>auto</code> permission mode</td><td>Not available</td><td>Available</td></tr>\n          <tr><td>Default effort</td><td>Unset (model default)</td><td><code>\"high\"</code></td></tr>\n          <tr><td><code>env</code> in options</td><td>Merged on top of inherited</td><td>Replaces inherited (must spread <code>process.env</code>)</td></tr>\n          <tr><td>Session client</td><td><code>ClaudeSDKClient</code> class</td><td><code>continue: true</code> on query</td></tr>\n          <tr><td>Hook events</td><td>10 events</td><td>18 events (includes SessionStart/End, etc.)</td></tr>\n          <tr><td>Content access</td><td><code>message.content</code></td><td><code>message.message.content</code> (wrapped)</td></tr>\n          <tr><td>Type checking</td><td><code>isinstance(msg, ResultMessage)</code></td><td><code>msg.type === \"result\"</code></td></tr>\n        </tbody>\n      </table>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: SDK Differences</div>\n        <p>Python and TypeScript SDKs differ in important ways: <code>auto</code> permission mode is TypeScript-only, Python's <code>env</code> merges while TypeScript's replaces, default effort differs, and TypeScript supports 18 hook events vs Python's 10.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/agent-sdk",
+    "doc_label": "Agent SDK Docs",
+    "related_topics": ["d3-cli", "d1-hooks", "d2-builtin-tools"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "The Claude Code SDK",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "The Claude Agent SDK provides programmatic access to Claude Code's agent loop via query() in Python and TypeScript. It yields 5 message types (System, Assistant, User, StreamEvent, Result) with ResultMessage subtypes indicating success or specific errors. Custom tools use in-process MCP servers via @tool decorator and create_sdk_mcp_server(). Key Python/TS differences: auto mode is TS-only, env merging behavior differs, Python has 10 hook events vs TS 18, and content access paths differ.",
+    "key_concepts": [
+      {
+        "term": "query() Entry Point",
+        "definition": "Main SDK function creating the agentic loop. Returns async iterator yielding messages. Parameters: prompt, options (tools, permissions, budget, model)."
+      },
+      {
+        "term": "ResultMessage Subtypes",
+        "definition": "success, error_max_turns, error_max_budget_usd, error_during_execution, error_max_structured_output_retries. All carry cost and usage data."
+      },
+      {
+        "term": "Custom Tools (@tool + create_sdk_mcp_server)",
+        "definition": "Define tools with @tool decorator, register via in-process MCP server. Tool names follow mcp__<server>__<tool> convention."
+      },
+      {
+        "term": "settingSources",
+        "definition": "Controls filesystem settings loading: ['user', 'project', 'local'] by default. Pass [] to disable all. Managed policy always loads regardless."
+      },
+      {
+        "term": "Programmatic vs Filesystem Hooks",
+        "definition": "Filesystem hooks (settings.json) fire in main agent AND subagents. Programmatic hooks (query() callbacks) are scoped to main session only."
+      },
+      {
+        "term": "Python vs TypeScript Differences",
+        "definition": "auto mode TS-only, env merges (Python) vs replaces (TS), 10 vs 18 hook events, snake_case vs camelCase, different session management patterns."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d3-settings",
+    "domain_id": 3,
+    "domain": "Claude Code Configuration & Workflows",
+    "title": "Settings System and .claude Directory",
+    "content": "\n      <h3>Settings Precedence and the .claude Directory</h3>\n      <p>Claude Code's settings system uses a layered precedence model where higher-priority sources override lower ones for scalar values, while array values are merged. Understanding this system &mdash; especially managed settings delivery and the .claude directory structure &mdash; is essential for enterprise configuration and team workflows.</p>\n\n      <h4>Settings Precedence (Highest to Lowest)</h4>\n      <table>\n        <thead><tr><th>Priority</th><th>Source</th><th>Location</th><th>Can Override?</th></tr></thead>\n        <tbody>\n          <tr><td>1 (highest)</td><td><strong>Managed</strong></td><td>Server / MDM / file-based</td><td>Cannot be overridden by any lower layer</td></tr>\n          <tr><td>2</td><td><strong>CLI arguments</strong></td><td>Command-line flags</td><td>Temporary session overrides</td></tr>\n          <tr><td>3</td><td><strong>Local</strong></td><td><code>.claude/settings.local.json</code></td><td>Gitignored; personal project settings</td></tr>\n          <tr><td>4</td><td><strong>Project</strong></td><td><code>.claude/settings.json</code></td><td>Shared via source control</td></tr>\n          <tr><td>5 (lowest)</td><td><strong>User</strong></td><td><code>~/.claude/settings.json</code></td><td>Global personal settings</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Managed Settings Delivery</h4>\n      <p>Managed settings are delivered through three mechanisms, with their own internal precedence:</p>\n      <ol>\n        <li><strong>Server-managed</strong>: Via Anthropic servers through Claude.ai admin console (highest)</li>\n        <li><strong>MDM/OS-level</strong>:\n          <ul>\n            <li>macOS: <code>com.anthropic.claudecode</code> managed preferences domain</li>\n            <li>Windows: <code>HKLM\\SOFTWARE\\Policies\\ClaudeCode</code> registry (REG_SZ JSON)</li>\n            <li>Windows user-level: <code>HKCU\\SOFTWARE\\Policies\\ClaudeCode</code> (lowest policy priority)</li>\n          </ul>\n        </li>\n        <li><strong>File-based</strong>:\n          <ul>\n            <li>macOS: <code>/Library/Application Support/ClaudeCode/managed-settings.json</code></li>\n            <li>Linux/WSL: <code>/etc/claude-code/managed-settings.json</code></li>\n            <li>Windows: <code>C:\\Program Files\\ClaudeCode\\managed-settings.json</code></li>\n            <li>Drop-in directory: <code>managed-settings.d/</code> alongside the file (alphabetical merge)</li>\n          </ul>\n        </li>\n      </ol>\n\n      <h4>Array Merge vs Scalar Override</h4>\n      <p>Settings behavior differs by value type:</p>\n      <ul>\n        <li><strong>Scalar settings</strong> (strings, numbers, booleans): most-specific value wins (higher priority overrides lower)</li>\n        <li><strong>Array settings</strong> (<code>permissions.allow</code>, <code>sandbox.filesystem.allowWrite</code>, etc.): <strong>concatenate and deduplicate</strong> across all scopes</li>\n      </ul>\n      <p>This means permission allow rules from all layers combine additively &mdash; a user-level allow rule is never overridden by a project setting, they merge.</p>\n\n      <h4>.claude Directory Structure</h4>\n      <table>\n        <thead><tr><th>Path</th><th>Purpose</th><th>Committed?</th></tr></thead>\n        <tbody>\n          <tr><td><code>.claude/settings.json</code></td><td>Permissions, hooks, configuration</td><td>Yes</td></tr>\n          <tr><td><code>.claude/settings.local.json</code></td><td>Personal settings overrides</td><td>Gitignored</td></tr>\n          <tr><td><code>.claude/CLAUDE.md</code></td><td>Project instructions (alternative to <code>./CLAUDE.md</code>)</td><td>Yes</td></tr>\n          <tr><td><code>.claude/rules/</code></td><td>Topic-scoped instructions</td><td>Yes</td></tr>\n          <tr><td><code>.claude/skills/</code></td><td>Reusable prompts and workflows</td><td>Yes</td></tr>\n          <tr><td><code>.claude/commands/</code></td><td>Single-file prompts (legacy; use skills/)</td><td>Yes</td></tr>\n          <tr><td><code>.claude/agents/</code></td><td>Custom subagent definitions</td><td>Yes</td></tr>\n          <tr><td><code>.claude/output-styles/</code></td><td>Custom output styles</td><td>Yes</td></tr>\n          <tr><td><code>.claude/worktrees/</code></td><td>Git worktree directories</td><td>Gitignored</td></tr>\n        </tbody>\n      </table>\n\n      <h4>User-Level Files (~/.claude/)</h4>\n      <table>\n        <thead><tr><th>Path</th><th>Purpose</th></tr></thead>\n        <tbody>\n          <tr><td><code>~/.claude/CLAUDE.md</code></td><td>Global instructions for all sessions</td></tr>\n          <tr><td><code>~/.claude/settings.json</code></td><td>User-wide settings</td></tr>\n          <tr><td><code>~/.claude/agents/</code></td><td>User-wide subagent definitions</td></tr>\n          <tr><td><code>~/.claude/skills/</code></td><td>User-wide skills</td></tr>\n          <tr><td><code>~/.claude/rules/</code></td><td>User-wide rules (lower priority than project rules)</td></tr>\n          <tr><td><code>~/.claude/plans/</code></td><td>Plan files from plan mode</td></tr>\n          <tr><td><code>~/.claude/projects/</code></td><td>Session data (plaintext JSONL)</td></tr>\n          <tr><td><code>~/.claude.json</code></td><td>Preferences, OAuth, MCP servers, per-project state</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Global Config (~/.claude.json)</h4>\n      <p>The global config file stores preferences that apply across all sessions:</p>\n      <ul>\n        <li><code>editorMode</code>: <code>\"normal\"</code> or <code>\"vim\"</code></li>\n        <li><code>teammateMode</code>: <code>\"auto\"</code>, <code>\"in-process\"</code>, <code>\"tmux\"</code></li>\n        <li><code>autoConnectIde</code>, <code>autoInstallIdeExtension</code></li>\n        <li>MCP server configurations (local scope)</li>\n        <li>OAuth tokens and per-project state</li>\n      </ul>\n\n      <h4>Sandbox Settings</h4>\n      <p>Sandbox provides OS-level isolation for Bash commands:</p>\n      <table>\n        <thead><tr><th>Setting</th><th>Description</th></tr></thead>\n        <tbody>\n          <tr><td><code>sandbox.enabled</code></td><td>Enable bash sandboxing (macOS, Linux, WSL2)</td></tr>\n          <tr><td><code>sandbox.failIfUnavailable</code></td><td>Exit at startup if sandbox unavailable</td></tr>\n          <tr><td><code>sandbox.autoAllowBashIfSandboxed</code></td><td>Auto-approve bash when sandboxed (default: true)</td></tr>\n          <tr><td><code>sandbox.filesystem.allowWrite</code></td><td>Additional writable paths (merged across scopes)</td></tr>\n          <tr><td><code>sandbox.filesystem.denyWrite</code></td><td>Paths denied writes</td></tr>\n          <tr><td><code>sandbox.filesystem.denyRead</code></td><td>Paths denied reads</td></tr>\n          <tr><td><code>sandbox.network.allowedDomains</code></td><td>Allowed outbound domains</td></tr>\n        </tbody>\n      </table>\n\n      <h4>Verification</h4>\n      <p>Use <code>/status</code> to show active settings sources and origins. Use <code>/config</code> to open the tabbed Settings interface. JSON schema validation: <code>\"$schema\": \"https://json.schemastore.org/claude-code-settings.json\"</code>.</p>\n\n      <div class=\"callout callout-warning\">\n        <div class=\"callout-title\">Exam-Critical: Precedence Order</div>\n        <p>Settings precedence is <strong>Managed &gt; CLI &gt; Local &gt; Project &gt; User</strong>. Managed settings cannot be overridden. Array settings (permissions, sandbox paths) <strong>merge</strong> across all layers; scalar settings use the highest-priority value.</p>\n      </div>\n    ",
+    "doc_url": "https://code.claude.com/docs/en/settings",
+    "doc_label": "Settings System Docs",
+    "related_topics": ["d3-claude-md", "d3-plan-mode", "d2-mcp-config"],
+    "skilljar_refs": [
+      {
+        "course": "Claude Code in Action",
+        "lesson": "Project setup",
+        "url": "https://anthropic.skilljar.com/claude-code-in-action"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Claude Code settings follow a five-layer precedence: Managed (highest, cannot be overridden) > CLI arguments > Local (.claude/settings.local.json) > Project (.claude/settings.json) > User (~/.claude/settings.json). Managed settings are delivered via server, MDM/OS-level (macOS plist, Windows registry), or file-based paths. Array settings merge across scopes; scalar settings use the highest-priority value. The .claude directory contains settings, rules, skills, agents, and worktrees.",
+    "key_concepts": [
+      {
+        "term": "Settings Precedence",
+        "definition": "Managed > CLI > Local > Project > User. Managed cannot be overridden. CLI provides temporary session overrides."
+      },
+      {
+        "term": "Managed Settings Delivery",
+        "definition": "Three mechanisms: server-managed (admin console), MDM/OS-level (macOS plist, Windows registry), file-based (managed-settings.json with drop-in .d/ directory)."
+      },
+      {
+        "term": "Array Merge vs Scalar Override",
+        "definition": "Array settings (permissions, sandbox paths) concatenate and deduplicate across scopes. Scalar settings use the most-specific value."
+      },
+      {
+        "term": ".claude Directory Structure",
+        "definition": "Contains settings.json (committed), settings.local.json (gitignored), rules/, skills/, agents/, commands/, output-styles/, worktrees/ (gitignored)."
+      },
+      {
+        "term": "Sandbox Settings",
+        "definition": "OS-level isolation for Bash: configurable filesystem read/write/deny paths, network domain allowlists. autoAllowBashIfSandboxed defaults to true."
+      },
+      {
+        "term": "Global Config (~/.claude.json)",
+        "definition": "Stores OAuth tokens, MCP server configs (local scope), editor preferences, per-project state. Separate from settings.json."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]

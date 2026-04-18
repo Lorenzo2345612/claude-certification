@@ -1,0 +1,2882 @@
+[
+  {
+    "id": 87,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer is building an agentic application that integrates with Salesforce, Slack, and Jira. They define 15 separate tools: salesforce_create_lead, salesforce_update_lead, salesforce_get_lead, salesforce_delete_lead, slack_post_message, slack_get_channel, and so on. They notice Claude often picks the wrong tool or hesitates before making a selection.",
+    "question": "What is the most likely cause of the tool selection issues, and what is the recommended fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The tool names are too long; shorten them to single words like 'create', 'update', 'delete'",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The namespace prefixes are confusing Claude; remove all prefixes and use generic names instead",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Claude has a hard limit of 10 tools per request; reduce the count to stay under the limit",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Too many tools increase selection ambiguity; consolidate related operations into fewer tools with an action parameter, targeting 4-5 tools per agent",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "The documentation recommends 4-5 tools per agent as the ideal range. Too many tools increase selection ambiguity. The fix is to consolidate related operations (e.g., one 'salesforce' tool with an action parameter) rather than creating many small tools. Namespacing with prefixes like 'salesforce_' is actually a best practice, not a problem.",
+    "why_others_wrong": {
+      "a": "Namespacing with service prefixes (github_list_prs, slack_send_message) is explicitly recommended as a best practice. Short generic names would make disambiguation harder.",
+      "b": "Namespace prefixes are a recommended best practice for disambiguation across services. Removing them would worsen the problem.",
+      "c": "There is no hard limit of 10 tools per request. The recommendation of 4-5 is about reducing selection ambiguity, not a technical limit."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "4-5 tools per agent is the ideal range. Too many tools increase selection ambiguity; too few may require more agent hops."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 88,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A junior developer writes a tool description for a database query tool: \"Queries the database.\" During testing, Claude frequently calls the tool with incorrect parameters and fails to distinguish it from a similar analytics tool.",
+    "question": "What is the primary issue with this tool description, according to Anthropic's documentation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The description should be in JSON format rather than plaintext",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Tool descriptions are optional and have minimal impact on performance; the issue is likely in the input_schema",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The description should include the input_schema inline rather than as a separate field",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The description is too short; tool descriptions should be at least 3-4 sentences explaining what the tool does, when to use it, parameter meanings, and caveats",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "The documentation states that detailed descriptions are 'the single most important factor in tool performance.' Descriptions should aim for at least 3-4 sentences, explaining what the tool does, when it should be used (and when not), what each parameter means, and any caveats or limitations.",
+    "why_others_wrong": {
+      "a": "Descriptions are plaintext strings, not JSON. The documentation specifies 'detailed plaintext description.'",
+      "b": "The description is the single most important factor in tool performance, not optional or low-impact.",
+      "c": "The input_schema is always a separate required field in the tool definition, not embedded in the description."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Provide extremely detailed descriptions -- this is the single most important factor in tool performance. Aim for at least 3-4 sentences per tool description."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 89,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer tries to register a tool with the name 'get.weather.forecast' and receives an error from the API. They then try 'get weather' and also get an error.",
+    "question": "Which regex pattern must tool names match, and which of these alternative names would be valid?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pattern: ^[a-zA-Z0-9_]{1,128}$ — valid alternative: 'get_weather_forecast'",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Pattern: ^[a-zA-Z][a-zA-Z0-9]*$ — valid alternative: 'getWeatherForecast'",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Pattern: ^[a-z0-9_-]{1,64}$ — valid alternative: 'get-weather-forecast'",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Pattern: ^[a-zA-Z0-9_-]{1,64}$ — valid alternative: 'get_weather_forecast'",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "Tool names must match the regex ^[a-zA-Z0-9_-]{1,64}$, which allows alphanumeric characters, underscores, and hyphens, with a length of 1-64 characters. Dots and spaces are not allowed. 'get_weather_forecast' is valid under this pattern.",
+    "why_others_wrong": {
+      "a": "The maximum length is 64 characters, not 128, and hyphens are also allowed in the pattern.",
+      "b": "Underscores and hyphens are allowed in the pattern, and there's no requirement that the name starts with a letter.",
+      "c": "The pattern includes uppercase letters (A-Z), not just lowercase. While 'get-weather-forecast' would be valid, the regex shown is incorrect."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Tool names must match regex ^[a-zA-Z0-9_-]{1,64}$ — alphanumeric characters, underscores, and hyphens only, 1 to 64 characters long."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 90,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A team provides input_examples for their tool to help Claude understand expected inputs. One example has a field that doesn't match the input_schema type definition. They deploy to production and start seeing errors.",
+    "question": "What happens when an input_example fails to validate against the tool's input_schema?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The API returns an HTTP 400 error, rejecting the entire request",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Claude still uses the invalid example but may generate incorrect inputs as a result",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The example is silently ignored and Claude uses only the schema for guidance",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "A warning is logged but the request proceeds normally without the invalid example",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "Each input_example must validate against the tool's input_schema. If an example is invalid, the API returns an HTTP 400 error, rejecting the entire request. This is a hard validation, not a soft warning.",
+    "why_others_wrong": {
+      "b": "The request never reaches Claude; it fails at validation before processing begins.",
+      "c": "Invalid examples are not silently ignored; they cause the entire request to fail with a 400 error.",
+      "d": "There is no soft warning behavior; it's a hard rejection via HTTP 400."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Each example must validate against the tool's input_schema; invalid examples return HTTP 400."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 91,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer wants to add input_examples to their web_search server tool to improve Claude's search query quality. They add the examples to the tool definition but the API returns an error.",
+    "question": "Why does adding input_examples to a server-side tool fail?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Input examples are not supported for server-side tools like web_search, code_execution, web_fetch, and tool_search",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Server tools require a different field name: 'server_input_examples' instead of 'input_examples'",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Server tools only accept examples in the system prompt, not in the tool definition",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The examples must be Base64-encoded for server tools due to their execution on Anthropic's infrastructure",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation explicitly states that input_examples are 'not supported for server-side tools (web_search, code_execution, etc.).' This is because server tools are executed on Anthropic's infrastructure and have pre-defined schemas that cannot be modified with examples.",
+    "why_others_wrong": {
+      "b": "There is no 'server_input_examples' field. Server tools simply do not support examples at all.",
+      "c": "Examples are provided in tool definitions, not system prompts. Server tools don't accept examples in any form.",
+      "d": "There is no Base64 encoding requirement. Server tools simply do not support input_examples."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "input_examples: Not supported for server-side tools (web_search, code_execution, etc.)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 92,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer is designing a tool response for a customer lookup. The tool currently returns the full customer profile (500+ fields including address history, order history, support tickets). The agentic loop is consuming context rapidly.",
+    "question": "What tool response design principle should the developer apply to address context consumption?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return only high-signal information and use stable identifiers (slugs/UUIDs) rather than full data payloads",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Compress the response using gzip encoding before returning it in the tool_result",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Split the response across multiple tool_result messages to distribute the context load",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Set max_tokens on the tool_result to limit the response size automatically",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation advises designing tool responses to return only high-signal information and using stable identifiers (slugs/UUIDs) rather than volatile or exhaustive data. This reduces context consumption while preserving the information Claude needs.",
+    "why_others_wrong": {
+      "b": "Tool results are string or content block arrays, not binary data. There is no gzip encoding mechanism for tool_result content.",
+      "c": "All tool results for a single tool call go in one tool_result block. You cannot split a single result across multiple messages.",
+      "d": "There is no max_tokens parameter on tool_result. The content field accepts whatever string or content blocks you provide."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Design tool responses to return only high-signal information; use stable identifiers (slugs/UUIDs)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 93,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer sends a tool_result back to Claude with text content placed before the tool_result block in the user message's content array. The API returns an HTTP 400 error.",
+    "question": "What ordering rule did the developer violate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In a user message containing tool results, tool_result blocks must come FIRST in the content array, with any text coming AFTER all tool results",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Tool results must be sent in a separate message from any user text",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Text content is not allowed in messages that contain tool_result blocks",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The tool_result must be placed in the assistant message, not the user message",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation states that in the user message containing tool results, tool_result blocks must come FIRST in the content array; any text must come AFTER all tool results. Violating this causes an HTTP 400 error.",
+    "why_others_wrong": {
+      "b": "Text CAN be in the same message as tool results, but it must come after all tool_result blocks, not before.",
+      "c": "Text is allowed in messages with tool results; it just must appear after all tool_result blocks.",
+      "d": "Tool results are always sent in user messages, not assistant messages. The assistant sends tool_use blocks; the user sends tool_result blocks."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Handle Tool Calls",
+      "quote": "In the user message containing tool results, tool_result blocks must come FIRST in the content array; any text must come AFTER all tool results."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 94,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer uses the defer_loading property on several tool definitions and notices that adding these tools does not invalidate their existing prompt cache entries.",
+    "question": "Why does defer_loading preserve prompt cache, and how are deferred tools discovered by Claude?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deferred tools are stripped from the rendered tools section before the cache key is computed, and are loaded on demand via tool search",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Deferred tools are compressed before caching, reducing their cache footprint to near-zero",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Deferred tools are stored in a separate cache partition that does not affect the main prompt cache key",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Deferred tools bypass the system prompt entirely and are injected directly into the assistant's context on first use",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "Tools with defer_loading: true are stripped from the rendered tools section before the cache key is computed. They don't appear in the system-prompt prefix at all, so they don't invalidate existing cache entries. They are loaded on demand via the tool search mechanism.",
+    "why_others_wrong": {
+      "b": "Deferred tools are not compressed; they are completely removed from the rendered section before caching.",
+      "c": "There is no separate cache partition. The tools are simply excluded from the cache key computation entirely.",
+      "d": "Deferred tools are discovered through the tool search mechanism, not injected directly. They need to be fetched via ToolSearch when Claude determines they're needed."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Tool Configuration",
+      "quote": "Tools with defer_loading: true are stripped from rendered tools section before cache key computed. Don't appear in system-prompt prefix at all."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 95,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer defines a tool with input_schema where the root type is set to 'array' instead of 'object'. They expect to receive a list of items directly from Claude.",
+    "question": "What will happen when this tool definition is used with the API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The input_schema root type must be 'object'; using 'array' violates the schema requirements",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "The API will accept it but Claude will always wrap the array in an object, causing deserialization errors",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Claude will correctly pass arrays as input, as the schema supports any valid JSON Schema type at the root",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Arrays are only supported when strict mode is enabled; in normal mode they cause validation warnings",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation specifies that the input_schema root type must be 'object'. Properties are defined within this object, and required fields are specified in a required array. Using 'array' as the root type violates this requirement.",
+    "why_others_wrong": {
+      "b": "The issue is that the schema requirement is violated, not that Claude wraps arrays. The root must be 'object'.",
+      "c": "The root type is constrained to 'object'; it does not support arbitrary JSON Schema types at the root level.",
+      "d": "The root type 'object' requirement applies regardless of strict mode. This is a fundamental schema constraint, not a strict-mode feature."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Root type must be 'object'. Define properties with types and descriptions."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 96,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-interfaces",
+    "scenario": "A developer is estimating the token cost of adding input_examples to a complex tool definition with deeply nested objects. The tool is called frequently in their agentic loop.",
+    "question": "What token cost range should the developer expect for complex nested input_examples?",
+    "options": [
+      {
+        "id": "a",
+        "text": "~100-200 tokens per complex nested example, as they appear in the prompt alongside the schema",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Zero additional tokens — examples are processed separately and don't count toward the prompt token budget",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "~500-1000 tokens per example, as each example is expanded into full validation instructions",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "~5-10 tokens per example, as only the field names are extracted and included",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation states that input_examples cost approximately 20-50 tokens for simple examples and 100-200 tokens for complex nested objects. Examples appear in the prompt alongside the schema, so they consume prompt tokens on every request.",
+    "why_others_wrong": {
+      "b": "Examples are not processed separately; they appear in the prompt alongside the schema and consume tokens on every request.",
+      "c": "The documented range is ~100-200 tokens for complex examples, not 500-1000. The cost is the serialized example, not expanded validation instructions.",
+      "d": "Full example values are included, not just field names. Simple examples cost ~20-50 tokens, complex ones ~100-200."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Define Tools",
+      "quote": "Token cost: ~20-50 tokens for simple examples, ~100-200 for complex nested objects."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 97,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer sets tool_choice to {\"type\": \"any\"} to force Claude to always use a tool. However, they also want Claude to explain its reasoning in natural language BEFORE calling the tool. During testing, Claude never produces any text before the tool_use block.",
+    "question": "Why isn't Claude producing natural language before the tool call, and how can the developer achieve both goals?",
+    "options": [
+      {
+        "id": "a",
+        "text": "When tool_choice is 'any' or 'tool', the API prefills the assistant message to force tool use, suppressing all natural language; use 'auto' with explicit user-message instructions instead",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Claude's response is being truncated by max_tokens; increase the token limit to allow text before tool calls",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Add a system prompt instruction saying 'Always explain before calling tools' to override the prefill behavior",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Set disable_parallel_tool_use=true to allow Claude to generate text before a single tool call",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "When tool_choice is 'any' or 'tool', the API prefills the assistant message to force tool use, meaning Claude will NOT emit natural language before tool_use blocks, even if asked. To get both natural language AND tool use, use tool_choice 'auto' with explicit instructions in the user message directing Claude to use the tool.",
+    "why_others_wrong": {
+      "b": "The lack of text is not due to truncation; the prefill mechanism prevents text generation entirely before tool_use blocks.",
+      "c": "System prompt instructions cannot override the prefill mechanism. The API-level behavior supersedes prompt instructions.",
+      "d": "disable_parallel_tool_use controls the number of tool calls, not whether text appears before them. The prefill still suppresses text."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - tool_choice",
+      "quote": "When tool_choice is any or tool, the API prefills the assistant message to force tool use. This means Claude will NOT emit natural language before tool_use blocks, even if asked."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 98,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer enables extended thinking on their Claude API request and also sets tool_choice to {\"type\": \"tool\", \"name\": \"analyze_data\"}. The API returns an error.",
+    "question": "What is causing the error?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Extended thinking only supports tool_choice 'auto' and 'none'; using 'any' or 'tool' with extended thinking returns an error",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Extended thinking requires the latest model version; the developer is using an older model that doesn't support it",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Extended thinking and tool use are mutually exclusive features that cannot be combined in the same request",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The tool_choice 'tool' type requires a 'type' field in the tool definition that is incompatible with thinking blocks",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "Extended thinking mode only supports 'auto' and 'none' for tool_choice. Using 'any' or 'tool' with extended thinking enabled returns an error because the prefill mechanism used by these modes is incompatible with the thinking block generation process.",
+    "why_others_wrong": {
+      "b": "The error is about the incompatibility between extended thinking and the 'tool' tool_choice type, not the model version.",
+      "c": "Extended thinking works with tool use when tool_choice is 'auto' or 'none'. They are not mutually exclusive.",
+      "d": "The error is caused by the combination of extended thinking and forced tool_choice modes, not by missing type fields."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - tool_choice",
+      "quote": "Extended thinking only supports auto and none. Using any or tool with extended thinking returns an error."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 99,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer sends a request with tools defined but does not explicitly set tool_choice. Claude sometimes uses tools and sometimes responds with text only.",
+    "question": "What is the default tool_choice behavior when tools are provided?",
+    "options": [
+      {
+        "id": "a",
+        "text": "tool_choice defaults to 'auto', allowing Claude to decide whether to call any tools based on context",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "tool_choice defaults to 'none' until explicitly set, so tools are available but never used",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "tool_choice defaults to 'any', requiring Claude to always use a tool when tools are provided",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "tool_choice defaults to 'tool' with the first tool in the array, always using the first defined tool",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "When tools are provided, tool_choice defaults to 'auto', meaning Claude decides whether to call any tools based on the conversation context. When no tools are provided, the default is 'none'.",
+    "why_others_wrong": {
+      "b": "'none' is only the default when no tools are provided. When tools are provided, the default is 'auto'.",
+      "c": "'any' forces tool use but is not the default. The default is 'auto' which lets Claude decide.",
+      "d": "There is no automatic selection of the first tool. The default 'auto' lets Claude choose whether and which tool to use."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - tool_choice",
+      "quote": "auto: Claude decides whether to call any tools. Default when tools provided. none: Default when no tools provided."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 100,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "Claude responds with two tool_use blocks (a weather check and a calendar lookup) in a single response. The developer sends the results back in two separate user messages rather than one combined message.",
+    "question": "What is the consequence of sending parallel tool results in separate user messages?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It reduces Claude's future parallel tool use behavior, as the pattern signals that results should be sequential",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Claude will process only the first result and ignore the second message entirely",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The API will return an HTTP 400 error because tool results must be in a single message",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Both results will be processed normally with no impact on future behavior",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation states that sending parallel tool results in separate messages reduces future parallel tool use. All tool results from a parallel tool call must be sent back in a single user message to maintain the parallel tool use pattern.",
+    "why_others_wrong": {
+      "b": "Claude doesn't ignore the second message, but the pattern trains it away from parallel tool use in future turns.",
+      "c": "While the docs show this as a pattern to avoid, it does not necessarily cause an HTTP 400 — it degrades future behavior instead.",
+      "d": "There is a meaningful impact: Claude learns from the pattern and reduces parallel tool use in subsequent turns."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Parallel Tool Use",
+      "quote": "Sending results in separate messages reduces future parallel tool use."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 101,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer is building a structured data extraction pipeline. They need to guarantee that Claude always calls a specific extraction tool AND never produces free-form text. They set tool_choice to {\"type\": \"any\"}.",
+    "question": "What is the behavioral difference between tool_choice 'any' and 'tool' with {\"name\": \"extract_data\"}?",
+    "options": [
+      {
+        "id": "a",
+        "text": "'any' lets Claude choose which tool to use from the provided set; 'tool' forces a specific named tool. Both suppress natural language.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "'any' allows natural language before the tool call; 'tool' suppresses it entirely",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "'any' is the same as 'auto' but with a fallback to tool use; 'tool' is a hard requirement",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "'any' allows multiple tool calls; 'tool' restricts to exactly one call of the named tool",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "'any' requires Claude to use ONE of the provided tools but lets it choose which one. 'tool' forces Claude to always use a specific named tool. Both modes suppress natural language by prefilling the assistant message to force tool use.",
+    "why_others_wrong": {
+      "b": "Both 'any' and 'tool' suppress natural language via the prefill mechanism. Neither allows text before the tool call.",
+      "c": "'any' is fundamentally different from 'auto'. 'auto' lets Claude choose whether to use tools at all; 'any' requires tool use.",
+      "d": "Parallel tool use is controlled by disable_parallel_tool_use, not by the tool_choice type. 'tool' doesn't restrict to one call inherently."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - tool_choice",
+      "quote": "any: Claude MUST use one of the provided tools, but can choose which one. tool: Forces Claude to always use the specific named tool."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 102,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer wants to limit Claude to exactly one tool call per turn in their agentic pipeline. They use tool_choice: {\"type\": \"auto\"} with disable_parallel_tool_use: true.",
+    "question": "With this configuration, what is the maximum number of tool calls Claude can make per response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "At most one — Claude may choose to call zero or one tool",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Zero — disable_parallel_tool_use prevents all tool calls when combined with auto",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Exactly one — Claude must always make a tool call",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Two — disable_parallel_tool_use sets the maximum to 2 instead of unlimited",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "With disable_parallel_tool_use=true and tool_choice 'auto', Claude can make AT MOST one tool call. It may still choose not to use any tool at all (since 'auto' lets Claude decide). With 'any' or 'tool', it would be EXACTLY one.",
+    "why_others_wrong": {
+      "b": "disable_parallel_tool_use limits to one tool call, not zero. Claude can still use one tool.",
+      "c": "'auto' lets Claude choose whether to use tools at all. 'at most one' means zero or one. 'Exactly one' would require 'any' or 'tool' mode.",
+      "d": "disable_parallel_tool_use limits to one, not two. The name means 'disable parallel execution', resulting in single tool calls."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Parallel Tool Use",
+      "quote": "disable_parallel_tool_use=true + tool_choice: auto = at most one tool. disable_parallel_tool_use=true + tool_choice: any/tool = exactly one tool."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 103,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer is optimizing token costs for their Claude Opus 4.x application that uses tools with tool_choice set to 'auto'. They want to know the system prompt overhead added by the tool use feature.",
+    "question": "What is the token overhead for the tool use system prompt on Claude Opus 4.x with tool_choice 'auto'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "346 tokens for auto/none, 313 tokens for any/tool",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "264 tokens for auto, 340 tokens for any/tool",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "0 tokens — there is no overhead when using auto mode",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "530 tokens for auto, 281 tokens for any/tool",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "For Claude Opus 4.x and Sonnet 4.x models, the tool use system prompt adds 346 tokens with auto/none and 313 tokens with any/tool. The 0-token case only applies when no tools are provided and tool_choice is none.",
+    "why_others_wrong": {
+      "b": "264/340 tokens are the costs for Claude Haiku 3.5, not Claude Opus 4.x.",
+      "c": "0 tokens only applies when no tools are provided at all. When tools are provided, the system prompt adds overhead.",
+      "d": "530/281 tokens are the costs for the deprecated Claude Opus 3, not Claude Opus 4.x."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - tool_choice Token Overhead",
+      "quote": "Claude Opus 4.x / Sonnet 4.x: auto/none = 346 tokens, any/tool = 313 tokens."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 104,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-tool-choice",
+    "scenario": "A developer wants to completely disable tool use for a specific request in their application, even though tools are defined in their base configuration. They do not want any tool overhead.",
+    "question": "How should the developer configure the request to avoid all tool-related overhead?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Remove the tools array entirely from the request — when no tools are provided and tool_choice is none, the overhead is 0 tokens",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "text": "Set tool_choice to 'none' while keeping tools in the request — this eliminates all overhead",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Set disable_parallel_tool_use to true and tool_choice to 'none' to fully deactivate",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Pass an empty tools array [] to indicate no tools should be used",
+        "correct": false
+      }
+    ],
+    "correct_answer": "a",
+    "explanation": "The documentation states that if no tools are provided and tool_choice is none, there are 0 additional system prompt tokens. Simply setting tool_choice to 'none' while keeping tools defined still incurs the system prompt overhead. The tools array must be omitted entirely.",
+    "why_others_wrong": {
+      "b": "Setting tool_choice to 'none' with tools still present incurs the 346-token system prompt overhead. Tools must be removed entirely for 0 overhead.",
+      "c": "disable_parallel_tool_use does not eliminate overhead. The tools array must be absent for 0 tokens.",
+      "d": "An empty tools array may still trigger the tool use system prompt. The array should be omitted entirely."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Token Overhead",
+      "quote": "If no tools are provided and tool_choice is none, 0 additional system prompt tokens."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 105,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A developer enables strict mode by setting strict: true on their tool definition. However, they forget to add additionalProperties: false in the input_schema. Claude's tool inputs occasionally contain unexpected fields.",
+    "question": "What is wrong with this strict mode configuration?",
+    "options": [
+      {
+        "id": "a",
+        "text": "strict: true automatically implies additionalProperties: false, so the issue must be elsewhere",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Strict mode requires BOTH strict: true at the tool level AND additionalProperties: false in the input_schema; without both, grammar-constrained sampling is not active",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "additionalProperties: false should be set at the tool level alongside strict: true, not in the input_schema",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The developer needs to also set type: 'strict' in the input_schema for full validation",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Strict mode has two requirements: (1) strict: true must be set as a top-level property in the tool definition, and (2) additionalProperties: false must be set in the input_schema. Both are required for grammar-constrained sampling to activate.",
+    "why_others_wrong": {
+      "a": "strict: true does NOT automatically imply additionalProperties: false. Both must be explicitly set. This is a common misconception.",
+      "c": "additionalProperties: false belongs in the input_schema object, not at the tool level. It's a JSON Schema property.",
+      "d": "There is no type: 'strict' property. The configuration is strict: true at tool level plus additionalProperties: false in input_schema."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Strict Tool Use",
+      "quote": "strict: true must be set as top-level property. additionalProperties: false must be set in the input_schema."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 106,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A healthcare company is building a HIPAA-compliant application using strict tool use. A developer includes patient diagnostic codes in the enum values of their tool's input_schema, reasoning that strict mode is HIPAA eligible.",
+    "question": "What security violation has the developer introduced?",
+    "options": [
+      {
+        "id": "a",
+        "text": "No violation — strict tool use is HIPAA eligible and all schema content receives PHI protections",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "PHI must not appear in schema definitions (property names, enum values, const values, patterns) because cached schemas don't receive the same PHI protections as prompts/responses",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Strict mode is not HIPAA eligible at all; the developer should use standard tool use for healthcare applications",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "PHI is allowed in enum values but not in property names; the developer should move the codes to property names instead",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "While strict tool use IS HIPAA eligible, PHI must NOT be included in tool schema definitions. Cached schemas do NOT receive the same PHI protections as prompts/responses. PHI must not appear in input_schema property names, enum values, const values, or pattern regular expressions. PHI should only appear in message content.",
+    "why_others_wrong": {
+      "a": "While strict mode is HIPAA eligible, schema content does NOT receive PHI protections. Schemas are cached separately for up to 24 hours.",
+      "c": "Strict mode IS HIPAA eligible, but with restrictions on where PHI can appear. The issue is schema content, not eligibility.",
+      "d": "PHI is not allowed in ANY schema definition elements — not in property names, enum values, const values, or patterns."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Strict Tool Use PHI",
+      "quote": "PHI must NOT be included in tool schema definitions. Cached schemas do NOT receive the same PHI protections as prompts/responses. Do NOT include PHI in: input_schema property names, enum values, const values, pattern regular expressions."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 107,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A developer wants to build a reliable agentic workflow where every Claude response must be a valid, schema-conformant tool call. They need to guarantee both tool invocation and schema compliance.",
+    "question": "What combination of settings achieves guaranteed tool invocation with guaranteed schema conformance?",
+    "options": [
+      {
+        "id": "a",
+        "text": "tool_choice: 'auto' with strict: true — auto ensures Claude uses tools when appropriate and strict validates inputs",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "tool_choice: {\"type\": \"any\"} with strict: true — this guarantees Claude WILL call a tool AND inputs will exactly match the schema",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "tool_choice: 'none' with strict: true — this forces schema validation while letting Claude decide when to call tools",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "tool_choice: 'any' alone is sufficient — it automatically enables schema validation",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Combining tool_choice: {\"type\": \"any\"} with strict: true guarantees both that Claude will call a tool AND that the inputs will exactly match the schema. This is the most powerful combination for reliable agentic workflows.",
+    "why_others_wrong": {
+      "a": "'auto' does not guarantee tool use — Claude may choose to respond with text only. Strict only validates when a tool is actually called.",
+      "c": "'none' prevents Claude from using any tools at all. It cannot be combined meaningfully with strict for tool validation.",
+      "d": "'any' forces tool use but does NOT automatically enable schema validation. strict: true (plus additionalProperties: false) must be explicitly set."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Strict Tool Use",
+      "quote": "Combine tool_choice: {\"type\": \"any\"} + strict: true to guarantee both tool call AND schema conformance."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 108,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A developer notices that their strict-mode tool calls are faster on the second request with the same schema, but much slower on the first request.",
+    "question": "What causes this performance difference between the first and subsequent requests?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The first request warms up the model's attention mechanism; subsequent requests reuse the warmed state",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The first request compiles the schema into a grammar; compiled schemas are cached for up to 24 hours since last use, making subsequent requests faster",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Strict mode disables prompt caching on the first request but enables it on subsequent requests",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The first request validates the schema against the JSON Schema specification; once validated, the schema is marked as trusted for 7 days",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Tool input_schema definitions are compiled into grammars using the same pipeline as structured outputs. These compiled schemas are temporarily cached for up to 24 hours since last use. The first request incurs the compilation cost, while subsequent requests benefit from the cached grammar.",
+    "why_others_wrong": {
+      "a": "The performance difference is from schema compilation caching, not attention mechanism warming. Each request is independent at the model level.",
+      "c": "Strict mode and prompt caching are independent features. Schema caching is a separate mechanism from prompt caching.",
+      "d": "The cache duration is 24 hours, not 7 days. And the mechanism is grammar compilation caching, not schema validation trust."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Strict Tool Use Schema Caching",
+      "quote": "Schemas are temporarily cached for up to 24 hours since last use. Prompts and responses are NOT retained beyond the API response."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 109,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A developer categorizes their enforcement mechanisms: hooks that block dangerous commands, strict mode for schema validation, and system prompt instructions for behavioral guidance.",
+    "question": "How should these three enforcement mechanisms be categorized in terms of guarantee level?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All three provide deterministic guarantees since they are enforced by the platform, not the model",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Hooks and strict mode provide deterministic enforcement (100% guarantee); system prompts provide probabilistic guidance (best-effort)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Only hooks are deterministic; strict mode and prompts are both probabilistic since they affect model output",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Strict mode provides the strongest guarantee; hooks can be bypassed by prompt injection; prompts are weakest",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "There are three enforcement categories: (1) Hooks provide deterministic runtime enforcement outside the model — 100% guarantee, cannot be bypassed. (2) Strict mode provides deterministic schema enforcement at the sampling level — the model physically cannot generate non-conforming output. (3) Prompts provide probabilistic behavioral guidance — best-effort, can deviate.",
+    "why_others_wrong": {
+      "a": "System prompts are NOT deterministic. The model 'usually' follows them but can deviate or be affected by prompt injection.",
+      "c": "Strict mode IS deterministic — it uses grammar-constrained sampling at the token generation level, making non-conforming output physically impossible.",
+      "d": "Hooks cannot be bypassed by prompt injection because they run outside the model's control. Both hooks and strict mode are deterministic."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Programmatic Enforcement",
+      "quote": "Hooks provide deterministic, programmatic enforcement. Strict mode provides deterministic schema enforcement at the sampling level. Prompts provide probabilistic guidance."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 110,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-strict-tool-use",
+    "scenario": "A developer defines 22 strict tools in a single API request, each with complex schemas. The API returns a validation error.",
+    "question": "What strict mode complexity limit was exceeded?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The total schema size exceeds the 100KB limit for strict tools",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The maximum number of strict tools per request is 20; the developer has 22",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Strict mode only supports up to 10 tools with extended thinking enabled",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The combined number of required and optional parameters across all tools exceeds 100",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Strict mode has specific complexity limits: maximum 20 strict tools per request, 24 optional parameters per tool, 16 union members, and 180-second request timeout. With 22 strict tools, the developer exceeds the 20-tool limit.",
+    "why_others_wrong": {
+      "a": "There is no 100KB schema size limit mentioned. The limit is 20 strict tools per request.",
+      "c": "The 20-tool limit applies regardless of whether extended thinking is enabled. Note that extended thinking only supports auto/none tool_choice anyway.",
+      "d": "The parameter limit is 24 optional parameters PER TOOL, not a combined total across all tools."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Strict Mode Complexity Limits",
+      "quote": "Maximum strict tools per request: 20. Maximum optional parameters per tool: 24. Maximum union members: 16."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Building with the Claude API",
+      "lesson": "Defining tools with MCP",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 111,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "A developer's database query tool fails due to a connection timeout. They return the error as: {\"content\": \"Error occurred\", \"is_error\": true}. Claude retries the same query but makes the same mistake repeatedly.",
+    "question": "What is wrong with this error handling approach?",
+    "options": [
+      {
+        "id": "a",
+        "text": "is_error should be set to false for connection timeouts since the tool itself didn't fail",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The error message is uninformative; it should include what went wrong and what to try next, as Claude uses this content to correct its behavior on retries",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The developer should not return an error at all; they should throw an exception to stop the agentic loop",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The error should be returned in a separate system message rather than in the tool_result",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The documentation emphasizes writing instructive error messages that include what went wrong and what to try next. Claude incorporates error content into its reasoning, so descriptive messages lead to better recovery behavior. 'Error occurred' gives Claude no actionable information for self-correction.",
+    "why_others_wrong": {
+      "a": "A connection timeout IS a tool execution failure and should use is_error: true. A valid empty result (no data found) would use is_error: false.",
+      "c": "Throwing an exception would stop the agentic loop entirely. Returning is_error: true allows Claude to attempt recovery with 2-3 retries.",
+      "d": "Errors from tool execution belong in tool_result blocks, not system messages. The tool_result is the proper channel for reporting tool execution outcomes."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Error Handling",
+      "quote": "Write instructive error messages (what went wrong + what to try next)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 112,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "Claude sends an invalid tool call with a malformed date parameter. The developer returns an error with is_error: true. They expect Claude to give up after the first failure, but Claude continues trying.",
+    "question": "How does Claude handle invalid tool calls when it receives an is_error: true response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Claude immediately stops the agentic loop and returns an error to the user",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Claude retries the tool call 2-3 times with corrections based on the error message before apologizing to the user",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Claude switches to a different tool to accomplish the same task",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Claude asks the user for clarification about the correct parameter format",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "When Claude makes an invalid tool call and receives an is_error: true response, it automatically retries 2-3 times with corrections. It uses the error message content to adjust its next attempt. Only after exhausting retries does it apologize to the user.",
+    "why_others_wrong": {
+      "a": "is_error: true does NOT stop the agentic loop. Claude continues and retries with corrections. This is a common misconception.",
+      "c": "Claude's primary behavior is to correct the same tool call, not switch to a different tool. It uses the error message to fix its inputs.",
+      "d": "Claude first attempts self-correction through retries. Asking for clarification is not the default behavior for invalid tool calls."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Error Handling",
+      "quote": "If Claude gets invalid tool use errors, it retries 2-3 times with corrections before apologizing."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 113,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "A developer's search tool returns zero results for a query. They return: {\"content\": \"No matching records found\", \"is_error\": true}. Claude keeps retrying the search with slightly different queries, consuming context unnecessarily.",
+    "question": "What error handling mistake is causing the unnecessary retries?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The content message is too vague; adding 'try a broader query' would fix the retry behavior",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "A valid empty result should NOT use is_error: true; this flag should only be used for actual execution failures like connection timeouts or permission denials",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "The developer should return the tool_result with no content field at all instead of an error",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The developer should set is_error to false and add a 'no_results: true' field to the response",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Returning is_error: true for a valid empty result causes Claude to retry unnecessarily, as it interprets the error as a failure to execute. A search that returns zero results is a valid outcome (is_error: false), not an execution failure. is_error: true should only be used for actual failures like connection timeouts, permission denials, or API rate limits.",
+    "why_others_wrong": {
+      "a": "The root cause is the incorrect use of is_error: true, not the message content. Even with better messaging, the error flag triggers retry behavior.",
+      "c": "Omitting content entirely would make it unclear whether the tool succeeded or failed. A message like 'No matching records found' with is_error: false is more informative.",
+      "d": "Custom fields like 'no_results' are not part of the tool_result specification. The correct approach is is_error: false with informative content."
+    },
+    "doc_reference": {
+      "source": "Anthropic API Docs - Error Handling",
+      "quote": "Tool succeeded but found nothing: is_error = false. Tool failed to execute: is_error = true."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 114,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "An MCP server receives a tools/call request for a tool name that doesn't exist. The developer needs to return an appropriate error.",
+    "question": "What is the correct error mechanism and code for reporting an unknown tool in MCP?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return a tool result with isError: true and a descriptive message about the unknown tool",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Return a JSON-RPC error response with code -32602 (invalid params) since unknown tools are a protocol-level error",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Return a JSON-RPC error response with code -32603 (server error) and a descriptive message",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Return HTTP 404 Not Found with the unknown tool name in the response body",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "In MCP, unknown tools are protocol-level errors handled via JSON-RPC error responses with code -32602 (same code used for unknown tools and invalid arguments). This is distinct from execution errors which use isError: true in tool results.",
+    "why_others_wrong": {
+      "a": "isError: true in tool results is for execution errors (API failures, business logic errors). An unknown tool is a protocol-level error, not an execution error.",
+      "c": "-32603 is for internal server errors. Unknown tools and invalid arguments use -32602.",
+      "d": "MCP uses JSON-RPC 2.0, not HTTP status codes. The error is reported via JSON-RPC error objects, not HTTP response codes."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Error Handling",
+      "quote": "Protocol Errors: Unknown tools: code -32602. Invalid arguments: code -32602. Server errors: code -32603. Resource not found: code -32002."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 115,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "A developer is implementing error handling in their MCP server. They need to decide when to use JSON-RPC error responses versus isError: true in tool results.",
+    "question": "Which scenario correctly matches the error type to the appropriate mechanism?",
+    "options": [
+      {
+        "id": "a",
+        "text": "JSON-RPC error for API rate limit exceeded; isError: true for unknown tool names",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "JSON-RPC error for unknown tools and invalid arguments; isError: true for API failures and business logic errors",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "isError: true for all errors; JSON-RPC errors are only used for transport failures",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "JSON-RPC error for all errors; isError: true is deprecated in the current MCP specification",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "MCP distinguishes between two error mechanisms: (1) Protocol errors use JSON-RPC error responses for structural issues like unknown tools (-32602), invalid arguments (-32602), and server errors (-32603). (2) Execution errors use isError: true in tool results for runtime failures like API failures, invalid input data, and business logic errors.",
+    "why_others_wrong": {
+      "a": "API rate limits are execution errors (isError: true). Unknown tool names are protocol errors (JSON-RPC error). This option has them reversed.",
+      "c": "JSON-RPC errors are used for protocol-level issues (unknown tools, invalid arguments), not just transport failures. Both mechanisms serve distinct purposes.",
+      "d": "isError: true is not deprecated. Both mechanisms coexist in the current MCP specification for different error categories."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Error Handling",
+      "quote": "Protocol Errors: Standard JSON-RPC errors for structural issues. Tool Execution Errors: isError: true in tool results for runtime failures."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 116,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-error-responses",
+    "scenario": "A developer implements a tool that catches exceptions and returns {\"content\": [{\"type\": \"text\", \"text\": \"Rate limit exceeded\"}], \"isError\": true} as the tool result. In their Agent SDK custom tool handler, they wonder whether Claude will continue the loop or stop.",
+    "question": "In the Agent SDK, what happens when a custom tool returns isError: true versus throwing an uncaught exception?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both stop the agent loop; isError shows the error to Claude while exceptions are silently logged",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "isError: true continues the loop (Claude sees the error and can retry); uncaught exceptions STOP the loop entirely (Claude never sees the error)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Both continue the loop; exceptions are automatically converted to isError: true responses",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "isError: true stops the loop after 3 retries; exceptions trigger an immediate graceful shutdown",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "In the Agent SDK, returning isError: true allows the agent loop to CONTINUE — Claude sees the error and can retry or adapt. An uncaught exception STOPS the agent loop entirely, and Claude never sees the error. This distinction is critical for building resilient tools.",
+    "why_others_wrong": {
+      "a": "isError: true does NOT stop the loop. It allows Claude to see the error and continue with retries or alternative approaches.",
+      "c": "Exceptions are NOT automatically converted. Uncaught exceptions stop the loop. Only explicit isError: true responses continue the loop.",
+      "d": "isError: true does not have an automatic retry limit that stops the loop. The loop continues and Claude decides how to proceed."
+    },
+    "doc_reference": {
+      "source": "Agent SDK - Custom Tools",
+      "quote": "Uncaught exception: Agent loop STOPS. Claude never sees the error. Return isError: true: Agent loop CONTINUES. Claude sees error and can retry/adapt."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 117,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer is building an MCP server and needs to decide which primitive to use for each feature: (1) a function that queries a weather API, (2) a project configuration file that the host app loads at startup, and (3) a code review template that users trigger via a slash command.",
+    "question": "How should each feature map to MCP primitives based on their control models?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All three should be Tools since they all provide information to the LLM",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "(1) Tool (model-controlled), (2) Resource (application-driven), (3) Prompt (user-controlled)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "(1) Resource (read-only data), (2) Tool (executable function), (3) Prompt (template with arguments)",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "(1) Prompt (user requests weather), (2) Resource (static file), (3) Tool (code review function)",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "MCP primitives map by control model: Tools are model-controlled (LLM decides when to invoke — weather API query), Resources are application-driven (host app decides when to load — config file at startup), Prompts are user-controlled (user explicitly triggers — code review slash command).",
+    "why_others_wrong": {
+      "a": "Using Tools for everything ignores the control model distinction. Resources and Prompts have fundamentally different invocation patterns.",
+      "c": "The weather API is a Tool (model invokes it based on context), not a Resource. Resources are application-loaded context, not API calls.",
+      "d": "Weather queries are model-initiated based on context, not user-initiated via commands. Code review templates are user-triggered slash commands, not model-invoked tools."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Three Primitives",
+      "quote": "Tools: Model-controlled — LLM discovers and invokes automatically. Resources: Application-driven — host app determines how to incorporate. Prompts: User-controlled — user explicitly selects."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 118,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer claims that MCP Resources are 'model-controlled' because the LLM can read them when needed, similar to how it decides to use Tools.",
+    "question": "Why is this characterization of Resources incorrect?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Resources are actually server-controlled — the MCP server decides when to send resource content",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Resources are application-driven — the host application determines how and when to incorporate resource context, not the LLM",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Resources are user-controlled — the user must explicitly request each resource via a slash command",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Resources are transport-controlled — they are pushed automatically through the transport layer",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "Resources are application-driven, meaning the host application determines how to incorporate context. This is fundamentally different from Tools (model-controlled, where the LLM decides) and Prompts (user-controlled, where the user selects). The application decides which resources to load and when.",
+    "why_others_wrong": {
+      "a": "While the server provides resources, the control model is 'application-driven' — the host application (client) decides when to incorporate them, not the server.",
+      "c": "User-controlled is the control model for Prompts, not Resources. Users select prompts via slash commands; resources are managed by the application.",
+      "d": "'Transport-controlled' is not an MCP control model. The three control models are model-controlled, application-driven, and user-controlled."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Resources",
+      "quote": "Control model: Application-driven — host app determines how to incorporate context."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "MCP Review",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 119,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer examines an MCP tool definition and sees annotations including readOnlyHint: true and destructiveHint: false. They want to use these annotations to make security decisions in their client application.",
+    "question": "According to the MCP specification, how should clients treat tool annotations?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Annotations are enforced by the MCP protocol and can be relied upon for security decisions",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Clients MUST consider tool annotations untrusted unless from trusted servers; annotations are metadata hints, not security guarantees",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "text": "Annotations are cryptographically signed by the server and can be verified for authenticity",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Annotations are only meaningful when strict mode is enabled; otherwise they are ignored by the client",
+        "correct": false
+      }
+    ],
+    "correct_answer": "b",
+    "explanation": "The MCP specification states that clients MUST consider tool annotations untrusted unless from trusted servers. Annotations like readOnlyHint and destructiveHint are advisory metadata, not enforced security guarantees. However, in the Agent SDK, readOnlyHint: true does enable parallel execution — a functional consequence, not a security guarantee.",
+    "why_others_wrong": {
+      "a": "Annotations are NOT enforced by the protocol. They are advisory hints that may or may not accurately describe tool behavior.",
+      "c": "There is no cryptographic signing mechanism for annotations in the MCP specification. They are plain metadata fields.",
+      "d": "Annotations are part of the MCP tool definition regardless of strict mode. Strict mode is an Anthropic API feature, not an MCP feature."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Tool Annotations",
+      "quote": "Clients MUST consider tool annotations untrusted unless from trusted servers."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "Sampling",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 120,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer is building an MCP resource server that provides access to project documentation. They need to expose both fixed documentation pages and dynamically generated docs based on user-specified parameters.",
+    "question": "Which MCP feature supports parameterized resource access, and what standard does it use?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Resource queries using SQL-like syntax for filtering and parameterization",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Resource arguments similar to prompt arguments, with name/description/required fields",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Resource templates using RFC 6570 URI Templates for parameterized URIs like file:///{path}",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Resource mutations that accept parameters through JSON-RPC method params",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "MCP Resource templates use RFC 6570 URI Templates for parameterized resource access. Templates like file:///{path} allow dynamic resource identification based on parameters. They are discovered via resources/templates/list.",
+    "why_others_wrong": {
+      "a": "MCP does not use SQL-like syntax for resource access. Resources are identified by URIs following RFC 3986.",
+      "b": "Arguments with name/description/required fields are a feature of MCP Prompts, not Resources. Resource parameterization uses URI templates.",
+      "d": "Resources are read via resources/read with a URI, not through method params. There is no 'resource mutations' concept in MCP."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Resources",
+      "quote": "Resource templates: Use URI templates (RFC 6570) for parameterized resources. Example: {\"uriTemplate\": \"file:///{path}\"}"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Accessing Resources",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287783"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 121,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "An MCP server developer is setting default values for tool annotations on a new read-only query tool. They want to understand the default annotation values to know which ones they need to explicitly set.",
+    "question": "What are the default values for MCP tool annotations?",
+    "options": [
+      {
+        "id": "a",
+        "text": "readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "All annotations default to false until explicitly set to true",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "All annotations default to true and must be explicitly disabled with false",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "The default annotation values are: readOnlyHint: false (tools may modify by default), destructiveHint: true (tools may be destructive by default), idempotentHint: false (not idempotent by default), openWorldHint: true (interacts with external entities by default). These defaults assume the most cautious interpretation.",
+    "why_others_wrong": {
+      "a": "This reverses the actual defaults. readOnlyHint defaults to false (not true), and destructiveHint defaults to true (not false).",
+      "b": "destructiveHint and openWorldHint default to true, not false. The defaults are mixed, not uniformly false.",
+      "d": "readOnlyHint and idempotentHint default to false, not true. The defaults are mixed, not uniformly true."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Tool Annotations",
+      "quote": "readOnlyHint: default false. destructiveHint: default true. idempotentHint: default false. openWorldHint: default true."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "Sampling",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 122,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "An MCP server wants to request an LLM completion from the client to summarize data before returning a tool result. The server sends a sampling/createMessage request.",
+    "question": "What security requirement applies to MCP sampling requests?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sampling requests are automatically approved since they originate from a trusted server",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Sampling requires the server to provide its own API key for authentication with the LLM provider",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "There SHOULD always be a human in the loop; applications SHOULD provide UI to review requests and allow editing of prompts",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Sampling requests are limited to text-only content and cannot include images or structured data",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "MCP sampling has an explicit security requirement that there SHOULD always be a human in the loop with the ability to deny sampling requests. Applications SHOULD provide UI to review requests, allow users to view and edit prompts, and present responses for review before returning to the server.",
+    "why_others_wrong": {
+      "a": "Sampling requests are NOT automatically approved. The specification requires human oversight for security.",
+      "b": "The client maintains control over model access and selection. No server API keys are needed — that's a key benefit of sampling.",
+      "d": "Sampling supports text, image (base64), and audio (base64) content types, not just text."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Sampling",
+      "quote": "There SHOULD always be a human in the loop with ability to deny sampling requests. Applications SHOULD provide UI to review requests."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "Sampling",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 123,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer is building a Claude Code integration and wonders how MCP prompts appear to users. They have defined several prompts on their MCP server named 'code_review' and 'deploy_check' on a server named 'devops'.",
+    "question": "How do MCP prompts appear in Claude Code's interface?",
+    "options": [
+      {
+        "id": "a",
+        "text": "As tools that Claude can invoke automatically based on conversation context",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "As buttons in the sidebar that users click to inject prompt content",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "As slash commands in the format /mcp__servername__promptname (e.g., /mcp__devops__code_review)",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "As resource URIs that the application loads and displays to the user",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "In Claude Code, MCP prompts appear as slash commands in the format /mcp__servername__promptname. Arguments are space-separated after the command. This aligns with prompts being user-controlled — the user explicitly selects and invokes them.",
+    "why_others_wrong": {
+      "a": "That describes Tools (model-controlled), not Prompts (user-controlled). Prompts require explicit user selection.",
+      "b": "Prompts appear as slash commands, not sidebar buttons. The slash command interface is the standard way to access MCP prompts in Claude Code.",
+      "d": "That describes Resources (application-driven). Prompts are user-controlled slash commands, not application-loaded URIs."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Prompts in Claude Code",
+      "quote": "In Claude Code: Prompts appear as /mcp__servername__promptname slash commands. Arguments are space-separated after the command."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Prompts in the Client",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287786"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 124,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer wants their MCP tool result content to be routed differently — some data should only be visible to the user in the UI, while other data should only be processed by the LLM assistant.",
+    "question": "Which MCP content annotation controls routing of content between the user and the assistant?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The 'visibility' annotation with values 'public' or 'private'",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The 'routing' annotation with values 'model', 'display', or 'both'",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The 'audience' annotation, which takes an array of 'user' and/or 'assistant' to control who sees the content",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "The 'scope' annotation that determines whether content is included in the context window",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "MCP content annotations include 'audience', which takes an array of 'user' and/or 'assistant'. This controls who sees the content — setting [\"user\"] means only the UI displays it; [\"assistant\"] means only the LLM processes it; both means everyone sees it.",
+    "why_others_wrong": {
+      "a": "'visibility' is not an MCP content annotation. The correct annotation is 'audience'.",
+      "b": "'routing' is not an MCP content annotation. The three content annotations are: audience, priority, and lastModified.",
+      "d": "'scope' is not an MCP content annotation. Context window inclusion is influenced by the 'audience' and 'priority' annotations."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Content Annotations",
+      "quote": "audience: array of 'user' and/or 'assistant'. priority: number 0.0 to 1.0. lastModified: ISO 8601 timestamp."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "Sampling",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 125,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer is implementing an MCP client and wants to discover what tools are available on a connected server. They also need to be notified when the server adds new tools.",
+    "question": "Which MCP protocol methods handle tool discovery and change notification?",
+    "options": [
+      {
+        "id": "a",
+        "text": "tools/discover for initial listing and tools/subscribe for change notifications",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "tools/enumerate for discovery and tools/watch for live updates",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "tools/list for discovery (supports pagination with cursor) and notifications/tools/list_changed for server-initiated change notifications",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "tools/index for discovery and tools/refresh to poll for changes",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "MCP tool discovery uses tools/list (which supports pagination with a cursor parameter) and tools/call to invoke tools. The server can notify clients of changes via notifications/tools/list_changed. The capability is declared with 'tools': {'listChanged': true}.",
+    "why_others_wrong": {
+      "a": "The correct method names are tools/list and notifications/tools/list_changed, not tools/discover and tools/subscribe.",
+      "b": "tools/enumerate and tools/watch are not valid MCP protocol methods.",
+      "d": "tools/index and tools/refresh are not valid MCP protocol methods. MCP uses push notifications, not polling."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Tools",
+      "quote": "Protocol methods: tools/list — discover available tools (supports pagination with cursor). tools/call — invoke a tool. notifications/tools/list_changed — server notifies when tool list changes."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287793"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 126,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-architecture",
+    "scenario": "A developer configures MCP roots for their server to define filesystem boundaries. They want to expose both a project directory and a shared dependencies directory.",
+    "question": "What URI scheme must MCP roots use, and what security obligation do clients have?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Roots can use any URI scheme (file://, https://, custom://); clients must encrypt all root paths",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Roots use directory paths without URI schemes; servers validate access permissions automatically",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Roots must use file:// URIs; clients MUST only expose roots with appropriate permissions and SHOULD prompt users for consent",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Roots are optional hints that servers can ignore; there are no specific URI or security requirements",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "MCP roots must use file:// URIs. Clients MUST only expose roots with appropriate permissions, MUST validate all root URIs to prevent path traversal, and SHOULD prompt users for consent before exposing roots. Servers SHOULD respect root boundaries during operations.",
+    "why_others_wrong": {
+      "a": "Roots are specifically file:// URIs, not any URI scheme. There is no encryption requirement, but permission and consent requirements exist.",
+      "b": "Roots use file:// URI format, not plain directory paths. And clients, not servers, are responsible for permission validation.",
+      "d": "Roots have specific requirements: file:// URIs, permission validation, path traversal prevention, and user consent."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Roots",
+      "quote": "Root URI MUST be file:// URI. Clients MUST only expose roots with appropriate permissions. Clients MUST validate all root URIs to prevent path traversal."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "Roots",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 127,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer is setting up an MCP server that uses the stdio transport. During testing, they log debug information to stdout alongside MCP messages. The client fails to parse server responses.",
+    "question": "What rule is being violated in the stdio transport?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The server must use a custom logging port instead of stdout for any non-MCP output",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Debug logs must be prefixed with a special marker like '#LOG:' to distinguish them from MCP messages",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The server MUST NOT write non-MCP content to stdout; it MAY write to stderr for logging instead",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "The stdio transport does not support any form of logging; all output must be valid MCP messages",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "In the stdio transport, the server MUST NOT write non-MCP content to stdout. Debug and log output should go to stderr, which clients MAY capture, forward, or ignore. Mixing non-MCP content with MCP messages on stdout breaks the message parsing.",
+    "why_others_wrong": {
+      "a": "There is no 'custom logging port' in stdio transport. stderr is the designated channel for non-MCP output.",
+      "b": "There is no marker-based system. MCP messages go to stdout exclusively; everything else goes to stderr.",
+      "d": "Logging IS supported via stderr. The restriction is specifically about stdout being reserved for MCP messages only."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - stdio Transport",
+      "quote": "Server MUST NOT write non-MCP content to stdout. Server MAY write to stderr for logging."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "The STDIO Transport",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 128,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer is choosing between MCP transport types for their remote server deployment. They initially plan to use SSE transport because they found examples using it online.",
+    "question": "What is the current status of the SSE transport in MCP, and what should the developer use instead?",
+    "options": [
+      {
+        "id": "a",
+        "text": "SSE is the current recommended transport for remote servers; it was recently upgraded",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "SSE has been completely removed from the specification and is no longer functional",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "SSE transport is DEPRECATED and replaced by Streamable HTTP; the developer should use the http transport type in Claude Code",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "SSE and HTTP are equivalent transports; either can be used interchangeably",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "The SSE (HTTP+SSE) transport is DEPRECATED in favor of Streamable HTTP. While it's still available for backwards compatibility (--transport sse in Claude Code), the recommended remote transport is Streamable HTTP (--transport http). Streamable HTTP replaces the two-endpoint SSE model with a single MCP endpoint.",
+    "why_others_wrong": {
+      "a": "SSE is deprecated, not recently upgraded. Streamable HTTP is the recommended replacement.",
+      "b": "SSE has not been completely removed; it's still available for backwards compatibility. But it is deprecated.",
+      "d": "They are not equivalent. Streamable HTTP replaces SSE with a fundamentally different architecture (single endpoint vs. two-endpoint model)."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Transports",
+      "quote": "SSE Transport (DEPRECATED): Deprecated in favor of Streamable HTTP. Still available for backwards compatibility."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "The StreamableHTTP Transport",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 129,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer is implementing a Streamable HTTP MCP server and needs to understand what headers the client must include on requests.",
+    "question": "Which headers must a client include when making requests to a Streamable HTTP MCP server?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Content-Type: application/json and Authorization with a bearer token",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "X-MCP-Transport: streamable-http and Content-Type: text/event-stream",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Accept header listing both application/json and text/event-stream, plus MCP-Protocol-Version: 2025-06-18",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Accept: application/json only, plus Mcp-Session-Id on the first request",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Clients MUST include an Accept header listing both application/json and text/event-stream (since the server may respond with either format). Clients must also include the MCP-Protocol-Version header (currently 2025-06-18). Mcp-Session-Id is included on subsequent requests, not the first one.",
+    "why_others_wrong": {
+      "a": "Authorization is not a required MCP header (though servers may implement authentication). The Accept header must list both JSON and SSE content types.",
+      "b": "There is no X-MCP-Transport header. The required headers are Accept (with both content types) and MCP-Protocol-Version.",
+      "d": "The Accept header must list BOTH application/json and text/event-stream. Mcp-Session-Id is returned by the server and included on subsequent requests, not the first."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Streamable HTTP",
+      "quote": "Client MUST include Accept header listing both application/json and text/event-stream. Client MUST include MCP-Protocol-Version: 2025-06-18 on all HTTP requests."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "StreamableHTTP in Depth",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 130,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A Streamable HTTP MCP server assigns a session ID via the Mcp-Session-Id header. Later, the server decides to terminate the session. The client sends a new request and receives an HTTP 404 response.",
+    "question": "What must the client do when it receives a 404 response to a request with an Mcp-Session-Id?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retry the same request 3 times with exponential backoff before failing",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Remove the Mcp-Session-Id header and retry the request without session context",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Start a new session with a fresh InitializeRequest, as the 404 means the session has expired or been terminated",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Send an HTTP DELETE to the MCP endpoint and then reconnect using the old session ID",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "When the server responds with HTTP 404 to a request with an Mcp-Session-Id, it means the session has expired or been terminated. The client MUST start a new session with a fresh InitializeRequest. The old session ID cannot be reused.",
+    "why_others_wrong": {
+      "a": "Retrying with the same expired session ID will continue to receive 404 responses. A new session must be started.",
+      "b": "Removing the session ID doesn't resume the connection properly. The protocol requires a fresh InitializeRequest for a new session.",
+      "d": "The session is already terminated (hence the 404). Sending DELETE would be meaningless, and the old session ID cannot be reused."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Session Management",
+      "quote": "Server MAY terminate session; responds with 404 to expired session IDs. On 404, clients MUST start new session with fresh InitializeRequest."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "State and the StreamableHTTP Transport",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 131,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer runs a Streamable HTTP MCP server locally for development. They bind it to 0.0.0.0 to make it accessible from other machines on their network.",
+    "question": "What security requirement is violated by binding to 0.0.0.0 for a local MCP server?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Local MCP servers must always use the stdio transport, not Streamable HTTP",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "MCP servers cannot listen on any port below 8080 for security reasons",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Servers MUST validate the Origin header on all connections, and local servers SHOULD bind only to localhost (127.0.0.1), not 0.0.0.0",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Binding to 0.0.0.0 is fine as long as the server implements TLS encryption",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "The MCP specification requires servers to MUST validate the Origin header on all incoming connections to prevent DNS rebinding attacks. Additionally, local servers SHOULD bind only to localhost (127.0.0.1). Binding to 0.0.0.0 exposes the server to the entire network, violating this security guidance.",
+    "why_others_wrong": {
+      "a": "Local servers can use Streamable HTTP; the recommendation is to bind to localhost. stdio is recommended for subprocess-based local servers but not mandatory.",
+      "b": "There is no port restriction in the MCP specification. The security concern is about network binding, not port numbers.",
+      "d": "The guidance specifically says to bind to localhost for local servers, regardless of TLS. Origin header validation is also required."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - Security",
+      "quote": "Servers MUST validate Origin header on all connections. Local servers SHOULD bind only to localhost (127.0.0.1)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "StreamableHTTP in Depth",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 132,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer's MCP HTTP server in Claude Code disconnects unexpectedly. They observe Claude Code attempting to reconnect with increasing delays.",
+    "question": "What reconnection strategy does Claude Code use for HTTP/SSE MCP servers?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Immediate retry with a fixed 5-second delay between attempts, up to 10 attempts",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Linear backoff with 10-second intervals, up to 3 attempts, then prompts the user",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Exponential backoff starting at 1 second, doubling each time (1s, 2s, 4s, 8s, 16s), up to 5 attempts; after which the server is marked as failed",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "No automatic reconnection; the user must manually restart the server from the /mcp menu",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Claude Code uses exponential backoff for HTTP/SSE MCP servers: starting at 1-second delay, doubling each time (1s, 2s, 4s, 8s, 16s), up to 5 attempts. After 5 failures, the server is marked as failed and requires manual retry from the /mcp menu. Note: stdio servers are NOT auto-reconnected.",
+    "why_others_wrong": {
+      "a": "The delay is not fixed at 5 seconds. It uses exponential backoff starting at 1 second. Maximum attempts is 5, not 10.",
+      "b": "The backoff is exponential (doubling), not linear. There are 5 attempts, not 3.",
+      "d": "There IS automatic reconnection for HTTP/SSE servers. Only stdio servers lack automatic reconnection."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - MCP Reconnection",
+      "quote": "HTTP/SSE servers: automatic reconnection with exponential backoff. Up to 5 attempts, starting at 1-second delay, doubling each time. After 5 failures: server marked as failed."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "The StreamableHTTP Transport",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 133,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-transports",
+    "scenario": "A developer is examining MCP messages and notices that some have an 'id' field and some don't. They need to understand which message types require an ID.",
+    "question": "In MCP's JSON-RPC 2.0 message format, which message types include an 'id' field?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All three types (requests, responses, notifications) include an id field for tracking",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Only requests include an id; responses and notifications do not",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Requests and responses include an id (response id matches the request); notifications MUST NOT include an id",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Only notifications include an id; requests and responses use method names for correlation",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "In MCP's JSON-RPC 2.0 format: Requests MUST include an id (string or integer, MUST NOT be null). Responses MUST include the same id as the corresponding request. Notifications MUST NOT include an id field — they are one-way messages with no expected reply.",
+    "why_others_wrong": {
+      "a": "Notifications explicitly MUST NOT include an id field. They are fire-and-forget messages.",
+      "b": "Responses DO include an id — it must match the corresponding request's id for correlation.",
+      "d": "The id system is reversed: requests and responses use ids; notifications explicitly lack them."
+    },
+    "doc_reference": {
+      "source": "MCP Specification - JSON-RPC 2.0",
+      "quote": "Requests: MUST include string or integer id (MUST NOT be null). Responses: MUST include same id as request. Notifications: MUST NOT include an id field."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "MCP Advanced Topics",
+      "lesson": "JSON Message Types",
+      "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 134,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A team wants to share an MCP server configuration with all developers on their project via version control. They currently have the server configured in their personal settings.",
+    "question": "Which MCP scope should they use, and where is the configuration stored?",
+    "options": [
+      {
+        "id": "a",
+        "text": "User scope — stored in ~/.claude.json and shared via dotfile syncing",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Local scope — stored in .claude/settings.local.json and shared via version control",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Project scope — stored in .mcp.json in the project root and shared via version control",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "text": "Global scope — stored in /etc/claude-code/mcp-servers.json for all users on the machine",
+        "correct": false
+      }
+    ],
+    "correct_answer": "c",
+    "explanation": "Project scope stores MCP configuration in .mcp.json in the project root, which can be committed to version control and shared with the entire team. This is the only scope designed for team sharing. Project-scoped servers require approval before use for security.",
+    "why_others_wrong": {
+      "a": "User scope is stored in ~/.claude.json (global section) and is NOT shared with the team. It's personal configuration.",
+      "b": "Local scope is stored in ~/.claude.json (per-project section), not .claude/settings.local.json. And it is NOT shared with the team.",
+      "d": "There is no 'global scope' in MCP. /etc/claude-code/ is for managed-mcp.json (enterprise administration), not team-shared configuration."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - MCP Server Scoping",
+      "quote": "Project scope: Loads in current project only. Shared with Team: Yes, via version control. Stored In: .mcp.json in project root."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 135,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A developer has the same MCP server 'analytics' configured at both local and project scope with different URLs. They wonder which configuration takes precedence.",
+    "question": "What is the MCP server scope precedence order in Claude Code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Project > Local > User > Plugin > claude.ai connectors",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "User > Project > Local > Plugin > claude.ai connectors",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Plugin > claude.ai connectors > Local > Project > User",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Local > Project > User > Plugin > claude.ai connectors",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "MCP server scope precedence from highest to lowest is: Local (default) > Project > User > Plugin-provided servers > claude.ai connectors. When the same server name exists at multiple scopes, the highest-priority scope wins.",
+    "why_others_wrong": {
+      "a": "Project is NOT the highest priority. Local scope has the highest precedence.",
+      "b": "User scope is the third priority, not the first. Local is highest, then Project.",
+      "c": "Plugin and claude.ai connectors have the LOWEST priority, not the highest."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - MCP Scope Precedence",
+      "quote": "Scope Precedence (highest to lowest): 1. Local scope, 2. Project scope, 3. User scope, 4. Plugin-provided servers, 5. claude.ai connectors."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 136,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A developer writes a .mcp.json file with an environment variable reference ${API_KEY} in the headers field. The API_KEY environment variable is not set on their machine. They start Claude Code and it fails to load the MCP configuration.",
+    "question": "What caused the configuration failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Environment variables are not supported in .mcp.json header fields",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The variable expands to an empty string and the request proceeds without authentication",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Environment variables in headers must use the $API_KEY syntax without curly braces",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "The ${API_KEY} variable is not set and has no default value, causing Claude Code to fail to parse the config",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "If a required environment variable is not set and has no default value, Claude Code will fail to parse the config. The developer should either set the API_KEY variable or use the default syntax: ${API_KEY:-default_value}.",
+    "why_others_wrong": {
+      "a": "Environment variables ARE supported in headers (along with command, args, env, and url fields).",
+      "b": "Missing required variables do NOT silently expand to empty strings. They cause a config parsing failure.",
+      "c": "The correct syntax is ${VAR} with curly braces, not $VAR. The curly brace syntax also supports defaults: ${VAR:-default}."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Environment Variable Expansion",
+      "quote": "If a required environment variable is not set and has no default value, Claude Code will fail to parse the config."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 137,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A developer writes their .mcp.json with the URL field: \"url\": \"${API_BASE_URL:-https://api.example.com}/mcp\". The API_BASE_URL variable is not set.",
+    "question": "What URL will Claude Code use for this MCP server?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The config will fail to parse because API_BASE_URL is not set",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "${API_BASE_URL:-https://api.example.com}/mcp — the expression is used literally without expansion",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "/mcp — only the literal suffix is used when the variable is not set",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "https://api.example.com/mcp — the default value 'https://api.example.com' is used when the variable is not set",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "The syntax ${VAR:-default} expands to the variable value if set, otherwise uses the default value. Since API_BASE_URL is not set, it falls back to 'https://api.example.com', resulting in 'https://api.example.com/mcp'.",
+    "why_others_wrong": {
+      "a": "Config parsing only fails when a variable has NO default value. The :- syntax provides a default, preventing failure.",
+      "b": "Environment variable expressions are always expanded; they are never used as literal strings in .mcp.json.",
+      "c": "The entire default value 'https://api.example.com' is used, not just the suffix. The /mcp is concatenated after the expanded value."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Environment Variable Expansion",
+      "quote": "${VAR:-default}: Expands to VAR if set, otherwise uses default."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 138,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "An enterprise security team needs to ensure that developers can only use approved MCP servers. They want exclusive control over which servers are available.",
+    "question": "How can the enterprise enforce exclusive MCP server control?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set 'mcp_locked: true' in the project .claude/settings.json to prevent changes",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Configure allowedMcpServers in the user's ~/.claude.json to restrict server access",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Use project-scope .mcp.json with read-only file permissions to prevent modifications",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Deploy a managed-mcp.json file to the system-wide directory; users cannot add, modify, or use any servers other than those defined in it",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "Enterprise administrators can deploy managed-mcp.json to system-wide directories (macOS: /Library/Application Support/ClaudeCode/, Linux/WSL: /etc/claude-code/, Windows: C:\\Program Files\\ClaudeCode/). Users cannot add, modify, or use any servers other than those defined here.",
+    "why_others_wrong": {
+      "a": "There is no 'mcp_locked' setting. Managed-mcp.json is the mechanism for exclusive MCP control.",
+      "b": "allowedMcpServers is a policy-based mechanism in managed settings, not something configured in user settings. Users should not control their own restrictions.",
+      "c": "File permissions on .mcp.json don't prevent users from adding servers at other scopes (local, user). Managed-mcp.json provides comprehensive control."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Managed MCP",
+      "quote": "managed-mcp.json: Users cannot add/modify/use any servers other than those defined here."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 139,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A developer has 50 MCP tools across three servers. They notice that Claude's responses are slower and context is being consumed rapidly. They want to optimize MCP tool loading.",
+    "question": "What mechanism should the developer use to reduce context consumption from MCP tool definitions?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set MAX_MCP_OUTPUT_TOKENS to a lower value to reduce tool output size",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Increase the context window size via the MAX_CONTEXT_TOKENS environment variable",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Move all tool definitions from .mcp.json to ~/.claude.json to bypass context limits",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Use tool search (ENABLE_TOOL_SEARCH), which defers tool schema loading and loads them on demand; only tool names are loaded at session start",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "Tool search (enabled by default via ENABLE_TOOL_SEARCH) defers MCP tool definitions — only tool names load at session start, and full schemas are loaded on demand via the ToolSearch tool. This significantly reduces context consumption with many tools.",
+    "why_others_wrong": {
+      "a": "MAX_MCP_OUTPUT_TOKENS controls tool output size, not schema loading. The issue is about tool definitions consuming context, not output.",
+      "b": "There is no MAX_CONTEXT_TOKENS variable. Context window size is determined by the model, not environment variables.",
+      "c": "Moving tool definitions between config files doesn't change how they consume context. All scopes load tool schemas the same way."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Tool Search",
+      "quote": "Tool search keeps context usage low by deferring tool definitions until needed. Only tool names load at session start."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 140,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-mcp-config",
+    "scenario": "A developer configures ENABLE_TOOL_SEARCH=false for their Claude Haiku 4.5 application and expects tool search to work normally since it was previously enabled.",
+    "question": "What limitation exists for tool search with respect to model compatibility?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tool search works with all Claude models but is slower on Haiku due to model size",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "All models support tool search, but it must be explicitly enabled via ENABLE_TOOL_SEARCH=true on Haiku",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Tool search is only available on Claude Opus models; Sonnet and Haiku are excluded",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Tool search requires Sonnet 4+ or Opus 4+ models; Haiku models do NOT support tool search",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "Tool search requires models supporting tool_reference blocks: Sonnet 4+ or Opus 4+. Haiku models do NOT support tool search. This means all MCP tools must be loaded upfront when using Haiku.",
+    "why_others_wrong": {
+      "a": "Tool search is not just slower on Haiku; it is completely unsupported. Haiku lacks the tool_reference block capability.",
+      "b": "No amount of configuration can enable tool search on Haiku. It requires tool_reference block support that Haiku doesn't have.",
+      "c": "Sonnet 4+ also supports tool search, not just Opus. The exclusion is specifically for Haiku models."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Tool Search",
+      "quote": "Requires models supporting tool_reference blocks: Sonnet 4+ or Opus 4+. Haiku models do NOT support tool search."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 141,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer writes a Claude Code system prompt that instructs: 'Use the find command to locate TypeScript files, then use cat to read their contents.' During execution, Claude ignores these instructions and uses different tools.",
+    "question": "Why does Claude deviate from the explicit 'find' and 'cat' instructions?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Claude randomly selects tools regardless of instructions; tool selection is non-deterministic",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Claude Code only supports Python commands, not shell commands like find and cat",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "The find and cat commands are blocked by Claude Code's security system",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Claude Code enforces using built-in tools (Glob for file search, Read for file reading) instead of shell equivalents like find and cat",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "Claude Code enforces specific tool selection over shell equivalents: Glob (NOT find/ls) for file search by name, Read (NOT cat/head/tail) for reading files, Grep (NOT grep/rg) for content search, and Edit (NOT sed/awk) for editing files. This is a design decision for reliability and context efficiency.",
+    "why_others_wrong": {
+      "a": "Tool selection is not random. Claude Code has specific rules about which tools to use for which tasks.",
+      "b": "Claude Code supports shell commands via the Bash tool. The issue is specifically that built-in tools are preferred over shell equivalents for certain operations.",
+      "c": "find and cat are not blocked as security threats. They are deprioritized in favor of built-in tools that provide better structured I/O."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Tools Reference",
+      "quote": "File search by name -> Glob (NOT find or ls). Content search -> Grep (NOT grep or rg). Read files -> Read (NOT cat/head/tail). Edit files -> Edit (NOT sed/awk)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 142,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer is building an Agent SDK application and defines tools: [\"Read\", \"Glob\", \"Grep\"] in their query options. They also add disallowedTools: [\"Bash\", \"Edit\", \"Write\"]. They notice that Claude still wastes turns attempting to use Bash.",
+    "question": "What is causing Claude to waste turns on Bash, and how should the developer fix it?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The developer needs to add Bash to both disallowedTools AND a denylist in .claude/settings.json",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "The tools list and disallowedTools are mutually exclusive; using both causes undefined behavior",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "disallowedTools only affects the permission layer, not tool visibility; the developer needs to remove Bash from the system prompt",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "disallowedTools denies the call but keeps the tool in context; the developer should prefer using 'tools' to remove tools from context entirely",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "With disallowedTools, every call is denied but the tool definition stays in context — Claude may still attempt to use it, wasting a turn. The 'tools' option controls availability by removing tools from context entirely. Since the developer already has tools: [\"Read\", \"Glob\", \"Grep\"], Bash is not in the list and won't be in context. They should remove the redundant disallowedTools.",
+    "why_others_wrong": {
+      "a": "The fix is simpler: use 'tools' to control what's available. Double-listing in disallowedTools and settings.json is unnecessary.",
+      "b": "tools and disallowedTools can be used together. The tools option controls availability; disallowedTools controls permissions. They are complementary, not mutually exclusive.",
+      "c": "disallowedTools does keep the tool visible in context, but the fix is to use 'tools' instead, not to modify the system prompt."
+    },
+    "doc_reference": {
+      "source": "Agent SDK - Custom Tools",
+      "quote": "Prefer tools over disallowedTools to remove tools from context entirely. With disallowedTools, the tool stays in context (Claude may waste a turn)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 143,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer creates a custom MCP tool for their Agent SDK application that checks service health. The tool is read-only and has no side effects, but it always executes sequentially, creating a bottleneck when multiple services need to be checked.",
+    "question": "How can the developer enable parallel execution for this read-only custom tool?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set the tool's description to include 'parallel: true' to hint that it can run concurrently",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Custom tools always run in parallel by default; the bottleneck must be in the handler code",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Use tool_choice: 'any' to force all tools to execute in parallel",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Set the readOnlyHint: true annotation on the tool, which enables parallel execution alongside other read-only tools",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "In the Agent SDK, custom tools default to sequential execution. Setting readOnlyHint: true in the tool's annotations enables parallel execution alongside other read-only tools (Read, Glob, Grep, and other read-only MCP tools). This is the key mechanism for parallel custom tool execution.",
+    "why_others_wrong": {
+      "a": "Parallel execution is controlled through the annotation system, not description strings. Descriptions guide Claude's tool selection, not execution behavior.",
+      "b": "Custom tools default to sequential execution, not parallel. readOnlyHint: true must be explicitly set for parallel execution.",
+      "c": "tool_choice controls whether Claude uses tools, not how they execute. Parallel execution is controlled by annotations."
+    },
+    "doc_reference": {
+      "source": "Agent SDK - Tool Annotations",
+      "quote": "readOnlyHint: true enables parallel execution alongside other read-only tools. Default is false (sequential execution)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 144,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer needs to modify an existing file in Claude Code. They consider using the Write tool to rewrite the entire file but only need to change a few lines.",
+    "question": "Which tool should the developer prefer for modifying existing files, and why?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Write tool — it's more reliable because it replaces the entire file atomically",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "Bash tool with sed — it provides the most precise control over line-level changes",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Read tool first, then Write tool — always read before writing to prevent data loss",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "Edit tool — it's preferred over Write for modifying existing files because it only sends the diff; the old_string must be unique in the file",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "The Edit tool is preferred over Write for modifying existing files because it performs exact string replacements, only sending the diff. The old_string must be unique in the file for the replacement to work. It also supports replace_all for changing every instance. Write should be used for new files or complete rewrites.",
+    "why_others_wrong": {
+      "a": "Write overwrites the entire file and must Read first for existing files. Edit is preferred for modifications because it only changes what's needed.",
+      "b": "Claude Code explicitly prefers Edit over shell equivalents like sed for file editing. Built-in tools provide better structured I/O.",
+      "c": "While Read-before-Write is required for existing files, Edit is the preferred tool for modifications, not the Read+Write combination."
+    },
+    "doc_reference": {
+      "source": "Claude Code Docs - Tools Reference",
+      "quote": "Edit: Targeted file edits. Preferred over Write for modifying existing files. old_string must be unique in file."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 145,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer is using the Agent SDK and sets tools: [] (empty array) in their query options. They have several MCP servers configured.",
+    "question": "What tools are available to Claude when tools is set to an empty array?",
+    "options": [
+      {
+        "id": "a",
+        "text": "No tools at all — Claude can only respond with text",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "All built-in tools remain available but MCP tools are removed",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "Both built-in and MCP tools are removed from context",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "All built-in tools are removed but MCP tools remain available",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "When tools: [] is set, all built-in tools are removed from context. However, MCP tools are unaffected by the 'tools' option and remain available. This allows building agents that rely exclusively on custom MCP tools.",
+    "why_others_wrong": {
+      "a": "MCP tools are still available. The tools option only controls built-in tools, not MCP tools.",
+      "b": "The tools option removes built-in tools from context. MCP tools are preserved, not removed.",
+      "c": "Only built-in tools are removed. MCP tools are controlled through separate mechanisms (mcp_servers configuration, allowedTools)."
+    },
+    "doc_reference": {
+      "source": "Agent SDK - Tool Access Control",
+      "quote": "tools: []: All built-ins removed. Only MCP tools."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 146,
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "topic_id": "d2-builtin-tools",
+    "scenario": "A developer configures their Agent SDK with permissionMode: 'acceptEdits' and expects all their MCP tools to be auto-approved. However, MCP tool calls still require explicit permission.",
+    "question": "Why doesn't acceptEdits auto-approve MCP tools?",
+    "options": [
+      {
+        "id": "a",
+        "text": "acceptEdits auto-approves MCP tools, but only after the first manual approval per session",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "text": "acceptEdits is only for the CLI; the SDK requires bypassPermissions for auto-approval",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "text": "MCP tools need to be registered in .mcp.json before acceptEdits can auto-approve them",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "text": "acceptEdits only auto-approves file edits and common filesystem commands; MCP tools require explicit permission via allowedTools",
+        "correct": true
+      }
+    ],
+    "correct_answer": "d",
+    "explanation": "The acceptEdits permission mode only auto-approves file edits (Edit, Write tools) and common filesystem commands (mkdir, touch, rm, rmdir, mv, cp, sed). MCP tools are NOT auto-approved by acceptEdits. They require explicit permission via allowedTools (e.g., \"mcp__github__*\"). bypassPermissions does auto-approve MCP tools but is too broad for most use cases.",
+    "why_others_wrong": {
+      "a": "acceptEdits never auto-approves MCP tools, regardless of session history. It only covers file operations.",
+      "b": "acceptEdits works in both CLI and SDK. The issue is its scope (file edits only), not the platform.",
+      "c": "MCP tools being in .mcp.json doesn't change the permission behavior. They need allowedTools for auto-approval with acceptEdits."
+    },
+    "doc_reference": {
+      "source": "Agent SDK - Permissions",
+      "quote": "permissionMode: acceptEdits does NOT auto-approve MCP tools. Use allowedTools: 'mcp__github__*' for MCP tool auto-approval."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Model Context Protocol",
+      "lesson": "Implementing a Client",
+      "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]

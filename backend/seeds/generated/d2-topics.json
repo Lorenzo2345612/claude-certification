@@ -1,0 +1,358 @@
+[
+  {
+    "id": "d2-tool-interfaces",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "Tool Definition Best Practices",
+    "content": "<h3>Tool Definition Schema</h3>\n<p>Every tool in the <code>tools</code> top-level array requires four fields. Understanding their purpose and constraints is the foundation of effective tool design.</p>\n<table><thead><tr><th>Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td>Yes</td><td>Must match regex <code>^[a-zA-Z0-9_-]{1,64}$</code></td></tr><tr><td><code>description</code></td><td>Yes</td><td>Detailed plaintext description of what the tool does, when to use it, how it behaves</td></tr><tr><td><code>input_schema</code></td><td>Yes</td><td>JSON Schema object defining expected parameters (root <code>type</code> must be <code>\"object\"</code>)</td></tr><tr><td><code>input_examples</code></td><td>No</td><td>Array of example input objects; must validate against <code>input_schema</code> or HTTP 400 is returned</td></tr></tbody></table>\n<p>Additional optional properties include: <code>cache_control</code>, <code>strict</code>, <code>defer_loading</code>, and <code>allowed_callers</code>.</p>\n\n<pre><code class=\"language-json\">{\n  \"name\": \"get_weather\",\n  \"description\": \"Get the current weather in a given location\",\n  \"input_schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"location\": {\n        \"type\": \"string\",\n        \"description\": \"The city and state, e.g. San Francisco, CA\"\n      },\n      \"unit\": {\n        \"type\": \"string\",\n        \"enum\": [\"celsius\", \"fahrenheit\"],\n        \"description\": \"The unit of temperature\"\n      }\n    },\n    \"required\": [\"location\"]\n  },\n  \"input_examples\": [\n    {\"location\": \"San Francisco, CA\", \"unit\": \"fahrenheit\"},\n    {\"location\": \"Tokyo, Japan\", \"unit\": \"celsius\"},\n    {\"location\": \"New York, NY\"}\n  ]\n}</code></pre>\n\n<h3>Description Best Practices</h3>\n<p>The tool description is the <strong>single most important factor</strong> in tool performance. Claude relies on it to decide when and how to call the tool.</p>\n<ul>\n<li>Aim for at least <strong>3-4 sentences</strong> per tool description, more for complex tools</li>\n<li>Explain: what the tool does, when it should be used (and when <em>not</em>), what each parameter means, and any caveats or limitations</li>\n<li>For parameters, include type expectations, valid ranges, and examples in the description string</li>\n</ul>\n<div class=\"callout callout-warning\"><strong>Anti-pattern:</strong> Writing one-line descriptions like <code>\"Gets weather\"</code>. This gives Claude insufficient context to decide when to use the tool or how to construct valid inputs.</div>\n\n<h3>Consolidation: Fewer Tools with Action Parameters</h3>\n<p>Rather than creating many small tools (<code>create_pr</code>, <code>review_pr</code>, <code>merge_pr</code>), consolidate related operations into a single tool with an <code>action</code> parameter. This reduces selection ambiguity and aligns with the ideal target of <strong>4-5 tools per agent</strong>.</p>\n<div class=\"callout callout-tip\"><strong>Best practice:</strong> Too many tools increase selection ambiguity; too few may require more agent hops. Consolidate related operations and use meaningful namespacing.</div>\n\n<h3>Namespacing</h3>\n<p>When tools span multiple services, use clear namespace prefixes in the tool name: <code>github_list_prs</code>, <code>slack_send_message</code>, <code>jira_create_issue</code>. This helps Claude disambiguate tools and makes the API surface self-documenting.</p>\n\n<h3>Tool Name Regex</h3>\n<p>Tool names must match: <code>^[a-zA-Z0-9_-]{1,64}$</code>. This means:</p>\n<ul>\n<li>Alphanumeric characters, underscores, and hyphens only</li>\n<li>1 to 64 characters long</li>\n<li>No spaces, dots, or special characters</li>\n</ul>\n\n<h3>Tool Response Design</h3>\n<p>Design tool responses to return only <strong>high-signal information</strong>. Use stable identifiers (slugs or UUIDs) rather than volatile data. Avoid returning large payloads that consume context unnecessarily. The <code>tool_result</code> content can be a string, an array of content blocks (text, image, document), or omitted entirely for empty results.</p>\n\n<h3>Input Examples</h3>\n<p>The optional <code>input_examples</code> array provides Claude with concrete usage patterns. Key constraints:</p>\n<ul>\n<li>Each example must validate against the tool's <code>input_schema</code>; invalid examples return HTTP 400</li>\n<li><strong>Not supported</strong> for server-side tools (web_search, code_execution, etc.)</li>\n<li>Token cost: ~20-50 tokens for simple examples, ~100-200 for complex nested objects</li>\n</ul>\n\n<h3>Ideal Tool Count</h3>\n<p>The recommended range is <strong>4-5 tools per agent</strong>. This balances capability with selection clarity. For systems requiring more tools, use <code>defer_loading</code> with tool search to keep context usage low while allowing on-demand discovery of relevant schemas.</p>",
+    "doc_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+    "doc_label": "Define Tools - Anthropic API",
+    "related_topics": ["d1-tool-use-contract", "d2-tool-choice", "d2-strict-tool-use"],
+    "skilljar_refs": [
+      {
+        "course": "Building with the Claude API",
+        "lesson": "Defining tools with MCP",
+        "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers the complete tool definition schema including name, description, input_schema, and input_examples. Emphasizes description quality as the single most important factor in tool performance, consolidation patterns, namespacing conventions, and the ideal tool count of 4-5 per agent.",
+    "key_concepts": [
+      {
+        "term": "Tool Name Regex",
+        "definition": "Tool names must match ^[a-zA-Z0-9_-]{1,64}$ — alphanumeric, underscores, and hyphens only, 1-64 characters."
+      },
+      {
+        "term": "Tool Consolidation",
+        "definition": "Combining related operations into fewer tools using an action parameter rather than creating many small tools, reducing selection ambiguity."
+      },
+      {
+        "term": "input_examples",
+        "definition": "Optional array of example inputs that must validate against input_schema. Not supported for server-side tools. Cost: ~20-50 tokens simple, ~100-200 complex."
+      },
+      {
+        "term": "Namespacing",
+        "definition": "Using service-prefixed tool names like github_list_prs and slack_send_message to disambiguate tools across services."
+      },
+      {
+        "term": "Ideal Tool Count",
+        "definition": "4-5 tools per agent is the recommended range, balancing capability coverage against selection ambiguity."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-tool-choice",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "tool_choice and Parallel Tool Use",
+    "content": "<h3>Four tool_choice Options</h3>\n<p>The <code>tool_choice</code> parameter controls whether and how Claude uses tools. There are exactly four options:</p>\n<table><thead><tr><th>Option</th><th>JSON Syntax</th><th>Behavior</th></tr></thead><tbody><tr><td><code>auto</code></td><td><code>{\"type\": \"auto\"}</code></td><td>Claude decides whether to call any tools. <strong>Default when <code>tools</code> provided.</strong></td></tr><tr><td><code>any</code></td><td><code>{\"type\": \"any\"}</code></td><td>Claude MUST use one of the provided tools, but chooses which one</td></tr><tr><td><code>tool</code></td><td><code>{\"type\": \"tool\", \"name\": \"get_weather\"}</code></td><td>Forces Claude to always use the specific named tool</td></tr><tr><td><code>none</code></td><td><code>{\"type\": \"none\"}</code></td><td>Prevents Claude from using any tools. <strong>Default when no <code>tools</code> provided.</strong></td></tr></tbody></table>\n\n<pre><code class=\"language-python\"># Force use of a specific tool\nresponse = client.messages.create(\n    model=\"claude-opus-4-7\",\n    max_tokens=1024,\n    tool_choice={\"type\": \"tool\", \"name\": \"search_flights\"},\n    tools=[...],\n    messages=[{\"role\": \"user\", \"content\": \"Find flights to Tokyo\"}]\n)\n\n# Let Claude decide\nresponse = client.messages.create(\n    model=\"claude-opus-4-7\",\n    max_tokens=1024,\n    tool_choice={\"type\": \"auto\"},\n    tools=[...],\n    messages=[{\"role\": \"user\", \"content\": \"What is 2+2?\"}]\n)</code></pre>\n\n<h3>Prefill Behavior with any and tool</h3>\n<p>When <code>tool_choice</code> is set to <code>any</code> or <code>tool</code>, the API <strong>prefills the assistant message</strong> to force tool use. This has a critical consequence:</p>\n<div class=\"callout callout-warning\"><strong>Exam-critical:</strong> When <code>tool_choice</code> is <code>any</code> or <code>tool</code>, Claude will <strong>NOT emit natural language</strong> before <code>tool_use</code> blocks, even if explicitly asked to. The prefill mechanism bypasses text generation entirely.</div>\n<p>If you need both natural language output AND forced tool use, use <code>auto</code> with explicit instructions in the <code>user</code> message directing Claude to use the tool.</p>\n\n<h3>Extended Thinking Restrictions</h3>\n<p>Extended thinking mode only supports <code>auto</code> and <code>none</code> for <code>tool_choice</code>. Using <code>any</code> or <code>tool</code> with extended thinking enabled will return an error. This is because the prefill mechanism used by <code>any</code>/<code>tool</code> is incompatible with the thinking block generation process.</p>\n<table><thead><tr><th>tool_choice</th><th>Extended Thinking</th></tr></thead><tbody><tr><td><code>auto</code></td><td>Supported</td></tr><tr><td><code>none</code></td><td>Supported</td></tr><tr><td><code>any</code></td><td>Returns error</td></tr><tr><td><code>tool</code></td><td>Returns error</td></tr></tbody></table>\n\n<h3>Disabling Parallel Tool Use</h3>\n<p>By default, Claude may use multiple tools in a single response, producing multiple <code>tool_use</code> blocks. You can control this with <code>disable_parallel_tool_use</code>:</p>\n<ul>\n<li><code>disable_parallel_tool_use=true</code> + <code>tool_choice: auto</code> = <strong>at most one</strong> tool call</li>\n<li><code>disable_parallel_tool_use=true</code> + <code>tool_choice: any/tool</code> = <strong>exactly one</strong> tool call</li>\n</ul>\n<p>When parallel tool use is enabled (default), all tool results must be sent back in a <strong>single user message</strong>, not separate messages. Sending results in separate messages reduces future parallel tool use.</p>\n\n<pre><code class=\"language-json\">// CORRECT: All results in one message\n[\n  {\"role\": \"assistant\", \"content\": [tool_use_1, tool_use_2]},\n  {\"role\": \"user\", \"content\": [tool_result_1, tool_result_2]}\n]\n\n// WRONG: Separate messages reduce parallel tool use\n[\n  {\"role\": \"assistant\", \"content\": [tool_use_1, tool_use_2]},\n  {\"role\": \"user\", \"content\": [tool_result_1]},\n  {\"role\": \"user\", \"content\": [tool_result_2]}\n]</code></pre>\n\n<h3>Token Overhead by Model</h3>\n<p>Providing tools adds a system prompt that consumes tokens. The overhead varies by model and tool_choice setting:</p>\n<table><thead><tr><th>Model Family</th><th><code>auto</code>/<code>none</code></th><th><code>any</code>/<code>tool</code></th></tr></thead><tbody><tr><td>Claude Opus 4.x / Sonnet 4.x</td><td>346 tokens</td><td>313 tokens</td></tr><tr><td>Claude Haiku 4.5</td><td>346 tokens</td><td>313 tokens</td></tr><tr><td>Claude Haiku 3.5</td><td>264 tokens</td><td>340 tokens</td></tr></tbody></table>\n<div class=\"callout callout-tip\"><strong>Key fact:</strong> If no <code>tools</code> are provided and <code>tool_choice</code> is <code>none</code>, the overhead is 0 additional system prompt tokens.</div>",
+    "doc_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+    "doc_label": "Define Tools - tool_choice",
+    "related_topics": ["d2-tool-interfaces", "d4-structured-output", "d4-adaptive-thinking"],
+    "skilljar_refs": [
+      {
+        "course": "Building with the Claude API",
+        "lesson": "Defining tools with MCP",
+        "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Details the four tool_choice options (auto, any, tool, none) with their exact JSON syntax and behavioral implications. Covers the critical prefill behavior that suppresses natural language with any/tool, extended thinking restrictions, parallel tool use control, and per-model token overhead.",
+    "key_concepts": [
+      {
+        "term": "tool_choice",
+        "definition": "API parameter controlling tool use behavior with four options: auto (Claude decides, default), any (must use a tool), tool (must use specific named tool), none (no tools)."
+      },
+      {
+        "term": "Prefill Behavior",
+        "definition": "When tool_choice is any or tool, the API prefills the assistant message to force tool use, preventing any natural language output before tool_use blocks."
+      },
+      {
+        "term": "Extended Thinking Restriction",
+        "definition": "Extended thinking only supports auto and none for tool_choice. Using any or tool with extended thinking returns an error."
+      },
+      {
+        "term": "disable_parallel_tool_use",
+        "definition": "Boolean flag that limits Claude to at most one tool call per turn (auto) or exactly one (any/tool). Default is false (parallel allowed)."
+      },
+      {
+        "term": "Token Overhead",
+        "definition": "Tool use adds a system prompt costing 346 tokens (auto/none) or 313 tokens (any/tool) for Claude 4.x models. Zero overhead when no tools provided."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-strict-tool-use",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "Strict Tool Use and Structured Guarantees",
+    "content": "<h3>Enabling Strict Mode</h3>\n<p>Strict tool use provides <strong>deterministic schema enforcement at the API level</strong> through grammar-constrained sampling. It guarantees that Claude's tool inputs exactly match the JSON Schema — no validation-and-retry loop needed.</p>\n<p>Two requirements to enable strict mode:</p>\n<ol>\n<li>Set <code>strict: true</code> as a top-level property in the tool definition (alongside <code>name</code>, <code>description</code>, <code>input_schema</code>)</li>\n<li>Set <code>\"additionalProperties\": false</code> in the <code>input_schema</code></li>\n</ol>\n\n<pre><code class=\"language-json\">{\n  \"name\": \"search_flights\",\n  \"description\": \"Search for available flights\",\n  \"strict\": true,\n  \"input_schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"destination\": {\"type\": \"string\"},\n      \"departure_date\": {\"type\": \"string\", \"format\": \"date\"},\n      \"passengers\": {\"type\": \"integer\", \"enum\": [1,2,3,4,5,6,7,8,9,10]}\n    },\n    \"required\": [\"destination\", \"departure_date\"],\n    \"additionalProperties\": false\n  }\n}</code></pre>\n\n<h3>Grammar-Constrained Sampling</h3>\n<p>Under the hood, strict mode compiles the JSON Schema into a grammar that constrains the model's token generation. This means:</p>\n<ul>\n<li>Tool <code>input</code> strictly follows the <code>input_schema</code> — type mismatches, missing fields, and invalid values are impossible</li>\n<li>Tool <code>name</code> is always valid (from provided tools or server tools)</li>\n<li>The schema must conform to the supported JSON Schema subset (same as structured outputs)</li>\n</ul>\n<div class=\"callout callout-tip\"><strong>Key insight:</strong> Strict mode operates at the sampling level, not as post-hoc validation. The model physically cannot generate non-conforming output. This is a third enforcement category alongside hooks (deterministic) and prompts (probabilistic).</div>\n\n<h3>Schema Caching</h3>\n<p>Tool <code>input_schema</code> definitions are compiled into grammars using the same pipeline as structured outputs. These compiled schemas are <strong>temporarily cached for up to 24 hours</strong> since last use. Important distinctions:</p>\n<ul>\n<li>Prompts and responses are <strong>NOT retained</strong> beyond the API response</li>\n<li>Only the schema compilation is cached, not message content</li>\n<li>Cache is invalidated if the schema changes</li>\n</ul>\n\n<h3>PHI/HIPAA Restrictions</h3>\n<p>Strict tool use <strong>IS HIPAA eligible</strong>, but with critical restrictions on schema content:</p>\n<div class=\"callout callout-warning\"><strong>Exam-critical:</strong> PHI must <strong>NOT</strong> be included in tool schema definitions. Cached schemas do NOT receive the same PHI protections as prompts/responses. Do NOT include PHI in: <code>input_schema</code> property names, <code>enum</code> values, <code>const</code> values, or <code>pattern</code> regular expressions. PHI should ONLY appear in message content.</div>\n\n<h3>Complexity Limits</h3>\n<p>Strict mode has specific complexity bounds to ensure compilation feasibility:</p>\n<table><thead><tr><th>Constraint</th><th>Limit</th></tr></thead><tbody><tr><td>Maximum strict tools per request</td><td>20</td></tr><tr><td>Maximum optional parameters per tool</td><td>24</td></tr><tr><td>Maximum union members</td><td>16</td></tr><tr><td>Request timeout with strict tools</td><td>180 seconds</td></tr></tbody></table>\n<p>If your schema exceeds these limits, the API returns a validation error. Simplify complex schemas or split into multiple tools.</p>\n\n<h3>Combining strict + tool_choice:any</h3>\n<p>The most powerful combination for guaranteed outcomes: <code>tool_choice: {\"type\": \"any\"}</code> with <code>strict: true</code> guarantees both that Claude <strong>will</strong> call a tool AND that the inputs will <strong>exactly match</strong> the schema. This is ideal for building reliable agentic workflows where every response must be a valid, schema-conformant tool call.</p>\n\n<pre><code class=\"language-python\">response = client.messages.create(\n    model=\"claude-opus-4-7\",\n    max_tokens=1024,\n    tool_choice={\"type\": \"any\"},\n    tools=[{\n        \"name\": \"extract_entities\",\n        \"strict\": True,\n        \"description\": \"Extract named entities from text\",\n        \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"entities\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"name\": {\"type\": \"string\"},\n                            \"type\": {\"type\": \"string\", \"enum\": [\"person\", \"org\", \"location\"]}\n                        },\n                        \"required\": [\"name\", \"type\"],\n                        \"additionalProperties\": False\n                    }\n                }\n            },\n            \"required\": [\"entities\"],\n            \"additionalProperties\": False\n        }\n    }],\n    messages=[{\"role\": \"user\", \"content\": \"Extract entities from: 'Satya Nadella leads Microsoft in Redmond'\"}]\n)</code></pre>\n\n<div class=\"callout callout-tip\"><strong>Three enforcement categories:</strong> (1) Hooks provide deterministic runtime enforcement outside the model. (2) Strict mode provides deterministic schema enforcement at the sampling level. (3) Prompts provide probabilistic behavioral guidance. Use all three together for defense in depth.</div>",
+    "doc_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+    "doc_label": "Strict Tool Use - Anthropic API",
+    "related_topics": ["d2-tool-interfaces", "d4-structured-output", "d1-programmatic-enforcement"],
+    "skilljar_refs": [
+      {
+        "course": "Building with the Claude API",
+        "lesson": "Defining tools with MCP",
+        "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Explains strict tool use mode requiring strict:true plus additionalProperties:false to enable grammar-constrained sampling. Covers schema caching (24h), PHI/HIPAA restrictions on schema content, complexity limits (20 tools, 24 optional params, 16 unions, 180s timeout), and the powerful strict + tool_choice:any combination.",
+    "key_concepts": [
+      {
+        "term": "Grammar-Constrained Sampling",
+        "definition": "Strict mode compiles JSON Schema into a grammar that constrains token generation, making non-conforming output physically impossible at the sampling level."
+      },
+      {
+        "term": "strict:true + additionalProperties:false",
+        "definition": "Both properties are required to enable strict mode. strict:true is set at tool level; additionalProperties:false is set in input_schema."
+      },
+      {
+        "term": "Schema Caching",
+        "definition": "Compiled schemas are cached for up to 24 hours since last use. Prompts/responses are NOT retained. PHI must not appear in cached schema elements."
+      },
+      {
+        "term": "Strict Mode Complexity Limits",
+        "definition": "Maximum 20 strict tools per request, 24 optional parameters, 16 union members, and 180-second request timeout."
+      },
+      {
+        "term": "strict + tool_choice:any",
+        "definition": "Combining these guarantees both that Claude will call a tool AND that inputs will exactly match the schema — ideal for reliable agentic workflows."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-error-responses",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "Error Handling in Tool Use",
+    "content": "<h3>The is_error:true Pattern</h3>\n<p>When a tool execution fails, return the error in the <code>tool_result</code> block with <code>is_error: true</code>. This tells Claude that the tool call failed and provides context for recovery.</p>\n\n<pre><code class=\"language-json\">{\n  \"type\": \"tool_result\",\n  \"tool_use_id\": \"toolu_01A09q90qw90lq917835lq9\",\n  \"content\": \"ConnectionError: the weather service API is not available (HTTP 500). Try again in 30 seconds or use a cached result.\",\n  \"is_error\": true\n}</code></pre>\n\n<h4>Writing Instructive Error Messages</h4>\n<p>Error messages should include <strong>what went wrong</strong> and <strong>what to try next</strong>. Claude incorporates error content into its reasoning, so descriptive messages lead to better recovery behavior.</p>\n<div class=\"callout callout-warning\"><strong>Anti-pattern:</strong> Returning bare error codes like <code>\"Error: 500\"</code> without context. Claude needs actionable information to self-correct. Instead, provide: the error type, what operation failed, and suggested alternatives.</div>\n\n<pre><code class=\"language-json\">// Bad: Uninformative error\n{\"content\": \"Error occurred\", \"is_error\": true}\n\n// Good: Instructive error with recovery guidance\n{\"content\": \"PermissionDenied: Cannot write to /etc/config.json. The process lacks write permissions. Try writing to ~/config.json instead or run with elevated privileges.\", \"is_error\": true}</code></pre>\n\n<h3>Claude's Self-Correction (2-3 Retries)</h3>\n<p>When Claude makes an invalid tool call (malformed inputs, wrong parameter types), it will automatically <strong>retry 2-3 times with corrections</strong> before apologizing to the user. This built-in retry behavior means:</p>\n<ul>\n<li>You do not need to implement client-side retry logic for input validation errors</li>\n<li>Claude learns from the error message to adjust its next attempt</li>\n<li>After exhausting retries, Claude generates a natural language apology explaining the failure</li>\n</ul>\n<div class=\"callout callout-tip\"><strong>Design implication:</strong> The retry behavior makes instructive error messages even more important. Each retry uses your error message as context for the corrected attempt.</div>\n\n<h3>Server Tool Error Codes</h3>\n<p>Server-executed tools (web_search, code_execution, etc.) have their own error taxonomy. These errors are handled transparently by Claude — you never construct a <code>tool_result</code> for server tools.</p>\n<table><thead><tr><th>Error Code</th><th>Meaning</th></tr></thead><tbody><tr><td><code>too_many_requests</code></td><td>Rate limit exceeded</td></tr><tr><td><code>invalid_input</code></td><td>Invalid search query parameter</td></tr><tr><td><code>max_uses_exceeded</code></td><td>Maximum tool uses exceeded for this conversation</td></tr><tr><td><code>query_too_long</code></td><td>Query exceeds maximum length</td></tr><tr><td><code>unavailable</code></td><td>Internal error occurred</td></tr></tbody></table>\n\n<h3>Access Failures vs Valid Empty Results</h3>\n<p>It is critical to distinguish between these two cases:</p>\n<table><thead><tr><th>Scenario</th><th>is_error</th><th>Example</th></tr></thead><tbody><tr><td>Tool succeeded but found nothing</td><td><code>false</code></td><td>Search returned 0 results (valid empty response)</td></tr><tr><td>Tool failed to execute</td><td><code>true</code></td><td>Database connection timeout, API rate limit, permission denied</td></tr></tbody></table>\n<p>Returning <code>is_error: true</code> for a valid empty result causes Claude to retry unnecessarily. Conversely, returning <code>is_error: false</code> for a real failure prevents Claude from attempting recovery.</p>\n\n<pre><code class=\"language-json\">// Valid empty result — NOT an error\n{\n  \"type\": \"tool_result\",\n  \"tool_use_id\": \"toolu_abc123\",\n  \"content\": \"No matching records found for query 'xyz'.\"\n}\n\n// Access failure — IS an error\n{\n  \"type\": \"tool_result\",\n  \"tool_use_id\": \"toolu_abc123\",\n  \"content\": \"DatabaseError: Connection timed out after 30s. The database server at db.example.com:5432 is not responding.\",\n  \"is_error\": true\n}</code></pre>\n\n<h3>Local Recovery Before Escalation</h3>\n<p>In agentic systems, tools should attempt local recovery before reporting errors back to the model. Consider implementing:</p>\n<ul>\n<li><strong>Connection retries</strong> with exponential backoff within the tool handler</li>\n<li><strong>Fallback data sources</strong> when the primary source is unavailable</li>\n<li><strong>Graceful degradation</strong> returning partial results with a warning rather than failing entirely</li>\n</ul>\n<p>Only escalate to Claude (via <code>is_error: true</code>) when local recovery options are exhausted. This reduces unnecessary retry loops in the agentic conversation.</p>\n\n<h3>MCP Error Mechanisms</h3>\n<p>In the MCP protocol, there are <strong>two distinct error mechanisms</strong> to be aware of:</p>\n<table><thead><tr><th>Type</th><th>Mechanism</th><th>When Used</th></tr></thead><tbody><tr><td>Protocol Errors</td><td>JSON-RPC error response with code/message</td><td>Unknown tools (-32602), invalid arguments (-32602), server errors (-32603), resource not found (-32002)</td></tr><tr><td>Execution Errors</td><td><code>isError: true</code> in tool result</td><td>API failures, invalid input data, business logic errors</td></tr></tbody></table>\n\n<pre><code class=\"language-json\">// Protocol error (JSON-RPC)\n{\"jsonrpc\": \"2.0\", \"id\": 3, \"error\": {\"code\": -32602, \"message\": \"Unknown tool: invalid_tool_name\"}}\n\n// Execution error (tool result)\n{\"jsonrpc\": \"2.0\", \"id\": 4, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"API rate limit exceeded\"}], \"isError\": true}}</code></pre>",
+    "doc_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
+    "doc_label": "How Tool Use Works - Error Handling",
+    "related_topics": ["d1-tool-use-contract", "d5-error-propagation", "d2-tool-interfaces"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Model Context Protocol",
+        "lesson": "MCP Review",
+        "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers the is_error:true pattern for tool result error reporting, Claude's automatic 2-3 retry self-correction behavior, server tool error codes, and the critical distinction between access failures and valid empty results. Also covers MCP's two error mechanisms: protocol-level JSON-RPC errors and execution-level isError.",
+    "key_concepts": [
+      {
+        "term": "is_error:true",
+        "definition": "Boolean field on tool_result blocks indicating execution failure. Claude incorporates the error content into its reasoning and may retry with corrections."
+      },
+      {
+        "term": "Self-Correction Retries",
+        "definition": "Claude automatically retries invalid tool calls 2-3 times with corrections before apologizing. Error messages serve as context for each retry attempt."
+      },
+      {
+        "term": "Access Failure vs Empty Result",
+        "definition": "Access failures (connection timeout, permission denied) should use is_error:true. Valid empty results (0 search matches) should NOT use is_error:true."
+      },
+      {
+        "term": "MCP Protocol Errors",
+        "definition": "Standard JSON-RPC error codes: -32602 for unknown tools/invalid arguments, -32603 for server errors, -32002 for resource not found."
+      },
+      {
+        "term": "Local Recovery",
+        "definition": "Tools should attempt connection retries, fallback sources, and graceful degradation before escalating errors to the model via is_error:true."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-mcp-architecture",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "MCP Architecture and Primitives",
+    "content": "<h3>Three MCP Primitives</h3>\n<p>MCP defines three core primitives, each with a distinct control model that determines who decides when they are used:</p>\n<table><thead><tr><th>Primitive</th><th>Control Model</th><th>Description</th><th>Analogy</th></tr></thead><tbody><tr><td><strong>Tools</strong></td><td>Model-controlled</td><td>LLM discovers and invokes automatically based on context</td><td>Functions the AI can call</td></tr><tr><td><strong>Resources</strong></td><td>Application-driven</td><td>Host application determines how to incorporate context</td><td>GET endpoints for data</td></tr><tr><td><strong>Prompts</strong></td><td>User-controlled</td><td>User explicitly selects (e.g., slash commands in Claude Code)</td><td>Reusable templates</td></tr></tbody></table>\n\n<div class=\"callout callout-tip\"><strong>Exam-critical mnemonic:</strong> Tools = Model, Resources = Application, Prompts = User. The control model determines who initiates the action.</div>\n\n<h4>Tools (Model-Controlled)</h4>\n<p>MCP Tools are discovered via <code>tools/list</code> and invoked via <code>tools/call</code>. Each tool definition includes <code>name</code>, optional <code>title</code>, <code>description</code>, <code>inputSchema</code>, optional <code>outputSchema</code>, and <code>annotations</code>.</p>\n\n<h4>Resources (Application-Driven)</h4>\n<p>Resources are identified by URIs following RFC 3986. Common schemes include <code>https://</code>, <code>file://</code>, <code>git://</code>, and custom schemes. Resource templates use <strong>RFC 6570 URI templates</strong> for parameterized access:</p>\n<pre><code class=\"language-json\">{\n  \"uriTemplate\": \"file:///{path}\",\n  \"name\": \"Project Files\",\n  \"description\": \"Access files in the project directory\",\n  \"mimeType\": \"application/octet-stream\"\n}</code></pre>\n<p>Resources support subscriptions (<code>resources/subscribe</code>) and change notifications.</p>\n\n<h4>Prompts (User-Controlled)</h4>\n<p>Prompts are discoverable templates with optional arguments. In Claude Code, they appear as <code>/mcp__servername__promptname</code> slash commands.</p>\n\n<h3>Tool Annotations</h3>\n<p>Tool annotations provide metadata about tool behavior. Clients <strong>MUST consider annotations untrusted</strong> unless from trusted servers.</p>\n<table><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>readOnlyHint</code></td><td>boolean</td><td>false</td><td>Tool does not modify its environment</td></tr><tr><td><code>destructiveHint</code></td><td>boolean</td><td>true</td><td>Tool may perform destructive updates</td></tr><tr><td><code>idempotentHint</code></td><td>boolean</td><td>false</td><td>Repeated calls with same args have no additional effect</td></tr><tr><td><code>openWorldHint</code></td><td>boolean</td><td>true</td><td>Tool interacts with external entities</td></tr></tbody></table>\n<p>In the Agent SDK, <code>readOnlyHint: true</code> enables parallel execution of the tool alongside other read-only tools.</p>\n\n<h3>Two Error Mechanisms</h3>\n<p>MCP has two distinct error pathways:</p>\n<ol>\n<li><strong>Protocol Errors</strong>: Standard JSON-RPC error responses for structural issues\n<ul><li>Unknown tool: <code>-32602</code></li><li>Invalid arguments: <code>-32602</code></li><li>Server error: <code>-32603</code></li><li>Resource not found: <code>-32002</code></li></ul></li>\n<li><strong>Execution Errors</strong>: <code>isError: true</code> in tool results for runtime failures (API failures, business logic errors)</li>\n</ol>\n\n<pre><code class=\"language-json\">// Protocol error\n{\"jsonrpc\": \"2.0\", \"id\": 3,\n \"error\": {\"code\": -32602, \"message\": \"Unknown tool: invalid_name\"}}\n\n// Execution error\n{\"jsonrpc\": \"2.0\", \"id\": 4,\n \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Rate limit exceeded\"}], \"isError\": true}}</code></pre>\n\n<h3>Content Annotations</h3>\n<p>All MCP content types support annotations that guide how content is used:</p>\n<ul>\n<li><code>audience</code>: array of <code>\"user\"</code> and/or <code>\"assistant\"</code> — controls who sees the content</li>\n<li><code>priority</code>: number 0.0 to 1.0 (1 = most important) — suggests importance for context management</li>\n<li><code>lastModified</code>: ISO 8601 timestamp</li>\n</ul>\n\n<h3>MCP Sampling</h3>\n<p>Sampling allows MCP servers to request LLM completions from clients, enabling nested agentic behaviors. The server sends a <code>sampling/createMessage</code> request with messages, model preferences, and parameters. The client maintains control over model access and selection.</p>\n<div class=\"callout callout-warning\"><strong>Security requirement:</strong> There SHOULD always be a human in the loop for sampling requests. Applications SHOULD provide UI to review requests, allow editing of prompts, and present responses for review before returning to the server.</div>\n<p>Model preferences use <code>hints</code> (advisory model suggestions), <code>costPriority</code>, <code>speedPriority</code>, and <code>intelligencePriority</code> (all 0-1 scales).</p>\n\n<h3>MCP Roots</h3>\n<p>Roots define filesystem boundaries where servers can operate. Clients expose roots (always <code>file://</code> URIs) to servers, which should respect these boundaries. Roots support change notifications via <code>notifications/roots/list_changed</code>.</p>",
+    "doc_url": "https://modelcontextprotocol.io/docs/concepts/architecture",
+    "doc_label": "MCP Architecture - Concepts",
+    "related_topics": ["d2-mcp-transports", "d2-mcp-config", "d2-tool-interfaces"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Model Context Protocol",
+        "lesson": "MCP Review",
+        "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+      },
+      {
+        "course": "MCP Advanced Topics",
+        "lesson": "Sampling",
+        "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+      },
+      {
+        "course": "MCP Advanced Topics",
+        "lesson": "Roots",
+        "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers the three MCP primitives (Tools=Model-controlled, Resources=Application-driven, Prompts=User-controlled), tool annotations (readOnlyHint, destructiveHint, idempotentHint, openWorldHint), resource templates using RFC 6570, the two error mechanisms (protocol JSON-RPC vs execution isError), content annotations, MCP sampling for nested LLM calls, and MCP roots for filesystem boundaries.",
+    "key_concepts": [
+      {
+        "term": "Three MCP Primitives",
+        "definition": "Tools (model-controlled, LLM invokes), Resources (application-driven, host decides), Prompts (user-controlled, explicit selection like slash commands)."
+      },
+      {
+        "term": "Tool Annotations",
+        "definition": "Metadata hints: readOnlyHint (default false), destructiveHint (default true), idempotentHint (default false), openWorldHint (default true). Clients must treat as untrusted."
+      },
+      {
+        "term": "Resource Templates",
+        "definition": "Parameterized resource URIs using RFC 6570 URI Templates, allowing dynamic resource access like file:///{path}."
+      },
+      {
+        "term": "MCP Sampling",
+        "definition": "Mechanism allowing MCP servers to request LLM completions from clients via sampling/createMessage. Requires human-in-the-loop for security."
+      },
+      {
+        "term": "Content Annotations",
+        "definition": "Metadata on content types: audience (user/assistant array), priority (0.0-1.0), lastModified (ISO 8601). Guide content routing and importance."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-mcp-transports",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "MCP Transports and Communication",
+    "content": "<h3>JSON-RPC 2.0 over UTF-8</h3>\n<p>All MCP messages use <strong>JSON-RPC 2.0</strong> encoding and <strong>MUST be UTF-8 encoded</strong>. There are three message types:</p>\n<table><thead><tr><th>Type</th><th>Has <code>id</code></th><th>Purpose</th></tr></thead><tbody><tr><td>Request</td><td>Yes (string or integer, MUST NOT be null)</td><td>Expects a response</td></tr><tr><td>Response</td><td>Yes (matches request)</td><td>Reply with <code>result</code> OR <code>error</code></td></tr><tr><td>Notification</td><td>No</td><td>One-way, no reply expected</td></tr></tbody></table>\n\n<pre><code class=\"language-json\">// Request\n{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"tools/list\", \"params\": {}}\n\n// Response\n{\"jsonrpc\": \"2.0\", \"id\": 1, \"result\": {\"tools\": [...]}}\n\n// Notification (no id)\n{\"jsonrpc\": \"2.0\", \"method\": \"notifications/progress\", \"params\": {\"progressToken\": \"abc\", \"progress\": 50}}</code></pre>\n\n<h3>stdio Transport</h3>\n<p>The client launches the MCP server as a <strong>subprocess</strong>. Communication flows through standard I/O:</p>\n<ul>\n<li>Server reads JSON-RPC messages from <strong>stdin</strong></li>\n<li>Server writes responses to <strong>stdout</strong></li>\n<li>Messages are delimited by <strong>newlines</strong> and MUST NOT contain embedded newlines</li>\n<li>Server MAY write to <strong>stderr</strong> for logging (clients may capture, forward, or ignore)</li>\n<li>Server MUST NOT write non-MCP content to stdout</li>\n</ul>\n<p>stdio is the simplest transport, best for local servers and single-client scenarios. Clients SHOULD support stdio whenever possible.</p>\n\n<pre><code class=\"language-bash\"># Adding a stdio server in Claude Code\nclaude mcp add my-server -- node /path/to/server.js --arg1 value1</code></pre>\n\n<h3>Streamable HTTP Transport</h3>\n<div class=\"callout callout-warning\"><strong>Naming precision:</strong> The correct name is <strong>Streamable HTTP</strong>, not just \"HTTP\". It replaces the deprecated HTTP+SSE transport from protocol version 2024-11-05.</div>\n<p>Streamable HTTP operates differently from stdio:</p>\n<ul>\n<li>Server runs as an <strong>independent process</strong> handling multiple client connections</li>\n<li>Provides a single HTTP endpoint (the \"MCP endpoint\") supporting both POST and GET</li>\n<li>Client sends JSON-RPC messages via <strong>HTTP POST</strong></li>\n<li>Client MUST include <code>Accept</code> header listing both <code>application/json</code> and <code>text/event-stream</code></li>\n<li>Client MUST include <code>MCP-Protocol-Version: 2025-06-18</code> header</li>\n</ul>\n\n<h4>POST Response Modes</h4>\n<ul>\n<li>For notifications/responses: server returns <strong>202 Accepted</strong> (no body)</li>\n<li>For requests: server returns either <code>application/json</code> (single response) or <code>text/event-stream</code> (SSE stream)</li>\n<li>SSE streams may include server requests/notifications before the final response</li>\n</ul>\n\n<h3>Session Management (Mcp-Session-Id)</h3>\n<p>Streamable HTTP supports stateful sessions:</p>\n<ul>\n<li>Server MAY assign session ID via <code>Mcp-Session-Id</code> header on the <code>InitializeResult</code> response</li>\n<li>Session ID MUST only contain visible ASCII characters (0x21 to 0x7E)</li>\n<li>Session ID SHOULD be globally unique and cryptographically secure (UUID, JWT, hash)</li>\n<li>Client MUST include <code>Mcp-Session-Id</code> on all subsequent HTTP requests</li>\n<li>Server responds with <strong>HTTP 404</strong> to expired/terminated session IDs</li>\n<li>Client SHOULD send HTTP DELETE to explicitly terminate sessions</li>\n<li>On 404, client MUST start a new session with fresh <code>InitializeRequest</code></li>\n</ul>\n\n<h3>Security</h3>\n<p>Critical security requirements for Streamable HTTP servers:</p>\n<ul>\n<li>Servers <strong>MUST validate <code>Origin</code> header</strong> on all connections (prevents DNS rebinding attacks)</li>\n<li>Local servers <strong>SHOULD bind only to localhost</strong> (127.0.0.1)</li>\n<li>Servers SHOULD implement proper authentication</li>\n</ul>\n\n<h3>Resumability</h3>\n<p>Streamable HTTP supports message resumption for reliability:</p>\n<ul>\n<li>Servers MAY attach <code>id</code> fields to SSE events (must be globally unique within session)</li>\n<li>Clients resume interrupted streams by sending GET with <code>Last-Event-ID</code> header</li>\n<li>Server MAY replay missed messages from the stream</li>\n<li>Event IDs serve as cursors within each stream</li>\n</ul>\n\n<h3>Reconnection in Claude Code</h3>\n<p>Claude Code implements automatic reconnection for remote MCP servers:</p>\n<table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Strategy</td><td>Exponential backoff</td></tr><tr><td>Starting delay</td><td>1 second</td></tr><tr><td>Progression</td><td>1s → 2s → 4s → 8s → 16s</td></tr><tr><td>Maximum attempts</td><td>5</td></tr><tr><td>After 5 failures</td><td>Server marked as failed; manual retry from <code>/mcp</code></td></tr><tr><td>stdio servers</td><td>NOT auto-reconnected</td></tr></tbody></table>\n\n<pre><code class=\"language-bash\"># Transport options in Claude Code\nclaude mcp add --transport http stripe https://mcp.stripe.com     # Streamable HTTP\nclaude mcp add --transport sse legacy https://old.example.com/sse  # SSE (deprecated)\nclaude mcp add my-local -- python server.py                        # stdio</code></pre>",
+    "doc_url": "https://modelcontextprotocol.io/docs/concepts/transports",
+    "doc_label": "MCP Transports - Concepts",
+    "related_topics": ["d2-mcp-architecture", "d2-mcp-config"],
+    "skilljar_refs": [
+      {
+        "course": "MCP Advanced Topics",
+        "lesson": "The STDIO Transport",
+        "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+      },
+      {
+        "course": "MCP Advanced Topics",
+        "lesson": "The StreamableHTTP Transport",
+        "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+      },
+      {
+        "course": "MCP Advanced Topics",
+        "lesson": "State and the StreamableHTTP Transport",
+        "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers MCP transport layers: JSON-RPC 2.0 over UTF-8 encoding, stdio transport for local subprocess communication, and Streamable HTTP (replacing deprecated SSE) for remote servers. Details session management via Mcp-Session-Id, security requirements (Origin validation, localhost binding), resumability via Last-Event-ID, and Claude Code's exponential backoff reconnection (5 attempts).",
+    "key_concepts": [
+      {
+        "term": "JSON-RPC 2.0",
+        "definition": "MCP's message encoding standard. All messages are UTF-8 encoded. Three types: Requests (have id), Responses (match request id), Notifications (no id)."
+      },
+      {
+        "term": "stdio Transport",
+        "definition": "Client launches server as subprocess. Communication via stdin/stdout, newline-delimited. stderr for logging. Best for local, single-client scenarios."
+      },
+      {
+        "term": "Streamable HTTP",
+        "definition": "Replaces deprecated HTTP+SSE. Single endpoint supports POST (client→server) and GET (server-initiated SSE). Requires Accept header with both application/json and text/event-stream."
+      },
+      {
+        "term": "Mcp-Session-Id",
+        "definition": "Session management header. Server assigns on InitializeResult. Client includes on all subsequent requests. 404 response means session expired — must reinitialize."
+      },
+      {
+        "term": "Exponential Backoff Reconnection",
+        "definition": "Claude Code reconnects HTTP/SSE servers with 1s→2s→4s→8s→16s delays, up to 5 attempts. stdio servers are NOT auto-reconnected."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-mcp-config",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "MCP Server Configuration in Claude Code",
+    "content": "<h3>Three Scopes</h3>\n<p>MCP servers in Claude Code can be configured at three scopes, each with different visibility and storage:</p>\n<table><thead><tr><th>Scope</th><th>Loads In</th><th>Shared with Team</th><th>Stored In</th></tr></thead><tbody><tr><td><strong>Local</strong> (default)</td><td>Current project only</td><td>No</td><td><code>~/.claude.json</code> (under project path)</td></tr><tr><td><strong>Project</strong></td><td>Current project only</td><td>Yes, via version control</td><td><code>.mcp.json</code> in project root</td></tr><tr><td><strong>User</strong></td><td>All your projects</td><td>No</td><td><code>~/.claude.json</code> (global section)</td></tr></tbody></table>\n\n<div class=\"callout callout-warning\"><strong>Naming gotcha:</strong> MCP \"local\" scope stores in <code>~/.claude.json</code> (home directory, per-project section). This differs from general local settings which use <code>.claude/settings.local.json</code> (project directory).</div>\n\n<h3>Scope Precedence</h3>\n<p>When the same server name exists at multiple scopes, the highest-priority scope wins:</p>\n<ol>\n<li><strong>Local</strong> scope (highest)</li>\n<li><strong>Project</strong> scope</li>\n<li><strong>User</strong> scope</li>\n<li>Plugin-provided servers</li>\n<li>claude.ai connectors (lowest)</li>\n</ol>\n\n<h3>CLI Commands</h3>\n\n<pre><code class=\"language-bash\"># Add servers at different scopes\nclaude mcp add --transport http stripe https://mcp.stripe.com           # Local (default)\nclaude mcp add --transport http stripe --scope local https://mcp.stripe.com  # Explicit local\nclaude mcp add --transport http paypal --scope project https://mcp.paypal.com/mcp  # Project\nclaude mcp add --transport http hubspot --scope user https://mcp.hubspot.com  # User\n\n# stdio transport\nclaude mcp add my-db -- python /path/to/db-server.py --config db.json\nclaude mcp add --transport stdio --env DB_URL=postgres://... my-db -- python server.py\n\n# Management\nclaude mcp list                      # Show all configured servers\nclaude mcp get stripe                # Show details for specific server\nclaude mcp remove stripe             # Remove a server\nclaude mcp reset-project-choices     # Reset project-scope approval choices</code></pre>\n\n<div class=\"callout callout-tip\"><strong>Option ordering:</strong> All options must come BEFORE the server name. <code>--</code> separates the name from the command/args for stdio servers.</div>\n\n<h3>Environment Variable Expansion</h3>\n<p>The <code>.mcp.json</code> file supports environment variable expansion in <code>command</code>, <code>args</code>, <code>env</code>, <code>url</code>, and <code>headers</code> fields:</p>\n<table><thead><tr><th>Syntax</th><th>Behavior</th></tr></thead><tbody><tr><td><code>${VAR}</code></td><td>Expands to value of environment variable VAR</td></tr><tr><td><code>${VAR:-default}</code></td><td>Expands to VAR if set, otherwise uses default value</td></tr></tbody></table>\n\n<pre><code class=\"language-json\">{\n  \"mcpServers\": {\n    \"api-server\": {\n      \"type\": \"http\",\n      \"url\": \"${API_BASE_URL:-https://api.example.com}/mcp\",\n      \"headers\": {\n        \"Authorization\": \"Bearer ${API_KEY}\"\n      }\n    },\n    \"database-tools\": {\n      \"command\": \"python\",\n      \"args\": [\"${CLAUDE_PLUGIN_ROOT}/servers/db-server.py\"],\n      \"env\": {\n        \"DB_URL\": \"${DB_URL}\"\n      }\n    }\n  }\n}</code></pre>\n\n<div class=\"callout callout-warning\"><strong>Failure mode:</strong> If a required environment variable is not set and has no default value, Claude Code will <strong>fail to parse the config</strong>. Always provide defaults for optional variables.</div>\n\n<p>Plugin-specific variables: <code>${CLAUDE_PLUGIN_ROOT}</code> (bundled plugin files) and <code>${CLAUDE_PLUGIN_DATA}</code> (persistent data directory).</p>\n\n<h3>Managed MCP (managed-mcp.json)</h3>\n<p>Enterprise administrators can deploy managed MCP configurations that users cannot modify:</p>\n<ul>\n<li>macOS: <code>/Library/Application Support/ClaudeCode/managed-mcp.json</code></li>\n<li>Linux/WSL: <code>/etc/claude-code/managed-mcp.json</code></li>\n<li>Windows: <code>C:\\Program Files\\ClaudeCode\\managed-mcp.json</code></li>\n</ul>\n<p>Users cannot add, modify, or use any servers other than those defined in managed-mcp.json. Alternatively, policy-based allowlists/denylists use <code>allowedMcpServers</code> and <code>deniedMcpServers</code> with restrictions matching by <code>serverName</code>, <code>serverCommand</code>, or <code>serverUrl</code>. <strong>Denylist takes absolute precedence</strong> over allowlists.</p>\n\n<h3>Tool Search</h3>\n<p>By default, MCP tool definitions are deferred — only tool names load at session start. Full schemas are loaded on demand via the <code>ToolSearch</code> tool. This is controlled by the <code>ENABLE_TOOL_SEARCH</code> environment variable:</p>\n<table><thead><tr><th>Value</th><th>Behavior</th></tr></thead><tbody><tr><td>(unset) or <code>true</code></td><td>All MCP tools deferred, loaded on demand (default)</td></tr><tr><td><code>auto</code></td><td>Deferred if tools exceed 10% of context window</td></tr><tr><td><code>auto:N</code></td><td>Custom percentage threshold (0-100)</td></tr><tr><td><code>false</code></td><td>All MCP tools loaded upfront</td></tr></tbody></table>\n<p>Tool search requires Sonnet 4+ or Opus 4+. Haiku models do NOT support tool search.</p>\n\n<h3>MCP Output Limits</h3>\n<table><thead><tr><th>Threshold</th><th>Value</th></tr></thead><tbody><tr><td>Warning</td><td>10,000 tokens</td></tr><tr><td>Default maximum</td><td>25,000 tokens</td></tr><tr><td>Configurable via</td><td><code>MAX_MCP_OUTPUT_TOKENS</code> env var</td></tr><tr><td>Per-tool override</td><td><code>_meta[\"anthropic/maxResultSizeChars\"]</code> in tool's <code>tools/list</code> entry</td></tr><tr><td>Maximum per-tool</td><td>500,000 characters</td></tr></tbody></table>\n<p>The <code>MCP_TIMEOUT</code> environment variable controls the startup timeout for MCP server connections.</p>",
+    "doc_url": "https://code.claude.com/docs/en/mcp",
+    "doc_label": "MCP - Claude Code Docs",
+    "related_topics": ["d2-mcp-architecture", "d3-settings", "d2-builtin-tools"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Model Context Protocol",
+        "lesson": "Implementing a Client",
+        "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers MCP server configuration in Claude Code across three scopes (local, project, user) with precedence rules. Details CLI commands for server management, environment variable expansion syntax (${VAR} and ${VAR:-default}), managed-mcp.json for enterprise control, tool search for deferred loading, and MCP output limits (10K warning, 25K default, 500K max per-tool).",
+    "key_concepts": [
+      {
+        "term": "Three MCP Scopes",
+        "definition": "Local (default, ~/.claude.json per-project), Project (.mcp.json, version-controlled), User (~/.claude.json global). Precedence: local > project > user > plugin > claude.ai."
+      },
+      {
+        "term": "Environment Variable Expansion",
+        "definition": "${VAR} expands to variable value, ${VAR:-default} provides fallback. Supported in command, args, env, url, headers fields. Missing required vars fail config parsing."
+      },
+      {
+        "term": "managed-mcp.json",
+        "definition": "Enterprise-deployed MCP configuration at system paths. Users cannot add/modify servers beyond what is defined. Denylist takes absolute precedence over allowlist."
+      },
+      {
+        "term": "Tool Search (ENABLE_TOOL_SEARCH)",
+        "definition": "Controls MCP tool schema loading. Default: deferred on demand. auto: threshold-based. false: all upfront. Requires Sonnet 4+/Opus 4+ (not Haiku)."
+      },
+      {
+        "term": "MCP Output Limits",
+        "definition": "Warning at 10K tokens, default max 25K tokens (MAX_MCP_OUTPUT_TOKENS). Per-tool override via _meta[\"anthropic/maxResultSizeChars\"] up to 500K chars."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": "d2-builtin-tools",
+    "domain_id": 2,
+    "domain": "Tool Design & MCP Integration",
+    "title": "Claude Code Built-in Tools",
+    "content": "<h3>Core Tools</h3>\n<p>Claude Code ships with six core tools that handle all fundamental file and search operations:</p>\n<table><thead><tr><th>Tool</th><th>Purpose</th><th>When to Use</th><th>Permission</th></tr></thead><tbody><tr><td><strong>Read</strong></td><td>Read file contents from filesystem</td><td>When you know the specific file path; supports images, PDFs (with pages param), notebooks; up to 2000 lines by default</td><td>No</td></tr><tr><td><strong>Write</strong></td><td>Create new files or complete rewrites</td><td>New files only; must Read first for existing files; overwrites entirely</td><td>Yes</td></tr><tr><td><strong>Edit</strong></td><td>Exact string replacements in files</td><td>Modifying existing files (preferred over Write); <code>old_string</code> must be unique in file; supports <code>replace_all</code></td><td>Yes</td></tr><tr><td><strong>Bash</strong></td><td>Execute shell commands</td><td>Running git, npm, docker, build commands; working directory persists between calls</td><td>Yes</td></tr><tr><td><strong>Grep</strong></td><td>Search file contents (built on ripgrep)</td><td>Finding patterns in code; regex, file type filtering, context lines; modes: content, files_with_matches, count</td><td>No</td></tr><tr><td><strong>Glob</strong></td><td>Fast file pattern matching</td><td>Finding files by name pattern (e.g., <code>**/*.ts</code>); sorted by modification time</td><td>No</td></tr></tbody></table>\n\n<h3>Selection Criteria: Why Each Over Shell</h3>\n<p>Claude Code enforces specific tool selection over shell equivalents. This is a design decision for reliability and context efficiency:</p>\n<table><thead><tr><th>Task</th><th>Use</th><th>NOT</th></tr></thead><tbody><tr><td>File search by name</td><td><code>Glob</code></td><td><code>find</code> or <code>ls</code> via Bash</td></tr><tr><td>Content search</td><td><code>Grep</code></td><td><code>grep</code> or <code>rg</code> via Bash</td></tr><tr><td>Read files</td><td><code>Read</code></td><td><code>cat</code>/<code>head</code>/<code>tail</code> via Bash</td></tr><tr><td>Edit files</td><td><code>Edit</code></td><td><code>sed</code>/<code>awk</code> via Bash</td></tr><tr><td>Write new files</td><td><code>Write</code></td><td><code>echo</code> via Bash</td></tr><tr><td>Shell operations</td><td><code>Bash</code></td><td>(no alternative)</td></tr></tbody></table>\n\n<div class=\"callout callout-tip\"><strong>Design rationale:</strong> Built-in tools provide structured input/output, better error handling, and optimized context usage compared to raw shell commands. The Grep tool returns structured results with line numbers and context, while <code>grep</code> via Bash produces unstructured text that consumes more context.</div>\n\n<h3>Additional Tools</h3>\n<table><thead><tr><th>Tool</th><th>Purpose</th><th>Permission</th></tr></thead><tbody><tr><td><strong>ToolSearch</strong></td><td>Deferred tool discovery for MCP tools; searches by name/keywords to load schemas on demand</td><td>No</td></tr><tr><td><strong>WebFetch</strong></td><td>Fetch and process web page content</td><td>Yes</td></tr><tr><td><strong>WebSearch</strong></td><td>Web search capability</td><td>Yes</td></tr><tr><td><strong>Agent</strong></td><td>Spawn subagents with own context window, custom tools, independent permissions</td><td>No</td></tr><tr><td><strong>Skill</strong></td><td>Execute skills (reusable prompts/workflows) in main conversation</td><td>Yes</td></tr><tr><td><strong>NotebookEdit</strong></td><td>Modify Jupyter notebook cells</td><td>Yes</td></tr><tr><td><strong>Monitor</strong></td><td>Watch background processes (v2.1.98+); each output line delivered as notification</td><td>Yes</td></tr><tr><td><strong>PowerShell</strong></td><td>Native PowerShell execution (requires <code>CLAUDE_CODE_USE_POWERSHELL_TOOL=1</code>)</td><td>Yes</td></tr></tbody></table>\n\n<h3>Agent SDK: tools vs allowedTools vs disallowedTools</h3>\n<p>The Agent SDK provides three distinct mechanisms for controlling tool access, operating at different layers:</p>\n<table><thead><tr><th>Option</th><th>Layer</th><th>Effect</th></tr></thead><tbody><tr><td><code>tools: [\"Read\", \"Grep\"]</code></td><td>Availability</td><td>Only listed built-ins in context. Unlisted tools completely removed. MCP tools unaffected</td></tr><tr><td><code>tools: []</code></td><td>Availability</td><td>All built-ins removed. Only MCP tools remain</td></tr><tr><td><code>allowedTools</code></td><td>Permission</td><td>Listed tools run without permission prompt. Unlisted tools still available but need permission</td></tr><tr><td><code>disallowedTools</code></td><td>Permission</td><td>Every call denied. Tool stays in context (Claude may waste a turn attempting to use it)</td></tr></tbody></table>\n\n<div class=\"callout callout-warning\"><strong>Best practice:</strong> Prefer <code>tools</code> over <code>disallowedTools</code> to remove tools from context entirely. With <code>disallowedTools</code>, the tool definition still consumes context tokens and Claude may still attempt to call it, wasting a turn.</div>\n\n<pre><code class=\"language-python\"># Read-only analysis agent\noptions = ClaudeAgentOptions(\n    tools=[\"Read\", \"Glob\", \"Grep\"],\n    allowed_tools=[\"Read\", \"Glob\", \"Grep\"]\n)\n\n# Full automation with MCP\noptions = ClaudeAgentOptions(\n    tools=[\"Read\", \"Edit\", \"Bash\", \"Glob\", \"Grep\"],\n    allowed_tools=[\"mcp__github__*\", \"Read\", \"Edit\", \"Bash\"],\n    mcp_servers={\"github\": {\"type\": \"http\", \"url\": \"https://mcp.github.com\"}}\n)</code></pre>\n\n<h3>Tool Annotations for Custom Tools</h3>\n<p>When creating custom tools in the Agent SDK, annotations provide metadata that affects execution behavior:</p>\n<table><thead><tr><th>Annotation</th><th>Default</th><th>Effect</th></tr></thead><tbody><tr><td><code>readOnlyHint: true</code></td><td>false</td><td>Enables <strong>parallel execution</strong> alongside other read-only tools</td></tr><tr><td><code>destructiveHint: true</code></td><td>true</td><td>Informational — may influence permission decisions</td></tr><tr><td><code>idempotentHint: true</code></td><td>false</td><td>Informational — repeated calls have no additional effect</td></tr><tr><td><code>openWorldHint: true</code></td><td>true</td><td>Informational — interacts with external entities</td></tr></tbody></table>\n\n<pre><code class=\"language-python\">from claude_agent_sdk import tool\n\n@tool(\n    \"check_status\",\n    \"Check the deployment status of a service\",\n    {\"service\": str},\n    annotations={\"readOnlyHint\": True, \"openWorldHint\": True}\n)\nasync def check_status(args: dict) -> dict:\n    return {\"content\": [{\"type\": \"text\", \"text\": f\"Service {args['service']} is healthy\"}]}</code></pre>\n\n<div class=\"callout callout-tip\"><strong>Parallel execution:</strong> Marking custom tools with <code>readOnlyHint: true</code> is the key to enabling parallel execution in the Agent SDK. Without it, custom tools default to sequential execution.</div>",
+    "doc_url": "https://code.claude.com/docs/en/tools-reference",
+    "doc_label": "Tools Reference - Claude Code",
+    "related_topics": ["d2-tool-interfaces", "d3-cli", "d3-agent-sdk"],
+    "skilljar_refs": [
+      {
+        "course": "Introduction to Model Context Protocol",
+        "lesson": "Implementing a Client",
+        "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+      }
+    ],
+    "anthropic_docs_ref": null,
+    "summary": "Covers Claude Code's six core built-in tools (Read, Write, Edit, Bash, Grep, Glob) with their selection criteria over shell equivalents. Details additional tools (ToolSearch, WebFetch, Agent, Skill, Monitor, PowerShell), the Agent SDK's three-layer tool access control (tools, allowedTools, disallowedTools), and tool annotations that control parallel execution behavior.",
+    "key_concepts": [
+      {
+        "term": "Core Built-in Tools",
+        "definition": "Read, Write, Edit, Bash, Grep, Glob — the six fundamental tools for file operations, shell execution, and search in Claude Code."
+      },
+      {
+        "term": "Tool Selection Over Shell",
+        "definition": "Claude Code enforces using built-in tools (Glob, Grep, Read, Edit, Write) instead of shell equivalents (find, grep, cat, sed, echo) for reliability and context efficiency."
+      },
+      {
+        "term": "tools vs allowedTools vs disallowedTools",
+        "definition": "tools controls availability (removes from context), allowedTools controls permissions (auto-approve), disallowedTools denies but keeps in context. Prefer tools over disallowedTools."
+      },
+      {
+        "term": "readOnlyHint Annotation",
+        "definition": "Setting readOnlyHint:true on custom tools enables parallel execution alongside other read-only tools. Default is false (sequential execution)."
+      },
+      {
+        "term": "ToolSearch",
+        "definition": "Deferred tool discovery that loads MCP tool schemas on demand, keeping initial context usage low. Only tool names load at session start."
+      }
+    ],
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]

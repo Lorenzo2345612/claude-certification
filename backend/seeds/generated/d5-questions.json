@@ -1,0 +1,1538 @@
+[
+  {
+    "id": 269,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer is building a long-running agentic system and notices that Claude's responses become less accurate after processing many tool results. They recall reading about this phenomenon in Anthropic's documentation.",
+    "question": "What is the official Anthropic term for the degradation of accuracy and recall as token count grows in the context window?",
+    "options": [
+      {"id": "a", "text": "Lost in the middle", "correct": false},
+      {"id": "b", "text": "Context rot", "correct": true},
+      {"id": "c", "text": "Attention decay", "correct": false},
+      {"id": "d", "text": "Token saturation", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic officially calls this phenomenon 'context rot' in their documentation. As token count grows, accuracy and recall degrade due to the n-squared pairwise token relationships in the Transformer attention mechanism.",
+    "why_others_wrong": {
+      "a": "'Lost in the middle' is a related but distinct concept from academic research about position-based retrieval difficulty. It is NOT Anthropic's official term.",
+      "c": "'Attention decay' is not an official Anthropic term. While the underlying mechanism involves attention budget limitations, the official documentation uses 'context rot.'",
+      "d": "'Token saturation' is not an official term used in Anthropic's documentation for this phenomenon."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs",
+      "quote": "As token count grows, accuracy and recall degrade, a phenomenon known as context rot."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 270,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A team lead argues that since Claude now supports 1M token context windows, they should load all project files upfront to give Claude maximum context for their coding assistant.",
+    "question": "Based on Anthropic's official documentation on context management, what is the fundamental problem with this approach?",
+    "options": [
+      {"id": "a", "text": "1M token models are too expensive for loading all project files", "correct": false},
+      {"id": "b", "text": "More context is NOT automatically better; curating what is in context is just as important as how much space is available", "correct": true},
+      {"id": "c", "text": "The 1M context window is only available for Claude Opus models, not Sonnet", "correct": false},
+      {"id": "d", "text": "Loading all files at once exceeds the API request size limit regardless of token count", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic's documentation explicitly states that curating what is in context is just as important as how much space is available. Context rot causes accuracy and recall degradation as token count grows, so loading unnecessary data actually degrades performance.",
+    "why_others_wrong": {
+      "a": "While cost is a practical concern, the fundamental problem identified by Anthropic is context rot degrading quality, not cost.",
+      "c": "This is factually incorrect. Claude Sonnet 4.6 also has a 1M token context window.",
+      "d": "While request size limits exist for images/documents, the documentation identifies context rot as the core issue with loading everything upfront."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs",
+      "quote": "Curating what's in context is just as important as how much space is available."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 271,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer is optimizing a multi-document analysis prompt that processes 50K tokens of input. They want to maximize response quality.",
+    "question": "According to Anthropic's long context prompting best practices, what positioning strategy can improve response quality by up to 30%?",
+    "options": [
+      {"id": "a", "text": "Interleave queries between documents to maintain Claude's attention throughout the context", "correct": false},
+      {"id": "b", "text": "Place the most important document first and less important ones last", "correct": false},
+      {"id": "c", "text": "Put longform data at the top of the prompt and place queries at the end", "correct": true},
+      {"id": "d", "text": "Distribute documents evenly and place queries in the middle of the prompt", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Anthropic's official prompting best practices state that placing long documents near the TOP and queries at the END can improve response quality by up to 30%, especially with complex, multi-document inputs.",
+    "why_others_wrong": {
+      "a": "Interleaving queries between documents is not the recommended strategy. The docs prescribe a clear separation: data at top, queries at end.",
+      "b": "The guidance is about separating data from queries by position, not about ordering documents by importance.",
+      "d": "Placing queries in the middle contradicts the official guidance. Queries should be at the end for optimal performance."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Put longform data at the top... Queries at the end: Can improve response quality by up to 30% in tests."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 272,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer is reviewing which Claude models support 1M token context windows for their long-running agent application.",
+    "question": "Which of the following models does NOT have a 1M token context window?",
+    "options": [
+      {"id": "a", "text": "Claude Opus 4.7", "correct": false},
+      {"id": "b", "text": "Claude Sonnet 4.6", "correct": false},
+      {"id": "c", "text": "Claude Sonnet 4.5", "correct": true},
+      {"id": "d", "text": "Claude Opus 4.6", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Claude Sonnet 4.5 has a 200K token context window, not 1M. The 1M context window models are: Claude Mythos Preview, Opus 4.7, Opus 4.6, and Sonnet 4.6.",
+    "why_others_wrong": {
+      "a": "Claude Opus 4.7 has a 1M token context window.",
+      "b": "Claude Sonnet 4.6 has a 1M token context window.",
+      "d": "Claude Opus 4.6 has a 1M token context window."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs",
+      "quote": "Claude Sonnet 4.5: 200k tokens (Deprecated predecessor)"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 273,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer building a long-context analysis pipeline asks about the technical reason why context rot occurs in transformer-based models.",
+    "question": "What is the architectural explanation for context rot in transformer models, according to Anthropic's context engineering guide?",
+    "options": [
+      {"id": "a", "text": "Transformers have a fixed attention budget due to n-squared pairwise token relationships, and each token depletes this limited budget", "correct": true},
+      {"id": "b", "text": "Transformers use a first-in-first-out memory queue that discards the oldest tokens when capacity is reached", "correct": false},
+      {"id": "c", "text": "The model's weights degrade over long sequences because gradient signals weaken over distance", "correct": false},
+      {"id": "d", "text": "Context windows are compressed using lossy encoding that drops precision proportional to length", "correct": false}
+    ],
+    "correct_answer": "a",
+    "explanation": "The context engineering guide explains that the Transformer architecture creates n-squared pairwise token relationships. As context grows, models struggle to capture these relationships effectively. LLMs possess a limited 'attention budget' comparable to human working memory, and each token depletes this budget.",
+    "why_others_wrong": {
+      "b": "Transformers do not use a FIFO queue. All tokens remain in context; the issue is degraded attention quality, not token removal.",
+      "c": "This confuses training-time gradient behavior with inference-time context processing. Model weights do not change during inference.",
+      "d": "Context windows are not compressed with lossy encoding. The full token sequence is processed, but attention quality degrades with length."
+    },
+    "doc_reference": {
+      "source": "Context Engineering Guide",
+      "quote": "Transformer architecture creates n-squared pairwise token relationships... LLMs possess limited 'attention budget' comparable to human working memory."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 274,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "An engineer is implementing context awareness for a long-running agent session using Claude Sonnet 4.6. They need to understand how the token budget tracking works.",
+    "question": "How does context awareness communicate remaining token budget to Claude during a conversation?",
+    "options": [
+      {"id": "a", "text": "Through a special API response header that the client must parse and forward", "correct": false},
+      {"id": "b", "text": "Via XML tags: a budget tag at conversation start and system_warning updates after each tool call", "correct": true},
+      {"id": "c", "text": "Through a dedicated /budget endpoint that Claude queries between each response", "correct": false},
+      {"id": "d", "text": "Via a metadata field in the tool_result block that Claude reads automatically", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Context awareness uses XML tags. At conversation start, Claude receives <budget:token_budget>1000000</budget:token_budget>. After each tool call, it receives <system_warning>Token usage: 35000/1000000; 965000 remaining</system_warning>.",
+    "why_others_wrong": {
+      "a": "Context awareness is communicated through in-context XML tags, not HTTP response headers.",
+      "c": "There is no separate /budget endpoint. Budget information is injected directly into the conversation context.",
+      "d": "The budget information is delivered via separate XML tags, not embedded in tool_result blocks."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs",
+      "quote": "<budget:token_budget>1000000</budget:token_budget> ... <system_warning>Token usage: 35000/1000000; 965000 remaining</system_warning>"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 275,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer is structuring multiple documents for a long-context analysis prompt and wants to help Claude trace claims back to specific sources.",
+    "question": "According to Anthropic's prompting best practices, what technique should be used to help Claude 'cut through the noise' in long document tasks?",
+    "options": [
+      {"id": "a", "text": "Enable extended thinking with maximum budget to give Claude more reasoning time", "correct": false},
+      {"id": "b", "text": "Ask Claude to quote relevant parts from the documents FIRST before carrying out its analysis task", "correct": true},
+      {"id": "c", "text": "Reduce the number of documents to three or fewer to minimize noise", "correct": false},
+      {"id": "d", "text": "Use the effort parameter set to 'max' to ensure thorough document processing", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official prompting best practices recommend asking Claude to quote relevant parts FIRST before carrying out its task. This helps Claude 'cut through the noise' by grounding its reasoning in actual source text before synthesizing conclusions.",
+    "why_others_wrong": {
+      "a": "Extended thinking helps with reasoning but the specific technique for long document tasks is the quote extraction pattern.",
+      "c": "The docs don't recommend reducing documents. Instead, they recommend structuring them with XML tags and using the quote extraction pattern.",
+      "d": "The effort parameter controls token spending generally, but the specific recommended technique is quoting relevant parts first."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Ground responses in quotes: For long document tasks, ask Claude to quote relevant parts FIRST before carrying out its task."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 276,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-windows",
+    "scenario": "A developer needs to send a batch of medical images to Claude for analysis using a 1M-token model.",
+    "question": "What is the maximum number of images or PDF pages that can be sent per request to a 1M-token Claude model?",
+    "options": [
+      {"id": "a", "text": "100", "correct": false},
+      {"id": "b", "text": "200", "correct": false},
+      {"id": "c", "text": "600", "correct": true},
+      {"id": "d", "text": "1,000", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "1M-token models support up to 600 images or PDF pages per request. 200K-token models support up to 100 per request. Note that you may hit request size limits before token limits when sending many images.",
+    "why_others_wrong": {
+      "a": "100 is the limit for 200K-token models, not 1M-token models.",
+      "b": "200 is not the correct limit for either model tier.",
+      "d": "1,000 exceeds the maximum limit. The cap is 600 for 1M-token models."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs",
+      "quote": "1M-token models: Up to 600 images or PDF pages per request."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 277,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "An engineer is configuring server-side compaction for their agentic application. They want to understand the default trigger threshold.",
+    "question": "What is the default trigger threshold for server-side compaction, and what is the minimum allowed value?",
+    "options": [
+      {"id": "a", "text": "Default: 100,000 tokens; Minimum: 25,000 tokens", "correct": false},
+      {"id": "b", "text": "Default: 150,000 tokens; Minimum: 50,000 tokens", "correct": true},
+      {"id": "c", "text": "Default: 200,000 tokens; Minimum: 100,000 tokens", "correct": false},
+      {"id": "d", "text": "Default: 100,000 tokens; Minimum: 50,000 tokens", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The server-side compaction trigger defaults to 150,000 tokens and the minimum allowed value is 50,000 tokens. This is configured via the trigger parameter in the compact_20260112 strategy.",
+    "why_others_wrong": {
+      "a": "Both values are incorrect. The default is 150K (not 100K) and the minimum is 50K (not 25K).",
+      "c": "The default is 150K, not 200K. And the minimum is 50K, not 100K.",
+      "d": "The default is 150K, not 100K. The minimum of 50K is correct but the default is wrong."
+    },
+    "doc_reference": {
+      "source": "Compaction Docs",
+      "quote": "trigger: 150,000 tokens (default). Must be at least 50,000 tokens."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 278,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "A developer is implementing server-side compaction and wants to provide custom instructions for how the conversation should be summarized.",
+    "question": "How does the 'instructions' parameter in server-side compaction interact with the default summarization prompt?",
+    "options": [
+      {"id": "a", "text": "It appends to the default prompt, adding extra summarization guidance", "correct": false},
+      {"id": "b", "text": "It completely replaces the default summarization prompt", "correct": true},
+      {"id": "c", "text": "It is prepended before the default prompt as a priority instruction", "correct": false},
+      {"id": "d", "text": "It is merged with the default prompt using a weighted combination", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The 'instructions' parameter completely replaces the default summarization prompt. It does not supplement it. Developers must include all desired summarization guidance when using custom instructions.",
+    "why_others_wrong": {
+      "a": "The instructions parameter does NOT append to the default. It fully replaces it.",
+      "c": "There is no prepending behavior. The custom instructions completely replace the default.",
+      "d": "There is no merging mechanism. Custom instructions entirely override the default prompt."
+    },
+    "doc_reference": {
+      "source": "Compaction Docs",
+      "quote": "instructions parameter completely replaces the default prompt (does not supplement it)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 279,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "A developer is using Claude Code and runs /compact during a session. They had previously invoked three skills and given several verbal instructions during the conversation.",
+    "question": "After running /compact in Claude Code, what happens to the project-root CLAUDE.md and conversation-only instructions?",
+    "options": [
+      {"id": "a", "text": "Both are preserved in the compaction summary and restored automatically", "correct": false},
+      {"id": "b", "text": "CLAUDE.md is re-read from disk and re-injected; conversation-only instructions are LOST", "correct": true},
+      {"id": "c", "text": "Both are lost; you must reload CLAUDE.md manually using /init", "correct": false},
+      {"id": "d", "text": "CLAUDE.md is summarized into the compaction block; conversation instructions are preserved verbatim", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "After /compact in Claude Code, the project-root CLAUDE.md is re-read from disk and re-injected into context. However, conversation-only instructions (verbal instructions given during the chat) are LOST unless they were saved to CLAUDE.md before compaction.",
+    "why_others_wrong": {
+      "a": "Conversation-only instructions are NOT preserved. Only CLAUDE.md files and recently invoked skills survive.",
+      "c": "CLAUDE.md IS automatically re-injected from disk. It does not need to be manually reloaded.",
+      "d": "CLAUDE.md is re-read fresh from disk, not summarized. And conversation instructions are lost, not preserved."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs / Claude Code",
+      "quote": "Project-root CLAUDE.md: re-read from disk and re-injected after /compact... Conversation-only instructions: LOST unless saved to CLAUDE.md."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 280,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "A developer is building an agentic system and wants to manage context efficiently. They are considering different strategies for handling verbose tool outputs from earlier in the conversation.",
+    "question": "According to Anthropic's context engineering guide, what is described as 'one of the safest, lightest touch forms of compaction'?",
+    "options": [
+      {"id": "a", "text": "Summarizing the entire conversation into a single paragraph", "correct": false},
+      {"id": "b", "text": "Removing raw tool outputs from deep message history", "correct": true},
+      {"id": "c", "text": "Truncating all messages to a maximum of 500 tokens each", "correct": false},
+      {"id": "d", "text": "Replacing older conversation turns with their thinking block summaries", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic's context engineering guide describes removing raw tool outputs from deep message history as 'one of the safest, lightest touch forms of compaction.' The API supports this via the clear_tool_uses_20250919 context editing strategy.",
+    "why_others_wrong": {
+      "a": "Full conversation summarization is a more aggressive form of compaction, not the safest/lightest.",
+      "c": "Arbitrary truncation of messages is not a recommended strategy and would lose important context.",
+      "d": "While thinking block clearing is available, tool result clearing is specifically described as the safest and lightest approach."
+    },
+    "doc_reference": {
+      "source": "Context Engineering Guide",
+      "quote": "Tool Result Clearing: Removing raw tool outputs from deep message history is 'one of the safest, lightest touch forms of compaction.'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 281,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "A developer wants to use context editing to clear both thinking blocks and old tool results. They need to configure the edits array correctly.",
+    "question": "When combining thinking block clearing and tool result clearing in the context editing edits array, what ordering rule must be followed?",
+    "options": [
+      {"id": "a", "text": "Tool result clearing must be listed first, then thinking block clearing", "correct": false},
+      {"id": "b", "text": "They must be in separate API calls; they cannot be combined in one edits array", "correct": false},
+      {"id": "c", "text": "Thinking block clearing (clear_thinking_20251015) must be listed FIRST in the edits array", "correct": true},
+      {"id": "d", "text": "The order does not matter; both strategies are applied simultaneously", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "When combining strategies, clear_thinking_20251015 must be listed FIRST in the edits array. This ordering requirement is explicitly stated in the context editing documentation.",
+    "why_others_wrong": {
+      "a": "This is the reverse of the correct ordering. Thinking block clearing must come first.",
+      "b": "They CAN be combined in one edits array. Separate API calls are not required.",
+      "d": "Order does matter. The documentation explicitly requires thinking block clearing to be listed first."
+    },
+    "doc_reference": {
+      "source": "Context Editing Docs",
+      "quote": "clear_thinking_20251015 must be listed FIRST in the edits array."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 282,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "An engineer is choosing between loading all relevant data upfront versus using a just-in-time approach for their agent's context management.",
+    "question": "What is the just-in-time (JIT) retrieval strategy for context management, as described in Anthropic's context engineering guide?",
+    "options": [
+      {"id": "a", "text": "Cache all data in a Redis store and query it as needed during the conversation", "correct": false},
+      {"id": "b", "text": "Maintain lightweight identifiers (file paths, links) in context and dynamically load full data at runtime using tools", "correct": true},
+      {"id": "c", "text": "Pre-compute summaries of all data sources and load only the summaries into context", "correct": false},
+      {"id": "d", "text": "Use a RAG pipeline to chunk and embed all data, then retrieve relevant chunks per query", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The JIT retrieval strategy maintains lightweight identifiers (file paths, URLs, database keys) rather than loading everything upfront. Data is dynamically loaded at runtime using tools when the agent actually needs it.",
+    "why_others_wrong": {
+      "a": "Redis caching is an implementation detail, not the JIT strategy described in the docs. JIT is about keeping references in context, not external caches.",
+      "c": "Pre-computing summaries is a different approach. JIT specifically maintains lightweight identifiers and loads full data on demand.",
+      "d": "While RAG is a valid approach, the JIT strategy specifically refers to maintaining identifiers and using tools for on-demand loading."
+    },
+    "doc_reference": {
+      "source": "Context Engineering Guide",
+      "quote": "Maintain lightweight identifiers (file paths, links) rather than loading everything upfront. Dynamically load data at runtime using tools."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 283,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "An engineer has completed a long task and the context window has been compacted multiple times. They are deciding whether to start a fresh context window or continue compacting.",
+    "question": "According to Anthropic's official guidance, when should you prefer starting a fresh context window over using compaction?",
+    "options": [
+      {"id": "a", "text": "When the conversation exceeds 50,000 tokens for the first time", "correct": false},
+      {"id": "b", "text": "When state is well-persisted in files and Claude can rediscover context from the filesystem", "correct": true},
+      {"id": "c", "text": "When the task requires less than 10 tool calls to complete", "correct": false},
+      {"id": "d", "text": "When using Claude Opus models, since they handle fresh starts better than compaction", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official guidance recommends starting fresh when state is well-persisted in files (progress.txt, tests.json, git logs) and Claude can rediscover context from the filesystem. Use compaction when conversation context contains information not persisted elsewhere.",
+    "why_others_wrong": {
+      "a": "The 50K threshold is the minimum compaction trigger, not a criterion for choosing fresh start over compaction.",
+      "c": "Tool call count is not a criterion in the fresh-start vs. compact decision.",
+      "d": "The guidance does not differentiate by model. The decision is based on whether state is persisted externally."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Start fresh when: State is well-persisted in files... Claude can rediscover context from the filesystem."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 284,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-context-strategies",
+    "scenario": "A developer is reviewing the /compact behavior in Claude Code and wants to understand how skills are handled after compaction.",
+    "question": "After /compact in Claude Code, how are previously invoked skills handled?",
+    "options": [
+      {"id": "a", "text": "All skills are fully reloaded with no size limit", "correct": false},
+      {"id": "b", "text": "Skills are lost entirely and must be manually re-invoked", "correct": false},
+      {"id": "c", "text": "Recently invoked skills are re-attached with a budget of 5,000 tokens each, combined maximum of 25,000 tokens, most recently invoked first", "correct": true},
+      {"id": "d", "text": "Only the single most recently invoked skill is preserved, with no size limit", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "After /compact, invoked skills are re-attached starting from the most recently invoked. Each skill gets up to 5,000 tokens, with a combined budget of 25,000 tokens total.",
+    "why_others_wrong": {
+      "a": "There IS a size limit: 5,000 tokens per skill and 25,000 tokens combined.",
+      "b": "Skills are NOT lost entirely. Recently invoked skills are automatically re-attached within the budget constraints.",
+      "d": "Multiple skills can be preserved, not just one. The budget allows up to 5 skills at 5,000 tokens each."
+    },
+    "doc_reference": {
+      "source": "Context Windows Docs / Claude Code",
+      "quote": "Invoked skills: re-attached after summary (first 5,000 tokens each, combined budget 25,000 tokens, filled starting from most recently invoked)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 285,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "A developer is relying on server-side compaction to handle their long-running agent. After several compaction cycles, the agent starts prematurely declaring the project complete and missing important details.",
+    "question": "According to Anthropic's harnesses guide, why does compaction alone fail for long-running agent tasks, and what is the recommended mitigation?",
+    "options": [
+      {"id": "a", "text": "Compaction is too slow; use client-side SDK compaction for faster processing", "correct": false},
+      {"id": "b", "text": "Compaction is lossy and agents lose precision on details; pair compaction with external scratchpad files (progress.txt, tests.json) to persist critical state", "correct": true},
+      {"id": "c", "text": "Compaction cannot handle conversations longer than 500K tokens; switch to a larger model", "correct": false},
+      {"id": "d", "text": "Compaction only works with the /compact command; use automatic compaction triggers instead", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic's harnesses guide states compaction alone 'isn't sufficient.' Each summarization pass loses precision (numerical values, specific dates, exact specifications). Without structural guidance through external files, agents attempt too much simultaneously and prematurely declare projects complete.",
+    "why_others_wrong": {
+      "a": "Server-side compaction is actually recommended OVER client-side SDK compaction. Speed is not the issue; information loss is.",
+      "c": "There is no 500K limit on compaction. The issue is progressive information loss through repeated summarization.",
+      "d": "Both /compact and automatic triggers perform the same summarization. The fix is external state files, not a different trigger mechanism."
+    },
+    "doc_reference": {
+      "source": "Harnesses Guide",
+      "quote": "Compaction alone 'isn't sufficient.' Without structural guidance, agents fail across context windows by attempting too much simultaneously and prematurely declaring projects complete."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 286,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "A developer is setting up a long-running coding agent that needs to track test results across multiple sessions and compaction cycles.",
+    "question": "According to Anthropic's official documentation, what is the critical rule about how an agent should interact with a tests.json state file?",
+    "options": [
+      {"id": "a", "text": "The agent should regenerate the tests.json file from scratch at the start of each session", "correct": false},
+      {"id": "b", "text": "The agent should only change the status fields of tests; it is unacceptable to remove or edit tests", "correct": true},
+      {"id": "c", "text": "The agent should add new tests but never modify existing test entries", "correct": false},
+      {"id": "d", "text": "The agent should archive failing tests to a separate failures.json file", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official docs state: 'We prompt coding agents to edit this file only by changing the status of a passes field' and 'It is unacceptable to remove or edit tests.' This prevents agents from 'solving' test failures by deleting the failing tests.",
+    "why_others_wrong": {
+      "a": "Regenerating from scratch would lose accumulated state. The file should persist across sessions with only status changes.",
+      "c": "The restriction is specifically about not removing tests, not about preventing status changes to existing tests.",
+      "d": "Archiving failing tests to another file is not the prescribed pattern. Failing tests must remain in tests.json."
+    },
+    "doc_reference": {
+      "source": "Agentic Coding Best Practices",
+      "quote": "We prompt coding agents to edit this file only by changing the status of a passes field... It is unacceptable to remove or edit tests."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 287,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "An engineering team is setting up a production agent that needs to survive crashes and session restarts. They want to follow Anthropic's recommended recovery pattern.",
+    "question": "What is the correct sequence for the official session startup recovery pattern?",
+    "options": [
+      {"id": "a", "text": "Start dev server -> Read progress files -> Run all tests -> Review git log -> Begin coding", "correct": false},
+      {"id": "b", "text": "pwd -> Read git logs and progress files -> Review feature list -> Start dev server -> Run verification test", "correct": true},
+      {"id": "c", "text": "Run full test suite -> Read CLAUDE.md -> Initialize project -> Start implementing next feature", "correct": false},
+      {"id": "d", "text": "Read progress.txt -> git pull latest -> Run linter -> Start from where last session ended", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official session startup sequence is: (1) Run pwd to confirm working directory, (2) Read git logs and progress files, (3) Review feature list and select highest-priority incomplete feature, (4) Start development server, (5) Execute basic end-to-end verification test before new work.",
+    "why_others_wrong": {
+      "a": "This starts with the dev server before reading progress files. The official sequence reads state files first to understand context.",
+      "c": "Running the full test suite first is not the prescribed sequence. The pattern runs a basic verification test AFTER reviewing state.",
+      "d": "This sequence is missing key steps like pwd confirmation and feature review, and includes git pull which is not in the official pattern."
+    },
+    "doc_reference": {
+      "source": "Harnesses Guide",
+      "quote": "Session Startup Sequence: Run pwd... Read git logs and progress files... Review feature list... Start development server... Execute basic end-to-end verification test."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 288,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "A team is designing a multi-session agent workflow for a complex project that requires more than one context window to complete.",
+    "question": "What is the Two-Agent Architecture pattern described in Anthropic's harnesses guide?",
+    "options": [
+      {"id": "a", "text": "One agent plans in read-only mode while the other implements changes, alternating per turn", "correct": false},
+      {"id": "b", "text": "An Initializer Agent sets up the foundation (tests, scripts, framework) in the first session, then a Coding Agent makes incremental progress in subsequent sessions", "correct": true},
+      {"id": "c", "text": "Two agents run in parallel: one handles frontend tasks while the other handles backend tasks", "correct": false},
+      {"id": "d", "text": "A primary agent generates code while a review agent checks each change before it's committed", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The Two-Agent Architecture from Anthropic's harnesses guide uses an Initializer Agent for the first session (sets up tests, scripts, framework) and a Coding Agent for subsequent sessions (makes incremental progress on the task list). This separation ensures setup work doesn't consume context in iterative sessions.",
+    "why_others_wrong": {
+      "a": "This describes a planning/implementation cycle, not the Two-Agent Architecture which separates initialization from iteration.",
+      "c": "The two agents are not domain-split (frontend/backend). They are phase-split: initialization vs. incremental coding.",
+      "d": "This describes an evaluator-optimizer pattern, not the Two-Agent Architecture."
+    },
+    "doc_reference": {
+      "source": "Harnesses Guide",
+      "quote": "Initializer Agent: First session only, sets up foundation... Coding Agent: Subsequent sessions, makes incremental progress."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 289,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "An agent is working on a multi-session project. Between sessions, the developer wants to ensure the agent uses git effectively for state tracking.",
+    "question": "According to Anthropic's documentation, what role does git play in agent state persistence and crash recovery?",
+    "options": [
+      {"id": "a", "text": "Git is used only for final delivery of completed code, not for intermediate state tracking", "correct": false},
+      {"id": "b", "text": "Git replaces the need for progress.txt and tests.json files entirely", "correct": false},
+      {"id": "c", "text": "Agents commit after each feature with descriptive messages, creating checkpoints that enable rollback and cross-session state tracking", "correct": true},
+      {"id": "d", "text": "Git branches are used to track each agent session, with one branch per context window", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Agents are instructed to commit after each feature with descriptive messages. Git enables rollback of failed implementations, provides a log of accomplishments, creates restorable checkpoints, and supports cross-session state tracking.",
+    "why_others_wrong": {
+      "a": "Git is explicitly used for intermediate checkpoints, not just final delivery.",
+      "b": "Git complements but does not replace progress.txt and tests.json. Each serves a different purpose in the state management strategy.",
+      "d": "The docs don't prescribe one branch per context window. Commits after each feature serve as the primary git-based recovery mechanism."
+    },
+    "doc_reference": {
+      "source": "Harnesses Guide",
+      "quote": "Agents commit after each feature with descriptive messages... Claude's latest models 'perform especially well in using git to track state across multiple sessions.'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 290,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-state-persistence",
+    "scenario": "A developer notices their coding agent has been running for several hours. They add a context awareness prompt pattern to their agent's instructions. The agent approaches its token budget limit.",
+    "question": "According to the official context awareness prompt pattern, what should an agent do when approaching its token budget limit?",
+    "options": [
+      {"id": "a", "text": "Immediately stop work and report a summary of what was accomplished", "correct": false},
+      {"id": "b", "text": "Save current progress and state to memory before the context window refreshes, then continue working as persistently as possible", "correct": true},
+      {"id": "c", "text": "Request a budget increase from the orchestrator before proceeding", "correct": false},
+      {"id": "d", "text": "Switch to a lower effort level to conserve remaining tokens", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official context awareness prompt pattern instructs: 'As you approach your token budget limit, save your current progress and state to memory before the context window refreshes. Always be as persistent and autonomous as possible and complete tasks fully. Never artificially stop any task early regardless of the context remaining.'",
+    "why_others_wrong": {
+      "a": "The pattern explicitly says NOT to stop tasks early due to token budget concerns.",
+      "c": "The pattern does not involve requesting budget increases. It instructs saving state and continuing.",
+      "d": "Switching effort level is not part of the context awareness pattern. The pattern focuses on saving state and persisting through compaction."
+    },
+    "doc_reference": {
+      "source": "Agentic Coding Best Practices",
+      "quote": "Save your current progress and state to memory before the context window refreshes. Always be as persistent and autonomous as possible. Never artificially stop any task early."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 291,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer building an autonomous agent system needs to configure when the agent should pause and request human input versus proceeding autonomously.",
+    "question": "According to Anthropic's Building Effective Agents guide, what should escalation criteria be based on?",
+    "options": [
+      {"id": "a", "text": "Sentiment analysis of the user's messages to detect frustration or confusion", "correct": false},
+      {"id": "b", "text": "The number of tokens consumed so far in the conversation", "correct": false},
+      {"id": "c", "text": "Explicit criteria: checkpoints, blockers, and maximum iteration stopping conditions", "correct": true},
+      {"id": "d", "text": "The model's self-reported confidence level on its most recent output", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Anthropic prescribes explicit criteria-based escalation: agents pause at predetermined checkpoints, when encountering blockers they cannot resolve, and when maximum iteration limits are reached. Escalation should NOT be based on sentiment analysis.",
+    "why_others_wrong": {
+      "a": "Sentiment-based escalation is explicitly NOT the recommended approach. Anthropic prescribes explicit criteria, not guesswork.",
+      "b": "Token consumption alone is not an escalation trigger. The criteria are about task-level conditions, not token accounting.",
+      "d": "Self-reported confidence is not one of the three prescribed escalation triggers (checkpoints, blockers, max iterations)."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents",
+      "quote": "Agent pauses for human feedback at checkpoints or blockers. Include stopping conditions (maximum iterations) for safety."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 292,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer is configuring their agent's permission system and wants to understand which actions should proceed autonomously versus requiring human confirmation.",
+    "question": "According to Anthropic's official guidance, what is the key heuristic for determining whether an agent action should require human confirmation?",
+    "options": [
+      {"id": "a", "text": "All write operations require confirmation; read operations proceed autonomously", "correct": false},
+      {"id": "b", "text": "Any action taking more than 5 seconds to execute requires confirmation", "correct": false},
+      {"id": "c", "text": "Reversible local actions proceed autonomously; irreversible actions or actions affecting shared systems require confirmation", "correct": true},
+      {"id": "d", "text": "All actions require confirmation on the first occurrence; subsequent identical actions are auto-approved", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "The official guidance uses the reversibility heuristic: 'You are encouraged to take local, reversible actions like editing files or running tests, but for actions that are hard to reverse, affect shared systems, or could be destructive, ask the user before proceeding.'",
+    "why_others_wrong": {
+      "a": "Not all writes require confirmation. Local file edits are reversible and can proceed autonomously. The distinction is reversibility, not read vs. write.",
+      "b": "Execution time is not the criterion. A 10-second local test run doesn't need confirmation, but an instant force push does.",
+      "d": "The pattern is based on reversibility characteristics of the action, not on whether it's been done before."
+    },
+    "doc_reference": {
+      "source": "Claude Code System Prompt",
+      "quote": "Consider the reversibility and potential impact of your actions. You are encouraged to take local, reversible actions... but for actions that are hard to reverse, affect shared systems, or could be destructive, ask the user."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 293,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer is designing a code review pipeline using Claude. They want to maximize the number of real bugs caught while minimizing false negatives.",
+    "question": "According to Anthropic's official code review pattern, how should the finding and filtering phases be structured?",
+    "options": [
+      {"id": "a", "text": "Combine finding and filtering into a single pass where Claude reports only high-confidence issues", "correct": false},
+      {"id": "b", "text": "Use Claude to find issues (maximize recall, report everything including uncertain findings), then use a separate filtering step to rank by severity", "correct": true},
+      {"id": "c", "text": "Have Claude find issues at low effort for speed, then re-analyze only critical files at high effort", "correct": false},
+      {"id": "d", "text": "Run the review three times with different prompts and only report issues found in all three runs", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official pattern separates finding (maximize recall) from filtering (maximize precision). The finding step reports everything, including uncertain findings, with confidence and severity annotations. A separate filtering step then ranks them. This pattern improved Opus 4.7's recall by 11 percentage points.",
+    "why_others_wrong": {
+      "a": "Combining finding and filtering into one pass leads to silently dropped real bugs. The docs specifically warn against this.",
+      "c": "This is not the prescribed pattern. The separation is between finding and filtering, not between effort levels.",
+      "d": "Majority voting across runs is not the prescribed approach. The pattern is about separating finding from filtering in a single pipeline."
+    },
+    "doc_reference": {
+      "source": "Official Docs / Code Review",
+      "quote": "Separate the finding step (maximize recall) from the filtering step (maximize precision). Moving confidence filtering out of the finding step often helps."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 294,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer is building a workflow where Claude extracts structured data from documents. Some fields are clearly stated in the document while others require inference.",
+    "question": "How should Claude assign confidence when extracting structured data, and how does this affect the QA process?",
+    "options": [
+      {"id": "a", "text": "Assign a single confidence score to the entire document and review everything above or below the threshold", "correct": false},
+      {"id": "b", "text": "Assign field-level confidence (High/Medium/Low) so that QA can use stratified sampling with higher review rates for low-confidence outputs", "correct": true},
+      {"id": "c", "text": "Only extract fields where confidence is High; skip all uncertain fields to maintain extraction accuracy", "correct": false},
+      {"id": "d", "text": "Use binary confidence (certain/uncertain) and send all uncertain fields to human reviewers", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Field-level confidence (High: directly stated, Medium: inferred from context, Low: speculative/conflicting) enables stratified random sampling for QA. Higher sampling rates for low-confidence outputs and lower rates for high-confidence routine extractions efficiently concentrate human review effort.",
+    "why_others_wrong": {
+      "a": "Document-level confidence is too coarse. Field-level granularity enables targeted, efficient QA.",
+      "c": "Skipping uncertain fields would miss important information. The correct approach is to extract all fields with confidence annotations.",
+      "d": "Binary confidence loses the Medium tier distinction. The three-tier system enables more nuanced sampling strategies."
+    },
+    "doc_reference": {
+      "source": "Official Docs / Human Review",
+      "quote": "Assign confidence at the field level: High (directly stated), Medium (inferred from context), Low (speculative, conflicting)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 295,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer is classifying incoming support requests for their agent system. Different types of requests need different specialized handling.",
+    "question": "What agent workflow pattern does Anthropic recommend for classifying inputs and directing them to specialized handlers?",
+    "options": [
+      {"id": "a", "text": "The Evaluator-Optimizer pattern, where one LLM classifies and another processes", "correct": false},
+      {"id": "b", "text": "The Routing pattern, which classifies inputs and directs them to specialized handlers with task-specific prompts and tools", "correct": true},
+      {"id": "c", "text": "The Parallelization pattern, where all handlers receive the same input and the best result is selected", "correct": false},
+      {"id": "d", "text": "The Prompt Chaining pattern, where each handler processes the input sequentially", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The Routing pattern classifies inputs and directs them to specialized downstream handlers. This enables separation of concerns and task-specific prompt optimization, with each handler having its own escalation thresholds.",
+    "why_others_wrong": {
+      "a": "The Evaluator-Optimizer pattern is for iterative refinement (one generates, one evaluates), not for input classification.",
+      "c": "Parallelization (Voting) runs the same task multiple times for diverse outputs. Routing is specifically for classification and dispatch.",
+      "d": "Prompt Chaining is for sequential processing of fixed subtasks, not for classifying and routing to different handlers."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents",
+      "quote": "Routing pattern: Classifies inputs and directs to specialized handlers. Enables separation of concerns and specialized prompts."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 296,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-escalation",
+    "scenario": "A developer is deciding between building a workflow with predefined code paths versus a fully autonomous agent for their task.",
+    "question": "According to Anthropic, when should you prefer simple workflows over autonomous agents?",
+    "options": [
+      {"id": "a", "text": "When the task requires more than 10 tool calls to complete", "correct": false},
+      {"id": "b", "text": "For many applications, optimizing single LLM calls with retrieval and in-context examples is usually enough", "correct": true},
+      {"id": "c", "text": "When using models older than Claude Opus 4.7", "correct": false},
+      {"id": "d", "text": "When the task budget exceeds 100,000 tokens", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic explicitly states: 'For many applications, optimizing single LLM calls with retrieval and in-context examples is usually enough.' Agents should be reserved for open-ended problems with unpredictable step counts that require model decision-making at scale.",
+    "why_others_wrong": {
+      "a": "Tool call count is not the criterion. The distinction is about whether the problem is open-ended or can be solved with fixed paths.",
+      "c": "Model version is not the deciding factor between workflows and agents.",
+      "d": "Token budget is not the criterion for choosing between workflows and agents."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents",
+      "quote": "For many applications, optimizing single LLM calls with retrieval and in-context examples is usually enough."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 297,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "A developer's agent attempts to query a database but receives no rows back. The agent is unsure whether the query failed or the data simply doesn't exist.",
+    "question": "According to Anthropic's error handling guidance, why is it critical to distinguish between an access failure and a valid empty result?",
+    "options": [
+      {"id": "a", "text": "Access failures should be logged for monitoring; empty results do not need logging", "correct": false},
+      {"id": "b", "text": "Treating empty as error causes infinite retries (data will always be empty); treating access failure as empty causes false conclusions from missing data", "correct": true},
+      {"id": "c", "text": "Access failures consume more tokens than empty results in the error report", "correct": false},
+      {"id": "d", "text": "Empty results always indicate a bug in the query that should be reported to the developer", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Treating a valid empty result as an error leads to infinite retry loops (the query will always return empty because there is no data). Treating an access failure as an empty result leads to false conclusions based on missing data. Both anti-patterns compound quickly in multi-step agent workflows.",
+    "why_others_wrong": {
+      "a": "Logging is a side concern. The critical distinction is about choosing the correct recovery path (retry vs. accept).",
+      "c": "Token consumption is not the reason this distinction matters. The issue is about choosing correct recovery behavior.",
+      "d": "Empty results are legitimate outcomes, not necessarily bugs. A query for users named 'XYZ' returning zero rows is a valid result."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents / Error Handling",
+      "quote": "Access failures should trigger retry/escalation; valid empty results are legitimate answers."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 298,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "An agent encounters a timeout error when trying to read a large file. The developer wants to implement proper error handling following Anthropic's structured error context pattern.",
+    "question": "What four fields should be included in a structured error context according to the error propagation pattern?",
+    "options": [
+      {"id": "a", "text": "Error code, stack trace, timestamp, and user ID", "correct": false},
+      {"id": "b", "text": "Failure type, attempted query, partial results, and recovery action", "correct": true},
+      {"id": "c", "text": "Error message, HTTP status, retry count, and next step", "correct": false},
+      {"id": "d", "text": "Exception class, line number, function name, and module path", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The structured error context pattern includes: failure type (classification of what went wrong), attempted query (what the agent was trying to do), partial results (any data retrieved before failure), and recovery action (what was attempted to fix it).",
+    "why_others_wrong": {
+      "a": "Stack traces and user IDs are developer debugging artifacts, not the agent-level error context fields.",
+      "c": "While some of these overlap, the official pattern uses the specific fields: failure type, attempted query, partial results, and recovery action.",
+      "d": "Exception classes and line numbers are code-level debugging info, not the agent-level structured error context."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents / Error Handling",
+      "quote": "Failure type, Attempted query, Partial results, Recovery action"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 299,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "An agent encounters an error while executing a tool call. The developer wants to follow Anthropic's recommended error recovery sequence.",
+    "question": "What is the recommended order of error recovery actions before escalating to a human operator?",
+    "options": [
+      {"id": "a", "text": "Log the error -> Notify the user -> Wait for instructions -> Resume", "correct": false},
+      {"id": "b", "text": "Retry the exact same operation three times -> Escalate if all fail", "correct": false},
+      {"id": "c", "text": "Retry with modification -> Reflect on tool result quality -> Self-check -> Escalate only when local recovery fails", "correct": true},
+      {"id": "d", "text": "Immediately escalate to the human operator to avoid compounding errors", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "The recommended sequence is: (1) retry with modification (adjust parameters, reduce scope, try alternative), (2) carefully reflect on tool result quality, (3) self-check against criteria, (4) escalate only when local recovery fails. This follows the principle of attempting local recovery before escalation.",
+    "why_others_wrong": {
+      "a": "This is a passive wait pattern. The agent should actively attempt recovery before involving the user.",
+      "b": "Retrying the exact same operation is unlikely to succeed. The recommendation is to retry WITH MODIFICATION (adjusted parameters, reduced scope).",
+      "d": "Immediately escalating contradicts the 'local recovery before escalation' principle. The agent should first attempt to fix the issue itself."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents",
+      "quote": "Agents should attempt recovery locally before escalating... carefully reflect on their quality and determine optimal next steps before proceeding."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 300,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "During SWE-bench development, Anthropic's team discovered that certain tool design decisions had the biggest impact on agent performance.",
+    "question": "What tool design principle did Anthropic's SWE-bench team apply that eliminated an entire class of errors, and what broader lesson did they report?",
+    "options": [
+      {"id": "a", "text": "Adding retry logic to all tools eliminated timeout errors; they reported that error handling is more important than prompt engineering", "correct": false},
+      {"id": "b", "text": "Requiring absolute file paths eliminated relative path errors entirely; they reported spending more time optimizing tools than the overall prompt", "correct": true},
+      {"id": "c", "text": "Adding JSON schema validation eliminated malformed input errors; they reported that schemas are more important than tool descriptions", "correct": false},
+      {"id": "d", "text": "Limiting tool output to 1000 tokens eliminated context overflow; they reported that output limits are the most critical tool parameter", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Requiring absolute file paths (a poka-yoke principle) eliminated relative path errors entirely during SWE-bench. The team reported 'spending more time optimizing tools than the overall prompt,' underscoring that tool interface design is the highest-leverage error prevention investment.",
+    "why_others_wrong": {
+      "a": "While retry logic is useful, the specific example was about absolute paths. The broader lesson was about tool design priority, not error handling specifically.",
+      "c": "JSON schema validation is mentioned separately (strict: true), but the landmark finding was about absolute file paths.",
+      "d": "Output limiting is not the example cited. The poka-yoke example was requiring absolute paths."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents / SWE-bench",
+      "quote": "Requiring absolute filepaths eliminated relative path errors... spent 'more time optimizing tools than the overall prompt.'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 301,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "A developer is debugging a multi-step agent workflow where an early error in step 2 caused incorrect results in steps 3 through 7, making the final output completely wrong.",
+    "question": "What does Anthropic call this phenomenon, and what is the primary mitigation strategy?",
+    "options": [
+      {"id": "a", "text": "Context rot; mitigated by compacting the context window after each step", "correct": false},
+      {"id": "b", "text": "Compounding errors; mitigated by verification at each step using tool results as ground truth", "correct": true},
+      {"id": "c", "text": "Cascading failures; mitigated by running each step in a separate subagent", "correct": false},
+      {"id": "d", "text": "Error propagation chain; mitigated by wrapping each tool call in a try-catch block", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic warns about the 'potential for compounding errors' in autonomous systems. The primary mitigation is verification at each step: agents should obtain 'ground truth from the environment at each step' via tool results and code execution feedback, never assuming success.",
+    "why_others_wrong": {
+      "a": "Context rot refers to attention degradation as context grows, not to errors building on errors across steps.",
+      "c": "While subagents provide isolation, the official mitigation for compounding errors is verification at each step, not subagent isolation.",
+      "d": "Try-catch blocks are a code-level pattern. The agent-level mitigation is using tool results as ground truth for verification."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents",
+      "quote": "Potential for 'compounding errors' in autonomous systems... Agents obtain 'ground truth from the environment at each step.'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 302,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-error-propagation",
+    "scenario": "A developer is processing a large dataset with their agent. A tool call returns an empty JSON array []. The agent is uncertain how to interpret this result.",
+    "question": "What is the correct approach when a tool call returns an empty result set in an agent workflow?",
+    "options": [
+      {"id": "a", "text": "Always retry the query with broader parameters since empty results indicate a search failure", "correct": false},
+      {"id": "b", "text": "Report it as an error and escalate to the human operator", "correct": false},
+      {"id": "c", "text": "Determine whether it was an access failure or a valid empty result, since they require fundamentally different handling", "correct": true},
+      {"id": "d", "text": "Log the empty result and skip to the next step, treating no data as a non-issue", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "The critical distinction is between access failure (tool could not reach the data source) and valid empty result (tool successfully queried but found no matching data). Access failures should trigger retry/escalation; valid empty results are legitimate answers.",
+    "why_others_wrong": {
+      "a": "Blindly retrying a valid empty result wastes resources and creates infinite loops if the data genuinely doesn't exist.",
+      "b": "Escalating a valid empty result is unnecessary. Only access failures warrant escalation.",
+      "d": "Silently skipping could mask access failures where data was expected but couldn't be reached."
+    },
+    "doc_reference": {
+      "source": "Building Effective Agents / Error Handling",
+      "quote": "Access failure: Tool could not reach the data source... Valid empty result: Tool successfully queried but found no matching data."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Designing effective subagents",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 303,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A developer asks their Claude-based agent about a function in a file the agent has not read. The agent is tempted to answer based on the function name and surrounding context.",
+    "question": "What is Anthropic's official anti-hallucination pattern for code-related tasks?",
+    "options": [
+      {"id": "a", "text": "Use extended thinking at maximum effort to reason carefully about the likely implementation", "correct": false},
+      {"id": "b", "text": "The investigate_before_answering pattern: never speculate about code you have not opened; read the file before answering", "correct": true},
+      {"id": "c", "text": "Use web search to find documentation about the function before answering", "correct": false},
+      {"id": "d", "text": "Add a disclaimer that the answer may be inaccurate since the code has not been verified", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The official anti-hallucination pattern is investigate_before_answering: 'Never speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering.' This principle extends beyond code to any factual claims about data not in context.",
+    "why_others_wrong": {
+      "a": "Extended thinking helps with reasoning but cannot substitute for actually reading the code. The pattern requires loading the file first.",
+      "c": "Web search for code documentation doesn't solve the problem of knowing what's actually in the specific file in the project.",
+      "d": "Disclaimers don't prevent hallucination. The correct approach is to not speculate at all and read the file first."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Never speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 304,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A developer is building a research agent that needs to synthesize information from multiple documents. They want to ensure the agent's conclusions are traceable back to source material.",
+    "question": "What technique does Anthropic recommend for maintaining claim-source traceability in long-context synthesis tasks?",
+    "options": [
+      {"id": "a", "text": "Add footnote numbers to each claim in the output and list sources at the bottom", "correct": false},
+      {"id": "b", "text": "Wrap each source document in XML tags with index and source subtags, then ask Claude to quote relevant parts before reasoning", "correct": true},
+      {"id": "c", "text": "Process one document at a time and generate separate conclusions for each", "correct": false},
+      {"id": "d", "text": "Use a separate embedding-based retrieval system to match claims to sources after generation", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic prescribes wrapping documents in XML tags with <document index='N'> and <source> subtags, then using the quote extraction pattern (extract relevant quotes FIRST, then reason from them). This creates an auditable chain from source to claim.",
+    "why_others_wrong": {
+      "a": "Footnotes are a post-hoc format. The prescribed approach integrates provenance into the prompting structure via XML tags.",
+      "c": "Processing one document at a time prevents cross-document synthesis. The XML structure allows working with all documents while maintaining traceability.",
+      "d": "Post-generation retrieval matching is not the prescribed approach. Provenance should be built into the prompt structure."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Wrap each in <document> tags with metadata subtags... ask Claude to quote relevant parts FIRST before carrying out its task."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 305,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A research agent discovers that two source documents report conflicting revenue figures: one says $15M and the other says $18M. The agent needs to synthesize these findings.",
+    "question": "According to provenance best practices, how should the agent handle conflicting statistics from different sources?",
+    "options": [
+      {"id": "a", "text": "Average the two values and report $16.5M as the best estimate", "correct": false},
+      {"id": "b", "text": "Use the figure from the more recent source and discard the older one", "correct": false},
+      {"id": "c", "text": "Note the conflict explicitly, report each source's claim with attribution, and do not silently pick one value", "correct": true},
+      {"id": "d", "text": "Report the lower value as the conservative estimate to minimize risk of overstating", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "When sources disagree, the correct approach is transparency: note the conflict explicitly, report each source's claim with attribution ('Source A reports $15M; Source B reports $18M'), and provide context for the discrepancy. Never silently pick one value.",
+    "why_others_wrong": {
+      "a": "Averaging is not appropriate because the discrepancy may reflect different methodologies, time periods, or definitions, not measurement error.",
+      "b": "Recency is one factor but the guidance is to report both values with attribution, not silently discard one.",
+      "d": "Picking the lower value is still silently choosing one source over another, which violates the transparency requirement."
+    },
+    "doc_reference": {
+      "source": "Provenance Best Practices",
+      "quote": "Note the conflict explicitly. Report each source's claim with attribution. Do not silently pick one value."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 306,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A developer is building an agent that performs complex information synthesis. They want to implement Anthropic's research best practices for maintaining epistemic rigor.",
+    "question": "What key elements does Anthropic's official research pattern include for complex synthesis tasks?",
+    "options": [
+      {"id": "a", "text": "Use a single hypothesis and search for confirming evidence until confidence reaches 90%", "correct": false},
+      {"id": "b", "text": "Develop competing hypotheses, track confidence levels, regularly self-critique, and persist reasoning in external files", "correct": true},
+      {"id": "c", "text": "Process information chronologically, build one comprehensive summary, and present the final conclusion", "correct": false},
+      {"id": "d", "text": "Rank all sources by credibility, use only the top 3, and synthesize from those exclusively", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic's research pattern instructs agents to: develop several competing hypotheses, track confidence levels in progress notes, regularly self-critique approach and plan, and update a hypothesis tree or research notes file to persist information and provide transparency.",
+    "why_others_wrong": {
+      "a": "A single hypothesis creates confirmation bias. The pattern explicitly requires maintaining multiple competing hypotheses.",
+      "c": "Chronological processing and a single summary miss the competing hypotheses and self-critique elements.",
+      "d": "Source ranking and exclusion is not the prescribed approach. The pattern focuses on maintaining competing hypotheses and transparency."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices",
+      "quote": "Develop several competing hypotheses. Track your confidence levels... Regularly self-critique your approach... Update a hypothesis tree or research notes file."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 307,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A developer's research agent searched for information about a specific API endpoint in three documentation sources. Two sources had no mention of it, and the third source explicitly stated the endpoint was deprecated and removed.",
+    "question": "According to coverage gap reporting best practices, how should the agent distinguish between these two types of absent information?",
+    "options": [
+      {"id": "a", "text": "Report both as 'information not found' since the end result is the same: the endpoint is unavailable", "correct": false},
+      {"id": "b", "text": "Only report the explicit deprecation notice; the silent absences are not meaningful", "correct": false},
+      {"id": "c", "text": "Distinguish between 'not found' (searched and absent in two sources) and 'confirmed absent' (third source explicitly states removal)", "correct": true},
+      {"id": "d", "text": "Report a conflict since two sources don't mention it while one says it was removed", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Coverage gap reporting requires distinguishing between 'not found' (searched and absent) and 'confirmed absent' (sources explicitly state the data does not exist). These carry different epistemic weight: confirmed absence is authoritative; mere absence could mean incomplete sources.",
+    "why_others_wrong": {
+      "a": "Conflating these two types loses important information. 'Confirmed absent' is a much stronger claim than 'not found.'",
+      "b": "Silent absences ARE meaningful in coverage gap analysis. They indicate areas where sources are incomplete.",
+      "d": "This is not a conflict. Absence of mention is not the same as contradicting the deprecation notice."
+    },
+    "doc_reference": {
+      "source": "Provenance Best Practices",
+      "quote": "Distinguish between 'not found' (searched and absent) and 'confirmed absent' (sources explicitly state the data does not exist)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 308,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-provenance",
+    "scenario": "A data extraction agent reports that a customer's annual revenue is $50M. However, this figure appeared in only one of the three source documents provided.",
+    "question": "Based on information provenance best practices, how should this single-source claim be handled?",
+    "options": [
+      {"id": "a", "text": "Accept it as fact since it appeared in at least one source document", "correct": false},
+      {"id": "b", "text": "Discard it entirely since it lacks multi-source confirmation", "correct": false},
+      {"id": "c", "text": "Flag it as a single-source claim so reviewers know it lacks corroboration from other provided sources", "correct": true},
+      {"id": "d", "text": "Search external sources to verify the figure before including it", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "A claim from a single source should be flagged as such, not stated as confirmed fact. This transparency allows downstream reviewers to assess the claim's reliability and prioritize verification. Multi-source confirmation strengthens claims; single-source claims require explicit flagging.",
+    "why_others_wrong": {
+      "a": "Accepting a single-source claim as established fact overstates the confidence level. It should be flagged for review.",
+      "b": "Discarding single-source claims entirely would lose potentially valid information. The correct approach is to include it with appropriate flagging.",
+      "d": "The agent should work with provided sources. Flagging the single-source claim is the correct provenance practice."
+    },
+    "doc_reference": {
+      "source": "Provenance Best Practices",
+      "quote": "Track which claims come from which sources... Note the conflict explicitly... Report each source's claim with attribution."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 309,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer is designing a subagent system and wonders whether subagents can see the main session's conversation history and auto memory.",
+    "question": "What context does a subagent receive when it is spawned in Claude Code?",
+    "options": [
+      {"id": "a", "text": "It inherits the full conversation history and auto memory from the main session", "correct": false},
+      {"id": "b", "text": "It receives its own system prompt, basic environment details, and CLAUDE.md files, but NOT the main session's conversation history or auto memory", "correct": true},
+      {"id": "c", "text": "It receives a compacted summary of the main conversation plus its own system prompt", "correct": false},
+      {"id": "d", "text": "It receives the last 5 conversation turns from the main session as initial context", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Each subagent runs in a fresh, separate context window. It receives: its own system prompt (markdown body), basic environment details, CLAUDE.md files, and same MCP servers/skills setup. It does NOT receive the main session's conversation history or auto memory (MEMORY.md).",
+    "why_others_wrong": {
+      "a": "Subagents do NOT inherit conversation history or auto memory. They are context-isolated by design.",
+      "c": "No summary of the main conversation is passed. The subagent receives its task prompt from the main agent, not a conversation summary.",
+      "d": "No conversation turns are forwarded. The subagent starts with a fresh context containing only its system prompt and environment info."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs",
+      "quote": "NOT the main session's conversation history. NOT the main session's auto memory (MEMORY.md)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 310,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer delegates a research task to a subagent that reads 15 files totaling 50K tokens of content. They want to understand how much of that content will return to the main conversation.",
+    "question": "How much context typically returns to the main conversation from a subagent's work?",
+    "options": [
+      {"id": "a", "text": "The full content of all files read is returned so the main agent can reference them", "correct": false},
+      {"id": "b", "text": "A compressed version of all tool outputs (about 50% of original size) is returned", "correct": false},
+      {"id": "c", "text": "Only the subagent's final text response (typically 1,000-2,000 tokens) plus a small metadata trailer", "correct": true},
+      {"id": "d", "text": "The last 5,000 tokens of the subagent's conversation are forwarded to the main context", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Only the subagent's final text response comes back to the main context, plus a small metadata trailer with token counts and duration. The context engineering guide notes that subagent summaries typically return 1,000-2,000 tokens regardless of how much data was processed internally.",
+    "why_others_wrong": {
+      "a": "File contents do NOT return to the main context. This is the entire point of subagent context isolation.",
+      "b": "There is no compression mechanism. Only the final summary text returns, not a compressed version of tool outputs.",
+      "d": "No portion of the subagent's internal conversation is forwarded. Only the final text response returns."
+    },
+    "doc_reference": {
+      "source": "Context Engineering Guide / Subagents Docs",
+      "quote": "Subagents return condensed results (1,000-2,000 tokens) to the main agent... Only the subagent's final text response comes back."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 311,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer has a subagent that performs code exploration. They notice the official Explore subagent uses a specific model for cost efficiency.",
+    "question": "What model does the built-in Explore subagent use, and what tools does it have access to?",
+    "options": [
+      {"id": "a", "text": "Sonnet (inherited), with all tools including Write and Edit", "correct": false},
+      {"id": "b", "text": "Haiku (fast, low-latency), with read-only tools (Write and Edit denied)", "correct": true},
+      {"id": "c", "text": "Opus (inherited), with read-only tools (Write and Edit denied)", "correct": false},
+      {"id": "d", "text": "Haiku (fast, low-latency), with all tools for maximum flexibility", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The built-in Explore subagent uses Haiku for fast, low-latency, cost-efficient exploration. It has read-only tool access (Write and Edit are denied). It also skips loading CLAUDE.md for a smaller context footprint.",
+    "why_others_wrong": {
+      "a": "Explore uses Haiku specifically (not inherited Sonnet), and it has read-only access (Write and Edit are denied).",
+      "c": "Explore uses Haiku, not Opus. The read-only tools part is correct.",
+      "d": "Explore has read-only access specifically. Giving all tools would defeat the purpose of a safe exploration agent."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs",
+      "quote": "Explore: Model: Haiku (fast). Tools: Read-only (denied: Write, Edit). Skips loading CLAUDE.md."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 312,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer notices that their Claude Opus 4.6 agent frequently spawns subagents for simple, single-file tasks where a direct approach would be faster.",
+    "question": "What does Anthropic's official documentation say about this behavior?",
+    "options": [
+      {"id": "a", "text": "This is expected and optimal behavior; Opus 4.6 uses subagents for parallelism benefits", "correct": false},
+      {"id": "b", "text": "Opus 4.6 has 'a strong predilection for subagents and may spawn them in situations where a simpler, direct approach would suffice'", "correct": true},
+      {"id": "c", "text": "This indicates a configuration error; Opus 4.6 should never spawn subagents automatically", "correct": false},
+      {"id": "d", "text": "This only happens when the maxTurns setting is too high, causing the agent to over-delegate", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "Anthropic explicitly warns that Claude Opus 4.6 has 'a strong predilection for subagents and may spawn them in situations where a simpler, direct approach would suffice.' The guidance recommends using subagents for parallel tasks or isolated context, not for simple tasks.",
+    "why_others_wrong": {
+      "a": "This is explicitly called out as a known behavior to watch for, not optimal behavior.",
+      "c": "It's not a configuration error. It's a known model behavior that developers should be aware of and work around.",
+      "d": "maxTurns does not affect delegation behavior. This is a model-level tendency, not a configuration issue."
+    },
+    "doc_reference": {
+      "source": "Prompting Best Practices / Subagents",
+      "quote": "Claude Opus 4.6 has 'a strong predilection for subagents and may spawn them in situations where a simpler, direct approach would suffice.'"
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 313,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer wants their custom subagent to remember patterns it discovers across invocations, building up project-specific knowledge over time.",
+    "question": "What is the recommended default scope for subagent persistent memory, and how much of MEMORY.md is loaded at startup?",
+    "options": [
+      {"id": "a", "text": "Scope: user; loads the entire MEMORY.md file regardless of size", "correct": false},
+      {"id": "b", "text": "Scope: local; loads the first 100 lines or 10KB of MEMORY.md", "correct": false},
+      {"id": "c", "text": "Scope: project; loads the first 200 lines or 25KB of MEMORY.md", "correct": true},
+      {"id": "d", "text": "Scope: project; loads the first 500 lines or 50KB of MEMORY.md", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "The recommended default scope is 'project' (stored at .claude/agent-memory/<name>/, shareable via VCS). At startup, the first 200 lines or 25KB of MEMORY.md is loaded, whichever comes first.",
+    "why_others_wrong": {
+      "a": "'User' scope is for learnings across all projects, not the recommended default. Also, the entire file is NOT loaded; there's a 200 line/25KB limit.",
+      "b": "'Local' scope is for project-specific knowledge not meant for version control. The limits are 200 lines/25KB, not 100/10KB.",
+      "d": "The scope is correct but the limits are wrong. It's 200 lines or 25KB, not 500 lines or 50KB."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs",
+      "quote": "project is the recommended default scope... first 200 lines or 25KB of MEMORY.md is loaded at subagent startup."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Creating a subagent",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 314,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer wants to ask Claude a quick question about something already visible in the current conversation context, without spawning a full subagent.",
+    "question": "What Claude Code feature provides a lightweight alternative to subagents for quick questions?",
+    "options": [
+      {"id": "a", "text": "/ask - spawns a micro-agent with minimal context", "correct": false},
+      {"id": "b", "text": "/btw - sees full current context, has no tool access, and the answer is discarded from history", "correct": true},
+      {"id": "c", "text": "/quick - runs a query against the conversation cache without creating a new turn", "correct": false},
+      {"id": "d", "text": "/sidebar - opens a parallel conversation that shares context with the main session", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The /btw command is a lightweight alternative to subagents for quick questions. It sees your full current context (unlike subagents which start fresh), has no tool access (unlike subagents), and the answer is discarded rather than added to conversation history.",
+    "why_others_wrong": {
+      "a": "/ask is not a Claude Code command. /btw is the correct lightweight alternative.",
+      "c": "/quick is not a real Claude Code command.",
+      "d": "/sidebar is not a real Claude Code command."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs / Claude Code",
+      "quote": "/btw: sees full current context, has no tool access, answer is discarded rather than added to history."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 315,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer wants a subagent to spawn another subagent to handle a sub-task within its own work.",
+    "question": "Can subagents spawn other subagents in Claude Code?",
+    "options": [
+      {"id": "a", "text": "Yes, subagents can spawn up to 3 levels of nested subagents", "correct": false},
+      {"id": "b", "text": "Yes, but only if the Agent tool is explicitly included in the subagent's tools list", "correct": false},
+      {"id": "c", "text": "No, subagents cannot spawn other subagents; this prevents infinite nesting", "correct": true},
+      {"id": "d", "text": "Yes, but nested subagents inherit read-only permissions regardless of configuration", "correct": false}
+    ],
+    "correct_answer": "c",
+    "explanation": "Subagents cannot spawn other subagents. This is a hard constraint that prevents infinite nesting. Each subagent communicates only with its parent via its final text response.",
+    "why_others_wrong": {
+      "a": "There are no levels of nesting. Subagents cannot spawn subagents at all.",
+      "b": "Even with the Agent tool, subagents cannot spawn other subagents. The constraint is absolute.",
+      "d": "The premise is wrong. Subagents cannot spawn other subagents regardless of permissions."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs",
+      "quote": "Subagents cannot spawn other subagents (prevents infinite nesting)."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "What are subagents?",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  },
+  {
+    "id": 316,
+    "domain_id": 5,
+    "domain": "Context Management & Reliability",
+    "topic": "d5-subagent-context",
+    "scenario": "A developer is considering whether to use a subagent for a task that requires frequent back-and-forth refinement with shared context between planning and implementation phases.",
+    "question": "According to the official documentation, when should you NOT use a subagent?",
+    "options": [
+      {"id": "a", "text": "When the task involves reading more than 10 files", "correct": false},
+      {"id": "b", "text": "When the task needs frequent back-and-forth or multiple phases sharing significant context", "correct": true},
+      {"id": "c", "text": "When the task requires running bash commands", "correct": false},
+      {"id": "d", "text": "When using Claude Opus models (subagents are only efficient with Sonnet/Haiku)", "correct": false}
+    ],
+    "correct_answer": "b",
+    "explanation": "The documentation lists several anti-patterns for subagent use: tasks needing frequent back-and-forth or iterative refinement, multiple phases sharing significant context (planning -> implementation -> testing), quick targeted changes, and latency-sensitive operations.",
+    "why_others_wrong": {
+      "a": "File count is not a criterion. Subagents are often ideal for reading many files since the content stays in their isolated context.",
+      "c": "Subagents can run bash commands if given Bash tool access. Tool availability is not a reason to avoid subagents.",
+      "d": "This is incorrect. Subagents work with all model types. The Explore subagent specifically uses Haiku for efficiency."
+    },
+    "doc_reference": {
+      "source": "Subagents Docs",
+      "quote": "When NOT to Use Subagents: Task needs frequent back-and-forth... Multiple phases share significant context..."
+    },
+    "doc_status": "STRONG",
+    "skilljar_ref": {
+      "course": "Introduction to Subagents",
+      "lesson": "Using subagents effectively",
+      "url": "https://anthropic.skilljar.com/introduction-to-subagents"
+    },
+    "updated_at": "2026-04-17T12:00:00Z"
+  }
+]
