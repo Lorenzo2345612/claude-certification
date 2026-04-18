@@ -79,10 +79,21 @@ function shuffleArray(arr) {
   return shuffled
 }
 
+const CCA_SCENARIOS = [
+  { id: 'customer-support', name: 'Customer Support Resolution Agent' },
+  { id: 'code-generation', name: 'Code Generation with Claude Code' },
+  { id: 'multi-agent', name: 'Multi-Agent Research System' },
+  { id: 'developer-productivity', name: 'Developer Productivity with Claude' },
+  { id: 'ci-cd', name: 'Claude Code for CI/CD' },
+  { id: 'data-extraction', name: 'Structured Data Extraction' },
+]
+
 export default function PracticeScreen({ domains, onProgressChange }) {
   const { user } = useAuth()
   const [phase, setPhase] = useState('start')
   const [selectedDomains, setSelectedDomains] = useState([1, 2, 3, 4, 5])
+  const [filterMode, setFilterMode] = useState('domain')
+  const [selectedScenarios, setSelectedScenarios] = useState(CCA_SCENARIOS.map(s => s.name))
   const [questionCount, setQuestionCount] = useState(60)
   const [timeLimit, setTimeLimit] = useState(0)
   const [quizQuestions, setQuizQuestions] = useState([])
@@ -167,11 +178,16 @@ export default function PracticeScreen({ domains, onProgressChange }) {
   }, [phase])
 
   const availableCount = useMemo(() => {
+    if (filterMode === 'scenario') {
+      return questions.filter(q => selectedScenarios.includes(q.scenario)).length
+    }
     return questions.filter(q => selectedDomains.includes(q.domainId)).length
-  }, [selectedDomains, questions])
+  }, [filterMode, selectedDomains, selectedScenarios, questions])
 
   const startQuiz = useCallback(() => {
-    const filtered = questions.filter(q => selectedDomains.includes(q.domainId))
+    const filtered = filterMode === 'scenario'
+      ? questions.filter(q => selectedScenarios.includes(q.scenario))
+      : questions.filter(q => selectedDomains.includes(q.domainId))
     const shuffled = shuffleArray(filtered)
     const count = Math.min(questionCount, shuffled.length)
     const letters = ['a', 'b', 'c', 'd']
@@ -197,7 +213,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     finishExamRef.current = false
     setRemainingSeconds(timeLimit > 0 ? timeLimit * 60 : null)
     setPhase('quiz')
-  }, [selectedDomains, questionCount, timeLimit, questions])
+  }, [filterMode, selectedDomains, selectedScenarios, questionCount, timeLimit, questions])
 
   const selectAnswer = useCallback((questionId, optionId) => {
     if (answers[questionId]?.confirmed) return
@@ -293,6 +309,32 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     finishExamRef.current = false
   }, [])
 
+  const retryWrongQuestions = useCallback((wrongItems) => {
+    const letters = ['a', 'b', 'c', 'd']
+    const reshuffled = shuffleArray(wrongItems).map(q => {
+      const shuffledOpts = shuffleArray(q.options)
+      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
+      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
+      const oldToNew = {}
+      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
+      const newWhyWrong = {}
+      if (q.whyOthersWrong) {
+        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
+          newWhyWrong[oldToNew[oldKey] || oldKey] = text
+        })
+      }
+      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
+    })
+    setQuizQuestions(reshuffled)
+    setCurrentIndex(0)
+    setAnswers({})
+    setShowExplanation(false)
+    setExamStatus('in_progress')
+    finishExamRef.current = false
+    setRemainingSeconds(timeLimit > 0 ? timeLimit * 60 : null)
+    setPhase('quiz')
+  }, [timeLimit])
+
   const answeredCount = Object.values(answers).filter(a => a.confirmed).length
 
   const formatTime = (secs) => {
@@ -327,6 +369,11 @@ export default function PracticeScreen({ domains, onProgressChange }) {
           domains={domains}
           selectedDomains={selectedDomains}
           setSelectedDomains={setSelectedDomains}
+          filterMode={filterMode}
+          setFilterMode={setFilterMode}
+          scenarios={CCA_SCENARIOS}
+          selectedScenarios={selectedScenarios}
+          setSelectedScenarios={setSelectedScenarios}
           questionCount={questionCount}
           setQuestionCount={setQuestionCount}
           timeLimit={timeLimit}
@@ -357,6 +404,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
           domains={domains}
           examStatus={examStatus}
           onRestart={restart}
+          onRetryWrong={retryWrongQuestions}
         />
       )}
 
