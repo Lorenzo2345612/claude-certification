@@ -9,6 +9,7 @@ import xml from 'highlight.js/lib/languages/xml'
 import typescript from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/github-dark.css'
 import { api } from '../api'
+import { useAuth } from '../AuthContext'
 import NotesPanel from './NotesPanel'
 
 function mapTopicKeys(t) {
@@ -74,13 +75,39 @@ export default function LearnScreen() {
   const TOPIC_MAP = useMemo(() => Object.fromEntries(learnTopics.map(t => [t.id, t])), [learnTopics])
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) return learnTopics
+    if (!searchQuery.trim()) return learnTopics.map(t => ({ ...t, matchSnippet: null, matchType: null }))
     const q = searchQuery.toLowerCase()
-    return learnTopics.filter(t =>
-      t.title.toLowerCase().includes(q) ||
-      (t.domain && t.domain.toLowerCase().includes(q)) ||
-      (t.content && t.content.toLowerCase().includes(q))
-    )
+    return learnTopics
+      .map(t => {
+        // Check title match
+        if (t.title.toLowerCase().includes(q)) {
+          return { ...t, matchType: 'title', matchSnippet: null }
+        }
+        // Check key concepts
+        const conceptMatch = (t.keyConcepts || []).find(c =>
+          c.term?.toLowerCase().includes(q) || c.definition?.toLowerCase().includes(q)
+        )
+        if (conceptMatch) {
+          return { ...t, matchType: 'concept', matchSnippet: conceptMatch.definition?.substring(0, 100) }
+        }
+        // Check content (strip HTML tags for snippet)
+        if (t.content) {
+          const plainContent = t.content.replace(/<[^>]*>/g, '')
+          const idx = plainContent.toLowerCase().indexOf(q)
+          if (idx !== -1) {
+            const start = Math.max(0, idx - 30)
+            const end = Math.min(plainContent.length, idx + q.length + 70)
+            const snippet = (start > 0 ? '...' : '') + plainContent.substring(start, end) + (end < plainContent.length ? '...' : '')
+            return { ...t, matchType: 'content', matchSnippet: snippet }
+          }
+        }
+        // Check domain
+        if (t.domain?.toLowerCase().includes(q)) {
+          return { ...t, matchType: 'domain', matchSnippet: null }
+        }
+        return null
+      })
+      .filter(Boolean)
   }, [searchQuery, learnTopics])
 
   const topicsByDomain = useMemo(() => {
@@ -102,7 +129,7 @@ export default function LearnScreen() {
     if (topicId && TOPIC_MAP[topicId]) {
       setActiveTopic(topicId)
     }
-  }, [topicId])
+  }, [topicId, TOPIC_MAP])
 
   const selectTopic = useCallback((id) => {
     setActiveTopic(id)
@@ -240,6 +267,12 @@ export default function LearnScreen() {
                         onClick={() => selectTopic(topic.id)}
                       >
                         {topic.title}
+                        {searchQuery && topic.matchSnippet && (
+                          <div className="topic-match-snippet">
+                            <span className="match-type-badge">{topic.matchType}</span>
+                            {topic.matchSnippet}
+                          </div>
+                        )}
                       </button>
                     ))}
                   </div>
