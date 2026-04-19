@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 export default function QuizScreen({
   question,
   currentIndex,
@@ -8,10 +10,42 @@ export default function QuizScreen({
   onConfirm,
   onNext,
   isLast,
+  remainingSeconds,
+  formatTime,
 }) {
   const isConfirmed = answer?.confirmed
   const selectedId = answer?.selected
   const isCorrect = selectedId === question.correctAnswer
+
+  // Keyboard shortcuts: A/B/C/D to select, Enter to confirm/next
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Ignore if user is typing in an input/textarea
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
+
+      const key = e.key.toLowerCase()
+
+      if (['a', 'b', 'c', 'd'].includes(key)) {
+        if (!isConfirmed) {
+          const optionId = key
+          const optionExists = question.options.some(opt => opt.id === optionId)
+          if (optionExists) {
+            onSelect(question.id, optionId)
+          }
+        }
+      } else if (key === 'enter') {
+        e.preventDefault()
+        if (!isConfirmed && selectedId) {
+          onConfirm(question.id)
+        } else if (isConfirmed) {
+          onNext()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [question, isConfirmed, selectedId, onSelect, onConfirm, onNext])
 
   const getOptionClass = (opt) => {
     if (!isConfirmed) {
@@ -39,6 +73,11 @@ export default function QuizScreen({
           <span className="progress-question">
             Question {currentIndex + 1} of {total}
           </span>
+          {remainingSeconds !== null && formatTime && (
+            <span className={`exam-timer ${remainingSeconds <= 300 ? 'timer-red' : remainingSeconds <= 600 ? 'timer-yellow' : ''}`}>
+              {formatTime(remainingSeconds)}
+            </span>
+          )}
           <span className={`progress-domain d${question.domainId}`}>
             D{question.domainId}: {question.domain}
           </span>
@@ -68,6 +107,11 @@ export default function QuizScreen({
               {getIcon(opt) && <span className="option-icon">{getIcon(opt)}</span>}
             </button>
           ))}
+        </div>
+
+        {/* Keyboard hint */}
+        <div className="quiz-keyboard-hint" aria-label="Keyboard shortcuts: A B C D to select, Enter to confirm">
+          <span>A/B/C/D</span> select &middot; <span>Enter</span> confirm/next
         </div>
 
         {/* Actions */}

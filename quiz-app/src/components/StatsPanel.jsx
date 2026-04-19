@@ -52,7 +52,7 @@ export default function StatsPanel() {
       </div>
 
       {/* Score trend — simple bar chart of last 10 scores */}
-      {stats.recent_scores.length > 1 && (
+      {stats.recent_scores?.length > 1 && (
         <div className="stats-trend">
           <div className="stats-trend-label">Recent Scores</div>
           <div className="stats-trend-bars">
@@ -77,7 +77,7 @@ export default function StatsPanel() {
       )}
 
       {/* Domain performance */}
-      {stats.domain_stats.length > 0 && (
+      {stats.domain_stats?.length > 0 && (
         <div className="stats-domains">
           <div className="stats-domains-label">Domain Performance</div>
           {stats.domain_stats.map(d => (

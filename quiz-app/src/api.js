@@ -109,6 +109,10 @@ export const api = {
     })
   },
 
+  getAnsweredQuestionIds() {
+    return request('/exams/answered-question-ids')
+  },
+
   getExamHistory() {
     return request('/exams/')
   },
@@ -119,5 +123,20 @@ export const api = {
 
   getExamDetail(attemptId) {
     return request(`/exams/${attemptId}`)
+  },
+
+  getWeakQuestions() {
+    return request('/exams/weak-questions')
+  },
+
+  getFlashcardStates() {
+    return request('/flashcards/states')
+  },
+
+  syncFlashcardStates(states) {
+    return request('/flashcards/states', {
+      method: 'PUT',
+      body: { states },
+    })
   },
 }

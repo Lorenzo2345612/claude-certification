@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { api } from '../api'
 
@@ -11,6 +12,43 @@ const DOMAINS = {
 }
 
 const PASS_THRESHOLD = 720
+
+function usePagination(items, pageSize = 10) {
+  const [page, setPage] = useState(0)
+  const totalPages = Math.ceil(items.length / pageSize)
+  const paged = items.slice(page * pageSize, (page + 1) * pageSize)
+
+  useEffect(() => {
+    if (page >= totalPages && totalPages > 0) setPage(totalPages - 1)
+  }, [items.length])
+
+  return { page, setPage, totalPages, paged, total: items.length }
+}
+
+function PaginationControls({ page, setPage, totalPages, total, label = 'items' }) {
+  if (totalPages <= 1) return null
+  return (
+    <div className="pagination-controls">
+      <button
+        className="pagination-btn"
+        disabled={page === 0}
+        onClick={() => setPage(page - 1)}
+      >
+        Previous
+      </button>
+      <span className="pagination-info">
+        Page {page + 1} of {totalPages} ({total} {label})
+      </span>
+      <button
+        className="pagination-btn"
+        disabled={page >= totalPages - 1}
+        onClick={() => setPage(page + 1)}
+      >
+        Next
+      </button>
+    </div>
+  )
+}
 
 function formatDate(dateStr) {
   const d = new Date(dateStr)
@@ -127,9 +165,9 @@ function ScoreTrendChart({ scores }) {
 
         {/* Pass threshold */}
         <line x1={PAD.left} y1={passY} x2={PAD.left + chartW} y2={passY}
-          stroke="#10b981" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.7"/>
+          className="threshold-line" opacity="0.7"/>
         <text x={PAD.left + chartW + 4} y={passY + 4}
-          fill="#10b981" fontSize="10" fontFamily="inherit">PASS</text>
+          className="threshold-label" fontFamily="inherit">720 Pass</text>
 
         {/* Area fill */}
         <path d={areaPath} fill="url(#areaGrad)" />
@@ -206,9 +244,65 @@ function DomainStrengthBars({ domainStats }) {
   )
 }
 
+// ── Domain Heatmap ────────────────────────────────────────────────────────────
+
+function DomainHeatmap({ domainStats }) {
+  if (!domainStats || domainStats.length === 0) return null
+
+  return (
+    <div className="perf-domains-container">
+      <h3 className="perf-section-title">Domain Heatmap</h3>
+      <div className="domain-heatmap">
+        {domainStats.map(ds => {
+          const domain = DOMAINS[ds.domain_id]
+          if (!domain) return null
+          const pct = Math.round(ds.percentage)
+          const heatClass = pct < 50 ? 'heat-red' : pct < 70 ? 'heat-yellow' : 'heat-green'
+          return (
+            <div className={`heatmap-cell ${heatClass}`} key={ds.domain_id}>
+              <div className="heatmap-pct">{pct}%</div>
+              <div className="heatmap-name">{domain.short} — {domain.name}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── Recommendation Card ───────────────────────────────────────────────────────
+
+function RecommendationCard({ domainStats }) {
+  if (!domainStats || domainStats.length === 0) return null
+
+  let weakest = null
+  for (const ds of domainStats) {
+    const domain = DOMAINS[ds.domain_id]
+    if (!domain) continue
+    if (!weakest || ds.percentage < weakest.percentage) {
+      weakest = { ...ds, domain }
+    }
+  }
+
+  if (!weakest) return null
+
+  const pct = Math.round(weakest.percentage)
+
+  return (
+    <div className="recommendation-card">
+      <div className="recommendation-label">Recommendation</div>
+      <div className="recommendation-text">
+        Focus on {weakest.domain.short} {weakest.domain.name} — your weakest domain at {pct}%
+      </div>
+    </div>
+  )
+}
+
 // ── Exam History Table ─────────────────────────────────────────────────────────
 
-function ExamHistoryTable({ history }) {
+function ExamHistoryTable({ history, onRetake }) {
+  const { page, setPage, totalPages, paged, total } = usePagination(history || [], 10)
+
   if (!history || history.length === 0) return null
 
   return (
@@ -223,10 +317,11 @@ function ExamHistoryTable({ history }) {
               <th>Questions</th>
               <th>Result</th>
               <th>Domains</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            {history.map(exam => (
+            {paged.map(exam => (
               <tr key={exam.id} className="perf-history-row">
                 <td className="perf-history-date">
                   <div>{formatDate(exam.completed_at)}</div>
@@ -255,11 +350,69 @@ function ExamHistoryTable({ history }) {
                     ) : null
                   })}
                 </td>
+                <td>
+                  <button className="btn-retake" onClick={() => onRetake(exam.id)}>
+                    Retake
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <PaginationControls page={page} setPage={setPage} totalPages={totalPages} total={total} label="exams" />
+    </div>
+  )
+}
+
+// ── Weakest Questions Table ───────────────────────────────────────────────────
+
+function WeakestQuestionsTable({ weakQuestions }) {
+  const { page, setPage, totalPages, paged, total } = usePagination(weakQuestions || [], 10)
+
+  if (!weakQuestions || weakQuestions.length === 0) return null
+
+  return (
+    <div className="weak-questions-section">
+      <h3 className="perf-section-title">Weakest Questions</h3>
+      <p className="weak-questions-subtitle">
+        Questions you get wrong most often — focus your review here.
+      </p>
+      <div className="perf-history-scroll">
+        <table className="weak-questions-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Scenario</th>
+              <th>Domain</th>
+              <th>Wrong / Total</th>
+              <th>Error Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paged.map(wq => (
+              <tr key={wq.question_id} className="weak-questions-row">
+                <td className="weak-questions-text" title={wq.question_text}>
+                  {wq.question_text.length > 80 ? wq.question_text.slice(0, 80) + '...' : wq.question_text}
+                </td>
+                <td className="weak-questions-scenario" title={wq.scenario}>
+                  {wq.scenario.length > 50 ? wq.scenario.slice(0, 50) + '...' : wq.scenario}
+                </td>
+                <td className="weak-questions-domain">{wq.domain}</td>
+                <td className="weak-questions-count">
+                  {wq.incorrect_count} / {wq.total_attempts}
+                </td>
+                <td>
+                  <span className={`weak-questions-rate ${wq.error_rate >= 75 ? 'rate-high' : wq.error_rate >= 50 ? 'rate-medium' : 'rate-low'}`}>
+                    {wq.error_rate}%
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <PaginationControls page={page} setPage={setPage} totalPages={totalPages} total={total} label="questions" />
     </div>
   )
 }
@@ -268,8 +421,10 @@ function ExamHistoryTable({ history }) {
 
 export default function PerformanceScreen() {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [stats, setStats] = useState(null)
   const [history, setHistory] = useState(null)
+  const [weakQuestions, setWeakQuestions] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -283,13 +438,15 @@ export default function PerformanceScreen() {
 
     async function fetchData() {
       try {
-        const [statsData, historyData] = await Promise.all([
+        const [statsData, historyData, weakData] = await Promise.all([
           api.getExamStats(),
           api.getExamHistory(),
+          api.getWeakQuestions(),
         ])
         if (!cancelled) {
           setStats(statsData)
           setHistory(historyData)
+          setWeakQuestions(weakData)
         }
       } catch (err) {
         if (!cancelled) setError(err.message)
@@ -301,6 +458,18 @@ export default function PerformanceScreen() {
     fetchData()
     return () => { cancelled = true }
   }, [user])
+
+  const handleRetake = async (attemptId) => {
+    try {
+      const detail = await api.getExamDetail(attemptId)
+      const questionIds = (detail.answers || []).map(a => a.question_id)
+      if (questionIds.length > 0) {
+        navigate('/practice', { state: { retakeQuestionIds: questionIds } })
+      }
+    } catch (err) {
+      console.error('Failed to load exam detail for retake:', err)
+    }
+  }
 
   // ── Not logged in ──
   if (!user) {
@@ -348,17 +517,19 @@ export default function PerformanceScreen() {
   if (!stats || stats.total_exams === 0) {
     return (
       <div className="perf-screen">
-        <div className="perf-empty">
+        <div className="performance-empty">
           <div className="perf-empty-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 20V10"/>
               <path d="M18 20V4"/>
               <path d="M6 20v-4"/>
             </svg>
           </div>
-          <h2 className="perf-empty-title">No exam data yet</h2>
-          <p className="perf-empty-text">Take your first practice exam to see your stats here!</p>
-          <a href="/practice" className="perf-empty-cta">Start Practice Exam</a>
+          <h2>Your performance journey starts here</h2>
+          <p>Complete a practice exam to unlock detailed analytics, domain breakdowns, score trends, and personalized recommendations.</p>
+          <button className="btn-go-practice" onClick={() => navigate('/practice')}>
+            Take Your First Exam
+          </button>
         </div>
       </div>
     )
@@ -402,9 +573,24 @@ export default function PerformanceScreen() {
         <DomainStrengthBars domainStats={stats.domain_stats} />
       )}
 
+      {/* Domain Heatmap */}
+      {stats.domain_stats && stats.domain_stats.length > 0 && (
+        <DomainHeatmap domainStats={stats.domain_stats} />
+      )}
+
+      {/* Recommendation */}
+      {stats.domain_stats && stats.domain_stats.length > 0 && (
+        <RecommendationCard domainStats={stats.domain_stats} />
+      )}
+
+      {/* Weakest Questions */}
+      {weakQuestions && weakQuestions.length > 0 && (
+        <WeakestQuestionsTable weakQuestions={weakQuestions} />
+      )}
+
       {/* Exam History Table */}
       {history && history.length > 0 && (
-        <ExamHistoryTable history={history} />
+        <ExamHistoryTable history={history} onRetake={handleRetake} />
       )}
     </div>
   )

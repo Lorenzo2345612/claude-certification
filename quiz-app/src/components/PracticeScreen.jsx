@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback, useEffect } from 'react'
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
 import StartScreen from './StartScreen'
@@ -79,17 +80,48 @@ function shuffleArray(arr) {
   return shuffled
 }
 
-export default function PracticeScreen({ domains, onProgressChange }) {
+const CCA_SCENARIOS = [
+  { id: 'customer-support', name: 'Customer Support Resolution Agent' },
+  { id: 'code-generation', name: 'Code Generation with Claude Code' },
+  { id: 'multi-agent', name: 'Multi-Agent Research System' },
+  { id: 'developer-productivity', name: 'Developer Productivity with Claude' },
+  { id: 'ci-cd', name: 'Claude Code for CI/CD' },
+  { id: 'data-extraction', name: 'Structured Data Extraction' },
+]
+
+export default function PracticeScreen({ domains, onProgressChange, onQuizActiveChange, onLeaveCallbackRef }) {
   const { user } = useAuth()
+  const location = useLocation()
   const [phase, setPhase] = useState('start')
+  const [onlyUnanswered, setOnlyUnanswered] = useState(false)
+  const [answeredIds, setAnsweredIds] = useState(new Set())
   const [selectedDomains, setSelectedDomains] = useState([1, 2, 3, 4, 5])
+  const [filterMode, setFilterMode] = useState('domain')
+  const [selectedScenarios, setSelectedScenarios] = useState(CCA_SCENARIOS.map(s => s.name))
   const [questionCount, setQuestionCount] = useState(60)
+  const [timeLimit, setTimeLimit] = useState(0)
   const [quizQuestions, setQuizQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState({})
   const [showExplanation, setShowExplanation] = useState(false)
   const [questions, setQuestions] = useState([])
   const [loading, setLoading] = useState(true)
+  const [remainingSeconds, setRemainingSeconds] = useState(null)
+  const [showLeaveDialog, setShowLeaveDialog] = useState(false)
+  const [examStatus, setExamStatus] = useState('completed')
+  const timerRef = useRef(null)
+  const pendingNavRef = useRef(null)
+
+  useEffect(() => {
+    onQuizActiveChange?.(phase === 'quiz')
+    if (onLeaveCallbackRef) {
+      onLeaveCallbackRef.current = phase === 'quiz' ? () => setExamStatus('abandoned') : null
+    }
+    return () => {
+      onQuizActiveChange?.(false)
+      if (onLeaveCallbackRef) onLeaveCallbackRef.current = null
+    }
+  }, [phase, onQuizActiveChange, onLeaveCallbackRef])
 
   useEffect(() => {
     api.getQuestions()
@@ -104,12 +136,137 @@ export default function PracticeScreen({ domains, onProgressChange }) {
       .finally(() => setLoading(false))
   }, [])
 
+  // Load answered question IDs for logged-in users
+  useEffect(() => {
+    if (!user) return
+    api.getAnsweredQuestionIds()
+      .then(ids => setAnsweredIds(new Set(ids)))
+      .catch(err => console.error('Failed to load answered IDs:', err))
+  }, [user])
+
+  // Auto-start retake if navigated with retakeQuestionIds
+  const retakeHandled = useRef(false)
+  useEffect(() => {
+    if (retakeHandled.current) return
+    const retakeIds = location.state?.retakeQuestionIds
+    if (!retakeIds || retakeIds.length === 0 || questions.length === 0 || loading) return
+    retakeHandled.current = true
+
+    const retakeSet = new Set(retakeIds)
+    const filtered = questions.filter(q => retakeSet.has(q.id))
+    if (filtered.length === 0) return
+
+    const letters = ['a', 'b', 'c', 'd']
+    const shuffled = shuffleArray(filtered).map(q => {
+      const shuffledOpts = shuffleArray(q.options)
+      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
+      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
+      const oldToNew = {}
+      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
+      const newWhyWrong = {}
+      if (q.whyOthersWrong) {
+        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
+          newWhyWrong[oldToNew[oldKey] || oldKey] = text
+        })
+      }
+      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
+    })
+
+    setQuizQuestions(shuffled)
+    setCurrentIndex(0)
+    setAnswers({})
+    setShowExplanation(false)
+    setExamStatus('in_progress')
+    finishExamRef.current = false
+    setRemainingSeconds(null)
+    setPhase('quiz')
+    // Clear the location state so refresh doesn't re-trigger
+    window.history.replaceState({}, '')
+  }, [questions, loading, location.state])
+
+  // Timer countdown
+  const timerActive = phase === 'quiz' && remainingSeconds !== null && remainingSeconds > 0
+  useEffect(() => {
+    if (!timerActive) return
+    timerRef.current = setInterval(() => {
+      setRemainingSeconds(prev => {
+        if (prev <= 1) {
+          clearInterval(timerRef.current)
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+    return () => clearInterval(timerRef.current)
+  }, [timerActive])
+
+  // Auto-submit when timer reaches 0
+  useEffect(() => {
+    if (remainingSeconds === 0 && phase === 'quiz') {
+      setExamStatus('timed_out')
+    }
+  }, [remainingSeconds, phase])
+
+  // Handle timed_out or abandoned status — auto-finish
+  const finishExamRef = useRef(false)
+  const finishExamFnRef = useRef(null)
+
+  // Navigation blocking — beforeunload
+  useEffect(() => {
+    if (phase !== 'quiz') return
+    const handler = (e) => {
+      e.preventDefault()
+      e.returnValue = ''
+    }
+    window.addEventListener('beforeunload', handler)
+    return () => window.removeEventListener('beforeunload', handler)
+  }, [phase])
+
+  // Block in-app navigation via popstate
+  useEffect(() => {
+    if (phase !== 'quiz') return
+    const handler = (e) => {
+      if (phase === 'quiz') {
+        setShowLeaveDialog(true)
+        // Push state back to prevent navigation
+        window.history.pushState(null, '', window.location.href)
+      }
+    }
+    window.history.pushState(null, '', window.location.href)
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
+  }, [phase])
+
   const availableCount = useMemo(() => {
-    return questions.filter(q => selectedDomains.includes(q.domainId)).length
-  }, [selectedDomains, questions])
+    let filtered
+    if (filterMode === 'scenario') {
+      filtered = questions.filter(q => selectedScenarios.includes(q.scenario))
+    } else {
+      filtered = questions.filter(q => selectedDomains.includes(q.domainId))
+    }
+    if (onlyUnanswered) {
+      filtered = filtered.filter(q => !answeredIds.has(q.id))
+    }
+    return filtered.length
+  }, [filterMode, selectedDomains, selectedScenarios, questions, onlyUnanswered, answeredIds])
+
+  const unansweredCount = useMemo(() => {
+    let filtered
+    if (filterMode === 'scenario') {
+      filtered = questions.filter(q => selectedScenarios.includes(q.scenario))
+    } else {
+      filtered = questions.filter(q => selectedDomains.includes(q.domainId))
+    }
+    return filtered.filter(q => !answeredIds.has(q.id)).length
+  }, [filterMode, selectedDomains, selectedScenarios, questions, answeredIds])
 
   const startQuiz = useCallback(() => {
-    const filtered = questions.filter(q => selectedDomains.includes(q.domainId))
+    let filtered = filterMode === 'scenario'
+      ? questions.filter(q => selectedScenarios.includes(q.scenario))
+      : questions.filter(q => selectedDomains.includes(q.domainId))
+    if (onlyUnanswered) {
+      filtered = filtered.filter(q => !answeredIds.has(q.id))
+    }
     const shuffled = shuffleArray(filtered)
     const count = Math.min(questionCount, shuffled.length)
     const letters = ['a', 'b', 'c', 'd']
@@ -131,8 +288,11 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     setCurrentIndex(0)
     setAnswers({})
     setShowExplanation(false)
+    setExamStatus('in_progress')
+    finishExamRef.current = false
+    setRemainingSeconds(timeLimit > 0 ? timeLimit * 60 : null)
     setPhase('quiz')
-  }, [selectedDomains, questionCount, questions])
+  }, [filterMode, selectedDomains, selectedScenarios, questionCount, timeLimit, questions, onlyUnanswered, answeredIds])
 
   const selectAnswer = useCallback((questionId, optionId) => {
     if (answers[questionId]?.confirmed) return
@@ -150,7 +310,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
     setShowExplanation(true)
   }, [])
 
-  const submitExamResults = useCallback(async () => {
+  const submitExamResults = useCallback(async (status = 'completed') => {
     if (!user) return
     const answersList = quizQuestions.map(q => {
       const ans = answers[q.id]
@@ -159,7 +319,7 @@ export default function PracticeScreen({ domains, onProgressChange }) {
         domain_id: q.domainId,
         selected_answer: ans?.selected || '',
         correct_answer: q.correctAnswer,
-        is_correct: ans?.selected === q.correctAnswer,
+        is_correct: ans?.confirmed && ans?.selected === q.correctAnswer,
       }
     })
     const correct = answersList.filter(a => a.is_correct).length
@@ -173,40 +333,104 @@ export default function PracticeScreen({ domains, onProgressChange }) {
         score,
         passed: score >= 720,
         domains_selected: selectedDomains,
+        time_limit_minutes: timeLimit > 0 ? timeLimit : null,
+        status,
         answers: answersList,
       })
     } catch (err) {
       console.error('Failed to save exam results:', err)
     }
-  }, [user, quizQuestions, answers, selectedDomains])
+  }, [user, quizQuestions, answers, selectedDomains, timeLimit])
+
+  const finishExam = useCallback((status) => {
+    clearInterval(timerRef.current)
+    submitExamResults(status)
+    setPhase('results')
+  }, [submitExamResults])
+
+  // Keep ref in sync for use in effects
+  finishExamFnRef.current = finishExam
+
+  // Auto-finish when status changes to timed_out or abandoned
+  useEffect(() => {
+    if ((examStatus === 'timed_out' || examStatus === 'abandoned') && phase === 'quiz' && !finishExamRef.current) {
+      finishExamRef.current = true
+      finishExamFnRef.current(examStatus)
+    }
+  }, [examStatus, phase])
 
   const nextQuestion = useCallback(() => {
     if (currentIndex < quizQuestions.length - 1) {
       setCurrentIndex(prev => prev + 1)
       setShowExplanation(false)
     } else {
-      submitExamResults()
-      setPhase('results')
+      finishExam('completed')
     }
-  }, [currentIndex, quizQuestions.length, submitExamResults])
+  }, [currentIndex, quizQuestions.length, finishExam])
+
+  const handleLeaveConfirm = useCallback(() => {
+    setShowLeaveDialog(false)
+    setExamStatus('abandoned')
+  }, [])
+
+  const handleLeaveCancel = useCallback(() => {
+    setShowLeaveDialog(false)
+  }, [])
 
   const restart = useCallback(() => {
+    clearInterval(timerRef.current)
     setPhase('start')
     setAnswers({})
     setCurrentIndex(0)
     setShowExplanation(false)
+    setRemainingSeconds(null)
+    setExamStatus('completed')
+    finishExamRef.current = false
   }, [])
+
+  const retryWrongQuestions = useCallback((wrongItems) => {
+    const letters = ['a', 'b', 'c', 'd']
+    const reshuffled = shuffleArray(wrongItems).map(q => {
+      const shuffledOpts = shuffleArray(q.options)
+      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
+      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
+      const oldToNew = {}
+      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
+      const newWhyWrong = {}
+      if (q.whyOthersWrong) {
+        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
+          newWhyWrong[oldToNew[oldKey] || oldKey] = text
+        })
+      }
+      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
+    })
+    setQuizQuestions(reshuffled)
+    setCurrentIndex(0)
+    setAnswers({})
+    setShowExplanation(false)
+    setExamStatus('in_progress')
+    finishExamRef.current = false
+    setRemainingSeconds(timeLimit > 0 ? timeLimit * 60 : null)
+    setPhase('quiz')
+  }, [timeLimit])
 
   const answeredCount = Object.values(answers).filter(a => a.confirmed).length
 
+  const formatTime = (secs) => {
+    const m = Math.floor(secs / 60)
+    const s = secs % 60
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+  }
+
   useEffect(() => {
     if (phase === 'quiz') {
-      onProgressChange?.(`${answeredCount} / ${quizQuestions.length} answered`)
+      const timerText = remainingSeconds !== null ? ` | ${formatTime(remainingSeconds)}` : ''
+      onProgressChange?.(`${answeredCount} / ${quizQuestions.length} answered${timerText}`)
     } else {
       onProgressChange?.(null)
     }
     return () => onProgressChange?.(null)
-  }, [phase, answeredCount, quizQuestions.length, onProgressChange])
+  }, [phase, answeredCount, quizQuestions.length, remainingSeconds, onProgressChange])
 
   if (loading) {
     return (
@@ -224,10 +448,20 @@ export default function PracticeScreen({ domains, onProgressChange }) {
           domains={domains}
           selectedDomains={selectedDomains}
           setSelectedDomains={setSelectedDomains}
+          filterMode={filterMode}
+          setFilterMode={setFilterMode}
+          scenarios={CCA_SCENARIOS}
+          selectedScenarios={selectedScenarios}
+          setSelectedScenarios={setSelectedScenarios}
           questionCount={questionCount}
           setQuestionCount={setQuestionCount}
+          timeLimit={timeLimit}
+          setTimeLimit={setTimeLimit}
           availableCount={availableCount}
           onStart={startQuiz}
+          onlyUnanswered={onlyUnanswered}
+          setOnlyUnanswered={user ? setOnlyUnanswered : undefined}
+          unansweredCount={user ? unansweredCount : undefined}
         />
       )}
       {phase === 'quiz' && quizQuestions.length > 0 && (
@@ -241,6 +475,8 @@ export default function PracticeScreen({ domains, onProgressChange }) {
           onConfirm={confirmAnswer}
           onNext={nextQuestion}
           isLast={currentIndex === quizQuestions.length - 1}
+          remainingSeconds={remainingSeconds}
+          formatTime={formatTime}
         />
       )}
       {phase === 'results' && (
@@ -248,8 +484,29 @@ export default function PracticeScreen({ domains, onProgressChange }) {
           questions={quizQuestions}
           answers={answers}
           domains={domains}
+          examStatus={examStatus}
           onRestart={restart}
+          onRetryWrong={retryWrongQuestions}
         />
+      )}
+
+      {showLeaveDialog && (
+        <div className="leave-dialog-overlay">
+          <div className="leave-dialog">
+            <div className="leave-dialog-title">Exam in Progress</div>
+            <p className="leave-dialog-text">
+              You have an exam in progress. Leaving will end the exam and unanswered questions will be scored as incorrect. Are you sure?
+            </p>
+            <div className="leave-dialog-actions">
+              <button className="btn-leave-cancel" onClick={handleLeaveCancel}>
+                Continue Exam
+              </button>
+              <button className="btn-leave-confirm" onClick={handleLeaveConfirm}>
+                Leave &amp; Submit
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )

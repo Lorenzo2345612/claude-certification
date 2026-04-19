@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
+import { useState, useCallback, useRef } from 'react'
+import { Routes, Route, NavLink, Navigate, useNavigate } from 'react-router-dom'
 import './App.css'
 import LearnScreen from './components/LearnScreen'
 import RoadmapScreen from './components/RoadmapScreen'
 import PracticeScreen from './components/PracticeScreen'
 import PerformanceScreen from './components/PerformanceScreen'
+import FlashcardsScreen from './components/FlashcardsScreen'
 import AuthModal from './components/AuthModal'
 import { useAuth } from './AuthContext'
 
@@ -18,8 +19,43 @@ const DOMAINS = [
 
 function App() {
   const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [showAuth, setShowAuth] = useState(false)
   const [quizProgress, setQuizProgress] = useState(null)
+  const [quizActive, setQuizActive] = useState(false)
+  const [showLeaveDialog, setShowLeaveDialog] = useState(false)
+  const pendingNavRef = useRef(null)
+  const leaveCallbackRef = useRef(null)
+
+  const handleNavClick = useCallback((e, to) => {
+    if (quizActive) {
+      e.preventDefault()
+      pendingNavRef.current = to
+      setShowLeaveDialog(true)
+    }
+  }, [quizActive])
+
+  const handleLeaveConfirm = useCallback(() => {
+    setShowLeaveDialog(false)
+    leaveCallbackRef.current?.()
+    if (pendingNavRef.current) {
+      navigate(pendingNavRef.current)
+      pendingNavRef.current = null
+    }
+  }, [navigate])
+
+  const handleLeaveCancel = useCallback(() => {
+    setShowLeaveDialog(false)
+    pendingNavRef.current = null
+  }, [])
+
+  const navTabs = [
+    { to: '/learn', label: 'Learn' },
+    { to: '/roadmap', label: 'Roadmap' },
+    { to: '/practice', label: 'Practice' },
+    { to: '/flashcards', label: 'Flashcards' },
+    { to: '/performance', label: 'Performance' },
+  ]
 
   return (
     <div className="app">
@@ -28,18 +64,16 @@ function App() {
           <div className="app-logo">Claude Architect</div>
         </div>
         <nav className="header-nav">
-          <NavLink to="/learn" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
-            Learn
-          </NavLink>
-          <NavLink to="/roadmap" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
-            Roadmap
-          </NavLink>
-          <NavLink to="/practice" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
-            Practice
-          </NavLink>
-          <NavLink to="/performance" className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}>
-            Performance
-          </NavLink>
+          {navTabs.map(tab => (
+            <NavLink
+              key={tab.to}
+              to={tab.to}
+              className={({ isActive }) => `nav-tab${isActive ? ' nav-tab--active' : ''}`}
+              onClick={(e) => handleNavClick(e, tab.to)}
+            >
+              {tab.label}
+            </NavLink>
+          ))}
         </nav>
         <div className="header-right">
           {quizProgress && (
@@ -62,10 +96,30 @@ function App() {
         <Route path="/learn" element={<LearnScreen domains={DOMAINS} />} />
         <Route path="/learn/:topicId" element={<LearnScreen domains={DOMAINS} />} />
         <Route path="/roadmap" element={<RoadmapScreen />} />
-        <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} onProgressChange={setQuizProgress} />} />
+        <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} onProgressChange={setQuizProgress} onQuizActiveChange={setQuizActive} onLeaveCallbackRef={leaveCallbackRef} />} />
+        <Route path="/flashcards" element={<FlashcardsScreen />} />
         <Route path="/performance" element={<PerformanceScreen />} />
         <Route path="*" element={<Navigate to="/learn" replace />} />
       </Routes>
+
+      {showLeaveDialog && (
+        <div className="leave-dialog-overlay">
+          <div className="leave-dialog">
+            <div className="leave-dialog-title">Exam in Progress</div>
+            <p className="leave-dialog-text">
+              You have an exam in progress. Leaving will end the exam and unanswered questions will be scored as incorrect. Are you sure?
+            </p>
+            <div className="leave-dialog-actions">
+              <button className="btn-leave-cancel" onClick={handleLeaveCancel}>
+                Continue Exam
+              </button>
+              <button className="btn-leave-confirm" onClick={handleLeaveConfirm}>
+                Leave &amp; Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

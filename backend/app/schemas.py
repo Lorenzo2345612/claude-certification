@@ -93,6 +93,8 @@ class ExamSubmit(BaseModel):
     score: int
     passed: bool
     domains_selected: list[int]
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     answers: list[ExamAnswerSubmit]
 
 
@@ -113,6 +115,8 @@ class ExamAttemptResponse(BaseModel):
     score: int
     passed: bool
     domains_selected: list
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     completed_at: datetime
     answers: list[ExamAnswerResponse] = []
 
@@ -126,6 +130,8 @@ class ExamAttemptSummary(BaseModel):
     score: int
     passed: bool
     domains_selected: list
+    time_limit_minutes: int | None = None
+    status: str = "completed"
     completed_at: datetime
 
     model_config = {"from_attributes": True}
@@ -145,3 +151,33 @@ class ExamStatsResponse(BaseModel):
     pass_rate: float
     domain_stats: list[DomainStat]
     recent_scores: list[int]
+
+
+class WeakQuestionResponse(BaseModel):
+    question_id: int
+    question_text: str
+    scenario: str
+    domain: str
+    total_attempts: int
+    incorrect_count: int
+    error_rate: float
+
+
+class FlashcardStateItem(BaseModel):
+    card_key: str
+    status: str = "new"
+    last_seen: int = 0
+    interval_ms: int = 0
+
+
+class FlashcardStateBulk(BaseModel):
+    states: list[FlashcardStateItem]
+
+
+class FlashcardStateResponse(BaseModel):
+    card_key: str
+    status: str
+    last_seen: int
+    interval_ms: int
+
+    model_config = {"from_attributes": True}

@@ -8,7 +8,7 @@ const DOMAIN_COLORS = {
   5: '#ec4899',
 }
 
-export default function ResultsScreen({ questions, answers, domains, onRestart }) {
+export default function ResultsScreen({ questions, answers, domains, examStatus, onRestart, onRetryWrong }) {
   const [activeSlide, setActiveSlide] = useState(0)
   const [filterDomain, setFilterDomain] = useState(null)
   const [filterStatus, setFilterStatus] = useState(null) // 'correct' | 'incorrect' | null
@@ -90,6 +90,12 @@ export default function ResultsScreen({ questions, answers, domains, onRestart }
       <div className="results-subtitle-text">
         Claude Certified Architect &mdash; Foundations Practice Exam
       </div>
+
+      {(examStatus === 'timed_out' || examStatus === 'abandoned') && (
+        <div className={`exam-status-badge status-${examStatus}`}>
+          {examStatus === 'timed_out' ? 'TIME EXPIRED' : 'EXAM ABANDONED'}
+        </div>
+      )}
 
       <div className={`score-circle ${stats.passed ? 'pass' : 'fail'}`}>
         <div className="score-value">{stats.scaledScore}</div>
@@ -291,9 +297,19 @@ export default function ResultsScreen({ questions, answers, domains, onRestart }
         )}
       </div>
 
-      <button className="btn-restart" onClick={onRestart}>
-        Restart Exam
-      </button>
+      <div className="results-actions">
+        <button className="btn-restart" onClick={onRestart}>
+          Restart Exam
+        </button>
+        {onRetryWrong && reviewItems.filter(i => !i.isCorrect).length > 0 && (
+          <button
+            className="btn-retry-wrong"
+            onClick={() => onRetryWrong(reviewItems.filter(i => !i.isCorrect))}
+          >
+            Retry Wrong Questions ({reviewItems.filter(i => !i.isCorrect).length})
+          </button>
+        )}
+      </div>
     </div>
   )
 }

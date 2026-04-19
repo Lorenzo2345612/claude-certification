@@ -5,8 +5,8 @@ from sqlalchemy import text
 
 from .config import get_settings
 from .database import engine, Base
-from .models import User, Note, Progress, Question, LearnTopic, ExamAttempt, ExamAnswer  # noqa: F401 — register models with Base.metadata
-from .routers import auth_router, notes_router, progress_router, questions_router, topics_router, exams_router
+from .models import User, Note, Progress, Question, LearnTopic, ExamAttempt, ExamAnswer, FlashcardState  # noqa: F401 — register models with Base.metadata
+from .routers import auth_router, notes_router, progress_router, questions_router, topics_router, exams_router, flashcards_router
 
 settings = get_settings()
 
@@ -21,7 +21,17 @@ async def lifespan(app: FastAPI):
             break
         except Exception:
             time.sleep(2)
-    Base.metadata.create_all(bind=engine)
+    from alembic.config import Config
+    from alembic import command
+    from sqlalchemy import inspect
+    import os
+    alembic_cfg = Config(os.path.join(os.path.dirname(os.path.dirname(__file__)), "alembic.ini"))
+    alembic_cfg.set_main_option("sqlalchemy.url", str(engine.url))
+    inspector = inspect(engine)
+    tables = inspector.get_table_names()
+    if "alembic_version" not in tables and "users" in tables:
+        command.stamp(alembic_cfg, "0001")
+    command.upgrade(alembic_cfg, "head")
     yield
 
 
@@ -45,6 +55,7 @@ app.include_router(progress_router.router)
 app.include_router(questions_router.router)
 app.include_router(topics_router.router)
 app.include_router(exams_router.router)
+app.include_router(flashcards_router.router)
 
 
 @app.get("/")

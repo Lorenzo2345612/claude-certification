@@ -9,6 +9,7 @@ import xml from 'highlight.js/lib/languages/xml'
 import typescript from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/github-dark.css'
 import { api } from '../api'
+import { useAuth } from '../AuthContext'
 import NotesPanel from './NotesPanel'
 
 function mapTopicKeys(t) {
@@ -57,6 +58,57 @@ export default function LearnScreen() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [notesOpen, setNotesOpen] = useState(false)
   const contentRef = useRef(null)
+  const { user } = useAuth()
+
+  const exportNotes = useCallback(async () => {
+    try {
+      const [notes, topics] = await Promise.all([
+        api.getNotes(),
+        api.getTopics()
+      ])
+
+      if (!notes.length) {
+        alert('No notes to export.')
+        return
+      }
+
+      const topicMap = Object.fromEntries(topics.map(t => [t.id, t]))
+
+      let markdown = '# Claude Certified Architect — Study Notes\n\n'
+      markdown += `Exported: ${new Date().toLocaleDateString()}\n\n---\n\n`
+
+      // Group notes by domain
+      const byDomain = {}
+      notes.forEach(n => {
+        const topic = topicMap[n.topic_id]
+        if (!topic) return
+        const domainKey = topic.domain_id
+        if (!byDomain[domainKey]) byDomain[domainKey] = { name: topic.domain, notes: [] }
+        byDomain[domainKey].notes.push({ ...n, topicTitle: topic.title })
+      })
+
+      Object.entries(byDomain)
+        .sort(([a], [b]) => Number(a) - Number(b))
+        .forEach(([domainId, { name, notes: domainNotes }]) => {
+          markdown += `## D${domainId}: ${name}\n\n`
+          domainNotes.forEach(n => {
+            markdown += `### ${n.topicTitle}\n\n`
+            markdown += `${n.content}\n\n`
+          })
+        })
+
+      // Trigger download
+      const blob = new Blob([markdown], { type: 'text/markdown' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'claude-architect-notes.md'
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error('Failed to export notes:', err)
+    }
+  }, [])
 
   useEffect(() => {
     api.getTopics()
@@ -74,13 +126,39 @@ export default function LearnScreen() {
   const TOPIC_MAP = useMemo(() => Object.fromEntries(learnTopics.map(t => [t.id, t])), [learnTopics])
 
   const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) return learnTopics
+    if (!searchQuery.trim()) return learnTopics.map(t => ({ ...t, matchSnippet: null, matchType: null }))
     const q = searchQuery.toLowerCase()
-    return learnTopics.filter(t =>
-      t.title.toLowerCase().includes(q) ||
-      (t.domain && t.domain.toLowerCase().includes(q)) ||
-      (t.content && t.content.toLowerCase().includes(q))
-    )
+    return learnTopics
+      .map(t => {
+        // Check title match
+        if (t.title.toLowerCase().includes(q)) {
+          return { ...t, matchType: 'title', matchSnippet: null }
+        }
+        // Check key concepts
+        const conceptMatch = (t.keyConcepts || []).find(c =>
+          c.term?.toLowerCase().includes(q) || c.definition?.toLowerCase().includes(q)
+        )
+        if (conceptMatch) {
+          return { ...t, matchType: 'concept', matchSnippet: conceptMatch.definition?.substring(0, 100) }
+        }
+        // Check content (strip HTML tags for snippet)
+        if (t.content) {
+          const plainContent = t.content.replace(/<[^>]*>/g, '')
+          const idx = plainContent.toLowerCase().indexOf(q)
+          if (idx !== -1) {
+            const start = Math.max(0, idx - 30)
+            const end = Math.min(plainContent.length, idx + q.length + 70)
+            const snippet = (start > 0 ? '...' : '') + plainContent.substring(start, end) + (end < plainContent.length ? '...' : '')
+            return { ...t, matchType: 'content', matchSnippet: snippet }
+          }
+        }
+        // Check domain
+        if (t.domain?.toLowerCase().includes(q)) {
+          return { ...t, matchType: 'domain', matchSnippet: null }
+        }
+        return null
+      })
+      .filter(Boolean)
   }, [searchQuery, learnTopics])
 
   const topicsByDomain = useMemo(() => {
@@ -102,7 +180,7 @@ export default function LearnScreen() {
     if (topicId && TOPIC_MAP[topicId]) {
       setActiveTopic(topicId)
     }
-  }, [topicId])
+  }, [topicId, TOPIC_MAP])
 
   const selectTopic = useCallback((id) => {
     setActiveTopic(id)
@@ -194,6 +272,17 @@ export default function LearnScreen() {
           )}
         </div>
 
+        {user && (
+          <button className="btn-export-notes" onClick={exportNotes} title="Export all notes as Markdown">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export Notes
+          </button>
+        )}
+
         <nav className="learn-sidebar-nav">
           {filteredTopics.length === 0 && (
             <div className="learn-sidebar-empty">
@@ -240,6 +329,12 @@ export default function LearnScreen() {
                         onClick={() => selectTopic(topic.id)}
                       >
                         {topic.title}
+                        {searchQuery && topic.matchSnippet && (
+                          <div className="topic-match-snippet">
+                            <span className="match-type-badge">{topic.matchType}</span>
+                            {topic.matchSnippet}
+                          </div>
+                        )}
                       </button>
                     ))}
                   </div>
