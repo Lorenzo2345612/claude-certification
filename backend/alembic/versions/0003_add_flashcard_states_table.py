@@ -9,6 +9,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy import inspect as sa_inspect
 
 revision: str = '0003'
 down_revision: Union[str, Sequence[str], None] = '0002'
@@ -17,6 +18,10 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
+    bind = op.get_bind()
+    inspector = sa_inspect(bind)
+    if 'flashcard_states' in inspector.get_table_names():
+        return
     op.create_table(
         'flashcard_states',
         sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
@@ -25,7 +30,7 @@ def upgrade() -> None:
         sa.Column('status', sa.String(20), nullable=False, server_default='new'),
         sa.Column('last_seen', sa.BigInteger(), nullable=False, server_default='0'),
         sa.Column('interval_ms', sa.BigInteger(), nullable=False, server_default='0'),
-        sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
+        sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text("CURRENT_TIMESTAMP")),
         sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
         sa.PrimaryKeyConstraint('id'),
         sa.UniqueConstraint('user_id', 'card_key', name='uq_user_card'),
