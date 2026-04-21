@@ -186,7 +186,7 @@ class FlashcardStateResponse(BaseModel):
 
 class SharedExamCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=255)
-    question_ids: list[int]
+    question_ids: list[int] = Field(..., min_length=1)
     time_limit_minutes: int | None = None
     domains_selected: list[int]
 
