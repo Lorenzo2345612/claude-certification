@@ -39,10 +39,21 @@ def upgrade() -> None:
     if 'shared_exam_id' not in existing_cols:
         op.add_column(
             'exam_attempts',
-            sa.Column('shared_exam_id', sa.Integer(), sa.ForeignKey('shared_exams.id', ondelete='SET NULL'), nullable=True)
+            sa.Column('shared_exam_id', sa.Integer(), nullable=True)
+        )
+        op.create_foreign_key(
+            'fk_exam_attempts_shared_exam_id',
+            'exam_attempts', 'shared_exams',
+            ['shared_exam_id'], ['id'],
+            ondelete='SET NULL'
         )
 
 
 def downgrade() -> None:
-    op.drop_column('exam_attempts', 'shared_exam_id')
-    op.drop_table('shared_exams')
+    bind = op.get_bind()
+    inspector = sa_inspect(bind)
+    existing_cols = [c['name'] for c in inspector.get_columns('exam_attempts')]
+    if 'shared_exam_id' in existing_cols:
+        op.drop_column('exam_attempts', 'shared_exam_id')
+    if 'shared_exams' in inspector.get_table_names():
+        op.drop_table('shared_exams')
