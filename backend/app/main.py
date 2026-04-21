@@ -13,34 +13,35 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    import time
-    for attempt in range(30):
-        try:
-            with engine.connect() as conn:
-                conn.execute(text("SELECT 1"))
-            break
-        except Exception:
-            time.sleep(2)
-    from alembic.config import Config
-    from alembic import command
-    from sqlalchemy import inspect
     import os
-    import logging
-    logger = logging.getLogger("alembic.startup")
-    try:
-        alembic_cfg = Config(os.path.join(os.path.dirname(os.path.dirname(__file__)), "alembic.ini"))
-        alembic_cfg.set_main_option("sqlalchemy.url", str(engine.url))
-        inspector = inspect(engine)
-        tables = inspector.get_table_names()
-        if "alembic_version" not in tables and "users" in tables:
-            logger.info("Existing DB detected without alembic_version — stamping at 0001")
-            command.stamp(alembic_cfg, "0001")
-        command.upgrade(alembic_cfg, "head")
-        logger.info("Migrations completed successfully")
-    except Exception as e:
-        logger.error(f"Migration failed: {e}")
-        Base.metadata.create_all(bind=engine)
-        logger.info("Fell back to create_all")
+    if not os.environ.get("TESTING"):
+        import time
+        for attempt in range(30):
+            try:
+                with engine.connect() as conn:
+                    conn.execute(text("SELECT 1"))
+                break
+            except Exception:
+                time.sleep(2)
+        from alembic.config import Config
+        from alembic import command
+        from sqlalchemy import inspect
+        import logging
+        logger = logging.getLogger("alembic.startup")
+        try:
+            alembic_cfg = Config(os.path.join(os.path.dirname(os.path.dirname(__file__)), "alembic.ini"))
+            alembic_cfg.set_main_option("sqlalchemy.url", str(engine.url))
+            inspector = inspect(engine)
+            tables = inspector.get_table_names()
+            if "alembic_version" not in tables and "users" in tables:
+                logger.info("Existing DB detected without alembic_version — stamping at 0001")
+                command.stamp(alembic_cfg, "0001")
+            command.upgrade(alembic_cfg, "head")
+            logger.info("Migrations completed successfully")
+        except Exception as e:
+            logger.error(f"Migration failed: {e}")
+            Base.metadata.create_all(bind=engine)
+            logger.info("Fell back to create_all")
     yield
 
 
