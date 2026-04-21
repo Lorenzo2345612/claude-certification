@@ -16,6 +16,7 @@ class User(Base):
     progress = relationship("Progress", back_populates="user", cascade="all, delete-orphan")
     exam_attempts = relationship("ExamAttempt", back_populates="user", cascade="all, delete-orphan")
     flashcard_states = relationship("FlashcardState", back_populates="user", cascade="all, delete-orphan")
+    shared_exams = relationship("SharedExam", back_populates="creator", cascade="all, delete-orphan")
 
 
 class Note(Base):
@@ -100,6 +101,7 @@ class ExamAttempt(Base):
     status = Column(String(20), nullable=False, default="completed")
     started_at = Column(DateTime(timezone=True), server_default=func.now())
     completed_at = Column(DateTime(timezone=True), server_default=func.now())
+    shared_exam_id = Column(Integer, ForeignKey("shared_exams.id", ondelete="SET NULL"), nullable=True)
 
     user = relationship("User", back_populates="exam_attempts")
     answers = relationship("ExamAnswer", back_populates="attempt", cascade="all, delete-orphan")
@@ -117,6 +119,20 @@ class ExamAnswer(Base):
     is_correct = Column(Boolean, nullable=False)
 
     attempt = relationship("ExamAttempt", back_populates="answers")
+
+
+class SharedExam(Base):
+    __tablename__ = "shared_exams"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    creator_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    title = Column(String(255), nullable=False)
+    question_ids = Column(JSON, nullable=False)
+    time_limit_minutes = Column(Integer, nullable=True)
+    domains_selected = Column(JSON, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    creator = relationship("User", back_populates="shared_exams")
 
 
 class FlashcardState(Base):
