@@ -4590,3 +4590,72 @@
 }
 .btn-share-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-share-confirm:not(:disabled):hover { background: #4f46e5; }
+
+.exams-screen {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.exams-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+.exams-subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+.exams-empty {
+  text-align: center;
+  color: #64748b;
+  padding: 3rem 1rem;
+  font-size: 0.95rem;
+}
+.exams-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.exam-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.exam-card-body { flex: 1; }
+.exam-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.4rem;
+}
+.exam-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+.exam-card-creator { color: #94a3b8; }
+.exam-card-sep { color: #475569; }
+.btn-take-exam {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-take-exam:hover:not(:disabled) { background: #4f46e5; }
+.btn-take-exam:disabled { opacity: 0.5; cursor: not-allowed; }
