@@ -129,6 +129,21 @@ export const api = {
     return request('/exams/weak-questions')
   },
 
+  createSharedExam(data) {
+    return request('/shared-exams/', {
+      method: 'POST',
+      body: data,
+    })
+  },
+
+  getSharedExams() {
+    return request('/shared-exams/')
+  },
+
+  getSharedExam(id) {
+    return request(`/shared-exams/${id}`)
+  },
+
   getFlashcardStates() {
     return request('/flashcards/states')
   },
