@@ -2,21 +2,10 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
+import { mapQuestionKeys, shuffleArray, prepareQuestionsForQuiz } from '../utils'
 import StartScreen from './StartScreen'
 import QuizScreen from './QuizScreen'
 import ResultsScreen from './ResultsScreen'
-
-function mapQuestionKeys(q) {
-  return {
-    ...q,
-    domainId: q.domain_id ?? q.domainId,
-    correctAnswer: q.correct_answer ?? q.correctAnswer,
-    whyOthersWrong: q.why_others_wrong ?? q.whyOthersWrong,
-    docReference: q.doc_reference ?? q.docReference,
-    docStatus: q.doc_status ?? q.docStatus,
-    skilljarRef: q.skilljar_ref ?? q.skilljarRef,
-  }
-}
 
 const DOC_KEYWORD_MAP = [
   { kw: /stop_reason|agentic loop|end_turn|pause_turn|tool_use.*block|loop.*terminat/i, url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works#the-agentic-loop" },
@@ -69,15 +58,6 @@ function getDocUrl(q) {
     if (kw.test(text)) return url
   }
   return DOMAIN_FALLBACK[q.domainId] || "https://platform.claude.com/docs"
-}
-
-function shuffleArray(arr) {
-  const shuffled = [...arr]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
 }
 
 const CCA_SCENARIOS = [
@@ -156,21 +136,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     const filtered = questions.filter(q => retakeSet.has(q.id))
     if (filtered.length === 0) return
 
-    const letters = ['a', 'b', 'c', 'd']
-    const shuffled = shuffleArray(filtered).map(q => {
-      const shuffledOpts = shuffleArray(q.options)
-      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
-      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
-      const oldToNew = {}
-      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
-      const newWhyWrong = {}
-      if (q.whyOthersWrong) {
-        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
-          newWhyWrong[oldToNew[oldKey] || oldKey] = text
-        })
-      }
-      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
-    })
+    const shuffled = prepareQuestionsForQuiz(filtered)
 
     setQuizQuestions(shuffled)
     setCurrentIndex(0)
@@ -269,21 +235,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     }
     const shuffled = shuffleArray(filtered)
     const count = Math.min(questionCount, shuffled.length)
-    const letters = ['a', 'b', 'c', 'd']
-    const selected = shuffled.slice(0, count).map(q => {
-      const shuffledOpts = shuffleArray(q.options)
-      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
-      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
-      const oldToNew = {}
-      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
-      const newWhyWrong = {}
-      if (q.whyOthersWrong) {
-        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
-          newWhyWrong[oldToNew[oldKey] || oldKey] = text
-        })
-      }
-      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
-    })
+    const selected = prepareQuestionsForQuiz(shuffled.slice(0, count))
     setQuizQuestions(selected)
     setCurrentIndex(0)
     setAnswers({})
@@ -389,21 +341,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
   }, [])
 
   const retryWrongQuestions = useCallback((wrongItems) => {
-    const letters = ['a', 'b', 'c', 'd']
-    const reshuffled = shuffleArray(wrongItems).map(q => {
-      const shuffledOpts = shuffleArray(q.options)
-      const remapped = shuffledOpts.map((opt, i) => ({ ...opt, id: letters[i] }))
-      const newCorrect = remapped.find(o => o.correct)?.id || q.correctAnswer
-      const oldToNew = {}
-      shuffledOpts.forEach((opt, i) => { oldToNew[opt.id] = letters[i] })
-      const newWhyWrong = {}
-      if (q.whyOthersWrong) {
-        Object.entries(q.whyOthersWrong).forEach(([oldKey, text]) => {
-          newWhyWrong[oldToNew[oldKey] || oldKey] = text
-        })
-      }
-      return { ...q, options: remapped, correctAnswer: newCorrect, whyOthersWrong: newWhyWrong }
-    })
+    const reshuffled = prepareQuestionsForQuiz(wrongItems)
     setQuizQuestions(reshuffled)
     setCurrentIndex(0)
     setAnswers({})
