@@ -6,6 +6,7 @@ import RoadmapScreen from './components/RoadmapScreen'
 import PracticeScreen from './components/PracticeScreen'
 import PerformanceScreen from './components/PerformanceScreen'
 import FlashcardsScreen from './components/FlashcardsScreen'
+import ExamsScreen from './components/ExamsScreen'
 import AuthModal from './components/AuthModal'
 import { useAuth } from './AuthContext'
 
@@ -54,6 +55,7 @@ function App() {
     { to: '/roadmap', label: 'Roadmap' },
     { to: '/practice', label: 'Practice' },
     { to: '/flashcards', label: 'Flashcards' },
+    { to: '/exams', label: 'Exams' },
     { to: '/performance', label: 'Performance' },
   ]
 
@@ -98,6 +100,7 @@ function App() {
         <Route path="/roadmap" element={<RoadmapScreen />} />
         <Route path="/practice/*" element={<PracticeScreen domains={DOMAINS} onProgressChange={setQuizProgress} onQuizActiveChange={setQuizActive} onLeaveCallbackRef={leaveCallbackRef} />} />
         <Route path="/flashcards" element={<FlashcardsScreen />} />
+        <Route path="/exams" element={<ExamsScreen domains={DOMAINS} onProgressChange={setQuizProgress} onQuizActiveChange={setQuizActive} onLeaveCallbackRef={leaveCallbackRef} />} />
         <Route path="/performance" element={<PerformanceScreen />} />
         <Route path="*" element={<Navigate to="/learn" replace />} />
       </Routes>
