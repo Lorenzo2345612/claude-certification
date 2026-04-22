@@ -340,6 +340,15 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     finishExamRef.current = false
   }, [])
 
+  const handleShareExam = useCallback(async (title) => {
+    await api.createSharedExam({
+      title,
+      question_ids: quizQuestions.map(q => q.id),
+      time_limit_minutes: timeLimit > 0 ? timeLimit : null,
+      domains_selected: selectedDomains,
+    })
+  }, [quizQuestions, timeLimit, selectedDomains])
+
   const retryWrongQuestions = useCallback((wrongItems) => {
     const reshuffled = prepareQuestionsForQuiz(wrongItems)
     setQuizQuestions(reshuffled)
@@ -425,6 +434,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
           examStatus={examStatus}
           onRestart={restart}
           onRetryWrong={retryWrongQuestions}
+          onShareExam={user ? handleShareExam : null}
         />
       )}
 
