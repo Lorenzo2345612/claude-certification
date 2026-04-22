@@ -5,8 +5,8 @@ from sqlalchemy import text
 
 from .config import get_settings
 from .database import engine, Base
-from .models import User, Note, Progress, Question, LearnTopic, ExamAttempt, ExamAnswer, FlashcardState  # noqa: F401 — register models with Base.metadata
-from .routers import auth_router, notes_router, progress_router, questions_router, topics_router, exams_router, flashcards_router
+from .models import User, Note, Progress, Question, LearnTopic, ExamAttempt, ExamAnswer, FlashcardState, SharedExam  # noqa: F401
+from .routers import auth_router, notes_router, progress_router, questions_router, topics_router, exams_router, flashcards_router, shared_exams_router
 
 settings = get_settings()
 
@@ -66,6 +66,7 @@ app.include_router(questions_router.router)
 app.include_router(topics_router.router)
 app.include_router(exams_router.router)
 app.include_router(flashcards_router.router)
+app.include_router(shared_exams_router.router)
 
 
 @app.get("/")

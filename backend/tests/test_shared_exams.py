@@ -1,10 +1,5 @@
 import pytest
 from app.models import Question, SharedExam
-from app.main import app
-from app.routers.shared_exams_router import router as shared_exams_router
-
-# Register the router for tests (idempotent — Task 6 will also register it in main.py)
-app.include_router(shared_exams_router)
 
 
 def seed_question(db, qid=1, domain_id=1):
