@@ -99,3 +99,22 @@ def test_create_shared_exam_empty_question_ids_rejected(auth_client, db):
         "domains_selected": [1],
     })
     assert resp.status_code == 422
+
+
+def test_get_shared_exam_preserves_question_order(auth_client, db):
+    client, user = auth_client
+    seed_question(db, qid=1)
+    seed_question(db, qid=2)
+    seed_question(db, qid=3)
+    # Create exam with questions in non-sequential order
+    create_resp = client.post("/api/shared-exams/", json={
+        "title": "Order Test",
+        "question_ids": [3, 1, 2],
+        "time_limit_minutes": None,
+        "domains_selected": [1],
+    })
+    exam_id = create_resp.json()["id"]
+    resp = client.get(f"/api/shared-exams/{exam_id}")
+    assert resp.status_code == 200
+    question_ids_in_response = [q["id"] for q in resp.json()["questions"]]
+    assert question_ids_in_response == [3, 1, 2]

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from ..database import get_db
 from ..models import User, SharedExam, Question
@@ -30,7 +30,12 @@ def create_shared_exam(
 
 @router.get("/", response_model=list[SharedExamSummary])
 def list_shared_exams(db: Session = Depends(get_db)):
-    exams = db.query(SharedExam).order_by(SharedExam.created_at.desc()).all()
+    exams = (
+        db.query(SharedExam)
+        .options(joinedload(SharedExam.creator))
+        .order_by(SharedExam.created_at.desc())
+        .all()
+    )
     return [_to_summary(e, e.creator.username) for e in exams]
 
 
