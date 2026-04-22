@@ -96,6 +96,7 @@ class ExamSubmit(BaseModel):
     time_limit_minutes: int | None = None
     status: str = "completed"
     answers: list[ExamAnswerSubmit]
+    shared_exam_id: int | None = None
 
 
 class ExamAnswerResponse(BaseModel):
@@ -179,5 +180,37 @@ class FlashcardStateResponse(BaseModel):
     status: str
     last_seen: int
     interval_ms: int
+
+    model_config = {"from_attributes": True}
+
+
+class SharedExamCreate(BaseModel):
+    title: str = Field(..., min_length=1, max_length=255)
+    question_ids: list[int] = Field(..., min_length=1)
+    time_limit_minutes: int | None = None
+    domains_selected: list[int]
+
+
+class SharedExamSummary(BaseModel):
+    id: int
+    title: str
+    creator_username: str
+    question_count: int
+    time_limit_minutes: int | None = None
+    domains_selected: list
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class SharedExamDetail(BaseModel):
+    id: int
+    title: str
+    creator_username: str
+    question_count: int
+    time_limit_minutes: int | None = None
+    domains_selected: list
+    created_at: datetime
+    questions: list[QuestionResponse]
 
     model_config = {"from_attributes": True}

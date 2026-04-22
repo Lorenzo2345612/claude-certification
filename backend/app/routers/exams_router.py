@@ -22,6 +22,7 @@ def submit_exam(payload: ExamSubmit, user: User = Depends(get_current_user), db:
         domains_selected=payload.domains_selected,
         time_limit_minutes=payload.time_limit_minutes,
         status=payload.status,
+        shared_exam_id=payload.shared_exam_id,
     )
     db.add(attempt)
     db.flush()
