@@ -349,6 +349,28 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     })
   }, [quizQuestions, timeLimit, selectedDomains])
 
+  const handleShareExamFromStart = useCallback(async (title) => {
+    let pool
+    if (filterMode === 'scenario') {
+      pool = questions.filter(q => selectedScenarios.includes(q.scenario))
+    } else {
+      pool = questions.filter(q => selectedDomains.includes(q.domainId))
+    }
+    if (onlyUnanswered) {
+      pool = pool.filter(q => !answeredIds.has(q.id))
+    }
+    const picked = shuffleArray(pool).slice(0, Math.min(questionCount, pool.length))
+    if (picked.length === 0) {
+      throw new Error('No questions available with the current filters')
+    }
+    await api.createSharedExam({
+      title,
+      question_ids: picked.map(q => q.id),
+      time_limit_minutes: timeLimit > 0 ? timeLimit : null,
+      domains_selected: selectedDomains,
+    })
+  }, [questions, filterMode, selectedDomains, selectedScenarios, onlyUnanswered, answeredIds, questionCount, timeLimit])
+
   const retryWrongQuestions = useCallback((wrongItems) => {
     const reshuffled = prepareQuestionsForQuiz(wrongItems)
     setQuizQuestions(reshuffled)
@@ -409,6 +431,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
           onlyUnanswered={onlyUnanswered}
           setOnlyUnanswered={user ? setOnlyUnanswered : undefined}
           unansweredCount={user ? unansweredCount : undefined}
+          onShareExam={user ? handleShareExamFromStart : null}
         />
       )}
       {phase === 'quiz' && quizQuestions.length > 0 && (

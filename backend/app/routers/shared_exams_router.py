@@ -1,9 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session, joinedload
 
 from ..database import get_db
 from ..models import User, SharedExam, Question
-from ..schemas import SharedExamCreate, SharedExamSummary, SharedExamDetail, QuestionResponse
+from ..schemas import (
+    SharedExamCreate,
+    SharedExamSummary,
+    SharedExamDetail,
+    SharedExamListPage,
+    QuestionResponse,
+)
 from ..auth import get_current_user
 
 router = APIRouter(prefix="/api/shared-exams", tags=["shared-exams"])
@@ -28,15 +34,29 @@ def create_shared_exam(
     return _to_summary(exam, user.username)
 
 
-@router.get("/", response_model=list[SharedExamSummary])
-def list_shared_exams(db: Session = Depends(get_db)):
+@router.get("/", response_model=SharedExamListPage)
+def list_shared_exams(
+    page: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1, le=50),
+    db: Session = Depends(get_db),
+):
+    total = db.query(SharedExam).count()
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
     exams = (
         db.query(SharedExam)
         .options(joinedload(SharedExam.creator))
         .order_by(SharedExam.created_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
         .all()
     )
-    return [_to_summary(e, e.creator.username) for e in exams]
+    return SharedExamListPage(
+        items=[_to_summary(e, e.creator.username) for e in exams],
+        total=total,
+        page=page,
+        page_size=page_size,
+        total_pages=total_pages,
+    )
 
 
 @router.get("/{exam_id}", response_model=SharedExamDetail)
