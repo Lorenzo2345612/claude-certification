@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import ShareExamModal from './ShareExamModal'
+
 export default function StartScreen({
   domains,
   selectedDomains,
@@ -16,7 +19,15 @@ export default function StartScreen({
   onlyUnanswered,
   setOnlyUnanswered,
   unansweredCount,
+  onShareExam = null,
 }) {
+  const [showShareModal, setShowShareModal] = useState(false)
+  const [shareSuccess, setShareSuccess] = useState(false)
+
+  const handleShare = async (title) => {
+    await onShareExam(title)
+    setShareSuccess(true)
+  }
   const toggleDomain = (id) => {
     setSelectedDomains(prev => {
       if (prev.includes(id)) {
@@ -201,15 +212,34 @@ export default function StartScreen({
           )}
         </div>
 
-        <button
-          className="btn-start"
-          onClick={onStart}
-          disabled={!hasSelection}
-        >
-          Start Exam ({effectiveCount} questions{timeLimit > 0 ? ` \u00b7 ${timeLimit} min` : ''})
-        </button>
+        <div className="start-actions">
+          <button
+            className="btn-start"
+            onClick={onStart}
+            disabled={!hasSelection}
+          >
+            Start Exam ({effectiveCount} questions{timeLimit > 0 ? ` \u00b7 ${timeLimit} min` : ''})
+          </button>
+          {onShareExam && availableCount > 0 && (
+            <button
+              className="btn-share-exam"
+              onClick={() => { setShareSuccess(false); setShowShareModal(true) }}
+              disabled={!hasSelection}
+            >
+              Share Exam
+            </button>
+          )}
+        </div>
+        {shareSuccess && (
+          <div className="share-success-msg">Exam shared! Find it in the Exams tab.</div>
+        )}
       </div>
 
+      <ShareExamModal
+        open={showShareModal}
+        onShare={handleShare}
+        onClose={() => setShowShareModal(false)}
+      />
     </div>
   )
 }
