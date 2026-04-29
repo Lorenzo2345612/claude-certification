@@ -6,6 +6,17 @@ import { mapQuestionKeys, shuffleArray, prepareQuestionsForQuiz } from '../utils
 import StartScreen from './StartScreen'
 import QuizScreen from './QuizScreen'
 import ResultsScreen from './ResultsScreen'
+import { DOCS_ONLY_KEY } from '../courses'
+
+function matchesCourse(q, courseKey, includeDocsOnly) {
+  if (!courseKey) return true
+  const keys = q.courseKeys || q.course_keys || []
+  if (!Array.isArray(keys) || keys.length === 0) return false
+  if (courseKey === DOCS_ONLY_KEY) return keys.includes(DOCS_ONLY_KEY)
+  if (keys.includes(courseKey)) return true
+  if (includeDocsOnly && keys.includes(DOCS_ONLY_KEY)) return true
+  return false
+}
 
 const DOC_KEYWORD_MAP = [
   { kw: /stop_reason|agentic loop|end_turn|pause_turn|tool_use.*block|loop.*terminat/i, url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works#the-agentic-loop" },
@@ -78,6 +89,23 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
   const [selectedDomains, setSelectedDomains] = useState([1, 2, 3, 4, 5])
   const [filterMode, setFilterMode] = useState('domain')
   const [selectedScenarios, setSelectedScenarios] = useState(CCA_SCENARIOS.map(s => s.name))
+  const [selectedCourseKey, setSelectedCourseKeyState] = useState(() => {
+    try { return localStorage.getItem('course_filter:practice') || null } catch { return null }
+  })
+  const [includeDocsOnly, setIncludeDocsOnlyState] = useState(() => {
+    try { return localStorage.getItem('course_filter:practice:docs_only') === '1' } catch { return false }
+  })
+  const setSelectedCourseKey = useCallback((v) => {
+    setSelectedCourseKeyState(v)
+    try {
+      if (v) localStorage.setItem('course_filter:practice', v)
+      else localStorage.removeItem('course_filter:practice')
+    } catch {}
+  }, [])
+  const setIncludeDocsOnly = useCallback((v) => {
+    setIncludeDocsOnlyState(!!v)
+    try { localStorage.setItem('course_filter:practice:docs_only', v ? '1' : '0') } catch {}
+  }, [])
   const [questionCount, setQuestionCount] = useState(60)
   const [timeLimit, setTimeLimit] = useState(0)
   const [quizQuestions, setQuizQuestions] = useState([])
@@ -210,11 +238,12 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     } else {
       filtered = questions.filter(q => selectedDomains.includes(q.domainId))
     }
+    filtered = filtered.filter(q => matchesCourse(q, selectedCourseKey, includeDocsOnly))
     if (onlyUnanswered) {
       filtered = filtered.filter(q => !answeredIds.has(q.id))
     }
     return filtered.length
-  }, [filterMode, selectedDomains, selectedScenarios, questions, onlyUnanswered, answeredIds])
+  }, [filterMode, selectedDomains, selectedScenarios, questions, onlyUnanswered, answeredIds, selectedCourseKey, includeDocsOnly])
 
   const unansweredCount = useMemo(() => {
     let filtered
@@ -223,13 +252,15 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     } else {
       filtered = questions.filter(q => selectedDomains.includes(q.domainId))
     }
+    filtered = filtered.filter(q => matchesCourse(q, selectedCourseKey, includeDocsOnly))
     return filtered.filter(q => !answeredIds.has(q.id)).length
-  }, [filterMode, selectedDomains, selectedScenarios, questions, answeredIds])
+  }, [filterMode, selectedDomains, selectedScenarios, questions, answeredIds, selectedCourseKey, includeDocsOnly])
 
   const startQuiz = useCallback(() => {
     let filtered = filterMode === 'scenario'
       ? questions.filter(q => selectedScenarios.includes(q.scenario))
       : questions.filter(q => selectedDomains.includes(q.domainId))
+    filtered = filtered.filter(q => matchesCourse(q, selectedCourseKey, includeDocsOnly))
     if (onlyUnanswered) {
       filtered = filtered.filter(q => !answeredIds.has(q.id))
     }
@@ -244,7 +275,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     finishExamRef.current = false
     setRemainingSeconds(timeLimit > 0 ? timeLimit * 60 : null)
     setPhase('quiz')
-  }, [filterMode, selectedDomains, selectedScenarios, questionCount, timeLimit, questions, onlyUnanswered, answeredIds])
+  }, [filterMode, selectedDomains, selectedScenarios, questionCount, timeLimit, questions, onlyUnanswered, answeredIds, selectedCourseKey, includeDocsOnly])
 
   const selectAnswer = useCallback((questionId, optionId) => {
     if (answers[questionId]?.confirmed) return
@@ -340,14 +371,19 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     finishExamRef.current = false
   }, [])
 
+  const courseKeysSelected = selectedCourseKey
+    ? (includeDocsOnly && selectedCourseKey !== DOCS_ONLY_KEY ? [selectedCourseKey, DOCS_ONLY_KEY] : [selectedCourseKey])
+    : null
+
   const handleShareExam = useCallback(async (title) => {
     await api.createSharedExam({
       title,
       question_ids: quizQuestions.map(q => q.id),
       time_limit_minutes: timeLimit > 0 ? timeLimit : null,
       domains_selected: selectedDomains,
+      course_keys_selected: courseKeysSelected,
     })
-  }, [quizQuestions, timeLimit, selectedDomains])
+  }, [quizQuestions, timeLimit, selectedDomains, courseKeysSelected])
 
   const handleShareExamFromStart = useCallback(async (title) => {
     let pool
@@ -356,6 +392,7 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
     } else {
       pool = questions.filter(q => selectedDomains.includes(q.domainId))
     }
+    pool = pool.filter(q => matchesCourse(q, selectedCourseKey, includeDocsOnly))
     if (onlyUnanswered) {
       pool = pool.filter(q => !answeredIds.has(q.id))
     }
@@ -368,8 +405,9 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
       question_ids: picked.map(q => q.id),
       time_limit_minutes: timeLimit > 0 ? timeLimit : null,
       domains_selected: selectedDomains,
+      course_keys_selected: courseKeysSelected,
     })
-  }, [questions, filterMode, selectedDomains, selectedScenarios, onlyUnanswered, answeredIds, questionCount, timeLimit])
+  }, [questions, filterMode, selectedDomains, selectedScenarios, onlyUnanswered, answeredIds, questionCount, timeLimit, selectedCourseKey, includeDocsOnly, courseKeysSelected])
 
   const retryWrongQuestions = useCallback((wrongItems) => {
     const reshuffled = prepareQuestionsForQuiz(wrongItems)
@@ -432,6 +470,10 @@ export default function PracticeScreen({ domains, onProgressChange, onQuizActive
           setOnlyUnanswered={user ? setOnlyUnanswered : undefined}
           unansweredCount={user ? unansweredCount : undefined}
           onShareExam={user ? handleShareExamFromStart : null}
+          selectedCourseKey={selectedCourseKey}
+          setSelectedCourseKey={setSelectedCourseKey}
+          includeDocsOnly={includeDocsOnly}
+          setIncludeDocsOnly={setIncludeDocsOnly}
         />
       )}
       {phase === 'quiz' && quizQuestions.length > 0 && (

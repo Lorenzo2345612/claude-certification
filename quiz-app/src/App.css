@@ -4700,3 +4700,54 @@
   font-size: 0.9rem;
   font-weight: 500;
 }
+
+/* --- Course filter (CoursePicker + per-screen integration) --- */
+.course-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0.75rem 0;
+}
+.course-picker-select {
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  background: #0c0c1e;
+  color: #f1f5f9;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.course-picker-select:focus {
+  outline: 2px solid #d97706;
+  outline-offset: 1px;
+}
+.course-picker-docs-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  cursor: pointer;
+}
+.learn-sidebar-course {
+  padding: 0.5rem 0.75rem 0;
+}
+.learn-sidebar-topic--optional {
+  opacity: 0.65;
+}
+.learn-sidebar-topic--optional:hover {
+  opacity: 0.9;
+}
+.learn-sidebar-optional-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.62rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #1e293b;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}

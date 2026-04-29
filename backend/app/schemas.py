@@ -58,6 +58,7 @@ class QuestionResponse(BaseModel):
     doc_reference: dict | None = None
     doc_status: str | None = None
     skilljar_ref: dict | None = None
+    course_keys: list[str] | None = None
 
     model_config = {"from_attributes": True}
 
@@ -75,6 +76,10 @@ class LearnTopicResponse(BaseModel):
     anthropic_docs_ref: str | None = None
     summary: str | None = None
     key_concepts: list = []
+    course_key: str | None = None
+    optional_in: list[str] | None = None
+    verification: str | None = None
+    verification_note: str | None = None
 
     model_config = {"from_attributes": True}
 
@@ -189,6 +194,7 @@ class SharedExamCreate(BaseModel):
     question_ids: list[int] = Field(..., min_length=1)
     time_limit_minutes: int | None = None
     domains_selected: list[int]
+    course_keys_selected: list[str] | None = None
 
 
 class SharedExamSummary(BaseModel):
@@ -198,6 +204,7 @@ class SharedExamSummary(BaseModel):
     question_count: int
     time_limit_minutes: int | None = None
     domains_selected: list
+    course_keys_selected: list[str] | None = None
     created_at: datetime
 
     model_config = {"from_attributes": True}
@@ -210,6 +217,7 @@ class SharedExamDetail(BaseModel):
     question_count: int
     time_limit_minutes: int | None = None
     domains_selected: list
+    course_keys_selected: list[str] | None = None
     created_at: datetime
     questions: list[QuestionResponse]
 

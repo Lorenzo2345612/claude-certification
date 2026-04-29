@@ -7,6 +7,7 @@ export function mapQuestionKeys(q) {
     docReference: q.doc_reference ?? q.docReference,
     docStatus: q.doc_status ?? q.docStatus,
     skilljarRef: q.skilljar_ref ?? q.skilljarRef,
+    courseKeys: q.course_keys ?? q.courseKeys ?? [],
   }
 }
 

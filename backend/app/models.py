@@ -66,6 +66,7 @@ class Question(Base):
     doc_reference = Column(JSON, nullable=True)
     doc_status = Column(String(50), nullable=True)
     skilljar_ref = Column(JSON, nullable=True)
+    course_keys = Column(JSON, nullable=True)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
 
@@ -84,6 +85,10 @@ class LearnTopic(Base):
     anthropic_docs_ref = Column(JSON, nullable=True)
     summary = Column(Text, nullable=True)
     key_concepts = Column(JSON, default=list)
+    course_key = Column(String(50), nullable=True, index=True)
+    optional_in = Column(JSON, nullable=True)
+    verification = Column(String(30), nullable=True)
+    verification_note = Column(Text, nullable=True)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
 
@@ -130,6 +135,7 @@ class SharedExam(Base):
     question_ids = Column(JSON, nullable=False)
     time_limit_minutes = Column(Integer, nullable=True)
     domains_selected = Column(JSON, nullable=False)
+    course_keys_selected = Column(JSON, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     creator = relationship("User", back_populates="shared_exams")

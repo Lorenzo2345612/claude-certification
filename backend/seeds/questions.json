@@ -44,7 +44,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 2,
@@ -91,7 +94,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 3,
@@ -138,7 +144,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 4,
@@ -185,7 +194,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 5,
@@ -232,7 +244,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 6,
@@ -279,7 +294,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 7,
@@ -326,7 +344,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 8,
@@ -373,7 +394,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 9,
@@ -420,7 +444,10 @@
       "lesson": "Controlling context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303237"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 10,
@@ -467,7 +494,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 11,
@@ -514,7 +544,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 12,
@@ -561,7 +594,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 13,
@@ -608,7 +644,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 14,
@@ -655,7 +694,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 15,
@@ -702,7 +744,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 16,
@@ -749,7 +794,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 17,
@@ -796,7 +844,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 18,
@@ -843,7 +894,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 19,
@@ -890,7 +944,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 20,
@@ -937,7 +994,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 21,
@@ -984,7 +1044,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 22,
@@ -1031,7 +1094,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 23,
@@ -1078,7 +1144,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 24,
@@ -1125,7 +1194,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 25,
@@ -1172,7 +1244,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 26,
@@ -1219,7 +1294,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 27,
@@ -1266,7 +1344,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 28,
@@ -1313,7 +1394,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 29,
@@ -1360,7 +1444,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 30,
@@ -1407,7 +1494,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 31,
@@ -1454,7 +1544,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 32,
@@ -1501,7 +1594,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 33,
@@ -1548,7 +1644,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 34,
@@ -1595,7 +1694,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 35,
@@ -1642,7 +1744,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 36,
@@ -1689,7 +1794,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 37,
@@ -1736,7 +1844,10 @@
       "lesson": "What is a coding assistant?",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 38,
@@ -1783,7 +1894,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 39,
@@ -1830,7 +1944,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 40,
@@ -1877,7 +1994,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 41,
@@ -1924,7 +2044,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 42,
@@ -1971,7 +2094,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 43,
@@ -2018,7 +2144,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 44,
@@ -2065,7 +2194,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 45,
@@ -2112,7 +2244,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 46,
@@ -2159,7 +2294,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 47,
@@ -2206,7 +2344,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 48,
@@ -2253,7 +2394,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 49,
@@ -2300,7 +2444,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 50,
@@ -2347,7 +2494,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 51,
@@ -2394,7 +2544,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 52,
@@ -2441,7 +2594,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 53,
@@ -2488,7 +2644,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 54,
@@ -2535,7 +2694,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 55,
@@ -2582,7 +2744,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 56,
@@ -2629,7 +2794,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 57,
@@ -2676,7 +2844,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 58,
@@ -2723,7 +2894,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 59,
@@ -2770,7 +2944,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 60,
@@ -2817,7 +2994,10 @@
       "lesson": "Gotchas around hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 61,
@@ -2864,7 +3044,10 @@
       "lesson": "Useful hooks!",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 62,
@@ -2911,7 +3094,10 @@
       "lesson": "Gotchas around hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 63,
@@ -2958,7 +3144,10 @@
       "lesson": "Useful hooks!",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 64,
@@ -3005,7 +3194,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 65,
@@ -3052,7 +3244,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 66,
@@ -3099,7 +3294,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 67,
@@ -3146,7 +3344,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 68,
@@ -3193,7 +3394,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 69,
@@ -3240,7 +3444,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 70,
@@ -3287,7 +3494,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 71,
@@ -3334,7 +3544,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 72,
@@ -3381,7 +3594,10 @@
       "lesson": "Gotchas around hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 73,
@@ -3428,7 +3644,10 @@
       "lesson": "Gotchas around hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 74,
@@ -3475,7 +3694,10 @@
       "lesson": "Useful hooks!",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 75,
@@ -3522,7 +3744,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 76,
@@ -3569,7 +3794,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 77,
@@ -3616,7 +3844,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 78,
@@ -3663,7 +3894,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 79,
@@ -3710,7 +3944,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 80,
@@ -3757,7 +3994,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 81,
@@ -3804,7 +4044,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 82,
@@ -3851,7 +4094,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 83,
@@ -3898,7 +4144,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 84,
@@ -3945,7 +4194,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 85,
@@ -3992,7 +4244,10 @@
       "lesson": "Controlling context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303237"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 86,
@@ -4039,7 +4294,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 87,
@@ -4086,7 +4344,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 88,
@@ -4133,7 +4394,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 89,
@@ -4180,7 +4444,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 90,
@@ -4227,7 +4494,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 91,
@@ -4274,7 +4544,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 92,
@@ -4321,7 +4594,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 93,
@@ -4368,7 +4644,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 94,
@@ -4415,7 +4694,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 95,
@@ -4462,7 +4744,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 96,
@@ -4509,7 +4794,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 97,
@@ -4556,7 +4844,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 98,
@@ -4603,7 +4894,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 99,
@@ -4650,7 +4944,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 100,
@@ -4697,7 +4994,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 101,
@@ -4744,7 +5044,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 102,
@@ -4791,7 +5094,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 103,
@@ -4838,7 +5144,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 104,
@@ -4885,7 +5194,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 105,
@@ -4932,7 +5244,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 106,
@@ -4979,7 +5294,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 107,
@@ -5026,7 +5344,10 @@
       "lesson": "Defining tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 108,
@@ -5073,7 +5394,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 109,
@@ -5120,7 +5444,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 110,
@@ -5167,7 +5494,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 111,
@@ -5214,7 +5544,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 112,
@@ -5261,7 +5594,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 113,
@@ -5308,7 +5644,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 114,
@@ -5355,7 +5694,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 115,
@@ -5402,7 +5744,10 @@
       "lesson": "MCP Review",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 116,
@@ -5449,7 +5794,10 @@
       "lesson": "Sampling",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 117,
@@ -5496,7 +5844,10 @@
       "lesson": "Accessing Resources",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287783"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 118,
@@ -5543,7 +5894,10 @@
       "lesson": "Sampling",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 119,
@@ -5590,7 +5944,10 @@
       "lesson": "Sampling",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 120,
@@ -5637,7 +5994,10 @@
       "lesson": "Prompts in the Client",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287786"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 121,
@@ -5684,7 +6044,10 @@
       "lesson": "Sampling",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 122,
@@ -5731,7 +6094,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287793"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 123,
@@ -5778,7 +6144,10 @@
       "lesson": "Roots",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 124,
@@ -5825,7 +6194,10 @@
       "lesson": "The STDIO Transport",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 125,
@@ -5872,7 +6244,10 @@
       "lesson": "The StreamableHTTP Transport",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 126,
@@ -5919,7 +6294,10 @@
       "lesson": "StreamableHTTP in Depth",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 127,
@@ -5966,7 +6344,10 @@
       "lesson": "State and the StreamableHTTP Transport",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 128,
@@ -6013,7 +6394,10 @@
       "lesson": "StreamableHTTP in Depth",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 129,
@@ -6060,7 +6444,10 @@
       "lesson": "The StreamableHTTP Transport",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 130,
@@ -6107,7 +6494,10 @@
       "lesson": "JSON Message Types",
       "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-advanced"
+    ]
   },
   {
     "id": 131,
@@ -6154,7 +6544,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 132,
@@ -6201,7 +6594,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 133,
@@ -6248,7 +6644,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 134,
@@ -6295,7 +6694,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 135,
@@ -6342,7 +6744,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 136,
@@ -6389,7 +6794,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 137,
@@ -6436,7 +6844,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 138,
@@ -6483,7 +6894,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 139,
@@ -6530,7 +6944,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 140,
@@ -6577,7 +6994,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 141,
@@ -6624,7 +7044,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 142,
@@ -6671,7 +7094,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 143,
@@ -6718,7 +7144,10 @@
       "lesson": "Implementing a Client",
       "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "mcp-intro"
+    ]
   },
   {
     "id": 144,
@@ -6765,7 +7194,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 145,
@@ -6812,7 +7244,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 146,
@@ -6859,7 +7294,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 147,
@@ -6906,7 +7344,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 148,
@@ -6953,7 +7394,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 149,
@@ -7000,7 +7444,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 150,
@@ -7047,7 +7494,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 151,
@@ -7094,7 +7544,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 152,
@@ -7141,7 +7594,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 153,
@@ -7188,7 +7644,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 154,
@@ -7235,7 +7694,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 155,
@@ -7282,7 +7744,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 156,
@@ -7329,7 +7794,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 157,
@@ -7376,7 +7844,10 @@
       "lesson": "Configuration and multi-file skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 158,
@@ -7423,7 +7894,10 @@
       "lesson": "Configuration and multi-file skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 159,
@@ -7470,7 +7944,10 @@
       "lesson": "Creating your first skill",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 160,
@@ -7517,7 +7994,10 @@
       "lesson": "Configuration and multi-file skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 161,
@@ -7564,7 +8044,10 @@
       "lesson": "Configuration and multi-file skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 162,
@@ -7611,7 +8094,10 @@
       "lesson": "Sharing skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 163,
@@ -7658,7 +8144,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 164,
@@ -7705,7 +8194,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 165,
@@ -7752,7 +8244,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 166,
@@ -7799,7 +8294,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 167,
@@ -7846,7 +8344,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 168,
@@ -7893,7 +8394,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 169,
@@ -7940,7 +8444,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 170,
@@ -7987,7 +8494,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 171,
@@ -8034,7 +8544,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 172,
@@ -8081,7 +8594,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 173,
@@ -8128,7 +8644,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 174,
@@ -8175,7 +8694,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 175,
@@ -8222,7 +8744,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 176,
@@ -8269,7 +8794,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 177,
@@ -8316,7 +8844,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 178,
@@ -8363,7 +8894,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 179,
@@ -8410,7 +8944,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 180,
@@ -8457,7 +8994,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 181,
@@ -8504,7 +9044,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 182,
@@ -8551,7 +9094,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 183,
@@ -8598,7 +9144,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 184,
@@ -8645,7 +9194,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 185,
@@ -8692,7 +9244,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 186,
@@ -8739,7 +9294,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 187,
@@ -8786,7 +9344,10 @@
       "lesson": "Project setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 188,
@@ -8833,7 +9394,10 @@
       "lesson": "Project setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 189,
@@ -8880,7 +9444,10 @@
       "lesson": "Project setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 190,
@@ -8927,7 +9494,10 @@
       "lesson": "Project setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 191,
@@ -8974,7 +9544,10 @@
       "lesson": "Project setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 192,
@@ -9021,7 +9594,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 193,
@@ -9068,7 +9644,10 @@
       "lesson": "Troubleshooting skills",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 194,
@@ -9115,7 +9694,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 195,
@@ -9162,7 +9744,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 196,
@@ -9209,7 +9794,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 197,
@@ -9256,7 +9844,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 198,
@@ -9303,7 +9894,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 199,
@@ -9350,7 +9944,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 200,
@@ -9397,7 +9994,10 @@
       "lesson": "Creating your first skill",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 201,
@@ -9444,7 +10044,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 202,
@@ -9491,7 +10094,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 203,
@@ -9538,7 +10144,10 @@
       "lesson": "Claude Code setup",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/301614"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 204,
@@ -9585,7 +10194,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 205,
@@ -9632,7 +10244,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 206,
@@ -9679,7 +10294,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 207,
@@ -9726,7 +10344,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 208,
@@ -9773,7 +10394,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 209,
@@ -9820,7 +10444,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 210,
@@ -9867,7 +10494,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 211,
@@ -9914,7 +10544,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 212,
@@ -9961,7 +10594,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 213,
@@ -10008,7 +10644,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 214,
@@ -10055,7 +10694,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 215,
@@ -10102,7 +10744,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 216,
@@ -10149,7 +10794,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 217,
@@ -10196,7 +10844,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 218,
@@ -10243,7 +10894,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 219,
@@ -10290,7 +10944,10 @@
       "lesson": "A typical eval workflow",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287736"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 220,
@@ -10337,7 +10994,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 221,
@@ -10384,7 +11044,10 @@
       "lesson": "A typical eval workflow",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287736"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 222,
@@ -10431,7 +11094,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 223,
@@ -10478,7 +11144,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 224,
@@ -10525,7 +11194,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 225,
@@ -10572,7 +11244,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 226,
@@ -10619,7 +11294,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 227,
@@ -10666,7 +11344,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 228,
@@ -10713,7 +11394,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 229,
@@ -10760,7 +11444,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 230,
@@ -10807,7 +11494,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 231,
@@ -10854,7 +11544,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 232,
@@ -10901,7 +11594,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 233,
@@ -10948,7 +11644,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 234,
@@ -10995,7 +11694,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 235,
@@ -11042,7 +11744,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 236,
@@ -11089,7 +11794,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 237,
@@ -11136,7 +11844,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 238,
@@ -11183,7 +11894,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 239,
@@ -11230,7 +11944,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 240,
@@ -11277,7 +11994,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 241,
@@ -11324,7 +12044,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 242,
@@ -11371,7 +12094,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 243,
@@ -11418,7 +12144,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 244,
@@ -11465,7 +12194,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 245,
@@ -11512,7 +12244,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 246,
@@ -11559,7 +12294,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 247,
@@ -11606,7 +12344,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 248,
@@ -11653,7 +12394,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 249,
@@ -11700,7 +12444,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 250,
@@ -11747,7 +12494,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 251,
@@ -11794,7 +12544,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 252,
@@ -11841,7 +12594,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 253,
@@ -11888,7 +12644,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 254,
@@ -11935,7 +12694,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 255,
@@ -11982,7 +12744,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 256,
@@ -12029,7 +12794,10 @@
       "lesson": "Model based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287742"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 257,
@@ -12076,7 +12844,10 @@
       "lesson": "Code based grading",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287737"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 258,
@@ -12123,7 +12894,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 259,
@@ -12170,7 +12944,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 260,
@@ -12217,7 +12994,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 261,
@@ -12264,7 +13044,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 262,
@@ -12311,7 +13094,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 263,
@@ -12358,7 +13144,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 264,
@@ -12405,7 +13194,10 @@
       "lesson": "Overview of Claude Models",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287722"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 265,
@@ -12452,7 +13244,10 @@
       "lesson": "Running the eval",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287743"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 266,
@@ -12499,7 +13294,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 267,
@@ -12546,7 +13344,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 268,
@@ -12593,7 +13394,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 269,
@@ -12640,7 +13444,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 270,
@@ -12687,7 +13494,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 271,
@@ -12734,7 +13544,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 272,
@@ -12781,7 +13594,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 273,
@@ -12828,7 +13644,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 274,
@@ -12875,7 +13694,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 275,
@@ -12922,7 +13744,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 276,
@@ -12969,7 +13794,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 277,
@@ -13016,7 +13844,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 278,
@@ -13063,7 +13894,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 279,
@@ -13110,7 +13944,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 280,
@@ -13157,7 +13994,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 281,
@@ -13204,7 +14044,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 282,
@@ -13251,7 +14094,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 283,
@@ -13298,7 +14144,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 284,
@@ -13345,7 +14194,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 285,
@@ -13392,7 +14244,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 286,
@@ -13439,7 +14294,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 287,
@@ -13486,7 +14344,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 288,
@@ -13533,7 +14394,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 289,
@@ -13580,7 +14444,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 290,
@@ -13627,7 +14494,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 291,
@@ -13674,7 +14544,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 292,
@@ -13721,7 +14594,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 293,
@@ -13768,7 +14644,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 294,
@@ -13815,7 +14694,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 295,
@@ -13862,7 +14744,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 296,
@@ -13909,7 +14794,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 297,
@@ -13956,7 +14844,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 298,
@@ -14003,7 +14894,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 299,
@@ -14050,7 +14944,10 @@
       "lesson": "Designing effective subagents",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 300,
@@ -14097,7 +14994,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 301,
@@ -14144,7 +15044,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 302,
@@ -14191,7 +15094,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 303,
@@ -14238,7 +15144,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 304,
@@ -14285,7 +15194,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 305,
@@ -14332,7 +15244,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 306,
@@ -14379,7 +15294,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 307,
@@ -14426,7 +15344,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 308,
@@ -14473,7 +15394,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 309,
@@ -14520,7 +15444,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 310,
@@ -14567,7 +15494,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 311,
@@ -14614,7 +15544,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 312,
@@ -14661,7 +15594,10 @@
       "lesson": "Managed Agents Overview",
       "url": "https://platform.claude.com/docs/en/managed-agents/overview"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 313,
@@ -14708,7 +15644,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 314,
@@ -14755,7 +15694,10 @@
       "lesson": "Managed Agents Sessions",
       "url": "https://platform.claude.com/docs/en/managed-agents/sessions"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 315,
@@ -14802,7 +15744,10 @@
       "lesson": "Using subagents effectively",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 316,
@@ -14849,7 +15794,10 @@
       "lesson": "Multi-Agent Sessions",
       "url": "https://platform.claude.com/docs/en/managed-agents/multi-agent"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 317,
@@ -14896,7 +15844,10 @@
       "lesson": "Managed Agents Tools",
       "url": "https://platform.claude.com/docs/en/managed-agents/tools"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 318,
@@ -14943,7 +15894,10 @@
       "lesson": "Managed Agent Setup",
       "url": "https://platform.claude.com/docs/en/managed-agents/agent-setup"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 319,
@@ -14990,7 +15944,10 @@
       "lesson": "Multi-Agent Sessions",
       "url": "https://platform.claude.com/docs/en/managed-agents/multi-agent"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 320,
@@ -15037,7 +15994,10 @@
       "lesson": "Handling Stop Reasons",
       "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 321,
@@ -15084,7 +16044,10 @@
       "lesson": "Server-Side Compaction",
       "url": "https://platform.claude.com/docs/en/build-with-claude/compaction"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 322,
@@ -15131,7 +16094,10 @@
       "lesson": "Server-Side Compaction",
       "url": "https://platform.claude.com/docs/en/build-with-claude/compaction"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 323,
@@ -15178,7 +16144,10 @@
       "lesson": "Context Editing",
       "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 324,
@@ -15225,7 +16194,10 @@
       "lesson": "Context Editing",
       "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 325,
@@ -15272,7 +16244,10 @@
       "lesson": "Context Editing",
       "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 326,
@@ -15319,7 +16294,10 @@
       "lesson": "Agent Teams",
       "url": "https://code.claude.com/docs/en/agent-teams"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "cca-docs-only"
+    ]
   },
   {
     "id": 327,
@@ -15366,7 +16344,10 @@
       "lesson": "Agent Teams",
       "url": "https://code.claude.com/docs/en/agent-teams"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "cca-docs-only"
+    ]
   },
   {
     "id": 328,
@@ -15413,7 +16394,10 @@
       "lesson": "Headless Mode / Agent SDK",
       "url": "https://code.claude.com/docs/en/headless"
     },
-    "updated_at": "2026-04-17 12:00:00"
+    "updated_at": "2026-04-17 12:00:00",
+    "course_keys": [
+      "cca-docs-only"
+    ]
   },
   {
     "id": 330,
@@ -15460,7 +16444,10 @@
       "lesson": "Agents and tools",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287803"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 331,
@@ -15507,7 +16494,10 @@
       "lesson": "Tool schemas",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 332,
@@ -15554,7 +16544,10 @@
       "lesson": "Environment inspection",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287798"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 333,
@@ -15601,7 +16594,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents/450698"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 334,
@@ -15648,7 +16644,10 @@
       "lesson": "Tool functions",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287756"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 335,
@@ -15695,7 +16694,10 @@
       "lesson": "Tool schemas",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 336,
@@ -15742,7 +16744,10 @@
       "lesson": "Using multiple tools",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 337,
@@ -15789,7 +16794,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 338,
@@ -15836,7 +16844,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 339,
@@ -15883,7 +16894,10 @@
       "lesson": "Prompt caching",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287772"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 340,
@@ -15930,7 +16944,10 @@
       "lesson": "Routing workflows",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287801"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 341,
@@ -15977,7 +16994,10 @@
       "lesson": "Chaining workflows",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287800"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 342,
@@ -16024,7 +17044,10 @@
       "lesson": "Multi-Turn conversations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 343,
@@ -16071,7 +17094,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 344,
@@ -16118,7 +17144,10 @@
       "lesson": "Rules of Prompt Caching",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287770"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 345,
@@ -16165,7 +17194,10 @@
       "lesson": "Controlling context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303237"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 346,
@@ -16212,7 +17244,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 347,
@@ -16259,7 +17294,10 @@
       "lesson": "The text edit tool",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287760"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 348,
@@ -16306,7 +17344,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 349,
@@ -16353,7 +17394,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 350,
@@ -16400,7 +17444,10 @@
       "lesson": "Useful hooks!",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 351,
@@ -16447,7 +17494,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 352,
@@ -16494,7 +17544,10 @@
       "lesson": "Response streaming",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 353,
@@ -16541,7 +17594,10 @@
       "lesson": "Prompt evaluation",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 354,
@@ -16588,7 +17644,10 @@
       "lesson": "Environment inspection",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287798"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 355,
@@ -16635,7 +17694,10 @@
       "lesson": "Being specific",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 356,
@@ -16682,7 +17744,10 @@
       "lesson": "Implementing multiple turns",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 357,
@@ -16729,7 +17794,10 @@
       "lesson": "Prompt Caching in Action",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 358,
@@ -16776,7 +17844,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 359,
@@ -16823,7 +17894,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 360,
@@ -16870,7 +17944,10 @@
       "lesson": "Implementing multiple turns",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 361,
@@ -16917,7 +17994,10 @@
       "lesson": "Agents and workflows",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287796"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 362,
@@ -16964,7 +18044,10 @@
       "lesson": "Creating a subagent",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents/450699"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 363,
@@ -17011,7 +18094,10 @@
       "lesson": "Parallelization workflows",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287804"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 364,
@@ -17058,7 +18144,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 365,
@@ -17105,7 +18194,10 @@
       "lesson": "Defining Tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287797"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 366,
@@ -17152,7 +18244,10 @@
       "lesson": "Defining Tools with MCP",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287797"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 367,
@@ -17199,7 +18294,10 @@
       "lesson": "MCP clients",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287775"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 368,
@@ -17246,7 +18344,10 @@
       "lesson": "Useful hooks!",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312004"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 369,
@@ -17293,7 +18394,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 370,
@@ -17340,7 +18444,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 371,
@@ -17387,7 +18494,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 372,
@@ -17434,7 +18544,10 @@
       "lesson": "What are subagents?",
       "url": "https://anthropic.skilljar.com/introduction-to-subagents/450698"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "subagents"
+    ]
   },
   {
     "id": 373,
@@ -17481,7 +18594,10 @@
       "lesson": "Prompt Caching in Action",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 374,
@@ -17528,7 +18644,10 @@
       "lesson": "MCP clients",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287775"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 375,
@@ -17575,7 +18694,10 @@
       "lesson": "Implementing multiple turns",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287758"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 376,
@@ -17622,7 +18744,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 377,
@@ -17669,7 +18794,10 @@
       "lesson": "Agents and tools",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287803"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 378,
@@ -17716,7 +18844,10 @@
       "lesson": "Sending tool results",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287752"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 379,
@@ -17763,7 +18894,10 @@
       "lesson": "Tool schemas",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287753"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 380,
@@ -17810,7 +18944,10 @@
       "lesson": "Making changes",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303236"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 381,
@@ -17857,7 +18994,10 @@
       "lesson": "Introducing hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312000"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 382,
@@ -17904,7 +19044,10 @@
       "lesson": "What are skills?",
       "url": "https://anthropic.skilljar.com/introduction-to-agent-skills/434525"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "agent-skills"
+    ]
   },
   {
     "id": 383,
@@ -17951,7 +19094,10 @@
       "lesson": "MCP servers with Claude Code",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303239"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 384,
@@ -17998,7 +19144,10 @@
       "lesson": "Introducing tool use",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287747"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 385,
@@ -18045,7 +19194,10 @@
       "lesson": "Extended thinking",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287773"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 386,
@@ -18092,7 +19244,10 @@
       "lesson": "Tool functions",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287756"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 387,
@@ -18139,7 +19294,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 388,
@@ -18186,7 +19344,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 389,
@@ -18233,7 +19394,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 390,
@@ -18280,7 +19444,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 391,
@@ -18327,7 +19494,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 392,
@@ -18374,7 +19544,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 393,
@@ -18421,7 +19594,10 @@
       "lesson": "MCP servers with Claude Code",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303239"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 394,
@@ -18468,7 +19644,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 395,
@@ -18515,7 +19694,10 @@
       "lesson": "Github integration",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303240"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 396,
@@ -18562,7 +19744,10 @@
       "lesson": "Adding context",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/303241"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 397,
@@ -18609,7 +19794,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 398,
@@ -18656,7 +19844,10 @@
       "lesson": "The Claude Code SDK",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312001"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 399,
@@ -18703,7 +19894,10 @@
       "lesson": "Rules of Prompt Caching",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287770"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 400,
@@ -18750,7 +19944,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 401,
@@ -18797,7 +19994,10 @@
       "lesson": "System prompts",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 402,
@@ -18844,7 +20044,10 @@
       "lesson": "Gotchas around hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312423"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 403,
@@ -18891,7 +20094,10 @@
       "lesson": "Another useful hook",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312427"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 404,
@@ -18938,7 +20144,10 @@
       "lesson": "Defining hooks",
       "url": "https://anthropic.skilljar.com/claude-code-in-action/312002"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-code-in-action"
+    ]
   },
   {
     "id": 405,
@@ -18981,7 +20190,10 @@
     },
     "doc_status": "STRONG",
     "skilljar_ref": null,
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 406,
@@ -19024,7 +20236,10 @@
     },
     "doc_status": "STRONG",
     "skilljar_ref": null,
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 407,
@@ -19071,7 +20286,10 @@
       "lesson": "Prompt caching",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287772"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 408,
@@ -19118,7 +20336,10 @@
       "lesson": "Citations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 409,
@@ -19165,7 +20386,10 @@
       "lesson": "Citations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 410,
@@ -19212,7 +20436,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 411,
@@ -19259,7 +20486,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 412,
@@ -19306,7 +20536,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 413,
@@ -19353,7 +20586,10 @@
       "lesson": "Citations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 414,
@@ -19400,7 +20636,10 @@
       "lesson": "Structured data",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287731"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 415,
@@ -19447,7 +20686,10 @@
       "lesson": "Citations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 416,
@@ -19490,7 +20732,10 @@
     },
     "doc_status": "STRONG",
     "skilljar_ref": null,
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 417,
@@ -19537,7 +20782,10 @@
       "lesson": "Prompt Caching in Action",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287774"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 418,
@@ -19580,7 +20828,10 @@
     },
     "doc_status": "STRONG",
     "skilljar_ref": null,
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   },
   {
     "id": 419,
@@ -19627,6 +20878,9 @@
       "lesson": "Citations",
       "url": "https://anthropic.skilljar.com/claude-with-the-anthropic-api/287771"
     },
-    "updated_at": "2026-04-18 12:00:00"
+    "updated_at": "2026-04-18 12:00:00",
+    "course_keys": [
+      "claude-api"
+    ]
   }
 ]

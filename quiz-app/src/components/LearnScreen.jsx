@@ -11,6 +11,7 @@ import 'highlight.js/styles/github-dark.css'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
 import NotesPanel from './NotesPanel'
+import CoursePicker from './CoursePicker'
 
 function mapTopicKeys(t) {
   return {
@@ -22,7 +23,20 @@ function mapTopicKeys(t) {
     skilljarRefs: t.skilljar_refs ?? t.skilljarRefs,
     anthropicDocsRef: t.anthropic_docs_ref ?? t.anthropicDocsRef,
     keyConcepts: t.key_concepts ?? t.keyConcepts,
+    courseKey: t.course_key ?? t.courseKey ?? null,
+    optionalIn: t.optional_in ?? t.optionalIn ?? [],
+    verification: t.verification ?? null,
+    verificationNote: t.verification_note ?? t.verificationNote ?? null,
   }
+}
+
+function topicMatchesCourse(t, courseKey) {
+  if (!courseKey) return { match: true, optional: false }
+  if (t.courseKey === courseKey) return { match: true, optional: false }
+  if (Array.isArray(t.optionalIn) && t.optionalIn.includes(courseKey)) {
+    return { match: true, optional: true }
+  }
+  return { match: false, optional: false }
 }
 
 hljs.registerLanguage('javascript', javascript)
@@ -55,6 +69,16 @@ export default function LearnScreen() {
   const [activeTopic, setActiveTopic] = useState(topicId || null)
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedDomains, setExpandedDomains] = useState(() => new Set(DOMAINS.map(d => d.id)))
+  const [courseFilter, setCourseFilterState] = useState(() => {
+    try { return localStorage.getItem('course_filter:learn') || null } catch { return null }
+  })
+  const setCourseFilter = useCallback((v) => {
+    setCourseFilterState(v)
+    try {
+      if (v) localStorage.setItem('course_filter:learn', v)
+      else localStorage.removeItem('course_filter:learn')
+    } catch {}
+  }, [])
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [notesOpen, setNotesOpen] = useState(false)
   const contentRef = useRef(null)
@@ -125,10 +149,21 @@ export default function LearnScreen() {
 
   const TOPIC_MAP = useMemo(() => Object.fromEntries(learnTopics.map(t => [t.id, t])), [learnTopics])
 
-  const filteredTopics = useMemo(() => {
-    if (!searchQuery.trim()) return learnTopics.map(t => ({ ...t, matchSnippet: null, matchType: null }))
-    const q = searchQuery.toLowerCase()
+  const courseScopedTopics = useMemo(() => {
+    if (!courseFilter) return learnTopics.map(t => ({ ...t, isOptional: false }))
     return learnTopics
+      .map(t => {
+        const m = topicMatchesCourse(t, courseFilter)
+        return m.match ? { ...t, isOptional: m.optional } : null
+      })
+      .filter(Boolean)
+  }, [learnTopics, courseFilter])
+
+  const filteredTopics = useMemo(() => {
+    const baseTopics = courseScopedTopics
+    if (!searchQuery.trim()) return baseTopics.map(t => ({ ...t, matchSnippet: null, matchType: null }))
+    const q = searchQuery.toLowerCase()
+    return baseTopics
       .map(t => {
         // Check title match
         if (t.title.toLowerCase().includes(q)) {
@@ -159,7 +194,7 @@ export default function LearnScreen() {
         return null
       })
       .filter(Boolean)
-  }, [searchQuery, learnTopics])
+  }, [searchQuery, courseScopedTopics])
 
   const topicsByDomain = useMemo(() => {
     const grouped = {}
@@ -250,6 +285,9 @@ export default function LearnScreen() {
 
       {/* Sidebar */}
       <aside className={`learn-sidebar ${sidebarOpen ? 'learn-sidebar--open' : ''}`}>
+        <div className="learn-sidebar-course">
+          <CoursePicker value={courseFilter} onChange={setCourseFilter} />
+        </div>
         <div className="learn-sidebar-search">
           <svg className="learn-sidebar-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />
@@ -324,11 +362,13 @@ export default function LearnScreen() {
                     {topics.map(topic => (
                       <button
                         key={topic.id}
-                        className={`learn-sidebar-topic ${activeTopic === topic.id ? 'learn-sidebar-topic--active' : ''}`}
+                        className={`learn-sidebar-topic ${activeTopic === topic.id ? 'learn-sidebar-topic--active' : ''} ${topic.isOptional ? 'learn-sidebar-topic--optional' : ''}`}
                         style={activeTopic === topic.id ? { borderLeftColor: d.color } : undefined}
                         onClick={() => selectTopic(topic.id)}
+                        title={topic.isOptional ? 'Optional under this course' : undefined}
                       >
                         {topic.title}
+                        {topic.isOptional && <span className="learn-sidebar-optional-badge">opt</span>}
                         {searchQuery && topic.matchSnippet && (
                           <div className="topic-match-snippet">
                             <span className="match-type-badge">{topic.matchType}</span>

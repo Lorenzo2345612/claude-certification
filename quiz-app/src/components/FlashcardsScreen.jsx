@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { api } from '../api'
 import { useAuth } from '../AuthContext'
+import CoursePicker from './CoursePicker'
 
 const STORAGE_KEY = 'flashcard_states'
 const INITIAL_KNOWN_INTERVAL = 5 * 60 * 1000   // 5 minutes
@@ -61,7 +62,16 @@ function mapTopicKeys(t) {
     ...t,
     domainId: t.domain_id ?? t.domainId,
     keyConcepts: t.key_concepts ?? t.keyConcepts,
+    courseKey: t.course_key ?? t.courseKey ?? null,
+    optionalIn: t.optional_in ?? t.optionalIn ?? [],
   }
+}
+
+function topicMatchesCourse(topic, courseKey) {
+  if (!courseKey) return true
+  if (topic.courseKey === courseKey) return true
+  if (Array.isArray(topic.optionalIn) && topic.optionalIn.includes(courseKey)) return true
+  return false
 }
 
 const DOMAINS = [
@@ -90,6 +100,16 @@ export default function FlashcardsScreen() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [domainFilter, setDomainFilter] = useState(null)
+  const [courseFilter, setCourseFilterState] = useState(() => {
+    try { return localStorage.getItem('course_filter:flashcards') || null } catch { return null }
+  })
+  const setCourseFilter = useCallback((v) => {
+    setCourseFilterState(v)
+    try {
+      if (v) localStorage.setItem('course_filter:flashcards', v)
+      else localStorage.removeItem('course_filter:flashcards')
+    } catch {}
+  }, [])
   const syncTimerRef = useRef(null)
   const pendingSyncRef = useRef(null)
 
@@ -137,17 +157,21 @@ export default function FlashcardsScreen() {
           definition: c.definition,
           domainId: topic.domainId,
           topicTitle: topic.title,
+          courseKey: topic.courseKey,
+          optionalIn: topic.optionalIn,
         })
       }
     }
     return cards
   }, [topics])
 
-  // Filter by domain
+  // Filter by domain + course
   const filteredCards = useMemo(() => {
-    if (!domainFilter) return allCards
-    return allCards.filter(c => c.domainId === domainFilter)
-  }, [allCards, domainFilter])
+    let cards = allCards
+    if (domainFilter) cards = cards.filter(c => c.domainId === domainFilter)
+    if (courseFilter) cards = cards.filter(c => topicMatchesCourse(c, courseFilter))
+    return cards
+  }, [allCards, domainFilter, courseFilter])
 
   // Sort cards by spaced repetition priority
   const sortedCards = useMemo(
@@ -245,7 +269,7 @@ export default function FlashcardsScreen() {
   useEffect(() => {
     setCurrentIndex(0)
     setFlipped(false)
-  }, [domainFilter])
+  }, [domainFilter, courseFilter])
 
   if (loading) {
     return (
@@ -273,6 +297,9 @@ export default function FlashcardsScreen() {
   return (
     <div className="flashcards-screen">
       <h2 className="flashcards-title">Flashcards</h2>
+
+      {/* Course filter */}
+      <CoursePicker value={courseFilter} onChange={setCourseFilter} />
 
       {/* Domain filter */}
       <div className="flashcard-domain-filter">

@@ -5,8 +5,8 @@ from app.models import Base, Question, LearnTopic
 
 SEEDS_DIR = os.path.join(os.path.dirname(__file__), "seeds")
 
-JSON_FIELDS_QUESTION = ["options", "why_others_wrong", "doc_reference", "skilljar_ref"]
-JSON_FIELDS_TOPIC = ["related_topics", "skilljar_refs", "anthropic_docs_ref", "key_concepts"]
+JSON_FIELDS_QUESTION = ["options", "why_others_wrong", "doc_reference", "skilljar_ref", "course_keys"]
+JSON_FIELDS_TOPIC = ["related_topics", "skilljar_refs", "anthropic_docs_ref", "key_concepts", "optional_in"]
 
 
 def ensure_parsed(record, json_fields):

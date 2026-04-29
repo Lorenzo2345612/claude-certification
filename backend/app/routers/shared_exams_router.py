@@ -27,6 +27,7 @@ def create_shared_exam(
         question_ids=payload.question_ids,
         time_limit_minutes=payload.time_limit_minutes,
         domains_selected=payload.domains_selected,
+        course_keys_selected=payload.course_keys_selected,
     )
     db.add(exam)
     db.commit()
@@ -78,6 +79,7 @@ def get_shared_exam(exam_id: int, db: Session = Depends(get_db)):
         question_count=len(exam.question_ids),
         time_limit_minutes=exam.time_limit_minutes,
         domains_selected=exam.domains_selected,
+        course_keys_selected=exam.course_keys_selected,
         created_at=exam.created_at,
         questions=[QuestionResponse.model_validate(q) for q in ordered],
     )
@@ -91,5 +93,6 @@ def _to_summary(exam: SharedExam, creator_username: str) -> SharedExamSummary:
         question_count=len(exam.question_ids),
         time_limit_minutes=exam.time_limit_minutes,
         domains_selected=exam.domains_selected,
+        course_keys_selected=exam.course_keys_selected,
         created_at=exam.created_at,
     )

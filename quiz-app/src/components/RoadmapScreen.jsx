@@ -13,6 +13,7 @@ import dagre from 'dagre'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
 import { api } from '../api'
+import CoursePicker from './CoursePicker'
 
 // Topic mapper for snake_case → camelCase conversion
 function mapTopicKeys(t) {
@@ -25,7 +26,16 @@ function mapTopicKeys(t) {
     skilljarRefs: t.skilljar_refs ?? t.skilljarRefs,
     anthropicDocsRef: t.anthropic_docs_ref ?? t.anthropicDocsRef,
     keyConcepts: t.key_concepts ?? t.keyConcepts,
+    courseKey: t.course_key ?? t.courseKey ?? null,
+    optionalIn: t.optional_in ?? t.optionalIn ?? [],
   }
+}
+
+function topicCourseStatus(t, courseKey) {
+  if (!courseKey) return 'match'
+  if (t.courseKey === courseKey) return 'match'
+  if (Array.isArray(t.optionalIn) && t.optionalIn.includes(courseKey)) return 'optional'
+  return 'other'
 }
 
 const DOMAIN_COLORS = {
@@ -106,7 +116,7 @@ const PREREQUISITE_EDGES = [
   ['d4-multi-instance-review', 'd5-escalation'],
 ]
 
-function buildGraph(completed, learnTopics) {
+function buildGraph(completed, learnTopics, courseFilter = null, showAllNonMatching = true) {
   const topicIds = new Set(learnTopics.map((t) => t.id))
 
   const g = new dagre.graphlib.Graph()
@@ -160,20 +170,25 @@ function buildGraph(completed, learnTopics) {
 
   dagre.layout(g)
 
-  const nodes = learnTopics.map((t) => {
-    const pos = g.node(t.id)
-    return {
-      id: t.id,
-      type: 'topicNode',
-      position: { x: pos.x - NODE_WIDTH / 2, y: pos.y - NODE_HEIGHT / 2 },
-      data: {
-        label: t.title,
-        domainId: t.domainId,
-        topicId: t.id,
-        completed: completed.includes(t.id),
-      },
-    }
-  })
+  const nodes = learnTopics
+    .map((t) => {
+      const pos = g.node(t.id)
+      const courseStatus = topicCourseStatus(t, courseFilter)
+      if (courseStatus === 'other' && !showAllNonMatching) return null
+      return {
+        id: t.id,
+        type: 'topicNode',
+        position: { x: pos.x - NODE_WIDTH / 2, y: pos.y - NODE_HEIGHT / 2 },
+        data: {
+          label: t.title,
+          domainId: t.domainId,
+          topicId: t.id,
+          completed: completed.includes(t.id),
+          courseStatus,
+        },
+      }
+    })
+    .filter(Boolean)
 
   return { nodes, edges }
 }
@@ -183,6 +198,9 @@ const TopicNode = memo(function TopicNode({ data }) {
   const { user } = useAuth()
   const color = DOMAIN_COLORS[data.domainId]
   const completed = data.completed
+  const courseStatus = data.courseStatus || 'match'
+  const baseOpacity = courseStatus === 'other' ? 0.15 : (courseStatus === 'optional' ? 0.65 : 1)
+  const borderStyle = courseStatus === 'optional' ? 'dashed' : 'solid'
 
   const handleClick = useCallback(() => {
     navigate(`/learn/${data.topicId}`)
@@ -206,12 +224,12 @@ const TopicNode = memo(function TopicNode({ data }) {
         minHeight: NODE_HEIGHT,
         background: completed ? '#0f1128' : '#12122a',
         borderRadius: 10,
-        border: `1px solid ${completed ? '#22c55e44' : '#1e293b'}`,
-        borderLeft: `4px solid ${color}`,
+        border: `1px ${borderStyle} ${completed ? '#22c55e44' : '#1e293b'}`,
+        borderLeft: `4px ${borderStyle} ${color}`,
         cursor: 'pointer',
         padding: '10px 12px',
         position: 'relative',
-        opacity: completed ? 0.7 : 1,
+        opacity: baseOpacity * (completed ? 0.7 : 1),
         transition: 'box-shadow 0.25s, opacity 0.25s, transform 0.2s',
         boxShadow: 'none',
       }}
@@ -418,6 +436,23 @@ export default function RoadmapScreen() {
   const [completed, setCompleted] = useState([])
   const [learnTopics, setLearnTopics] = useState([])
   const [loading, setLoading] = useState(true)
+  const [courseFilter, setCourseFilterState] = useState(() => {
+    try { return localStorage.getItem('course_filter:roadmap') || null } catch { return null }
+  })
+  const [showAllNonMatching, setShowAllNonMatching] = useState(() => {
+    try { return localStorage.getItem('course_filter:roadmap:show_all') !== '0' } catch { return true }
+  })
+  const setCourseFilter = useCallback((v) => {
+    setCourseFilterState(v)
+    try {
+      if (v) localStorage.setItem('course_filter:roadmap', v)
+      else localStorage.removeItem('course_filter:roadmap')
+    } catch {}
+  }, [])
+  const setShowAll = useCallback((v) => {
+    setShowAllNonMatching(v)
+    try { localStorage.setItem('course_filter:roadmap:show_all', v ? '1' : '0') } catch {}
+  }, [])
 
   useEffect(() => {
     api.getTopics()
@@ -448,7 +483,10 @@ export default function RoadmapScreen() {
     return () => window.removeEventListener('roadmap-toggle', handleToggle)
   }, [user])
 
-  const { nodes, edges } = useMemo(() => buildGraph(completed, learnTopics), [completed, learnTopics])
+  const { nodes, edges } = useMemo(
+    () => buildGraph(completed, learnTopics, courseFilter, showAllNonMatching),
+    [completed, learnTopics, courseFilter, showAllNonMatching]
+  )
 
   const minimapNodeColor = useCallback((node) => {
     return DOMAIN_COLORS[node.data?.domainId] || '#334155'
@@ -506,6 +544,36 @@ export default function RoadmapScreen() {
       </ReactFlow>
 
       <Legend completed={completed} learnTopics={learnTopics} />
+
+      <div
+        className="roadmap-toolbar"
+        style={{
+          position: 'absolute',
+          top: 12,
+          left: 12,
+          zIndex: 10,
+          background: '#12122a',
+          border: '1px solid #1e293b',
+          borderRadius: 8,
+          padding: '8px 10px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 6,
+          minWidth: 220,
+        }}
+      >
+        <CoursePicker value={courseFilter} onChange={setCourseFilter} />
+        {courseFilter && (
+          <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#cbd5e1' }}>
+            <input
+              type="checkbox"
+              checked={showAllNonMatching}
+              onChange={e => setShowAll(e.target.checked)}
+            />
+            Show non-matching topics (dimmed)
+          </label>
+        )}
+      </div>
     </div>
   )
 }

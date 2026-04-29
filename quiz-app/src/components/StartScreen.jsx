@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ShareExamModal from './ShareExamModal'
+import CoursePicker from './CoursePicker'
 
 export default function StartScreen({
   domains,
@@ -20,6 +21,10 @@ export default function StartScreen({
   setOnlyUnanswered,
   unansweredCount,
   onShareExam = null,
+  selectedCourseKey = null,
+  setSelectedCourseKey = null,
+  includeDocsOnly = false,
+  setIncludeDocsOnly = null,
 }) {
   const [showShareModal, setShowShareModal] = useState(false)
   const [shareSuccess, setShareSuccess] = useState(false)
@@ -120,6 +125,15 @@ export default function StartScreen({
               ))}
             </div>
           </>
+        )}
+
+        {setSelectedCourseKey && (
+          <CoursePicker
+            value={selectedCourseKey}
+            onChange={setSelectedCourseKey}
+            includeDocsOnly={includeDocsOnly}
+            onIncludeDocsOnlyChange={setIncludeDocsOnly}
+          />
         )}
 
         {setOnlyUnanswered && (
