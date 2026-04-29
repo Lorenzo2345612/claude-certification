@@ -136,8 +136,8 @@ export const api = {
     })
   },
 
-  getSharedExams() {
-    return request('/shared-exams/')
+  getSharedExams(page = 1, pageSize = 10) {
+    return request(`/shared-exams/?page=${page}&page_size=${pageSize}`)
   },
 
   getSharedExam(id) {

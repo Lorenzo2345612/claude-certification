@@ -10,6 +10,9 @@ export default function ExamsScreen({ domains, onProgressChange, onQuizActiveCha
   const [phase, setPhase] = useState('list')
   const [exams, setExams] = useState([])
   const [loading, setLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [total, setTotal] = useState(0)
   const [activeExam, setActiveExam] = useState(null)
   const [quizQuestions, setQuizQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -24,11 +27,16 @@ export default function ExamsScreen({ domains, onProgressChange, onQuizActiveCha
   const finishExamFnRef = useRef(null)
 
   useEffect(() => {
-    api.getSharedExams()
-      .then(setExams)
+    setLoading(true)
+    api.getSharedExams(page, 10)
+      .then(data => {
+        setExams(data.items || [])
+        setTotalPages(data.total_pages || 0)
+        setTotal(data.total || 0)
+      })
       .catch(err => console.error('Failed to load shared exams:', err))
       .finally(() => setLoading(false))
-  }, [])
+  }, [page])
 
   useEffect(() => {
     onQuizActiveChange?.(phase === 'quiz')
@@ -185,40 +193,61 @@ export default function ExamsScreen({ domains, onProgressChange, onQuizActiveCha
         <div className="exams-screen">
           <h2 className="exams-title">Shared Exams</h2>
           <p className="exams-subtitle">Community-created exams. Take any exam to practice with the exact same questions.</p>
-          {exams.length === 0 ? (
+          {total === 0 ? (
             <div className="exams-empty">
               No shared exams yet. Complete a practice session and click &ldquo;Share Exam&rdquo; to create one!
             </div>
           ) : (
-            <div className="exams-list">
-              {exams.map(exam => (
-                <div key={exam.id} className="exam-card">
-                  <div className="exam-card-body">
-                    <div className="exam-card-title">{exam.title}</div>
-                    <div className="exam-card-meta">
-                      <span className="exam-card-creator">by {exam.creator_username}</span>
-                      <span className="exam-card-sep">·</span>
-                      <span>{exam.question_count} questions</span>
-                      {exam.time_limit_minutes && (
-                        <>
-                          <span className="exam-card-sep">·</span>
-                          <span>{exam.time_limit_minutes} min</span>
-                        </>
-                      )}
-                      <span className="exam-card-sep">·</span>
-                      <span>{new Date(exam.created_at).toLocaleDateString()}</span>
+            <>
+              <div className="exams-list">
+                {exams.map(exam => (
+                  <div key={exam.id} className="exam-card">
+                    <div className="exam-card-body">
+                      <div className="exam-card-title">{exam.title}</div>
+                      <div className="exam-card-meta">
+                        <span className="exam-card-creator">by {exam.creator_username}</span>
+                        <span className="exam-card-sep">·</span>
+                        <span>{exam.question_count} questions</span>
+                        {exam.time_limit_minutes && (
+                          <>
+                            <span className="exam-card-sep">·</span>
+                            <span>{exam.time_limit_minutes} min</span>
+                          </>
+                        )}
+                        <span className="exam-card-sep">·</span>
+                        <span>{new Date(exam.created_at).toLocaleDateString()}</span>
+                      </div>
                     </div>
+                    <button
+                      className="btn-take-exam"
+                      onClick={() => user ? startExam(exam) : alert('Please sign in to take an exam.')}
+                      disabled={loadingExam}
+                    >
+                      {loadingExam ? 'Loading...' : 'Take Exam'}
+                    </button>
                   </div>
+                ))}
+              </div>
+              {totalPages > 1 && (
+                <div className="exams-pagination">
                   <button
-                    className="btn-take-exam"
-                    onClick={() => user ? startExam(exam) : alert('Please sign in to take an exam.')}
-                    disabled={loadingExam}
+                    className="btn-pagination"
+                    onClick={() => setPage(p => Math.max(1, p - 1))}
+                    disabled={page <= 1 || loading}
                   >
-                    {loadingExam ? 'Loading...' : 'Take Exam'}
+                    ← Prev
+                  </button>
+                  <span className="exams-page-indicator">Page {page} of {totalPages}</span>
+                  <button
+                    className="btn-pagination"
+                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                    disabled={page >= totalPages || loading}
+                  >
+                    Next →
                   </button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
         </div>
       )}
