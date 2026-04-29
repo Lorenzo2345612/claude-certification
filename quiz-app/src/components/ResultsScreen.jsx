@@ -1,4 +1,5 @@
 import { useMemo, useState, useRef, useEffect } from 'react'
+import ShareExamModal from './ShareExamModal'
 
 const DOMAIN_COLORS = {
   1: '#f97316',
@@ -14,10 +15,7 @@ export default function ResultsScreen({ questions, answers, domains, examStatus,
   const [filterStatus, setFilterStatus] = useState(null) // 'correct' | 'incorrect' | null
   const sliderRef = useRef(null)
   const [showShareModal, setShowShareModal] = useState(false)
-  const [shareTitle, setShareTitle] = useState('')
-  const [shareLoading, setShareLoading] = useState(false)
   const [shareSuccess, setShareSuccess] = useState(false)
-  const [shareError, setShareError] = useState(null)
 
   const stats = useMemo(() => {
     let correct = 0
@@ -78,20 +76,9 @@ export default function ResultsScreen({ questions, answers, domains, examStatus,
     }
   }, [activeSlide])
 
-  const handleShare = async () => {
-    if (!shareTitle.trim()) return
-    setShareLoading(true)
-    setShareError(null)
-    try {
-      await onShareExam(shareTitle.trim())
-      setShareSuccess(true)
-      setShowShareModal(false)
-      setShareTitle('')
-    } catch (err) {
-      setShareError(err.message || 'Failed to share exam')
-    } finally {
-      setShareLoading(false)
-    }
+  const handleShare = async (title) => {
+    await onShareExam(title)
+    setShareSuccess(true)
   }
 
   const goToSlide = (dir) => {
@@ -339,37 +326,11 @@ export default function ResultsScreen({ questions, answers, domains, examStatus,
           <span className="share-success-msg">Exam shared! Find it in the Exams tab.</span>
         )}
       </div>
-      {showShareModal && (
-        <div className="share-modal-overlay">
-          <div className="share-modal">
-            <div className="share-modal-title">Share This Exam</div>
-            <p className="share-modal-desc">Give your exam a name so others can find it.</p>
-            <input
-              className="share-modal-input"
-              type="text"
-              placeholder="Exam title..."
-              value={shareTitle}
-              onChange={e => setShareTitle(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && handleShare()}
-              maxLength={255}
-              autoFocus
-            />
-            {shareError && <div className="share-modal-error">{shareError}</div>}
-            <div className="share-modal-actions">
-              <button className="btn-share-cancel" onClick={() => setShowShareModal(false)}>
-                Cancel
-              </button>
-              <button
-                className="btn-share-confirm"
-                onClick={handleShare}
-                disabled={!shareTitle.trim() || shareLoading}
-              >
-                {shareLoading ? 'Sharing...' : 'Share'}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ShareExamModal
+        open={showShareModal}
+        onShare={handleShare}
+        onClose={() => setShowShareModal(false)}
+      />
     </div>
   )
 }
