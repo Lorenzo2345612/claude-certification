@@ -214,3 +214,11 @@ class SharedExamDetail(BaseModel):
     questions: list[QuestionResponse]
 
     model_config = {"from_attributes": True}
+
+
+class SharedExamListPage(BaseModel):
+    items: list[SharedExamSummary]
+    total: int
+    page: int
+    page_size: int
+    total_pages: int

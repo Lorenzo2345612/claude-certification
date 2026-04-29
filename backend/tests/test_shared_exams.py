@@ -56,10 +56,14 @@ def test_list_shared_exams_is_public(client, auth_client, db):
     # unauthenticated client can list
     resp = client.get("/api/shared-exams/")
     assert resp.status_code == 200
-    exams = resp.json()
-    assert len(exams) == 1
-    assert exams[0]["title"] == "Shared"
-    assert exams[0]["creator_username"] == "testuser"
+    data = resp.json()
+    assert data["total"] == 1
+    assert data["page"] == 1
+    assert data["page_size"] == 10
+    assert data["total_pages"] == 1
+    assert len(data["items"]) == 1
+    assert data["items"][0]["title"] == "Shared"
+    assert data["items"][0]["creator_username"] == "testuser"
 
 
 def test_get_shared_exam_detail(client, auth_client, db):
@@ -93,6 +97,56 @@ def test_create_shared_exam_empty_question_ids_rejected(auth_client, db):
         "time_limit_minutes": None,
         "domains_selected": [1],
     })
+    assert resp.status_code == 422
+
+
+def test_list_shared_exams_paginated(auth_client, db):
+    client, user = auth_client
+    seed_question(db)
+    for i in range(15):
+        client.post("/api/shared-exams/", json={
+            "title": f"Exam {i}",
+            "question_ids": [1],
+            "time_limit_minutes": None,
+            "domains_selected": [1],
+        })
+    resp = client.get("/api/shared-exams/?page=1&page_size=10")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["total"] == 15
+    assert data["total_pages"] == 2
+    assert data["page"] == 1
+    assert data["page_size"] == 10
+    assert len(data["items"]) == 10
+
+
+def test_list_shared_exams_second_page(auth_client, db):
+    client, user = auth_client
+    seed_question(db)
+    for i in range(15):
+        client.post("/api/shared-exams/", json={
+            "title": f"Exam {i}",
+            "question_ids": [1],
+            "time_limit_minutes": None,
+            "domains_selected": [1],
+        })
+    resp = client.get("/api/shared-exams/?page=2&page_size=10")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["page"] == 2
+    assert len(data["items"]) == 5
+
+
+def test_list_shared_exams_page_beyond_total(client):
+    resp = client.get("/api/shared-exams/?page=99&page_size=10")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["items"] == []
+    assert data["total"] == 0
+
+
+def test_list_shared_exams_invalid_page_size(client):
+    resp = client.get("/api/shared-exams/?page=1&page_size=1000")
     assert resp.status_code == 422
 
 
